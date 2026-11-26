@@ -1,12 +1,11 @@
 /**
- * Anthropic Claude API backend for the summary and body Queue consumers and
- * the local harness summarizer.
+ * Anthropic Claude API client: the only LLM backend of the summary and body
+ * Queue consumers and the local harness summarizer (site-owner request
+ * 2026-11-26: GitHub Copilot is no longer used).
  *
- * Provider selection is explicit and observable: a consumer uses this backend
- * when, and only when, the `ANTHROPIC_API_KEY` secret is configured. Without it
- * the existing Copilot path (worker/src/copilot-client.ts) runs unchanged, so
- * deploying this code before the secret exists does not change behavior. The
- * active provider is reported on each consumer's `/health`.
+ * The key comes from the `ANTHROPIC_API_KEY` secret / env var. Without it a
+ * consumer fails the job with an explicit error and reports `ok: false` on
+ * `/health`; it never falls back to another provider.
  *
  * Request contract for the current models (claude-opus-5-5 by default):
  *   - Thinking is always on and cannot be disabled; depth is set with
@@ -32,14 +31,55 @@ import Anthropic from "@anthropic-ai/sdk";
 export const DEFAULT_ANTHROPIC_MODEL = "claude-opus-5-5";
 export const ANTHROPIC_FALLBACK_BETA = "server-side-fallback-2026-07-01";
 
-export type LlmProvider = "copilot" | "anthropic";
+export const ANTHROPIC_API_KEY_MISSING =
+  "ANTHROPIC_API_KEY is not configured. Register it with `npx wrangler secret put ANTHROPIC_API_KEY` in this Worker's directory (or set it in .env.local for local runs).";
 
 export type AnthropicEffort = "low" | "medium" | "high" | "xhigh" | "max";
 const EFFORTS: readonly AnthropicEffort[] = ["low", "medium", "high", "xhigh", "max"];
 
-/** Anthropic when the API key secret is present (non-blank), otherwise Copilot. */
-export function resolveLlmProvider(env: { ANTHROPIC_API_KEY?: string }): LlmProvider {
-  return env.ANTHROPIC_API_KEY?.trim() ? "anthropic" : "copilot";
+/** The configured key (trimmed), or null when it is missing or blank. */
+export function readAnthropicKey(env: { ANTHROPIC_API_KEY?: string }): string | null {
+  return env.ANTHROPIC_API_KEY?.trim() || null;
+}
+
+/** The configured key; throws the explicit setup error when it is missing. */
+export function requireAnthropicKey(env: { ANTHROPIC_API_KEY?: string }): string {
+  const key = readAnthropicKey(env);
+  if (!key) throw new Error(ANTHROPIC_API_KEY_MISSING);
+  return key;
+}
+
+/**
+ * Ordered, de-duplicated model chain from a primary plus a comma-separated
+ * fallback list. Blanks are dropped and the primary always leads. Every model
+ * must be a Claude model id: a leftover non-Claude value (for example a model
+ * name from the retired Copilot configuration) throws instead of sending a
+ * request that can only fail.
+ */
+export function parseModelChain(primary: string, fallbacks: string | undefined): string[] {
+  const chain: string[] = [];
+  for (const candidate of [primary, ...(fallbacks ?? "").split(",")]) {
+    const model = candidate.trim();
+    if (model && !chain.includes(model)) chain.push(model);
+  }
+  const invalid = chain.filter((model) => !model.startsWith("claude-"));
+  if (invalid.length > 0) {
+    throw new Error(
+      `Unsupported model "${invalid.join(", ")}": only Anthropic Claude model ids (claude-*) are accepted.`,
+    );
+  }
+  return chain;
+}
+
+/** Positive integer setting from a Worker var / env var, or the fallback. */
+export function parsePositiveInt(value: string | undefined, fallback: number, name: string): number {
+  const trimmed = value?.trim();
+  if (!trimmed) return fallback;
+  const parsed = Number(trimmed);
+  if (!Number.isInteger(parsed) || parsed <= 0) {
+    throw new Error(`${name} must be a positive integer, got "${trimmed}".`);
+  }
+  return parsed;
 }
 
 /**

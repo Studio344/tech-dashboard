@@ -6,21 +6,16 @@
 //
 // This script regenerates them LOCALLY using the SAME summary-only contract the
 // worker queue uses (worker/src/prompt.ts buildSummaryPrompt + parseResponse),
-// so the output is byte-compatible with the production pipeline. It defaults to
-// model -- which is why running this directly honors the user's "change the
-// model" request. The default is claude-opus-4.8 (the highest-quality allowed
-// model, chosen by the user for this backfill). The summary-only prompt is
-// short, so opus (a reasoning model) finishes within budget locally where it
-// would time out on the 30s Worker wall-time (LL-031/106).
+// so the output is byte-compatible with the production pipeline. The default
+// model is claude-opus-5-5 (SUMMARIZE_MODEL overrides it; only claude-* ids
+// are accepted). Running locally avoids the Worker wall-time budget (LL-031/106).
 //
-// AUTH: needs a Copilot credential the runtime does not have by default.
-//   export COPILOT_PAT=...    (a ghu_ Copilot PAT; exchanged for a short token)
-//   # or: export COPILOT_TOKEN=...  (an already-exchanged Copilot token)
-//   # or: npm run auth:setup        (device flow, writes the PAT)
+// AUTH: Anthropic Claude API (worker/src/anthropic-client.ts). ANTHROPIC_API_KEY
+//   を .env.local などで設定しておく。未設定なら明示エラーで終了する。
 //
 // RESUME: every successful generation is written to a gitignored cache
 //   data/_summary-backfill-cache.json keyed by entry id, so re-running after an
-//   interruption (or token expiry) only regenerates what is missing (LL-117).
+//   interruption only regenerates what is missing (LL-117).
 //
 // DURABILITY: like the migration, real summaries survive re-collection ONLY once
 // the FIXED worker is deployed (R-008/LL-073). After deploy, re-collection emits
@@ -28,12 +23,19 @@
 //
 // Usage:
 //   npx tsx scripts/backfill-summaries.mjs --dry           # list targets, no API calls
-//   COPILOT_PAT=... npx tsx scripts/backfill-summaries.mjs # generate + write
-//   COPILOT_PAT=... SUMMARIZE_MODEL=claude-sonnet-5 npx tsx scripts/backfill-summaries.mjs
+//   npx tsx --env-file-if-exists=.env.local scripts/backfill-summaries.mjs # generate + write
+//   SUMMARIZE_MODEL=claude-opus-5-5 SUMMARIZE_EFFORT=medium npx tsx ... (claude-* only)
 //   ... --limit 20                                         # cap this run (smoke test)
-
 import fs from "node:fs";
 import { buildSummaryPrompt, parseResponse } from "../worker/src/prompt.ts";
+import {
+  callAnthropicText,
+  DEFAULT_ANTHROPIC_MODEL,
+  parseAnthropicEffort,
+  parseModelChain,
+  parsePositiveInt,
+  requireAnthropicKey,
+} from "../worker/src/anthropic-client.ts";
 
 const DRY = process.argv.includes("--dry");
 const limitArg = process.argv.indexOf("--limit");
@@ -42,25 +44,11 @@ const LIMIT = limitArg !== -1 ? Number(process.argv[limitArg + 1]) : Infinity;
 const FILE = "data/index.json";
 const CACHE_FILE = "data/_summary-backfill-cache.json";
 
-const ALLOWED_MODELS = new Set(["claude-sonnet-5", "claude-opus-4.7", "claude-opus-4.8", "gpt-5.5"]);
-const MODEL = process.env.SUMMARIZE_MODEL ?? "claude-opus-4.8";
-if (!ALLOWED_MODELS.has(MODEL)) {
-  console.error(`Unsupported SUMMARIZE_MODEL="${MODEL}". Use claude-opus-4.8, claude-opus-4.7, claude-sonnet-5, or gpt-5.5 (R-007).`);
-  process.exit(1);
-}
-const ENDPOINT = process.env.SUMMARIZE_ENDPOINT ?? "https://api.githubcopilot.com/chat/completions";
-const MAX_TOKENS = Number(process.env.SUMMARIZE_MAX_TOKENS ?? "1600");
+const MODEL = parseModelChain(process.env.SUMMARIZE_MODEL || DEFAULT_ANTHROPIC_MODEL, undefined)[0];
+const EFFORT = parseAnthropicEffort(process.env.SUMMARIZE_EFFORT, "medium");
+const MAX_TOKENS = parsePositiveInt(process.env.SUMMARIZE_MAX_TOKENS, 16_000, "SUMMARIZE_MAX_TOKENS");
 const TIMEOUT_MS = Number(process.env.SUMMARIZE_TIMEOUT_MS ?? "120000");
 const CONCURRENCY = Number(process.env.SUMMARIZE_CONCURRENCY ?? "8");
-
-// VS Code Copilot Chat 互換ヘッダ (summarize.ts と同一)。
-const COPILOT_HEADERS = {
-  "copilot-integration-id": "vscode-chat",
-  "editor-version": "vscode/1.95.0",
-  "editor-plugin-version": "copilot-chat/0.22.0",
-  "openai-intent": "conversation-panel",
-  "user-agent": "GitHubCopilotChat/0.22.0",
-};
 
 // ---- masquerade detector (identical to migrate-stuck-summaries-to-pending.mjs) ----
 const FB_JA_PREFIX = "このエントリは ";
@@ -79,67 +67,24 @@ function isMasquerade(e) {
   return (!!en && en === e.title) || (ja.length === 120 && !JA_TERMINAL.test(ja)) || (en.length === 200 && !EN_TERMINAL.test(en));
 }
 
-// ---- Copilot auth + call ----
-async function exchangePatToCopilotToken(pat) {
-  const res = await fetch("https://api.github.com/copilot_internal/v2/token", {
-    headers: {
-      authorization: `token ${pat}`,
-      "user-agent": COPILOT_HEADERS["user-agent"],
-      "editor-version": COPILOT_HEADERS["editor-version"],
+// ---- Anthropic call ----
+async function generate(anthropicKey, entry) {
+  const { text } = await callAnthropicText(
+    {
+      model: MODEL,
+      systemPrompt:
+        "あなたは技術記事を日本語と英語の両方で要約するエディターです。指示された JSON 形式のみを返してください。You are an editor who summarises tech articles in both Japanese and English. Return only the requested JSON.",
+      userPrompt: buildSummaryPrompt(entry),
+      maxTokens: MAX_TOKENS,
+      effort: EFFORT,
     },
-  });
-  if (!res.ok) {
-    const body = await res.text().catch(() => "");
-    throw new Error(`copilot token exchange ${res.status}: ${body.slice(0, 200)}`);
+    { anthropicKey, timeoutMs: TIMEOUT_MS },
+  );
+  const parsed = parseResponse(text);
+  if (!parsed.summaryJa.trim() || !parsed.summaryEn.trim()) {
+    throw new Error("incomplete summary (empty summaryJa/summaryEn)");
   }
-  const data = await res.json();
-  if (!data.token) throw new Error("copilot token exchange: no token in response");
-  return data.token;
-}
-
-async function resolveToken() {
-  if (process.env.COPILOT_TOKEN) return process.env.COPILOT_TOKEN;
-  if (process.env.COPILOT_PAT) return exchangePatToCopilotToken(process.env.COPILOT_PAT);
-  return null;
-}
-
-async function generate(token, entry) {
-  const prompt = buildSummaryPrompt(entry);
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-  try {
-    const res = await fetch(ENDPOINT, {
-      method: "POST",
-      signal: controller.signal,
-      headers: { "content-type": "application/json", authorization: `Bearer ${token}`, ...COPILOT_HEADERS },
-      body: JSON.stringify({
-        model: MODEL,
-        temperature: 0.2,
-        max_tokens: MAX_TOKENS,
-        messages: [
-          {
-            role: "system",
-            content:
-              "あなたは技術記事を日本語と英語の両方で要約するエディターです。指示された JSON 形式のみを返してください。You are an editor who summarises tech articles in both Japanese and English. Return only the requested JSON.",
-          },
-          { role: "user", content: prompt },
-        ],
-      }),
-    });
-    if (!res.ok) {
-      const body = await res.text().catch(() => "");
-      throw new Error(`copilot ${res.status}: ${body.slice(0, 160)}`);
-    }
-    const data = await res.json();
-    const text = data.choices?.[0]?.message?.content ?? "";
-    const parsed = parseResponse(text);
-    if (!parsed.summaryJa.trim() || !parsed.summaryEn.trim()) {
-      throw new Error("incomplete summary (empty summaryJa/summaryEn)");
-    }
-    return parsed;
-  } finally {
-    clearTimeout(timer);
-  }
+  return parsed;
 }
 
 // ---- main ----
@@ -147,21 +92,14 @@ const data = JSON.parse(fs.readFileSync(FILE, "utf8"));
 const targets = data.entries.filter(isMasquerade);
 console.log(`total entries: ${data.entries.length}`);
 console.log(`masquerade targets: ${targets.length}`);
-console.log(`model: ${MODEL} | concurrency: ${CONCURRENCY} | max_tokens: ${MAX_TOKENS}`);
+console.log(`model: anthropic:${MODEL} (effort ${EFFORT}) | concurrency: ${CONCURRENCY} | max_tokens: ${MAX_TOKENS}`);
 
 if (DRY) {
   console.log("\n(dry run -- no API calls, no file written)");
   process.exit(0);
 }
 
-const token = await resolveToken();
-if (!token) {
-  console.error(
-    "\nNo Copilot credential. Set COPILOT_PAT (ghu_ Copilot PAT) or COPILOT_TOKEN, or run `npm run auth:setup`.\n" +
-      "Then re-run. Progress is cached in data/_summary-backfill-cache.json so interrupted runs resume.",
-  );
-  process.exit(1);
-}
+const anthropicKey = requireAnthropicKey(process.env);
 
 const cache = fs.existsSync(CACHE_FILE) ? JSON.parse(fs.readFileSync(CACHE_FILE, "utf8")) : {};
 const pending = targets.filter((e) => !cache[e.id]).slice(0, LIMIT === Infinity ? undefined : LIMIT);
@@ -179,7 +117,7 @@ async function worker(queue) {
     const entry = queue.shift();
     if (!entry) return;
     try {
-      const parsed = await generate(token, entry);
+      const parsed = await generate(anthropicKey, entry);
       cache[entry.id] = {
         titleJa: parsed.titleJa,
         summaryJa: parsed.summaryJa,

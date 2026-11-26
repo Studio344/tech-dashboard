@@ -2,7 +2,7 @@
 
 AI 関連アップデート (Copilot / Claude / Codex / Gemini / Editor / Cline / VSCode / OpenCode / Local LLM / Agent FW / MCP / Tech News / Research の **13 カテゴリ**) を **一括で追跡** できるポータルサイト。Harness Engineering のプラクティスに沿って、AI エージェントが自律的に情報収集・正規化・公開を行う。
 
-**現状**: GitHub Actions の Node publisher が registry の有効 source を **毎時自動収集** (6 バッチローテーション) し、Cloudflare の OIDC bridge 経由で Queue / KV を利用します。Astro 静的サイト生成、全体 RSS (`/rss.xml`)・主要更新 RSS (`/rss/major.xml`)・月別カーソルJSON (`/updates/index.json`)・カテゴリ別 RSS (`/rss/<category>.xml`)・JSON Feed 配信、Cloudflare Queue 分離の GitHub Copilot Enterprise (Claude Sonnet 4.6) 要約パイプライン、Pagefind 全文検索、品質監査 Skill、AI Scrum 開発運用 Skill、UI 表示ガード Skill、Modern Web Guidance Skill、og:image 自動取得 (KV キャッシュ) まで動作可能です。現在の source 件数・coverage は `/status` を単一情報源として確認してください。
+**現状**: GitHub Actions の Node publisher が registry の有効 source を **毎時自動収集** (6 バッチローテーション) し、Cloudflare の OIDC bridge 経由で Queue / KV を利用します。Astro 静的サイト生成、全体 RSS (`/rss.xml`)・主要更新 RSS (`/rss/major.xml`)・月別カーソルJSON (`/updates/index.json`)・カテゴリ別 RSS (`/rss/<category>.xml`)・JSON Feed 配信、Cloudflare Queue 分離の Anthropic Claude API (claude-opus-5-5) 要約パイプライン、Pagefind 全文検索、品質監査 Skill、AI Scrum 開発運用 Skill、UI 表示ガード Skill、Modern Web Guidance Skill、og:image 自動取得 (KV キャッシュ) まで動作可能です。現在の source 件数・coverage は `/status` を単一情報源として確認してください。
 
 ## 🔭 運用ステータス早見表 (Single Source of Truth)
 
@@ -13,8 +13,8 @@ AI 関連アップデート (Copilot / Claude / Codex / Gemini / Editor / Cline 
 | 処理 | 実行主体 | トリガ | 失効時の影響 | 監視 |
 |---|---|---|---|---|
 | ソース収集 (registry sources) | GitHub Actions `Publisher` (Node 22) | Cron `0 * * * *` (毎時) を 6 batch ローテーション | データ更新が止まる。runtime fingerprint または snapshot 不一致時は publish を自動停止 | Publisher workflow / `/status` |
-| 日本語/英語要約 (`summary*`) | Publisher → OIDC bridge → Queue `tech-dashboard-summarizer` → Copilot Enterprise (claude-sonnet-5) | 検証済み publish 後に最大 `ENQUEUE_MAX_NEW` 件/run を投入、consumer は 1 message/invocation | 既存表示は維持。LLM 失敗時は deterministic fallback で空欄を防止 | `health.fallbackTotal` / `health.summaryQueueBacklog` / `health.summaryQueueDrainEstimateHours` |
-| 記事本文 (`data/bodies-[0-3].json`) | Publisher → OIDC bridge → Queue `tech-dashboard-body` → Copilot (claude-opus-4.8, reasoning=max) | 本文は index と分離し、記事 ID の hash で4 shardへ配置する。evergreen、importance 2/3、直近 `BODY_RETENTION_DAYS` 日を保持候補にし、合計18MB・各9MBの運用targetを超える時だけ importance 1 → 2 → 3 → evergreen の順で最古から pruneする (LL-411)。旧 `data/bodies.json` は初回のlossless移行後も復旧用に凍結して保持 | 対象外・budget prune・本文無しの記事は要約と原文リンクを表示 | `health.bodyBacklog` / `health.bodyBudgetBytes` / `health.bodyShardBytes` / `health.bodyShardDigests` |
+| 日本語/英語要約 (`summary*`) | Publisher → OIDC bridge → Queue `tech-dashboard-summarizer` → Anthropic Claude API (claude-opus-5-5, effort=medium) | 検証済み publish 後に最大 `ENQUEUE_MAX_NEW` 件/run を投入、consumer は 1 message/invocation | 既存表示は維持。LLM 失敗時は deterministic fallback で空欄を防止 | `health.fallbackTotal` / `health.summaryQueueBacklog` / `health.summaryQueueDrainEstimateHours` |
+| 記事本文 (`data/bodies-[0-3].json`) | Publisher → OIDC bridge → Queue `tech-dashboard-body` → Anthropic Claude API (claude-opus-5-5, effort=high) | 本文は index と分離し、記事 ID の hash で4 shardへ配置する。evergreen、importance 2/3、直近 `BODY_RETENTION_DAYS` 日を保持候補にし、合計18MB・各9MBの運用targetを超える時だけ importance 1 → 2 → 3 → evergreen の順で最古から pruneする (LL-411)。旧 `data/bodies.json` は初回のlossless移行後も復旧用に凍結して保持 | 対象外・budget prune・本文無しの記事は要約と原文リンクを表示 | `health.bodyBacklog` / `health.bodyBudgetBytes` / `health.bodyShardBytes` / `health.bodyShardDigests` |
 | summary deterministic fallback | Publisher / `scripts/apply-summary-cache.mjs` | data commit 前、または緊急修復時 | LLM timeout / 旧 cache 欠落時でも live index の summary 欠落を防止 | `health.summaryFallbacks` / `tests/data-schema.test.ts` |
 | og:image 取得 | Publisher → OIDC bridge → KV | 毎時最大 1 件。data 検証と push 成功後だけ `og.v1` を更新 | サムネが no-image fallback になる | `health.ogCached` |
 | `data/index.json` / `data/archive/*` / `data/stats.json` 更新 commit | Publisher workflow → built-in `GITHUB_TOKEN` | 全品質ゲート後、差分があるときのみ data allowlist を 1 commit にまとめる | サイトに反映されない、記事数推移が古いまま | GitHub Actions `Publisher` |
@@ -27,8 +27,7 @@ AI 関連アップデート (Copilot / Claude / Codex / Gemini / Editor / Cline 
 
 | 作業 | コマンド | 期日の気付き方 |
 |---|---|---|
-| `COPILOT_PAT` 更新 | `cd worker && npx wrangler secret put COPILOT_PAT` | `/status` Worker Health が `summarize disabled` |
-| `ANTHROPIC_API_KEY` 登録・更新 (Claude API 運用時) | `cd worker-summarizer && npx wrangler secret put ANTHROPIC_API_KEY` と `worker-body` で同じ操作 | consumer `/health` の `provider` が `anthropic` にならない、または Anthropic の認証エラーが issue に出る |
+| `ANTHROPIC_API_KEY` 登録・更新 (必須) | `cd worker-summarizer && npx wrangler secret put ANTHROPIC_API_KEY` と `worker-body` で同じ操作 | consumer `/health` が `ok: false` と `configError` を返す、または Anthropic の認証エラーが issue に出る |
 | (shadow) detail-only増分配信の検証 | `docs/07-incremental-serving-shadow.md` の手順 | 専用private R2/D1とshadow Workerは準備済み。既定はoffで、deploy/bootstrapは明示承認時だけ |
 | (緊急) 手動収集 | `npm run collect` | バックログ滞留時 (例: 1h に 5 件以上の新着) |
 | (緊急) cache 済み要約の再反映 | `npm run summaries:apply-cache` | `data/_summary-cache.json` に有効な bilingual summary があるのに `data/index.json` 側が未反映の時 |
@@ -205,27 +204,7 @@ develop は毎時の生成dataを受け取らないため、develop pushとPRの
 
 ### 環境変数 (要約パイプライン)
 
-要約は **GitHub Copilot Enterprise** の Chat Completions API 経由で Claude Sonnet 4.6 を呼び出します (GitHub Models とは別体系)。本番 Worker は収集と publish に専念し、Queue consumer (`worker-summarizer/`) が 1 entry ずつ要約します。
-
-```bash
-# ローカル実行用 (いずれか片方)
-COPILOT_PAT=ghp_...               # PAT → 一時トークン交換を自動で行う
-COPILOT_TOKEN=tid=...              # 既に交換済みの一時トークンを直接注入する場合
-
-# モデル切替 (要約 / 補完 backfill で利用可能なのは claude-sonnet-5 / claude-opus-4.7 のみ)
-SUMMARIZE_MODEL=claude-sonnet-5     # 既定 (速度優先、Worker wall-time に収まる)
-# SUMMARIZE_MODEL=claude-opus-4.7   # 品質優先。長文生成は wall-time に収まらない場合あり (LL-031)
-# SUMMARIZE_MODEL=gpt-5.5            # Copilot では /responses 専用のため現 Worker (/chat/completions) からは利用不可 (LL-010)
-ENQUEUE_MAX_NEW=35                 # Worker 1 run 当たりの Queue 投入上限
-SUMMARIZE_TIMEOUT_MS=60000          # summary-only Copilot timeout
-SUMMARIZE_MAX_TOKENS=1600           # titleJa + summaryJa + summaryEn の出力予算
-```
-
-> どのトークンも無ければ要約フェーズは自動でスキップされます (ローカル dev を妨げない設計)。
-
-### Anthropic Claude API で動かす (任意)
-
-`ANTHROPIC_API_KEY` を設定すると、要約 (`worker-summarizer/`)、本文と記事対話 (`worker-body/`)、ローカルの `npm run collect` は Copilot ではなく Anthropic Claude API (`claude-opus-5-5`) で生成します。キーが無い間は従来の Copilot 経路がそのまま動きます。どちらで動いているかは各 consumer の `/health` の `provider` で確認できます (実装: `worker/src/anthropic-client.ts`)。
+要約 (`worker-summarizer/`)、本文と記事対話 (`worker-body/`)、ローカルの `npm run collect` とバックフィル系スクリプトは、すべて **Anthropic Claude API** (`claude-opus-5-5`) だけで生成します (実装: `worker/src/anthropic-client.ts`)。GitHub Copilot 経由の呼び出しは 2026-11-26 に廃止しました。本番 Worker は収集と publish に専念し、Queue consumer が 1 entry ずつ生成します。
 
 ```bash
 # 本番 Queue consumer (キーは対話プロンプトで入力。コマンドラインやチャットに貼らない)
@@ -236,16 +215,24 @@ cd ../worker-body && npx wrangler secret put ANTHROPIC_API_KEY
 ANTHROPIC_API_KEY=sk-ant-...
 ```
 
-任意の調整値 (Worker では `wrangler.toml` の `[vars]`、ローカルでは `.env.local`):
+キーが無い場合の挙動:
+
+- Queue consumer は job ごとに「`ANTHROPIC_API_KEY is not configured`」の明示エラーで retry し (最終的に DLQ)、`/health` は `ok: false`、HTTP 503、`configError` を返します。`npm run health:prod` も同じ理由で失敗します。
+- バックフィル系スクリプト (`scripts/backfill-*.mjs`) は API を呼ぶ前に同じエラーで終了します。
+- ローカルの `npm run collect` だけは警告を出して要約フェーズをスキップします (ローカル dev を妨げないため)。
+
+調整値 (Worker では `wrangler.toml` の `[vars]`、ローカルでは `.env.local`):
 
 | 変数 | 既定 | 用途 |
 |---|---|---|
-| `ANTHROPIC_SUMMARIZE_MODEL` / `ANTHROPIC_BODY_MODEL` | `claude-opus-5-5` | 使用モデル |
-| `ANTHROPIC_SUMMARIZE_MODEL_FALLBACKS` / `ANTHROPIC_BODY_MODEL_FALLBACKS` | なし | API エラー時に順に試すモデル (comma 区切り) |
-| `ANTHROPIC_SUMMARIZE_EFFORT` / `ANTHROPIC_BODY_EFFORT` | `medium` / `high` | 思考の深さ (`low`〜`max`)。不正値は job を失敗させる |
-| `ANTHROPIC_SUMMARIZE_MAX_TOKENS` / `ANTHROPIC_BODY_MAX_TOKENS` | `16000` | 思考 + 回答の合計上限 |
+| `SUMMARIZE_MODEL` / `BODY_MODEL` | `claude-opus-5-5` | 使用モデル。`claude-` で始まらない ID は明示エラー |
+| `SUMMARIZE_MODEL_FALLBACKS` / `BODY_MODEL_FALLBACKS` | なし | API エラー時に順に試す Claude モデル (comma 区切り) |
+| `SUMMARIZE_EFFORT` / `BODY_EFFORT` | `medium` / `high` | 思考の深さ (`low`〜`max`)。不正値は job を失敗させる |
+| `SUMMARIZE_MAX_TOKENS` / `BODY_MAX_TOKENS` | `16000` | 思考 + 回答の合計上限 |
+| `SUMMARIZE_TIMEOUT_MS` / `BODY_TIMEOUT_MS` | `120000` / `180000` | 1 回の API 呼び出しの上限 |
+| `ENQUEUE_MAX_NEW` | `35` | Publisher 1 run 当たりの Queue 投入上限 |
 
-安全側の挙動: 安全分類による拒否はサーバー側 fallback (`fallbacks: "default"`) で別モデルが再実行し、最終的な拒否や `max_tokens` 切れは例外として model chain / Queue retry に戻します (途中で切れた本文や JSON を KV に書かない)。課金は Anthropic の API 料金になり、Copilot の premium request は消費しません。
+安全側の挙動: 安全分類による拒否はサーバー側 fallback (`fallbacks: "default"`) で別モデルが再実行し、最終的な拒否や `max_tokens` 切れは例外として model chain / Queue retry に戻します (途中で切れた本文や JSON を KV に書かない)。課金は Anthropic の API 料金です。
 
 ## デプロイ & 自動更新 (GitHub Actions Publisher + Cloudflare Pages)
 
@@ -453,7 +440,7 @@ Publisher workflow は `0 * * * *` (毎時) で起動し、`17 2 * * *` (毎日 
 
 毎時のdata差分runはsecret scan、data schema、Publisher/impact regression、route-family growth、snapshot CASを通し、生成対象のdata fileだけをstageしてnon-force pushします。impact manifestは変更detail/body ID、archive月、category/tag、全件再計算が必要なaggregate familyを`$RUNNER_TEMP`へ記録します。毎日・manual full reconciliationは追加でroot/Worker typecheck、全unit、Astro + Pagefind build、Publisher E2Eを実行します。Queue と `og.v1` KV write は `$RUNNER_TEMP` の bundleへ遅延し、data push成功後だけ bridgeへ flushします。data差分がない runも final snapshot CASとcontract確認後に Queue / KV effectsだけをflushできます。collapse guardやCAS失敗時は effects bundleを保存しません。新しい repository secretは不要です。GitHub commitは built-in `GITHUB_TOKEN`、bridgeは専用 audienceのGitHub Actions OIDCを使います。
 
-Copilot要約は `worker-summarizer/` が 1 message / invocation で生成し、per-URL KV cacheに保存します。Queue consumerは summary-only contract (`titleJa + summaryJa + summaryEn`) に合わせて `SUMMARIZE_TIMEOUT_MS=60000`、`SUMMARIZE_MAX_TOKENS=1600` とします。本文は `data/bodies-0.json`〜`data/bodies-3.json` に分離し、同じ記事IDは常に同じshardへ入ります。evergreen、importance 2/3、直近30日の保持gateとは別に、**合計18,000,000 bytes (hard 20,000,000)・各shard 9,000,000 bytes (hard 10,000,000)** を実serial化で測り、importance 1 → 2 → 3 → evergreen の順に決定論的にpruneします。evergreenは最後にpruneされますが免除ではありません (LL-411)。Publisher、Web build、手動data migrationは4 shardの完全性、index.healthの保存modeと**実ファイルbytes**のSHA-256 inventoryを検証します。移行前だけ旧単一ファイルをWebが読み、indexが4 shardを宣言した後は全shardが消えても旧本文へfallbackしません。旧単一ファイルは凍結して復旧用に残します。旧9MBのbudget-evicted IDは初回移行時に解除し、新しい枠内で通常のbounded Queueへ戻します。
+Claude API の要約は `worker-summarizer/` が 1 message / invocation で生成し、per-URL KV cacheに保存します。Queue consumerは summary-only contract (`titleJa + summaryJa + summaryEn`) で、`SUMMARIZE_TIMEOUT_MS=120000`、`SUMMARIZE_MAX_TOKENS=16000` (思考込み) とします。本文は `data/bodies-0.json`〜`data/bodies-3.json` に分離し、同じ記事IDは常に同じshardへ入ります。evergreen、importance 2/3、直近30日の保持gateとは別に、**合計18,000,000 bytes (hard 20,000,000)・各shard 9,000,000 bytes (hard 10,000,000)** を実serial化で測り、importance 1 → 2 → 3 → evergreen の順に決定論的にpruneします。evergreenは最後にpruneされますが免除ではありません (LL-411)。Publisher、Web build、手動data migrationは4 shardの完全性、index.healthの保存modeと**実ファイルbytes**のSHA-256 inventoryを検証します。移行前だけ旧単一ファイルをWebが読み、indexが4 shardを宣言した後は全shardが消えても旧本文へfallbackしません。旧単一ファイルは凍結して復旧用に残します。旧9MBのbudget-evicted IDは初回移行時に解除し、新しい枠内で通常のbounded Queueへ戻します。
 
 異なるfeedが同じcanonical URLの記事を収集して勝者IDが変わる場合、Publisherは前回indexと今回の保持対象をcanonical URLで照合し、現在のshardにある検証済み本文・JA/ENの6発言対話・model・生成日時を新IDへ移してから旧IDをpruneします。両IDに異なる有効なrecordがあれば任意の優先順位で片方を捨てず、data publishをfail-closedで停止します。本文Queueが停止中でも安全なID移行はshardへ保存します。最終保持対象にいない記事の本文は従来どおりpruneし、凍結済み旧ファイルを自動fallbackや再生の入力にはしません。手動の`noise:clean`も同じID移行・衝突判定を共有します。
 
@@ -461,7 +448,7 @@ Copilot要約は `worker-summarizer/` が 1 message / invocation で生成し、
 
 4 shardへの切替後、単一ファイルへ直接書く旧 `npm run body:migrate` と `scripts/backfill-bodies.mjs` は書戻しを拒否します。本文の追加はPublisherのbounded Queue、既存本文の修復は4 shard対応のtransaction migrationを使い、凍結した旧sourceへ新しい本文を戻しません。
 
-Copilot 要約は summarizer Worker 側の `SUMMARIZE_TIMEOUT_MS` (既定 60000 ms) で timeout します。Queue retry と次回 Publisher run の cache 再読みにより、一時的な API timeout / 5xx による欠落を次 run へ持ち越しにくくしています。
+要約は summarizer Worker 側の `SUMMARIZE_TIMEOUT_MS` (既定 120000 ms) で timeout します。Queue retry と次回 Publisher run の cache 再読みにより、一時的な API timeout / 5xx による欠落を次 run へ持ち越しにくくしています。
 
 **手動トリガ** (緊急で回したい時):
 
@@ -537,7 +524,7 @@ npm run health:prod
 | Worker コード deploy | `scripts/git-hooks/pre-push` | `RUN_WORKER_DEPLOY=1 git push` かつ `main` push に worker/ 差分あり |
 | ヘルス監視 | bridge `/health` + Publisher run + committed/public snapshot parity + summarizer + `/status` | 成功Publisher完了後 + 6時間ごと`:23`、サイト訪問時にも確認 |
 
-**残る手動運用**: Queue consumer の `COPILOT_PAT` 更新と、コード変更時の明示承認付き Worker deploy。Publisher commit と bridge 認証には長命な repository secret を追加しません。
+**残る手動運用**: Queue consumer の `ANTHROPIC_API_KEY` 登録・更新と、コード変更時の明示承認付き Worker deploy。Publisher commit と bridge 認証には長命な repository secret を追加しません。
 
 ### 4. Cloudflare MCP サーバー (任意)
 
@@ -632,12 +619,11 @@ tech-dashboard/
 │  ├─ backfill-og.mjs                  # data/index.json の og:image を一括バックフィル
 │  ├─ backfill-release-titles.mjs      # version-only タイトル ("v3.8.0" 等) に source 名を前置
 │  ├─ apply-summary-cache.mjs          # 品質 gate 済みの要約を data/_summary-cache.json から data/index.json へ再反映
-│  ├─ resummarize.mjs                  # 既存エントリの不足要約/本文を Copilot で一括補充 (緊急用)
+│  ├─ resummarize.mjs                  # 既存エントリの不足要約/本文を Claude API で一括補充 (緊急用)
 │  ├─ scan-secrets.mjs                 # redacted secret scanner (current / staged / history / range)
 │  ├─ install-hooks.sh                 # repo-managed git hooks 有効化
 │  ├─ git-hooks/pre-commit             # staged secret scan + TypeScript 型チェック
-│  ├─ git-hooks/pre-push               # push range secret scan + quality gate + opt-in worker deploy
-│  └─ setup-copilot-auth.sh            # Copilot Enterprise PAT セットアップ
+│  └─ git-hooks/pre-push               # push range secret scan + quality gate + opt-in worker deploy
 └─ data/                     # 成果物 (git-as-DB)
   ├─ index.json             # サイト配信用 (最新 2000 件 / og:image 付き)
   ├─ stats.json             # archive 込みの記事数推移 / source 集計

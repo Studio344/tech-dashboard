@@ -3,12 +3,11 @@
  *
  * Receives one entry per invocation from the SUMMARY_QUEUE producer
  * (tech-dashboard-harness). For each message:
- *   1. Pick the LLM backend: the Anthropic Claude API when the
- *      ANTHROPIC_API_KEY secret is set, otherwise Copilot via COPILOT_PAT
- *      (worker/src/anthropic-client.ts).
- *   2. Call the model with the compact bilingual summary prompt.
- *   3. If the response is incomplete, retry once with a compact recovery prompt.
- *   4. Parse the response and write it into SUMMARY_CACHE KV under the entry URL.
+ *   1. Call the Anthropic Claude API (worker/src/anthropic-client.ts) with the
+ *      compact bilingual summary prompt. The key is the ANTHROPIC_API_KEY
+ *      secret; without it the job fails with an explicit setup error.
+ *   2. If the response is incomplete, retry once with a compact recovery prompt.
+ *   3. Parse the response and write it into SUMMARY_CACHE KV under the entry URL.
  *
  * Why a separate Worker (LL-037):
  *   The harness Worker hit Cloudflare's default 30 s/invocation CPU cap when
@@ -17,7 +16,7 @@
  *   timeout budget.
  *
  * Failure handling:
- *   - Copilot timeout / token error: throw -> Cloudflare Queues retries
+ *   - API timeout / error / missing key: throw -> Cloudflare Queues retries
  *     with exponential backoff (max_retries=2, see wrangler.toml).
  *   - Incomplete model output: retry once in-process with a compact JSON-only
  *     prompt before handing the message back to Cloudflare Queues.
@@ -34,197 +33,71 @@ import {
   UNVERSIONED_JOB_FINGERPRINT,
 } from "../../worker/src/kv-cache.ts";
 import {
-  buildCopilotRequestBody,
-  copilotEndpointForModel,
-  copilotEndpointUrl,
-  extractCopilotText,
-  parseModelChain,
-} from "../../worker/src/copilot-client.ts";
-import {
   callAnthropicText,
   DEFAULT_ANTHROPIC_MODEL,
   type AnthropicEffort,
-  type LlmProvider,
   parseAnthropicEffort,
-  resolveLlmProvider,
+  parseModelChain,
+  parsePositiveInt,
+  readAnthropicKey,
+  requireAnthropicKey,
+  ANTHROPIC_API_KEY_MISSING,
 } from "../../worker/src/anthropic-client.ts";
 
 interface Env {
   SUMMARY_CACHE: KVNamespace;
-  COPILOT_PAT: string;
-  SUMMARIZE_MODEL: string;
-  /** Comma-separated ordered fallback models tried when a call errors or the
-   * output stays incomplete. See parseModelChain (worker/src/copilot-client.ts). */
-  SUMMARIZE_MODEL_FALLBACKS?: string;
-  SUMMARIZE_TIMEOUT_MS?: string;
-  SUMMARIZE_MAX_TOKENS?: string;
-  /** Secret. When set, summaries are generated with the Anthropic Claude API
-   * instead of Copilot (worker/src/anthropic-client.ts). */
+  /** Secret (`wrangler secret put ANTHROPIC_API_KEY`). Required. */
   ANTHROPIC_API_KEY?: string;
-  ANTHROPIC_SUMMARIZE_MODEL?: string;
-  ANTHROPIC_SUMMARIZE_MODEL_FALLBACKS?: string;
-  ANTHROPIC_SUMMARIZE_EFFORT?: string;
-  /** Covers thinking + answer, so it is larger than SUMMARIZE_MAX_TOKENS. */
-  ANTHROPIC_SUMMARIZE_MAX_TOKENS?: string;
+  /** Claude model id (default claude-opus-5-5). */
+  SUMMARIZE_MODEL?: string;
+  /** Comma-separated ordered fallback Claude models tried when a call errors
+   * or the output stays incomplete. See parseModelChain. */
+  SUMMARIZE_MODEL_FALLBACKS?: string;
+  /** low | medium | high | xhigh | max (default medium). */
+  SUMMARIZE_EFFORT?: string;
+  SUMMARIZE_TIMEOUT_MS?: string;
+  /** Covers thinking + answer (default 16000). */
+  SUMMARIZE_MAX_TOKENS?: string;
 }
-
-type LlmBackend =
-  | { provider: "copilot"; pat: string }
-  | { provider: "anthropic"; anthropicKey: string; effort: AnthropicEffort };
 
 const SYSTEM_PROMPT =
   "You are a bilingual technical editor. Always return only the JSON object the user requested. Do not include code fences, prose preface, or commentary. Use natural Japanese for *Ja fields and native English for *En fields.";
 
 export type { SummaryJob } from "../../worker/src/summary-queue.ts";
 
-// LL-038 fix: per-URL KV keys instead of a single multi-MB blob. The blob
-// is still read by the harness Worker as a fallback during migration, but
-// the summarizer writes only per-URL keys to avoid the JSON.parse/stringify
-// CPU bomb that was busting the 30 s Worker CPU cap.
-const COPILOT_HEADERS: Record<string, string> = {
-  "editor-version": "vscode/1.95.0",
-  "editor-plugin-version": "copilot-chat/0.22.0",
-  "openai-intent": "conversation-panel",
-  "user-agent": "GitHubCopilotChat/0.22.0",
-};
-
-const DEFAULT_TIMEOUT_MS = 60_000;
-const DEFAULT_MAX_TOKENS = 1600;
-const DEFAULT_ANTHROPIC_MAX_TOKENS = 16_000;
-const DEFAULT_ANTHROPIC_EFFORT: AnthropicEffort = "medium";
-// Refresh the IDE token when fewer than this many ms remain. Must exceed the
-// longest single callCopilot timeout (DEFAULT_TIMEOUT_MS = 60s) so a token
-// that passes the freshness check cannot expire *during* a long LLM call
-// and return `401 IDE token expired` (LL-105).
-const TOKEN_REFRESH_SKEW_MS = 240_000;
-const DEFAULT_TOKEN_TTL_MS = 20 * 60_000;
+const DEFAULT_TIMEOUT_MS = 120_000;
+// max_tokens covers thinking + the visible answer on current Claude models.
+const DEFAULT_MAX_TOKENS = 16_000;
+const DEFAULT_EFFORT: AnthropicEffort = "medium";
 const ISSUE_KEY = "summarizer.issue.v1";
 const ISSUE_TTL_SECONDS = 6 * 60 * 60;
 const RECENT_ISSUE_MS = 60 * 60_000;
 const ERROR_REPEAT_THRESHOLD = 3;
 type IssueScope = "entry" | "runtime";
-const RECOVERY_TIMEOUT_MS = 45_000;
-
-let cachedCopilotToken: { pat: string; token: string; expiresAtMs: number } | null = null;
-
-async function resolveCopilotToken(pat: string, forceRefresh = false): Promise<string> {
-  const now = Date.now();
-  if (
-    !forceRefresh &&
-    cachedCopilotToken?.pat === pat &&
-    cachedCopilotToken.expiresAtMs - TOKEN_REFRESH_SKEW_MS > now
-  ) {
-    return cachedCopilotToken.token;
-  }
-  if (forceRefresh) cachedCopilotToken = null;
-
-  const res = await fetch("https://api.github.com/copilot_internal/v2/token", {
-    headers: {
-      authorization: `token ${pat}`,
-      "user-agent": COPILOT_HEADERS["user-agent"],
-      "editor-version": COPILOT_HEADERS["editor-version"],
-    },
-  });
-  if (!res.ok) {
-    throw new Error(`copilot token exchange ${res.status}: ${await res.text()}`);
-  }
-  const body = (await res.json()) as { token: string; expires_at?: number };
-  const expiresAtMs =
-    typeof body.expires_at === "number" && Number.isFinite(body.expires_at)
-      ? body.expires_at * 1000
-      : now + DEFAULT_TOKEN_TTL_MS;
-  cachedCopilotToken = { pat, token: body.token, expiresAtMs };
-  return body.token;
-}
+const RECOVERY_TIMEOUT_MS = 90_000;
 
 async function callModel(
-  backend: LlmBackend,
+  config: SummaryLlmConfig,
   model: string,
   prompt: string,
   timeoutMs: number,
-  maxTokens: number,
 ): Promise<CacheEntry> {
-  if (backend.provider === "copilot") {
-    return callCopilot(backend.pat, model, prompt, timeoutMs, maxTokens);
-  }
   const result = await callAnthropicText(
     {
       model,
       systemPrompt: SYSTEM_PROMPT,
       userPrompt: prompt,
-      maxTokens,
-      effort: backend.effort,
+      maxTokens: config.maxTokens,
+      effort: config.effort,
     },
-    { anthropicKey: backend.anthropicKey, timeoutMs },
+    { anthropicKey: config.anthropicKey, timeoutMs },
   );
   return {
     ...parseResponse(result.text),
+    // The model that actually answered (differs after a refusal fallback).
     model: result.model,
     cachedAt: new Date().toISOString(),
   };
-}
-
-async function callCopilot(
-  pat: string,
-  model: string,
-  prompt: string,
-  timeoutMs: number,
-  maxTokens: number,
-): Promise<CacheEntry> {
-  // Resolve the IDE token here (not in the caller) so a single processJob
-  // that issues up to three long LLM calls always re-checks freshness. On a
-  // `401 IDE token expired` we force a fresh exchange and retry the call once;
-  // the cached token had likely expired mid-batch (LL-105).
-  for (let attempt = 0; ; attempt++) {
-    const token = await resolveCopilotToken(pat, attempt > 0);
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      // GPT-5.x models are /responses-only and reject `temperature`; claude
-      // stays on /chat/completions. Shaping is shared with the body worker
-      // (worker/src/copilot-client.ts).
-      const endpoint = copilotEndpointForModel(model);
-      const res = await fetch(copilotEndpointUrl(endpoint), {
-        method: "POST",
-        signal: controller.signal,
-        headers: {
-          authorization: `Bearer ${token}`,
-          "content-type": "application/json",
-          ...COPILOT_HEADERS,
-        },
-        body: JSON.stringify(
-          buildCopilotRequestBody({
-            model,
-            systemPrompt: SYSTEM_PROMPT,
-            userPrompt: prompt,
-            // Quality-first queue mode: this Worker has a larger CPU/timeout
-            // budget than the harness Worker, so use the same long-form
-            // contract as local backfills.
-            maxTokens,
-            temperature: 0.2,
-          }),
-        ),
-      });
-      if (res.status === 401 && attempt === 0) {
-        // IDE token rejected as expired. Drain the body, force a fresh
-        // exchange, and retry once before giving up.
-        await res.text().catch(() => "");
-        continue;
-      }
-      if (!res.ok) {
-        throw new Error(`copilot ${res.status}: ${await res.text()}`);
-      }
-      const content = extractCopilotText(endpoint, await res.json());
-      const parsed = parseResponse(content);
-      return {
-        ...parsed,
-        model,
-        cachedAt: new Date().toISOString(),
-      };
-    } finally {
-      clearTimeout(timeout);
-    }
-  }
 }
 
 export function isCompleteCacheEntry(entry: CacheEntry): boolean {
@@ -266,42 +139,31 @@ export function isSummaryComplete(
 }
 
 export interface SummaryLlmConfig {
-  provider: LlmProvider;
-  backend: LlmBackend;
+  anthropicKey: string;
+  effort: AnthropicEffort;
   chain: string[];
   maxTokens: number;
 }
 
-/**
- * Active backend, model chain and output budget. Anthropic is used only when
- * its secret is configured; the Copilot chain and budget are unchanged.
- */
-export function resolveSummaryLlmConfig(env: Env): SummaryLlmConfig {
-  const provider = resolveLlmProvider(env);
-  if (provider === "anthropic") {
-    return {
-      provider,
-      backend: {
-        provider,
-        anthropicKey: env.ANTHROPIC_API_KEY!.trim(),
-        effort: parseAnthropicEffort(env.ANTHROPIC_SUMMARIZE_EFFORT, DEFAULT_ANTHROPIC_EFFORT),
-      },
-      chain: parseModelChain(
-        env.ANTHROPIC_SUMMARIZE_MODEL || DEFAULT_ANTHROPIC_MODEL,
-        env.ANTHROPIC_SUMMARIZE_MODEL_FALLBACKS,
-      ),
-      maxTokens: Number(env.ANTHROPIC_SUMMARIZE_MAX_TOKENS ?? DEFAULT_ANTHROPIC_MAX_TOKENS),
-    };
-  }
+/** Settings shared by the queue path and /health; never touches the key. */
+function resolveSummarySettings(env: Env): Omit<SummaryLlmConfig, "anthropicKey"> {
   return {
-    provider,
-    backend: { provider, pat: env.COPILOT_PAT },
+    effort: parseAnthropicEffort(env.SUMMARIZE_EFFORT, DEFAULT_EFFORT),
     chain: parseModelChain(
-      env.SUMMARIZE_MODEL || "claude-sonnet-5",
+      env.SUMMARIZE_MODEL || DEFAULT_ANTHROPIC_MODEL,
       env.SUMMARIZE_MODEL_FALLBACKS,
     ),
-    maxTokens: Number(env.SUMMARIZE_MAX_TOKENS ?? DEFAULT_MAX_TOKENS),
+    maxTokens: parsePositiveInt(env.SUMMARIZE_MAX_TOKENS, DEFAULT_MAX_TOKENS, "SUMMARIZE_MAX_TOKENS"),
   };
+}
+
+/**
+ * Claude API settings for one job. Throws the explicit setup error when the
+ * ANTHROPIC_API_KEY secret is missing, and on any invalid model / effort /
+ * token setting, so a misconfiguration fails visibly instead of silently.
+ */
+export function resolveSummaryLlmConfig(env: Env): SummaryLlmConfig {
+  return { anthropicKey: requireAnthropicKey(env), ...resolveSummarySettings(env) };
 }
 
 async function processJob(env: Env, job: SummaryJob): Promise<void> {
@@ -311,7 +173,7 @@ async function processJob(env: Env, job: SummaryJob): Promise<void> {
   // consumer invocations can never clobber each other's writes.
 
   const config = resolveSummaryLlmConfig(env);
-  const { backend, chain, maxTokens } = config;
+  const { chain } = config;
   const timeoutMs = Number(env.SUMMARIZE_TIMEOUT_MS ?? DEFAULT_TIMEOUT_MS);
   if (!hasSufficientSourceGrounding(job.entry)) {
     throw new Error(`insufficient source grounding for ${job.url}`);
@@ -339,11 +201,10 @@ async function processJob(env: Env, job: SummaryJob): Promise<void> {
     }
     try {
       entry = await callModel(
-        backend,
+        config,
         attemptModel,
         buildSummaryPrompt(job.entry),
         attemptIndex === 0 ? timeoutMs : Math.min(timeoutMs, RECOVERY_TIMEOUT_MS),
-        maxTokens,
       );
       if (isSummaryComplete(entry, job.entry)) break;
     } catch (err) {
@@ -466,23 +327,29 @@ export default {
           : recentIssue
           ? "warn"
           : "ok";
-      const llm = resolveSummaryLlmConfig(env);
-      const llmSecretConfigured =
-        llm.provider === "anthropic" ? true : Boolean(env.COPILOT_PAT);
-      const ok = cacheBinding && llmSecretConfigured && issueSeverity !== "error";
+      const anthropicSecretConfigured = readAnthropicKey(env) !== null;
+      let settings: ReturnType<typeof resolveSummarySettings> | null = null;
+      let configError: string | null = null;
+      try {
+        settings = resolveSummarySettings(env);
+      } catch (err) {
+        configError = err instanceof Error ? err.message : String(err);
+      }
+      const ok =
+        cacheBinding && anthropicSecretConfigured && settings !== null && issueSeverity !== "error";
       return Response.json(
         {
           ok,
           role: "queue-consumer",
-          provider: llm.provider,
-          model: llm.chain[0],
-          modelFallbacks: llm.chain.slice(1),
-          effort: llm.backend.provider === "anthropic" ? llm.backend.effort : null,
+          provider: "anthropic",
+          model: settings?.chain[0] ?? null,
+          modelFallbacks: settings?.chain.slice(1) ?? [],
+          effort: settings?.effort ?? null,
           timeoutMs: Number(env.SUMMARIZE_TIMEOUT_MS ?? DEFAULT_TIMEOUT_MS),
-          maxTokens: llm.maxTokens,
+          maxTokens: settings?.maxTokens ?? null,
           cacheBinding,
-          copilotSecretConfigured: Boolean(env.COPILOT_PAT),
-          anthropicSecretConfigured: llm.provider === "anthropic",
+          anthropicSecretConfigured,
+          configError: configError ?? (anthropicSecretConfigured ? null : ANTHROPIC_API_KEY_MISSING),
           recentIssue,
           issueSeverity,
           issueScope,

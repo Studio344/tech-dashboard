@@ -103,6 +103,20 @@ const contaminatedCache: CacheEntry = {
     "Left some junk in the readme and forgot to remove oopsies Release Notes: N/A or Added/Fixed/Improved",
 };
 
+/** A Claude Messages API response as the Anthropic SDK reads it from fetch. */
+function anthropicMessage(text: string): Response {
+  return Response.json({
+    id: "msg_test",
+    type: "message",
+    role: "assistant",
+    model: "claude-opus-5-5",
+    content: text ? [{ type: "text", text, citations: null }] : [],
+    stop_reason: "end_turn",
+    stop_sequence: null,
+    usage: { input_tokens: 1, output_tokens: 1 },
+  });
+}
+
 function mockKv(json: unknown = null): KVNamespace {
   return {
     get: vi.fn(async () => json),
@@ -637,8 +651,8 @@ describe("worker summarizer health endpoint", () => {
       new Request("https://tech-dashboard-summarizer.example/health"),
       {
         SUMMARY_CACHE: mockKv(),
-        COPILOT_PAT: "configured",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
         SUMMARIZE_TIMEOUT_MS: "180000",
         SUMMARIZE_MAX_TOKENS: "6000",
       },
@@ -649,9 +663,9 @@ describe("worker summarizer health endpoint", () => {
     await expect(response.json()).resolves.toMatchObject({
       ok: true,
       role: "queue-consumer",
-      model: "claude-sonnet-4.6",
+      model: "claude-opus-5-5",
       cacheBinding: true,
-      copilotSecretConfigured: true,
+      anthropicSecretConfigured: true,
     });
   });
 
@@ -663,10 +677,10 @@ describe("worker summarizer health endpoint", () => {
           status: "retry",
           at: new Date().toISOString(),
           url: "https://example.com/failing-entry",
-          error: "Error: Copilot timeout",
+          error: "Error: Claude API timeout",
         }),
-        COPILOT_PAT: "configured",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
       },
       {} as ExecutionContext,
     );
@@ -692,10 +706,10 @@ describe("worker summarizer health endpoint", () => {
           at: new Date().toISOString(),
           url: "https://example.com/failing-entry",
           repeatCount: 3,
-          error: "Error: Copilot timeout",
+          error: "Error: Claude API timeout",
         }),
-        COPILOT_PAT: "configured",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
       },
       {} as ExecutionContext,
     );
@@ -724,8 +738,8 @@ describe("worker summarizer health endpoint", () => {
           repeatCount: 3,
           error: "Error: incomplete summary for https://example.com/malformed-entry",
         }),
-        COPILOT_PAT: "configured",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
       },
       {} as ExecutionContext,
     );
@@ -748,8 +762,8 @@ describe("worker summarizer health endpoint", () => {
       new Request("https://tech-dashboard-summarizer.example/health"),
       {
         SUMMARY_CACHE: undefined as unknown as KVNamespace,
-        COPILOT_PAT: "configured",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
       },
       {} as ExecutionContext,
     );
@@ -758,7 +772,7 @@ describe("worker summarizer health endpoint", () => {
     await expect(response.json()).resolves.toMatchObject({
       ok: false,
       cacheBinding: false,
-      copilotSecretConfigured: true,
+      anthropicSecretConfigured: true,
     });
   });
 });
@@ -813,8 +827,8 @@ describe("worker summarizer queue consumer", () => {
       } as unknown as MessageBatch,
       {
         SUMMARY_CACHE: kv,
-        COPILOT_PAT: "test-pat-scope-reset",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
       },
       {} as ExecutionContext,
     );
@@ -848,24 +862,14 @@ describe("worker summarizer queue consumer", () => {
     let requestedBody = false;
     const fingerprint = `sha256:${"c".repeat(64)}`;
     const fetchMock = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
-      const url = input instanceof Request ? input.url : String(input);
-      if (url.includes("api.github.com/copilot_internal/v2/token")) {
-        return Response.json({
-          token: "copilot-token",
-          expires_at: Math.floor(Date.now() / 1000) + 1200,
-        });
-      }
-      const body = JSON.parse(String(init?.body ?? "{}")) as {
+      const request = input instanceof Request ? input : new Request(input, init);
+      const body = (await request.json()) as {
         messages?: Array<{ role: string; content: string }>;
       };
       const prompt = body.messages?.find((message) => message.role === "user")?.content ?? "";
       // LL-106: the queue prompt must NOT request a long bilingual body.
       if (/bodyJa|bodyEn/.test(prompt)) requestedBody = true;
-      return Response.json({
-        choices: [
-          {
-            message: {
-              content: JSON.stringify({
+      return anthropicMessage(JSON.stringify({
                 titleJa: "Example Paper",
                 summaryJa: "短い日本語要約です。",
                 summaryEn: "A concise English summary.",
@@ -873,11 +877,7 @@ describe("worker summarizer queue consumer", () => {
                 bodyEn: "",
                 importance: 2,
                 extraTags: ["example"],
-              }),
-            },
-          },
-        ],
-      });
+              }));
     });
     vi.stubGlobal("fetch", fetchMock);
 
@@ -906,8 +906,8 @@ describe("worker summarizer queue consumer", () => {
       } as unknown as MessageBatch,
       {
         SUMMARY_CACHE: kv,
-        COPILOT_PAT: "test-pat-summary-only",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
         SUMMARIZE_TIMEOUT_MS: "180000",
         SUMMARIZE_MAX_TOKENS: "6000",
       },
@@ -915,8 +915,8 @@ describe("worker summarizer queue consumer", () => {
     );
 
     expect(requestedBody).toBe(false);
-    // token exchange + a single chat call (no recovery/field-repair chain).
-    expect(fetchMock).toHaveBeenCalledTimes(2);
+    // A single Messages API call (no recovery/field-repair chain).
+    expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(ack).toHaveBeenCalledTimes(1);
     expect(retry).not.toHaveBeenCalled();
     expect(put).toHaveBeenCalledTimes(1);
@@ -939,18 +939,7 @@ describe("worker summarizer queue consumer", () => {
     vi.stubGlobal(
       "fetch",
       vi.fn(async (input: string | URL | Request) => {
-        const url = input instanceof Request ? input.url : String(input);
-        if (url.includes("api.github.com/copilot_internal/v2/token")) {
-          return Response.json({
-            token: "copilot-token",
-            expires_at: Math.floor(Date.now() / 1000) + 1200,
-          });
-        }
-        return Response.json({
-          choices: [
-            {
-              message: {
-                content: JSON.stringify({
+        return anthropicMessage(JSON.stringify({
                   titleJa: "Example Paper",
                   summaryJa: "短い日本語要約です。",
                   summaryEn: "A concise English summary.",
@@ -958,11 +947,7 @@ describe("worker summarizer queue consumer", () => {
                   bodyEn: "",
                   importance: 2,
                   extraTags: [],
-                }),
-              },
-            },
-          ],
-        });
+                }));
       }),
     );
 
@@ -989,8 +974,8 @@ describe("worker summarizer queue consumer", () => {
       } as unknown as MessageBatch,
       {
         SUMMARY_CACHE: kv,
-        COPILOT_PAT: "test-pat-unversioned-job",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
       },
       {} as ExecutionContext,
     );
@@ -1004,7 +989,7 @@ describe("worker summarizer queue consumer", () => {
     vi.unstubAllGlobals();
   });
 
-  it("force-refreshes the IDE token and retries once on a 401 (LL-105)", async () => {
+  it("retries the same Claude model once after a transient API error", async () => {
     const put = vi.fn(async () => undefined);
     const del = vi.fn(async () => undefined);
     const kv = {
@@ -1014,28 +999,18 @@ describe("worker summarizer queue consumer", () => {
     } as unknown as KVNamespace;
     const ack = vi.fn();
     const retry = vi.fn();
-    let tokenExchanges = 0;
     let chatCalls = 0;
-    const fetchMock = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
-      const url = input instanceof Request ? input.url : String(input);
-      if (url.includes("api.github.com/copilot_internal/v2/token")) {
-        tokenExchanges += 1;
-        return Response.json({
-          token: `copilot-token-${tokenExchanges}`,
-          expires_at: Math.floor(Date.now() / 1000) + 1200,
-        });
-      }
+    const fetchMock = vi.fn(async () => {
       chatCalls += 1;
-      // First chat call: the cached IDE token expired mid-batch -> 401.
+      // First call: the API is briefly overloaded (the SDK runs with maxRetries 0).
       if (chatCalls === 1) {
-        return new Response("unauthorized: token expired", { status: 401 });
+        return Response.json(
+          { type: "error", error: { type: "overloaded_error", message: "Overloaded" } },
+          { status: 529 },
+        );
       }
-      // Retry after a forced token refresh succeeds with a complete summary.
-      return Response.json({
-        choices: [
-          {
-            message: {
-              content: JSON.stringify({
+      // The second same-model attempt succeeds with a complete summary.
+      return anthropicMessage(JSON.stringify({
                 titleJa: "Example Paper",
                 summaryJa: "短い日本語要約です。",
                 summaryEn: "A concise English summary.",
@@ -1043,11 +1018,7 @@ describe("worker summarizer queue consumer", () => {
                 bodyEn: "This is an English body with useful context and cautious framing.",
                 importance: 2,
                 extraTags: ["example"],
-              }),
-            },
-          },
-        ],
-      });
+              }));
     });
     vi.stubGlobal("fetch", fetchMock);
 
@@ -1075,16 +1046,14 @@ describe("worker summarizer queue consumer", () => {
       } as unknown as MessageBatch,
       {
         SUMMARY_CACHE: kv,
-        COPILOT_PAT: "test-pat-401",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
         SUMMARIZE_TIMEOUT_MS: "180000",
         SUMMARIZE_MAX_TOKENS: "6000",
       },
       {} as ExecutionContext,
     );
 
-    // 401 on first chat -> force a second token exchange -> retry chat succeeds.
-    expect(tokenExchanges).toBe(2);
     expect(chatCalls).toBe(2);
     expect(put).toHaveBeenCalledTimes(1);
     expect(ack).toHaveBeenCalledTimes(1);
@@ -1104,24 +1073,13 @@ describe("worker summarizer queue consumer", () => {
     const retry = vi.fn();
     let chatCalls = 0;
     const fetchMock = vi.fn(async (input: string | URL | Request, init?: RequestInit) => {
-      const url = input instanceof Request ? input.url : String(input);
-      if (url.includes("api.github.com/copilot_internal/v2/token")) {
-        return Response.json({
-          token: "copilot-token",
-          expires_at: Math.floor(Date.now() / 1000) + 1200,
-        });
-      }
       chatCalls += 1;
       // First chat call mirrors the reasoning-exhausted response: HTTP 200 with
-      // an empty choices array (LL-106). The retry then succeeds.
+      // no text content (LL-106). The retry then succeeds.
       if (chatCalls === 1) {
-        return Response.json({ choices: [] });
+        return anthropicMessage("");
       }
-      return Response.json({
-        choices: [
-          {
-            message: {
-              content: JSON.stringify({
+      return anthropicMessage(JSON.stringify({
                 titleJa: "Example Paper",
                 summaryJa: "短い日本語要約です。",
                 summaryEn: "A concise English summary.",
@@ -1129,11 +1087,7 @@ describe("worker summarizer queue consumer", () => {
                 bodyEn: "",
                 importance: 2,
                 extraTags: ["example"],
-              }),
-            },
-          },
-        ],
-      });
+              }));
     });
     vi.stubGlobal("fetch", fetchMock);
 
@@ -1161,8 +1115,8 @@ describe("worker summarizer queue consumer", () => {
       } as unknown as MessageBatch,
       {
         SUMMARY_CACHE: kv,
-        COPILOT_PAT: "test-pat-summary-retry",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
         SUMMARIZE_TIMEOUT_MS: "180000",
         SUMMARIZE_MAX_TOKENS: "6000",
       },
@@ -1203,15 +1157,7 @@ describe("worker summarizer queue consumer", () => {
     const retry = vi.fn();
     // Every generation attempt returns a complete summary but an empty body.
     const fetchMock = vi.fn(async (input: string | URL | Request) => {
-      const url = input instanceof Request ? input.url : String(input);
-      if (url.includes("api.github.com/copilot_internal/v2/token")) {
-        return Response.json({ token: "copilot-token", expires_at: Math.floor(Date.now() / 1000) + 1200 });
-      }
-      return Response.json({
-        choices: [
-          {
-            message: {
-              content: JSON.stringify({
+      return anthropicMessage(JSON.stringify({
                 titleJa: "完全な日本語タイトル",
                 summaryJa: "本物の日本語要約です。",
                 summaryEn: "A real English summary.",
@@ -1219,11 +1165,7 @@ describe("worker summarizer queue consumer", () => {
                 bodyEn: "",
                 importance: 2,
                 extraTags: ["example"],
-              }),
-            },
-          },
-        ],
-      });
+              }));
     });
     vi.stubGlobal("fetch", fetchMock);
 
@@ -1251,8 +1193,8 @@ describe("worker summarizer queue consumer", () => {
       } as unknown as MessageBatch,
       {
         SUMMARY_CACHE: kv,
-        COPILOT_PAT: "test-pat-summary-only",
-        SUMMARIZE_MODEL: "claude-sonnet-4.6",
+        ANTHROPIC_API_KEY: "sk-ant-test",
+        SUMMARIZE_MODEL: "claude-opus-5-5",
         SUMMARIZE_TIMEOUT_MS: "180000",
         SUMMARIZE_MAX_TOKENS: "6000",
       },

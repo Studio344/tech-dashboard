@@ -67,16 +67,13 @@
 - `scripts/git-hooks/pre-push` は `SKIP_WEB_BUILD=1` が明示された場合を除き、push 前に `npm run build:web` を実行する。
 - `npm run test:all` は `typecheck → unit → web build → e2e` の一括ゲートとする。
 
-### R-007: 記事要約 / 本文生成のモデルは GPT-5.6 系を優先し、Claude 系を fallback とする
-- 許可モデルは `gpt-5.6-sol` / `gpt-5.6-terra` / `gpt-5.6-luna` (この優先順) と、fallback としての `claude-sonnet-4.6` / `claude-opus-4.7` / `claude-opus-4.8`。既定 chain は **`gpt-5.6-sol` → terra → luna → claude 系** (要約は sonnet-4.6、本文は opus-4.8 を最後尾に置く。site-owner 指定 2026-08-29)。
-- `gpt-5.6-sol-fast` は**使用しない** (site-owner 判断 2026-08-29)。model picker 名が "GPT-5.6 Sol Fast (Internal only)" であり、予告なく引き上げられ得る内部限定 deployment に本番 pipeline を依存させない。
-- `gpt-4o` 等の旧モデルは記事要約 / 本文生成の代替モデルとして使用しない。
-- GPT-5.x 系は Copilot の `/responses` 専用 (LL-010、2026-08-29 に gpt-5.6 全 variant で `unsupported_api_for_model` を再実測)。Worker は model prefix で endpoint を自動選択する (`worker/src/copilot-client.ts`)。`/responses` は `temperature` を拒否し、`max_output_tokens` に推論トークンを含むため、chat 用パラメータをそのまま送らない。
-- fallback chain は `SUMMARIZE_MODEL` + `SUMMARIZE_MODEL_FALLBACKS` / `BODY_MODEL` + `BODY_MODEL_FALLBACKS` (comma 区切り) で構成する。モデル単位の API エラーは chain を進め、全滅時のみ job を失敗させて Cloudflare Queues の retry/DLQ 契約を維持する。
-- claude 系を使う場合の注意: chat endpoint の `reasoning_effort=max` は、ソース比例の短い本文プロンプト (bodyLengthPlan) と組み合わさると出力予算を推論で使い切り**日本語本文を空にする** (2026-08-29 実測、2/2 再現)。claude での本文生成は `high` 以下にする。opus の長文が Worker の 30 秒 wall-time に収まらない事象 (LL-031) も引き続き有効。
-- 本番モデル変更は小 batch (`SUMMARIZE_MAX_NEW=1` または backfill の `--limit 1`) か、本番プロンプト + 実 corpus エントリでの direct-API smoke test を通してから適用する (LL-010)。切り替え後は Copilot premium request の消費倍率を数日観察する。
-- **Anthropic Claude API 経路 (site-owner 依頼 2026-11-26)**: `ANTHROPIC_API_KEY` secret がある consumer / ローカル harness は Copilot chain を使わず Claude API を使う。既定モデルは `claude-opus-5-5` (要約 effort=medium、本文 effort=high、`max_tokens` 既定 16000 は思考込み)。`temperature` と `reasoning_effort` は送らない。キーが無い間は上記の Copilot chain がそのまま有効。provider は各 consumer の `/health` の `provider` で確認する。切り替え時も上記の小 batch / smoke test 要件は同じく適用する。
-- **ローカル backfill (要約のみ・短プロンプト) は `claude-opus-4.8` を使ってよい**。Worker の 30 秒 wall-time 制約 (LL-031) は CPU 時間ではなく長文 body 生成のトークン枯渇が主因 (LL-106/115) で、ローカルかつ要約のみ (`buildSummaryPrompt`) なら opus でも budget 内で完了する。
+### R-007: 記事要約 / 本文生成は Anthropic Claude API だけで行う (site-owner 依頼 2026-11-26)
+- GitHub Copilot 経由の呼び出し (旧 `worker/src/copilot-client.ts`、PAT 交換、GPT-5.6 chain) は site-owner が Copilot を停止したため**廃止**。復活させない。
+- 唯一の経路は `worker/src/anthropic-client.ts`。既定モデルは `claude-opus-5-5` (要約 effort=medium、本文 effort=high、`max_tokens` 既定 16000 は思考込み)。`temperature` と `reasoning_effort` は送らない。
+- 許可モデルは `claude-` で始まる ID のみ。`parseModelChain` は他の ID を明示エラーで拒否する (`SUMMARIZE_MODEL` / `BODY_MODEL` に旧 `gpt-*` を残すと job が失敗する)。
+- `ANTHROPIC_API_KEY` は必須。未設定の consumer は job ごとに明示エラーで retry し、`/health` は `ok: false` と `configError` を返す。バックフィル系スクリプトは API 前に終了する。ローカル `npm run collect` のみ警告付きで要約をスキップする。
+- fallback chain は `SUMMARIZE_MODEL` + `SUMMARIZE_MODEL_FALLBACKS` / `BODY_MODEL` + `BODY_MODEL_FALLBACKS` (comma 区切り、Claude のみ)。モデル単位の API エラーは chain を進め、全滅時のみ job を失敗させて Cloudflare Queues の retry/DLQ 契約を維持する。
+- 本番モデル変更は小 batch (`SUMMARIZE_MAX_NEW=1` または backfill の `--limit 1`) か、本番プロンプト + 実 corpus エントリでの direct-API smoke test を通してから適用する (LL-010)。切り替え後は Anthropic の API 使用量を数日観察する。
 
 ### R-008: Worker deploy は pre-push でも明示 opt-in にする
 - `scripts/git-hooks/pre-push` は unit / web build / e2e の品質ゲートを必ず実行する。
@@ -1034,6 +1031,7 @@ console.log('no summaryJa:', noSumJa, 'no body:', noBody);
 ### LL-121: ローカル要約 backfill は device-flow で ghu_ を発行する (gho_ は交換不可)
 - **事象**: 909 件の opus-4.8 要約 backfill にローカル Copilot 認証が必要だったが `gh auth token` の `gho_` は交換不可 (LL-109 の穴)。
 - **対策**: `scripts/copilot-device-login.mjs` (npm run auth:device) で editor Copilot client_id `Iv1.b507a08c87ecfe98` (public) に device flow → `ghu_` を `.env.local` (mode 600・gitignore) に保存。token は非表示、`/copilot_internal/v2/token` で検証。backfill は `tsx --env-file-if-exists=.env.local` で読込。opus-4.8 は `/chat/completions` で実利用可・要約品質良好 (888+20 ok / 0 fail)。要約のみ短契約なので推論枯渇 (LL-106) なし。
+- **2026-11-26 追記**: Copilot 経路の廃止 (R-007) に伴い `copilot-device-login.mjs` / `setup-copilot-auth.sh` / `verify-copilot-models.mjs` と `auth:*` / `worker:models` npm script は削除済み。この LL は履歴としてのみ残す。
 - **教訓**: ローカル一括生成の認証は `ghu_` 必須。device flow が ghu_ 取得手段。secret は .env.local 600 + gitignore、画面非表示。一時的 502 は resume cache で再実行 retry。
 
 ### LL-124: Pages preview URLはbranch名やdeployment IDから推測しない

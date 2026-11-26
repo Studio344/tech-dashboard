@@ -3,8 +3,8 @@
 #
 # Receives one entry per invocation from the BODY_QUEUE producer
 # (tech-dashboard-harness). For each message it generates the Japanese and
-# English long-form article body as TWO separate plain-text Copilot calls
-# (claude-opus-4.8, reasoning_effort=max) and writes the result to the
+# English long-form article body as TWO separate plain-text Anthropic Claude API calls
+# (claude-opus-5-5, effort=high) and writes the result to the
 # SUMMARY_CACHE KV namespace under a `b:` per-URL key. The collector then merges
 # `b:` keys into data/bodies.json on publish.
 #
@@ -27,49 +27,27 @@ binding = "SUMMARY_CACHE"
 id = "6d67debb991742efadfec473a121f5fc"
 
 [vars]
-# opus-4.8 generates full bilingual bodies without the reasoning-loop-empties
-# failure that sonnet hits on Japanese long-form (LL-106/LL-115).
-#
-# reasoning=high, NOT max: with the source-scaled JA prompt (bodyLengthPlan,
-# 33d2456a) opus at reasoning=max deterministically burns the entire 4000-token
-# output budget on reasoning and returns an EMPTY Japanese body (measured
-# 2026-08-29: 2/2 empty at max, 2/2 complete in-band at high and medium,
-# ~52s vs ~7s per call). Empty content throws, so every JA job would retry
-# twice and land in the DLQ while the body backlog grows. The shorter target
-# band leaves the model reasoning far longer than the visible answer needs;
-# high keeps the anti-hallucination benefit without the token exhaustion.
-# GPT-5.6 Sol first, per site-owner priority (2026-08-29). Sol Fast is
-# deliberately NOT in the chain: its model-picker name marks it
-# "(Internal only)" and the site owner opted out of depending on a model that
-# could be withdrawn without notice. Smoke-tested with the production body
-# prompts on real entries: JA and EN both in the bodyLengthPlan band with
-# "## " headings, 0 grounding issues, 5-13s per call — and no empty-JA
-# reasoning exhaustion, since /responses reasoning stays inside the same
-# max_output_tokens budget it reports. claude-opus-4.8 stays last in the
-# chain as the safety net; the reasoning setting below applies only to that
-# chat-endpoint fallback.
-BODY_MODEL = "gpt-5.6-sol"
-BODY_MODEL_FALLBACKS = "gpt-5.6-terra,gpt-5.6-luna,claude-opus-4.8"
-BODY_REASONING_EFFORT = "high"
-# Each single-language call needs ~20-30s wall (I/O). 120s leaves margin for
-# reasoning=max without killing legitimate responses.
-BODY_TIMEOUT_MS = "120000"
-BODY_MAX_TOKENS = "4000"
+# Anthropic Claude API is the only backend (site-owner request 2026-11-26:
+# GitHub Copilot is no longer used). Every model id must start with
+# "claude-"; a non-Claude value fails the job with an explicit error.
+BODY_MODEL = "claude-opus-5-5"
+BODY_MODEL_FALLBACKS = ""
+# Thinking depth (low | medium | high | xhigh | max). Long grounded bodies
+# benefit from deeper reasoning; max_tokens below covers thinking + answer.
+BODY_EFFORT = "high"
+BODY_TIMEOUT_MS = "180000"
+BODY_MAX_TOKENS = "16000"
 
-# Secrets (set via `wrangler secret put --name tech-dashboard-body`):
-#   - COPILOT_PAT        device-flow Copilot token (ghu_, long-lived; LL-109)
-#   - ANTHROPIC_API_KEY  Optional. When set, bodies and article chats use the
-#                        Anthropic Claude API (claude-opus-5-5) instead of
-#                        Copilot; the BODY_MODEL* / BODY_REASONING_EFFORT /
-#                        BODY_MAX_TOKENS vars are then ignored. Optional
-#                        overrides: ANTHROPIC_BODY_MODEL, _MODEL_FALLBACKS,
-#                        _EFFORT (default high), _MAX_TOKENS (default 16000).
+# Secrets (set via `npx wrangler secret put ANTHROPIC_API_KEY` in this
+# directory):
+#   - ANTHROPIC_API_KEY  Required. Without it every job fails with an explicit
+#                        setup error and /health reports ok: false.
 #                        See worker/src/anthropic-client.ts.
 
 # Queue consumer. Process one entry per invocation so each entry's two opus
-# calls get their own budget. max_concurrency=2 keeps Copilot pressure moderate
+# calls get their own budget. max_concurrency=2 keeps API pressure moderate
 # (two long opus calls already make each invocation slow); raise cautiously.
-# retry_delay backs off timed-out Copilot calls instead of hammering upstream.
+# retry_delay backs off timed-out API calls instead of hammering upstream.
 [[queues.consumers]]
 queue = "tech-dashboard-body"
 max_batch_size = 1

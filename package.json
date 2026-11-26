@@ -25,9 +25,6 @@
     "publisher:run": "tsx scripts/run-publisher.ts",
     "incremental:shadow": "node --import tsx web/scripts/render-incremental-shadow.mjs",
     "incremental:shadow:publish": "tsx scripts/incremental-shadow-client.ts",
-    "auth:setup": "bash scripts/setup-copilot-auth.sh",
-    "auth:rotate": "bash scripts/setup-copilot-auth.sh --rotate",
-    "auth:device": "tsx scripts/copilot-device-login.mjs",
     "typecheck": "tsc --noEmit",
     "typecheck:worker": "npm --prefix worker run typecheck",
     "lint": "tsc --noEmit",
@@ -45,8 +42,7 @@
     "test:e2e:publisher": "playwright test tests/e2e/publisher.spec.ts",
     "test:e2e:headed": "playwright test --headed",
     "test:all": "npm run typecheck && npm run typecheck:worker && npm test && npm run build:web && npm run test:e2e",
-    "health:prod": "node scripts/check-production-health.mjs",
-    "worker:models": "node scripts/verify-copilot-models.mjs"
+    "health:prod": "node scripts/check-production-health.mjs"
   },
   "engines": {
     "node": ">=20"

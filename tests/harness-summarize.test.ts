@@ -107,16 +107,15 @@ Second paragraph.",
 });
 
 describe("resolveSummarizeModel", () => {
-  it("補完/backfill で許可されたモデルを受け付ける", () => {
-    expect(resolveSummarizeModel("claude-sonnet-5")).toBe("claude-sonnet-5");
-    expect(resolveSummarizeModel("claude-opus-4.7")).toBe("claude-opus-4.7");
-    expect(resolveSummarizeModel("gpt-5.5")).toBe("gpt-5.5");
+  it("Claude のモデル ID を受け付け、未指定なら claude-opus-5-5 を使う", () => {
+    expect(resolveSummarizeModel("claude-sonnet-5-5")).toBe("claude-sonnet-5-5");
+    expect(resolveSummarizeModel(" claude-opus-5-5 ")).toBe("claude-opus-5-5");
+    expect(resolveSummarizeModel("")).toBe("claude-opus-5-5");
   });
 
-  it("補完/backfill で許可されていないモデルは拒否する", () => {
-    expect(() => resolveSummarizeModel("gpt-4o")).toThrow(
-      /Unsupported SUMMARIZE_MODEL/,
-    );
+  it("Claude 以外のモデルは明示エラーで拒否する", () => {
+    expect(() => resolveSummarizeModel("gpt-5.5")).toThrow(/only Anthropic Claude model ids/);
+    expect(() => resolveSummarizeModel("gpt-4o")).toThrow(/only Anthropic Claude model ids/);
   });
 });
 
@@ -187,10 +186,8 @@ describe("summarize cache application", () => {
       "utf8",
     );
 
-    const previousToken = process.env.COPILOT_TOKEN;
-    const previousPat = process.env.COPILOT_PAT;
-    delete process.env.COPILOT_TOKEN;
-    delete process.env.COPILOT_PAT;
+    const previousKey = process.env.ANTHROPIC_API_KEY;
+    delete process.env.ANTHROPIC_API_KEY;
     try {
       const result = await summarize([entry], dataDir);
       expect(result.entries[0]?.titleJa).toBe(entry.titleJa);
@@ -199,10 +196,8 @@ describe("summarize cache application", () => {
       expect(result.entries[0]?.tags).toEqual(entry.tags);
       expect(result.stats).toMatchObject({ cached: 0, skipped: 1 });
     } finally {
-      if (previousToken === undefined) delete process.env.COPILOT_TOKEN;
-      else process.env.COPILOT_TOKEN = previousToken;
-      if (previousPat === undefined) delete process.env.COPILOT_PAT;
-      else process.env.COPILOT_PAT = previousPat;
+      if (previousKey === undefined) delete process.env.ANTHROPIC_API_KEY;
+      else process.env.ANTHROPIC_API_KEY = previousKey;
       rmSync(dataDir, { recursive: true, force: true });
     }
   });

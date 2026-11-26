@@ -1,8 +1,8 @@
 /**
  * tests/worker-anthropic-client.test.ts
  *
- * Pins the Anthropic Claude API backend (worker/src/anthropic-client.ts):
- * provider selection by the ANTHROPIC_API_KEY secret, the request shape the
+ * Pins the Anthropic Claude API backend (worker/src/anthropic-client.ts), the
+ * only LLM path: the ANTHROPIC_API_KEY requirement, claude-* model chains, the request shape the
  * current models require (no temperature, effort in output_config, server-side
  * refusal fallbacks), and the stop_reason guards that keep refusals and
  * truncated answers out of KV. Also exercises the body Queue consumer end to
@@ -11,13 +11,17 @@
 import { describe, expect, it, vi } from "vitest";
 import type Anthropic from "@anthropic-ai/sdk";
 import {
+  ANTHROPIC_API_KEY_MISSING,
   ANTHROPIC_FALLBACK_BETA,
   DEFAULT_ANTHROPIC_MODEL,
   buildAnthropicRequest,
   callAnthropicText,
   extractAnthropicResult,
   parseAnthropicEffort,
-  resolveLlmProvider,
+  parseModelChain,
+  parsePositiveInt,
+  readAnthropicKey,
+  requireAnthropicKey,
 } from "../worker/src/anthropic-client.ts";
 import bodyWorker, { resolveBodyLlmConfig } from "../worker-body/src/index.ts";
 import summarizerWorker, { resolveSummaryLlmConfig } from "../worker-summarizer/src/index.ts";
@@ -45,12 +49,41 @@ function message(
   } as unknown as Anthropic.Beta.Messages.BetaMessage;
 }
 
-describe("resolveLlmProvider", () => {
-  it("selects Anthropic only when the API key is present and non-blank", () => {
-    expect(resolveLlmProvider({ ANTHROPIC_API_KEY: "sk-ant-test" })).toBe("anthropic");
-    expect(resolveLlmProvider({ ANTHROPIC_API_KEY: "   " })).toBe("copilot");
-    expect(resolveLlmProvider({ ANTHROPIC_API_KEY: "" })).toBe("copilot");
-    expect(resolveLlmProvider({})).toBe("copilot");
+describe("ANTHROPIC_API_KEY", () => {
+  it("reads a trimmed key and treats blank as missing", () => {
+    expect(readAnthropicKey({ ANTHROPIC_API_KEY: " sk-ant-test " })).toBe("sk-ant-test");
+    expect(readAnthropicKey({ ANTHROPIC_API_KEY: "   " })).toBeNull();
+    expect(readAnthropicKey({})).toBeNull();
+  });
+
+  it("fails with an explicit setup error when the key is missing", () => {
+    expect(requireAnthropicKey({ ANTHROPIC_API_KEY: "sk-ant-test" })).toBe("sk-ant-test");
+    expect(() => requireAnthropicKey({})).toThrow(ANTHROPIC_API_KEY_MISSING);
+    expect(() => requireAnthropicKey({ ANTHROPIC_API_KEY: "" })).toThrow(/wrangler secret put ANTHROPIC_API_KEY/);
+  });
+});
+
+describe("parseModelChain", () => {
+  it("builds the ordered chain, trimming and de-duplicating", () => {
+    expect(parseModelChain("claude-opus-5-5", " claude-sonnet-5-5, claude-opus-5-5 ,,")).toEqual([
+      "claude-opus-5-5",
+      "claude-sonnet-5-5",
+    ]);
+    expect(parseModelChain("claude-opus-5-5", undefined)).toEqual(["claude-opus-5-5"]);
+  });
+
+  it("rejects non-Claude model ids instead of silently routing elsewhere", () => {
+    expect(() => parseModelChain("gpt-5.6-sol", undefined)).toThrow(/only Anthropic Claude model ids/);
+    expect(() => parseModelChain("claude-opus-5-5", "gpt-5.6-terra")).toThrow(/gpt-5\.6-terra/);
+  });
+});
+
+describe("parsePositiveInt", () => {
+  it("uses the fallback when unset and rejects invalid numbers", () => {
+    expect(parsePositiveInt(undefined, 16000, "X")).toBe(16000);
+    expect(parsePositiveInt("4000", 16000, "X")).toBe(4000);
+    expect(() => parsePositiveInt("0", 16000, "X")).toThrow(/X must be a positive integer/);
+    expect(() => parsePositiveInt("abc", 16000, "X")).toThrow(/X must be a positive integer/);
   });
 });
 
@@ -128,65 +161,72 @@ describe("callAnthropicText", () => {
 describe("consumer LLM config", () => {
   const kv = { get: async () => null, put: async () => {} } as unknown as KVNamespace;
 
-  it("keeps the Copilot chain unchanged when no Anthropic key is configured", () => {
-    const summary = resolveSummaryLlmConfig({
-      SUMMARY_CACHE: kv,
-      COPILOT_PAT: "pat",
-      SUMMARIZE_MODEL: "gpt-5.6-sol",
-      SUMMARIZE_MODEL_FALLBACKS: "claude-sonnet-5",
-    });
-    expect(summary.provider).toBe("copilot");
-    expect(summary.chain).toEqual(["gpt-5.6-sol", "claude-sonnet-5"]);
-    expect(summary.maxTokens).toBe(1600);
-
-    const body = resolveBodyLlmConfig({ SUMMARY_CACHE: kv, COPILOT_PAT: "pat", BODY_MAX_TOKENS: "4000" });
-    expect(body.provider).toBe("copilot");
-    expect(body.maxTokens).toBe(4000);
+  it("throws the setup error when the key is missing", () => {
+    expect(() => resolveSummaryLlmConfig({ SUMMARY_CACHE: kv })).toThrow(ANTHROPIC_API_KEY_MISSING);
+    expect(() => resolveBodyLlmConfig({ SUMMARY_CACHE: kv })).toThrow(ANTHROPIC_API_KEY_MISSING);
   });
 
-  it("switches both consumers to Claude Opus 5.5 with their own budgets when the key is set", () => {
-    const summary = resolveSummaryLlmConfig({
-      SUMMARY_CACHE: kv,
-      COPILOT_PAT: "",
-      SUMMARIZE_MODEL: "gpt-5.6-sol",
-      ANTHROPIC_API_KEY: "sk-ant-test",
-    });
-    expect(summary).toMatchObject({
-      provider: "anthropic",
+  it("runs both consumers on Claude Opus 5.5 with their own budgets", () => {
+    const summary = resolveSummaryLlmConfig({ SUMMARY_CACHE: kv, ANTHROPIC_API_KEY: "sk-ant-test" });
+    expect(summary).toEqual({
+      anthropicKey: "sk-ant-test",
+      effort: "medium",
       chain: ["claude-opus-5-5"],
       maxTokens: 16000,
-      backend: { provider: "anthropic", effort: "medium" },
     });
 
     const body = resolveBodyLlmConfig({
       SUMMARY_CACHE: kv,
-      COPILOT_PAT: "",
       ANTHROPIC_API_KEY: "sk-ant-test",
-      ANTHROPIC_BODY_EFFORT: "xhigh",
+      BODY_EFFORT: "xhigh",
+      BODY_MAX_TOKENS: "20000",
     });
-    expect(body).toMatchObject({
-      provider: "anthropic",
+    expect(body).toEqual({
+      anthropicKey: "sk-ant-test",
+      effort: "xhigh",
       chain: ["claude-opus-5-5"],
-      maxTokens: 16000,
-      backend: { provider: "anthropic", effort: "xhigh" },
+      maxTokens: 20000,
     });
   });
 
-  it("reports the Anthropic provider on /health without requiring COPILOT_PAT", async () => {
+  it("rejects a leftover non-Claude model setting", () => {
+    expect(() =>
+      resolveSummaryLlmConfig({ SUMMARY_CACHE: kv, ANTHROPIC_API_KEY: "sk-ant-test", SUMMARIZE_MODEL: "gpt-5.6-sol" }),
+    ).toThrow(/only Anthropic Claude model ids/);
+  });
+
+  it("reports the Anthropic provider on /health", async () => {
     const response = await summarizerWorker.fetch!(
       new Request("https://tech-dashboard-summarizer.example/health"),
-      { SUMMARY_CACHE: kv, COPILOT_PAT: "", ANTHROPIC_API_KEY: "sk-ant-test" },
+      { SUMMARY_CACHE: kv, ANTHROPIC_API_KEY: "sk-ant-test" },
       {} as ExecutionContext,
     );
     expect(response.status).toBe(200);
-    await expect(response.json()).resolves.toMatchObject({
+    const health = (await response.json()) as Record<string, unknown>;
+    expect(health).toMatchObject({
       ok: true,
       provider: "anthropic",
       model: "claude-opus-5-5",
       effort: "medium",
       anthropicSecretConfigured: true,
-      copilotSecretConfigured: false,
+      configError: null,
     });
+    expect(health).not.toHaveProperty("copilotSecretConfigured");
+  });
+
+  it("reports ok: false with the setup error on /health when the key is missing", async () => {
+    for (const [worker, url] of [
+      [summarizerWorker, "https://tech-dashboard-summarizer.example/health"],
+      [bodyWorker, "https://tech-dashboard-body.example/health"],
+    ] as const) {
+      const response = await worker.fetch!(new Request(url), { SUMMARY_CACHE: kv } as never, {} as ExecutionContext);
+      expect(response.status, url).toBe(503);
+      await expect(response.json()).resolves.toMatchObject({
+        ok: false,
+        anthropicSecretConfigured: false,
+        configError: ANTHROPIC_API_KEY_MISSING,
+      });
+    }
   });
 });
 
@@ -208,7 +248,7 @@ describe("body Queue consumer on the Anthropic path", () => {
     publishedAt: "2026-06-27T10:00:00.000Z",
   };
 
-  it("generates both bodies through the Messages API and never calls Copilot", async () => {
+  it("generates both bodies through the Messages API", async () => {
     const ack = vi.fn();
     const retry = vi.fn();
     const put = vi.fn(async (_key: string, _value: string) => {});
@@ -243,7 +283,6 @@ describe("body Queue consumer on the Anthropic path", () => {
         } as unknown as MessageBatch,
         {
           SUMMARY_CACHE: { get: async () => null, put } as unknown as KVNamespace,
-          COPILOT_PAT: "",
           ANTHROPIC_API_KEY: "sk-ant-test",
         },
         {} as ExecutionContext,
@@ -258,7 +297,6 @@ describe("body Queue consumer on the Anthropic path", () => {
     expect(requests).toHaveLength(2);
     for (const request of requests) {
       expect(new URL(request.url).pathname).toBe("/v1/messages");
-      expect(request.url).not.toContain("githubcopilot");
       // SDK 1.x sends the API key as a bearer credential.
       expect(request.headers.get("authorization")).toBe("Bearer sk-ant-test");
       expect(request.headers.get("anthropic-beta")).toContain(ANTHROPIC_FALLBACK_BETA);

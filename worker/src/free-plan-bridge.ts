@@ -32,6 +32,13 @@ export interface BridgeEnv {
   PUBLISHER_OIDC_AUDIENCE: string;
   PUBLISHER_REPOSITORY: string;
   PUBLISHER_WORKFLOW_REF: string;
+  /**
+   * Leading part of the OIDC `sub` claim, before `:ref:refs/heads/main`.
+   * The repository opts in to GitHub's immutable subject format, so this
+   * carries the owner and repository IDs
+   * (`repo:<owner>@<owner_id>/<repo>@<repo_id>`).
+   */
+  PUBLISHER_OIDC_SUBJECT_PREFIX: string;
   /** Secret (wrangler secret put): fine-grained PAT, this repo, Actions read + write. */
   GITHUB_DISPATCH_TOKEN?: string;
 }
@@ -40,6 +47,8 @@ export interface PublisherOidcPolicy {
   audience: string;
   repository: string;
   workflowRef: string;
+  /** Expected `sub` before `:ref:refs/heads/main`. */
+  subjectPrefix: string;
   nowMs?: number;
 }
 
@@ -181,7 +190,7 @@ function validateClaims(
   }
   if (
     requiredString(claims, "sub") !==
-    `repo:${policy.repository}:ref:refs/heads/main`
+    `${policy.subjectPrefix}:ref:refs/heads/main`
   ) {
     throw new Error("GitHub OIDC subject mismatch");
   }
@@ -384,7 +393,8 @@ export async function handleFreePlanBridgeRequest(
       typeof env.BODY_QUEUE?.sendBatch === "function" &&
       Boolean(env.PUBLISHER_OIDC_AUDIENCE) &&
       Boolean(env.PUBLISHER_REPOSITORY) &&
-      Boolean(env.PUBLISHER_WORKFLOW_REF);
+      Boolean(env.PUBLISHER_WORKFLOW_REF) &&
+      Boolean(env.PUBLISHER_OIDC_SUBJECT_PREFIX);
     return jsonResponse({
       ok: configured,
       status: configured ? "bridge" : "bridge-misconfigured",
@@ -407,6 +417,7 @@ export async function handleFreePlanBridgeRequest(
       audience: env.PUBLISHER_OIDC_AUDIENCE,
       repository: env.PUBLISHER_REPOSITORY,
       workflowRef: env.PUBLISHER_WORKFLOW_REF,
+      subjectPrefix: env.PUBLISHER_OIDC_SUBJECT_PREFIX,
     });
 
     const kvMatch = url.pathname.match(/^\/v1\/kv\/([A-Za-z0-9_-]+)$/);

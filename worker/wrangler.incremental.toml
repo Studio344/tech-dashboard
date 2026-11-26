@@ -27,6 +27,9 @@ PAGES_FALLBACK_ORIGIN = "https://tech-dashboard-6a7.pages.dev"
 PUBLISHER_OIDC_AUDIENCE = "tech-dashboard-publisher"
 PUBLISHER_REPOSITORY = "Studio344/tech-dashboard"
 PUBLISHER_WORKFLOW_REF = "Studio344/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main"
+# The repository uses GitHub's immutable OIDC subject, so `sub` carries the
+# owner and repository IDs. The bridge requires `<prefix>:ref:refs/heads/main`.
+PUBLISHER_OIDC_SUBJECT_PREFIX = "repo:Studio344@361455556/tech-dashboard@1216606051"
 
 [observability]
 enabled = true

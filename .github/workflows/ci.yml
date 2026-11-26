@@ -35,6 +35,36 @@ jobs:
           PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: node scripts/check-approval-authorship.mjs "$PR_BASE_SHA..HEAD"
 
+  workflow-lint:
+    name: workflow lint (actionlint)
+    # Independent of data-snapshot so a stale main index never hides workflow
+    # errors. No secrets and a read-only token, so it is safe on fork PRs.
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    env:
+      ACTIONLINT_VERSION: v1.7.12
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+
+      - name: Setup Go
+        uses: actions/setup-go@v6
+        with:
+          go-version: "1.25"
+          cache: false
+
+      - name: Install actionlint (pinned; module checksum verified by sum.golang.org)
+        run: go install "github.com/rhysd/actionlint/cmd/actionlint@${ACTIONLINT_VERSION}"
+
+      - name: Lint workflows (shellcheck runs on every run block)
+        run: |
+          command -v shellcheck
+          "$(go env GOPATH)/bin/actionlint" -version
+          "$(go env GOPATH)/bin/actionlint" -no-color
+
   data-snapshot:
     name: pin immutable main data
     runs-on: ubuntu-latest

@@ -105,7 +105,7 @@ describe("pull request branch flow", () => {
       ...jobsSection.matchAll(/^ {2}([a-z][a-z0-9-]*):$/gm),
     ].map((match) => match[1]);
 
-    expect(ciJobNames).toEqual(["branch-flow", "data-snapshot", "unit", "web-build", "e2e"]);
+    expect(ciJobNames).toEqual(["branch-flow", "workflow-lint", "data-snapshot", "unit", "web-build", "e2e"]);
     for (const job of ciJobNames) {
       expect(workflow).toContain(`\n  ${job}:\n`);
     }

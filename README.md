@@ -190,7 +190,7 @@ protected branch への直接 commit / push は通常禁止です。当該セッ
 
 in-place session では branch と index が全 turn で共有されます。Git mutation を行う前に session automation と先行 turn を停止し、current branch、status、push 先 ref を直前に再確認してください。
 
-CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) は **検証目的のみ**で、デプロイは行いません。main/develop pushと両branch向けPRでbranch-flow gateを実行し、feature→mainを拒否します。push / PR ごとに dependency audit (soft gate) + `typecheck + npm test + npm run build:web + npm run test:e2e` を実行し、Cloudflare Pages の build 失敗を事前に検知します。
+CI ([.github/workflows/ci.yml](.github/workflows/ci.yml)) は **検証目的のみ**で、デプロイは行いません。main/develop pushと両branch向けPRでbranch-flow gateを実行し、feature→mainを拒否します。push / PR ごとに dependency audit (soft gate) + `typecheck + npm test + npm run build:web + npm run test:e2e` を実行し、Cloudflare Pages の build 失敗を事前に検知します。あわせて `workflow lint` job が全 workflow を pin した actionlint (`ACTIONLINT_VERSION`) と shellcheck で検査します。この job は secret を使わず read-only token で動き、main data の鮮度にも依存しないため、fork からの PR でも data が古いときでも結果が出ます。ローカルでは `go install github.com/rhysd/actionlint/cmd/actionlint@v1.7.12` の後に repository root で `actionlint` を実行します。
 
 develop は毎時の生成dataを受け取らないため、develop pushとPRのCIは `scripts/ci-current-data.mjs` でremote mainの**同一immutable SHA**から `index`、`bodies`、全archive月とindex、`stats`、公開承認manifestをpinします。unit・Web build・E2Eは同じartifactを検証し、PR自身の`data/updates/_index.json`は保持します。mainのindexが36時間を超えて古い場合やPRが生成dataを意図的に変更した場合は上書きせず失敗します。main pushのCIはそのcommit自身のdataを検証します。`ALLOW_STALE_DATA=1`はCIで使いません。
 

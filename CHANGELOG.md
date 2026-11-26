@@ -15,6 +15,7 @@ TECH Dashboard の利用者向け機能、データ契約、収集・公開基�
 ### 追加
 
 - 要約・本文・記事対話の生成を Anthropic Claude API (`claude-opus-5-5`) だけで行うようにしました。GitHub Copilot 経由の呼び出し、Copilot 用の認証スクリプト (`auth:setup` / `auth:rotate` / `auth:device`) とモデル確認 (`worker:models`) は廃止しました。各 Queue consumer には `ANTHROPIC_API_KEY` secret が必須で、未登録の間は job が明示エラーで retry し、consumer の `/health` が `ok: false` と `configError` を返します。モデル設定は `claude-` で始まる ID だけを受け付けます。
+- CI に workflow lint job を追加し、全 workflow を actionlint v1.7.12 と shellcheck で検査するようにしました。これまでは YAML の構文確認だけでした。secret は使わず read-only token で動き、main data の鮮度 gate とは独立して結果が出ます。
 - Worker 3 本 (`tech-dashboard-summarizer`、`tech-dashboard-body`、`tech-dashboard-harness`) の deploy と `ANTHROPIC_API_KEY` の登録を、手動実行専用の GitHub Actions「Deploy Workers」から行えるようにしました。フォークからの PR や通常の push では動かず、secret は保護ルール付きの environment `cloudflare-production` に置きます。
 - 主要情報の汎用的な新着追跡として、Node Publisherが初回は既存記事を基準点にし、以後の要約済み実効重要度 High (3/3) だけを月別append-only履歴と単調増加cursorへ記録するようにしました。JSON manifestと月別履歴は`/updates/`（cursorは初期値`"0"`を含む10進文字列）、RSSは最新100eventを`/rss/major.xml`で配信します。SEO向けnoindexは閲覧可能記事の追跡を止めません。外部サービスへの自動投稿はまだ有効化していません。
 - 記事詳細、Timeline・Knowledge の記事カード、Home の Spotlight にシェア操作を追加しました。コンパクトな Top 3・Ticker・一覧行は記事詳細から共有できます。利用可能な端末では共有シートを開き、非対応時は表示言語を保持したタイトルと記事URLをコピーします。コピーも拒否された場合は、手動で選択・コピーできるダイアログを表示します。

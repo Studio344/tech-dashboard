@@ -1,6 +1,7 @@
 name: Deploy Workers
 
-# Manual Cloudflare Worker deploys and ANTHROPIC_API_KEY registration
+# Manual Cloudflare Worker deploys and the registration of ANTHROPIC_API_KEY
+# (consumers) and GITHUB_DISPATCH_TOKEN (bridge, from the DISPATCH_TOKEN secret)
 # (site-owner request 2026-11-26, R-001 exception, R-027 rollout order).
 #
 # Safety:
@@ -10,7 +11,7 @@ name: Deploy Workers
 #   write access can dispatch a workflow.
 # - Secrets live in the `cloudflare-production` environment. Protect it with a
 #   required reviewer and deployment branches limited to `main` and `develop`.
-# - Secrets are passed through env only and the API key reaches wrangler on
+# - Secrets are passed through env only and each key reaches wrangler on
 #   stdin, never on a command line, so it does not appear in logs.
 #
 # Order (R-027): run `consumers` first, then `bridge` from main.
@@ -28,6 +29,10 @@ on:
         description: "consumers only: also store the ANTHROPIC_API_KEY environment secret in both consumers"
         type: boolean
         default: false
+      update_dispatch_token:
+        description: "bridge only: also store the DISPATCH_TOKEN environment secret in the bridge as GITHUB_DISPATCH_TOKEN (fine-grained PAT, this repository only, Actions read and write)"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -39,7 +44,7 @@ concurrency:
 jobs:
   deploy:
     name: deploy ${{ inputs.target }}
-    if: github.repository == 'himiyosh/tech-dashboard'
+    if: github.repository == 'Studio344/tech-dashboard'
     runs-on: ubuntu-latest
     timeout-minutes: 20
     environment:
@@ -47,6 +52,7 @@ jobs:
     env:
       DEPLOY_TARGET: ${{ inputs.target }}
       UPDATE_ANTHROPIC_KEY: ${{ inputs.update_anthropic_key }}
+      UPDATE_DISPATCH_TOKEN: ${{ inputs.update_dispatch_token }}
     steps:
       - name: Check target and branch
         run: |
@@ -60,6 +66,10 @@ jobs:
           esac
           if [ "${DEPLOY_TARGET}" = "bridge" ] && [ "${UPDATE_ANTHROPIC_KEY}" = "true" ]; then
             echo "::error::update_anthropic_key applies to consumers only."
+            exit 1
+          fi
+          if [ "${DEPLOY_TARGET}" = "consumers" ] && [ "${UPDATE_DISPATCH_TOKEN}" = "true" ]; then
+            echo "::error::update_dispatch_token applies to bridge only."
             exit 1
           fi
 
@@ -143,6 +153,37 @@ jobs:
           set -eu
           npm --prefix worker ci
           (cd worker && npx --no-install wrangler deploy)
+
+      - name: Store GITHUB_DISPATCH_TOKEN in the bridge
+        if: env.DEPLOY_TARGET == 'bridge' && env.UPDATE_DISPATCH_TOKEN == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
+        run: |
+          set -eu
+          # GitHub rejects secret names that start with GITHUB_, so the Actions
+          # secret is DISPATCH_TOKEN; the bridge still reads GITHUB_DISPATCH_TOKEN.
+          if [ -z "${DISPATCH_TOKEN:-}" ]; then
+            echo "::error::The DISPATCH_TOKEN secret is not set in the cloudflare-production environment."
+            exit 1
+          fi
+          (cd worker && printf '%s' "${DISPATCH_TOKEN}" | npx --no-install wrangler secret put GITHUB_DISPATCH_TOKEN)
+
+      - name: Confirm the bridge holds GITHUB_DISPATCH_TOKEN
+        if: env.DEPLOY_TARGET == 'bridge'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -eu
+          # `secret list` prints secret names only, never values. Without the
+          # token every cron tick is a no-op, so this is a warning, not a failure.
+          if (cd worker && npx --no-install wrangler secret list --format json) | grep -q '"GITHUB_DISPATCH_TOKEN"'; then
+            echo "bridge: GITHUB_DISPATCH_TOKEN is configured"
+          else
+            echo "::warning::The bridge has no GITHUB_DISPATCH_TOKEN, so it will not start the Publisher. Run again with update_dispatch_token checked."
+          fi
 
       - name: Verify the bridge serves the committed fingerprint
         if: env.DEPLOY_TARGET == 'bridge'

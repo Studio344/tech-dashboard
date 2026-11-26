@@ -68,7 +68,7 @@ AI 関連アップデート (Copilot / Claude / Codex / Gemini / Editor / Cline 
                 Cloudflare Free bridge → Queue / KV effects
                                │
                                ▼
-                 himiyosh/tech-dashboard:main (1 data commit)
+                 Studio344/tech-dashboard:main (1 data commit)
                                │
                                ▼
               Cloudflare Pages Git Integration が build (root=web)
@@ -78,7 +78,7 @@ AI 関連アップデート (Copilot / Claude / Codex / Gemini / Editor / Cline 
                    https://tech-dashboard-6a7.pages.dev/
 ```
 
-> **Pages のデプロイは GitHub Actions から行いません。** Publisher workflow は data の収集、検証、commit と OIDC bridge 経由の Queue / KV effects だけを担当し、Pages deploy は Cloudflare Pages Git Integration が行います ([.github/copilot-instructions.md](.github/copilot-instructions.md) R-001 参照)。例外は Worker の deploy と `ANTHROPIC_API_KEY` 登録で、手動実行専用の「Deploy Workers」workflow だけが行います。
+> **Pages のデプロイは GitHub Actions から行いません。** Publisher workflow は data の収集、検証、commit と OIDC bridge 経由の Queue / KV effects だけを担当し、Pages deploy は Cloudflare Pages Git Integration が行います ([.github/copilot-instructions.md](.github/copilot-instructions.md) R-001 参照)。例外は Worker の deploy と `ANTHROPIC_API_KEY` / `GITHUB_DISPATCH_TOKEN` の登録で、手動実行専用の「Deploy Workers」workflow だけが行います。
 > `.github/workflows/ci.yml` は **テスト目的のみ** で、Publisher workflow も Pages / Worker の deploy は行いません。
 
 ### 主要更新の新着履歴、RSS、記事シェア
@@ -264,7 +264,7 @@ Pages プロジェクトは Cloudflare dashboard で **Create application** → 
 
 | 設定項目 | 値 |
 |---|---|
-| Git repository | `himiyosh/tech-dashboard` |
+| Git repository | `Studio344/tech-dashboard` |
 | Production branch | `main` |
 | Framework preset | `Astro` |
 | Root directory | `web` |
@@ -437,7 +437,7 @@ Publisher workflow は `0 * * * *` (毎時) で起動し、`17 2 * * *` (毎日 
 
 **起動は Cloudflare Cron Trigger から行います。** GitHub の `schedule` イベントはこのリポジトリで大きく遅延・間引きされ(2026-08-30〜09-13 は 1 日 24 回中 5〜9 回、開始時刻は 0〜59 分に均等に分散)、サイトの更新が平均 3 時間おきになっていました。bridge Worker (`tech-dashboard-harness`) の `*/30 * * * *` Cron が `worker/src/publisher-dispatch.ts` を実行し、最新の Publisher run(event 問わず)が実行中・待機中でなく、かつ 50 分以上前に作成されていれば `workflow_dispatch` で main を起動します。GitHub 側の遅れた schedule run はタイマーをリセットするだけなので実行が積み重ならず、約 1 時間に 1 回に揃います。この Cron は HTTP 呼び出し最大 2 回だけで KV / Queue / harness を使わないため、Workers Free の 10ms CPU 上限(LL-200)内に収まります。
 
-有効化には GitHub の fine-grained personal access token が必要です(このリポジトリのみ、Repository permissions の **Actions: Read and write**)。発行後、`worker/` で `npx wrangler secret put GITHUB_DISPATCH_TOKEN` を実行して登録します。未登録の間、各 tick は何もしません(ログに `skipped (no-token)`)。token の期限切れ時も同じ状態になり、Worker Health の `publisher run is stale` で検知できます。
+有効化には GitHub の fine-grained personal access token が必要です(Resource owner は `Studio344`、このリポジトリのみ、Repository permissions の **Actions: Read and write**)。発行した token を environment `cloudflare-production` の secret `DISPATCH_TOKEN` に登録し (GitHub は `GITHUB_` で始まる secret 名を受け付けないため。bridge 側には workflow が `GITHUB_DISPATCH_TOKEN` の名前で登録します)、GitHub Actions「Deploy Workers」を target `bridge`、`update_dispatch_token` にチェックで main から手動実行します (手元なら `worker/` で `npx wrangler secret put GITHUB_DISPATCH_TOKEN`)。リポジトリの owner が変わると以前の token は届かなくなるため、発行し直します。未登録の間、各 tick は何もしません(ログに `skipped (no-token)`)。token の期限切れ時も同じ状態になり、Worker Health の `publisher run is stale` で検知できます。
 
 毎時のdata差分runはsecret scan、data schema、Publisher/impact regression、route-family growth、snapshot CASを通し、生成対象のdata fileだけをstageしてnon-force pushします。impact manifestは変更detail/body ID、archive月、category/tag、全件再計算が必要なaggregate familyを`$RUNNER_TEMP`へ記録します。毎日・manual full reconciliationは追加でroot/Worker typecheck、全unit、Astro + Pagefind build、Publisher E2Eを実行します。Queue と `og.v1` KV write は `$RUNNER_TEMP` の bundleへ遅延し、data push成功後だけ bridgeへ flushします。data差分がない runも final snapshot CASとcontract確認後に Queue / KV effectsだけをflushできます。collapse guardやCAS失敗時は effects bundleを保存しません。新しい repository secretは不要です。GitHub commitは built-in `GITHUB_TOKEN`、bridgeは専用 audienceのGitHub Actions OIDCを使います。
 

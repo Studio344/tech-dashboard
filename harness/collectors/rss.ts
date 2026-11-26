@@ -140,7 +140,7 @@ async function fetchArticleDate(url: string): Promise<string | null> {
     const t = setTimeout(() => ctrl.abort(), 8000);
     const res = await fetch(url, {
       headers: {
-        "User-Agent": "tech-dashboard-bot/0.1 (+https://github.com/himiyosh/tech-dashboard)",
+        "User-Agent": "tech-dashboard-bot/0.1 (+https://github.com/Studio344/tech-dashboard)",
         Accept: "text/html,application/xhtml+xml",
       },
       redirect: "follow",
@@ -197,7 +197,7 @@ function stripHtml(s: string): string {
 export async function collectRss(source: SourceDefinition): Promise<RawEntry[]> {
   const res = await fetch(source.feedUrl, {
     headers: {
-      "User-Agent": "tech-dashboard-bot/0.1 (+https://github.com/himiyosh/tech-dashboard)",
+      "User-Agent": "tech-dashboard-bot/0.1 (+https://github.com/Studio344/tech-dashboard)",
       Accept: "application/rss+xml, application/atom+xml, application/xml;q=0.9, */*;q=0.8",
     },
     redirect: "follow",

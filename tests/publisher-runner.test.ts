@@ -107,7 +107,7 @@ describe("GitHub Actions publisher runner", () => {
         {
           GITHUB_ACTIONS: "true",
           GITHUB_REF: "refs/heads/main",
-          GITHUB_REPOSITORY: "himiyosh/tech-dashboard",
+          GITHUB_REPOSITORY: "Studio344/tech-dashboard",
           PUBLISHER_BRIDGE_URL: "https://bridge.example",
         },
         { runHarness: harness, verifyBridgeContract },
@@ -132,7 +132,7 @@ describe("GitHub Actions publisher runner", () => {
         {
           GITHUB_ACTIONS: "true",
           GITHUB_REF: "refs/heads/main",
-          GITHUB_REPOSITORY: "himiyosh/tech-dashboard",
+          GITHUB_REPOSITORY: "Studio344/tech-dashboard",
           GITHUB_TOKEN: "test-token",
           RUNNER_TEMP: runnerTemp,
         },
@@ -151,7 +151,7 @@ describe("GitHub Actions publisher runner", () => {
         runPublisherCli(["--flush", outside], {
           GITHUB_ACTIONS: "true",
           GITHUB_REF: "refs/heads/main",
-          GITHUB_REPOSITORY: "himiyosh/tech-dashboard",
+          GITHUB_REPOSITORY: "Studio344/tech-dashboard",
           RUNNER_TEMP: runnerTemp,
         }),
       ).rejects.toThrow(/inside RUNNER_TEMP/);
@@ -180,7 +180,7 @@ describe("GitHub Actions publisher runner", () => {
         {
           GITHUB_ACTIONS: "true",
           GITHUB_REF: "refs/heads/main",
-          GITHUB_REPOSITORY: "himiyosh/tech-dashboard",
+          GITHUB_REPOSITORY: "Studio344/tech-dashboard",
           GITHUB_TOKEN: "test-token",
           RUNNER_TEMP: runnerTemp,
         },
@@ -207,7 +207,7 @@ describe("GitHub Actions publisher runner", () => {
         {
           GITHUB_ACTIONS: "true",
           GITHUB_REF: "refs/heads/main",
-          GITHUB_REPOSITORY: "himiyosh/tech-dashboard",
+          GITHUB_REPOSITORY: "Studio344/tech-dashboard",
           GITHUB_TOKEN: "test-token",
           RUNNER_TEMP: runnerTemp,
         },
@@ -244,7 +244,7 @@ describe("GitHub Actions publisher runner", () => {
         {
           GITHUB_ACTIONS: "true",
           GITHUB_REF: "refs/heads/main",
-          GITHUB_REPOSITORY: "himiyosh/tech-dashboard",
+          GITHUB_REPOSITORY: "Studio344/tech-dashboard",
           GITHUB_TOKEN: "test-token",
           RUNNER_TEMP: runnerTemp,
         },
@@ -293,7 +293,7 @@ describe("GitHub Actions publisher runner", () => {
           {
             GITHUB_ACTIONS: "true",
             GITHUB_REF: "refs/heads/main",
-            GITHUB_REPOSITORY: "himiyosh/tech-dashboard",
+            GITHUB_REPOSITORY: "Studio344/tech-dashboard",
             RUNNER_TEMP: runnerTemp,
             ACTIONS_ID_TOKEN_REQUEST_URL: "https://actions.example/token",
             ACTIONS_ID_TOKEN_REQUEST_TOKEN: "request-token",
@@ -335,7 +335,7 @@ describe("GitHub Actions publisher runner", () => {
         {
           GITHUB_ACTIONS: "true",
           GITHUB_REF: "refs/heads/main",
-          GITHUB_REPOSITORY: "himiyosh/tech-dashboard",
+          GITHUB_REPOSITORY: "Studio344/tech-dashboard",
           RUNNER_TEMP: runnerTemp,
         },
         {

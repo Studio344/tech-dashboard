@@ -32,6 +32,7 @@ TECH Dashboard の利用者向け機能、データ契約、収集・公開基�
 
 ### 修正
 
+- Web の Astro を `7.4.13` に固定し (`7.1.1` から)、AVIF 画像最適化経由の遠隔コード実行、base path の認可回避、JSX/MDX の XSS、View Transitions の CSS 注入などの既知 advisory を解消しました。Astro 経由の sharp `0.35.5`、vite `8.3.8`、devalue `6.0.4`、svgo `4.1.0`、zod `4.6.7` なども更新され、`web` の `npm audit` は 0 件です。`web/package.json` と lockfile が Publisher contract の対象なので fingerprint も更新しており、main への反映は consumer 先行・bridge 最後の段階的 rollout が必要です。
 - 同じ記事を複数の公式feedが収集してcanonical URLの勝者IDが変わっても、Publisherとdata migrationが保存済みのAI解説本文・6発言対話・model・生成日時を新IDへ引き継ぐようにしました。異なる有効な保存記録が衝突した場合は公開を停止し、保持対象外の記事だけを従来どおり削除します。旧単一ファイルからの自動復元は行いません。
 
 ## 2026-09-17

@@ -45,7 +45,13 @@ SUMMARIZE_TIMEOUT_MS = "60000"
 SUMMARIZE_MAX_TOKENS = "1600"
 
 # Secrets (set via `wrangler secret put --name tech-dashboard-summarizer`):
-#   - COPILOT_PAT    Classic PAT with Copilot Enterprise access
+#   - COPILOT_PAT        Classic PAT with Copilot Enterprise access
+#   - ANTHROPIC_API_KEY  Optional. When set, summaries use the Anthropic Claude
+#                        API (claude-opus-5-5) instead of Copilot; the model
+#                        vars above are then ignored. Optional overrides:
+#                        ANTHROPIC_SUMMARIZE_MODEL, _MODEL_FALLBACKS, _EFFORT
+#                        (default medium), _MAX_TOKENS (default 16000).
+#                        See worker/src/anthropic-client.ts.
 
 # Queue consumer. Process one entry per invocation so each summarize gets
 # its own CPU budget; Cloudflare auto-retries on throw (up to max_retries).

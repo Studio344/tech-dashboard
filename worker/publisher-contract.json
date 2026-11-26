@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "fingerprint": "sha256:d23296bdf069cd8e60b55cd6c6e1948ab44d72a4e0f2cd36346d4487f3e58eb3",
+  "fingerprint": "sha256:94a63feb53d7358568de5200aa647ac8a34330e7b81cca5c888cd3fa68b438ef",
   "criticalPaths": [
     ".github/workflows/publisher.yml",
     "harness",

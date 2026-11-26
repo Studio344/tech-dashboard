@@ -3,8 +3,10 @@
  *
  * Receives one entry per invocation from the SUMMARY_QUEUE producer
  * (tech-dashboard-harness). For each message:
- *   1. Resolve Copilot token from COPILOT_PAT.
- *   2. Call Copilot /chat/completions with the compact bilingual summary prompt.
+ *   1. Pick the LLM backend: the Anthropic Claude API when the
+ *      ANTHROPIC_API_KEY secret is set, otherwise Copilot via COPILOT_PAT
+ *      (worker/src/anthropic-client.ts).
+ *   2. Call the model with the compact bilingual summary prompt.
  *   3. If the response is incomplete, retry once with a compact recovery prompt.
  *   4. Parse the response and write it into SUMMARY_CACHE KV under the entry URL.
  *
@@ -38,6 +40,14 @@ import {
   extractCopilotText,
   parseModelChain,
 } from "../../worker/src/copilot-client.ts";
+import {
+  callAnthropicText,
+  DEFAULT_ANTHROPIC_MODEL,
+  type AnthropicEffort,
+  type LlmProvider,
+  parseAnthropicEffort,
+  resolveLlmProvider,
+} from "../../worker/src/anthropic-client.ts";
 
 interface Env {
   SUMMARY_CACHE: KVNamespace;
@@ -48,7 +58,22 @@ interface Env {
   SUMMARIZE_MODEL_FALLBACKS?: string;
   SUMMARIZE_TIMEOUT_MS?: string;
   SUMMARIZE_MAX_TOKENS?: string;
+  /** Secret. When set, summaries are generated with the Anthropic Claude API
+   * instead of Copilot (worker/src/anthropic-client.ts). */
+  ANTHROPIC_API_KEY?: string;
+  ANTHROPIC_SUMMARIZE_MODEL?: string;
+  ANTHROPIC_SUMMARIZE_MODEL_FALLBACKS?: string;
+  ANTHROPIC_SUMMARIZE_EFFORT?: string;
+  /** Covers thinking + answer, so it is larger than SUMMARIZE_MAX_TOKENS. */
+  ANTHROPIC_SUMMARIZE_MAX_TOKENS?: string;
 }
+
+type LlmBackend =
+  | { provider: "copilot"; pat: string }
+  | { provider: "anthropic"; anthropicKey: string; effort: AnthropicEffort };
+
+const SYSTEM_PROMPT =
+  "You are a bilingual technical editor. Always return only the JSON object the user requested. Do not include code fences, prose preface, or commentary. Use natural Japanese for *Ja fields and native English for *En fields.";
 
 export type { SummaryJob } from "../../worker/src/summary-queue.ts";
 
@@ -65,6 +90,8 @@ const COPILOT_HEADERS: Record<string, string> = {
 
 const DEFAULT_TIMEOUT_MS = 60_000;
 const DEFAULT_MAX_TOKENS = 1600;
+const DEFAULT_ANTHROPIC_MAX_TOKENS = 16_000;
+const DEFAULT_ANTHROPIC_EFFORT: AnthropicEffort = "medium";
 // Refresh the IDE token when fewer than this many ms remain. Must exceed the
 // longest single callCopilot timeout (DEFAULT_TIMEOUT_MS = 60s) so a token
 // that passes the freshness check cannot expire *during* a long LLM call
@@ -110,6 +137,33 @@ async function resolveCopilotToken(pat: string, forceRefresh = false): Promise<s
   return body.token;
 }
 
+async function callModel(
+  backend: LlmBackend,
+  model: string,
+  prompt: string,
+  timeoutMs: number,
+  maxTokens: number,
+): Promise<CacheEntry> {
+  if (backend.provider === "copilot") {
+    return callCopilot(backend.pat, model, prompt, timeoutMs, maxTokens);
+  }
+  const result = await callAnthropicText(
+    {
+      model,
+      systemPrompt: SYSTEM_PROMPT,
+      userPrompt: prompt,
+      maxTokens,
+      effort: backend.effort,
+    },
+    { anthropicKey: backend.anthropicKey, timeoutMs },
+  );
+  return {
+    ...parseResponse(result.text),
+    model: result.model,
+    cachedAt: new Date().toISOString(),
+  };
+}
+
 async function callCopilot(
   pat: string,
   model: string,
@@ -141,8 +195,7 @@ async function callCopilot(
         body: JSON.stringify(
           buildCopilotRequestBody({
             model,
-            systemPrompt:
-              "You are a bilingual technical editor. Always return only the JSON object the user requested. Do not include code fences, prose preface, or commentary. Use natural Japanese for *Ja fields and native English for *En fields.",
+            systemPrompt: SYSTEM_PROMPT,
             userPrompt: prompt,
             // Quality-first queue mode: this Worker has a larger CPU/timeout
             // budget than the harness Worker, so use the same long-form
@@ -212,19 +265,54 @@ export function isSummaryComplete(
   );
 }
 
+export interface SummaryLlmConfig {
+  provider: LlmProvider;
+  backend: LlmBackend;
+  chain: string[];
+  maxTokens: number;
+}
+
+/**
+ * Active backend, model chain and output budget. Anthropic is used only when
+ * its secret is configured; the Copilot chain and budget are unchanged.
+ */
+export function resolveSummaryLlmConfig(env: Env): SummaryLlmConfig {
+  const provider = resolveLlmProvider(env);
+  if (provider === "anthropic") {
+    return {
+      provider,
+      backend: {
+        provider,
+        anthropicKey: env.ANTHROPIC_API_KEY!.trim(),
+        effort: parseAnthropicEffort(env.ANTHROPIC_SUMMARIZE_EFFORT, DEFAULT_ANTHROPIC_EFFORT),
+      },
+      chain: parseModelChain(
+        env.ANTHROPIC_SUMMARIZE_MODEL || DEFAULT_ANTHROPIC_MODEL,
+        env.ANTHROPIC_SUMMARIZE_MODEL_FALLBACKS,
+      ),
+      maxTokens: Number(env.ANTHROPIC_SUMMARIZE_MAX_TOKENS ?? DEFAULT_ANTHROPIC_MAX_TOKENS),
+    };
+  }
+  return {
+    provider,
+    backend: { provider, pat: env.COPILOT_PAT },
+    chain: parseModelChain(
+      env.SUMMARIZE_MODEL || "claude-sonnet-5",
+      env.SUMMARIZE_MODEL_FALLBACKS,
+    ),
+    maxTokens: Number(env.SUMMARIZE_MAX_TOKENS ?? DEFAULT_MAX_TOKENS),
+  };
+}
+
 async function processJob(env: Env, job: SummaryJob): Promise<void> {
   // Per-URL KV (LL-038): single KV.put per entry, no read-modify-write.
   // The producer (harness Worker) already filters out cached entries before
   // enqueuing, so duplicate work is rare. Each key is independent so parallel
   // consumer invocations can never clobber each other's writes.
 
-  const pat = env.COPILOT_PAT;
-  const chain = parseModelChain(
-    env.SUMMARIZE_MODEL || "claude-sonnet-5",
-    env.SUMMARIZE_MODEL_FALLBACKS,
-  );
+  const config = resolveSummaryLlmConfig(env);
+  const { backend, chain, maxTokens } = config;
   const timeoutMs = Number(env.SUMMARIZE_TIMEOUT_MS ?? DEFAULT_TIMEOUT_MS);
-  const maxTokens = Number(env.SUMMARIZE_MAX_TOKENS ?? DEFAULT_MAX_TOKENS);
   if (!hasSufficientSourceGrounding(job.entry)) {
     throw new Error(`insufficient source grounding for ${job.url}`);
   }
@@ -250,8 +338,8 @@ async function processJob(env: Env, job: SummaryJob): Promise<void> {
       );
     }
     try {
-      entry = await callCopilot(
-        pat,
+      entry = await callModel(
+        backend,
         attemptModel,
         buildSummaryPrompt(job.entry),
         attemptIndex === 0 ? timeoutMs : Math.min(timeoutMs, RECOVERY_TIMEOUT_MS),
@@ -378,20 +466,23 @@ export default {
           : recentIssue
           ? "warn"
           : "ok";
-      const ok = cacheBinding && Boolean(env.COPILOT_PAT) && issueSeverity !== "error";
+      const llm = resolveSummaryLlmConfig(env);
+      const llmSecretConfigured =
+        llm.provider === "anthropic" ? true : Boolean(env.COPILOT_PAT);
+      const ok = cacheBinding && llmSecretConfigured && issueSeverity !== "error";
       return Response.json(
         {
           ok,
           role: "queue-consumer",
-          model: env.SUMMARIZE_MODEL || "claude-sonnet-5",
-          modelFallbacks: parseModelChain(
-            env.SUMMARIZE_MODEL || "claude-sonnet-5",
-            env.SUMMARIZE_MODEL_FALLBACKS,
-          ).slice(1),
+          provider: llm.provider,
+          model: llm.chain[0],
+          modelFallbacks: llm.chain.slice(1),
+          effort: llm.backend.provider === "anthropic" ? llm.backend.effort : null,
           timeoutMs: Number(env.SUMMARIZE_TIMEOUT_MS ?? DEFAULT_TIMEOUT_MS),
-          maxTokens: Number(env.SUMMARIZE_MAX_TOKENS ?? DEFAULT_MAX_TOKENS),
+          maxTokens: llm.maxTokens,
           cacheBinding,
           copilotSecretConfigured: Boolean(env.COPILOT_PAT),
+          anthropicSecretConfigured: llm.provider === "anthropic",
           recentIssue,
           issueSeverity,
           issueScope,

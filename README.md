@@ -28,6 +28,7 @@ AI 関連アップデート (Copilot / Claude / Codex / Gemini / Editor / Cline 
 | 作業 | コマンド | 期日の気付き方 |
 |---|---|---|
 | `COPILOT_PAT` 更新 | `cd worker && npx wrangler secret put COPILOT_PAT` | `/status` Worker Health が `summarize disabled` |
+| `ANTHROPIC_API_KEY` 登録・更新 (Claude API 運用時) | `cd worker-summarizer && npx wrangler secret put ANTHROPIC_API_KEY` と `worker-body` で同じ操作 | consumer `/health` の `provider` が `anthropic` にならない、または Anthropic の認証エラーが issue に出る |
 | (shadow) detail-only増分配信の検証 | `docs/07-incremental-serving-shadow.md` の手順 | 専用private R2/D1とshadow Workerは準備済み。既定はoffで、deploy/bootstrapは明示承認時だけ |
 | (緊急) 手動収集 | `npm run collect` | バックログ滞留時 (例: 1h に 5 件以上の新着) |
 | (緊急) cache 済み要約の再反映 | `npm run summaries:apply-cache` | `data/_summary-cache.json` に有効な bilingual summary があるのに `data/index.json` 側が未反映の時 |
@@ -221,6 +222,30 @@ SUMMARIZE_MAX_TOKENS=1600           # titleJa + summaryJa + summaryEn の出力�
 ```
 
 > どのトークンも無ければ要約フェーズは自動でスキップされます (ローカル dev を妨げない設計)。
+
+### Anthropic Claude API で動かす (任意)
+
+`ANTHROPIC_API_KEY` を設定すると、要約 (`worker-summarizer/`)、本文と記事対話 (`worker-body/`)、ローカルの `npm run collect` は Copilot ではなく Anthropic Claude API (`claude-opus-5-5`) で生成します。キーが無い間は従来の Copilot 経路がそのまま動きます。どちらで動いているかは各 consumer の `/health` の `provider` で確認できます (実装: `worker/src/anthropic-client.ts`)。
+
+```bash
+# 本番 Queue consumer (キーは対話プロンプトで入力。コマンドラインやチャットに貼らない)
+cd worker-summarizer && npx wrangler secret put ANTHROPIC_API_KEY
+cd ../worker-body && npx wrangler secret put ANTHROPIC_API_KEY
+
+# ローカル (.env.local は .gitignore 済み)
+ANTHROPIC_API_KEY=sk-ant-...
+```
+
+任意の調整値 (Worker では `wrangler.toml` の `[vars]`、ローカルでは `.env.local`):
+
+| 変数 | 既定 | 用途 |
+|---|---|---|
+| `ANTHROPIC_SUMMARIZE_MODEL` / `ANTHROPIC_BODY_MODEL` | `claude-opus-5-5` | 使用モデル |
+| `ANTHROPIC_SUMMARIZE_MODEL_FALLBACKS` / `ANTHROPIC_BODY_MODEL_FALLBACKS` | なし | API エラー時に順に試すモデル (comma 区切り) |
+| `ANTHROPIC_SUMMARIZE_EFFORT` / `ANTHROPIC_BODY_EFFORT` | `medium` / `high` | 思考の深さ (`low`〜`max`)。不正値は job を失敗させる |
+| `ANTHROPIC_SUMMARIZE_MAX_TOKENS` / `ANTHROPIC_BODY_MAX_TOKENS` | `16000` | 思考 + 回答の合計上限 |
+
+安全側の挙動: 安全分類による拒否はサーバー側 fallback (`fallbacks: "default"`) で別モデルが再実行し、最終的な拒否や `max_tokens` 切れは例外として model chain / Queue retry に戻します (途中で切れた本文や JSON を KV に書かない)。課金は Anthropic の API 料金になり、Copilot の premium request は消費しません。
 
 ## デプロイ & 自動更新 (GitHub Actions Publisher + Cloudflare Pages)
 

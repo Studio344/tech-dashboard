@@ -52,6 +52,7 @@
     "node": ">=20"
   },
   "dependencies": {
+    "@anthropic-ai/sdk": "^1.14.0",
     "fast-xml-parser": "^5.8.0"
   },
   "devDependencies": {

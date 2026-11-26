@@ -75,6 +75,7 @@
 - fallback chain は `SUMMARIZE_MODEL` + `SUMMARIZE_MODEL_FALLBACKS` / `BODY_MODEL` + `BODY_MODEL_FALLBACKS` (comma 区切り) で構成する。モデル単位の API エラーは chain を進め、全滅時のみ job を失敗させて Cloudflare Queues の retry/DLQ 契約を維持する。
 - claude 系を使う場合の注意: chat endpoint の `reasoning_effort=max` は、ソース比例の短い本文プロンプト (bodyLengthPlan) と組み合わさると出力予算を推論で使い切り**日本語本文を空にする** (2026-08-29 実測、2/2 再現)。claude での本文生成は `high` 以下にする。opus の長文が Worker の 30 秒 wall-time に収まらない事象 (LL-031) も引き続き有効。
 - 本番モデル変更は小 batch (`SUMMARIZE_MAX_NEW=1` または backfill の `--limit 1`) か、本番プロンプト + 実 corpus エントリでの direct-API smoke test を通してから適用する (LL-010)。切り替え後は Copilot premium request の消費倍率を数日観察する。
+- **Anthropic Claude API 経路 (site-owner 依頼 2026-11-26)**: `ANTHROPIC_API_KEY` secret がある consumer / ローカル harness は Copilot chain を使わず Claude API を使う。既定モデルは `claude-opus-5-5` (要約 effort=medium、本文 effort=high、`max_tokens` 既定 16000 は思考込み)。`temperature` と `reasoning_effort` は送らない。キーが無い間は上記の Copilot chain がそのまま有効。provider は各 consumer の `/health` の `provider` で確認する。切り替え時も上記の小 batch / smoke test 要件は同じく適用する。
 - **ローカル backfill (要約のみ・短プロンプト) は `claude-opus-4.8` を使ってよい**。Worker の 30 秒 wall-time 制約 (LL-031) は CPU 時間ではなく長文 body 生成のトークン枯渇が主因 (LL-106/115) で、ローカルかつ要約のみ (`buildSummaryPrompt`) なら opus でも budget 内で完了する。
 
 ### R-008: Worker deploy は pre-push でも明示 opt-in にする

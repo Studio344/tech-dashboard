@@ -57,7 +57,14 @@ BODY_TIMEOUT_MS = "120000"
 BODY_MAX_TOKENS = "4000"
 
 # Secrets (set via `wrangler secret put --name tech-dashboard-body`):
-#   - COPILOT_PAT    device-flow Copilot token (ghu_, long-lived; LL-109)
+#   - COPILOT_PAT        device-flow Copilot token (ghu_, long-lived; LL-109)
+#   - ANTHROPIC_API_KEY  Optional. When set, bodies and article chats use the
+#                        Anthropic Claude API (claude-opus-5-5) instead of
+#                        Copilot; the BODY_MODEL* / BODY_REASONING_EFFORT /
+#                        BODY_MAX_TOKENS vars are then ignored. Optional
+#                        overrides: ANTHROPIC_BODY_MODEL, _MODEL_FALLBACKS,
+#                        _EFFORT (default high), _MAX_TOKENS (default 16000).
+#                        See worker/src/anthropic-client.ts.
 
 # Queue consumer. Process one entry per invocation so each entry's two opus
 # calls get their own budget. max_concurrency=2 keeps Copilot pressure moderate

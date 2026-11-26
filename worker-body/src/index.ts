@@ -3,7 +3,9 @@
  *
  * Receives one entry per invocation from the BODY_QUEUE producer
  * (tech-dashboard-harness). For each message:
- *   1. Resolve Copilot token from COPILOT_PAT.
+ *   1. Pick the LLM backend: the Anthropic Claude API when the
+ *      ANTHROPIC_API_KEY secret is set, otherwise Copilot via COPILOT_PAT
+ *      (worker/src/anthropic-client.ts).
  *   2. Generate the Japanese body and the English body as TWO SEPARATE
  *      plain-text calls (claude-opus-4.8, reasoning_effort=max).
  *   3. Write { bodyJa, bodyEn, model, cachedAt } to the SUMMARY_CACHE KV
@@ -52,6 +54,14 @@ import {
   parseModelChain,
 } from "../../worker/src/copilot-client.ts";
 import {
+  callAnthropicText,
+  DEFAULT_ANTHROPIC_MODEL,
+  type AnthropicEffort,
+  type LlmProvider,
+  parseAnthropicEffort,
+  resolveLlmProvider,
+} from "../../worker/src/anthropic-client.ts";
+import {
   buildArticleChatPrompt,
   chatGroundingText,
   parseArticleChat,
@@ -68,7 +78,22 @@ interface Env {
   BODY_REASONING_EFFORT?: string;
   BODY_TIMEOUT_MS?: string;
   BODY_MAX_TOKENS?: string;
+  /** Secret. When set, bodies and article chats are generated with the
+   * Anthropic Claude API instead of Copilot (worker/src/anthropic-client.ts). */
+  ANTHROPIC_API_KEY?: string;
+  ANTHROPIC_BODY_MODEL?: string;
+  ANTHROPIC_BODY_MODEL_FALLBACKS?: string;
+  ANTHROPIC_BODY_EFFORT?: string;
+  /** Covers thinking + answer, so it is larger than BODY_MAX_TOKENS. */
+  ANTHROPIC_BODY_MAX_TOKENS?: string;
 }
+
+type LlmBackend =
+  | { provider: "copilot"; pat: string; reasoningEffort: string }
+  | { provider: "anthropic"; anthropicKey: string; effort: AnthropicEffort };
+
+const BODY_SYSTEM_PROMPT =
+  "You are a professional technology editor. Return only the plain-text body the user requested — no JSON, no code fences, no preamble.";
 
 const COPILOT_HEADERS: Record<string, string> = {
   "editor-version": "vscode/1.95.0",
@@ -81,6 +106,8 @@ const DEFAULT_MODEL = "claude-opus-4.8";
 const DEFAULT_REASONING = "max";
 const DEFAULT_TIMEOUT_MS = 120_000;
 const DEFAULT_MAX_TOKENS = 4000;
+const DEFAULT_ANTHROPIC_MAX_TOKENS = 16_000;
+const DEFAULT_ANTHROPIC_EFFORT: AnthropicEffort = "high";
 // Token freshness skew must exceed the longest single call timeout so a token
 // that passes the freshness check cannot expire mid-call (LL-105).
 const TOKEN_REFRESH_SKEW_MS = 180_000;
@@ -127,6 +154,37 @@ async function resolveCopilotToken(pat: string, forceRefresh = false): Promise<s
 }
 
 /**
+ * One plain-text call on the active backend. The Anthropic path applies the
+ * same cleaning and minimum-length guard as the Copilot path.
+ */
+async function callBodyModel(
+  backend: LlmBackend,
+  model: string,
+  prompt: string,
+  timeoutMs: number,
+  maxTokens: number,
+): Promise<string> {
+  if (backend.provider === "copilot") {
+    return callCopilotText(backend.pat, model, backend.reasoningEffort, prompt, timeoutMs, maxTokens);
+  }
+  const result = await callAnthropicText(
+    {
+      model,
+      systemPrompt: BODY_SYSTEM_PROMPT,
+      userPrompt: prompt,
+      maxTokens,
+      effort: backend.effort,
+    },
+    { anthropicKey: backend.anthropicKey, timeoutMs },
+  );
+  const content = cleanBodyText(result.text);
+  if (content.length < MIN_BODY_CHARS) {
+    throw new Error(`empty/short body (${content.length} chars)`);
+  }
+  return content;
+}
+
+/**
  * One plain-text Copilot call. Returns the cleaned body string. Throws on
  * non-200 (so Cloudflare Queues retries) and force-refreshes the IDE token on a
  * 401 mid-batch expiry (LL-105). Empty content (reasoning-loop) throws so the
@@ -151,8 +209,7 @@ async function callCopilotText(
       const endpoint = copilotEndpointForModel(model);
       const requestBody = buildCopilotRequestBody({
         model,
-        systemPrompt:
-          "You are a professional technology editor. Return only the plain-text body the user requested — no JSON, no code fences, no preamble.",
+        systemPrompt: BODY_SYSTEM_PROMPT,
         userPrompt: prompt,
         maxTokens,
         temperature: 0.3,
@@ -230,18 +287,16 @@ export function buildBodyCacheEntry(
  * never fail, retry, or DLQ a job whose bodies already succeeded.
  */
 async function generateArticleChat(
-  pat: string,
+  backend: LlmBackend,
   model: string,
-  reasoning: string,
   job: BodyJob,
   timeoutMs: number,
   maxTokens: number,
 ): Promise<ArticleChatTurn[] | undefined> {
   try {
-    const raw = await callCopilotText(
-      pat,
+    const raw = await callBodyModel(
+      backend,
       model,
-      reasoning,
       buildArticleChatPrompt(job.entry),
       timeoutMs,
       maxTokens,
@@ -265,12 +320,49 @@ async function generateArticleChat(
   }
 }
 
+export interface BodyLlmConfig {
+  provider: LlmProvider;
+  backend: LlmBackend;
+  chain: string[];
+  maxTokens: number;
+}
+
+/**
+ * Active backend, model chain and output budget. Anthropic is used only when
+ * its secret is configured; the Copilot chain, reasoning and budget are unchanged.
+ */
+export function resolveBodyLlmConfig(env: Env): BodyLlmConfig {
+  const provider = resolveLlmProvider(env);
+  if (provider === "anthropic") {
+    return {
+      provider,
+      backend: {
+        provider,
+        anthropicKey: env.ANTHROPIC_API_KEY!.trim(),
+        effort: parseAnthropicEffort(env.ANTHROPIC_BODY_EFFORT, DEFAULT_ANTHROPIC_EFFORT),
+      },
+      chain: parseModelChain(
+        env.ANTHROPIC_BODY_MODEL || DEFAULT_ANTHROPIC_MODEL,
+        env.ANTHROPIC_BODY_MODEL_FALLBACKS,
+      ),
+      maxTokens: Number(env.ANTHROPIC_BODY_MAX_TOKENS ?? DEFAULT_ANTHROPIC_MAX_TOKENS),
+    };
+  }
+  return {
+    provider,
+    backend: {
+      provider,
+      pat: env.COPILOT_PAT,
+      reasoningEffort: env.BODY_REASONING_EFFORT || DEFAULT_REASONING,
+    },
+    chain: parseModelChain(env.BODY_MODEL || DEFAULT_MODEL, env.BODY_MODEL_FALLBACKS),
+    maxTokens: Number(env.BODY_MAX_TOKENS ?? DEFAULT_MAX_TOKENS),
+  };
+}
+
 async function processJob(env: Env, job: BodyJob): Promise<void> {
-  const pat = env.COPILOT_PAT;
-  const chain = parseModelChain(env.BODY_MODEL || DEFAULT_MODEL, env.BODY_MODEL_FALLBACKS);
-  const reasoning = env.BODY_REASONING_EFFORT || DEFAULT_REASONING;
+  const { backend, chain, maxTokens } = resolveBodyLlmConfig(env);
   const timeoutMs = Number(env.BODY_TIMEOUT_MS ?? DEFAULT_TIMEOUT_MS);
-  const maxTokens = Number(env.BODY_MAX_TOKENS ?? DEFAULT_MAX_TOKENS);
   if (!hasSufficientBodySourceGrounding(job.entry)) {
     throw new Error(`insufficient source grounding for ${job.url}`);
   }
@@ -297,15 +389,15 @@ async function processJob(env: Env, job: BodyJob): Promise<void> {
       );
     }
     try {
-      const bodyJa = await callCopilotText(pat, attemptModel, reasoning, buildBodyPromptJa(job.entry), timeoutMs, maxTokens);
-      const bodyEn = await callCopilotText(pat, attemptModel, reasoning, buildBodyPromptEn(job.entry), timeoutMs, maxTokens);
+      const bodyJa = await callBodyModel(backend, attemptModel, buildBodyPromptJa(job.entry), timeoutMs, maxTokens);
+      const bodyEn = await callBodyModel(backend, attemptModel, buildBodyPromptEn(job.entry), timeoutMs, maxTokens);
       // A max_tokens-truncated body must never be persisted: the 2026-08-29
       // audit found 16.9% of the indexed corpus cut mid-word by the old opus
       // config. Throwing advances the model chain / Queue retry instead.
       if (!looksCompleteBodyText(bodyJa, "ja")) throw new Error("truncated bodyJa (no terminal punctuation)");
       if (!looksCompleteBodyText(bodyEn, "en")) throw new Error("truncated bodyEn (no terminal punctuation)");
       const chat = canGenerateChat
-        ? await generateArticleChat(pat, attemptModel, reasoning, job, timeoutMs, maxTokens)
+        ? await generateArticleChat(backend, attemptModel, job, timeoutMs, maxTokens)
         : undefined;
       entry = buildBodyCacheEntry(job, bodyJa, bodyEn, attemptModel, new Date().toISOString(), chat);
       break;
@@ -416,23 +508,28 @@ export default {
           : recentIssue
           ? "warn"
           : "ok";
-      const ok = cacheBinding && Boolean(env.COPILOT_PAT) && issueSeverity !== "error";
+      const llm = resolveBodyLlmConfig(env);
+      const llmSecretConfigured =
+        llm.provider === "anthropic" ? true : Boolean(env.COPILOT_PAT);
+      const ok = cacheBinding && llmSecretConfigured && issueSeverity !== "error";
       return Response.json(
         {
           ok,
           role: "body-queue-consumer",
-          model: env.BODY_MODEL || DEFAULT_MODEL,
-          modelFallbacks: parseModelChain(
-            env.BODY_MODEL || DEFAULT_MODEL,
-            env.BODY_MODEL_FALLBACKS,
-          ).slice(1),
+          provider: llm.provider,
+          model: llm.chain[0],
+          modelFallbacks: llm.chain.slice(1),
           publisherContractFingerprint: DEPLOYED_PUBLISHER_FINGERPRINT,
           articleChatRevision: DEPLOYED_ARTICLE_CHAT_REVISION,
-          reasoningEffort: env.BODY_REASONING_EFFORT || DEFAULT_REASONING,
+          reasoningEffort:
+            llm.backend.provider === "anthropic"
+              ? llm.backend.effort
+              : llm.backend.reasoningEffort,
           timeoutMs: Number(env.BODY_TIMEOUT_MS ?? DEFAULT_TIMEOUT_MS),
-          maxTokens: Number(env.BODY_MAX_TOKENS ?? DEFAULT_MAX_TOKENS),
+          maxTokens: llm.maxTokens,
           cacheBinding,
           copilotSecretConfigured: Boolean(env.COPILOT_PAT),
+          anthropicSecretConfigured: llm.provider === "anthropic",
           recentIssue,
           issueSeverity,
           issueScope,

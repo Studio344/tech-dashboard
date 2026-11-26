@@ -177,7 +177,7 @@ function assertActionsContext(env: NodeJS.ProcessEnv): void {
   if (
     env.GITHUB_ACTIONS !== "true"
     || env.GITHUB_REF !== "refs/heads/main"
-    || env.GITHUB_REPOSITORY !== "himiyosh/tech-dashboard"
+    || env.GITHUB_REPOSITORY !== "Studio344/tech-dashboard"
   ) {
     throw new Error("incremental shadow writes require the main Publisher workflow");
   }

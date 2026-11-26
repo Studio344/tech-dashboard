@@ -14,7 +14,7 @@
 - `.github/workflows/*.yml` に `wrangler pages deploy` 等の deploy job を **追加してはならない**。
 - `.github/workflows/publisher.yml` は Node publisher の収集、検証、data-only commit、OIDC bridge 経由の Queue / KV 副作用に限定する。Pages / Worker の deploy を行わせない。
 - ユーザーが明示的に依頼しない限り、`.github/workflows/` を新設しない。
-- **例外 (site-owner 依頼 2026-11-26)**: Worker (`tech-dashboard-summarizer` / `tech-dashboard-body` / `tech-dashboard-harness`) の deploy と `ANTHROPIC_API_KEY` の登録は `.github/workflows/deploy-workers.yml` だけが行ってよい。trigger は `workflow_dispatch` のみ (push / pull_request / pull_request_target / schedule を追加しない)、secret は保護ルール付き environment `cloudflare-production` に置き、key は stdin で `wrangler secret put` に渡す。consumers は main か develop、bridge は main からだけ実行し、R-027 の consumer-first / bridge-last 順序を守る。Pages の deploy は引き続き Actions から行わない。回帰ガードは `tests/deploy-workers-workflow.test.ts`。
+- **例外 (site-owner 依頼 2026-11-26)**: Worker (`tech-dashboard-summarizer` / `tech-dashboard-body` / `tech-dashboard-harness`) の deploy と `ANTHROPIC_API_KEY` (consumers) / `GITHUB_DISPATCH_TOKEN` (bridge) の登録は `.github/workflows/deploy-workers.yml` だけが行ってよい。trigger は `workflow_dispatch` のみ (push / pull_request / pull_request_target / schedule を追加しない)、secret は保護ルール付き environment `cloudflare-production` に置き、key は stdin で `wrangler secret put` に渡す。consumers は main か develop、bridge は main からだけ実行し、R-027 の consumer-first / bridge-last 順序を守る。Pages の deploy は引き続き Actions から行わない。回帰ガードは `tests/deploy-workers-workflow.test.ts`。
 - 緊急時のみ `npm --prefix web run deploy:legacy` (Direct Upload) を手動実行可。実行時はscript内でcleanな`main`、`HEAD === origin/main`をbuild前後とupload後に確認し、検証済みcommit SHAをdeploymentへ明示する。
 
 ### R-001b: main への直接 push / PR merge は必ず事前承認 (ABSOLUTE)
@@ -39,7 +39,7 @@
 | 項目 | 値 |
 |---|---|
 | project name | `tech-dashboard` |
-| Git Provider | `github` (himiyosh/tech-dashboard) |
+| Git Provider | `github` (Studio344/tech-dashboard) |
 | production branch | `main` |
 | root directory | `web` |
 | build command | `npm run build` |

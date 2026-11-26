@@ -19,8 +19,8 @@ const NOW = Date.parse("2026-09-15T00:00:00.000Z");
 const minutesAgo = (minutes: number) => new Date(NOW - minutes * 60_000).toISOString();
 
 const ENV: PublisherDispatchEnv = {
-  PUBLISHER_REPOSITORY: "himiyosh/tech-dashboard",
-  PUBLISHER_WORKFLOW_REF: "himiyosh/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main",
+  PUBLISHER_REPOSITORY: "Studio344/tech-dashboard",
+  PUBLISHER_WORKFLOW_REF: "Studio344/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main",
   GITHUB_DISPATCH_TOKEN: "github_pat_test",
 };
 
@@ -118,8 +118,8 @@ describe("runScheduledPublisherDispatch", () => {
     const decision = await runScheduledPublisherDispatch(ENV, { fetchImpl, nowMs: NOW, log });
     expect(decision.action).toBe("dispatch");
     expect(calls.map((call) => `${call.method} ${call.url}`)).toEqual([
-      "GET https://api.github.com/repos/himiyosh/tech-dashboard/actions/workflows/publisher.yml/runs?per_page=1",
-      "POST https://api.github.com/repos/himiyosh/tech-dashboard/actions/workflows/publisher.yml/dispatches",
+      "GET https://api.github.com/repos/Studio344/tech-dashboard/actions/workflows/publisher.yml/runs?per_page=1",
+      "POST https://api.github.com/repos/Studio344/tech-dashboard/actions/workflows/publisher.yml/dispatches",
     ]);
     expect(JSON.parse(calls[1]!.body!)).toEqual({ ref: "main" });
     expect(calls[1]!.headers.authorization).toBe("Bearer github_pat_test");

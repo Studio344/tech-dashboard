@@ -454,9 +454,9 @@ function baseEnv(
     CUTOVER_APPROVED: "0",
     PAGES_FALLBACK_ORIGIN: "https://pages.example",
     PUBLISHER_OIDC_AUDIENCE: "tech-dashboard-publisher",
-    PUBLISHER_REPOSITORY: "himiyosh/tech-dashboard",
+    PUBLISHER_REPOSITORY: "Studio344/tech-dashboard",
     PUBLISHER_WORKFLOW_REF:
-      "himiyosh/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main",
+      "Studio344/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main",
     ...overrides,
   };
 }

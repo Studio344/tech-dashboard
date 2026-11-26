@@ -4,7 +4,8 @@
  * Guards the manual Worker deploy workflow (R-001 exception, 2026-11-26).
  * The repository is public, so the workflow must never run from a fork PR or
  * an ordinary push, must keep its secrets in a protected environment, and
- * must hand the Anthropic key to wrangler on stdin so it never hits a log.
+ * must hand the Anthropic key and the dispatch token to wrangler on stdin so
+ * they never hit a log.
  */
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
@@ -18,7 +19,7 @@ describe("Deploy Workers workflow", () => {
   it("only runs when dispatched by hand", () => {
     expect(onSection).toContain("workflow_dispatch:");
     expect(onSection).not.toMatch(/^\s{2}(push|pull_request|pull_request_target|schedule|workflow_run|repository_dispatch):/m);
-    expect(workflow).toContain("if: github.repository == 'himiyosh/tech-dashboard'");
+    expect(workflow).toContain("if: github.repository == 'Studio344/tech-dashboard'");
   });
 
   it("keeps secrets in the protected environment with read-only repository access", () => {
@@ -37,7 +38,7 @@ describe("Deploy Workers workflow", () => {
   it("passes secrets through env and the API key through stdin only", () => {
     const secretUses = [...workflow.matchAll(/\$\{\{\s*secrets\.([A-Z_]+)\s*\}\}/g)];
     expect(new Set(secretUses.map((match) => match[1]))).toEqual(
-      new Set(["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID", "ANTHROPIC_API_KEY"]),
+      new Set(["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID", "ANTHROPIC_API_KEY", "GITHUB_DISPATCH_TOKEN"]),
     );
     for (const line of workflow.split("\n").filter((l) => l.includes("${{ secrets."))) {
       expect(line, line).toMatch(/^\s+[A-Z_]+: \$\{\{ secrets\.[A-Z_]+ \}\}$/);
@@ -47,6 +48,17 @@ describe("Deploy Workers workflow", () => {
     );
     expect(workflow).not.toMatch(/secret put ANTHROPIC_API_KEY\s+["$]/);
     expect(workflow).not.toMatch(/set -x|echo "\$\{?ANTHROPIC_API_KEY/);
+    expect(workflow).toContain(
+      `printf '%s' "\${GITHUB_DISPATCH_TOKEN}" | npx --no-install wrangler secret put GITHUB_DISPATCH_TOKEN`,
+    );
+    expect(workflow).not.toMatch(/secret put GITHUB_DISPATCH_TOKEN\s+["$]/);
+    expect(workflow).not.toMatch(/echo "\$\{?GITHUB_DISPATCH_TOKEN/);
+  });
+
+  it("stores the dispatch token only in the bridge", () => {
+    expect(workflow).toContain("echo \"::error::update_dispatch_token applies to bridge only.\"");
+    expect(workflow).toContain("if: env.DEPLOY_TARGET == 'bridge' && env.UPDATE_DISPATCH_TOKEN == 'true'");
+    expect(workflow).toContain("(cd worker && printf '%s'");
   });
 
   it("is the only workflow that deploys Workers", () => {

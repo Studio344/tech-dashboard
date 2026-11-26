@@ -73,7 +73,7 @@ async function fetchOgImage(url) {
       signal: controller.signal,
       headers: {
         "User-Agent":
-          "TechDashboard-OGP-Bot/1.0 (github.com/himiyosh/tech-dashboard)",
+          "TechDashboard-OGP-Bot/1.0 (github.com/Studio344/tech-dashboard)",
       },
       redirect: "follow",
     });

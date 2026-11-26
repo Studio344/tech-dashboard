@@ -28,8 +28,8 @@ crons = ["*/30 * * * *"]
 
 [vars]
 PUBLISHER_OIDC_AUDIENCE = "tech-dashboard-publisher"
-PUBLISHER_REPOSITORY = "himiyosh/tech-dashboard"
-PUBLISHER_WORKFLOW_REF = "himiyosh/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main"
+PUBLISHER_REPOSITORY = "Studio344/tech-dashboard"
+PUBLISHER_WORKFLOW_REF = "Studio344/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main"
 
 [observability]
 enabled = true

@@ -117,7 +117,7 @@ export async function collectVscodeUpdates(source: SourceDefinition): Promise<Ra
   const res = await fetch(feedUrl, {
     headers: {
       Accept: "application/atom+xml, application/xml;q=0.9, */*;q=0.8",
-      "User-Agent": "tech-dashboard-bot/0.1 (+https://github.com/himiyosh/tech-dashboard)",
+      "User-Agent": "tech-dashboard-bot/0.1 (+https://github.com/Studio344/tech-dashboard)",
     },
     redirect: "follow",
   });

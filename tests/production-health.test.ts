@@ -53,7 +53,7 @@ describe("production health topology", () => {
 
   it("requests a bounded, unfiltered page and checks the main branch locally", () => {
     expect(DEFAULT_PUBLISHER_RUNS_URL).toBe(
-      "https://api.github.com/repos/himiyosh/tech-dashboard/actions/workflows/publisher.yml/runs?per_page=40",
+      "https://api.github.com/repos/Studio344/tech-dashboard/actions/workflows/publisher.yml/runs?per_page=40",
     );
     expect(new URL(DEFAULT_PUBLISHER_RUNS_URL).searchParams.has("branch")).toBe(false);
 

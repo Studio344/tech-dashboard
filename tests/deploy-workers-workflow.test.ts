@@ -38,7 +38,7 @@ describe("Deploy Workers workflow", () => {
   it("passes secrets through env and the API key through stdin only", () => {
     const secretUses = [...workflow.matchAll(/\$\{\{\s*secrets\.([A-Z_]+)\s*\}\}/g)];
     expect(new Set(secretUses.map((match) => match[1]))).toEqual(
-      new Set(["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID", "ANTHROPIC_API_KEY", "GITHUB_DISPATCH_TOKEN"]),
+      new Set(["CLOUDFLARE_API_TOKEN", "CLOUDFLARE_ACCOUNT_ID", "ANTHROPIC_API_KEY", "DISPATCH_TOKEN"]),
     );
     for (const line of workflow.split("\n").filter((l) => l.includes("${{ secrets."))) {
       expect(line, line).toMatch(/^\s+[A-Z_]+: \$\{\{ secrets\.[A-Z_]+ \}\}$/);
@@ -49,10 +49,15 @@ describe("Deploy Workers workflow", () => {
     expect(workflow).not.toMatch(/secret put ANTHROPIC_API_KEY\s+["$]/);
     expect(workflow).not.toMatch(/set -x|echo "\$\{?ANTHROPIC_API_KEY/);
     expect(workflow).toContain(
-      `printf '%s' "\${GITHUB_DISPATCH_TOKEN}" | npx --no-install wrangler secret put GITHUB_DISPATCH_TOKEN`,
+      `printf '%s' "\${DISPATCH_TOKEN}" | npx --no-install wrangler secret put GITHUB_DISPATCH_TOKEN`,
     );
     expect(workflow).not.toMatch(/secret put GITHUB_DISPATCH_TOKEN\s+["$]/);
-    expect(workflow).not.toMatch(/echo "\$\{?GITHUB_DISPATCH_TOKEN/);
+    expect(workflow).not.toMatch(/echo "\$\{?(GITHUB_)?DISPATCH_TOKEN/);
+  });
+
+  it("never names an Actions secret with the reserved GITHUB_ prefix", () => {
+    // GitHub refuses to store secrets whose names start with GITHUB_.
+    expect(workflow).not.toMatch(/secrets\.GITHUB_/);
   });
 
   it("stores the dispatch token only in the bridge", () => {

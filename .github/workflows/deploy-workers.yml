@@ -1,7 +1,7 @@
 name: Deploy Workers
 
 # Manual Cloudflare Worker deploys and the registration of ANTHROPIC_API_KEY
-# (consumers) and GITHUB_DISPATCH_TOKEN (bridge)
+# (consumers) and GITHUB_DISPATCH_TOKEN (bridge, from the DISPATCH_TOKEN secret)
 # (site-owner request 2026-11-26, R-001 exception, R-027 rollout order).
 #
 # Safety:
@@ -30,7 +30,7 @@ on:
         type: boolean
         default: false
       update_dispatch_token:
-        description: "bridge only: also store the GITHUB_DISPATCH_TOKEN environment secret in the bridge (fine-grained PAT, this repository only, Actions read and write)"
+        description: "bridge only: also store the DISPATCH_TOKEN environment secret in the bridge as GITHUB_DISPATCH_TOKEN (fine-grained PAT, this repository only, Actions read and write)"
         type: boolean
         default: false
 
@@ -159,14 +159,16 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          GITHUB_DISPATCH_TOKEN: ${{ secrets.GITHUB_DISPATCH_TOKEN }}
+          DISPATCH_TOKEN: ${{ secrets.DISPATCH_TOKEN }}
         run: |
           set -eu
-          if [ -z "${GITHUB_DISPATCH_TOKEN:-}" ]; then
-            echo "::error::The GITHUB_DISPATCH_TOKEN secret is not set in the cloudflare-production environment."
+          # GitHub rejects secret names that start with GITHUB_, so the Actions
+          # secret is DISPATCH_TOKEN; the bridge still reads GITHUB_DISPATCH_TOKEN.
+          if [ -z "${DISPATCH_TOKEN:-}" ]; then
+            echo "::error::The DISPATCH_TOKEN secret is not set in the cloudflare-production environment."
             exit 1
           fi
-          (cd worker && printf '%s' "${GITHUB_DISPATCH_TOKEN}" | npx --no-install wrangler secret put GITHUB_DISPATCH_TOKEN)
+          (cd worker && printf '%s' "${DISPATCH_TOKEN}" | npx --no-install wrangler secret put GITHUB_DISPATCH_TOKEN)
 
       - name: Confirm the bridge holds GITHUB_DISPATCH_TOKEN
         if: env.DEPLOY_TARGET == 'bridge'

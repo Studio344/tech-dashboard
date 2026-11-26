@@ -1,0 +1,149 @@
+name: Deploy Workers
+
+# Manual Cloudflare Worker deploys and ANTHROPIC_API_KEY registration
+# (site-owner request 2026-11-26, R-001 exception, R-027 rollout order).
+#
+# Safety:
+# - Runs only on workflow_dispatch. There is no push, pull_request,
+#   pull_request_target or schedule trigger, so a fork PR or an ordinary merge
+#   can never start a deploy or read these secrets. Only collaborators with
+#   write access can dispatch a workflow.
+# - Secrets live in the `cloudflare-production` environment. Protect it with a
+#   required reviewer and deployment branches limited to `main` and `develop`.
+# - Secrets are passed through env only and the API key reaches wrangler on
+#   stdin, never on a command line, so it does not appear in logs.
+#
+# Order (R-027): run `consumers` first, then `bridge` from main.
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: "consumers = tech-dashboard-summarizer + tech-dashboard-body (main or develop). bridge = tech-dashboard-harness (main only, after consumers)."
+        type: choice
+        required: true
+        options:
+          - consumers
+          - bridge
+      update_anthropic_key:
+        description: "consumers only: also store the ANTHROPIC_API_KEY environment secret in both consumers"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tech-dashboard-worker-deploy
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: deploy ${{ inputs.target }}
+    if: github.repository == 'himiyosh/tech-dashboard'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: cloudflare-production
+    env:
+      DEPLOY_TARGET: ${{ inputs.target }}
+      UPDATE_ANTHROPIC_KEY: ${{ inputs.update_anthropic_key }}
+    steps:
+      - name: Check target and branch
+        run: |
+          set -eu
+          case "${DEPLOY_TARGET}:${GITHUB_REF}" in
+            consumers:refs/heads/main | consumers:refs/heads/develop | bridge:refs/heads/main) ;;
+            *)
+              echo "::error::target ${DEPLOY_TARGET} cannot run from ${GITHUB_REF}. consumers runs from main or develop, bridge only from main."
+              exit 1
+              ;;
+          esac
+          if [ "${DEPLOY_TARGET}" = "bridge" ] && [ "${UPDATE_ANTHROPIC_KEY}" = "true" ]; then
+            echo "::error::update_anthropic_key applies to consumers only."
+            exit 1
+          fi
+
+      - uses: actions/checkout@v6
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Confirm the checkout is the current branch head
+        run: |
+          set -eu
+          test -z "$(git status --porcelain --untracked-files=no)"
+          git fetch --quiet --depth=1 origin "${GITHUB_REF_NAME}"
+          if [ "$(git rev-parse FETCH_HEAD)" != "${GITHUB_SHA}" ]; then
+            echo "::error::${GITHUB_REF_NAME} moved after this run started. Dispatch again from the new head."
+            exit 1
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Install root dependencies
+        run: npm ci
+
+      - name: Verify the committed publisher contract
+        run: npm run publisher:contract -- --dry-run
+
+      - name: Deploy Queue consumers
+        if: env.DEPLOY_TARGET == 'consumers'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -eu
+          for dir in worker-summarizer worker-body; do
+            npm --prefix "$dir" ci
+            (cd "$dir" && npx --no-install wrangler deploy)
+          done
+
+      - name: Store ANTHROPIC_API_KEY in both consumers
+        if: env.DEPLOY_TARGET == 'consumers' && env.UPDATE_ANTHROPIC_KEY == 'true'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          set -eu
+          if [ -z "${ANTHROPIC_API_KEY:-}" ]; then
+            echo "::error::The ANTHROPIC_API_KEY secret is not set in the cloudflare-production environment."
+            exit 1
+          fi
+          for dir in worker-summarizer worker-body; do
+            (cd "$dir" && printf '%s' "${ANTHROPIC_API_KEY}" | npx --no-install wrangler secret put ANTHROPIC_API_KEY)
+          done
+
+      - name: Confirm both consumers hold ANTHROPIC_API_KEY
+        if: env.DEPLOY_TARGET == 'consumers'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -eu
+          # `secret list` prints secret names only, never values.
+          for dir in worker-summarizer worker-body; do
+            if ! (cd "$dir" && npx --no-install wrangler secret list --format json) | grep -q '"ANTHROPIC_API_KEY"'; then
+              echo "::error::${dir} has no ANTHROPIC_API_KEY. Run again with update_anthropic_key checked."
+              exit 1
+            fi
+            echo "${dir}: ANTHROPIC_API_KEY is configured"
+          done
+
+      - name: Deploy the Free bridge Worker
+        if: env.DEPLOY_TARGET == 'bridge'
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          set -eu
+          npm --prefix worker ci
+          (cd worker && npx --no-install wrangler deploy)
+
+      - name: Verify the bridge serves the committed fingerprint
+        if: env.DEPLOY_TARGET == 'bridge'
+        run: node scripts/verify-worker-deploy.mjs

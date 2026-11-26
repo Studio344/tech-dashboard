@@ -19,7 +19,8 @@ AI 関連アップデート (Copilot / Claude / Codex / Gemini / Editor / Cline 
 | og:image 取得 | Publisher → OIDC bridge → KV | 毎時最大 1 件。data 検証と push 成功後だけ `og.v1` を更新 | サムネが no-image fallback になる | `health.ogCached` |
 | `data/index.json` / `data/archive/*` / `data/stats.json` 更新 commit | Publisher workflow → built-in `GITHUB_TOKEN` | 全品質ゲート後、差分があるときのみ data allowlist を 1 commit にまとめる | サイトに反映されない、記事数推移が古いまま | GitHub Actions `Publisher` |
 | サイト build / deploy | Cloudflare Pages (Git Integration) | `main` の push 検知 | サイトが古いまま | Cloudflare Pages dashboard |
-| Worker コード deploy 補助 | `scripts/git-hooks/pre-push` | `RUN_WORKER_DEPLOY=1 git push` かつ `main` push に `worker/` 差分あり | Worker 側のロジック修正が反映されない | push 時の出力 (deploy 成功後 `node scripts/verify-worker-deploy.mjs` で fingerprint 伝播を bounded polling 確認、非 blocking) |
+| Worker コード deploy | GitHub Actions「Deploy Workers」(`.github/workflows/deploy-workers.yml`) | `workflow_dispatch` のみ。consumers (main / develop) → bridge (main) の順に手動実行。secret は保護 environment `cloudflare-production` | Worker 側のロジック修正が反映されない | run の最終 step (`secret list` で key の有無、bridge は `verify-worker-deploy.mjs`) |
+| Worker コード deploy 補助 (手元) | `scripts/git-hooks/pre-push` | `RUN_WORKER_DEPLOY=1 git push` かつ `main` push に `worker/` 差分あり | Worker 側のロジック修正が反映されない | push 時の出力 (deploy 成功後 `node scripts/verify-worker-deploy.mjs` で fingerprint 伝播を bounded polling 確認、非 blocking) |
 
 本文 Queue の `health.bodyBacklog` は本文待ちの件数、`health.bodyBudgetEvictedIds` は保存容量の上限により**run をまたいで生成対象から除外中**の ID 集合です（今回 prune した件数ではありません）。Status は両方を区別して表示します。`/metrics.json.bodyQueueBudgetExcludedCount` は未記録なら `null`、空集合なら `0`、除外中なら重複を除いた件数です。除外がある間、`/metrics.json.bodyQueueDrainEstimateHours` は `null` とし、Status でも全件が処理されるかのような有限 ETA を出しません。Publisher が保存する `health.bodyQueueDrainEstimateHours` は変更しません。
 
@@ -27,7 +28,7 @@ AI 関連アップデート (Copilot / Claude / Codex / Gemini / Editor / Cline 
 
 | 作業 | コマンド | 期日の気付き方 |
 |---|---|---|
-| `ANTHROPIC_API_KEY` 登録・更新 (必須) | `cd worker-summarizer && npx wrangler secret put ANTHROPIC_API_KEY` と `worker-body` で同じ操作 | consumer `/health` が `ok: false` と `configError` を返す、または Anthropic の認証エラーが issue に出る |
+| `ANTHROPIC_API_KEY` 登録・更新 (必須) | GitHub Actions「Deploy Workers」を target `consumers`、`update_anthropic_key` にチェックで手動実行 (手元なら `cd worker-summarizer && npx wrangler secret put ANTHROPIC_API_KEY` と `worker-body` で同じ操作) | consumer `/health` が `ok: false` と `configError` を返す、または Anthropic の認証エラーが issue に出る |
 | (shadow) detail-only増分配信の検証 | `docs/07-incremental-serving-shadow.md` の手順 | 専用private R2/D1とshadow Workerは準備済み。既定はoffで、deploy/bootstrapは明示承認時だけ |
 | (緊急) 手動収集 | `npm run collect` | バックログ滞留時 (例: 1h に 5 件以上の新着) |
 | (緊急) cache 済み要約の再反映 | `npm run summaries:apply-cache` | `data/_summary-cache.json` に有効な bilingual summary があるのに `data/index.json` 側が未反映の時 |
@@ -77,7 +78,7 @@ AI 関連アップデート (Copilot / Claude / Codex / Gemini / Editor / Cline 
                    https://tech-dashboard-6a7.pages.dev/
 ```
 
-> **デプロイは GitHub Actions から行いません。** Publisher workflow は data の収集、検証、commit と OIDC bridge 経由の Queue / KV effects だけを担当し、Pages deploy は Cloudflare Pages Git Integration が行います ([.github/copilot-instructions.md](.github/copilot-instructions.md) R-001 参照)。
+> **Pages のデプロイは GitHub Actions から行いません。** Publisher workflow は data の収集、検証、commit と OIDC bridge 経由の Queue / KV effects だけを担当し、Pages deploy は Cloudflare Pages Git Integration が行います ([.github/copilot-instructions.md](.github/copilot-instructions.md) R-001 参照)。例外は Worker の deploy と `ANTHROPIC_API_KEY` 登録で、手動実行専用の「Deploy Workers」workflow だけが行います。
 > `.github/workflows/ci.yml` は **テスト目的のみ** で、Publisher workflow も Pages / Worker の deploy は行いません。
 
 ### 主要更新の新着履歴、RSS、記事シェア

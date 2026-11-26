@@ -200,8 +200,8 @@ develop は毎時の生成dataを受け取らないため、develop pushとPRの
 
 | 範囲 | Advisory | 対応方針 |
 |---|---|---|
-| root | なし (`npm audit --json` total=0) | 継続監視のみ |
-| web | `esbuild >=0.27.3 <0.28.1` low (Astro 6 系の依存として残存) | `astro@7` への semver-major 移行で解消可能。現タスクでは互換性維持のため Astro 6.4.8 まで更新 |
+| root | 7 件 (low 1、moderate 2、high 4。2026-11-26 時点、`npm audit --package-lock-only`) | 未対応。Astro 更新とは別に扱う |
+| web | なし (Astro 7.4.13 固定後、`npm audit` total=0) | 継続監視のみ |
 
 ### 環境変数 (要約パイプライン)
 

@@ -2,11 +2,11 @@
 # tech-dashboard-summarizer — Queue consumer Worker.
 #
 # Receives one entry per invocation from the SUMMARY_QUEUE producer Worker
-# (tech-dashboard-harness), calls Copilot to generate the bilingual JSON
+# (tech-dashboard-harness), calls the Anthropic Claude API to generate the bilingual JSON
 # summary, and writes the result to the SUMMARY_CACHE KV namespace.
 #
 # Split out from the harness Worker because the combined CPU cost of
-# (long-form Copilot JSON parse) + (publishHistoryFiles JSON aggregation)
+# (long-form LLM JSON parse) + (publishHistoryFiles JSON aggregation)
 # exceeded the default 30s per-invocation CPU cap (LL-037). The summarizer is
 # intentionally quality-first: one queue message gets a longer timeout and
 # output budget so the site can publish article-like summaries instead of thin
@@ -25,41 +25,38 @@ binding = "SUMMARY_CACHE"
 id = "6d67debb991742efadfec473a121f5fc"
 
 [vars]
-# GPT-5.6 Sol first, per site-owner priority (2026-08-29). Sol Fast is
-# deliberately NOT in the chain: its model-picker name is "GPT-5.6 Sol Fast
-# (Internal only)", i.e. an internal deployment that could be withdrawn
-# without notice, and the site owner opted out of depending on it. Smoke-
-# tested against the production prompt on real corpus entries: 16/16
-# parse+grounding pass across the gpt-5.6 variants, natural Japanese,
-# 3.6-12.7s per call (R-007 / LL-010 small-batch gate). These models are
-# /responses-only and the worker routes them there
-# (worker/src/copilot-client.ts); claude-sonnet-5 stays last in the chain
-# as the battle-tested safety net on /chat/completions.
-SUMMARIZE_MODEL = "gpt-5.6-sol"
-SUMMARIZE_MODEL_FALLBACKS = "gpt-5.6-terra,gpt-5.6-luna,claude-sonnet-5"
-# Summary-only generation normally completes well below one minute. Bound each
-# attempt so a malformed or stalled response releases the queue slot quickly.
-SUMMARIZE_TIMEOUT_MS = "60000"
-# The response contract is titleJa + summaryJa + summaryEn only. Keeping the
-# budget compact avoids reasoning-token exhaustion and increases queue turnover.
-SUMMARIZE_MAX_TOKENS = "1600"
+# Anthropic Claude API is the only backend (site-owner request 2026-11-26:
+# GitHub Copilot is no longer used). Every model id must start with
+# "claude-"; a non-Claude value fails the job with an explicit error.
+SUMMARIZE_MODEL = "claude-opus-5-5"
+SUMMARIZE_MODEL_FALLBACKS = ""
+# Thinking depth (low | medium | high | xhigh | max). Summaries are short and
+# structured, so medium keeps latency and cost moderate.
+SUMMARIZE_EFFORT = "medium"
+# Bound each attempt so a stalled response releases the queue slot.
+SUMMARIZE_TIMEOUT_MS = "120000"
+# max_tokens covers thinking + the visible JSON answer.
+SUMMARIZE_MAX_TOKENS = "16000"
 
-# Secrets (set via `wrangler secret put --name tech-dashboard-summarizer`):
-#   - COPILOT_PAT    Classic PAT with Copilot Enterprise access
+# Secrets (set via `npx wrangler secret put ANTHROPIC_API_KEY` in this
+# directory):
+#   - ANTHROPIC_API_KEY  Required. Without it every job fails with an explicit
+#                        setup error and /health reports ok: false.
+#                        See worker/src/anthropic-client.ts.
 
 # Queue consumer. Process one entry per invocation so each summarize gets
 # its own CPU budget; Cloudflare auto-retries on throw (up to max_retries).
 # max_concurrency caps how many invocations run at once. Without it,
-# Cloudflare auto-scales to 40+ which fan-outs simultaneous Copilot API
+# Cloudflare auto-scales to 40+ which fan-outs simultaneous LLM API
 # calls and causes upstream rate-limiting (every request AbortError).
-# 2 keeps Copilot pressure moderate while allowing slow, high-quality jobs to
-# drain in parallel. Lower to 1 if Copilot starts rate-limiting long requests.
+# 2 keeps API pressure moderate while allowing slow, high-quality jobs to
+# drain in parallel. Lower to 1 if the API starts rate-limiting long requests.
 [[queues.consumers]]
 queue = "tech-dashboard-summary"
 max_batch_size = 1
 max_batch_timeout = 5
 max_retries = 2
-# Back off timed-out Copilot calls instead of retrying immediately into the
+# Back off timed-out API calls instead of retrying immediately into the
 # same upstream pressure window.
 retry_delay = 120
 max_concurrency = 2

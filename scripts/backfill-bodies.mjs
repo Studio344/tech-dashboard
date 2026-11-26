@@ -10,7 +10,8 @@
  * worker (no drift):
  *   - prompts:   worker/src/body-generate.ts (buildBodyPromptJa/En, cleanBodyText)
  *   - merge:     worker/src/bodies-file.ts   (mergeBodies, isRealBody, ...)
- *   - model:     claude-opus-4.8, reasoning_effort=max, temperature 0.3 (worker-body)
+ *   - model:     Anthropic Claude API, claude-opus-5-5, effort=high (worker-body,
+ *                worker/src/anthropic-client.ts)
  *
  * Safety vs the live collector (which commits data/bodies.json hourly):
  *   - Generated bodies are written incrementally to a gitignored cache
@@ -20,13 +21,13 @@
  *     cloud-generated body landing during the run is preserved, not clobbered.
  *
  * Env (via `tsx --env-file-if-exists=.env.local`):
- *   COPILOT_PAT (or COPILOT_TOKEN)  — required, same as resummarize.mjs
+ *   ANTHROPIC_API_KEY  required, same as resummarize.mjs
  *   BODY_CONCURRENCY   default 6
  *   BODY_MAX_NEW       default Infinity (cap entries this run, for smoke tests)
- *   BODY_MODEL         default claude-opus-4.8
- *   BODY_REASONING_EFFORT default max
- *   BODY_MAX_TOKENS    default 4000
- *   BODY_TIMEOUT_MS    default 120000
+ *   BODY_MODEL         default claude-opus-5-5 (claude-* only)
+ *   BODY_EFFORT        default high (low | medium | high | xhigh | max)
+ *   BODY_MAX_TOKENS    default 16000 (thinking + answer)
+ *   BODY_TIMEOUT_MS    default 180000
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -42,109 +43,39 @@ import {
   isRealBody,
 } from "../worker/src/bodies-file.ts";
 import { hasSufficientBodySourceGrounding } from "../harness/pipeline/source-grounding.ts";
+import {
+  callAnthropicText,
+  DEFAULT_ANTHROPIC_MODEL,
+  parseAnthropicEffort,
+  parseModelChain,
+  parsePositiveInt,
+  requireAnthropicKey,
+} from "../worker/src/anthropic-client.ts";
 
 const INDEX_PATH = "data/index.json";
 const BODIES_PATH = "data/bodies.json";
 const CACHE_PATH = "data/_body-backfill-cache.json";
 
-const MODEL = process.env.BODY_MODEL || "claude-opus-4.8";
-const REASONING = process.env.BODY_REASONING_EFFORT || "max";
-const MAX_TOKENS = Number(process.env.BODY_MAX_TOKENS ?? 4000);
-const TIMEOUT_MS = Number(process.env.BODY_TIMEOUT_MS ?? 120_000);
+const MODEL = parseModelChain(process.env.BODY_MODEL || DEFAULT_ANTHROPIC_MODEL, undefined)[0];
+const EFFORT = parseAnthropicEffort(process.env.BODY_EFFORT, "high");
+const MAX_TOKENS = parsePositiveInt(process.env.BODY_MAX_TOKENS, 16_000, "BODY_MAX_TOKENS");
+const TIMEOUT_MS = Number(process.env.BODY_TIMEOUT_MS ?? 180_000);
 const CONCURRENCY = Math.max(1, Number(process.env.BODY_CONCURRENCY ?? 6));
 const MAX_NEW = Number(process.env.BODY_MAX_NEW ?? Infinity);
 const MIN_BODY_CHARS = 120;
 const FLUSH_EVERY = 8;
 
-const COPILOT_ENDPOINT = "https://api.githubcopilot.com/chat/completions";
-const COPILOT_HEADERS = {
-  "copilot-integration-id": "vscode-chat",
-  "editor-version": "vscode/1.95.0",
-  "editor-plugin-version": "copilot-chat/0.22.0",
-  "openai-intent": "conversation-panel",
-  "user-agent": "GitHubCopilotChat/0.22.0",
-};
+const BODY_SYSTEM_PROMPT =
+  "You are a professional technology editor. Return only the plain-text body the user requested — no JSON, no code fences, no preamble.";
 
-// --- Copilot token (exchange PAT, refresh on age/401) -----------------------
-const TOKEN_TTL_MS = 20 * 60 * 1000; // re-exchange well before the ~30min expiry
-let cachedToken = null;
-let cachedTokenAtMs = 0;
-
-async function exchangePat(pat) {
-  const res = await fetch("https://api.github.com/copilot_internal/v2/token", {
-    headers: {
-      authorization: `token ${pat}`,
-      "user-agent": COPILOT_HEADERS["user-agent"],
-      "editor-version": COPILOT_HEADERS["editor-version"],
-    },
-  });
-  if (!res.ok) {
-    throw new Error(`copilot token exchange ${res.status}: ${(await res.text().catch(() => "")).slice(0, 160)}`);
-  }
-  const data = await res.json();
-  if (!data.token) throw new Error("copilot token exchange: no token in response");
-  return data.token;
-}
-
-async function getToken(force = false) {
-  const direct = process.env.COPILOT_TOKEN;
-  if (direct) return direct;
-  const pat = process.env.COPILOT_PAT;
-  if (!pat) throw new Error("COPILOT_PAT (or COPILOT_TOKEN) is required");
-  const now = Date.now();
-  if (!force && cachedToken && now - cachedTokenAtMs < TOKEN_TTL_MS) return cachedToken;
-  cachedToken = await exchangePat(pat);
-  cachedTokenAtMs = Date.now();
-  return cachedToken;
-}
-
-async function callCopilotText(prompt) {
-  for (let attempt = 0; attempt < 2; attempt++) {
-    const token = await getToken(attempt > 0);
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
-    try {
-      const requestBody = {
-        model: MODEL,
-        temperature: 0.3,
-        max_tokens: MAX_TOKENS,
-        messages: [
-          {
-            role: "system",
-            content:
-              "You are a professional technology editor. Return only the plain-text body the user requested — no JSON, no code fences, no preamble.",
-          },
-          { role: "user", content: prompt },
-        ],
-      };
-      if (REASONING && REASONING !== "none") requestBody.reasoning_effort = REASONING;
-      const res = await fetch(COPILOT_ENDPOINT, {
-        method: "POST",
-        signal: controller.signal,
-        headers: {
-          authorization: `Bearer ${token}`,
-          "content-type": "application/json",
-          ...COPILOT_HEADERS,
-        },
-        body: JSON.stringify(requestBody),
-      });
-      if (res.status === 401 && attempt === 0) {
-        await res.text().catch(() => "");
-        continue; // force token refresh on next attempt
-      }
-      if (!res.ok) throw new Error(`copilot ${res.status}: ${(await res.text().catch(() => "")).slice(0, 160)}`);
-      const json = await res.json();
-      const content = cleanBodyText(json.choices?.[0]?.message?.content ?? "");
-      if (content.length < MIN_BODY_CHARS) throw new Error(`empty/short body (${content.length} chars)`);
-      return content;
-    } catch (err) {
-      if (controller.signal.aborted) throw new Error(`copilot timeout after ${TIMEOUT_MS}ms`);
-      if (attempt === 1) throw err;
-    } finally {
-      clearTimeout(timer);
-    }
-  }
-  throw new Error("unreachable");
+async function callBodyText(prompt) {
+  const result = await callAnthropicText(
+    { model: MODEL, systemPrompt: BODY_SYSTEM_PROMPT, userPrompt: prompt, maxTokens: MAX_TOKENS, effort: EFFORT },
+    { anthropicKey: requireAnthropicKey(process.env), timeoutMs: TIMEOUT_MS },
+  );
+  const content = cleanBodyText(result.text);
+  if (content.length < MIN_BODY_CHARS) throw new Error(`empty/short body (${content.length} chars)`);
+  return content;
 }
 
 // --- cache (resume) ---------------------------------------------------------
@@ -219,7 +150,9 @@ async function main() {
   console.log(
     `[backfill-bodies] live=${idx.entries.length} existing-bodies=${existing.count} cached=${Object.keys(cache).length} eligible=${eligible.length} targets=${targets.length}`,
   );
-  console.log(`[backfill-bodies] model=${MODEL} reasoning=${REASONING} concurrency=${CONCURRENCY} maxTokens=${MAX_TOKENS}`);
+  // Fail fast with the explicit setup error before any work starts.
+  requireAnthropicKey(process.env);
+  console.log(`[backfill-bodies] model=${MODEL} effort=${EFFORT} concurrency=${CONCURRENCY} maxTokens=${MAX_TOKENS}`);
   if (targets.length === 0) {
     applyCacheToBodies(cache);
     console.log("[backfill-bodies] nothing to generate; bodies.json refreshed from cache");
@@ -258,8 +191,8 @@ async function main() {
         tags: e.tags,
       };
       try {
-        const bodyJa = await callCopilotText(buildBodyPromptJa(promptEntry));
-        const bodyEn = await callCopilotText(buildBodyPromptEn(promptEntry));
+        const bodyJa = await callBodyText(buildBodyPromptJa(promptEntry));
+        const bodyEn = await callBodyText(buildBodyPromptEn(promptEntry));
         if (bodyJa.trim().length < MIN_BODY_CHARS || bodyEn.trim().length < MIN_BODY_CHARS) {
           throw new Error(`incomplete (ja=${bodyJa.length}, en=${bodyEn.length})`);
         }

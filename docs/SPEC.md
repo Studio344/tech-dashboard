@@ -36,7 +36,7 @@
        └─────────┬──────────────┘
                  ↓ Cloudflare Queue
        ┌───────────────────────────┐
-       │ tech-dashboard-summarizer │  → Copilot Enterprise (Claude Sonnet 4.6)
+       │ tech-dashboard-summarizer │  → Anthropic Claude API (claude-opus-5-5)
        └───────────────────────────┘
                  ↓ per-URL KV cache
        ┌────────────────────────┐
@@ -56,7 +56,7 @@
 |---|---|---|
 | **GitHub Actions `Publisher`** | Node.js 22 | 毎時6 batchローテーションでRSS収集、fallback、archive/stats、全品質ゲート、data-only commit、push後のeffects flush |
 | **Worker `tech-dashboard-harness`** | Cloudflare Workers Free | GitHub Actions OIDCを検証し、allowlist済みKV read/writeとQueue送信を中継 |
-| **Worker `tech-dashboard-summarizer`** | Cloudflare Workers Queue consumer | 1 message / invocation で Copilot 要約を生成し、KV に per-URL cache として保存 |
+| **Worker `tech-dashboard-summarizer`** | Cloudflare Workers Queue consumer | 1 message / invocation で Claude API 要約を生成し、KV に per-URL cache として保存 |
 | **KV `SUMMARY_CACHE`** | Cloudflare KV | `s:{sha256(url)}` の per-URL summary cache と `og.v1` 画像キャッシュを管理 |
 | **harness (ローカル実行版)** | Node.js 22 / TSX | `npm run collect` で同ロジックをローカル実行 (デバッグ用) |
 | **web (Astro)** | Astro 5 + Pagefind | SSG 静的サイト。`data/index.json` をビルド時に読んで全画面生成 |
@@ -160,7 +160,7 @@ Queue telemetry の `backlog`、`candidate`、実 `enqueued`、`lookup`、`merge
 | ローカル品質ゲート + Worker コード deploy | `scripts/git-hooks/pre-push` | push 前に unit / web build / E2E を実行し、`RUN_WORKER_DEPLOY=1` の `main` push に worker/ 差分がある場合だけ deploy |
 | ヘルス監視 | bridge `/health` + publish run + data freshness / aggregate source outcome + summarizer + `/status` | 毎時外形監視。diagnostic dry-runは成功runから除外 |
 
-**残る手動運用**: Queue consumerの`COPILOT_PAT`更新と、コード変更時の明示承認付きWorker deploy。Publisher commitはbuilt-in `GITHUB_TOKEN`、bridge認証はGitHub Actions OIDCを使うため、新しい長命repository secretは追加しない。Publisherはcommit前にbilingual summary fallbackを適用し、`data/index.json`の本文を必ず空にする。cache済みの有効な要約がindexに未反映の場合だけ`npm run summaries:apply-cache`で再反映する。本文は初回移行後に`data/bodies-[0-3].json`の専用経路で管理し、evergreen、importance 2/3、直近30日を保持する。移行前の`data/bodies.json`は凍結して残す。
+**残る手動運用**: Queue consumerの`ANTHROPIC_API_KEY`登録・更新と、コード変更時の明示承認付きWorker deploy。Publisher commitはbuilt-in `GITHUB_TOKEN`、bridge認証はGitHub Actions OIDCを使うため、新しい長命repository secretは追加しない。Publisherはcommit前にbilingual summary fallbackを適用し、`data/index.json`の本文を必ず空にする。cache済みの有効な要約がindexに未反映の場合だけ`npm run summaries:apply-cache`で再反映する。本文は初回移行後に`data/bodies-[0-3].json`の専用経路で管理し、evergreen、importance 2/3、直近30日を保持する。移行前の`data/bodies.json`は凍結して残す。
 
 ### 2.6 Fully-free incremental serving shadow
 
@@ -187,8 +187,8 @@ interface NormalizedEntry {
   publishedAt: string;    // ISO 8601 (UTC)
   author?: string;
   tags: string[];         // 横断タグ (例: "mcp", "agent", "local")
-  summaryJa?: string;     // Copilot 生成 (日本語 3 文)
-  summaryEn?: string;     // Copilot 生成 (英語 3 文)
+  summaryJa?: string;     // Claude API 生成 (日本語 3 文)
+  summaryEn?: string;     // Claude API 生成 (英語 3 文)
   bodyJa?: string;        // 日本語本文
   bodyEn?: string;        // 英語本文
   importance: 1 | 2 | 3;  // 3=Major release / 2=Feature / 1=Info
@@ -361,9 +361,9 @@ data artifact のサイズ予算は `tests/data-schema.test.ts` で検証する�
 
 ### 5.1 要約 API
 
-- エンドポイント: GitHub Copilot Enterprise Chat Completions (`https://api.githubcopilot.com/chat/completions`)
-- モデル: `claude-sonnet-5` (`SUMMARIZE_MODEL` で変更可)
-- 認証: `COPILOT_PAT` → 一時トークン交換を自動実行 (`x-github-token` ヘッダ経由)
+- エンドポイント: Anthropic Claude Messages API (`@anthropic-ai/sdk`、`worker/src/anthropic-client.ts`)。GitHub Copilot 経由は 2026-11-26 に廃止
+- モデル: `claude-opus-5-5` (`SUMMARIZE_MODEL` で変更可、`claude-*` のみ)。effort は要約 medium、本文 high
+- 認証: `ANTHROPIC_API_KEY` secret (必須)。未設定時は job が明示エラーで retry し、consumer `/health` が `ok: false` と `configError` を返す
 - 出力: JSON `{ titleJa, summaryJa, summaryEn }` を期待。本文は専用 body consumer が別生成する
 
 ---
@@ -534,7 +534,7 @@ data artifact のサイズ予算は `tests/data-schema.test.ts` で検証する�
 
 | キー | 用途 | 管理場所 |
 |---|---|---|
-| `COPILOT_PAT` | Copilot Enterprise 一時トークン交換 | Queue consumerのWrangler Secrets / `.env.local` (ローカル) |
+| `ANTHROPIC_API_KEY` | Anthropic Claude API (要約・本文・記事対話) | Queue consumer (`worker-summarizer` / `worker-body`) のWrangler Secrets / `.env.local` (ローカル) |
 | GitHub Actions OIDC | bridge認証 | GitHub発行の短命token。repository secret不要 |
 | `GITHUB_TOKEN` | data-only commit | GitHub Actions built-in token |
 
@@ -574,7 +574,7 @@ gh workflow run publisher.yml -f dry_run=true
 |---|---|---|
 | Pages Git 連携 | 新規 Git Integration project へ移行 | 初回 deploy 成功後に `techdb.studio344.net` を移行 |
 | 検索の日本語 stem | Pagefind 未対応 | 必要なら kuromoji プラガブル化 |
-| Copilot 要約のレート | Publisher 1 runあたり最大35件をQueue投入 | KV日次上限とbacklogを監視 |
+| Claude API 要約のレート | Publisher 1 runあたり最大35件をQueue投入 | KV日次上限とbacklogを監視 |
 | ライト/ダーク切替 | 固定ダーク | 設定保持付きトグル予定 |
 | 記事詳細ページ | なし (外部リンク直結) | OG 画像 / クリッピング保存機能 |
 | 通知 (Slack / メール) | なし | 重要度 3 エントリを webhook 配信予定 |

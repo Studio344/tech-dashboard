@@ -322,13 +322,13 @@ export function validateSummarizer(body) {
   requireCondition(
     errors,
     body.ok === true,
-    `summarizer health is not ok: ${body.issue?.error ?? "unknown error"}`,
+    `summarizer health is not ok: ${body.configError ?? body.issue?.error ?? "unknown error"}`,
   );
   requireCondition(errors, body.cacheBinding === true, "summarizer cache binding is missing");
   requireCondition(
     errors,
-    body.copilotSecretConfigured === true,
-    "summarizer Copilot secret is missing",
+    body.anthropicSecretConfigured === true,
+    "summarizer ANTHROPIC_API_KEY secret is missing",
   );
   if (body.recentIssue) {
     const issue = body.issue ?? {};

@@ -6,6 +6,7 @@ import {
   validateJsonFeed,
   validatePublicDeployment,
   validatePublisherRuns,
+  validateSummarizer,
 } from "../scripts/check-production-health.mjs";
 import { DEPLOYED_PUBLISHER_FINGERPRINT } from "../worker/src/publisher-contract.ts";
 
@@ -351,5 +352,21 @@ describe("production health topology", () => {
         validResponse,
       ).errors,
     ).toContain("items contain missing id, URL, title, or summary");
+  });
+});
+
+describe("summarizer production health", () => {
+  it("accepts a Claude-backed summarizer and reports a missing ANTHROPIC_API_KEY", () => {
+    expect(
+      validateSummarizer({ ok: true, cacheBinding: true, anthropicSecretConfigured: true }).errors,
+    ).toEqual([]);
+    const missing = validateSummarizer({
+      ok: false,
+      cacheBinding: true,
+      anthropicSecretConfigured: false,
+      configError: "ANTHROPIC_API_KEY is not configured.",
+    }).errors;
+    expect(missing).toContain("summarizer health is not ok: ANTHROPIC_API_KEY is not configured.");
+    expect(missing).toContain("summarizer ANTHROPIC_API_KEY secret is missing");
   });
 });

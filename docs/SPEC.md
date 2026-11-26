@@ -15,7 +15,7 @@
 **スケール**: `harness/registry.ts` の有効データソース (`user-opml` はproduction対象外) / 13カテゴリ / index最大2000件 / **毎時実行**。
 **URL**:
 - 本番: https://techdb.studio344.net/ (Cloudflare Pages の pages.dev サブドメイン: https://tech-dashboard-6a7.pages.dev/)
-- リポジトリ: https://github.com/himiyosh/tech-dashboard
+- リポジトリ: https://github.com/Studio344/tech-dashboard
 - data publisher: GitHub Actions `Publisher`
 - Queue/KV bridge: https://tech-dashboard-harness.himiyosh.workers.dev
 
@@ -40,7 +40,7 @@
        └───────────────────────────┘
                  ↓ per-URL KV cache
        ┌────────────────────────┐
-       │  github.com/himiyosh/  │  main ブランチ
+       │ github.com/Studio344/  │  main ブランチ
        │    tech-dashboard      │
        └─────────┬──────────────┘
                  ↓ push trigger (Cloudflare Pages Git Integration)
@@ -511,7 +511,7 @@ data artifact のサイズ予算は `tests/data-schema.test.ts` で検証する�
 
 | モード | コマンド / 手順 | 自動化度 |
 |---|---|---|
-| **A. Cloudflare Pages Git Integration** | Cloudflare dashboard で `himiyosh/tech-dashboard` を接続 | 完全自動 (`main` push → Cloudflare build → Pages deploy) |
+| **A. Cloudflare Pages Git Integration** | Cloudflare dashboard で `Studio344/tech-dashboard` を接続 | 完全自動 (`main` push → Cloudflare build → Pages deploy) |
 | **B. CLI 直接 (legacy)** | `cd web && npm run deploy:legacy` | 旧 Direct Upload project への手動実行 |
 
 > 現在の方針は A。既存 Direct Upload project `tech-dashboard` は Git Provider 未接続 (`No`) のため、Git Integration 付き新規 Pages project を作成して custom domain を移行する。

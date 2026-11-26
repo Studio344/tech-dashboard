@@ -25,8 +25,8 @@ INCREMENTAL_SERVING_MODE = "off"
 CUTOVER_APPROVED = "0"
 PAGES_FALLBACK_ORIGIN = "https://tech-dashboard-6a7.pages.dev"
 PUBLISHER_OIDC_AUDIENCE = "tech-dashboard-publisher"
-PUBLISHER_REPOSITORY = "himiyosh/tech-dashboard"
-PUBLISHER_WORKFLOW_REF = "himiyosh/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main"
+PUBLISHER_REPOSITORY = "Studio344/tech-dashboard"
+PUBLISHER_WORKFLOW_REF = "Studio344/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main"
 
 [observability]
 enabled = true

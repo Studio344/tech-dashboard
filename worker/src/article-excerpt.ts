@@ -37,7 +37,7 @@ export const DEFAULT_ARTICLE_FETCH_TIMEOUT_MS = 8_000;
 /** Response bytes read at most; pages beyond this are truncated, not skipped. */
 export const MAX_ARTICLE_HTML_BYTES = 512 * 1024;
 const FETCH_CONCURRENCY = 3;
-const USER_AGENT = "tech-dashboard-bot/0.1 (+https://github.com/himiyosh/tech-dashboard)";
+const USER_AGENT = "tech-dashboard-bot/0.1 (+https://github.com/Studio344/tech-dashboard)";
 
 const ENTITY_MAP: Record<string, string> = {
   "&amp;": "&",

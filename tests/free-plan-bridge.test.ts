@@ -6,9 +6,9 @@ import {
 import { DEPLOYED_PUBLISHER_FINGERPRINT } from "../worker/src/publisher-contract.ts";
 
 const nowMs = Date.parse("2026-07-12T12:00:00.000Z");
-const repository = "himiyosh/tech-dashboard";
+const repository = "Studio344/tech-dashboard";
 const workflowRef =
-  "himiyosh/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main";
+  "Studio344/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main";
 const audience = "tech-dashboard-publisher";
 const kid = `test-${Math.random()}`;
 let signingKey: CryptoKey;
@@ -29,7 +29,7 @@ async function token(overrides: Record<string, unknown> = {}): Promise<string> {
     iat: now - 5,
     sub: `repo:${repository}:ref:refs/heads/main`,
     repository,
-    repository_owner: "himiyosh",
+    repository_owner: "Studio344",
     ref: "refs/heads/main",
     ref_type: "branch",
     workflow_ref: workflowRef,

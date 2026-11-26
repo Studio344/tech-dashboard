@@ -572,9 +572,9 @@ function assertActionsContext(env: NodeJS.ProcessEnv): void {
   if (env.GITHUB_REF !== "refs/heads/main") {
     throw new Error(`publisher requires refs/heads/main, received ${env.GITHUB_REF ?? "missing"}`);
   }
-  if (env.GITHUB_REPOSITORY !== "himiyosh/tech-dashboard") {
+  if (env.GITHUB_REPOSITORY !== "Studio344/tech-dashboard") {
     throw new Error(
-      `publisher requires himiyosh/tech-dashboard, received ${env.GITHUB_REPOSITORY ?? "missing"}`,
+      `publisher requires Studio344/tech-dashboard, received ${env.GITHUB_REPOSITORY ?? "missing"}`,
     );
   }
 }
@@ -684,7 +684,7 @@ export async function runPublisherCli(
   });
   const publisherEnv: PublisherEnv = {
     GH_TOKEN: requiredEnv(env, "GITHUB_TOKEN"),
-    GITHUB_OWNER: "himiyosh",
+    GITHUB_OWNER: "Studio344",
     GITHUB_REPO: "tech-dashboard",
     GITHUB_BRANCH: "main",
     SUMMARY_CACHE: summaryCache,

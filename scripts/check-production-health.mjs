@@ -21,7 +21,7 @@ const DEFAULT_PUBLIC_DEPLOY_POLL_MS = 15_000;
 // GitHub's branch=main runs query has returned stale results. Fetch a bounded
 // unfiltered page; isPublishingRun() checks head_branch locally.
 export const DEFAULT_PUBLISHER_RUNS_URL =
-  "https://api.github.com/repos/himiyosh/tech-dashboard/actions/workflows/publisher.yml/runs?per_page=40";
+  "https://api.github.com/repos/Studio344/tech-dashboard/actions/workflows/publisher.yml/runs?per_page=40";
 const PUBLISHER_APPLY_RUN_TITLES = new Set([
   "Publisher / publish",
   "Publisher / reconcile",
@@ -51,7 +51,7 @@ const endpoints = {
     DEFAULT_PUBLISHER_RUNS_URL,
   index:
     process.env.PUBLISHER_INDEX_URL ??
-    "https://raw.githubusercontent.com/himiyosh/tech-dashboard/main/data/index.json",
+    "https://raw.githubusercontent.com/Studio344/tech-dashboard/main/data/index.json",
   jsonFeed: process.env.PUBLIC_JSON_FEED_URL ?? JSON_FEED_URL,
   metrics:
     process.env.PUBLIC_METRICS_URL ??

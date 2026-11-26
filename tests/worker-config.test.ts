@@ -101,12 +101,20 @@ describe("Cloudflare Worker deploy config", () => {
   it("runs queue summarization on the Claude API with a thinking-inclusive budget", () => {
     const summarizerConfig = readConfig("worker-summarizer/wrangler.toml");
 
-    expect(summarizerConfig).toContain('SUMMARIZE_MODEL = "claude-opus-5-5"');
+    expect(summarizerConfig).toContain('SUMMARIZE_MODEL = "claude-sonnet-5-5"');
     expect(summarizerConfig).toContain('SUMMARIZE_EFFORT = "medium"');
     expect(summarizerConfig).toContain('SUMMARIZE_TIMEOUT_MS = "120000"');
     // max_tokens covers adaptive thinking plus the short JSON answer.
     expect(summarizerConfig).toContain('SUMMARIZE_MAX_TOKENS = "16000"');
     expect(summarizerConfig).not.toMatch(/^[A-Z_]+ = "gpt-/m);
+  });
+
+  it("runs production body generation on Sonnet (site-owner cost choice)", () => {
+    const bodyConfig = readConfig("worker-body/wrangler.toml");
+
+    expect(bodyConfig).toContain('BODY_MODEL = "claude-sonnet-5-5"');
+    expect(bodyConfig).toContain('BODY_EFFORT = "high"');
+    expect(bodyConfig).not.toMatch(/^[A-Z_]+ = "gpt-/m);
   });
 
   it("keeps the summary queue producer and consumer wired", () => {

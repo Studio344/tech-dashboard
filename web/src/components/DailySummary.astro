@@ -322,7 +322,7 @@ const catColorOf = (slug: string): string =>
               title={c.slug === "research" ? "Combined Research and arXiv activity" : c.name}
             >
               <span class="dot"></span>
-              <span class="name">{c.displayName}</span>
+              <span class="name">{c.displayName.split("/").map((part, index, parts) => (index < parts.length - 1 ? <Fragment>{part}/<wbr /></Fragment> : part))}</span>
               <span class="bar-wrap">
                 <span
                   class="bar-fill"
@@ -627,9 +627,16 @@ const catColorOf = (slug: string): string =>
   }
   .cat-link .name {
     grid-area: name;
+    /* A long lane name ("OpenHands/OpenCode") may not fit the half-width
+       panel at tablet widths. Let it wrap after its slash onto a second
+       line instead of clipping it; anything longer is clamped to two lines. */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    overflow-wrap: anywhere;
+    line-height: 1.2;
   }
   .cat-link .bar-wrap {
     position: absolute;

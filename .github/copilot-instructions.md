@@ -70,7 +70,7 @@
 
 ### R-007: 記事要約 / 本文生成は Anthropic Claude API だけで行う (site-owner 依頼 2026-11-26)
 - GitHub Copilot 経由の呼び出し (旧 `worker/src/copilot-client.ts`、PAT 交換、GPT-5.6 chain) は site-owner が Copilot を停止したため**廃止**。復活させない。
-- 唯一の経路は `worker/src/anthropic-client.ts`。既定モデルは `claude-opus-5-5` (要約 effort=medium、本文 effort=high、`max_tokens` 既定 16000 は思考込み)。`temperature` と `reasoning_effort` は送らない。
+- 唯一の経路は `worker/src/anthropic-client.ts`。本番の 2 consumer は `wrangler.toml` で `claude-sonnet-5-5` (site-owner がコストを理由に 2026-11-26 に選択)。コード既定は `claude-opus-5-5` (要約 effort=medium、本文 effort=high、`max_tokens` 既定 16000 は思考込み)。`temperature` と `reasoning_effort` は送らない。
 - 許可モデルは `claude-` で始まる ID のみ。`parseModelChain` は他の ID を明示エラーで拒否する (`SUMMARIZE_MODEL` / `BODY_MODEL` に旧 `gpt-*` を残すと job が失敗する)。
 - `ANTHROPIC_API_KEY` は必須。未設定の consumer は job ごとに明示エラーで retry し、`/health` は `ok: false` と `configError` を返す。バックフィル系スクリプトは API 前に終了する。ローカル `npm run collect` のみ警告付きで要約をスキップする。
 - fallback chain は `SUMMARIZE_MODEL` + `SUMMARIZE_MODEL_FALLBACKS` / `BODY_MODEL` + `BODY_MODEL_FALLBACKS` (comma 区切り、Claude のみ)。モデル単位の API エラーは chain を進め、全滅時のみ job を失敗させて Cloudflare Queues の retry/DLQ 契約を維持する。

@@ -21,6 +21,7 @@ TECH Dashboard の利用者向け機能、データ契約、収集・公開基�
 
 ### 変更
 
+- 本番の要約 Worker と本文 Worker のモデルを `claude-sonnet-5-5` に変えました (各 `wrangler.toml`)。毎時の生成コストを抑えるためです。ローカルの collector とバックフィル系スクリプトのコード既定は `claude-opus-5-5` のままです。
 - AI解説本文を記事IDの決定論的hashで4つのJSON shardへ分け、合計18MB (hard 20MB)・各shard 9MB (hard 10MB)の別々の容量gateで保持するようにしました。初回のPublisher runは同一main SHAの既存本文と会話をlosslessに4 shardへ移し、旧単一ファイルは復旧用に凍結して残します。Web、Publisher、CI、migrationは4 shardの完全性とindexに記録したSHA-256を照合し、初回移行後は容量不足による旧9MB除外をbounded Queueへ戻します。
 - 本文保存の容量上限で生成対象から除外中の記事がある場合、Status で本文待ちの合計と除外件数を分けて表示し、全件が一定時間で処理されるかのような見込み時刻を表示しないようにしました。`/metrics.json` の本文 Queue ETA も数値ではなく `null` にします。
 - 旧body consumerが新版jobのfingerprintを転記して生成した旧配役の対話を、新PublisherがPoko対話として取り込まないようにしました。body consumerのコード由来の会話revisionを検証し、通常本文・既存本文への追加の両方で旧cacheを拒否します。本文と保存済みのJA/EN6発言は保持し、欠けた対話は共有Queue枠内でboundedに修復します。通常の旧consumer drainは維持し、会話promptだけの変更に限る代替安全条件は別承認が必要です。

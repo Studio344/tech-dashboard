@@ -23,6 +23,7 @@ TECH Dashboard の利用者向け機能、データ契約、収集・公開基�
 
 - Daily Summary のカテゴリ一覧で、長い名前 (例: OpenHands/OpenCode) がタブレット幅で切れないよう、スラッシュの後で 2 行目へ折り返すようにしました (最大 2 行)。
 - リポジトリを GitHub organization `Studio344` へ移したため、Publisher の実行元チェック、bridge の OIDC 検証 (`PUBLISHER_REPOSITORY` / `PUBLISHER_WORKFLOW_REF`)、「Deploy Workers」の実行条件、本番ヘルスチェックとサイトのリポジトリリンクを `Studio344/tech-dashboard` に合わせました。「Deploy Workers」は target `bridge` で `update_dispatch_token` を選ぶと、environment secret `DISPATCH_TOKEN` を bridge の `GITHUB_DISPATCH_TOKEN` として登録します。
+- bridge の OIDC 検証で、`sub` を GitHub の immutable subject 形式 (owner ID と repository ID 入り) で照合するようにしました。期待値は `PUBLISHER_OIDC_SUBJECT_PREFIX` で設定し、未設定の bridge は `/health` が `503 bridge-misconfigured` を返します。移管後のリポジトリが immutable subject を使っていたため、Publisher が bridge で 401 になっていた問題を直します。
 - 本番の要約 Worker と本文 Worker のモデルを `claude-sonnet-5-5` に変えました (各 `wrangler.toml`)。毎時の生成コストを抑えるためです。ローカルの collector とバックフィル系スクリプトのコード既定は `claude-opus-5-5` のままです。
 - AI解説本文を記事IDの決定論的hashで4つのJSON shardへ分け、合計18MB (hard 20MB)・各shard 9MB (hard 10MB)の別々の容量gateで保持するようにしました。初回のPublisher runは同一main SHAの既存本文と会話をlosslessに4 shardへ移し、旧単一ファイルは復旧用に凍結して残します。Web、Publisher、CI、migrationは4 shardの完全性とindexに記録したSHA-256を照合し、初回移行後は容量不足による旧9MB除外をbounded Queueへ戻します。
 - 本文保存の容量上限で生成対象から除外中の記事がある場合、Status で本文待ちの合計と除外件数を分けて表示し、全件が一定時間で処理されるかのような見込み時刻を表示しないようにしました。`/metrics.json` の本文 Queue ETA も数値ではなく `null` にします。

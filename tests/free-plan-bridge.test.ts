@@ -10,6 +10,8 @@ const repository = "Studio344/tech-dashboard";
 const workflowRef =
   "Studio344/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main";
 const audience = "tech-dashboard-publisher";
+// GitHub's immutable subject format carries the owner and repository IDs.
+const subjectPrefix = "repo:Studio344@361455556/tech-dashboard@1216606051";
 const kid = `test-${Math.random()}`;
 let signingKey: CryptoKey;
 let jwk: JsonWebKey & { kid: string };
@@ -27,7 +29,7 @@ async function token(overrides: Record<string, unknown> = {}): Promise<string> {
     exp: now + 300,
     nbf: now - 5,
     iat: now - 5,
-    sub: `repo:${repository}:ref:refs/heads/main`,
+    sub: `${subjectPrefix}:ref:refs/heads/main`,
     repository,
     repository_owner: "Studio344",
     ref: "refs/heads/main",
@@ -69,24 +71,47 @@ describe("Free-plan publisher bridge", () => {
     await expect(
       verifyGithubActionsOidcToken(
         await token(),
-        { audience, repository, workflowRef, nowMs },
+        { audience, repository, workflowRef, subjectPrefix, nowMs },
         { fetchImpl },
       ),
     ).resolves.toBeUndefined();
     await expect(
       verifyGithubActionsOidcToken(
         await token({ repository: "attacker/repo" }),
-        { audience, repository, workflowRef, nowMs },
+        { audience, repository, workflowRef, subjectPrefix, nowMs },
         { fetchImpl },
       ),
     ).rejects.toThrow(/repository mismatch/);
     await expect(
       verifyGithubActionsOidcToken(
         await token({ event_name: "pull_request" }),
-        { audience, repository, workflowRef, nowMs },
+        { audience, repository, workflowRef, subjectPrefix, nowMs },
         { fetchImpl },
       ),
     ).rejects.toThrow(/event is not allowed/);
+  });
+
+  it("requires the immutable subject with the pinned owner and repository IDs", async () => {
+    const fetchImpl = vi.fn(async () => Response.json({ keys: [jwk] }));
+    const policy = { audience, repository, workflowRef, subjectPrefix, nowMs };
+    // The name-only subject that GitHub sends without the immutable format.
+    await expect(
+      verifyGithubActionsOidcToken(
+        await token({ sub: `repo:${repository}:ref:refs/heads/main` }),
+        policy,
+        { fetchImpl },
+      ),
+    ).rejects.toThrow(/subject mismatch/);
+    // Same names, different repository ID: a recreated repository.
+    await expect(
+      verifyGithubActionsOidcToken(
+        await token({
+          sub: "repo:Studio344@361455556/tech-dashboard@999:ref:refs/heads/main",
+        }),
+        policy,
+        { fetchImpl },
+      ),
+    ).rejects.toThrow(/subject mismatch/);
   });
 
   it("exposes public static health without scheduled execution", async () => {
@@ -102,6 +127,7 @@ describe("Free-plan publisher bridge", () => {
         PUBLISHER_OIDC_AUDIENCE: audience,
         PUBLISHER_REPOSITORY: repository,
         PUBLISHER_WORKFLOW_REF: workflowRef,
+        PUBLISHER_OIDC_SUBJECT_PREFIX: subjectPrefix,
       },
     );
     expect(response.status).toBe(200);
@@ -125,6 +151,7 @@ describe("Free-plan publisher bridge", () => {
       PUBLISHER_OIDC_AUDIENCE: audience,
       PUBLISHER_REPOSITORY: repository,
       PUBLISHER_WORKFLOW_REF: workflowRef,
+      PUBLISHER_OIDC_SUBJECT_PREFIX: subjectPrefix,
     };
     expect(Reflect.deleteProperty(env, "BODY_QUEUE")).toBe(true);
 
@@ -141,6 +168,29 @@ describe("Free-plan publisher bridge", () => {
     });
   });
 
+  it("fails health closed when the OIDC subject prefix is missing", async () => {
+    const response = await handleFreePlanBridgeRequest(
+      new Request("https://bridge.example/health"),
+      {
+        SUMMARY_CACHE: {
+          get: async () => null,
+          put: async () => undefined,
+        },
+        SUMMARY_QUEUE: { sendBatch: async () => undefined },
+        BODY_QUEUE: { sendBatch: async () => undefined },
+        PUBLISHER_OIDC_AUDIENCE: audience,
+        PUBLISHER_REPOSITORY: repository,
+        PUBLISHER_WORKFLOW_REF: workflowRef,
+        PUBLISHER_OIDC_SUBJECT_PREFIX: "",
+      },
+    );
+    expect(response.status).toBe(503);
+    await expect(response.json()).resolves.toMatchObject({
+      ok: false,
+      status: "bridge-misconfigured",
+    });
+  });
+
   it("allows only fingerprinted queue jobs and allowlisted KV keys", async () => {
     const summarySend = vi.fn(async () => undefined);
     const bodySend = vi.fn(async () => undefined);
@@ -153,6 +203,7 @@ describe("Free-plan publisher bridge", () => {
       PUBLISHER_OIDC_AUDIENCE: audience,
       PUBLISHER_REPOSITORY: repository,
       PUBLISHER_WORKFLOW_REF: workflowRef,
+      PUBLISHER_OIDC_SUBJECT_PREFIX: subjectPrefix,
     };
     const job = {
       url: "https://example.com/article",

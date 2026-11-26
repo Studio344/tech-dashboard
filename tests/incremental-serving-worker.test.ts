@@ -457,6 +457,8 @@ function baseEnv(
     PUBLISHER_REPOSITORY: "Studio344/tech-dashboard",
     PUBLISHER_WORKFLOW_REF:
       "Studio344/tech-dashboard/.github/workflows/publisher.yml@refs/heads/main",
+    PUBLISHER_OIDC_SUBJECT_PREFIX:
+      "repo:Studio344@361455556/tech-dashboard@1216606051",
     ...overrides,
   };
 }

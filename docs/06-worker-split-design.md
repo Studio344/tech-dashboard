@@ -105,7 +105,7 @@ bridgeはGitHub JWKSを使ってRS256署名を検証し、次のclaimをfail-clo
 - `refs/heads/main`
 - workflow ref
 - event name
-- subject
+- subject (`PUBLISHER_OIDC_SUBJECT_PREFIX` + `:ref:refs/heads/main`。リポジトリはGitHubのimmutable subjectを使うため、prefixはowner IDとrepository IDを含む `repo:<owner>@<owner_id>/<repo>@<repo_id>` 形式。同名で作り直されたrepositoryのtokenを拒否する)
 - workflow SHA
 - issued-at / not-before / expiry
 

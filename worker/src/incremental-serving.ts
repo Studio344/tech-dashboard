@@ -170,6 +170,7 @@ export interface IncrementalServingEnv {
   PUBLISHER_OIDC_AUDIENCE?: string;
   PUBLISHER_REPOSITORY?: string;
   PUBLISHER_WORKFLOW_REF?: string;
+  PUBLISHER_OIDC_SUBJECT_PREFIX?: string;
 }
 
 interface IncrementalServingHandlerOptions {
@@ -346,14 +347,15 @@ function publisherPolicy(env: IncrementalServingEnv): PublisherOidcPolicy {
   const audience = env.PUBLISHER_OIDC_AUDIENCE?.trim();
   const repository = env.PUBLISHER_REPOSITORY?.trim();
   const workflowRef = env.PUBLISHER_WORKFLOW_REF?.trim();
-  if (!audience || !repository || !workflowRef) {
+  const subjectPrefix = env.PUBLISHER_OIDC_SUBJECT_PREFIX?.trim();
+  if (!audience || !repository || !workflowRef || !subjectPrefix) {
     throw new IncrementalServingContractError(
       "oidc_config_missing",
       "Publisher OIDC policy is not configured",
       503,
     );
   }
-  return { audience, repository, workflowRef };
+  return { audience, repository, workflowRef, subjectPrefix };
 }
 
 async function authenticateApiRequest(

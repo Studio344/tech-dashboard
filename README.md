@@ -13,8 +13,8 @@ AI 関連アップデート (Copilot / Claude / Codex / Gemini / Editor / Cline 
 | 処理 | 実行主体 | トリガ | 失効時の影響 | 監視 |
 |---|---|---|---|---|
 | ソース収集 (registry sources) | GitHub Actions `Publisher` (Node 22) | Cron `0 * * * *` (毎時) を 6 batch ローテーション | データ更新が止まる。runtime fingerprint または snapshot 不一致時は publish を自動停止 | Publisher workflow / `/status` |
-| 日本語/英語要約 (`summary*`) | Publisher → OIDC bridge → Queue `tech-dashboard-summarizer` → Anthropic Claude API (claude-opus-5-5, effort=medium) | 検証済み publish 後に最大 `ENQUEUE_MAX_NEW` 件/run を投入、consumer は 1 message/invocation | 既存表示は維持。LLM 失敗時は deterministic fallback で空欄を防止 | `health.fallbackTotal` / `health.summaryQueueBacklog` / `health.summaryQueueDrainEstimateHours` |
-| 記事本文 (`data/bodies-[0-3].json`) | Publisher → OIDC bridge → Queue `tech-dashboard-body` → Anthropic Claude API (claude-opus-5-5, effort=high) | 本文は index と分離し、記事 ID の hash で4 shardへ配置する。evergreen、importance 2/3、直近 `BODY_RETENTION_DAYS` 日を保持候補にし、合計18MB・各9MBの運用targetを超える時だけ importance 1 → 2 → 3 → evergreen の順で最古から pruneする (LL-411)。旧 `data/bodies.json` は初回のlossless移行後も復旧用に凍結して保持 | 対象外・budget prune・本文無しの記事は要約と原文リンクを表示 | `health.bodyBacklog` / `health.bodyBudgetBytes` / `health.bodyShardBytes` / `health.bodyShardDigests` |
+| 日本語/英語要約 (`summary*`) | Publisher → OIDC bridge → Queue `tech-dashboard-summarizer` → Anthropic Claude API (claude-sonnet-5-5, effort=medium) | 検証済み publish 後に最大 `ENQUEUE_MAX_NEW` 件/run を投入、consumer は 1 message/invocation | 既存表示は維持。LLM 失敗時は deterministic fallback で空欄を防止 | `health.fallbackTotal` / `health.summaryQueueBacklog` / `health.summaryQueueDrainEstimateHours` |
+| 記事本文 (`data/bodies-[0-3].json`) | Publisher → OIDC bridge → Queue `tech-dashboard-body` → Anthropic Claude API (claude-sonnet-5-5, effort=high) | 本文は index と分離し、記事 ID の hash で4 shardへ配置する。evergreen、importance 2/3、直近 `BODY_RETENTION_DAYS` 日を保持候補にし、合計18MB・各9MBの運用targetを超える時だけ importance 1 → 2 → 3 → evergreen の順で最古から pruneする (LL-411)。旧 `data/bodies.json` は初回のlossless移行後も復旧用に凍結して保持 | 対象外・budget prune・本文無しの記事は要約と原文リンクを表示 | `health.bodyBacklog` / `health.bodyBudgetBytes` / `health.bodyShardBytes` / `health.bodyShardDigests` |
 | summary deterministic fallback | Publisher / `scripts/apply-summary-cache.mjs` | data commit 前、または緊急修復時 | LLM timeout / 旧 cache 欠落時でも live index の summary 欠落を防止 | `health.summaryFallbacks` / `tests/data-schema.test.ts` |
 | og:image 取得 | Publisher → OIDC bridge → KV | 毎時最大 1 件。data 検証と push 成功後だけ `og.v1` を更新 | サムネが no-image fallback になる | `health.ogCached` |
 | `data/index.json` / `data/archive/*` / `data/stats.json` 更新 commit | Publisher workflow → built-in `GITHUB_TOKEN` | 全品質ゲート後、差分があるときのみ data allowlist を 1 commit にまとめる | サイトに反映されない、記事数推移が古いまま | GitHub Actions `Publisher` |
@@ -226,7 +226,7 @@ ANTHROPIC_API_KEY=sk-ant-...
 
 | 変数 | 既定 | 用途 |
 |---|---|---|
-| `SUMMARIZE_MODEL` / `BODY_MODEL` | `claude-opus-5-5` | 使用モデル。`claude-` で始まらない ID は明示エラー |
+| `SUMMARIZE_MODEL` / `BODY_MODEL` | `claude-opus-5-5` (本番の 2 consumer は `wrangler.toml` で `claude-sonnet-5-5`) | 使用モデル。`claude-` で始まらない ID は明示エラー |
 | `SUMMARIZE_MODEL_FALLBACKS` / `BODY_MODEL_FALLBACKS` | なし | API エラー時に順に試す Claude モデル (comma 区切り) |
 | `SUMMARIZE_EFFORT` / `BODY_EFFORT` | `medium` / `high` | 思考の深さ (`low`〜`max`)。不正値は job を失敗させる |
 | `SUMMARIZE_MAX_TOKENS` / `BODY_MAX_TOKENS` | `16000` | 思考 + 回答の合計上限 |

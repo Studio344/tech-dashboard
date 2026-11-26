@@ -36,7 +36,7 @@
        └─────────┬──────────────┘
                  ↓ Cloudflare Queue
        ┌───────────────────────────┐
-       │ tech-dashboard-summarizer │  → Anthropic Claude API (claude-opus-5-5)
+       │ tech-dashboard-summarizer │  → Anthropic Claude API (claude-sonnet-5-5)
        └───────────────────────────┘
                  ↓ per-URL KV cache
        ┌────────────────────────┐
@@ -362,7 +362,7 @@ data artifact のサイズ予算は `tests/data-schema.test.ts` で検証する�
 ### 5.1 要約 API
 
 - エンドポイント: Anthropic Claude Messages API (`@anthropic-ai/sdk`、`worker/src/anthropic-client.ts`)。GitHub Copilot 経由は 2026-11-26 に廃止
-- モデル: `claude-opus-5-5` (`SUMMARIZE_MODEL` で変更可、`claude-*` のみ)。effort は要約 medium、本文 high
+- モデル: 本番の consumer は `claude-sonnet-5-5` (`wrangler.toml` の `SUMMARIZE_MODEL` / `BODY_MODEL`)。コード既定は `claude-opus-5-5` で、`claude-*` のみ受け付ける。effort は要約 medium、本文 high
 - 認証: `ANTHROPIC_API_KEY` secret (必須)。未設定時は job が明示エラーで retry し、consumer `/health` が `ok: false` と `configError` を返す
 - 出力: JSON `{ titleJa, summaryJa, summaryEn }` を期待。本文は専用 body consumer が別生成する
 

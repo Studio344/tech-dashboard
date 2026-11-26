@@ -4,12 +4,12 @@
 # Receives one entry per invocation from the BODY_QUEUE producer
 # (tech-dashboard-harness). For each message it generates the Japanese and
 # English long-form article body as TWO separate plain-text Anthropic Claude API calls
-# (claude-opus-5-5, effort=high) and writes the result to the
+# (claude-sonnet-5-5, effort=high) and writes the result to the
 # SUMMARY_CACHE KV namespace under a `b:` per-URL key. The collector then merges
 # `b:` keys into data/bodies.json on publish.
 #
 # Split out from the harness + summarizer Workers (mirrors LL-037/LL-108):
-# body generation is the heaviest LLM work (two long opus calls per entry).
+# body generation is the heaviest LLM work (two long LLM calls per entry).
 # Its own consumer keeps the stable summarizer untouched and isolates body
 # throughput tuning. Body generation is I/O-bound (LLM response wait is NOT
 # billed as CPU time), so the 30s CPU cap is not a constraint (LL-115).
@@ -30,7 +30,8 @@ id = "6d67debb991742efadfec473a121f5fc"
 # Anthropic Claude API is the only backend (site-owner request 2026-11-26:
 # GitHub Copilot is no longer used). Every model id must start with
 # "claude-"; a non-Claude value fails the job with an explicit error.
-BODY_MODEL = "claude-opus-5-5"
+# Sonnet keeps the hourly body cost down (site-owner choice 2026-11-26).
+BODY_MODEL = "claude-sonnet-5-5"
 BODY_MODEL_FALLBACKS = ""
 # Thinking depth (low | medium | high | xhigh | max). Long grounded bodies
 # benefit from deeper reasoning; max_tokens below covers thinking + answer.
@@ -44,9 +45,9 @@ BODY_MAX_TOKENS = "16000"
 #                        setup error and /health reports ok: false.
 #                        See worker/src/anthropic-client.ts.
 
-# Queue consumer. Process one entry per invocation so each entry's two opus
+# Queue consumer. Process one entry per invocation so each entry's two LLM
 # calls get their own budget. max_concurrency=2 keeps API pressure moderate
-# (two long opus calls already make each invocation slow); raise cautiously.
+# (two long LLM calls already make each invocation slow); raise cautiously.
 # retry_delay backs off timed-out API calls instead of hammering upstream.
 [[queues.consumers]]
 queue = "tech-dashboard-body"

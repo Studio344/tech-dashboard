@@ -28,7 +28,8 @@ id = "6d67debb991742efadfec473a121f5fc"
 # Anthropic Claude API is the only backend (site-owner request 2026-11-26:
 # GitHub Copilot is no longer used). Every model id must start with
 # "claude-"; a non-Claude value fails the job with an explicit error.
-SUMMARIZE_MODEL = "claude-opus-5-5"
+# Sonnet keeps the hourly summary cost down (site-owner choice 2026-11-26).
+SUMMARIZE_MODEL = "claude-sonnet-5-5"
 SUMMARIZE_MODEL_FALLBACKS = ""
 # Thinking depth (low | medium | high | xhigh | max). Summaries are short and
 # structured, so medium keeps latency and cost moderate.

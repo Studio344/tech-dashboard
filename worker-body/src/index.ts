@@ -3,10 +3,12 @@
  *
  * Receives one entry per invocation from the BODY_QUEUE producer
  * (tech-dashboard-harness). For each message:
- *   1. Resolve Copilot token from COPILOT_PAT.
- *   2. Generate the Japanese body and the English body as TWO SEPARATE
- *      plain-text calls (claude-opus-4.8, reasoning_effort=max).
- *   3. Write { bodyJa, bodyEn, model, cachedAt } to the SUMMARY_CACHE KV
+ *   1. Generate the Japanese body and the English body as TWO SEPARATE
+ *      plain-text calls to the Anthropic Claude API (claude-opus-5-5 by
+ *      default, worker/src/anthropic-client.ts). The key is the
+ *      ANTHROPIC_API_KEY secret; without it the job fails with an explicit
+ *      setup error.
+ *   2. Write { bodyJa, bodyEn, model, cachedAt } to the SUMMARY_CACHE KV
  *      namespace under a `b:` per-URL key.
  *
  * Why a separate Worker (mirrors the summarizer, LL-037/LL-108):
@@ -20,7 +22,7 @@
  *   the reasoning-loop-empties failure. Two plain-text single-language calls
  *   each finish cleanly (verified by live API probe).
  *
- * Failure handling mirrors the summarizer: Copilot timeout/token error -> throw
+ * Failure handling mirrors the summarizer: API timeout/error/missing key -> throw
  * -> Cloudflare Queues retries with backoff; KV daily write cap -> ack and
  * retry tomorrow (LL-043); persistent failure -> DLQ.
  */
@@ -45,12 +47,16 @@ import { looksCompleteBodyText } from "../../worker/src/bodies-file.ts";
 import { UNVERSIONED_JOB_FINGERPRINT } from "../../worker/src/kv-cache.ts";
 import { DEPLOYED_PUBLISHER_FINGERPRINT } from "../../worker/src/publisher-contract.ts";
 import {
-  buildCopilotRequestBody,
-  copilotEndpointForModel,
-  copilotEndpointUrl,
-  extractCopilotText,
+  ANTHROPIC_API_KEY_MISSING,
+  callAnthropicText,
+  DEFAULT_ANTHROPIC_MODEL,
+  type AnthropicEffort,
+  parseAnthropicEffort,
   parseModelChain,
-} from "../../worker/src/copilot-client.ts";
+  parsePositiveInt,
+  readAnthropicKey,
+  requireAnthropicKey,
+} from "../../worker/src/anthropic-client.ts";
 import {
   buildArticleChatPrompt,
   chatGroundingText,
@@ -61,30 +67,26 @@ import {
 
 interface Env {
   SUMMARY_CACHE: KVNamespace;
-  COPILOT_PAT: string;
+  /** Secret (`wrangler secret put ANTHROPIC_API_KEY`). Required. */
+  ANTHROPIC_API_KEY?: string;
+  /** Claude model id (default claude-opus-5-5). */
   BODY_MODEL?: string;
-  /** Comma-separated ordered fallback models tried when a call errors. */
+  /** Comma-separated ordered fallback Claude models tried when a call errors. */
   BODY_MODEL_FALLBACKS?: string;
-  BODY_REASONING_EFFORT?: string;
+  /** low | medium | high | xhigh | max (default high). */
+  BODY_EFFORT?: string;
   BODY_TIMEOUT_MS?: string;
+  /** Covers thinking + answer (default 16000). */
   BODY_MAX_TOKENS?: string;
 }
 
-const COPILOT_HEADERS: Record<string, string> = {
-  "editor-version": "vscode/1.95.0",
-  "editor-plugin-version": "copilot-chat/0.22.0",
-  "openai-intent": "conversation-panel",
-  "user-agent": "GitHubCopilotChat/0.22.0",
-};
+const BODY_SYSTEM_PROMPT =
+  "You are a professional technology editor. Return only the plain-text body the user requested — no JSON, no code fences, no preamble.";
 
-const DEFAULT_MODEL = "claude-opus-4.8";
-const DEFAULT_REASONING = "max";
-const DEFAULT_TIMEOUT_MS = 120_000;
-const DEFAULT_MAX_TOKENS = 4000;
-// Token freshness skew must exceed the longest single call timeout so a token
-// that passes the freshness check cannot expire mid-call (LL-105).
-const TOKEN_REFRESH_SKEW_MS = 180_000;
-const DEFAULT_TOKEN_TTL_MS = 20 * 60_000;
+const DEFAULT_TIMEOUT_MS = 180_000;
+// max_tokens covers thinking + the visible answer on current Claude models.
+const DEFAULT_MAX_TOKENS = 16_000;
+const DEFAULT_EFFORT: AnthropicEffort = "high";
 const ISSUE_KEY = "body.issue.v1";
 const ISSUE_TTL_SECONDS = 6 * 60 * 60;
 const RECENT_ISSUE_MS = 60 * 60_000;
@@ -94,96 +96,32 @@ type IssueScope = "entry" | "runtime";
 // a near-empty response slipping through as "complete").
 const MIN_BODY_CHARS = 120;
 
-let cachedCopilotToken: { pat: string; token: string; expiresAtMs: number } | null = null;
-
-async function resolveCopilotToken(pat: string, forceRefresh = false): Promise<string> {
-  const now = Date.now();
-  if (
-    !forceRefresh &&
-    cachedCopilotToken?.pat === pat &&
-    cachedCopilotToken.expiresAtMs - TOKEN_REFRESH_SKEW_MS > now
-  ) {
-    return cachedCopilotToken.token;
-  }
-  if (forceRefresh) cachedCopilotToken = null;
-
-  const res = await fetch("https://api.github.com/copilot_internal/v2/token", {
-    headers: {
-      authorization: `token ${pat}`,
-      "user-agent": COPILOT_HEADERS["user-agent"],
-      "editor-version": COPILOT_HEADERS["editor-version"],
-    },
-  });
-  if (!res.ok) {
-    throw new Error(`copilot token exchange ${res.status}: ${await res.text()}`);
-  }
-  const body = (await res.json()) as { token: string; expires_at?: number };
-  const expiresAtMs =
-    typeof body.expires_at === "number" && Number.isFinite(body.expires_at)
-      ? body.expires_at * 1000
-      : now + DEFAULT_TOKEN_TTL_MS;
-  cachedCopilotToken = { pat, token: body.token, expiresAtMs };
-  return body.token;
-}
-
 /**
- * One plain-text Copilot call. Returns the cleaned body string. Throws on
- * non-200 (so Cloudflare Queues retries) and force-refreshes the IDE token on a
- * 401 mid-batch expiry (LL-105). Empty content (reasoning-loop) throws so the
- * caller's retry / Queue retry kicks in.
+ * One plain-text Claude call. Returns the cleaned body string and throws on an
+ * API error, refusal, truncation or a near-empty answer, so the model chain /
+ * Cloudflare Queues retry takes over instead of persisting a bad body.
  */
-async function callCopilotText(
-  pat: string,
+async function callBodyModel(
+  config: BodyLlmConfig,
   model: string,
-  reasoningEffort: string,
   prompt: string,
   timeoutMs: number,
-  maxTokens: number,
 ): Promise<string> {
-  for (let attempt = 0; ; attempt++) {
-    const token = await resolveCopilotToken(pat, attempt > 0);
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), timeoutMs);
-    try {
-      // GPT-5.x models are /responses-only, reject `temperature`, and take no
-      // reasoning_effort field there (the chat-endpoint claude knob); shaping
-      // is shared with the summarizer (worker/src/copilot-client.ts).
-      const endpoint = copilotEndpointForModel(model);
-      const requestBody = buildCopilotRequestBody({
-        model,
-        systemPrompt:
-          "You are a professional technology editor. Return only the plain-text body the user requested — no JSON, no code fences, no preamble.",
-        userPrompt: prompt,
-        maxTokens,
-        temperature: 0.3,
-        reasoningEffort,
-      });
-      const res = await fetch(copilotEndpointUrl(endpoint), {
-        method: "POST",
-        signal: controller.signal,
-        headers: {
-          authorization: `Bearer ${token}`,
-          "content-type": "application/json",
-          ...COPILOT_HEADERS,
-        },
-        body: JSON.stringify(requestBody),
-      });
-      if (res.status === 401 && attempt === 0) {
-        await res.text().catch(() => "");
-        continue;
-      }
-      if (!res.ok) {
-        throw new Error(`copilot ${res.status}: ${await res.text()}`);
-      }
-      const content = cleanBodyText(extractCopilotText(endpoint, await res.json()));
-      if (content.length < MIN_BODY_CHARS) {
-        throw new Error(`empty/short body (${content.length} chars)`);
-      }
-      return content;
-    } finally {
-      clearTimeout(timeout);
-    }
+  const result = await callAnthropicText(
+    {
+      model,
+      systemPrompt: BODY_SYSTEM_PROMPT,
+      userPrompt: prompt,
+      maxTokens: config.maxTokens,
+      effort: config.effort,
+    },
+    { anthropicKey: config.anthropicKey, timeoutMs },
+  );
+  const content = cleanBodyText(result.text);
+  if (content.length < MIN_BODY_CHARS) {
+    throw new Error(`empty/short body (${content.length} chars)`);
   }
+  return content;
 }
 
 export function isBodyEntryComplete(
@@ -230,22 +168,13 @@ export function buildBodyCacheEntry(
  * never fail, retry, or DLQ a job whose bodies already succeeded.
  */
 async function generateArticleChat(
-  pat: string,
+  config: BodyLlmConfig,
   model: string,
-  reasoning: string,
   job: BodyJob,
   timeoutMs: number,
-  maxTokens: number,
 ): Promise<ArticleChatTurn[] | undefined> {
   try {
-    const raw = await callCopilotText(
-      pat,
-      model,
-      reasoning,
-      buildArticleChatPrompt(job.entry),
-      timeoutMs,
-      maxTokens,
-    );
+    const raw = await callBodyModel(config, model, buildArticleChatPrompt(job.entry), timeoutMs);
     const turns = parseArticleChat(raw);
     if (!turns) {
       console.warn(`[body] chat discarded for ${job.url}: structural contract not met`);
@@ -265,12 +194,35 @@ async function generateArticleChat(
   }
 }
 
+export interface BodyLlmConfig {
+  anthropicKey: string;
+  effort: AnthropicEffort;
+  chain: string[];
+  maxTokens: number;
+}
+
+/** Settings shared by the queue path and /health; never touches the key. */
+function resolveBodySettings(env: Env): Omit<BodyLlmConfig, "anthropicKey"> {
+  return {
+    effort: parseAnthropicEffort(env.BODY_EFFORT, DEFAULT_EFFORT),
+    chain: parseModelChain(env.BODY_MODEL || DEFAULT_ANTHROPIC_MODEL, env.BODY_MODEL_FALLBACKS),
+    maxTokens: parsePositiveInt(env.BODY_MAX_TOKENS, DEFAULT_MAX_TOKENS, "BODY_MAX_TOKENS"),
+  };
+}
+
+/**
+ * Claude API settings for one job. Throws the explicit setup error when the
+ * ANTHROPIC_API_KEY secret is missing, and on any invalid model / effort /
+ * token setting.
+ */
+export function resolveBodyLlmConfig(env: Env): BodyLlmConfig {
+  return { anthropicKey: requireAnthropicKey(env), ...resolveBodySettings(env) };
+}
+
 async function processJob(env: Env, job: BodyJob): Promise<void> {
-  const pat = env.COPILOT_PAT;
-  const chain = parseModelChain(env.BODY_MODEL || DEFAULT_MODEL, env.BODY_MODEL_FALLBACKS);
-  const reasoning = env.BODY_REASONING_EFFORT || DEFAULT_REASONING;
+  const config = resolveBodyLlmConfig(env);
+  const { chain } = config;
   const timeoutMs = Number(env.BODY_TIMEOUT_MS ?? DEFAULT_TIMEOUT_MS);
-  const maxTokens = Number(env.BODY_MAX_TOKENS ?? DEFAULT_MAX_TOKENS);
   if (!hasSufficientBodySourceGrounding(job.entry)) {
     throw new Error(`insufficient source grounding for ${job.url}`);
   }
@@ -279,9 +231,8 @@ async function processJob(env: Env, job: BodyJob): Promise<void> {
     console.warn("[body] chat generation skipped: job fingerprint differs from compiled consumer");
   }
 
-  // Two separate single-language calls (LL-115). Sequential so one shared token
-  // covers both and Copilot pressure stays moderate (max_concurrency also caps
-  // parallel invocations). Each call is I/O-bound (no Worker CPU cost, LL-115).
+  // Two separate single-language calls (LL-115). Sequential so API pressure
+  // stays moderate (max_concurrency also caps parallel invocations). Each call is I/O-bound (no Worker CPU cost, LL-115).
   //
   // Both languages come from the SAME model: mixing models inside one bilingual
   // entry would give the two halves different styles and failure modes. A
@@ -297,15 +248,15 @@ async function processJob(env: Env, job: BodyJob): Promise<void> {
       );
     }
     try {
-      const bodyJa = await callCopilotText(pat, attemptModel, reasoning, buildBodyPromptJa(job.entry), timeoutMs, maxTokens);
-      const bodyEn = await callCopilotText(pat, attemptModel, reasoning, buildBodyPromptEn(job.entry), timeoutMs, maxTokens);
+      const bodyJa = await callBodyModel(config, attemptModel, buildBodyPromptJa(job.entry), timeoutMs);
+      const bodyEn = await callBodyModel(config, attemptModel, buildBodyPromptEn(job.entry), timeoutMs);
       // A max_tokens-truncated body must never be persisted: the 2026-08-29
       // audit found 16.9% of the indexed corpus cut mid-word by the old opus
       // config. Throwing advances the model chain / Queue retry instead.
       if (!looksCompleteBodyText(bodyJa, "ja")) throw new Error("truncated bodyJa (no terminal punctuation)");
       if (!looksCompleteBodyText(bodyEn, "en")) throw new Error("truncated bodyEn (no terminal punctuation)");
       const chat = canGenerateChat
-        ? await generateArticleChat(pat, attemptModel, reasoning, job, timeoutMs, maxTokens)
+        ? await generateArticleChat(config, attemptModel, job, timeoutMs)
         : undefined;
       entry = buildBodyCacheEntry(job, bodyJa, bodyEn, attemptModel, new Date().toISOString(), chat);
       break;
@@ -416,23 +367,31 @@ export default {
           : recentIssue
           ? "warn"
           : "ok";
-      const ok = cacheBinding && Boolean(env.COPILOT_PAT) && issueSeverity !== "error";
+      const anthropicSecretConfigured = readAnthropicKey(env) !== null;
+      let settings: ReturnType<typeof resolveBodySettings> | null = null;
+      let configError: string | null = null;
+      try {
+        settings = resolveBodySettings(env);
+      } catch (err) {
+        configError = err instanceof Error ? err.message : String(err);
+      }
+      const ok =
+        cacheBinding && anthropicSecretConfigured && settings !== null && issueSeverity !== "error";
       return Response.json(
         {
           ok,
           role: "body-queue-consumer",
-          model: env.BODY_MODEL || DEFAULT_MODEL,
-          modelFallbacks: parseModelChain(
-            env.BODY_MODEL || DEFAULT_MODEL,
-            env.BODY_MODEL_FALLBACKS,
-          ).slice(1),
+          provider: "anthropic",
+          model: settings?.chain[0] ?? null,
+          modelFallbacks: settings?.chain.slice(1) ?? [],
           publisherContractFingerprint: DEPLOYED_PUBLISHER_FINGERPRINT,
           articleChatRevision: DEPLOYED_ARTICLE_CHAT_REVISION,
-          reasoningEffort: env.BODY_REASONING_EFFORT || DEFAULT_REASONING,
+          effort: settings?.effort ?? null,
           timeoutMs: Number(env.BODY_TIMEOUT_MS ?? DEFAULT_TIMEOUT_MS),
-          maxTokens: Number(env.BODY_MAX_TOKENS ?? DEFAULT_MAX_TOKENS),
+          maxTokens: settings?.maxTokens ?? null,
           cacheBinding,
-          copilotSecretConfigured: Boolean(env.COPILOT_PAT),
+          anthropicSecretConfigured,
+          configError: configError ?? (anthropicSecretConfigured ? null : ANTHROPIC_API_KEY_MISSING),
           recentIssue,
           issueSeverity,
           issueScope,

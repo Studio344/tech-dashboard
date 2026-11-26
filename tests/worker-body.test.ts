@@ -284,14 +284,7 @@ describe("body Queue consumer article chat rollout", () => {
       put,
     } as unknown as KVNamespace;
     let modelCalls = 0;
-    const fetchMock = vi.fn(async (input: string | URL | Request) => {
-      const url = input instanceof Request ? input.url : String(input);
-      if (url.includes("api.github.com/copilot_internal/v2/token")) {
-        return Response.json({
-          token: "test-ide-token",
-          expires_at: Math.floor(Date.now() / 1000) + 1200,
-        });
-      }
+    const fetchMock = vi.fn(async () => {
       modelCalls += 1;
       const content = [
         "GLM-5.2をCloudflare Workers AIで試す手順を記事に沿って説明する。".repeat(8),
@@ -299,7 +292,16 @@ describe("body Queue consumer article chat rollout", () => {
         JSON.stringify(chat),
       ][modelCalls - 1];
       if (!content) throw new Error("unexpected model request");
-      return Response.json({ choices: [{ message: { content } }] });
+      return Response.json({
+        id: "msg_test",
+        type: "message",
+        role: "assistant",
+        model: "claude-opus-5-5",
+        content: [{ type: "text", text: content, citations: null }],
+        stop_reason: "end_turn",
+        stop_sequence: null,
+        usage: { input_tokens: 1, output_tokens: 1 },
+      });
     });
     const warning = vi.spyOn(console, "warn").mockImplementation(() => {});
     vi.stubGlobal("fetch", fetchMock);
@@ -318,8 +320,8 @@ describe("body Queue consumer article chat rollout", () => {
         } as unknown as MessageBatch,
         {
           SUMMARY_CACHE: kv,
-          COPILOT_PAT: `test-pat-${fingerprint ?? "unversioned"}`,
-          BODY_MODEL: "claude-opus-4.8",
+          ANTHROPIC_API_KEY: "sk-ant-test",
+          BODY_MODEL: "claude-opus-5-5",
         },
         {} as ExecutionContext,
       );
@@ -362,14 +364,7 @@ describe("body Queue consumer article chat rollout", () => {
     const ack = vi.fn();
     const retry = vi.fn();
     const put = vi.fn(async () => {});
-    vi.stubGlobal("fetch", vi.fn(async (input: string | URL | Request) => {
-      const url = input instanceof Request ? input.url : String(input);
-      if (url.includes("api.github.com/copilot_internal/v2/token")) {
-        return Response.json({
-          token: "test-retry-token",
-          expires_at: Math.floor(Date.now() / 1000) + 1200,
-        });
-      }
+    vi.stubGlobal("fetch", vi.fn(async () => {
       throw new Error("model unavailable");
     }));
     const warning = vi.spyOn(console, "warn").mockImplementation(() => {});
@@ -389,8 +384,8 @@ describe("body Queue consumer article chat rollout", () => {
             get: async () => null,
             put,
           } as unknown as KVNamespace,
-          COPILOT_PAT: "test-pat-retry",
-          BODY_MODEL: "claude-opus-4.8",
+          ANTHROPIC_API_KEY: "sk-ant-test",
+          BODY_MODEL: "claude-opus-5-5",
         },
         {} as ExecutionContext,
       );
@@ -409,7 +404,7 @@ describe("body consumer health issue scope", () => {
     expect(classifyBodyIssueScope(new Error("empty/short body (0 chars)"))).toBe("entry");
     expect(classifyBodyIssueScope(new Error("incomplete or ungrounded body for https://example.com/x"))).toBe("entry");
     expect(classifyBodyIssueScope(new Error("insufficient source grounding for https://example.com/x"))).toBe("entry");
-    expect(classifyBodyIssueScope(new Error("Copilot timeout"))).toBe("runtime");
+    expect(classifyBodyIssueScope(new Error("Claude API timeout"))).toBe("runtime");
   });
 
   it("keeps a repeated entry-specific failure visible without failing global health", async () => {
@@ -423,7 +418,7 @@ describe("body consumer health issue scope", () => {
           repeatCount: 3,
           error: "Error: empty/short body (0 chars)",
         }),
-        COPILOT_PAT: "configured",
+        ANTHROPIC_API_KEY: "sk-ant-test",
       },
       {} as ExecutionContext,
     );
@@ -447,9 +442,9 @@ describe("body consumer health issue scope", () => {
           at: new Date().toISOString(),
           url: "https://example.com/runtime-failure",
           repeatCount: 3,
-          error: "Error: Copilot timeout",
+          error: "Error: Claude API timeout",
         }),
-        COPILOT_PAT: "configured",
+        ANTHROPIC_API_KEY: "sk-ant-test",
       },
       {} as ExecutionContext,
     );
@@ -467,7 +462,7 @@ describe("body consumer health issue scope", () => {
       new Request("https://tech-dashboard-body.example/health"),
       {
         SUMMARY_CACHE: undefined as unknown as KVNamespace,
-        COPILOT_PAT: "configured",
+        ANTHROPIC_API_KEY: "sk-ant-test",
       },
       {} as ExecutionContext,
     );

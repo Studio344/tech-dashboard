@@ -1,9 +1,9 @@
 /**
  * resummarize.mjs — run the summarize pipeline against existing data/index.json
- * without re-collecting. Picks entries lacking summaryJa, calls Copilot, and
- * writes back.
+ * without re-collecting. Picks entries lacking summaryJa, calls the Anthropic
+ * Claude API (harness/pipeline/summarize.ts), and writes back.
  *
- * Env: COPILOT_PAT (or COPILOT_TOKEN). SUMMARIZE_MAX_NEW caps per run.
+ * Env: ANTHROPIC_API_KEY. SUMMARIZE_MAX_NEW caps per run.
  */
 import fs from "node:fs";
 import { summarize } from "../harness/pipeline/summarize.ts";

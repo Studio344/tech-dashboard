@@ -1,25 +1,20 @@
 /**
- * summarize.ts - GitHub Copilot Enterprise (Chat Completions) による summary-only 補完.
+ * summarize.ts - Anthropic Claude API による summary-only 補完.
  *
- * **Copilot Enterprise 前提**。Claude Opus 4.7 / GPT-5.5 など、Copilot で
- * 提供されているモデルを直接呼び出す。GitHub Models (別課金) とは別物。
+ * GitHub Copilot は使わない (サイトオーナー要望 2026-11-26)。呼び出しは
+ * worker/src/anthropic-client.ts を Queue consumer と共有する。
  *
- * 認証フロー:
- *   1. COPILOT_TOKEN (一時トークン) が既に渡っていればそれを使う
- *   2. そうでなければ COPILOT_PAT (Copilot Enterprise 権限持ちの PAT) から
- *      `https://api.github.com/copilot_internal/v2/token` で交換する
- *   どちらも無ければ要約フェーズをスキップ (ローカル dev での軽量実行)。
+ * 認証: ANTHROPIC_API_KEY (.env.local などで本人が設定)。未設定なら要約
+ * フェーズを明示的な警告付きでスキップする (ローカル dev での軽量実行)。
  *
  * 環境変数:
- *   COPILOT_TOKEN        … 一時トークン (交換済み)。CI 等で直接注入する場合
- *   COPILOT_PAT          … PAT (classic でよい)。上記より優先度低
- *   SUMMARIZE_MODEL      … 既定 "claude-sonnet-5"
- *                          補完/backfill は claude-sonnet-5 / claude-opus-4.7 / gpt-5.5 のみ許可
- *   SUMMARIZE_ENDPOINT   … 既定 "https://api.githubcopilot.com/chat/completions"
- *   SUMMARIZE_MAX_NEW    … 1 ラン当たりの新規要約上限 (既定 15)
- *   SUMMARIZE_MAX_TOKENS … Copilot API の最大出力 token 数 (既定 1600)
- *   SUMMARIZE_TIMEOUT_MS … Copilot API 呼び出しのタイムアウト (既定 180000)
- *   SUMMARIZE_CONCURRENCY … Copilot API 呼び出しの並列数 (既定 4)
+ *   ANTHROPIC_API_KEY     … 必須 (未設定ならスキップ)
+ *   SUMMARIZE_MODEL       … 既定 "claude-opus-5-5"。claude-* 以外は起動時にエラー
+ *   SUMMARIZE_EFFORT      … 既定 "medium" (low/medium/high/xhigh/max)
+ *   SUMMARIZE_MAX_NEW     … 1 ラン当たりの新規要約上限 (既定 15)
+ *   SUMMARIZE_MAX_TOKENS  … thinking + 回答の合計上限 (既定 16000)
+ *   SUMMARIZE_TIMEOUT_MS  … API 呼び出しのタイムアウト (既定 180000)
+ *   SUMMARIZE_CONCURRENCY … API 呼び出しの並列数 (既定 4)
  *
  * キャッシュ: data/_summary-cache.json (URL キー)
  * 現行 contract は summary-only。bodyJa/bodyEn は legacy cache の保持用で、
@@ -37,6 +32,16 @@ import {
 } from "./summary-quality.ts";
 import { hasSufficientSourceGrounding } from "./source-grounding.ts";
 import { normalizeTags } from "./tag.ts";
+import {
+  ANTHROPIC_API_KEY_MISSING,
+  callAnthropicText,
+  DEFAULT_ANTHROPIC_MODEL,
+  parseAnthropicEffort,
+  parseModelChain,
+  parsePositiveInt,
+  readAnthropicKey,
+  type AnthropicEffort,
+} from "../../worker/src/anthropic-client.ts";
 
 interface CacheEntry {
   titleJa: string;
@@ -52,46 +57,30 @@ interface CacheEntry {
 
 type Cache = Record<string, CacheEntry>;
 
-const DEFAULT_SUMMARIZE_MODEL = "claude-sonnet-5";
-const ALLOWED_SUMMARIZE_MODELS = new Set([
-  DEFAULT_SUMMARIZE_MODEL,
-  "claude-opus-4.7",
-  "claude-opus-4.8",
-  "gpt-5.5",
-]);
-
+/** The Claude model for summaries; non-Claude ids throw (see parseModelChain). */
 export function resolveSummarizeModel(
   model = process.env.SUMMARIZE_MODEL,
 ): string {
-  const selected = model ?? DEFAULT_SUMMARIZE_MODEL;
-  if (!ALLOWED_SUMMARIZE_MODELS.has(selected)) {
-    throw new Error(
-      `Unsupported SUMMARIZE_MODEL="${selected}". Use claude-sonnet-5, claude-opus-4.7, claude-opus-4.8, or gpt-5.5 for article summarization and backfill.`,
-    );
-  }
-  return selected;
+  return parseModelChain(model?.trim() || DEFAULT_ANTHROPIC_MODEL, undefined)[0]!;
 }
 
 const MODEL = resolveSummarizeModel();
-const ENDPOINT =
-  process.env.SUMMARIZE_ENDPOINT ??
-  "https://api.githubcopilot.com/chat/completions";
 const MAX_NEW = Number(process.env.SUMMARIZE_MAX_NEW ?? "15");
-const MAX_TOKENS = Number(process.env.SUMMARIZE_MAX_TOKENS ?? "1600");
+const MAX_TOKENS = parsePositiveInt(process.env.SUMMARIZE_MAX_TOKENS, 16_000, "SUMMARIZE_MAX_TOKENS");
 const REQUEST_TIMEOUT_MS = Number(process.env.SUMMARIZE_TIMEOUT_MS ?? "180000");
 const CONCURRENCY = Number(process.env.SUMMARIZE_CONCURRENCY ?? "4");
+
+const SUMMARY_SYSTEM_PROMPT =
+  "あなたは技術記事を日本語と英語の両方で要約するエディターです。指示された JSON 形式のみを返してください。You are an editor who summarises tech articles in both Japanese and English. Return only the requested JSON.";
+
+interface SummaryBackend {
+  anthropicKey: string;
+  effort: AnthropicEffort;
+  model: string;
+}
 export function needsGeneratedContent(entry: SummaryQualityInput): boolean {
   return needsSummaryGeneration(entry);
 }
-
-// Copilot Chat API が期待する整合ヘッダ。VS Code 拡張と同一構成を模倣する。
-const COPILOT_HEADERS = {
-  "copilot-integration-id": "vscode-chat",
-  "editor-version": "vscode/1.95.0",
-  "editor-plugin-version": "copilot-chat/0.22.0",
-  "openai-intent": "conversation-panel",
-  "user-agent": "GitHubCopilotChat/0.22.0",
-} as const;
 
 async function loadCache(path: string): Promise<Cache> {
   try {
@@ -107,87 +96,38 @@ async function saveCache(path: string, cache: Cache): Promise<void> {
   await writeFile(path, JSON.stringify(cache, null, 2) + "\n", "utf8");
 }
 
-/**
- * PAT を Copilot 一時トークンに交換する。
- * 返る token は ~30 分有効 (Copilot 側で発行される短寿命トークン)。
- */
-async function exchangePatToCopilotToken(pat: string): Promise<string> {
-  const res = await fetch(
-    "https://api.github.com/copilot_internal/v2/token",
-    {
-      headers: {
-        authorization: `token ${pat}`,
-        "user-agent": COPILOT_HEADERS["user-agent"],
-        "editor-version": COPILOT_HEADERS["editor-version"],
-      },
-    },
-  );
-  if (!res.ok) {
-    const body = await res.text().catch(() => "");
-    throw new Error(
-      `copilot token exchange ${res.status}: ${body.slice(0, 200)}`,
-    );
-  }
-  const data = (await res.json()) as { token?: string };
-  if (!data.token) throw new Error("copilot token exchange: no token in response");
-  return data.token;
+function resolveSummaryBackend(): SummaryBackend | null {
+  const anthropicKey = readAnthropicKey(process.env);
+  if (!anthropicKey) return null;
+  return {
+    anthropicKey,
+    effort: parseAnthropicEffort(process.env.SUMMARIZE_EFFORT, "medium"),
+    model: MODEL,
+  };
 }
 
-async function resolveCopilotToken(): Promise<string | null> {
-  const direct = process.env.COPILOT_TOKEN;
-  if (direct) return direct;
-  const pat = process.env.COPILOT_PAT;
-  if (!pat) return null;
-  return exchangePatToCopilotToken(pat);
-}
-
-async function callCopilot(
-  token: string,
+async function callSummaryModel(
+  backend: SummaryBackend,
   entry: NormalizedEntry,
 ): Promise<CacheEntry> {
-  const prompt = buildSummaryPrompt(entry);
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-  let data: { choices?: Array<{ message?: { content?: string } }> };
-  try {
-    const res = await fetch(ENDPOINT, {
-      method: "POST",
-      signal: controller.signal,
-      headers: {
-        "content-type": "application/json",
-        authorization: `Bearer ${token}`,
-        ...COPILOT_HEADERS,
-      },
-      body: JSON.stringify({
-        model: MODEL,
-        temperature: 0.2,
-        max_tokens: MAX_TOKENS,
-        messages: [
-          {
-            role: "system",
-            content:
-              "あなたは技術記事を日本語と英語の両方で要約するエディターです。指示された JSON 形式のみを返してください。You are an editor who summarises tech articles in both Japanese and English. Return only the requested JSON.",
-          },
-          { role: "user", content: prompt },
-        ],
-      }),
-    });
-    if (!res.ok) {
-      const body = await res.text().catch(() => "");
-      throw new Error(`copilot ${res.status}: ${body.slice(0, 200)}`);
-    }
-    data = (await res.json()) as {
-      choices?: Array<{ message?: { content?: string } }>;
-    };
-  } catch (err) {
-    if (controller.signal.aborted) {
-      throw new Error(`copilot request timeout after ${REQUEST_TIMEOUT_MS}ms`);
-    }
-    throw err;
-  } finally {
-    clearTimeout(timeout);
-  }
-  const text = data.choices?.[0]?.message?.content ?? "";
+  const result = await callAnthropicText(
+    {
+      model: backend.model,
+      systemPrompt: SUMMARY_SYSTEM_PROMPT,
+      userPrompt: buildSummaryPrompt(entry),
+      maxTokens: MAX_TOKENS,
+      effort: backend.effort,
+    },
+    { anthropicKey: backend.anthropicKey, timeoutMs: REQUEST_TIMEOUT_MS },
+  );
+  return toSummaryCacheEntry(result.text, entry, result.model);
+}
+
+function toSummaryCacheEntry(
+  text: string,
+  entry: NormalizedEntry,
+  model: string,
+): CacheEntry {
   const parsed = parseModelResponse(text);
   if (!isCompleteSummaryResponse(parsed, entry)) {
     throw new Error("model response missing required clean summary fields");
@@ -200,7 +140,7 @@ async function callCopilot(
     bodyEn: "",
     importance: parsed.importance,
     extraTags: parsed.extraTags,
-    model: MODEL,
+    model,
     cachedAt: new Date().toISOString(),
   };
 }
@@ -275,7 +215,7 @@ export function stripIndexBodies(entry: NormalizedEntry): NormalizedEntry {
 }
 
 /**
- * Enhances entries with summaryJa/importance/extra tags via Copilot Enterprise.
+ * Enhances entries with summaryJa/importance/extra tags via the Anthropic Claude API.
  * トークンが解決できない場合は no-op で透過 (ローカル dev を妨げない)。
  */
 export async function summarize(
@@ -288,7 +228,7 @@ export async function summarize(
   const cache = await loadCache(cachePath);
 
   // 1) Apply cached summaries before token resolution so local preview keeps
-  // Japanese titles/summaries even when Copilot auth is temporarily unavailable.
+  // Japanese titles/summaries even when the API key is temporarily unavailable.
   const needsSummary: NormalizedEntry[] = [];
   const out = entries.map((e) => {
     const hit = cache[e.url];
@@ -334,19 +274,10 @@ export async function summarize(
     return stripIndexBodies(e);
   });
 
-  let token: string | null;
-  try {
-    token = await resolveCopilotToken();
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.warn(`[summarize] token resolve failed — skipping: ${msg}`);
-    stats.skipped = needsSummary.length;
-    return { entries: out, stats };
-  }
-
-  if (!token) {
-    console.log(
-      "[summarize] COPILOT_TOKEN / COPILOT_PAT not set — skipping",
+  const backend = resolveSummaryBackend();
+  if (!backend) {
+    console.warn(
+      `[summarize] skipping ${needsSummary.length} entries: ${ANTHROPIC_API_KEY_MISSING}`,
     );
     stats.skipped = needsSummary.length;
     return { entries: out, stats };
@@ -361,7 +292,7 @@ export async function summarize(
   }
 
   console.log(
-    `[summarize] ${toSummarize.length} entries → ${MODEL} (cache=${stats.cached} skipped=${stats.skipped})`,
+    `[summarize] ${toSummarize.length} entries → anthropic:${backend.model} (cache=${stats.cached} skipped=${stats.skipped})`,
   );
 
   let cacheSaveChain = Promise.resolve();
@@ -376,7 +307,7 @@ export async function summarize(
     async (e) => {
       for (let attempt = 1; attempt <= 2; attempt++) {
         try {
-          const r = await callCopilot(token, e);
+          const r = await callSummaryModel(backend, e);
           cache[e.url] = r;
           stats.summarized++;
           completed++;

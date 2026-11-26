@@ -16,7 +16,7 @@
  *
  * R-028: do not run concurrently with other automation in this checkout.
  */
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { spawnSync } from "node:child_process";
 import {
@@ -26,21 +26,20 @@ import {
   validateArticleChat,
 } from "../worker/src/article-chat.ts";
 import {
-  buildCopilotRequestBody,
-  copilotEndpointForModel,
-  copilotEndpointUrl,
+  callAnthropicText,
+  DEFAULT_ANTHROPIC_MODEL,
   parseModelChain,
-  extractCopilotText,
-} from "../worker/src/copilot-client.ts";
+  requireAnthropicKey,
+} from "../worker/src/anthropic-client.ts";
 import { hasMaterialBodyGroundingConflict } from "../harness/pipeline/source-grounding.ts";
 import { isRealBody, type BodyRecord } from "../worker/src/bodies-file.ts";
 import { readBodyStorageFromDisk } from "./body-storage-node.mjs";
 
 const KV_NAMESPACE_ID = "6d67debb991742efadfec473a121f5fc";
-/** Same chain as worker-body/wrangler.toml (R-007). */
-const MODEL_CHAIN = parseModelChain("gpt-5.6-sol", "gpt-5.6-terra,gpt-5.6-luna");
-const MAX_TOKENS = 1600;
-const CALL_TIMEOUT_MS = 60_000;
+/** Same model as worker-body/wrangler.toml (Anthropic Claude API only). */
+const MODEL_CHAIN = parseModelChain(process.env.BODY_MODEL || DEFAULT_ANTHROPIC_MODEL, process.env.BODY_MODEL_FALLBACKS);
+const MAX_TOKENS = 16_000;
+const CALL_TIMEOUT_MS = 180_000;
 const CHAT_SYSTEM =
   "You are a professional technology editor. Return only the JSON the user requested — no code fences, no preface, no commentary.";
 
@@ -61,60 +60,34 @@ if (apply) {
   process.exit(1);
 }
 
-// ------------------------------------------------------------------ copilot --
-const envLocal = readFileSync(join(process.cwd(), ".env.local"), "utf8");
-const pat = envLocal.match(/^COPILOT_PAT=(.+)$/m)?.[1]?.trim();
-if (!pat) {
-  console.error("ERR: COPILOT_PAT not found in .env.local (nothing was modified)");
+// ---------------------------------------------------------------- anthropic --
+const envLocalPath = join(process.cwd(), ".env.local");
+const envLocalKey = existsSync(envLocalPath)
+  ? readFileSync(envLocalPath, "utf8").match(/^ANTHROPIC_API_KEY=(.+)$/m)?.[1]?.trim()
+  : undefined;
+let anthropicKey: string;
+try {
+  anthropicKey = requireAnthropicKey({ ANTHROPIC_API_KEY: process.env.ANTHROPIC_API_KEY ?? envLocalKey });
+} catch (err) {
+  console.error(`ERR: ${err instanceof Error ? err.message : String(err)} (nothing was modified)`);
   process.exit(1);
-}
-const HEADERS: Record<string, string> = {
-  "editor-version": "vscode/1.95.0",
-  "editor-plugin-version": "copilot-chat/0.22.0",
-  "user-agent": "GitHubCopilotChat/0.22.0",
-};
-let cachedToken: { token: string; expiresAtMs: number } | null = null;
-async function copilotToken(): Promise<string> {
-  if (cachedToken && Date.now() < cachedToken.expiresAtMs - 120_000) return cachedToken.token;
-  const res = await fetch("https://api.github.com/copilot_internal/v2/token", {
-    headers: { ...HEADERS, authorization: `token ${pat}` },
-  });
-  if (!res.ok) throw new Error(`token exchange ${res.status}`);
-  const body = (await res.json()) as { token: string; expires_at?: number };
-  cachedToken = {
-    token: body.token,
-    expiresAtMs: typeof body.expires_at === "number" ? body.expires_at * 1000 : Date.now() + 20 * 60_000,
-  };
-  return body.token;
 }
 
 async function generateChat(entry: Record<string, unknown>): Promise<ReturnType<typeof validateArticleChat>> {
   const prompt = buildArticleChatPrompt(entry as never);
   for (const model of MODEL_CHAIN) {
     try {
-      const controller = new AbortController();
-      const timer = setTimeout(() => controller.abort(), CALL_TIMEOUT_MS);
-      const endpoint = copilotEndpointForModel(model);
-      const res = await fetch(copilotEndpointUrl(endpoint), {
-        method: "POST",
-        signal: controller.signal,
-        headers: {
-          ...HEADERS,
-          authorization: `Bearer ${await copilotToken()}`,
-          "content-type": "application/json",
+      const { text: raw } = await callAnthropicText(
+        {
+          model,
+          systemPrompt: CHAT_SYSTEM,
+          userPrompt: prompt,
+          maxTokens: MAX_TOKENS,
+          effort: "high",
         },
-        body: JSON.stringify(
-          buildCopilotRequestBody({
-            model,
-            systemPrompt: CHAT_SYSTEM,
-            userPrompt: prompt,
-            maxTokens: MAX_TOKENS,
-            temperature: 0.3,
-          }),
-        ),
-      }).finally(() => clearTimeout(timer));
-      if (!res.ok) throw new Error(`${model} ${res.status}`);
-      const turns = parseArticleChat(extractCopilotText(endpoint, await res.json()));
+        { anthropicKey, timeoutMs: CALL_TIMEOUT_MS },
+      );
+      const turns = parseArticleChat(raw);
       if (!turns) continue; // structural failure: try the next model once
       const text = chatGroundingText(turns);
       if (hasMaterialBodyGroundingConflict(entry as never, { bodyJa: text.ja, bodyEn: text.en })) {

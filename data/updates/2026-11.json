@@ -430,6 +430,37 @@
       ],
       "category": "copilot",
       "importance": 3
+    },
+    {
+      "sequence": 30,
+      "observedAt": "2026-11-27T23:31:02.920Z",
+      "sourceKey": "github.com/modelcontextprotocol/servers/releases/tag/v2.0.0",
+      "topicKey": null,
+      "siteUrl": "https://techdb.studio344.net/e/b16604bccef4572d/",
+      "id": "b16604bccef4572d",
+      "publicationHold": true,
+      "source": "mcp-servers-releases",
+      "sourceType": "release",
+      "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.0.0",
+      "title": "MCP Servers Releases v2.0.0",
+      "titleJa": "MCP Servers v2.0.0 リリース",
+      "titleEn": "MCP Servers Releases v2.0.0",
+      "summaryJa": "MCP公式サーバー群が v2.0.0 で最新仕様に合わせて作り直され、everything、filesystem、memory、sequential-thinking の npm 4パッケージと、PyPI の fetch、git、time が公開された。従来仕様のクライアントも引き続き利用でき、移行しやすい。",
+      "summaryEn": "The MCP reference servers were rebuilt for the latest spec in v2.0.0, shipping four npm packages (everything, filesystem, memory, sequential-thinking) plus PyPI fetch, git, and time, while older clients keep working.",
+      "lang": "en",
+      "publishedAt": "2026-10-25T06:00:36.000Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "tags": [
+        "major-release",
+        "mcp",
+        "mcp-server",
+        "npm",
+        "pypi",
+        "release",
+        "spec-compatibility"
+      ],
+      "category": "mcp",
+      "importance": 3
     }
   ]
 }

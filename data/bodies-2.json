@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-27T21:31:02.417Z",
-  "count": 350,
+  "generatedAt": "2026-11-27T23:30:58.434Z",
+  "count": 356,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -11120,7 +11120,39 @@
       "bodyJa": "AIコーディング支援ツール「Claude Code」を使っていて、トークン量の割に請求額が抑えられていると感じたことはないだろうか。その背景には「プロンプトキャッシュ（prompt caching）」と呼ばれる仕組みが深く関わっており、これを理解することがコスト最適化の第一歩になる。\n\nプロンプトキャッシュは、Anthropicが提供するAPI機能の一つだ。大規模言語モデル（LLM）は本来、リクエストのたびに入力トークン全体を処理する必要があるが、コーディング作業では同じシステムプロンプトやファイル内容、会話履歴が繰り返し送られる場面が多い。キャッシュはこの共通部分をサーバー側に一時保存し、次回以降の再処理を省くことで、応答速度と課金を同時に改善する狙いがある。\n\n課金構造を具体的に見ると、キャッシュには「書き込み」と「読み込み」で異なるトークン単価が設定されている。一般に、キャッシュへの書き込みは通常の入力トークンよりやや割高になる一方、キャッシュからの読み込みは大幅に安価とされる。Anthropicの公開情報では、キャッシュ読み込みが通常入力の10分の1程度になる場合があるとされ、繰り返しの多い長時間セッションほど恩恵が大きくなる。\n\nClaude Codeがこのキャッシュを積極的に活用しているとみられる点は重要だ。プロジェクト全体のコンテキストを保持しながら対話を続ける同ツールの性質上、キャッシュが効かなければ入力トークンが膨張し、コストが跳ね上がる可能性がある。逆に言えば、キャッシュヒットが続く限り、実際の請求はトークン量から素朴に想像するより低く抑えられる。\n\nただしキャッシュには有効期限（TTL）があり、標準では数分程度とされる。一定時間操作が途切れると失効し、再度書き込みコストが発生する点には留意したい。作業を細切れにするより、集中して連続的に進めるほうがキャッシュ効率の面では有利になると考えられる。\n\n同様の仕組みはOpenAIやGoogleなど他社のAPIでも導入が進んでおり、プロンプトキャッシュは今やLLM活用のコスト設計における前提知識になりつつある。Claude Codeの請求明細を眺める際も、キャッシュ関連の項目に目を向けることで、料金の増減を合理的に説明できるようになるだろう。",
       "bodyEn": "Prompt caching has quietly become one of the most consequential factors in the cost of running Claude Code, Anthropic's terminal-based agentic coding assistant. For developers who use the tool intensively, understanding how caching interacts with token billing is often the difference between a predictable monthly bill and an unexpectedly large one, which is why it deserves closer attention than most usage guides give it.\n\nAt its core, prompt caching addresses a structural inefficiency in how large language models handle repeated context. Every time an API request is made, the model normally reprocesses the full prompt from scratch, including system instructions, tool definitions, and any accumulated conversation history. In an agentic coding session, that context can be enormous and largely unchanged from one turn to the next. Caching lets the provider store the processed representation of a prompt prefix so that later requests can reuse it rather than recomputing it.\n\nThe economics are what make this important. Anthropic's pricing separates tokens into several categories: standard input tokens, cache write tokens, and cache read tokens. Writing to the cache typically costs more than a normal input token, commonly around 25 percent more for the default five-minute cache window, because the system must process and store the content. Reading from the cache, however, is dramatically cheaper, often priced at roughly one-tenth of the standard input rate. Output tokens are billed separately and are unaffected by caching. There is also a longer one-hour cache option, which appears to carry a higher write premium in exchange for a longer time-to-live.\n\nThis asymmetry explains why prompt caching sits at the center of Claude Code's billing structure. A coding session repeatedly sends a large, stable block of context—the system prompt, tool schemas, files that have been read, and prior exchanges—on top of a small amount of new input. Without caching, that entire block would be billed at full input rates on every turn. With caching, the bulk of it is written once and then read back at a fraction of the cost for the duration of the cache window. Because interactive coding tends to produce frequent, closely spaced requests, cache hits are common, and the savings compound over the length of a session.\n\nUnderstanding this behavior has practical consequences. Actions that invalidate or fail to reuse the cache tend to be the expensive ones. Long pauses that let the cache expire, edits that change an early part of the context and therefore break the reusable prefix, or workflows that repeatedly restructure the beginning of a prompt can all force fresh cache writes. Keeping stable content at the front of the context and volatile content toward the end is likely to improve hit rates, since caching generally works on shared prefixes.\n\nIt helps to place this in the broader landscape. Prompt caching is not unique to Anthropic; OpenAI and Google have introduced comparable mechanisms, and the general trend across providers is toward pricing that rewards reusing context rather than resending it. Claude Code competes with tools such as GitHub Copilot, Cursor, Aider, and OpenAI's Codex-style agents, many of which grapple with the same cost pressure from large, repeated context windows. For subscription-based access through Claude's Pro and Max plans, the caching mechanics are handled behind the scenes, but for developers working directly against the API or through pay-as-you-go billing, they translate directly into money.\n\nThe prerequisite concept worth emphasizing is that tokens, not requests, are the unit of cost, and that not all tokens are priced equally. Once that distinction is clear, the value of caching becomes intuitive: the goal is to maximize inexpensive cache reads while minimizing full-price input processing and unnecessary cache writes. Anthropic exposes cache-related token counts in its API responses, so usage can be measured rather than guessed.\n\nFor teams budgeting around agentic coding, the takeaway is that cost optimization is less about limiting how much you use Claude Code and more about structuring interactions so the cache does as much work as possible. Treating prompt caching as a first-class part of the workflow, rather than an implementation detail, appears to be the most reliable path to keeping API spending in check.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:07:31.499Z"
+      "generatedAt": "2026-08-30T16:07:31.499Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Claude Codeを普段使うとき、このキャッシュって何が変わるの？ 私は何も意識してないけど。",
+          "en": "When I'm just using Claude Code day to day, what does this caching change? I don't think about it at all."
+        },
+        {
+          "s": "b",
+          "ja": "Enterを1回押すたびに、裏で全部の文脈を送り直しています。キャッシュのおかげで、その繰り返しのコストが抑えられるんです。",
+          "en": "Every time you hit Enter, the whole context gets sent again behind the scenes. Caching is what keeps that repeated cost down."
+        },
+        {
+          "s": "a",
+          "ja": "キャッシュがなかったら、そのまま全部課金されてたの？ 前はそうだったってこと？",
+          "en": "So without caching, it'd all be billed in full? Was it like that before?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと「そのまま課金したらUsage破産」とあります。ただ、以前の仕様との比較は書かれていないので、違いまでは分かりません。",
+          "en": "The article says billing it as-is would bankrupt your usage. It doesn't compare with earlier behavior, though, so I can't say what changed."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、キャッシュ読みが0.1倍で、効率がレート制限の寛大さにもつながるってことかな。",
+          "en": "So my big takeaway: cache reads cost 0.1x, and cache efficiency even affects how generous rate limits are?"
+        },
+        {
+          "s": "b",
+          "ja": "その通りです。次はTTLに注目です。サブスクのメインセッションは1時間、APIキー利用や従量課金中は5分と使い分けられます。",
+          "en": "Right. Next, watch the TTL. Subscription main sessions get one hour, while API-key use and overage billing get five minutes."
+        }
+      ]
     },
     "11814c13f8eb0837": {
       "bodyJa": "固定された画面に作業を合わせるのではなく、望むワークフローに沿ってインターフェースを形作れるのが、GitHub Copilot appの「キャンバス」です。利用者とエージェントが同じカスタム画面を双方向に操作し、用途に合った作業環境を構成できます。\n\n## キャンバス\n\nキャンバスは「canvas extension」とも呼ばれ、利用者とエージェントが共有するカスタマイズ可能なインターフェースです。カンバンボード、課題整理用のボード、リリースチェックリスト、ダッシュボード、フォーム、表計算などとして構成できます。決められた種類の画面に作業を当てはめるのではなく、実際の作業方法に合わせてUIを形作るという考え方です。独自の作業手順を効率化したいチームに役立つとされています。\n\n## 双方向の操作\n\nキャンバスは双方向に操作できるため、エージェントは作業を進めながら画面の内容を更新できます。一方、利用者もボタン、カード、フィルターなどの操作要素を使って変更を加えられます。エージェントからの更新を表示するだけの画面ではなく、双方が同じ画面に働きかけられる仕組みです。これは、共有されたライブホワイトボードを一緒に使うような操作感として説明されています。\n\n## 作成方法\n\nキャンバスを作る際に、利用者がコードを書いたり、画面を手作業でデザインしたりする必要はありません。まずエージェントのセッションを開き、「/create-canvas」スキルを入力します。そのうえで、作りたい画面や実現したい内容を平易な英語で説明します。これにより、目的とするワークフローを起点として、必要なインターフェースを構成できます。",
@@ -11733,6 +11765,234 @@
       "bodyEn": "OpenHands has published version 1.44.0 of its cloud-hosted platform, a maintenance-oriented release that the project describes as focused on continuous improvement and stability rather than headline features. For teams that rely on autonomous coding agents in their day-to-day workflows, incremental updates like this one matter because they tend to address the reliability, latency, and edge-case handling that ultimately determine whether an agent is usable in production.\n\nOpenHands, developed by All Hands AI and previously known as OpenDevin, is an open-source framework for building AI agents that can perform software engineering tasks. Rather than simply suggesting code completions, the platform gives an agent access to a sandboxed environment where it can write and edit files, execute shell commands, run tests, and browse the web, mimicking the way a human developer works through a task. The cloud version packages this capability as a hosted service, removing the need for users to provision and maintain their own execution infrastructure.\n\nBecause the release is labeled as a routine update, its changes appear to concentrate on refinement rather than new functionality. Point releases of this kind typically bundle bug fixes, dependency upgrades, performance tuning, and small user-experience adjustments. Without a detailed public changelog to reference here, the specific contents are best treated as incremental, and users are generally advised to consult the official release notes for the exact list of fixes and any behavioral changes that could affect existing projects or integrations.\n\nThe versioning itself provides useful context. A 1.44.0 designation, following semantic versioning conventions, signals a minor release within an established 1.x line, implying that the update is intended to be backward compatible and low risk to adopt. The relatively high minor number also reflects a rapid iteration cadence, which is common among AI agent products where underlying models, tooling, and best practices are evolving quickly. Cloud-hosted software carries the added advantage that such updates can be rolled out centrally, so most users receive improvements without needing to upgrade anything manually.\n\nThe release lands in a crowded and fast-moving segment. Autonomous and semi-autonomous coding tools have proliferated over the past two years, ranging from Cognition's Devin, which helped popularize the idea of an AI software engineer, to editor-integrated assistants such as GitHub Copilot, Cursor, and Windsurf, and command-line agents like Anthropic's Claude Code and Google's Gemini CLI. OpenHands occupies a distinctive position in this landscape as an open-source option, giving it transparency and extensibility that proprietary competitors do not always offer, while the cloud edition competes more directly on convenience.\n\nA recurring theme across these tools is the tension between capability and reliability. Agents that can autonomously modify codebases introduce real risks, from unintended changes to security concerns around executing untrusted commands, which is one reason sandboxing and careful environment isolation are central to the design. Stability-focused releases therefore carry practical weight, because incremental hardening of the execution environment, better error recovery, and more predictable agent behavior often do more to improve everyday usefulness than flashy new features.\n\nFor prospective users, a few prerequisites and adjacent concepts are worth understanding. OpenHands agents are typically driven by large language models supplied through providers such as Anthropic, OpenAI, or others, and the quality of results depends heavily on the chosen model. The platform is frequently evaluated against benchmarks like SWE-bench, which measures an agent's ability to resolve real GitHub issues, and such scores are commonly cited when comparing agent frameworks. Users integrating the cloud service into their pipelines should also weigh considerations around repository access, credential handling, and cost, since agent runs can consume significant model tokens.\n\nAs with any point release, the practical recommendation is to review the accompanying notes before upgrading critical workflows, monitor behavior after adoption, and report regressions through the project's issue tracker. The 1.44.0 update appears to be a low-friction step in OpenHands' ongoing development rather than a milestone, but for a tool positioned at the intersection of open-source software and applied AI, steady maintenance is arguably as important as any single new capability.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T17:47:31.893Z"
+    },
+    "237b0f3a0fa44b4f": {
+      "bodyJa": "Zed Editor v1.31.0-pre がリリースされた。Zed Agentのモデル、プロファイル、thinking effortを現在のスレッドだけ切り替えられるようになったことが、今回の主な変更点である。あわせて、対応OpenAIモデル向けの応答速度オプションや、リモート環境でのスキル利用も加わった。\n\n## スレッド限定の選択\n\nZed Agentのモデル、プロファイル、thinking effortの各ピッカーに、スレッド限定で選ぶ操作が追加された。macOSではcmd-enterまたはcmd-click、LinuxとWindowsではctrl-enterまたはctrl-clickを使う。\n\nこの操作で変更されるのは現在のスレッドだけで、既定の設定は変わらない。普段の設定は保ったまま、特定のスレッドでだけ別のモデルやプロファイルを試したい場面を想定した機能と読める。この変更はプルリクエスト #66869 として取り込まれている。\n\n## Ultrafast応答速度\n\n対応するOpenAIおよびChatGPT Subscriptionのモデルに対し、Ultrafastという応答速度のオプションが追加された。対象は対応モデルに限られ、どのモデルが該当するかは今回の情報からは分からない。変更は #67184 で行われた。\n\n## リモートのグローバルスキル\n\nSSH、WSL、dev containerの各プロジェクトで、リモートマシン上の ~/.agents/skills にあるグローバルスキルを使えるようになった。リモートプロジェクトでも、そのマシンに置かれたグローバルなエージェントスキルを参照できる。この対応は #66767 によるものだ。\n\n## 性能改善\n\n今回のリリースには、プロジェクトスキャンの高速化も含まれる。さらに、アプリのレイアウトとターミナル描画のパフォーマンスも改善されたと説明されている。個々の改善幅を示す数値は示されていない。\n\nこのほか、Markdown planに関する項目も機能一覧に挙がっているが、内容を確認できる記述はここまでである。",
+      "bodyEn": "Zed has published v1.31.0-pre, a release that focuses on how the Zed Agent is configured per conversation, plus remote-project support and performance work. According to the release notes, it covers thread-only choices for agent settings, an Ultrafast response speed, global agent skills in remote projects, faster project scanning, and performance improvements to app layout and terminal rendering.\n\n## Thread-only choices\n\nThe Zed Agent's model, profile, and thinking effort pickers now offer thread-only choices. The release notes say you can change the current thread without changing your defaults. On macOS, use cmd-enter or cmd-click. On Linux and Windows, use ctrl-enter or ctrl-click. The change is listed under pull request #66869.\n\nIn practice, this means a selection made for one thread stays with that thread, and the defaults you have set elsewhere are left as they were.\n\n## Ultrafast response speed\n\nThe release adds an Ultrafast response speed option for supported OpenAI and ChatGPT Subscription models (#67184). The notes describe it as available for supported models, so it is not presented as applying to every model.\n\n## Global skills on remote machines\n\nZed now supports global skills from the remote machine's ~/.agents/skills directory. This applies to SSH, WSL, and dev container projects (#66767). Skills stored in that location on the remote machine can therefore be used in those remote setups.\n\n## Faster scanning and rendering\n\nThe summary of the release also lists faster project scanning, along with performance improvements to app layout and terminal rendering. The material provided gives no measurements or benchmarks for these changes, so the size of the speedups is not stated.\n\nThis is a pre-release build, as the v1.31.0-pre label indicates. It was published on November 25, 2026, and covers the changes made during that week.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "エージェントのモデルとかを「このスレッドだけ」変えられるようになったんだね。これって大きいことなの？",
+          "en": "So you can change the agent's model just for one thread now? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "既定値は変えずに、今のスレッドだけモデル・プロファイル・思考の強さを選べるのが要点だよ。macOSならcmd-enterかcmd-clickで切り替えられるって。",
+          "en": "The point is you can change the model, profile, and thinking effort for the current thread without touching your defaults. On macOS, it's cmd-enter or cmd-click."
+        },
+        {
+          "s": "a",
+          "ja": "「思考の強さ」ってなに？モデルがどれくらい頑張って考えるか、ってこと？",
+          "en": "What's \"thinking effort\"? Is it how hard the model tries to think?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、答える前にどれだけ深く考えさせるかの度合い、くらいの意味だよ。この記事では、それもスレッドごとに選べると書いてあるね。",
+          "en": "Generally, it means roughly how deeply the model is asked to think before answering. This post says you can pick it per thread, too."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ難しい相談のときだけ強めにして、普段の設定はそのままにできるのかな？",
+          "en": "So for a tricky question, I could turn it up and leave my usual settings alone?"
+        },
+        {
+          "s": "b",
+          "ja": "そんな使い方ができるかもね。ただ変わるのは今のスレッドだけで、Ultrafastも対応するOpenAIやChatGPT Subscriptionのモデル向けと書かれているよ。",
+          "en": "Maybe, yes. But only the current thread changes, and the post says Ultrafast is for supported OpenAI and ChatGPT Subscription models."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:39:52.283Z"
+    },
+    "49c88386fe850248": {
+      "bodyJa": "VS Code 1.148 は、席を離れてもエージェントの作業を止めないことをテーマにしたリリースです。エージェント稼働中のホストのスリープ防止やリモートホスト上のディスク整理が加わり、Local harness の廃止時期も示されました。\n\n## Keep agents going\n\n「Keep agents going」はプレビュー機能です。エージェントが作業している間、対応しているホストでシステムのアイドルスリープを防ぎます。リリースノートでは、アクティブなエージェントがホストを起こしたままにできると説明されています。\n\nあわせて、チャット応答の開始が従来より速くなったことも今週の変更点として挙げられています。\n\n## Worktree cleanup\n\n「Worktree cleanup」は、リモートホスト上にある非アクティブなエージェントのワークツリーを対象に、ディスク容量を回収する機能です。ウィンドウを切り替えずに操作できるとされており、使われなくなったワークツリーの整理を、作業中の画面から行えます。\n\n## Sandbox と Dev Containers\n\n実験的機能として、2つが追加されました。\n\n「Sandbox profiles」では、リモートのエージェントホストごとにサンドボックスのルールを調整できます。調整内容は再利用可能なプロファイルとして扱われます。\n\n「Create Dev Containers」では、エージェントに隔離された Linux ワークスペースを与えられます。コンテナの構成を自分で書く必要はないと説明されています。タスクごとに専用の Dev Container を割り当てる使い方が想定されています。\n\nどちらも Experimental と位置づけられているため、プレビューの Keep agents going とは成熟度が異なる点に注意が必要です。\n\n## Local harness の廃止\n\nリリースノートの冒頭では、Local harness が非推奨になり、2027年2月に削除される予定だと告知されています。移行先は Copilot harness で、移行の詳細を説明するページへの案内も付いています。現在 Local harness を使っている場合は、削除時期までに Copilot harness への移行を計画しておく必要があります。\n\nそのほか、Microsoft Ignite で行われた VS Code のセッション録画が公開されています。配布形式としては .deb、.rpm、.tar.gz、Arm 向けの手順、Snap が案内されています。",
+      "bodyEn": "## Keep Agents Going\n\nVisual Studio Code 1.148 focuses on keeping agent work moving when a developer steps away. According to the release notes, chat responses start faster this week, and active agents can now keep their hosts awake.\n\nThe headline preview feature is called \"Keep agents going.\" It prevents idle sleep of the system on supported hosts while agents are working. The release notes do not say which hosts are supported, so teams should check that detail before relying on it.\n\n## Worktree Cleanup and Sandbox Profiles\n\nTwo additions target remote agent hosts. Worktree cleanup lets users reclaim disk space from inactive agent worktrees on remote hosts. The announcement says this can be done without switching windows.\n\nSandbox profiles are marked experimental. They are meant to let users tailor sandbox rules to each remote agent host through reusable profiles. Instead of configuring rules separately every time, a profile can be applied to a given host.\n\n## Create Dev Containers\n\nAlso experimental is the ability to create Dev Containers for a task. According to the release notes, this gives an agent an isolated Linux workspace without the user having to write a container configuration. The announcement frames this as giving a task its own Dev Container.\n\n## Local Harness Deprecation\n\nThe release also carries a warning: the Local harness is deprecated and will be removed in February 2027. The notes point readers to information about the move to the Copilot harness. Teams that depend on the Local harness have time to plan, but the removal date is stated clearly.\n\nThe release notes also list download formats for Linux, including .deb, .rpm, .tar.gz, Arm instructions, and Snap. In addition, they invite readers to watch the VS Code session recordings from Microsoft Ignite.\n\nIn summary, version 1.148 combines a preview feature that stops idle sleep, a worktree cleanup option, two experimental features for sandbox profiles and Dev Containers, and a firm deadline for moving off the Local harness.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Local harnessが2027年2月に廃止って書いてあるけど、これって大きいこと？",
+          "en": "It says the Local harness will be removed in February 2027. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "記事ではCopilot harnessへの移行が必要とされています。時間はありますが、使っているチームは早めに計画した方がよさそうです。",
+          "en": "The article says teams need to move to the Copilot harness. There's time, but anyone using the Local harness should plan the switch early."
+        },
+        {
+          "s": "a",
+          "ja": "「Keep agents going」ってなに？エージェントが動いてる間、パソコンが寝ないってこと？",
+          "en": "What's \"Keep agents going\"? Does it stop the computer from sleeping while agents run?"
+        },
+        {
+          "s": "b",
+          "ja": "そのとおりです。エージェントの作業中、対応しているホストがアイドルスリープしないようにする機能で、今はプレビュー版です。",
+          "en": "Right. It prevents idle sleep on supported hosts while agents work. It's still a preview feature for now."
+        },
+        {
+          "s": "a",
+          "ja": "席を離れても作業が止まらないなら、私なら長いタスクを任せてみたいな。ほかに気をつけることはある？",
+          "en": "If it keeps going while I step away, I'd hand it a long task. Anything I should watch out for?"
+        },
+        {
+          "s": "b",
+          "ja": "プレビューで、対応ホストだけが対象です。また、Dev Containerの作成やサンドボックスプロファイルは実験的な機能と書かれています。",
+          "en": "It's a preview and only for supported hosts. Dev Container creation and sandbox profiles are also labeled experimental, so try them with that in mind."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:40:03.525Z"
+    },
+    "82236369ff3b74fd": {
+      "bodyJa": "GitHub.comの通知が、2026年12月1日から1週間かけて新しい仕組みへ移行する。購読の挙動をより予測しやすくし、意図しない動作を正し、増え続けるアクティビティの規模に対応するための変更と説明されている。\n\n## 12月1日から移行開始\n\n移行は1週間かけて進められる。この間は、ユーザーによって通知の挙動が異なる場合がある。利用者側で必要な対応はないとされる。ただし、通知の管理やフィルタリングの方法には影響が出る可能性があるという。\n\n## 再購読されなくなる操作\n\nこれまでは、手動で購読を解除したあとでも、コメントの投稿、プルリクエストのレビュー送信、スレッドの状態変更、マージキューに関する操作を行うと、自動的に再購読されていた。\n\n移行後は、これらの操作をしても購読解除の状態が維持される。いったん通知を止めたスレッドに、あとから関わっても通知が戻ってこなくなる。\n\n## 再購読が続く操作\n\n一方で、次の操作は従来どおり再購読につながる。\n\n自分がメンションされたとき、自分がアサインされたとき、プルリクエストのレビューを依頼されたときである。これらは本人の注意を求める操作であるため、とされている。自分から行う日常的な操作では再購読せず、他の人から注意を求められた場合には再購読する、という区別になる。\n\n## 適用範囲と注意点\n\nこの変更はGitHub.comが対象で、GitHub Enterprise Serverには適用されない。\n\n通知をフィルタリングして整理している人は、購読解除したスレッドの扱いが変わる点を踏まえておくとよい。移行期間中は挙動に差が出ることもあるため、通知の届き方が普段と違って見える場合がある。",
+      "bodyEn": "GitHub is changing how notifications work on GitHub.com so that subscriptions behave more predictably. According to the changelog announcement, the change is meant to correct unexpected behavior and to support the growing scale of activity. It also affects how people manage and filter notifications.\n\n## Migration starting December 1, 2026\n\nThe migration begins on December 1, 2026 and runs over the course of a week. The announcement says that during the rollout, notifications may behave differently for different users. GitHub states that no action is required, though the changes described may affect how you manage and filter notifications. The change does not apply to GitHub Enterprise Server, so it concerns GitHub.com only.\n\n## Routine activity won't resubscribe you\n\nThe main behavior change concerns what happens after you manually unsubscribe from a thread. Previously, certain activities resulted in a re-subscription anyway. The announcement lists commenting, submitting a pull request review, changing a thread's state, and merge queue activity. Under the old behavior, any of those actions put you back on the subscription list even though you had opted out.\n\nNow those same actions leave you unsubscribed. In practical terms, if you unsubscribe from a thread and later comment on it or submit a review, you remain unsubscribed instead of being added back. This is how GitHub frames the goal of more predictable subscriptions and the correction of unexpected behavior.\n\n## Still resubscribes you\n\nNot every action leaves your choice untouched. Being mentioned, being assigned, or receiving a pull request review request will continue to resubscribe you. The announcement gives the reason: those actions ask for your attention.\n\nThe distinction, then, is between routine activity you initiate yourself, which no longer changes your subscription, and events that direct attention to you, which still do. For developers who filter notifications, the set of actions that can bring a thread back into their notifications after unsubscribing is now limited to those attention-requesting events.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "普段使いだと、何が変わるの？通知がちょっと静かになる感じ？",
+          "en": "What changes in everyday use? Do notifications get a bit quieter?"
+        },
+        {
+          "s": "b",
+          "ja": "購読を解除したスレッドで、コメントやレビューをしても自動で再購読されなくなります。意図しない通知を減らせる、というのがこの記事の狙いです。",
+          "en": "If you unsubscribe from a thread, commenting or reviewing won't resubscribe you anymore. The article frames this as cutting unintended notifications."
+        },
+        {
+          "s": "a",
+          "ja": "前は、解除してもコメントしたらまた通知が来てたの？",
+          "en": "So before, I'd unsubscribe, comment, and the notifications came back?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、前は手動で解除した後でも、コメントやPRレビュー、スレッドの状態変更、マージキューの動きで再購読されていました。今後はそれらでは戻りません。",
+          "en": "Yes. Previously, commenting, PR reviews, thread state changes, or merge queue activity resubscribed you after a manual unsubscribe. Now those actions leave you unsubscribed."
+        },
+        {
+          "s": "a",
+          "ja": "なるほど！解除したら、自分が何かしても勝手に戻らないのが収穫だね。メンションは？",
+          "en": "Got it! Unsubscribing now sticks, even if I act. What about mentions?"
+        },
+        {
+          "s": "b",
+          "ja": "メンション、アサイン、レビュー依頼は、注意を求める操作なので引き続き再購読されます。12月1日から約1週間は、ユーザーによって挙動が違うかもしれません。",
+          "en": "Mentions, assignments, and review requests still resubscribe you, since they ask for your attention. During the week-long rollout starting December 1, behavior may differ between users."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:40:42.368Z"
+    },
+    "b27de98209ff2a51": {
+      "bodyJa": "## OpenHands v1.45.0 の主な追加点\n\nOpenHands v1.45.0 が2026年11月24日付でリリースされた。目玉は、実験的機能として加わった Canvas 版の「Projects」と、サブエージェントの会話を親の下に入れ子表示する変更である。複数のエージェントを使う作業を追いやすくする更新と位置づけられている。\n\n## Canvas の Projects\n\n「OpenHands Projects in Canvas」は experimental と明記されており、現時点では実験段階の機能である。関連する変更として、プロジェクトに属する会話をサイドバーに表示できるようになった。あわせて、チャットの横にファイルやPRを並べて確認できる。\n\n会話の履歴と、そこで扱っているファイルやプルリクエストを同じ画面で見渡せる構成になる。実装は @enyst によるもので、変更はそれぞれ #19495 と #19810 で扱われている。\n\n## サブエージェントと factories\n\nフロントエンドでは、サブエージェントの会話が親の会話の下に入れ子で表示されるようになった。親子関係が画面上で分かるため、複数のエージェントが並行して動く場面でも、どの会話がどこから派生したかを把握しやすくなると説明されている。この変更は @neubig による #20010 である。\n\nfactories にも2点の機能追加がある。ひとつは、factory の worklogs を新しいものから順に表示する機能(#19811)。もうひとつは、factory のページから直接その factory を削除できる機能(#19861)である。どちらも @jpshackelford によるものだ。\n\n## 確認できる修正項目\n\nバグ修正では、automations まわりで2件の画面表示の改善が挙がっている。セットアップのドラフトバーは、スマートフォン幅でもタイトルを圧縮せず折り返して表示する。セットアップページのリポジトリメニューは、スマートフォン幅でも画面内に収まるようになった。いずれも @enyst による修正で、#19558 と #19479 に対応する。\n\nAPI 側では、チャットのアップロード先を会話のワークスペース内で解決するよう修正された。これは @lx3133584 による #18429 である。このほかにも設定まわりの修正が記載されているが、リリースノートの該当部分は途中で切れており、詳細は確認できない。",
+      "bodyEn": "## OpenHands v1.45.0 released\n\nOpenHands v1.45.0 was published on 2026-11-24. The release centers on project views, factory management, and how sub-agent conversations are displayed, all of which affect how people follow work that involves several agents.\n\n## Projects in Canvas\n\nThe headline addition is \"OpenHands Projects in Canvas,\" labeled experimental in the release notes and credited to @enyst (#19495). A companion change (#19810) places project conversations in the sidebar and shows files and PRs beside the chat. According to the key points, this arrangement keeps the conversation and its related artifacts in view together.\n\nAnother frontend change, credited to @neubig (#20010), nests sub-agent conversations under their parent conversation. The key points say this makes the work of multiple agents easier to trace.\n\n## Factory worklogs and deletion\n\nTwo features concern factories, both credited to @jpshackelford. The first (#19811) shows a factory's worklogs, newest first. The second (#19861) lets users delete a factory from its own page.\n\n## Bug fixes\n\nThe listed fixes include two for the automations interface at phone widths, both credited to @enyst:\n\nThe setup draft bar now wraps at phone width rather than squeezing its title (#19558).\n\nThe setup page's repository menu now stays on screen at phone widths (#19479).\n\nAn API fix, credited to @lx3133584 (#18429), resolves the chat upload destination within the conversation workspace. The release notes list at least one further fix under settings, but that entry is cut off, so its details are not available here.\n\nTaken together, the release combines an experimental project-centered layout with changes to how conversations and factories are presented and managed, plus fixes for smaller screens and file uploads.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Canvasの「Projects」って、どんなものが入ったの？",
+          "en": "What's this \"Projects\" in Canvas that got added?"
+        },
+        {
+          "s": "b",
+          "ja": "実験的な機能として、サイドバーにプロジェクトの会話が並び、チャットの横にファイルやPRも表示できるようになったよ。",
+          "en": "It's experimental. Project chats show up in the sidebar, and you can see files and PRs right beside the chat."
+        },
+        {
+          "s": "a",
+          "ja": "チャットと一緒にファイルやPRが見えると、作業中に行ったり来たりしなくて済むのかな？",
+          "en": "So you'd see files and PRs next to the chat, without jumping around? Is that the idea?"
+        },
+        {
+          "s": "b",
+          "ja": "そう感じる人は多そうだね。サブエージェントの会話も親の下に入れ子で表示されるから、複数エージェントの作業が追いやすくなるよ。",
+          "en": "That seems likely. Sub-agent chats also nest under their parent, which makes multi-agent work easier to follow."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、Projectsで作業を一か所に見やすくまとめて、サブエージェントも親の下でたどれるんだね。",
+          "en": "So Projects keeps work in one view, and sub-agents are easy to trace under their parent. Got it!"
+        },
+        {
+          "s": "b",
+          "ja": "うん。ただProjectsは実験的と書かれているから、まずは試す感覚で触るのがよさそうだよ。",
+          "en": "Yep. Just note Projects is labeled experimental, so it's best to treat it as something to try out first."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:40:45.885Z"
+    },
+    "9d8ed90684ed3ce6": {
+      "bodyJa": "## v0.40.18の内容\n\nOllama v0.40.18 がリリースされました。変更点は、mlxrunner の内部整理、llama.cpp のバージョン更新、jetpack5 サポートの削除の3点です。特に jetpack5 の削除は、対象環境で使っている人に影響する可能性があります。\n\n変更履歴は v0.40.17 から v0.40.18-rc0 までの差分として示されており、今回のリリースに含まれる項目は上記の内容です。\n\n## mlxrunner\n\nmlxrunner では、テンソル関連のヘルパーとモデルのセットアップ処理を、複数のアーキテクチャで共有する形に整理されました。この変更は @jaingaurav 氏によるもので、プルリクエスト #19805 として取り込まれています。\n\nタイトルから読み取れるのは、アーキテクチャごとに持っていた処理を共通部分にまとめたという点です。個々の機能追加や性能の変化については、この変更の説明に記載がありません。\n\n## llama.cpp更新\n\nllama.cpp はバージョン b12651 に更新されました。更新作業は @pdevine 氏によるもので、#19865 に含まれています。\n\nバージョン番号が示されているだけで、この更新によって何が改善されたのか、どのモデルや機能に関係するのかは説明されていません。そのため、更新内容の詳細は上流側の変更履歴を別途確認する必要があります。\n\n## jetpack5の削除\n\n同じ #19865 では、jetpack5 のサポート削除も行われています。llama.cpp のバージョン更新と一つの変更にまとめられています。\n\n今回のリリースで影響が大きいのは、この削除です。Jetson 環境の利用者は、自分の環境が該当するかどうかを確認したうえで更新を判断するのがよいでしょう。削除後の代替手段や移行方法については、この変更の説明には書かれていません。",
+      "bodyEn": "Ollama v0.40.18 was published on 2026-11-24 as a release in the local-llm space. The release notes list two changes: shared code in mlxrunner, and a llama.cpp update paired with the removal of jetpack5 support. The second change matters most for anyone running Ollama on Jetson hardware.\n\n## mlxrunner: share tensor helpers\n\nThe first entry reads \"mlxrunner: share tensor helpers and model setup across architectures,\" credited to @jaingaurav in pull request #19805. According to the release notes, tensor helper code and model setup in mlxrunner are now shared across architectures instead of being handled separately for each one. The notes give no further detail on which architectures are involved or on any change in behavior or performance, so the entry should be read as a consolidation of existing code.\n\n## llama.cpp version bump b12651\n\nThe second entry is \"llama.cpp: version bump b12651 + remove jetpack5 support,\" credited to @pdevine in pull request #19865. The bundled llama.cpp moves to version b12651. The same entry removes jetpack5 support. The summary of the release flags this for Jetson users, who should check whether their setup depends on jetpack5 before upgrading. The notes do not say which alternatives are supported or what the llama.cpp bump contains.\n\n## Full Changelog\n\nThe release links a full changelog comparing v0.40.17 with v0.40.18-rc0. That label suggests the comparison runs to a release-candidate tag. The page itself carries a verified-signature note saying the commit was created on GitHub.com.\n\nIn short, v0.40.18 is a small release by the look of its notes. It reorganizes how mlxrunner handles tensors and model setup, updates the llama.cpp version, and ends jetpack5 support. Readers who depend on Jetson with jetpack5 should treat that last item as the one needing attention, and anyone wanting specifics beyond these two entries will need to consult the linked pull requests and the full changelog.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "llama.cppがb12651に上がって、jetpack5のサポートも外れるんだね。これって大きいこと？",
+          "en": "llama.cpp moves to b12651, and jetpack5 support is dropped too. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この2つは同じ変更にまとまっているよ。jetpack5の削除は、Jetsonを使う人が確認したいところだね。",
+          "en": "Both come in the same change. The jetpack5 removal is the part Jetson users will want to check."
+        },
+        {
+          "s": "a",
+          "ja": "mlxrunnerの「テンソル処理を共通化」って、どういうこと？",
+          "en": "What does it mean that mlxrunner shares tensor helpers across architectures?"
+        },
+        {
+          "s": "b",
+          "ja": "テンソルは、モデルが扱う数値を並べた入れ物くらいの意味だよ。共通化は、同じ処理を共有して使えるようにする、という感じかな。",
+          "en": "A tensor is roughly a container for the numbers a model handles. Sharing just means using the same code in more than one place."
+        },
+        {
+          "s": "a",
+          "ja": "もしJetsonを使ってたら、更新の前にまず確認したほうがいいのかな？",
+          "en": "If I were using a Jetson, should I check first before updating?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。この記事ではjetpack5のサポート削除としか書かれていなくて、細かい影響までは分からないよ。更新前の確認は安心かも。",
+          "en": "Probably. Here it only says jetpack5 support is removed, with no detail on the impact, so checking before you update seems safer."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:41:12.293Z"
+    },
+    "f45f77aee2b9a1ee": {
+      "bodyJa": "Agent Retrievalに、マネージド取り込みとSearchDocumentsが加わった。PDFやOffice文書、動画を、取り込み用のパイプラインを自分で書かずに検索でき、エージェントが出典付きで回答できるようになると説明されている。\n\n## 従来のパイプライン\n\nエージェントがPDFの内容について質問に答えるには、その前に誰かがパイプラインを組む必要があった。まずすべてのファイルを解析してチャンクに分割し、各チャンクを埋め込み、ベクトルデータベースへ書き込む。さらに、そのデータベースのスキーマを学んだうえで、ようやく問い合わせができる。\n\n## 動画ではさらに複雑\n\n動画の場合は、手間がいっそう増える。ファイルをトランスコードし、クリップに切り分け、フレームを埋め込む。そのうえで、各クリップが「どの動画の何秒目」に由来するのかを見失わないよう、管理し続けなければならない。\n\n## 自前コードの負担\n\n従来は、これらの工程のすべてが自分で書いて保守するカスタムコードだった。しかも文書用と動画用で、別々に用意する必要があった。そのコードの大半は、アプリケーション本体とは関係のないものだと指摘されている。\n\n## 1回の呼び出しで\n\n今回のマネージド取り込みとSearchDocumentsは、こうした取り込み作業を自前で実装せずに済ませるための機能として位置づけられている。タイトルには「1回のAPI呼び出しでファイルから出典付き回答へ」とあり、ファイルから出典付きの回答までを短い手順でつなぐことが狙いだ。開発者は出典付きの回答をより速く提供できるようになる、とされている。",
+      "bodyEn": "## From Files to Cited Answers\n\nAgent Retrieval has gained two features, managed ingestion and SearchDocuments. According to the source, they let developers search PDFs, Office files, and videos without writing an ingestion pipeline. The aim is for agents to return answers with citations, and the title frames this as going from files to cited answers in a single API call.\n\n## Building the Pipeline Yourself\n\nThe source describes the problem these features address. Before an agent can answer a question about PDFs, someone has to build a pipeline. That work involves parsing every file, splitting it into chunks, and embedding each chunk. The chunks then have to be written to a vector database, and the developer has to learn that database's schema in order to query it.\n\nThe source says video is harder. The files must be transcoded and cut into clips, and the frames embedded. The developer must also keep track of which second of which video each clip came from.\n\nIn the source's \"before\" picture, every step of this pipeline is custom code that the developer writes and maintains, separately for documents and for videos. The source adds that most of that code has nothing to do with the application itself.\n\n## Managed Ingestion and SearchDocuments\n\nThe announcement positions managed ingestion and SearchDocuments as the replacement for that custom work. With managed ingestion, developers can search PDFs, Office files, and videos without building their own ingestion pipeline. SearchDocuments is the search feature that sits alongside it in Agent Retrieval.\n\nThe stated result is that an agent can answer questions about these files and attach sources to its answers. The key points summarize the benefit as helping developers ship cited answers faster.\n\nThe material provided does not detail the API parameters, supported file formats beyond PDFs, Office files, and videos, pricing, or availability. This explainer therefore limits itself to what the announcement says: managed ingestion and SearchDocuments are new additions to Agent Retrieval, and they remove the need for a hand-built pipeline for documents and video while enabling cited answers.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "自分のPDFや動画についてエージェントに答えてもらいたいとき、これで何が楽になるの？",
+          "en": "If I want an agent to answer questions about my PDFs or videos, what gets easier with this?"
+        },
+        {
+          "s": "b",
+          "ja": "取り込み用のパイプラインを自分で作らなくても、PDF、Office文書、動画を検索できるようになります。エージェントは出典付きで答えられるそうです。",
+          "en": "You don't have to build your own ingestion pipeline to search PDFs, Office files, and videos. The article says agents can then answer with citations."
+        },
+        {
+          "s": "a",
+          "ja": "前は、そのパイプラインを全部自分で作らないといけなかったの？",
+          "en": "So before this, did people really have to build that whole pipeline themselves?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、解析、分割、埋め込み、ベクトルDBへの保存、DBのスキーマの理解まで、すべて自作のコードでした。動画はさらに、変換や切り出しも必要でした。",
+          "en": "Per the article, yes: parsing, chunking, embedding, storing in a vector database, and learning its schema were all custom code. Video added transcoding and clipping on top."
+        },
+        {
+          "s": "a",
+          "ja": "アプリと関係ない作業が減って、出典付きの回答まで一気に進めるのが一番の収穫かな？",
+          "en": "So the big win is skipping the work unrelated to my app and getting cited answers faster?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めます。記事は、その大半がアプリ本体と関係ないコードだと指摘しています。次は、SearchDocumentsで出典がどう返るかに注目ですね。",
+          "en": "That's how I read it. The article says most of that code has little to do with your app. Next, watch how SearchDocuments returns the sources."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:41:34.824Z"
     }
   }
 }

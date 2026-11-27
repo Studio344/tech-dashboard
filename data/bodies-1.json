@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-27T21:31:02.417Z",
-  "count": 353,
+  "generatedAt": "2026-11-27T23:30:58.434Z",
+  "count": 358,
   "bodies": {
     "7b752c9b3e3af2c6": {
       "bodyJa": "AIエージェントが高度化するにつれ、誤動作や悪用が発生した際の影響範囲（ブラスト半径）も拡大する。本記事はAnthropicのエンジニアリングブログに掲載され、その上限をどう設計するかという実践的な問いに答えている。\n\n対象製品はclaude.ai・Claude Code・Coworkの3つ。それぞれ異なるユースケースと権限モデルを持つ中で、共通の封じ込め原則をどう適用したかが論点と推察される。具体的な実装詳細は原文で確認することを推奨する。\n\nエージェントの安全設計に携わる開発者や、Claudeを自社プロダクトに組み込む実務者にとって参考になる内容と見られる。",
@@ -11532,7 +11532,39 @@
       "bodyJa": "VS Code Copilot Chat 1.109で追加された8つの新機能を、Context Engineering(文脈設計)の観点から検証する解説記事が公開された。AIコーディング支援において、開発者がモデルへ渡す文脈をどこまで精密に制御できるかが焦点となっており、今回のアップデートはその流れを一段と後押しするものと位置づけられている。\n\nContext Engineeringとは、生成AIに与えるプロンプトだけでなく、参照させるファイルやディレクトリ、過去の会話履歴、ツールの実行結果といった「文脈」全体を意図的に設計する考え方を指す。単発の指示文を磨くプロンプトエンジニアリングから一歩進み、AIが何を見て何を無視するかを開発者側がコントロールすることで、出力の一貫性や再現性を高める狙いがある。大規模なコードベースほど、モデルに渡す情報の取捨選択が回答品質を左右しやすいとされる。\n\n記事では、1.109で加わった各機能を、この文脈制御の観点から一つずつ位置づけている。具体的には、チャットに含めるコンテキストの指定方法や、エージェント的にツールを呼び出す挙動、カスタム指示ファイルの扱いなどが、開発者の意図をAIへより明確に伝える手段として整理されていると見られる。どの情報を渡し、どの範囲で作業させるかを細かく調整できることが、実務での使い勝手に直結するという論旨だ。\n\n背景には、AIコーディング支援ツールをめぐる競争の激化がある。GitHub Copilotに加え、CursorやClineといったエージェント型ツール、Anthropicのモデルを組み込んだ環境などが相次いで登場し、いずれも「いかに適切な文脈を与えるか」を重要テーマに据えている。VS Codeは拡張機能として複数のモデルを切り替えられる柔軟性を持ち、Copilot Chatの更新頻度も比較的高いことから、こうした文脈制御機能は今後も継続的に拡充される可能性がある。\n\nもっとも、機能が増えるほど設定や運用の複雑さも増す。今回紹介された8機能をすべて使いこなす必要は必ずしもなく、自分の開発スタイルやプロジェクト規模に応じて取捨選択する視点が求められそうだ。Context Engineeringという枠組みは、そうした判断の指針として一定の有用性を持つと考えられる。",
       "bodyEn": "Context Engineering, the practice of deliberately shaping the information an AI model receives before it generates a response, has become a central concern for developers who rely on coding assistants. This article looks at the release of VS Code Copilot Chat version 1.109 and examines eight of its new features through that lens, focusing on how each one gives developers more precise control over the context that surrounds a request. As models grow more capable, the quality of their output increasingly depends less on the phrasing of a single prompt and more on the surrounding material—open files, project structure, instructions, and tool results—that the assistant can see.\n\nThe central idea behind Context Engineering is that a large language model only reasons over what fits inside its context window. Everything the assistant \"knows\" about a task in the moment is assembled from sources the developer either supplies explicitly or allows the tool to gather automatically. When that assembly is left to chance, results can be inconsistent; when it is managed deliberately, the same underlying model tends to behave more predictably. The features highlighted in 1.109 appear to reflect this shift, moving the emphasis from clever wording toward reproducible context construction.\n\nSeveral of the updates concern how instructions and reusable context are declared. Recent versions of Copilot Chat have supported instruction files and prompt files stored in the workspace, which let teams codify conventions such as preferred libraries, testing patterns, or coding style so they are injected consistently rather than retyped. Improvements in this area typically make it easier to scope instructions to particular file types or folders, which reduces noise by ensuring the model sees guidance relevant to the current task and not everything at once. From a Context Engineering standpoint, this is significant because irrelevant context can dilute a model's attention as much as missing context can starve it.\n\nOther features address the mechanics of gathering context during a conversation. Context variables and references, which allow a developer to point the assistant at a specific file, selection, symbol, or the broader codebase, remain a core mechanism for controlling what the model reads. Enhancements here generally aim to make the boundaries of that context more visible and controllable, so the developer can confirm what was actually included. Agent-oriented workflows, where the assistant can run tools, read files, and make multi-step edits, raise the stakes further, because the context is being modified as the task proceeds rather than fixed at the outset.\n\nTooling and extensibility form another recurring theme. The Model Context Protocol, an open standard for connecting assistants to external data sources and tools, has been adopted across several vendors and is likely relevant to any discussion of context control in modern editors. Features that manage tool sets, permissions, and how tool output is fed back into the conversation directly affect what ends up in the window. Neatly summarizing or filtering tool results, for instance, can prevent a single verbose command output from crowding out more useful material.\n\nIt is worth placing this release in a wider industry context. Copilot Chat competes with tools such as Cursor, Cline, and JetBrains AI Assistant, many of which have converged on similar concepts: workspace-level rules, explicit context attachment, agent modes, and standardized tool interfaces. This convergence suggests that Context Engineering is becoming a shared vocabulary rather than a single product's marketing frame. The prerequisite concepts—prompt engineering, retrieval, and an understanding of context window limits—carry over across these environments, which makes learning them broadly transferable.\n\nReaders evaluating whether to adopt the new features should treat specific behavior as version-dependent, since fast-moving extensions change defaults and naming between releases, and hands-on testing remains the most reliable guide. The broader takeaway is that the assistant's usefulness is closely tied to how well its context is curated. The eight features discussed here appear designed to make that curation more explicit, repeatable, and team-friendly, which is consistent with a general trend toward treating context as something to be engineered rather than left implicit. Developers who internalize that mindset are likely to get steadier results regardless of which tool or version they use.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:07:56.531Z"
+      "generatedAt": "2026-08-30T16:07:56.531Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "コーディング中のAIとのやり取りで、普段の何が変わるの？",
+          "en": "When I'm coding with AI, what actually changes in my everyday work?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、Memory toolの正式previewや/plan、runSubagentの並列実行など8つの新機能を、AIに渡す文脈を整える視点で見ているよ。",
+          "en": "This article looks at eight new features, like the Memory tool preview, /plan, and parallel runSubagent, as ways to shape the context you give the AI."
+        },
+        {
+          "s": "a",
+          "ja": "前はこういうのできなかったの？ 全部まったく新しい考え方なのかな？",
+          "en": "Couldn't we do this kind of thing before? Is it all a totally new way of thinking?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、本編で扱った設計パターンがVS Code 1.109で公式実装として多数出た、という位置づけだよ。以前との細かい差までは書かれていないんだ。",
+          "en": "The article frames it as design patterns from the main series now shipping as official features in VS Code 1.109. It doesn't spell out detailed differences from before."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、個人向けツールの設計から、業務で使うエージェント作りのヒントももらえることかな？",
+          "en": "So the big takeaway might be that a personal coding tool's design can give hints for building business agents too?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。各機能と本編の対応や、業務系システムに適用するときの考慮点も扱われているから、そこに注目だよ。",
+          "en": "Right. The article also covers how each feature maps to the main series and what to consider when applying them to business systems, so watch that part."
+        }
+      ]
     },
     "4c9d688cf44b534e": {
       "bodyJa": "## 巨大な変更\n\nGitHub Copilotアプリでは、巨大な差分と大量の会話を含む場合でも、高速で滑らかに確認できるようプルリクエスト画面を刷新した。分割しにくい移行や広範なリファクタリングを、一つの変更としてレビューする場面を想定した取り組みだ。\n\n## 分割しにくい変更\n\n作業を小さな変更に分けるスタック型のプルリクエストは、レビューを容易にし、チームがより少ないリスクで変更を届けるのに役立つ。しかし、広範なリファクタリングや移行の中には、きれいに分割できず、一つのプルリクエストとしてまとめる必要があるものも存在する。さらにレビューでのやり取りが加わると、その規模は一段と大きくなる。\n\n## レビュー性能\n\n刷新時に重視されたのは、差分だけでなく、それに伴う会話まで巨大になった状況でレビュー体験を維持することだ。大規模な変更では、ファイル数や変更行数に加え、各箇所に付くインラインレビューコメントも確認対象となる。GitHub Copilotアプリの新しいプルリクエスト画面は、こうした要素を含む極端なケースでも快適に確認できるよう再構築された。\n\n## 2,200ファイル\n\n性能の検証には、見つけられた中で最大のオープンソースのプルリクエストが使われた。その規模は2,200ファイル、100万行を超える変更、400件を超えるインラインレビューコメントに達する。この検証により、単純に差分が大きいだけでなく、レビューの会話も膨らんだプルリクエストを扱えることが示されている。",
@@ -12135,6 +12167,164 @@
       "bodyEn": "## Harness Effect\n\nThis paper examines how orchestration harness design shapes the token economics of enterprise agentic AI. It matters because the orchestration layer directly governs token consumption and cost structures, affecting the economics of large-scale AI agent deployments.\n\nThe research calls this relationship the “Harness Effect,” demonstrating that orchestration design has a direct influence on how many tokens an agentic AI system consumes and how its costs are structured.\n\n## Token Maxing\n\nAccording to the abstract, agentic AI development currently relies on “token maxing,” or buying capability with additional tokens. This includes longer reasoning traces, more turns, wider tool payloads, and larger replayed contexts.\n\nThe paper says this approach causes tokens consumed per task to grow faster than the value of the task itself. Its focus is therefore not only capability, but also the relationship between system design, token use, and task value.\n\n## Cost Optimization\n\nThe findings provide actionable guidance for enterprises seeking to optimize cost-effectiveness when deploying AI agents at scale. In particular, the research identifies orchestration harness design as a key factor in controlling token consumption and the resulting cost structure.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-05T01:10:53.799Z"
+    },
+    "1f13cb1893cdf33d": {
+      "bodyJa": "Cline v4.1.28 がリリースされた。モデルカタログの更新を中心に、OpenAI プロバイダーの一覧整理と、新しいプロバイダー2種の追加が行われている。\n\n## モデル一覧の更新\n\n今回の変更の中心は、モデルカタログの刷新である。OpenAI プロバイダーでは、上流のカタログが非推奨(deprecated)と示している ID を、一覧に載せないようになった。\n\n## 一覧から外れた ID\n\n具体的には gpt-4o、gpt-4.1、gpt-5、gpt-5-mini、gpt-5.1、gpt-5.3-codex、o3、o3-pro が挙げられている。これらは「含む」という形で示された例であり、非推奨とされた ID の全リストとは限らない。\n\nまた、gpt-5.3-codex-spark は ChatGPT サブスクリプション向けの一覧に表示されなくなった。\n\n## 新プロバイダー\n\n新たに Concentrate と Prima Labs の2つのプロバイダーが追加された。\n\n## ライセンス表記など\n\n拡張機能パッケージに含まれるサードパーティのライセンス表記が、これまで一覧から漏れていたソフトウェアも対象とするようになった。このほか、内部テレメトリーの整理も行われている。\n\nv4.1.27 からの全差分は、Full Changelog の v4.1.27...v4.1.28 で確認できる。",
+      "bodyEn": "## Refreshed the model catalog\n\nCline v4.1.28 updates the model catalog available in the tool. This matters for anyone who selects models through Cline, because the list of choices shown to them has changed in this release.\n\nAccording to the release notes, the OpenAI provider no longer lists ids that the upstream catalog marks as deprecated. The ids named are gpt-4o, gpt-4.1, gpt-5, gpt-5-mini, gpt-5.1, gpt-5.3-codex, o3 and o3-pro. The notes also say that gpt-5.3-codex-spark is no longer listed for ChatGPT subscriptions.\n\n## Adds the Concentrate and Prima Labs providers\n\nThe release adds two providers: Concentrate and Prima Labs. The notes give no further detail about how either one is configured or which models it offers, so the entry itself is the only point the release states about them.\n\nTaken together with the catalog changes, the release both removes entries marked deprecated upstream and widens the set of providers that can be chosen.\n\n## Third-party license notices\n\nThe third-party license notices in the extension package now cover software that was missing from the list. The notes describe this as a change to the notices included with the extension package, and they do not name the software that was added.\n\n## Internal telemetry cleanup\n\nThe release also includes what the notes call an internal telemetry cleanup. No specifics are given about what was changed or whether it affects how the extension behaves for users.\n\nThe full list of changes between the previous release and this one is available in the project's changelog, which compares v4.1.27 with v4.1.28. The release was published on 2026-11-26.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "gpt-4oやo3みたいな名前が、OpenAIの一覧からごっそり外れたんだね。これって大きいこと？",
+          "en": "Wow, names like gpt-4o and o3 all vanished from the OpenAI list. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、上流のカタログで非推奨とされたIDが一覧から外れたとあるよ。使えなくなるとまでは書かれていなくて、一覧の整理が中心だね。",
+          "en": "The post says IDs marked deprecated upstream no longer show up in the list. It doesn't say they stop working, so this is mainly a catalog cleanup."
+        },
+        {
+          "s": "a",
+          "ja": "「上流のカタログ」ってなに？ ちょっとピンとこなくて…",
+          "en": "What does \"upstream catalog\" mean? I'm not really picturing it."
+        },
+        {
+          "s": "b",
+          "ja": "記事に細かい説明はないけど、一般には元の提供側が持つモデル一覧のことかな。Clineの表示をそれに合わせた、という読み方ができるね。",
+          "en": "The post doesn't spell it out, but generally it means the source provider's own model list. So Cline seems to have lined its display up with that."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあモデルを選ぶとき、古いのに迷わなくなりそう。新しく入ったConcentrateとPrima Labsも見てみたいな。",
+          "en": "So picking a model might get less confusing with the old ones gone. I'd like to look at the new Concentrate and Prima Labs providers too."
+        },
+        {
+          "s": "b",
+          "ja": "いいね。ただ記事に書かれているのはプロバイダーの追加まで。中身や性能の説明はないから、試して確かめる形になりそうだよ。",
+          "en": "Nice idea. But the post only says the providers were added. It says nothing about what they offer or how they perform, so you'd have to try them yourself."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:38:20.776Z"
+    },
+    "bd0ccefa9e234441": {
+      "bodyJa": "Cline Desktop v0.0.51 がリリースされました。モデルカタログが更新され、OpenAI プロバイダーの一覧から非推奨とされたモデルIDが外れたほか、新たに2つのプロバイダーが加わっています。\n\n## モデルカタログの更新\n\n今回の更新では、OpenAI プロバイダーが、上流のカタログで非推奨と示されているIDを一覧に表示しなくなりました。対象として挙げられているのは gpt-4o、gpt-4.1、gpt-5、gpt-5-mini、gpt-5.1、gpt-5.3-codex、o3、o3-pro です。上流のカタログにおける非推奨の扱いに沿って、一覧が整理された形です。\n\nさらに、gpt-5.3-codex-spark も ChatGPT サブスクリプション向けには一覧に表示されなくなりました。\n\n## プロバイダーの追加\n\nConcentrate と Prima Labs の2つが、新たにプロバイダーとして追加されました。モデルカタログの更新と同じリリースに含まれる変更です。\n\n## 設定画面と内部の整理\n\nSettings → About に掲載されているサードパーティ向けの通知（third-party notices）が、これまで一覧から漏れていたソフトウェアも含む内容になりました。あわせて、内部のテレメトリーに関する整理（internal telemetry cleanup）も行われています。\n\n変更の全体は、desktop-v0.0.50 から desktop-v0.0.51 までの Full Changelog で確認できます。",
+      "bodyEn": "## Refreshed the model catalog\n\nCline Desktop v0.0.51 updates the model catalog, which changes which models users see when they choose a provider. The release is tagged as the step from desktop-v0.0.50 to desktop-v0.0.51.\n\nThe OpenAI provider no longer lists ids that the upstream catalog marks as deprecated. According to the release notes, these include gpt-4o, gpt-4.1, gpt-5, gpt-5-mini, gpt-5.1, gpt-5.3-codex, o3 and o3-pro. The notes also say that gpt-5.3-codex-spark is no longer listed for ChatGPT subscriptions.\n\n## Adds the Concentrate and Prima Labs providers\n\nThe release adds two new providers, Concentrate and Prima Labs. The announcement gives no further detail about either one, such as which models they offer or how they are configured. What it does establish is that both now appear alongside the existing providers in this version.\n\nTogether with the catalog cleanup, the change means the OpenAI list is shorter and the set of available providers is wider. Users who want to work with current models rather than deprecated ones are the people this refresh is most relevant to.\n\n## Third-party notices and telemetry\n\nThe third-party notices in Settings → About now cover software that was missing from the list before. The release notes present this as a correction to the existing notices, not as a new feature.\n\nThe release also includes what the notes call an internal telemetry cleanup. No specifics are given about what was changed, so it is best read as housekeeping rather than a change to anything users interact with directly.\n\n## Release reference\n\nThe notes point to a full changelog that compares desktop-v0.0.50 with desktop-v0.0.51. Anyone who wants a complete list of changes beyond the summary above can consult that comparison. The headline items in this version are the OpenAI catalog trimming, the two new providers, the more complete third-party notices and the telemetry cleanup.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "gpt-4o や o3 まで一覧から外れたの？ モデルがけっこう減ったみたいだけど、これって大きいこと？",
+          "en": "Wait, even gpt-4o and o3 are gone from the list? That's a lot of models. Is this a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、上流のカタログで非推奨とされたIDを OpenAI プロバイダーが載せなくなった、という更新だよ。gpt-5 系や o3-pro も含まれているね。",
+          "en": "This release says the OpenAI provider no longer lists IDs the upstream catalog marks deprecated. That includes the gpt-5 family and o3-pro too."
+        },
+        {
+          "s": "a",
+          "ja": "「上流のカタログ」って何のこと？ どこかの元の一覧ってこと？",
+          "en": "What's an \"upstream catalog\"? Like an original list somewhere else?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、もとになる情報の出どころくらいの意味だよ。ここでは、その一覧で非推奨と印がついたモデルを表示しないようにした、と読めるね。",
+          "en": "Generally, it means the original source the info comes from. Here it reads like models flagged deprecated in that list are no longer shown."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ私なら、モデルを選ぶ画面がすっきりして、新しいものを選びやすくなるのかな？",
+          "en": "So for me, the model picker would feel cleaner and make it easier to choose newer ones, right?"
+        },
+        {
+          "s": "b",
+          "ja": "整理されるという点ではそうかもね。ただ、外れたのは OpenAI の一部のIDで、gpt-5.3-codex-spark も ChatGPT サブスクリプションでは非表示になるよ。",
+          "en": "Maybe, in terms of tidiness. But only certain OpenAI IDs were removed, and gpt-5.3-codex-spark is also no longer listed for ChatGPT subscriptions."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:38:45.840Z"
+    },
+    "ed1c6ddb98a3c966": {
+      "bodyJa": "Cline CLI v3.0.76 が公開されました。npmパッケージに同梱される第三者向け告知ファイルが1つにまとまり、OpenAIのモデル選択から非推奨とされたIDが外れています。\n\n## THIRD_PARTY_NOTICES.txt\n\n今回のバージョンでは、npmパッケージのルートに THIRD_PARTY_NOTICES.txt が1つ置かれるようになりました。このファイルは、パッケージに含まれるすべてのプラットフォーム向けバイナリを対象にしていると説明されています。告知の記載先がパッケージ直下の1ファイルに集約された点が、この変更の中身です。\n\n## モデルカタログの更新\n\n同梱されているモデルカタログが更新されました。これに伴い、OpenAIのモデルピッカーには、上流のカタログが非推奨と示しているIDが表示されなくなっています。表示の基準は上流のカタログの扱いに沿ったものです。\n\n## 一覧から外れたID\n\nピッカーに載らなくなったIDとして、次のものが挙げられています。gpt-4o、gpt-4.1、gpt-5、gpt-5-mini、gpt-5.1、gpt-5.3-codex、o3、o3-pro です。ただし「including」と示されているとおり、これらは例示であり、非推奨とされたIDがこれだけとは限りません。\n\nさらに、gpt-5.3-codex-spark は、ChatGPTサブスクリプション向けの一覧に表示されなくなりました。こちらは非推奨IDの一覧とは別の項目として記されています。\n\n変更の全体は、cli-v3.0.75 から cli-v3.0.76 までのFull Changelogで確認できます。",
+      "bodyEn": "## Cline CLI v3.0.76 release\n\nCline CLI v3.0.76 is a small update that changes how license information is packaged and which OpenAI models appear in the model picker. Both changes affect what users see when they install the CLI or choose a model.\n\n## THIRD_PARTY_NOTICES.txt at the root\n\nAccording to the release notes, the npm package now ships one THIRD_PARTY_NOTICES.txt file at its root. That single file covers every platform binary included in the package. Third-party notices for all the binaries are therefore gathered in one location rather than being spread across separate places. The source does not describe what the file contains beyond that coverage.\n\n## Refreshed bundled model catalog\n\nThe release also refreshes the bundled model catalog. As a result, the OpenAI picker no longer lists ids that the upstream catalog marks as deprecated. The release notes name these ids:\n\ngpt-4o, gpt-4.1, gpt-5, gpt-5-mini, gpt-5.1, gpt-5.3-codex, o3 and o3-pro.\n\nThe notes say these are among the ids removed, which suggests the list is not necessarily exhaustive. The practical effect is that the picker shows fewer outdated entries, which should make it easier to pick a current model.\n\n## ChatGPT subscription change\n\nA separate note covers ChatGPT subscriptions: gpt-5.3-codex-spark is no longer listed for them. The source gives no further detail on this change.\n\n## Version reference\n\nThe release is published as cli-v3.0.76, and the notes point to a full changelog comparing cli-v3.0.75 with cli-v3.0.76. Readers who want the complete list of changes between those two versions can use that comparison.\n\nIn summary, the release bundles a single third-party notices file for all platform binaries in the npm package and prunes deprecated OpenAI model ids from the picker, including gpt-4o and o3. It also removes gpt-5.3-codex-spark from the list shown for ChatGPT subscriptions.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:38:51.320Z"
+    },
+    "2cc74419b488e9e2": {
+      "bodyJa": "Copilot Business または Copilot Enterprise を使う組織とエンタープライズで、Copilot コードレビューの課金方法をまだ選んでいない場合、2026年12月30日以降は課金先が組織に切り替わる。従来の請求を維持したい管理者は、それまでに設定を行う必要がある。\n\n## 12月30日からの変更\n\n対象は、Copilot ライセンスを持つメンバーによるコードレビューの課金設定が保存されていない組織です。2026年12月30日以降、これらのレビューは組織に請求されます。現在の課金を変えたくない場合は、期限までに「Member」を選択しておくよう案内されています。\n\n## 現在の挙動と新しい挙動\n\n課金の選択が保存されていない場合、有料の Copilot ライセンスを持つメンバーによるレビューは、現在そのメンバー自身の Copilot 利用権（entitlement）で処理されます。12月30日以降は、この種のレビューが、リポジトリを所有する組織への請求に変わります。\n\n## Member に設定されるケース\n\nすべての未設定アカウントが組織課金になるわけではありません。次のいずれかに当てはまるアカウントは、組織ではなく Member に設定されると説明されています。\n\nAI Credits の従量課金が有効になっていないアカウント、課金ロックがかかっているアカウント、課金対象の顧客が存在しないアカウントです。\n\n## すでに選択している場合\n\nすでに Member または Organization を選んでいる場合は、その選択が引き続き有効です。なお、Copilot ライセンスを持たないメンバー向けの設定は別個のもので、今回の変更の影響を受けません。\n\n今回の変更は、課金先の選択を保存していない組織に既定値が適用される、というものです。該当する管理者は、12月30日より前に課金設定を確認する必要があります。",
+      "bodyEn": "## Billing default changes December 30, 2026\n\nCopilot code review billing is changing for organizations that have not chosen a billing option. According to the announcement, if you haven't selected how to bill Copilot code review for members with a Copilot license, those reviews will be billed to your organization starting December 30, 2026. Admins who want billing to stay as it is need to act before that date.\n\n## Who is affected\n\nThe change applies to organizations and enterprises with Copilot Business or Copilot Enterprise. It concerns only the case where no billing choice has been saved. Today, in that situation, a review by a member who holds a paid Copilot license uses that member's Copilot entitlement. From December 30, 2026, those same reviews will instead be billed to the organization that owns the repository.\n\n## Keeping current behavior\n\nTo keep billing unchanged, the announcement says to select Member before the change takes effect. Anyone who has already chosen Member or Organization keeps that choice; it stays in effect and is not overwritten by the new default.\n\n## Exceptions to the new default\n\nSome accounts will not move to organization billing. The announcement states that accounts without AI Credits paid usage enabled, accounts with a billing lock, and accounts with no billable customer will be set to Member instead. For these accounts, reviews by licensed members continue to follow the member-based approach rather than shifting to the organization.\n\nThe announcement also notes that the separate setting for members without a Copilot license does not change. Only the handling of reviews by members who have a Copilot license is affected by this default switch.\n\n## What admins should check\n\nBased on the announcement, the practical step is to look at whether a billing choice for Copilot code review has been saved. If one has been saved, as Member or Organization, nothing changes. If none has been saved and the organization or enterprise uses Copilot Business or Copilot Enterprise, reviews by licensed members will be charged to the organization from December 30, 2026, unless Member is selected beforehand or the account falls under one of the exceptions above.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "2026年12月30日から、何も選んでいない組織は課金先が組織になるんだね。これって大きい変更なの？",
+          "en": "So from December 30, 2026, orgs that haven't chosen anything get billed directly? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "課金設定が未保存の場合、これまではメンバー自身のCopilot利用枠が使われていました。それが組織の請求に変わるので、管理者は要確認ですね。",
+          "en": "If no billing choice is saved, reviews currently use the member's own Copilot entitlement. After that date they go to the organization's bill, so admins should check."
+        },
+        {
+          "s": "a",
+          "ja": "「Member」を選ぶと従来どおりって書いてあったけど、これはどういう意味なの？",
+          "en": "The article says picking \"Member\" keeps things as they are. What does that mean?"
+        },
+        {
+          "s": "b",
+          "ja": "Copilotライセンスを持つメンバーのレビュー費用を、そのメンバーの利用枠で扱う設定、という意味です。「Organization」は組織の請求にする選択ですね。",
+          "en": "It means reviews by licensed members are handled under that member's own entitlement. \"Organization\" is the choice that sends them to the org's bill."
+        },
+        {
+          "s": "a",
+          "ja": "もし私が管理者なら、期限前に設定を見直して、今のままがいいなら Member を選ぶかな。",
+          "en": "If I were an admin, I'd check the setting before the deadline and pick Member if I wanted to keep things as they are."
+        },
+        {
+          "s": "b",
+          "ja": "いい流れですね。すでにMemberかOrganizationを選んでいれば、その選択が続きます。なお、AI Creditsの有料利用が無効、請求ロックあり、または請求対象の顧客がない場合はMemberになります。",
+          "en": "Good plan. If you've already chosen Member or Organization, that stays. Accounts without paid AI Credits usage, with a billing lock, or with no billable customer will be set to Member instead."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:39:19.595Z"
+    },
+    "1436356051894a31": {
+      "bodyJa": "AI for Mathematics の近年の進展は自己形式化と定理証明に集中してきた。エージェント型 LLM のワークフローで数式処理システム（CAS）が果たす役割は、十分に検討されていない。Pavel Snopov ら（共著者1名を含む）の論文は、SageMath を組み込んだ LLM エージェントを提案し、その働きを計算・実験数学の観点から評価している。\n\n## 未開拓だった CAS の役割\n\n論文は、数学向け AI の研究が主に自己形式化と定理証明に向かってきたと位置づけている。一方で、CAS を LLM エージェントの作業の流れにどう組み込むかは、まだ掘り下げられていない領域だとされる。この論文は、その空白を埋める試みとして評価の枠組みを示している。\n\n## ReAct 型の構成\n\n提案されるのは、ReAct スタイルのエージェント構成である。中心となるのは、LLM の推論と、SageMath から返される検証可能なフィードバックの組み合わせだ。モデルは SageMath での計算結果を受け取りながら、作業を進める。\n\n加えて、最新のドキュメントを参照するために Context7 が併用される。SageMath を使う場面で、更新された資料を参照できるようにする位置づけと読める。\n\n## RealMath での評価\n\n評価には、RealMath ベンチマークに含まれる研究レベルの数学問題が用いられる。設定は、計算数学の研究ループを模したものと説明されている。この設定のもとで、複数のフロンティアモデルにわたって上記のエージェント構成が試される。\n\n特定のモデルだけでなく、フロンティアモデルを横断して比較する点が特徴である。ここでの対象は、定理の形式的な証明ではなく、計算を通じて数学の問題に取り組む場面である。\n\n## 位置づけ\n\nこの研究は、LLM の推論に CAS からの検証可能なフィードバックを加えたとき、研究レベルの数学問題への取り組みがどう変わるかを調べる評価研究である。論文のタイトルは「計算・実験数学における SageMath 拡張 LLM エージェントの評価」で、提案と評価の両方が主題となっている。",
+      "bodyEn": "## Computer Algebra in Agentic Workflows\n\nA new arXiv paper by Pavel Snopov and one other author evaluates LLM agents that are augmented with SageMath for computational and experimental mathematics. It matters because, according to the abstract, recent work in AI for mathematics has concentrated on autoformalization and theorem proving, which leaves the role of Computer Algebra Systems (CAS) in agentic LLM workflows underexplored.\n\n## A ReAct-Style Setup\n\nThe authors propose a ReAct-style agentic setup. It combines LLM reasoning with verifiable feedback from SageMath, a computer algebra system. The setup also uses Context7 to supply up-to-date documentation to the agent. The abstract does not describe how the components are wired together beyond this pairing of reasoning, CAS feedback, and documentation access.\n\nThe emphasis on verifiable feedback is the central design idea: the model's reasoning steps are paired with results computed by the CAS rather than relying on the model alone.\n\n## Research-Level Evaluation\n\nThe evaluation covers frontier models and uses research-level mathematical problems from the RealMath benchmark. According to the paper, the experiments are run in a setting that emulates a computational-mathematics research loop, meaning the agent works through problems in a way meant to resemble how a researcher would iterate with computational tools.\n\n## Reported Findings\n\nThe summary of the work states that the study systematically benchmarks SageMath-augmented LLM agents on computational and experimental mathematics tasks. It reports that tool-integrated agents significantly outperform bare LLMs on complex mathematical problems, and that connecting to a computer algebra system substantially improves the mathematical reasoning ability of the models. The material available does not give specific scores, model names, or per-task breakdowns, so the size of the improvement and the variation across models cannot be stated here.\n\nThe paper was published in the arxiv-cs-ai listing on July 10, 2026, and is categorized as research. Readers interested in the exact agent configuration, the models tested, and the quantitative results would need to consult the full PDF.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "SageMathとContext7を組み合わせるって、それぞれ何をする役なの？",
+          "en": "So SageMath and Context7 get combined. What does each one actually do?"
+        },
+        {
+          "s": "b",
+          "ja": "SageMathは数式処理システムで、LLMはその確かめられる計算結果を見ながら考えを進めます。Context7は最新のドキュメントを渡す役目です。",
+          "en": "SageMath is a computer algebra system, and the LLM reasons using its verifiable results. Context7 supplies up-to-date documentation."
+        },
+        {
+          "s": "a",
+          "ja": "勘で答えるんじゃなくて、計算で確かめながら進めるんだね。それってちゃんと効果があったの？",
+          "en": "So it checks by computing instead of guessing. Did that actually help?"
+        },
+        {
+          "s": "b",
+          "ja": "研究サイクルを模した設定でRealMathの研究レベルの問題を使い、最先端モデルを評価しています。ツール付きは素のLLMを大きく上回ったそうです。",
+          "en": "They tested frontier models on research-level RealMath problems in a setup mimicking a research loop. Tool-augmented agents significantly outperformed bare LLMs."
+        },
+        {
+          "s": "a",
+          "ja": "定理証明の研究が多い中で、数式処理の役割はまだ調べられていなかったから、そこを測ったんだね。",
+          "en": "Most work focuses on theorem proving, so the role of algebra systems was underexplored. This paper measures that gap, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そのとおりです。ただ、あくまで研究ループを模した設定での評価なので、実際の研究現場での効果までは、この記事からは言えません。",
+          "en": "Right. But it's an evaluation in a simulated research loop, so this article can't say how well it works in real research settings."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:42:08.116Z"
     }
   }
 }

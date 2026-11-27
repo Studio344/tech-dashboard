@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-27T21:31:02.417Z",
-  "count": 366,
+  "generatedAt": "2026-11-27T23:30:58.434Z",
+  "count": 372,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -11326,44 +11326,6 @@
         }
       ]
     },
-    "070ae28b4906c56f": {
-      "bodyJa": "## 2つの原因\n\nClaude in Chrome（Chrome MCP）のブラウザ自動操作でクリックが意図通りに機能しない問題を、実測で切り分けた内容だ。原因は要素側の不具合ではなく、座標系のズレとダブルクリックの不発という、独立した2つの問題だと説明されている。\n\n## 座標系のズレ\n\nクリックしても狙った要素に当たらず、ポインタが目標より右へズレて、繰り返しても改善しない症状がある。また、スクリーンショットを撮ってしばらくすると、画面サイズが変わっている場合も挙げられている。記事では実測を通じて再現条件と対処法を整理している。\n\n## ダブルクリック不発\n\nもう一つは、ダブルクリックしても編集状態へ移らず、行選択で止まる症状だ。600個以上のWebツールを運用し、AIによるブラウザ操作を日常的に行う中で繰り返し遭遇した問題として、座標ズレとは分けて検証されている。",
-      "bodyEn": "## Missed clicks\n\nThis article examines why clicks can fail during browser automation with Claude in Chrome, also described as Chrome MCP. The distinction matters because the same apparent click problem can come from two independent causes: coordinate offset errors and failed double-click events.\n\nThe symptoms were encountered repeatedly during routine AI browser operation in a project running more than 600 web tools. The element itself was initially suspected, consuming hours of investigation, but the eventual diagnosis pointed elsewhere.\n\n## Coordinate offset errors\n\nOne failure mode causes the pointer to land to the right of the intended target, repeatedly missing the desired element. Another observed clue is that the screen size can change some time after a screenshot is taken. The article uses empirical measurements to separate this coordinate-system mismatch from problems with the target element.\n\n## Failed double-click events\n\nThe second cause is independent of coordinate offset. A double-click may fail to enter editing mode and stop at row selection instead. According to the summary, the article reproduces both issues, organizes their reproduction conditions and remedies, and presents them as a practical debugging reference for automation scripts.",
-      "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T22:42:01.702Z",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "ブラウザ自動操作でクリックが外れると、普段の作業では何が変わるの？入力欄まで押せないことがあるのかな。",
-          "en": "When browser automation misses a click, what changes in everyday work? Could it even fail to select an input field?"
-        },
-        {
-          "s": "b",
-          "ja": "入力欄などを押せない場合があります。座標ズレとダブルクリック不発を分けて調べると、自動化の原因を追いやすくなります。",
-          "en": "It can fail to select things like input fields. Separating coordinate offsets from failed double-clicks makes automation problems easier to diagnose."
-        },
-        {
-          "s": "a",
-          "ja": "前はできなかったの？それとも、クリックできない原因を一つだと思っていたの？",
-          "en": "Was this impossible before, or were missed clicks just being treated as one kind of problem?"
-        },
-        {
-          "s": "b",
-          "ja": "機能の新旧ではなく、当初は要素側の不具合が疑われていました。実測すると、独立した2つの原因に分けられました。",
-          "en": "This isn’t about an old versus new capability. The page element was initially suspected, but measurements separated the issue into two independent causes."
-        },
-        {
-          "s": "a",
-          "ja": "いちばんの収穫は、要素を疑う前に、座標ズレとダブルクリック不発を分けて調べることなんだね。",
-          "en": "So the main takeaway is to check coordinate offsets and failed double-clicks separately before blaming the page element."
-        },
-        {
-          "s": "b",
-          "ja": "そうだね。次は、readyStateがcompleteでも、innerWidthなどの値が安定したか確かめる点に注目したいね。",
-          "en": "Right. Next, check whether values such as innerWidth have stabilized, even after readyState reports complete."
-        }
-      ]
-    },
     "bc639ed77294630f": {
       "bodyJa": "企業向けAIエージェントの多くは、ユーザーからの指示や質問を受けて初めて動く「受動的」な存在にとどまっている。これに対し、arXivで公開された本論文は、エージェントがユーザーの需要を先読みし、適切なタイミングで自律的に行動する「プロアクティブ(先回り型)」な振る舞いを実現する枠組みとして、コンテキストグラフ(context graph)という構造化表現を提案している。\n\nコンテキストグラフは、ナレッジグラフの考え方を応用し、社内の人・タスク・文書・イベントといった多様な要素と、それらの関係性をノードとエッジで表現するデータ構造だと見られる。従来のチャット型エージェントは、対話の履歴やプロンプトに含まれる情報だけを手がかりに応答を返すため、業務全体の文脈を把握しにくいという課題があった。コンテキストグラフを用いることで、エージェントは組織の状況を継続的に構造化して保持し、「いつ」「誰に」「何を」働きかけるべきかを推論しやすくなる。\n\n技術的な背景には、大規模言語モデル(LLM)と外部知識を組み合わせるRAG(検索拡張生成)や、知識をグラフとして扱うGraphRAGといった潮流がある。これらは主に質問応答の精度向上を目的としてきたが、本研究はその発想を一歩進め、エージェント自身が行動の契機を見つけ出す点に主眼を置いていると考えられる。適切なタイミングの判断は、過剰な通知や不要な自動実行を避けるうえでも重要になる。\n\n同様の方向性は業界全体でも観測される。MicrosoftのCopilotやGoogle、Salesforceなどは、業務データと連携して能動的に支援するエージェント機能の拡充を進めており、単なる応答から「先回りの提案」へと軸足を移しつつある。ただし、プロアクティブな行動は誤った先読みやプライバシー、権限管理といったリスクも伴うため、実運用には慎重な設計が求められる。\n\n本論文が提示するコンテキストグラフは、こうした課題に対する構造的なアプローチの一つと位置づけられる。企業内の断片的な情報を統合し、エージェントの判断根拠を明示できれば、説明可能性や信頼性の向上にもつながる可能性がある。今後、実際の業務環境での有効性や拡張性がどこまで示されるかが、普及に向けた焦点となりそうだ。",
       "bodyEn": "A new research paper posted to arXiv proposes \"context graphs\" as a structured way to make enterprise AI agents proactive, meaning they can anticipate what a user needs and take action at an appropriate moment rather than waiting to be prompted. The idea matters because most current enterprise assistants remain reactive: they answer questions or execute commands only when a person explicitly asks. For businesses hoping to automate routine coordination work, the gap between responding on demand and acting ahead of need is a significant one, and the paper positions context graphs as a mechanism to help close it.\n\nAt the core of the proposal is the notion that an agent needs a persistent, structured representation of its operating environment in order to act autonomously with good judgment. According to the summary, a context graph organizes the signals surrounding a user, their tasks, their relationships, and the state of ongoing work into a connected model that the agent can reason over. Rather than treating each request as an isolated event, the agent can consult this graph to understand where a task sits in a larger workflow, which people or systems are involved, and what step might logically come next. That representation is what appears to enable the \"right moment\" timing the authors describe, since the agent can detect when conditions warrant intervention.\n\nThe approach builds on the broader lineage of knowledge graphs, which have long been used in enterprise settings to encode entities and the relationships between them in a machine-readable form. Search engines, recommendation systems, and data catalogs have relied on graph structures for years because they make relationships explicit and queryable. Applying a similar structure to an agent's live context is a natural extension, and it contrasts with the more common pattern of feeding large language models unstructured text through retrieval-augmented generation, or RAG. RAG pulls relevant documents into a model's context window at query time, but it is generally driven by an incoming question. A context graph, by comparison, is intended to be a standing model of state that the agent can monitor continuously, which is a prerequisite for behaving proactively.\n\nThis work arrives amid intense industry activity around enterprise agents. Vendors including Microsoft, Salesforce, Google, and ServiceNow have all introduced agent frameworks aimed at automating workflows across email, customer records, tickets, and internal tools. Emerging standards such as the Model Context Protocol, introduced by Anthropic, attempt to give models a consistent way to connect to external data sources and tools, which is a related but distinct concern from how an agent internally represents and reasons about that data. The paper's contribution appears to sit closer to the reasoning and representation layer, addressing how an agent decides that action is warranted at all, rather than only how it retrieves information or invokes a tool.\n\nProactive behavior also raises practical and governance questions that any deployment would need to address. An agent that acts without being asked must have reliable signals about user intent and appropriate boundaries, or it risks taking unwanted or premature actions. Structured context is likely intended to reduce that risk by grounding decisions in explicit relationships and states rather than in loose inference, though the effectiveness of such a system depends heavily on how accurately and completely the graph reflects reality. Keeping a context graph current across fast-moving enterprise data, and doing so while respecting access controls and privacy constraints, is a nontrivial engineering challenge that typically accompanies knowledge-graph systems.\n\nAs an arXiv preprint, the paper represents an early-stage research contribution and has not necessarily undergone peer review, so its claims and any reported results should be read as proposals to be validated rather than settled conclusions. Still, it reflects a recognizable direction in the field: moving agents from single-turn responders toward systems that maintain memory and situational awareness over time. Whether context graphs specifically become a widely adopted pattern will depend on how well they perform against alternatives and how cleanly they integrate with the tool-calling and data-connection standards now taking shape across the enterprise software market.",
@@ -12597,6 +12559,240 @@
       "bodyEn": "OpenHands cloud has reached version 1.45.0, a maintenance-oriented update to the hosted edition of the open-source agentic software development platform. The release is described primarily as a set of incremental improvements and bug fixes rather than a headline feature launch, but it reflects the steady, high-frequency release cadence that has become characteristic of the fast-moving field of AI coding agents. For teams that rely on the managed service in day-to-day workflows, even small patches to reliability and behavior can matter.\n\nOpenHands, developed by All Hands AI and previously known as OpenDevin, is a framework in which large language models operate as autonomous or semi-autonomous software engineers. Rather than simply suggesting inline code completions, the platform's agents can read and edit files, execute shell commands, run tests, and browse the web inside a sandboxed runtime environment. The cloud offering packages these capabilities as a managed service, removing the need for users to self-host the runtime, provision containers, or maintain the surrounding infrastructure themselves. That distinction is central to understanding this release: cloud updates are typically applied server-side, so most changes take effect without any manual action from the user.\n\nPatch and minor releases in an agentic system tend to concentrate on areas that are difficult to see from the outside but strongly affect real-world usability. These commonly include refinements to how the agent parses and invokes tools, handling of edge cases when commands fail or time out, adjustments to prompt construction, session and state management, and integration with underlying model providers. Because the summary for 1.45.0 does not enumerate specific fixes, the precise scope is best treated as incremental hardening; the changes appear aimed at stability and correctness rather than a change in core capability. Users seeking exact details would need to consult the project's published changelog.\n\nThe broader context helps explain why such frequent updates are worthwhile. Agentic coding tools sit on top of external model APIs from providers such as Anthropic, OpenAI, and Google, whose model versions, pricing, and behavior evolve continually. A framework that orchestrates those models must keep pace, and small regressions in how an agent recovers from an error or manages a long-running task can meaningfully degrade the experience. Rapid, targeted releases are one way maintainers keep the system aligned with a shifting foundation, and OpenHands has maintained an active release stream on that basis.\n\nOpenHands operates in an increasingly crowded landscape of AI software engineering tools. Adjacent projects and products include Cognition's Devin, which helped popularize the idea of an autonomous software engineer; Princeton's SWE-agent research project; command-line assistants such as Aider and Anthropic's Claude Code; editor-integrated tools like Cursor and GitHub Copilot; and cloud-based agents such as Google's Jules and Amazon Q Developer. OpenHands has distinguished itself in part through its open-source foundation and its performance on benchmarks such as SWE-bench, a widely cited evaluation that measures an agent's ability to resolve real GitHub issues drawn from open-source repositories. The open codebase allows organizations to inspect, extend, or self-host the platform, while the cloud edition serves users who prefer a ready-to-use hosted option.\n\nFor readers new to this category, a few prerequisite concepts are useful. Agentic coding refers to systems where a model plans and executes multi-step tasks, invoking external tools and observing the results, rather than producing a single response. A sandboxed runtime is an isolated environment, often a container, in which the agent can safely run code and shell commands without affecting the host machine. Tool use, sometimes called function calling, is the mechanism by which a model requests actions such as editing a file or running a test. These building blocks are common across most modern coding agents, and improvements to any of them tend to compound across a platform.\n\nAs a point release, OpenHands cloud 1.45.0 is unlikely to change how the platform is used, but it is consistent with a development pattern that prioritizes frequent, low-risk updates over large, infrequent overhauls. Organizations evaluating agentic coding tools may find that cadence itself informative, as it signals ongoing maintenance and responsiveness to the rapidly changing model ecosystem on which such platforms depend.",
       "model": "claude-opus-4.8",
       "generatedAt": "2026-07-10T00:04:21.443Z"
+    },
+    "1d2989d42b2b793b": {
+      "bodyJa": "Cline SDK v0.2.2 では、同梱モデルカタログの更新と、テレメトリ関連の内部整理が行われた。SDK を利用している場合は、既定モデルの変更や一部 API の変更に影響を受ける可能性がある。\n\n## モデルカタログの更新\n\n今回のリリースでは、同梱のモデルカタログが更新された。新たに concentrate と primalabs の2つのプロバイダーが追加され、28 のプロバイダーで既定モデルが変更されたと説明されている。\n\n既定モデルに依存した構成を使っている場合は、更新後にどのモデルが選ばれるかを確認しておく必要がある。\n\n## 一覧から外れたモデル\n\n上流のカタログで非推奨と判定された OpenAI のモデル ID は、一覧に表示されなくなった。対象は次のとおり。\n\ngpt-4o、gpt-4o-mini、gpt-4.1、gpt-4.1-mini、gpt-5、gpt-5-mini、gpt-5-nano、gpt-5-pro、gpt-5.1、gpt-5.3-codex、gpt-5.3-codex-spark、gpt-5.4-nano、gpt-image-2、o3、o3-pro。\n\nまた、MiniMax のコーディングプランからは MiniMax-M3 が一覧から外れた。これらの ID を指定している箇所があれば、見直しが必要になる。\n\n## テレメトリ関連の変更\n\n内部のテレメトリ整理として、@cline/llms、@cline/shared、@cline/core から、一部のテレメトリ用ヘルパーのエクスポートが削除された。あわせて @cline/llms は依存関係が減っている。\n\nさらに、writeGlobalSettings、setTelemetryOptOutGlobally、setAutoUpdateEnabledGlobally の3つの関数は、options 引数を取らなくなった。これらを options 付きで呼び出しているコードは、修正が必要になる。削除されたヘルパーのエクスポートを参照している場合も同様に確認が必要だ。\n\n変更の全体は、sdk/sdk/v0.2.1 から sdk/sdk/v0.2.2 までの Full Changelog で確認できる。",
+      "bodyEn": "Cline SDK v0.2.2 refreshes the bundled model catalog and cleans up internal telemetry code. Because the release removes some exports and changes function signatures, anyone building on the SDK may need to review their integrations.\n\n## Internal telemetry cleanup\n\nAccording to the release notes, some telemetry helper exports were removed from @cline/llms, @cline/shared and @cline/core. The @cline/llms package also has fewer dependencies as a result.\n\nThree functions changed their signatures: writeGlobalSettings, setTelemetryOptOutGlobally and setAutoUpdateEnabledGlobally no longer take an options argument. Code that passes that argument to any of them will need to be updated. Likewise, code that imports the removed telemetry helpers from the three packages should be checked, since those exports are no longer available.\n\n## Refreshed model catalog\n\nThe release refreshes the bundled model catalog. It adds two providers, concentrate and primalabs, and changes the default model for 28 providers. The notes do not say which defaults changed, so users who depend on a particular provider's default model should verify what it now resolves to.\n\n## Deprecated OpenAI models removed\n\nThe notes say the upstream catalog now marks certain OpenAI ids as deprecated, and those ids are no longer listed. The removed ids are:\n\ngpt-4o, gpt-4o-mini, gpt-4.1, gpt-4.1-mini, gpt-5, gpt-5-mini, gpt-5-nano, gpt-5-pro, gpt-5.1, gpt-5.3-codex, gpt-5.3-codex-spark, gpt-5.4-nano, gpt-image-2, o3 and o3-pro.\n\nSeparately, MiniMax-M3 is no longer listed on the MiniMax coding plans.\n\nProjects that reference any of these model ids by name should confirm their configuration still points to a model that appears in the catalog.\n\nThe full changelog comparing sdk/sdk/v0.2.1 with sdk/sdk/v0.2.2 is linked from the release page for anyone who wants the complete list of changes.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "28プロバイダーの既定モデルが変わるって、どういうこと？",
+          "en": "Defaults changing for 28 providers... what does that actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "同梱のモデルカタログが更新されて、28社分の「最初に選ばれるモデル」が変わったんだ。concentrateとprimalabsという新しいプロバイダーも加わったよ。",
+          "en": "The bundled model catalog was refreshed, so the default model changed for 28 providers. Two new providers, concentrate and primalabs, were also added."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、SDKを使っている人は何を確かめればいいのかな？",
+          "en": "So what should people using the SDK check?"
+        },
+        {
+          "s": "b",
+          "ja": "まずOpenAIのgpt-4oやo3など、非推奨扱いのIDが一覧から外れた点だね。MiniMax-M3もMiniMaxのコーディングプランから外れているよ。",
+          "en": "First, deprecated OpenAI IDs like gpt-4o and o3 are no longer listed. MiniMax-M3 is also gone from the MiniMax coding plans."
+        },
+        {
+          "s": "a",
+          "ja": "テレメトリのhelperも消えたんだよね。設定の関数も変わったの？",
+          "en": "Some telemetry helpers were removed too, right? Did the settings functions change as well?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだよ。@cline/llmsなど3パッケージで一部のエクスポートが消え、writeGlobalSettingsなど3つの関数はoptions引数を取らなくなったよ。使っている人は呼び出しを見直そうね。",
+          "en": "Yes. Some exports were removed from three packages, and three functions, including writeGlobalSettings, no longer take an options argument. If you use them, review your calls."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:39:01.241Z"
+    },
+    "b3b8acc62503ad85": {
+      "bodyJa": "Ollama v0.40.19 のリリースノートには、inkling2 に関する変更が掲載されています。短い履歴の高速化、ドラフト提案、会話スナップショットの三点が、ひとつの変更としてまとめて示されています。\n\n## inkling2の改良点\n\n変更の見出しは「inkling2: faster short histories, draft proposals and conv snapshots」です。日本語にすると、短い履歴の処理を速くすること、ドラフト提案、会話スナップショットの三つが、inkling2 の改良として並べられています。\n\n三つのうち、速度に直接関わるのは「faster short histories」、つまり短い履歴の扱いの高速化です。ローカルLLMの利用者にとっては、応答速度の向上を試せる内容だとされています。ドラフト提案と会話スナップショットは、同じ変更の中で併記されている項目です。\n\n## 変更の出どころ\n\nこの変更は @dhiltgen 氏によるもので、#19881 として参照されています。コミットは GitHub.com 上で作成され、GitHub の検証済み署名が付いています。\n\n## 版数の表記\n\nFull Changelog の比較範囲は v0.40.18 から v0.40.19-rc0 までです。タイトルは v0.40.19 ですが、変更履歴の末尾は rc0 という表記で、このリリースは先行版として扱われています。掲載されている変更はこの一件で、v0.40.18 からの差分としてまとめられています。\n\n公開日時は 2026年11月26日 06:20(UTC)です。",
+      "bodyEn": "Ollama has published v0.40.19, and the release entry centers on a single change to inkling2. For people running language models locally, the notable point is that the change is described as improving how quickly responses are handled.\n\n## inkling2 changes\n\nThe release notes contain one entry: \"inkling2: faster short histories, draft proposals and conv snapshots.\" It is credited to @dhiltgen and tied to pull request #19881. The entry names three parts of the change: faster handling of short histories, draft proposals, and conversation snapshots.\n\nTaken together, the entry presents the work as an improvement to inkling2 rather than a new product or a separate feature set. The summary of the release frames it the same way, saying inkling2 is improved with quicker handling of short histories alongside the draft proposals and conversation snapshots.\n\n## Full Changelog reference\n\nThe notes link to a full changelog comparing v0.40.18 with v0.40.19-rc0. The \"rc0\" in that tag matters: the summary describes this as a prerelease, so the build is an early candidate rather than a final stable version. The release page also states that the commit was created on GitHub.com and signed with GitHub's verified signature.\n\nThe comparison range suggests the changes between the two versions are limited to what is listed. The only item the notes call out by name is the inkling2 update in #19881.\n\n## What local LLM users can test\n\nAccording to the summary, this prerelease lets local LLM users try out quicker responses. The stated benefit is tied to the faster short-history handling, while the draft proposals and conversation snapshots are listed as part of the same inkling2 update.\n\nReaders who want to follow the change in detail can use the pull request number, #19881, and the v0.40.18...v0.40.19-rc0 changelog link given in the release notes. Because the entry is brief and the build is flagged as a release candidate, the notes are best treated as a short pointer to what changed rather than a complete account of it.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ローカルでLLMを使っている人は、今回の更新で普段の何が変わるの？",
+          "en": "If I run an LLM locally, what actually changes in my day-to-day with this update?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、inkling2が改良されて、短い履歴の処理が速くなるそうです。応答の速さを試せる先行リリースですね。",
+          "en": "This post says inkling2 got improvements, including faster handling of short histories. It's a prerelease, so you can try out quicker responses."
+        },
+        {
+          "s": "a",
+          "ja": "前は遅かったのかな？ドラフト提案とかスナップショットって、前からあったの？",
+          "en": "Was it slower before? And were draft proposals and snapshots already there?"
+        },
+        {
+          "s": "b",
+          "ja": "以前との細かい比較は、この記事には書かれていないので分かりません。ただ、短い履歴の高速化、ドラフト提案、会話スナップショットが今回の改良点として挙がっています。",
+          "en": "The post doesn't compare with earlier versions, so I can't say. It does list faster short histories, draft proposals, and conversation snapshots as this release's improvements."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、inkling2が速くなるのを先に試せるってことだね。",
+          "en": "So the big takeaway is that we can try a faster inkling2 early. Is that right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。先行リリースなので、実際にどれくらい応答が変わるのかは、試した人の報告や正式版の情報を待ちたいところです。",
+          "en": "Yes. Since it's a prerelease, how much responses really improve is something to watch for in user reports or the final release."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:39:21.542Z"
+    },
+    "57c8e86b569591a6": {
+      "bodyJa": "Zed Editor v1.30.2 がリリースされた。アプリ全体での GPU 使用量の削減に加え、AI によるコミットメッセージ生成のモデル選択、タイトルバーを隠す設定、GPT-6.1 Terra への対応などが盛り込まれている。\n\n## GPU 負荷と大規模プロジェクト\n\n今回のリリースでは、アプリ全体で GPU の使用量を抑える改善が行われたと説明されている。あわせて、大規模なプロジェクトの走査も高速化された。いずれも日常的な編集作業の快適さに関わる変更である。\n\n## Git パネルのモデル選択\n\nGit パネルでは、AI によるコミットメッセージ生成で使うモデルを選べるモデルピッカーが追加された。生成に使うモデルを選択できるようになる点が、この変更の中身である。また、タイトルバーを非表示にする設定も新たに用意された。\n\n## 対応モデルの追加と調整\n\nAI 関連では、OpenAI プロバイダーに GPT-6.1 Terra のサポートが追加された (#66659)。Gemini 4 Hydrogen (gemini-4-hydrogen) については、思考の強度として Extra High のレベルに対応し、既定値は High になったとされる (#67011)。さらに、GitHub Copilot のモデルについても改善が加えられている。\n\n## スレッド切り替えのキーボード操作\n\nエージェントスレッドの切り替え画面には、キーボードでの移動操作が加わった (#66951)。この画面は、Agent Panel または Threads Sidebar から ctrl-tab で開く。選択の移動には up / down、ctrl-n / ctrl-p、home / end が使え、ctrl を押したままであれば ctrl-up / ctrl-down でも移動できる。\n\nマウスを使わずにスレッドを選べるため、キーボード中心で作業する場面での操作がしやすくなる。",
+      "bodyEn": "## Zed v1.30.2 at a glance\n\nZed Editor v1.30.2 is a weekly release that touches both performance and AI features, which matters for developers who spend long sessions in the editor. According to the release notes, it reduces GPU usage across the app, adds a model picker for AI commit message generation in the Git Panel, introduces a setting to hide the title bar, and scans large projects faster.\n\n## AI provider and model support\n\nThe release adds support for GPT-6.1 Terra to the OpenAI provider (#66659, credited to nymo). It also adds support for the Extra High thinking effort level for Gemini 4 Hydrogen (gemini-4-hydrogen). That model now defaults to High, according to the notes (#67011, credited to LorenzoBiassio).\n\nThe notes also say GitHub Copilot models were improved to use their full con... The text is cut off at that point, so the rest of that change is not described here.\n\n## Agent thread switcher navigation\n\nThe agent thread switcher, which opens with ctrl-tab from the Agent Panel or the Threads Sidebar, now supports keyboard navigation (#66951, credited to kinoute). The up and down arrows, ctrl-n and ctrl-p, and home and end all move the selection. While ctrl is still held, ctrl-up and ctrl-down also move it.\n\n## Git Panel and interface changes\n\nFor commit messages generated with AI, the Git Panel now includes a model picker. The release summary describes it as a way to choose the model used for that generation. The notes do not say which models are offered.\n\nA new setting lets users hide the title bar. The summary does not say where the setting lives or what its name is.\n\n## Performance improvements\n\nThe summary highlights two performance items. GPU usage is reduced across the app, and scanning of large projects is faster. No measurements or benchmarks accompany these claims, so the size of the improvements is not stated. Both are presented as general gains for daily use rather than changes tied to a particular feature.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "毎日エディタを使っていると、このアップデートで何が変わるの？",
+          "en": "If I use the editor every day, what actually changes for me with this update?"
+        },
+        {
+          "s": "b",
+          "ja": "アプリ全体でGPU負荷が下がって、大規模プロジェクトの走査も速くなったそうだよ。タイトルバーを隠す設定も加わったよ。",
+          "en": "GPU usage drops across the whole app, and scanning large projects gets faster. There's also a new setting to hide the title bar."
+        },
+        {
+          "s": "a",
+          "ja": "コミットメッセージのモデルを選べるって、前は選べなかったの？",
+          "en": "You can pick a model for commit messages now. Could we not do that before?"
+        },
+        {
+          "s": "b",
+          "ja": "Gitパネルに、AIコミットメッセージ生成用のモデルピッカーが追加されたとあるよ。以前どうだったかは、この記事からは分からないな。",
+          "en": "The Git Panel gets a model picker for AI commit message generation. What it was like before isn't covered, so I can't say."
+        },
+        {
+          "s": "a",
+          "ja": "一番うれしいのは、アプリ全体が軽くなって、大きいプロジェクトでも走査が速くなることかな！",
+          "en": "So the biggest win for me is that the whole app runs lighter, and big projects scan faster!"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。ただ軽くなる度合いの数値は書かれてないから、体感は気になるところ。GPT-6.1 Terra対応も入っているよ。",
+          "en": "Right. No numbers are given for how much lighter it gets, so how it feels is worth watching. GPT-6.1 Terra support is in too."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:39:43.328Z"
+    },
+    "b2937bbd676220f2": {
+      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
+      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
+          "en": "If my team wants to modernize an app, how does the usual way of working change?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
+          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
+        },
+        {
+          "s": "a",
+          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
+          "en": "So people used to start by picking a framework? And what is that evidence for?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
+          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
+          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
+          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:40:18.238Z"
+    },
+    "231f1a322b3ba681": {
+      "bodyJa": "## チーム組織との共有会話\n\nOpenHands v1.46.0が2026年11月25日付でリリースされた。主な新機能は、チーム組織と共有した会話の一覧表示と共有解除、フィードバックボタンと送信フローの追加、オートメーションのGit Sync切替の3点である。\n\n会話まわりでは、チーム組織と共有している会話を一覧で確認し、そのうえで共有を解除できるようになった。この変更はOHE-4205として、#19954で@hieptlが取り込んだものだ。共有中の会話を把握して取り下げる操作が用意されたことで、チームでの共有管理がしやすくなると説明されている。\n\n## Feedbackボタン\n\nFeedbackボタンと、その送信フローが新たに加わった。#19272で@DevinVinsonが追加したもので、利用者が画面上のボタンからフィードバックを送れるようにする機能である。\n\n## Git Syncスイッチ\n\nオートメーションには、Git Syncのスイッチが追加された。目的は、有効化の状態(activation status)をローカルに保つことだとされる。OHE-3927として、#19925で@hieptlが実装した。設定の扱いを利用者側で切り替えられる点が、チーム運用や設定管理に携わる人にとって便利な更新と位置づけられる。\n\n## メンテナンス更新\n\n保守面では、リリースボットによってagent-serverが1.63.1、automationが1.35.1、extensionsが0.44.0へ更新された(#20026)。\n\n依存関係の更新も複数含まれる。@tanstack/react-virtualは3.11.3から3.14.26へ(#19864)、開発用のelectronは45.3.2から45.3.3へ(#20024)上がった。eslintグループでは2件の更新が入っている(#20023)。これらはいずれもDependabotによる自動更新である。",
+      "bodyEn": "## OpenHands v1.46.0 Features\n\nOpenHands v1.46.0, dated 2026-11-25, adds three user-facing features and a set of dependency and component updates. The changes mainly affect how teams manage shared conversations, collect feedback, and handle automation settings.\n\nThe first feature lets users list and unshare conversations that have been shared with a team org. The release notes tie this to the reference OHE-4205 and attribute it to @hieptl in pull request #19954. According to the release summary, this gives teams more control over what is shared.\n\nThe second feature is a Feedback button together with a submission flow. The notes credit @DevinVinson and reference pull request #19272.\n\n## Automations Git Sync Switch\n\nThe third feature adds a Git Sync switch to automations, intended to keep activation status local. It is listed under OHE-3927 and attributed to @hieptl in pull request #19925. The notes describe the purpose only as keeping activation status local, so the switch is best understood as a setting that affects where an automation's active or inactive state is kept.\n\n## Maintenance Updates\n\nThe maintenance section begins with a bump of several components, made by the release bot in pull request #20026: agent-server moves to 1.63.1, automation to 1.35.1, and extensions to 0.44.0.\n\nSeveral dependency updates from Dependabot are also listed:\n\n@tanstack/react-virtual rises from 3.11.3 to 3.14.26 within the tanstack group, in pull request #19864.\n\nelectron, a development dependency, moves from 45.3.2 to 45.3.3 in pull request #20024.\n\nThe eslint group receives two updates in pull request #20023.\n\nThe notes also mention an i18next group bump, though the listing is cut off, so no further detail is available on that item.\n\n## What Changed for Users\n\nIn the release's own framing, the changes are most relevant to people who run OpenHands in a team setting or who manage automation configuration. The ability to review and withdraw shared conversations, the new route for sending feedback, and the local-activation option for automations are the user-visible items. The remaining entries are routine version bumps to supporting components and development tooling.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:40:29.594Z"
+    },
+    "abedf03c6144948d": {
+      "bodyJa": "Metaは、パーソナルAIエージェント「Muse」を英国で提供開始した。質問に答えるだけにとどまらず、ユーザーがタスクを任せて用事を進めてもらえる点が打ち出されている。\n\n## 英国で提供開始\n\nMuseは英国で利用できるようになり、対象は英国の利用者である。Metaはこれを、答えを返すだけのAIではなく、ユーザーが仕事を頼める存在として紹介している。\n\n## ユーザーが主導権\n\n発表のタイトルには「ユーザーが主導権を握る」という趣旨の表現が含まれている。英国の利用者は日常の用事をMuseに委ねつつ、自分でコントロールを保てるとされる。\n\n従来の質問応答型との違いは、ユーザーに代わってタスクを実行する点にあると説明されている。",
+      "bodyEn": "## Muse arrives in the UK\n\nMeta has announced that Muse, its personal AI agent, is now available in the UK. The launch matters because the product is positioned as more than a question-answering tool, which sets it apart from a conventional assistant.\n\nAccording to the announcement, Muse is an agent that users can task with getting things done on their behalf, rather than one that only responds to queries.\n\n## A personal AI agent you control\n\nThe post's title describes Muse as \"A Personal AI Agent You Control,\" and the announcement stresses that the user directs the work. Tasks are assigned by the person using it, and the agent carries them out for them.\n\nThe source says UK users can hand off everyday chores to the agent while keeping control over what it does.\n\nThe announcement was published through Meta Newsroom. It frames the UK release as the point at which the agent becomes available in that market. Beyond that, the material gives no further detail on pricing, supported platforms, or specific task types.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "毎日の暮らしだと、Museで何が変わるの？",
+          "en": "What changes in my everyday life with Muse?"
+        },
+        {
+          "s": "b",
+          "ja": "質問に答えるだけでなく、頼んだ用事を代わりにやってくれるところだよ。日常の用事を任せられる、と書かれているね。",
+          "en": "It doesn't just answer questions. It can carry out tasks you hand it, so you can delegate everyday chores."
+        },
+        {
+          "s": "a",
+          "ja": "前のAIは、答えるだけでそこまでできなかったの？",
+          "en": "So before this, AI could only answer, and couldn't do that much?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと「答えるだけではない」点を押しているよ。ただ、以前との細かい違いや具体的にできることは書かれていないから、分からないな。",
+          "en": "The post stresses it goes beyond answering. But it doesn't spell out how it differs from before or what exactly it can do, so I can't say."
+        },
+        {
+          "s": "a",
+          "ja": "任せても、決めるのは自分のままっていうのが一番の収穫かも！",
+          "en": "My big takeaway: I can hand things off, but I'm still the one in charge!"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね、「ユーザーが主導権を握る」が軸だよ。次は、どんな用事を任せられるのか、具体的な説明が出るかに注目したいね。",
+          "en": "Right, staying in control is the core idea. Next, I'd watch for specifics on which tasks you can actually delegate."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:41:12.576Z"
+    },
+    "e7e23baae7271022": {
+      "bodyJa": "エージェントベースモデリング(ABM)に大規模言語モデル(LLM)を組み込み、シミュレーション内のエージェントに推論能力を持たせる手法を提案する論文が公開された。従来のABMが抱えてきた「静的な事前情報への依存」という制約に取り組む研究とされる。\n\n## 政策立案に使われるABM\n\nABMは数百万人規模の個人とその相互作用をモデル化できる点が特徴で、政策立案に役立つとされる。多数の主体の振る舞いを同時に扱えることが、この手法の強みとして挙げられている。\n\n## 静的な事前情報の限界\n\n一方でABMは従来、静的な事前情報(static prior)に依存してきた。そのためモデルがリアルタイムの変化に適応できないことが課題となっている。論文はこの点を情報ギャップと捉え、新たなアプローチでその解消を目指すとしている。\n\n## LLMによる推論の導入\n\n提案されているのは、LLMをABMに統合し、エージェントの意思決定に高度な推論能力を与える方法である。シミュレーション上のエージェントが人間のように推論できるようになることで、社会シミュレーションや複雑系研究における表現力、すなわち再現の忠実度の向上に貢献すると説明されている。\n\n著者はSifat Afroj Moon氏ら8名。なお、arXivに掲載されたプレプリントはarXivによる査読を受けておらず、内容は文脈を踏まえて扱う必要がある。",
+      "bodyEn": "LLM-powered reasoning in agent-based modeling is the subject of a new arXiv paper by Sifat Afroj Moon, Dakotah Maguire, Adam Spannaus, Joe Tuccillo, Maksudul Alam, Sudip K. Seal, John Gounley and Heidi Hanson. It matters because agent-based models are used to inform policy, and the paper targets a limitation in how those models respond to changing conditions.\n\n## Modeling Millions of Individuals\n\nAccording to the abstract, agent-based modeling (ABM) can represent millions of individuals and the interactions between them. The authors describe this capability as useful for policy making. The approach works by simulating many individual agents rather than describing a population only in aggregate.\n\n## The Limit of Static Priors\n\nThe abstract says ABMs have traditionally relied on static priors. In the authors' framing, this reliance prevents the models from adapting to real-time changes. The paper calls the resulting shortfall an information gap, and it presents its work as a novel approach to closing that gap.\n\n## LLM-Powered Reasoning\n\nThe paper's proposal is to integrate large language models into agent-based modeling. The stated aim is to give simulated agents human-like reasoning, so that agent decision-making draws on more capable reasoning than a fixed prior allows. The summary of the work says this is intended to improve the fidelity of social and complex-systems simulations, and the paper's title places the contribution in LLM-powered reasoning within ABM.\n\n## Status of the Work\n\nThe paper is an arXiv e-print. arXiv notes that such postings are not peer-reviewed by arXiv, and that they should not be reported as established information without consulting multiple experts in the field. The available description is a short abstract, so the claims above reflect the authors' own framing of the problem and their approach. Readers who want to understand how the language models are connected to the agents, or how the resulting simulations were evaluated, will need to consult the full PDF.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、ふだんの暮らしや仕事だと何が変わるの？政策づくりとかに関係するのかな。",
+          "en": "So what changes in everyday life or work? Does this connect to policymaking?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、ABMは何百万人もの個人とそのやりとりを扱えて、政策づくりに役立つとされています。そこにLLMの推論を入れて、シミュレーションの現実らしさを高める提案です。",
+          "en": "The paper says ABMs can model millions of individuals and their interactions, which helps policymaking. It proposes adding LLM reasoning to make the simulations more realistic."
+        },
+        {
+          "s": "a",
+          "ja": "前はできなかったの？ABMって、そもそも状況の変化に合わせられなかったってこと？",
+          "en": "Couldn't it do that before? Did ABMs just not adapt to changing situations?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、従来のABMは「静的な事前情報」に頼っていて、リアルタイムの変化に適応しにくかったそうです。LLMでどこまで改善するかは、ここからは分かりません。",
+          "en": "The paper says ABMs traditionally relied on static priors, so they struggled to adapt to real-time changes. How much the LLM approach improves on that isn't clear from what's here."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、動かない前提から、変化に合わせて考えるエージェントに近づく道ができたことかな？",
+          "en": "So the big takeaway is a path from fixed assumptions toward agents that can reason as things change?"
+        },
+        {
+          "s": "b",
+          "ja": "そのイメージで合っていると思います。ただ、この論文はarXivの査読前の投稿なので、実際にどう検証されているかを見たいですね。",
+          "en": "That fits the idea, I think. But this is an arXiv preprint, not peer-reviewed, so it's worth checking how the approach is actually tested."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:42:04.524Z"
     }
   }
 }

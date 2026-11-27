@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-27T21:31:02.417Z",
-  "count": 347,
+  "generatedAt": "2026-11-27T23:30:58.434Z",
+  "count": 348,
   "bodies": {
     "17f496c665a12174": {
       "bodyJa": "Metaは、AIネイティブ時代に向けたプライバシー対応インフラの中核として、社内の膨大なデータアセットを正確に分類する取り組みをエンジニアリングブログで公開した。データ保持期間やアクセス制御、利用目的の制限、第三者への共有可否、匿名化といったプライバシー制御は、対象となるデータの性質を正しく把握して初めて機能するためだ。\n\n同社の出発点はシンプルである。あらゆるプライバシーコントロールは「どこに、どのようなデータが存在するか」という信頼できる理解を前提とする。たとえば特定の個人情報を一定期間で削除する保持ポリシーを適用するには、まずそのデータがどのテーブルやログ、ストレージのどこに含まれているかを機械的に判別できなければならない。分類が曖昧なままでは、制御そのものが空回りしてしまう。\n\nしかし、この前提を大規模に満たすことは容易ではない。Meta規模のサービスでは、データは無数のシステムを横断して生成・変換・複製され、形式やスキーマも多様だ。さらに生成AIや機械学習パイプラインの普及により、学習用データセットや派生データが増え、データの流れはいっそう複雑になっている。こうした環境で分類の精度と網羅性を保つには、自動化された分類基盤と継続的な検証の仕組みが欠かせない。\n\nこの課題は業界共通のものでもある。EUのGDPRや米カリフォルニア州のCCPAをはじめとする各国の規制は、データの利用目的や保持に厳格な要件を課しており、データガバナンスの基盤整備は大手テック各社にとって避けて通れない。GoogleやMicrosoftなども独自のデータ分類・カタログ化の仕組みを整えてきたとされ、Metaの今回の公開はその一つの実装例と位置づけられる。\n\nAIの普及はデータ活用の幅を広げる一方で、プライバシー保護の難度を押し上げている。データを正確に「知る」ための分類基盤は、派手さこそないが、信頼できるAIサービスを支える土台になると見られる。Metaの事例は、プライバシーを後付けではなく設計段階から組み込む「プライバシー・バイ・デザイン」の実践として参考になりそうだ。",
@@ -10962,7 +10962,39 @@
       "bodyJa": "## エージェント管理\n\nVisual Studio Code 1.141では、エージェントセッションの管理と保護、列形式テキストの編集、GitHub Enterpriseインスタンスをまたぐ作業が行いやすくなった。特に、ワークツリーの整理、ターミナルのサンドボックス化、複数セッションの配置が、エージェントを安全かつ効率的に扱うための中心的な変更となっている。\n\n## ワークツリー整理\n\n非アクティブなエージェントセッションが使用していたワークツリーのストレージを整理し、ディスク容量を回収できる。整理は必要なときに実行できるほか、自動的に行うことも可能とされる。複数のセッションを利用する際に蓄積するワークツリーを管理し、容量を確保しやすくする機能だ。\n\n## サンドボックス\n\nターミナルサンドボックスにより、エージェントがアクセスできるファイルとネットワークリソースを制限できる。Windows、macOS、Linuxに対応し、プラットフォームをまたいでエージェントのワークフローを保護できるようになった。エージェントの操作範囲を限定することで、安全な管理を支える。\n\n## セッション配置\n\n複数のエージェントセッションをグリッドレイアウトで横並びに配置し、比較しながら監視できる。個別のセッションを切り替えるだけでなく、複数の進行状況を同時に確認しやすい構成となる。また、ローカルの外部CopilotおよびCodexで行っていた会話を、文脈を失わずにVisual Studio Codeで引き継げる。",
       "bodyEn": "## Clean up worktree storage\n\nVisual Studio Code 1.141 focuses on making agent sessions easier to manage while helping developers reclaim capacity and protect agent workflows. The release adds controls for cleaning up worktree storage associated with inactive agent sessions.\n\nDevelopers can reclaim disk space from these worktrees either on demand or automatically. This provides a direct way to manage storage created by agent sessions without requiring every cleanup to be initiated manually.\n\n## Cross-platform sandboxing\n\nTerminal sandboxing is available across Windows, macOS, and Linux. It can limit an agent’s access to files and network resources, providing additional protection for workflows that use agents through the terminal.\n\nThe cross-platform support means the same type of access restriction is provided on all three listed operating systems. Together with worktree cleanup, this feature is intended to help developers manage agents safely and efficiently.\n\n## Arrange sessions\n\nThe release also introduces a grid layout for multiple agent sessions. Developers can arrange sessions side by side, making it easier to compare and monitor them within Visual Studio Code.\n\nThis arrangement capability is aimed at workflows involving several concurrent sessions. Rather than treating each session in isolation, the grid presents them together for direct comparison and monitoring.\n\n## Continue external sessions\n\nVisual Studio Code 1.141 can pick up local external Copilot and Codex conversations without losing their context. This allows an external conversation to continue inside Visual Studio Code while preserving the existing session context.\n\nThe release additionally makes it easier to edit columnar text and work across GitHub Enterprise instances. It is available in .deb, .rpm, and .tar.gz formats, with Arm instructions and Snap also listed. Existing installations can use Check for Updates in Visual Studio Code, while upcoming features are available through the Insiders build.",
       "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T14:37:57.183Z"
+      "generatedAt": "2026-10-07T14:37:57.183Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "このアップデートで、毎日の作業では何が楽になるの？エージェントをよく使う人向けなのかな？",
+          "en": "So what gets easier in day-to-day work? Is this mostly for people who use agents a lot?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、エージェントのセッション管理が中心です。使っていないセッションのワークツリーを片付けてディスク容量を取り戻せて、手動でも自動でもできるそうです。",
+          "en": "The article centers on managing agent sessions. You can reclaim disk space from inactive session worktrees, either on demand or automatically."
+        },
+        {
+          "s": "a",
+          "ja": "前は、複数のセッションを並べて見たり、安全に動かしたりはできなかったの？",
+          "en": "Before this, couldn't you watch several sessions side by side or run them safely?"
+        },
+        {
+          "s": "b",
+          "ja": "以前の状況はこの記事からは分かりません。ただ今回は、グリッド表示で複数セッションを並べて比較・監視でき、ターミナルのサンドボックスがWindows、macOS、Linuxで使えると書かれています。",
+          "en": "The article doesn't say how it was before. It does say sessions can now be compared side by side in a grid, and terminal sandboxing works on Windows, macOS, and Linux."
+        },
+        {
+          "s": "a",
+          "ja": "一番うれしいのは、容量を片付けつつ、エージェントのファイルやネットワークへのアクセスを制限できるところかな。外部のCopilotやCodexの会話も続けられるんだね。",
+          "en": "The big win for me: tidy up space and limit what agents can reach in files and network. And I can continue Copilot and Codex chats too!"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。外部セッションは、文脈を失わずに続けられると書かれています。注目したいのは、ワークツリーの自動整理とサンドボックスの制限を、実際の作業でどう使い分けるかですね。",
+          "en": "Right, the article says you can continue them without losing context. Worth watching is how you'd use automatic worktree cleanup and sandbox limits in your real workflow."
+        }
+      ]
     },
     "7e1f61313e3cbf1d": {
       "bodyJa": "isdd v1.0.14では、ローカルLLMを使ってGitHub Copilotスキルのevalを実行するための改修が行われた。中心となったのは、長時間の処理に対応するタイムアウト設定と、follow_up_promptsの設計判断である。\n\n## isddの役割\n\nisddは、Interview-driven Spec-driven Developmentの略称で、GitHub Copilotのスキル機能を利用する。要件定義、詳細設計、実装までをIDによって一貫して追跡する仕組みであり、今回の開発では、そのスキルをローカルLLMで評価できるようにする作業が進められた。\n\n## evalの時間延長\n\nwazaのevalでは、timeout_secondsによって1回ごとのタイムアウトを制御する。当初のデフォルト値は600秒、つまり10分だった。しかし、ローカルで動作するGemma 4 26B QATに84Kトークンを処理させたところ、約44分を要した。\n\nこの結果を受け、全evalのtimeout_secondsは一律で10倍に変更された。6000秒あれば実用上は余裕がある場面も多いとされるが、今回の改修では、まずevalを最後まで通すことが優先されている。\n\n## bash 3.2の問題\n\nrun-all.shでは、未定義変数への参照をエラーにするset -uを有効にしていたため、空配列の展開時にunbound variableが発生した。zshやbash 4以降では問題にならない一方、macOSのデフォルトであるbash 3.2系ではエラーになる。そのため、bash 3.2でも空配列を扱える書き方へ修正された。\n\n## follow_up_prompts\n\nwaza v0.28.0からは、eval中に追加のプロンプトをモデルへ送るfollow_up_promptsが利用できる。ただし、使い方を誤ると逆効果になると説明されている。今回対象となったisdd-change-designは自律完了型スキルであり、追加プロンプトを使うかどうかもスキルの性質を踏まえて判断する必要がある。",
@@ -11240,7 +11272,39 @@
       "bodyJa": "エージェントAI（自律型AI）を実務に組み込む動きが加速している。最新のGPT-5.6とClaude Sonnet 5を「会話の相手」ではなく「作業を最後まで仕上げる道具」として運用するための設計思想と実装手法を、具体的なコード例とともに解説した入門記事が公開された。\n\n従来のLLM活用は、プロンプトを投げて応答を受け取る一問一答が中心だった。これに対しエージェント型では、モデル自身がタスクを分解し、外部ツールを呼び出し、結果を検証して次の行動を決める、という反復ループを回す。記事はこの違いを設計の起点として位置づけ、単なる応答生成から「タスクの完了」へと発想を転換する重要性を強調している。\n\n技術的な核となるのが、ツール呼び出し（function calling / tool use）の仕組みである。モデルに使用可能な関数の定義を渡し、必要に応じてファイル操作やAPI実行、コード実行などを委ねる。記事ではこうした処理を安全に扱うためのループ設計や、失敗時のリトライ、途中経過の検証といった実装パターンが紹介されているとみられる。\n\nこうした流れは特定の製品に限った話ではない。AnthropicはClaude向けにツール利用やコンピュータ操作の機能を、OpenAIも関数呼び出しやAssistants系のAPIを提供しており、エージェント実装を支える基盤は各社で整いつつある。加えてLangChainやLlamaIndex、Model Context Protocol（MCP）のように外部連携の標準化を狙う周辺ツールも登場し、モデルと外部システムをつなぐ選択肢は広がっている。\n\n一方で、自律的に動くエージェントには固有の課題もある。想定外の操作やコスト増、無限ループ、機微な情報の取り扱いといったリスクは、人間による確認（human-in-the-loop）や権限の制限、実行範囲の明確化で管理する必要がある。記事が説く「作業を仕上げる道具」という視点は、モデルの能力を過信せず、検証と制御を前提に組み込む実装姿勢とも言える。\n\nエージェントAIはまだ発展途上の領域であり、モデルの性能向上とともにベストプラクティスも移り変わる可能性が高い。基礎的な設計思想を押さえた入門記事は、実装に踏み出す開発者にとって足がかりとなりそうだ。",
       "bodyEn": "The rapid maturation of large language models has moved the industry beyond simple question-and-answer chat toward systems that can plan, act, and finish tasks on their own. A recent introductory piece on Zenn frames this transition clearly, arguing that the latest models—referred to as GPT-5.6 and Claude Sonnet 5—are best understood not as conversation partners but as tools for completing actual work. Why this matters is straightforward: the value of an AI system increasingly depends less on the quality of a single response and more on its ability to carry a multi-step task through to a verifiable result.\n\nAt the center of the article is a distinction between response generation and task completion. In a conventional chat setup, a model receives a prompt and returns text, leaving execution to the human. An agentic setup, by contrast, wraps the model in a loop where it can call external tools, observe the results, and decide on the next action until a goal is met. The author presents this as a design philosophy rather than a single technique, emphasizing that the surrounding scaffolding—tool definitions, state management, and stopping conditions—often matters more than the raw model capability.\n\nThe technical core of most agent implementations is function calling, sometimes described as tool use. Both major model families expose structured interfaces that let a developer declare available functions, their parameters, and expected outputs, typically as JSON schemas. The model then decides when to invoke a function, and the runtime executes it and feeds the result back into the context. The article reportedly walks through concrete code examples of this pattern, showing how a task such as reading a file, querying an API, or running a calculation can be delegated to deterministic code while the model handles reasoning and orchestration. This division of labor is a common recommendation, since language models are unreliable at precise arithmetic or data retrieval but comparatively strong at planning and interpretation.\n\nContext is important for understanding where these patterns come from. Frameworks such as LangChain, LlamaIndex, and the newer generation of agent toolkits popularized many of these ideas, and Anthropic's introduction of the Model Context Protocol has pushed toward a more standardized way of connecting models to external tools and data sources. OpenAI's function calling and its Assistants and Agents tooling occupy a similar niche. The Zenn piece appears to sit within this broader movement, offering a hands-on entry point rather than proposing an entirely new architecture. Readers already familiar with prompt engineering, structured outputs, and retrieval-augmented generation will likely find the concepts build naturally on that foundation.\n\nA recurring theme in agentic design, and one the article is likely to touch on, is reliability. Autonomous loops can fail in ways that simple chat cannot: an agent may enter an infinite cycle, call the wrong tool, or confidently proceed on a flawed assumption. Practical implementations therefore add guardrails such as iteration limits, explicit verification steps, human-in-the-loop checkpoints for sensitive actions, and logging so that behavior can be audited. Treating the model as a component within a well-defined system, rather than an all-knowing oracle, is the pragmatic stance most current guidance endorses.\n\nIt is worth noting that the specific model names cited, GPT-5.6 and Claude Sonnet 5, should be read in the context of the article's forward-looking framing; the underlying patterns are largely model-agnostic and apply to earlier releases as well. The general trend the piece reflects is real: vendors are competing on tool-use accuracy, longer context windows, and lower latency precisely because these characteristics determine how well a model performs inside an agent loop. Improvements in structured output adherence and instruction following tend to reduce the amount of defensive scaffolding developers must write.\n\nFor practitioners, the takeaway is that adopting agentic AI is as much an engineering discipline as a modeling choice. Success depends on clearly scoping what a task means, defining the tools an agent may use, and building verification into the workflow. The article positions itself as a starting point for that journey, and its emphasis on finishing work rather than merely generating text captures the direction the field appears to be heading. Anyone evaluating these approaches should still validate claims against their own use cases and remain cautious about handing critical decisions to systems that can still err.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:08:18.246Z"
+      "generatedAt": "2026-08-30T16:08:18.246Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "2026年7月に、OpenAIとAnthropicとGoogleが相次いで「エージェント型」を出したんだね。これって大きいこと？",
+          "en": "OpenAI, Anthropic, and Google all launched \"agent-style\" AI in July 2026? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では3社の共通点が、ゴールを渡すと複数ステップの作業を自律的に進める設計だとされています。単発の応答から、成果物を返す方向への動きですね。",
+          "en": "The article says they share one design idea: you hand over a goal, and the AI works through multiple steps on its own. It's a shift from single replies to returning finished results."
+        },
+        {
+          "s": "a",
+          "ja": "「tool」って何だろう？ モデルが道具を使うってこと？",
+          "en": "What's a \"tool\" here? Does the model actually use tools?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、実際に副作用を持つ関数のことです。たとえばレポートを書き出す関数や、ノートを検索する関数をモデルに渡す、というイメージですね。",
+          "en": "In this article, it's a function that has real effects. Examples are one that writes a report and one that searches notes, which you hand to the model."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ「ノートを検索して要点をレポートにまとめて」って頼めば、順番も自分で決めてくれるのかな？",
+          "en": "So if I ask it to search my notes and write up the key points, it'd work out the order itself?"
+        },
+        {
+          "s": "b",
+          "ja": "記事の例だと、検索から書き出しの順にエージェントが自分で判断して進められます。ただ、ループには最大max_steps回という上限が置かれていて、tool呼び出しが無くなるまで繰り返す構造です。",
+          "en": "In the article's example, it goes from search to writing out the report on its own. The loop has a max_steps limit, and it repeats until the tool calls stop."
+        }
+      ]
     },
     "45349b28a296a955": {
       "bodyJa": "Simon Willisonが、ローカル環境で自由に実行・改変できるオープンウェイトの言語モデル「Inkling」を公開した。誰でもモデルの重みを入手して手元のマシンで動かせるほか、独自データによる追加学習も可能とされる点が注目される。\n\nオープンウェイトとは、学習済みのパラメータ（重み）が配布され、利用者が自分の環境で推論を実行できる形態を指す。学習データやコードのすべてを開示する「完全なオープンソース」とは区別されることが多いが、外部APIに依存せずローカルで動かせるため、プライバシー保護やコスト削減、オフライン利用といった利点がある。近年はMetaのLlama、フランスのMistral、GoogleのGemma、アリババのQwen、DeepSeekなど、各社が競うようにオープンウェイトモデルを投入しており、Inklingもこうした潮流の中に位置づけられる。\n\nSimon Willisonは、コマンドラインから多様なLLMを扱える「llm」ツールや、データ分析ツール「Datasette」の作者として知られる開発者だ。日頃からローカルLLMの動向を精力的に発信しており、今回の公開もその延長線上にあると見られる。\n\nローカルでモデルを動かす環境も充実してきた。llama.cppやOllama、LM Studioといったツールを使えば、専門的な知識がなくても手元のPCで推論を試せる。量子化技術の進歩により、比較的小型のモデルであれば消費者向けGPU、場合によってはCPUだけでも実用的な速度で動作するケースが増えている。\n\nただし、記事執筆時点でInklingのパラメータ規模や学習データ、想定される性能、ライセンス条件などの詳細な情報は限られている。オープンウェイトを名乗るモデルでも、商用利用や再配布に制約が設けられている例は少なくないため、実際に利用する際はライセンスの確認が欠かせない。今後は、コミュニティによる性能評価や、ファインチューニングを通じた派生モデルの登場が焦点になりそうだ。",
@@ -11320,7 +11384,39 @@
       "bodyJa": "## リポジトリ接続\n\nCursorは、管理者向けのチームマーケットプレイス管理機能を強化した。リポジトリを先に接続しなくても作成でき、組織内ツールの配布と統制を進めやすくなると説明されている。\n\n## 公式プラグイン\n\nチームマーケットプレイスの設定画面から、公式プラグインを直接追加・削除できる。さらに、インストール時の動作も指定でき、チーム内で利用するプラグインと導入方法を管理者がまとめて管理できる。",
       "bodyEn": "## Team marketplace settings\n\nCursor has strengthened admin controls for team marketplaces, simplifying team-wide tool governance. Admins can now create a team marketplace without first connecting a repository.\n\nThe change allows administrators to establish the marketplace before a repository connection is in place.\n\n## First-party plugins\n\nWithin team marketplace settings, admins can add, remove, and configure install behavior for first-party plugins. These controls cover plugin availability and the rules for how those plugins are installed.\n\nTogether, the settings give administrators a direct way to manage plugin distribution and installation behavior across a team.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-09-05T01:23:39.860Z"
+      "generatedAt": "2026-09-05T01:23:39.860Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "チームで使うツールをそろえたいとき、管理者の作業は何が変わるの？",
+          "en": "When a team wants everyone on the same tools, what changes for the admin?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、管理者はリポジトリを先に接続しなくてもチームマーケットプレイスを作れます。設定からプラグインの追加・削除や、インストール動作の指定もできます。",
+          "en": "Per this article, admins can create a team marketplace without connecting a repository first. They can also add or remove first-party plugins and set install behavior in the settings."
+        },
+        {
+          "s": "a",
+          "ja": "前は、リポジトリをつながないと作れなかったの？",
+          "en": "So before, you had to connect a repository first?"
+        },
+        {
+          "s": "b",
+          "ja": "「先にリポジトリを接続しなくても」とあるので、接続が前提だった可能性はあります。ただ、以前の細かい仕様はこの記事からは分かりません。",
+          "en": "The wording \"without connecting a repository first\" hints that it may have been a prerequisite. But the article doesn't say how things worked before, so I can't confirm."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、リポジトリなしで始められて、設定画面でプラグインも管理できることかな？",
+          "en": "So the big win is starting without a repository, and managing plugins right from settings?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。次は、記事にある3つの頒布方法が、それぞれどんな導入のされ方なのかに注目したいところです。",
+          "en": "Right. Next, I'd look at the three distribution methods the article mentions, and how each one rolls out a plugin to the team."
+        }
+      ]
     },
     "96aaad105213505a": {
       "bodyJa": "## 旅行予約体験\n\ntiket.comはMicrosoftと連携し、クラウドとAIを顧客体験の基盤に据えることで、旅行予約体験の刷新を進めている。目指すのは、利用者にとってよりスマートで適応性が高く、統合された旅行体験の土台を築くことだ。\n\n旅行者が重視するのは、チケット価格や目的地の比較だけではない。長く楽しみにしていた旅行を妨げる問題が少なく、計画から実際の旅行までを途切れなく進められることへの期待も高まっていると説明されている。\n\n## クラウドとAI\n\n旅行計画は常に予定通り進むとは限らない。旅程の変更や緊急の払い戻し依頼が発生した場合、利用者はすぐに支援を受けられる解決策を求める。tiket.comは、こうした期待の変化を受け、デジタルトランスフォーメーションを加速させている。\n\nその中心となるのがクラウドとAIだ。Microsoftとの取り組みは、tiket.comにとってAI変革の始まりと位置付けられ、変化する状況に対応しながら、より一体化した旅行サービスを提供するための基盤になるとされる。\n\n## 提案と自動化\n\n旅行プラットフォームへのAI統合により、利用者ごとにパーソナライズされた提案を可能にし、予約の流れを効率化する。旅行の検討や予約に伴う手順を整理し、利用者がより円滑にサービスを使えるようにする狙いがある。\n\nさらに、自動化によって業務の流れも簡素化され、ユーザーの利便性だけでなく、tiket.com側の業務効率も向上すると説明されている。AIは提案機能と予約ワークフローの双方に組み込まれ、顧客体験と運用の改善を支える役割を担う。",
@@ -11811,6 +11907,12 @@
       "bodyEn": "OpenHands, the open-source AI coding agent platform maintained by All Hands AI, has published version 1.11.0, continuing a steady cadence of incremental releases aimed at making autonomous and semi-autonomous software development more reliable. For teams evaluating agentic coding tools, point releases like this matter because they typically address the practical friction—stability, model compatibility, and workflow integration—that determines whether such agents are usable in day-to-day engineering rather than only in demos.\n\nOpenHands began life as OpenDevin, a community response to the closed Devin agent unveiled by Cognition in early 2024. The project rebranded to OpenHands and has since grown into one of the more widely watched open-source efforts in the space, distributed under a permissive license and developed openly on GitHub. Its core premise is that a large language model can be given the tools a human developer uses—a shell, a code editor, a browser, and the ability to run commands—inside a sandboxed environment, then iterate toward completing a task described in natural language. A 1.11.0 designation signals a minor release within an established line, which generally implies feature additions and refinements layered on top of a stable interface rather than breaking architectural changes.\n\nWhile the specific contents of any given release should be confirmed against the official changelog, updates in this range of the project have historically clustered around a few recurring themes, and 1.11.0 appears to fit that pattern. These include broader support for underlying language models, refinements to the agent's planning and tool-use loop, improvements to the sandboxed runtime that executes code, and usability changes in the web-based interface and command-line entry points. Incremental releases also frequently bundle bug fixes, dependency upgrades, and adjustments intended to reduce token consumption or latency—factors that directly affect the cost and speed of running an agent against a real codebase.\n\nA defining characteristic of OpenHands is that it is model-agnostic. Rather than being tied to a single provider, it connects to a range of backends through abstraction layers, allowing users to run it against frontier commercial models from vendors such as Anthropic, OpenAI, and Google, or against locally hosted open-weight models. This flexibility is significant because agent performance is heavily dependent on the reasoning and coding ability of the chosen model, and the field moves quickly. Releases that expand or update model support help the platform keep pace as new models arrive, and they let organizations balance capability against privacy and cost considerations by keeping inference in-house where required.\n\nThe broader context is a crowded and fast-evolving category of AI coding assistants. OpenHands sits alongside proprietary agents like the aforementioned Devin, editor-integrated tools such as Cursor and GitHub Copilot, terminal-focused assistants including Aider and Anthropic's Claude Code, and research-oriented systems like Princeton's SWE-agent. Many of these tools are benchmarked against SWE-bench, a dataset drawn from real GitHub issues that has become a common yardstick for measuring how often an agent can produce a correct patch. OpenHands has featured prominently in such evaluations, and its open development means its scaffolding and prompting strategies are inspectable, which is part of its appeal to researchers and to companies wary of opaque black-box systems.\n\nFor practitioners, the value of an agent platform lies less in headline capabilities than in whether it can be trusted to operate safely and integrate into existing pipelines. That is why sandboxing, permissions, and reproducible execution environments remain central concerns, and why releases that harden these areas tend to be meaningful even when they are not flashy. Running an autonomous agent that can execute arbitrary commands carries obvious risks, so containment and human oversight are prerequisites for adoption in production settings.\n\nUsers interested in the release can obtain it through the project's standard distribution channels, typically a container image and package published to GitHub, and are advised to review the official release notes for the precise list of changes, any migration steps, and known issues before upgrading. As with any rapidly developing open-source tool, testing in a controlled environment ahead of wider rollout is prudent. The 1.11.0 release, taken together with the project's ongoing momentum, reflects the continued maturation of open-source agentic coding tooling as a credible alternative to closed commercial offerings.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T17:45:48.009Z"
+    },
+    "f43e8c38c468acf6": {
+      "bodyJa": "Ollama v0.40.18-rc0 では、inkling2 向けにMetal用カーネル群が追加され、デコード、プリフィル、ドラフトラウンドが高速化された。Apple Siliconで Inkling を動かす利用者に恩恵があるとされる。\n\n## Inkling専用カーネル\n\n今回のカーネルはいずれも Inkling 専用で、それぞれにストックグラフへのフォールバックが用意されている。有効にするかどうかは、GPUの世代とサイズクラスによって切り替わる仕組みだ。\n\n## エキスパート処理と分割アテンション\n\nデコード側では複数の最適化が入った。短いBF16積のカーネルに加え、NVFP4/MXFP8 のエキスパートギャザーでは重複を排除し、SwiGLU を融合している。ループコントローラと残差ミキシングも融合され、相対位置の分割アテンションや、短い畳み込みの融合カーネルも加わった。\n\n## プリフィルとウィンドウキャッシュ\n\nプリフィルでは、グローバルなプリフィルが高速化された。あわせて、順序付きのウィンドウキャッシュが導入され、追加分をその場で書き込む（append in place）方式で扱われる。\n\n## 8ビットのドラフト\n\nドラフトは8ビット化され、語彙ヘッドには4ビットが使われる。この低ビット化されたドラフトは候補の提案にのみ用いられるため、最終的な出力は従来と同じく正確なまま保たれると説明されている。",
+      "bodyEn": "Ollama v0.40.18-rc0 is a release candidate whose headline change targets Inkling on Metal. The change, tracked as #19843 and titled \"inkling2: faster Metal decode, prefill and draft rounds,\" speeds up three stages of running the model: decode, prefill and draft rounds.\n\n## Inkling-only Metal kernels\n\nAccording to the release note, the new Metal kernels apply to Inkling only. Each one comes with a stock-graph fallback, and each is gated by GPU generation and size class. The kernels are therefore not applied across the board, and a fallback path exists for each of them.\n\n## Expert gathers and attention\n\nThe note lists several specific kernel changes. They include short BF16 products and deduplicated NVFP4/MXFP8 expert gathers with fused SwiGLU. Fused loop controllers and residual mixing are also listed.\n\nOn the attention side, the release adds relative-position split attention. It also adds fused short convolutions. The summary describes these changes as speeding up NVFP4/MXFP8 expert handling and split attention.\n\n## Prefill and window cache\n\nFor prefill, the release describes a faster global prefill. It also adds an ordered window cache that appends in place. The note does not give benchmark figures, so the size of the speedups is not stated.\n\n## Exact outputs with 8-bit draft\n\nThe last item is an 8-bit draft model paired with a 4-bit vocabulary head. The note says this draft is used for proposals only and that outputs stay exact. In other words, the lower-precision draft changes how candidates are proposed, not the final results.\n\nThe release summary says the work benefits Mac users who run Inkling. It is a release-candidate build, as the \"rc0\" suffix indicates.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:41:33.750Z"
     }
   }
 }

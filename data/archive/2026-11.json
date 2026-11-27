@@ -1,21 +1,59 @@
 {
-  "generatedAt": "2026-11-27T21:31:06.687Z",
+  "generatedAt": "2026-11-27T23:31:02.920Z",
   "month": "2026-11",
-  "count": 107,
+  "count": 109,
   "entries": [
+    {
+      "id": "78a255837b86de03",
+      "source": "mcp-servers-releases",
+      "sourceType": "release",
+      "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.5.0",
+      "title": "MCP Servers Releases v2.5.0",
+      "titleJa": "MCP Servers v2.5.0 リリース",
+      "titleEn": "MCP Servers Releases v2.5.0",
+      "lang": "en",
+      "publishedAt": "2026-11-27T21:07:33.000Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "tags": [
+        "mcp",
+        "mcp-server",
+        "mcp-server-git",
+        "release",
+        "security",
+        "server-everything",
+        "server-filesystem",
+        "vulnerability-fix"
+      ],
+      "category": "mcp",
+      "importance": 3,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Security fixes v2.5.0 fixes eight vulnerabilities in three servers. Upgrade mcp-server-git to 2026.11.18, @modelcontextprotocol/server-filesystem to 2.4.0 and @modelcontextprotocol/server-everything to 2.3.1. Package Affected Fixed in mcp-server-git through 2026.11.11 2026.11.18 @modelcontextprotocol/server-filesystem all versions before 2.4.0, and date versions 2025.1.14 through 2026.8.31 2.4.0 @modelcontextprotocol/server-everything through 2.3.0 2.3.1 mcp-server-git 2026.11.18 A merge no longer starts Git's automatic maintenance. A successful git_merge , a fast-forward included, ended in git maintenance run --auto , whose garbage collection runs the commands a repository's own gc.recentObjectsHook names, with the server's privileges. maintenance.auto is now false and gc.auto is 0 for ev",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/871933?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/871933?s=60&v=4",
+        "alt": "MCP Servers Releases v2.5.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
     {
       "id": "3afd307d15f302ce",
       "source": "ollama-releases",
       "sourceType": "release",
       "url": "https://github.com/ollama/ollama/releases/tag/v0.40.19",
       "title": "Ollama Releases v0.40.19",
-      "titleJa": "",
+      "titleJa": "Ollama v0.40.19 リリース",
       "titleEn": "Ollama Releases v0.40.19",
       "lang": "en",
       "publishedAt": "2026-11-27T21:04:44.000Z",
       "collectedAt": "2026-11-27T21:30:43.960Z",
       "tags": [
+        "conversation-snapshots",
+        "inkling2",
         "ollama",
+        "performance",
         "release"
       ],
       "category": "local-llm",
@@ -33,6 +71,36 @@
       },
       "feedSnippet": "What's Changed inkling2: faster short histories, draft proposals and conv snapshots by @dhiltgen in #19881 mlxrunner: compact Engram history buffers by @pdevine in #19913 bump llama-server by @pdevine in #19917 Full Changelog : v0.40.18...v0.40.19-rc0",
       "excerptOrigin": "article"
+    },
+    {
+      "id": "f4f9b282db67ac6e",
+      "source": "mcp-servers-releases",
+      "sourceType": "release",
+      "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.6.0",
+      "title": "MCP Servers Releases v2.6.0",
+      "titleJa": "",
+      "titleEn": "MCP Servers Releases v2.6.0",
+      "lang": "en",
+      "publishedAt": "2026-11-27T09:58:10.000Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "tags": [
+        "mcp",
+        "mcp-server",
+        "release"
+      ],
+      "category": "mcp",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Security fixes v2.6.0 fixes eight vulnerabilities in three servers, and completes two fixes that v2.5.0 left open. Upgrade mcp-server-git to 2026.11.27, @modelcontextprotocol/server-memory to 2.2.2 and mcp-server-fetch to 2026.11.27; on Windows, also @modelcontextprotocol/server-filesystem to 2.4.1. Package Affected Fixed in mcp-server-git through 2026.11.18 2026.11.27 @modelcontextprotocol/server-memory 1.0.0 through 2.2.1 2.2.2 mcp-server-fetch 2026.10.10 through 2026.11.18 2026.11.27 @modelcontextprotocol/server-filesystem on Windows, through 2.4.0 2.4.1 mcp-server-git 2026.11.27 Git LFS no longer runs programs that a repository's configuration names. With Git LFS installed (the official Docker image installs it system-wide), the server kept the LFS filter from the user's own configurat",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/871933?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/871933?s=60&v=4",
+        "alt": "MCP Servers Releases v2.6.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
     },
     {
       "id": "92248fb31d2fb5b9",
@@ -66,6 +134,38 @@
         "src": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMwLmdpdGh1YnVzZXJjb250ZW50LmNvbSUyRnUlMkYyNzc5ODc3OCUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1kMDVhYmJmMGFhM2QxNmEwMTIyYjMxMGUyNTQzOTg1Zg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd6c7e1661ac3e687edda9be4a6b5d567?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9R29vZ2xlJTIwV29ya3NwYWNlJTIwTUNQJTIwJUUzJTgxJUFFJUU2JTg5JUJGJUU4JUFBJThEJUVGJUJDJTg4aW5wdXRfcmVxdWlyZWQlRUYlQkMlODklRTMlODIlOTIlMjBhZ2VudCUyMCVFMyU4MSVBRSVFNyVBMiVCQSVFOCVBQSU4RCVFMyU4MyU4MCVFMyU4MiVBNCVFMyU4MiVBMiVFMyU4MyVBRCVFMyU4MiVCMCVFMyU4MSVBQiVFNCVCOCVBRCVFNyVCNiU5OSVFMyU4MSU5OSVFMyU4MiU4QiUyMCVFMiU4MCU5NSUyMHN0ZGlvJTIwJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MzU3YzZmZjRiNmMwNzdhZDFkNDFkN2QwZjE5YjU3MDA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzMDYxODExMTAmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz05ZjZhOTYwMzc1NWFkNjJmMDIzN2ZmNTc1MWE4NzMzNQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=593edbc9e0fd4f6e3022573a84db2397",
         "origSrc": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMwLmdpdGh1YnVzZXJjb250ZW50LmNvbSUyRnUlMkYyNzc5ODc3OCUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1kMDVhYmJmMGFhM2QxNmEwMTIyYjMxMGUyNTQzOTg1Zg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd6c7e1661ac3e687edda9be4a6b5d567?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9R29vZ2xlJTIwV29ya3NwYWNlJTIwTUNQJTIwJUUzJTgxJUFFJUU2JTg5JUJGJUU4JUFBJThEJUVGJUJDJTg4aW5wdXRfcmVxdWlyZWQlRUYlQkMlODklRTMlODIlOTIlMjBhZ2VudCUyMCVFMyU4MSVBRSVFNyVBMiVCQSVFOCVBQSU4RCVFMyU4MyU4MCVFMyU4MiVBNCVFMyU4MiVBMiVFMyU4MyVBRCVFMyU4MiVCMCVFMyU4MSVBQiVFNCVCOCVBRCVFNyVCNiU5OSVFMyU4MSU5OSVFMyU4MiU4QiUyMCVFMiU4MCU5NSUyMHN0ZGlvJTIwJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MzU3YzZmZjRiNmMwNzdhZDFkNDFkN2QwZjE5YjU3MDA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzMDYxODExMTAmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz05ZjZhOTYwMzc1NWFkNjJmMDIzN2ZmNTc1MWE4NzMzNQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=593edbc9e0fd4f6e3022573a84db2397",
         "alt": "Google Workspace MCP の承認（input_required）を agent の確認ダイアログに中継する ― stdio リレーと 60 秒タイムアウトの落とし穴",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
+    },
+    {
+      "id": "18e14364732e5903",
+      "source": "zenn-mcp",
+      "sourceType": "blog",
+      "url": "https://zenn.dev/hrendoh/articles/agentforce-mcp-per-user-auth",
+      "title": "Agentforce エージェントからユーザー単位の認証で外部 MCP サーバーに接続する",
+      "titleJa": "Agentforce エージェントからユーザー単位の認証で外部 MCP サーバーに接続する",
+      "titleEn": "",
+      "lang": "ja",
+      "publishedAt": "2026-11-26T11:22:02.000Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "tags": [
+        "mcp",
+        "mcp-server",
+        "zenn"
+      ],
+      "category": "mcp",
+      "importance": 2,
+      "halfLife": "tutorial",
+      "archiveTier": "hot",
+      "contentSnippet": "この記事は、「 Agentforce エージェントから外部 MCP サーバー（Asana）のツールを使う 」の続きでSalesforce の Agentforce Employee エージェント から外部の MCP（Model Context Protocol）サーバー に接続するときの認証を、全ユーザーで共用する形から、 ユーザーごとの認証 （ユーザー単位認証）に切り替える手順をまとめたものです。題材は前回と同様に Asana の MCP サーバーで、Salesforce のケースから Asana のタスクを起票するエージェントを使います。 ユーザー単位認証は、Winter '27 で GA になった機能です。Summer '26 で GA になった外部 MCP サーバーの登録では、管理者が登録時にサーバーの認証情報を入力していました。Winter '27 では、Agentforce Employee エージェントが個々のユーザーに代わって動き、共有の接続ではなくユーザー自身のクレデンシャルで、OAuth 2.0 のブラウザフローを通して外部 MCP サーバーにアクセスできるようになりました。リリースノートではこの利点として、共有のサービスユーザートークンをなくせることと、ユーザーごとの監査証跡が明確になることを挙げています。対象は Enterprise、Performance、Unlimited、Developer Edition で、Winter '27 にアップグレードされた組織に 2026 年 10 月 5 日の週から順次提供されています。私は Winter '27 のリリースノートをまとめた記事でこの機能を紹介しましたが、そのときはリリースの紹介にとどまったので、この記事で設定方法を手順ごとに解説します。 以下、切り替える前と後でタスクの作成者がどう変わるかを示したあと、外部ログイン情報へのプリンシパルの追加、権限セットの付け替え、ユーザーが初めて使うときの認可の流れを順に解説します。",
+      "feedSnippet": "この記事は、「Agentforce エージェントから外部 MCP サーバー（Asana）のツールを使う」の続きでSalesforce の Agentforce Employee エージェントから外部の MCP（Model Context Protocol）サーバーに接続するときの認証を、全ユーザーで共用する形から、ユーザーごとの認証（ユーザー単位認証）に切り替える手順をまとめたものです。題材は前回と同様に Asana の MCP サーバーで、Salesforce のケースから Asana のタスクを起票するエージェントを使います。 ユーザー単位認証は、Winter '27 で GA にな...",
+      "excerptOrigin": "article",
+      "image": {
+        "src": "https://res.cloudinary.com/zenn/image/upload/s--ObWkhj-T--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Agentforce%2520%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%258B%25E3%2582%2589%25E3%2583%25A6%25E3%2583%25BC%25E3%2582%25B6%25E3%2583%25BC%25E5%258D%2598%25E4%25BD%258D%25E3%2581%25AE%25E8%25AA%258D%25E8%25A8%25BC%25E3%2581%25A7%25E5%25A4%2596%25E9%2583%25A8%2520MCP%2520%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2583%25BC%25E3%2581%25AB%25E6%258E%25A5%25E7%25B6%259A%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E9%2581%25A0%25E8%2597%25A4%2520%25E8%25A3%2595%25E4%25B9%258B%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSjYwdldyNXotcDhzdHMyMUM1cVd1TkNER0xEdlRpQkNFMDhvOUEtT0ltY2kxeVBGV2xKdz1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+        "origSrc": "https://res.cloudinary.com/zenn/image/upload/s--ObWkhj-T--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Agentforce%2520%25E3%2582%25A8%25E3%2583%25BC%25E3%2582%25B8%25E3%2582%25A7%25E3%2583%25B3%25E3%2583%2588%25E3%2581%258B%25E3%2582%2589%25E3%2583%25A6%25E3%2583%25BC%25E3%2582%25B6%25E3%2583%25BC%25E5%258D%2598%25E4%25BD%258D%25E3%2581%25AE%25E8%25AA%258D%25E8%25A8%25BC%25E3%2581%25A7%25E5%25A4%2596%25E9%2583%25A8%2520MCP%2520%25E3%2582%25B5%25E3%2583%25BC%25E3%2583%2590%25E3%2583%25BC%25E3%2581%25AB%25E6%258E%25A5%25E7%25B6%259A%25E3%2581%2599%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:%25E9%2581%25A0%25E8%2597%25A4%2520%25E8%25A3%2595%25E4%25B9%258B%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9saDMuZ29vZ2xldXNlcmNvbnRlbnQuY29tL2EvQUNnOG9jSjYwdldyNXotcDhzdHMyMUM1cVd1TkNER0xEdlRpQkNFMDhvOUEtT0ltY2kxeVBGV2xKdz1zMjUwLWM=%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png?_a=BACMTiAE",
+        "alt": "Agentforce エージェントからユーザー単位の認証で外部 MCP サーバーに接続する",
         "width": 0,
         "height": 0,
         "source": "og"
@@ -498,7 +598,7 @@
       "titleEn": "OpenHands Releases v1.46.0",
       "lang": "en",
       "publishedAt": "2026-11-25T14:19:07.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "automation",
         "openhands",
@@ -568,13 +668,16 @@
       "publishedAt": "2026-11-24T16:00:51.000Z",
       "collectedAt": "2026-11-27T20:30:38.138Z",
       "tags": [
+        "agent",
         "agent-optimizer",
         "ai",
         "ai-agents",
+        "benchmark",
         "evaluation",
         "foundry",
         "ignite-2026",
-        "microsoft"
+        "microsoft",
+        "release"
       ],
       "category": "copilot",
       "importance": 3,
@@ -604,7 +707,7 @@
       "titleEn": "OpenHands Releases v1.45.0",
       "lang": "en",
       "publishedAt": "2026-11-24T09:25:38.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "agent",
         "canvas",
@@ -743,7 +846,7 @@
       "titleEn": "From Files to Cited Answers in One API Call: Managed Ingestion and SearchDocuments in Agent Retrieval",
       "lang": "en",
       "publishedAt": "2026-11-24T00:00:00.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "agent",
         "agent-retrieval",
@@ -758,8 +861,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "From Files to Cited Answers in One API Call: Managed Ingestion and SearchDocuments in Agent Retrieval A guide to the new managed ingestion and SearchDocuments features in Agent Retrieval , for searching PDFs, Office files, and videos without writing an ingestion pipeline. Before an agent can answer a question about your PDFs, someone has to build the pipeline: parse every file, split it into chunks, embed each chunk, write the chunks to a vector database, and then learn that database's schema to query it. For video it gets harder: transcode the files, cut them into clips, embed the frames, and keep track of which second of which video each clip came from. Before: every step of the pipeline is custom code you write and maintain, separately for documents and for videos. Most of that code has nothing to do with your application.",
-      "feedSnippet": "Agent Retrieval in Vertex AI introduces managed ingestion and SearchDocuments to replace custom chunking and embedding pipelines. Developers can now import document and video files directly from Cloud Storage and query them with a single API call for cited page numbers and timestamped results. The feature supports hybrid retrieval, metadata filtering, reranking, and multimodal video audio search.",
       "excerptOrigin": "article",
+      "feedSnippet": "Agent Retrieval in Vertex AI introduces managed ingestion and SearchDocuments to replace custom chunking and embedding pipelines. Developers can now import document and video files directly from Cloud Storage and query them with a single API call for cited page numbers and timestamped results. The feature supports hybrid retrieval, metadata filtering, reranking, and multimodal video audio search.",
       "image": {
         "src": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/header_en_1600x900.2e16d0ba.fill-1200x600.jpg",
         "origSrc": "https://storage.googleapis.com/gweb-developer-goog-blog-assets/images/header_en_1600x900.2e16d0ba.fill-1200x600.jpg",
@@ -1189,7 +1292,7 @@
       "titleEn": "OpenHands Releases v1.44.0",
       "lang": "en",
       "publishedAt": "2026-11-23T15:39:58.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "automations",
         "chat",
@@ -1275,7 +1378,7 @@
       "titleEn": "Did the user ask for this? Securing AI agents against intent hijacking with Semantic governance policies",
       "lang": "en",
       "publishedAt": "2026-11-23T00:00:00.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "agent",
         "agent-gateway",
@@ -1491,7 +1594,7 @@
       "titleEn": "OpenHands Releases v1.43.0",
       "lang": "en",
       "publishedAt": "2026-11-20T19:03:08.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "automations",
         "chat-ui",
@@ -1751,7 +1854,7 @@
       "titleEn": "Check what your AI agents do before they do it, with Semantic governance policies",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -1766,8 +1869,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Check what your AI agents do before they do it, with Semantic governance policies Two days before earnings, an employee asks their coworker agent to send the preliminary quarterly results to an investor who says they're under NDA, and to copy the employee's personal Gmail so they can review the numbers tonight. The agent can read the file and send email, so it fulfills the user request. Semantic governance policies, available in Preview in Gemini platform, enable enterprises to govern their agents and provide guardrails to stop that call before it runs. They check each tool call an agent proposes against what the user asked for and against rules you write in plain language. Permissions alone can't catch this. They say what an agent can do, not whether a particular call follows your rules.",
-      "feedSnippet": "Semantic governance policies enable developers to govern AI agents by evaluating every proposed tool call inline before execution. Operating via Agent Gateway, the policy engine checks each action against user intent and plain-language rules to prevent unauthorized data sharing and prompt injection attacks. Developers can easily attach natural-language constraints to their agents and monitor auditable verdicts through Cloud Logging.",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Semantic governance policies enable developers to govern AI agents by evaluating every proposed tool call inline before execution. Operating via Agent Gateway, the policy engine checks each action against user intent and plain-language rules to prevent unauthorized data sharing and prompt injection attacks. Developers can easily attach natural-language constraints to their agents and monitor auditable verdicts through Cloud Logging."
     },
     {
       "id": "cb7a1dc97e71e7b1",
@@ -1779,7 +1882,7 @@
       "titleEn": "How to securely connect internal Cloud Run MCP servers to Gemini Enterprise",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "cloud-run",
         "enterprise",
@@ -1795,8 +1898,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Enterprise teams adopting Gemini Enterprise are increasingly building custom Model Context Protocol (MCP) servers to connect AI agents with internal APIs, databases, and business workflows. Google Cloud Run is a natural fit for hosting these lightweight StreamableHTTP MCP servers: it scales automatically, manages TLS certificates out of the box, and integrates natively with Cloud IAM. However, moving a custom MCP server from an initial prototype to an enterprise production environment immediately introduces three real-world security and networking challenges: No public internet exposure (internal-only ingress): Enterprise security policies require internal MCP servers to block all public internet traffic and accept requests only from private Virtual Private Cloud (VPC) networks.",
-      "feedSnippet": "How to connect Gemini Enterprise privately to internal StreamableHTTP MCP servers on Cloud Run using Egress Agent Gateway, Private Service Connect, FQDN-scoped Private Cloud DNS, and dual-header OAuth 2.0 authentication.",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "How to connect Gemini Enterprise privately to internal StreamableHTTP MCP servers on Cloud Run using Egress Agent Gateway, Private Service Connect, FQDN-scoped Private Cloud DNS, and dual-header OAuth 2.0 authentication."
     },
     {
       "id": "34349125c68361d0",
@@ -1883,6 +1986,34 @@
       "feedSnippet": "mlxrunner: adapt saved history to memory pressure Retain Metal prefix history using observed memory headroom and execution workspace rather than a fixed 8 GiB allowance. Release unused buffers and cold history when system compression grows, preserving reusable paths and active requests. Cover pressure reclamation, snapshot ownership, memory observation, and cacheless request isolation. address comments address comments"
     },
     {
+      "id": "3c70dc9317b0bdb0",
+      "source": "microsoft-source",
+      "sourceType": "blog",
+      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
+      "title": "The future of medicine: Could AI help predict and prevent disease?",
+      "titleJa": "AIはより健康な未来づくりに役立つのか",
+      "titleEn": "The future of medicine: Could AI help predict and prevent disease?",
+      "lang": "en",
+      "publishedAt": "2026-11-19T22:14:18.000Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "tags": [
+        "ai-health",
+        "healthcare",
+        "microsoft",
+        "microsoft-research",
+        "news",
+        "podcast",
+        "research"
+      ],
+      "category": "tech-news",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
+      "excerptOrigin": "article",
+      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research ."
+    },
+    {
       "id": "d15916ebb27fea0f",
       "source": "youtube-anthropic",
       "sourceType": "blog",
@@ -1924,6 +2055,7 @@
         "agent-trust",
         "ai",
         "autonomous-agents",
+        "enterprise",
         "enterprise-ai",
         "foundry",
         "microsoft"
@@ -2172,13 +2304,15 @@
       "publishedAt": "2026-11-18T17:00:47.000Z",
       "collectedAt": "2026-11-27T20:30:38.138Z",
       "tags": [
+        "agent",
         "agent-service",
         "ai",
         "azure-playwright-workspaces",
         "browser-automation",
         "foundry",
         "ignite",
-        "microsoft"
+        "microsoft",
+        "release"
       ],
       "category": "copilot",
       "importance": 3,
@@ -2203,6 +2337,7 @@
       "publishedAt": "2026-11-18T17:00:39.000Z",
       "collectedAt": "2026-11-27T20:30:38.138Z",
       "tags": [
+        "agent",
         "ai",
         "ai-agents",
         "developer-tools",
@@ -2294,7 +2429,7 @@
       "summaryEn": "Meta explains how agents built on its Ranking Engineer Agent (REA) carry architecture upgrades and training optimizations across a diverse range of ads ranking models, cutting manual porting work for each team.",
       "lang": "en",
       "publishedAt": "2026-11-18T17:00:00.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "ads-ranking",
         "agent",
@@ -2308,8 +2443,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "Our previous post in this series introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning (ML) techniques on ads ranking models. Now, we’re sharing how we propagate ranking model improvements like architectural advancements and training optimizations efficiently across a large and diverse fleet of ads [...] Read More... The post How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "Our previous post in this series introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning (ML) techniques on ads ranking models. Now, we’re sharing how we propagate ranking model improvements like architectural advancements and training optimizations efficiently across a large and diverse fleet of ads [...] Read More... The post How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models appeared first on Engineering at Meta ."
     },
     {
       "id": "f700ec0a7df3f16a",
@@ -2358,7 +2493,7 @@
       "summaryEn": "Meta built a template-driven approach that standardizes how ML models are designed, tackling the challenge of shipping many fragmented production models reliably. It helps large ML teams deploy faster.",
       "lang": "en",
       "publishedAt": "2026-11-18T16:59:38.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "engineering",
         "machine-learning",
@@ -2371,8 +2506,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "As ML ecosystems grow to a large number of production models, the bottleneck is no longer inventing new techniques to improve these models, but rather shipping them reliably and efficiently across a fragmented model space, creating a rising tide that lifts all the boats. At Meta, we built a template-driven approach that standardizes model design [...] Read More... The post Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "As ML ecosystems grow to a large number of production models, the bottleneck is no longer inventing new techniques to improve these models, but rather shipping them reliably and efficiently across a fragmented model space, creating a rising tide that lifts all the boats. At Meta, we built a template-driven approach that standardizes model design [...] Read More... The post Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem appeared first on Engineering at Meta ."
     },
     {
       "id": "0c31d85b1964e019",
@@ -2384,7 +2519,7 @@
       "titleEn": "OpenHands Releases v1.42.0",
       "lang": "en",
       "publishedAt": "2026-11-18T16:46:40.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "bug-fix",
         "cloud",
@@ -2401,41 +2536,6 @@
         "src": "https://avatars.githubusercontent.com/u/225919603?s=60&v=4",
         "origSrc": "https://avatars.githubusercontent.com/u/225919603?s=60&v=4",
         "alt": "OpenHands Releases v1.42.0",
-        "width": 0,
-        "height": 0,
-        "source": "media"
-      }
-    },
-    {
-      "id": "78a255837b86de03",
-      "source": "mcp-servers-releases",
-      "sourceType": "release",
-      "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.5.0",
-      "title": "MCP Servers Releases v2.5.0",
-      "titleJa": "MCP Servers v2.5.0 リリース",
-      "titleEn": "MCP Servers Releases v2.5.0",
-      "lang": "en",
-      "publishedAt": "2026-11-18T09:29:05.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
-      "tags": [
-        "mcp",
-        "mcp-server",
-        "mcp-server-git",
-        "release",
-        "security",
-        "server-everything",
-        "server-filesystem",
-        "vulnerability-fix"
-      ],
-      "category": "mcp",
-      "importance": 3,
-      "halfLife": "news",
-      "archiveTier": "hot",
-      "contentSnippet": "Security fixes v2.5.0 fixes eight vulnerabilities in three servers. Upgrade mcp-server-git to 2026.11.18, @modelcontextprotocol/server-filesystem to 2.4.0 and @modelcontextprotocol/server-everything to 2.3.1. Package Affected Fixed in mcp-server-git through 2026.11.11 2026.11.18 @modelcontextprotocol/server-filesystem all versions before 2.4.0, and date versions 2025.1.14 through 2026.8.31 2.4.0 @modelcontextprotocol/server-everything through 2.3.0 2.3.1 mcp-server-git 2026.11.18 A merge no longer starts Git's automatic maintenance. A successful git_merge , a fast-forward included, ended in git maintenance run --auto , whose garbage collection runs the commands a repository's own gc.recentObjectsHook names, with the server's privileges. maintenance.auto is now false and gc.auto is 0 for ev",
-      "image": {
-        "src": "https://avatars.githubusercontent.com/u/871933?s=60&v=4",
-        "origSrc": "https://avatars.githubusercontent.com/u/871933?s=60&v=4",
-        "alt": "MCP Servers Releases v2.5.0",
         "width": 0,
         "height": 0,
         "source": "media"
@@ -2526,33 +2626,6 @@
       "evergreen": true
     },
     {
-      "id": "255f21e05c50335e",
-      "source": "microsoft-research",
-      "sourceType": "blog",
-      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
-      "title": "Can AI help build a healthier future?",
-      "titleJa": "AIはより健康な未来づくりに役立つのか",
-      "titleEn": "Can AI help build a healthier future?",
-      "lang": "en",
-      "publishedAt": "2026-11-17T16:52:17.000Z",
-      "collectedAt": "2026-11-27T19:21:30.639Z",
-      "tags": [
-        "ai-health",
-        "healthcare",
-        "microsoft",
-        "microsoft-research",
-        "podcast",
-        "research"
-      ],
-      "category": "research",
-      "importance": 2,
-      "halfLife": "architecture",
-      "archiveTier": "hot",
-      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
-      "excerptOrigin": "article",
-      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research ."
-    },
-    {
       "id": "37e0b176c97615e8",
       "source": "openhands-releases",
       "sourceType": "release",
@@ -2562,9 +2635,10 @@
       "titleEn": "OpenHands Releases v1.41.0",
       "lang": "en",
       "publishedAt": "2026-11-16T20:55:32.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "acp",
+        "agent",
         "analytics",
         "automations",
         "hooks",
@@ -2657,7 +2731,7 @@
       "summaryEn": "Meta's Reality Labs ported Cuttlefish and its QEMU backend to macOS on Apple silicon. Developers of AI glasses and other non-phone Android devices can test with higher fidelity and rely less on scarce hardware.",
       "lang": "en",
       "publishedAt": "2026-11-13T17:00:39.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "android",
         "apple-silicon",
@@ -2671,10 +2745,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. Meta’s Reality Labs builds products such as AI glasses . Emulators provide us with a way to scale development and testing without relying on scarce physical hardware. Testing software for non-phone Android devices depends on how closely a virtual device reproduces the software behavior of the physical product. While a lightweight emulator like Goldfish gets you part of the way, differences from the real device can hide bugs until later in development. This lack of fidelity also erodes trust in device emulation, increasing reliance on scarce physical hardware. Cuttlefish is the Android Open Source Project’s (AOSP’s) virtual-device framework for testing Android software against virtual hardware.",
-      "feedSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. [...] Read More... The post Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple Silicon appeared first on Engineering at Meta .",
       "excerptOrigin": "article",
-      "evergreen": true
+      "feedSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. [...] Read More... The post Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple Silicon appeared first on Engineering at Meta ."
     },
     {
       "id": "9bf242a7c3461006",
@@ -2720,7 +2794,7 @@
       "summaryEn": "OpenHands v1.40.0 improves Codex subscription sign-in guidance and fixes chat history paging, draft handling, and default-branch detection in Git. Self-hosted and Indonesian-language users benefit most.",
       "lang": "en",
       "publishedAt": "2026-11-12T14:32:59.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "chat",
         "codex",
@@ -2786,7 +2860,7 @@
       "summaryEn": "OpenHands v1.39.0 lets users filter the automations dashboard by owner, including service accounts, and hides Stop hook feedback from chat. It also fixes UTC timestamp handling, improving usability.",
       "lang": "en",
       "publishedAt": "2026-11-11T17:27:23.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "automations",
         "chat-ui",
@@ -2820,7 +2894,7 @@
       "summaryEn": "Meta built Intelligent Delivery, an ML system that decides where to spend scarce compute across the ad serving stack, since returns differ by request, model, and chip. It adds roughly 10% ranking gain beyond earlier improvements, helping advertisers and users as models scale.",
       "lang": "en",
       "publishedAt": "2026-11-11T17:00:38.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "ads-ranking",
         "compute-allocation",
@@ -2834,10 +2908,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "By Zhaojun Zhang , Qinwei Zhu , Gang Li , Jianwei Xiao , Yanan Wang , Hongmei Li , Deepak Vijaywargi , Ke Pan , Li Yu Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built Intelligent Delivery, an ML-driven system that allocates resources across the serving stack toward the system-wide optimum. It has delivered ~10% incremental ranking performance on top of model and system advancements since 2017.",
-      "feedSnippet": "Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built [...] Read More... The post Intelligent Delivery: Making Every Unit of Compute Serve Better Ads appeared first on Engineering at Meta .",
       "excerptOrigin": "article",
-      "evergreen": true
+      "feedSnippet": "Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built [...] Read More... The post Intelligent Delivery: Making Every Unit of Compute Serve Better Ads appeared first on Engineering at Meta ."
     },
     {
       "id": "daeb565598eece93",
@@ -2888,7 +2962,7 @@
       "summaryEn": "MCP Servers v2.4.0 patches six vulnerabilities across three servers, with fixes in filesystem 2.3.0 and git and fetch 2026.11.11, so anyone running those servers should upgrade promptly.",
       "lang": "en",
       "publishedAt": "2026-11-11T07:37:43.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "fetch",
         "filesystem",
@@ -2986,7 +3060,7 @@
       "summaryEn": "Meta's Your algorithm gives Facebook users one editable view of the interests behind Feed and Reels, with LLMs turning plain-language preferences into recommendations, so people can steer what they see.",
       "lang": "en",
       "publishedAt": "2026-11-10T17:00:49.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "engineering",
         "facebook",
@@ -3000,8 +3074,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "Your algorithm is a suite of AI-powered tools that makes Facebook recommendations more transparent and steerable, with a single editable view of the interests that shape Feed and Reels. We’re sharing how Your algorithm turns people’s natural language preferences into responsive recommendations, and how LLMs are tailored to specific tasks within the system. Traditionally, the [...] Read More... The post Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "Your algorithm is a suite of AI-powered tools that makes Facebook recommendations more transparent and steerable, with a single editable view of the interests that shape Feed and Reels. We’re sharing how Your algorithm turns people’s natural language preferences into responsive recommendations, and how LLMs are tailored to specific tasks within the system. Traditionally, the [...] Read More... The post Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations appeared first on Engineering at Meta ."
     },
     {
       "id": "3517424a62574db3",
@@ -3015,7 +3089,7 @@
       "summaryEn": "Meta presents TLX, a Triton extension adding explicit warp-group and cluster-level control, so engineers can exploit new GPU features while keeping Triton's productivity; it improved RecSys and LLM pretraining workloads.",
       "lang": "en",
       "publishedAt": "2026-11-10T16:59:31.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "engineering",
         "gpu-compiler",
@@ -3029,8 +3103,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "Triton Low-Level Extensions (TLX), is an extension to Triton that helps engineers optimize GPU performance while preserving Triton’s productive programming model. TLX introduces explicit warp-group and cluster-level orchestration, letting developers adopt new hardware capabilities without sacrificing velocity. TLX has demonstrated performance improvements in RecSys training, RecSys inference, and large-scale LLM pretraining. Modern GPU architectures increasingly [...] Read More... The post How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "Triton Low-Level Extensions (TLX), is an extension to Triton that helps engineers optimize GPU performance while preserving Triton’s productive programming model. TLX introduces explicit warp-group and cluster-level orchestration, letting developers adopt new hardware capabilities without sacrificing velocity. TLX has demonstrated performance improvements in RecSys training, RecSys inference, and large-scale LLM pretraining. Modern GPU architectures increasingly [...] Read More... The post How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale appeared first on Engineering at Meta ."
     },
     {
       "id": "e8fc8139ea60e079",
@@ -3044,8 +3118,9 @@
       "summaryEn": "OpenHands v1.38.0 adds editable plugin configuration for automations, semantic budget meters for conversations, and a Paper theme for Agent Canvas, improving usability for developers.",
       "lang": "en",
       "publishedAt": "2026-11-10T05:10:01.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
+        "agent",
         "agent-canvas",
         "automation",
         "openhands",
@@ -3208,7 +3283,7 @@
       "summaryEn": "OpenHands v1.37.0 adds Mermaid diagrams that illustrate each automation, fixes chat session ordering, title display and home page loading, and trims repeated history scans for faster live chat updates.",
       "lang": "en",
       "publishedAt": "2026-11-06T13:06:00.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "automations",
         "chat-performance",
@@ -3357,20 +3432,25 @@
       "sourceType": "blog",
       "url": "https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-offer-managed-migration-of-apache-hive-tables-to-apache-iceberg/",
       "title": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg",
-      "titleJa": "",
+      "titleJa": "Amazon S3 Tables、Apache Hive テーブルから Apache Iceberg へのマネージド移行に対応",
       "titleEn": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg",
-      "summaryJa": "このエントリは aws-news から収集した tech-news 領域の最新アップデートです。原題:「Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg",
+      "summaryJa": "Amazon S3 Tables が、S3 上の既存 Apache Hive テーブルを Apache Iceberg 形式へ移行するマネージド機能を提供開始した。パイプライン構築やコンピュートの用意が不要で、本番ワークロードを止めずに移行できるため、データレイクの刷新負担を大きく減らせる。",
+      "summaryEn": "Amazon S3 Tables now provides managed migration that converts existing Apache Hive tables in S3 into Apache Iceberg tables. It needs no custom pipelines or provisioned compute and keeps production running, easing data lake modernization.",
       "lang": "en",
       "publishedAt": "2026-11-04T23:34:52.000Z",
       "collectedAt": "2026-11-27T20:30:38.138Z",
       "tags": [
         "amazon",
+        "apache-hive",
+        "apache-iceberg",
         "aws",
-        "news"
+        "data-lake",
+        "migration",
+        "news",
+        "s3-tables"
       ],
       "category": "tech-news",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "You can now migrate existing Apache Hive datasets in Amazon S3 to fully managed Apache Iceberg tables in Amazon S3 Tables, with no pipelines to build or compute to provision, while production workloads keep running.",
@@ -3388,7 +3468,7 @@
       "summaryEn": "MCP Servers v2.3.0 ships npm updates such as everything 2.2.1, filesystem 2.2.0 and memory 2.1.0, plus PyPI fetch, git and time builds, with new annotation tests for everything. Developers can track which servers to upgrade.",
       "lang": "en",
       "publishedAt": "2026-11-04T21:28:41.000Z",
-      "collectedAt": "2026-11-26T05:30:40.162Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
         "mcp",
         "mcp-server",

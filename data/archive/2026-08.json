@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-26T05:30:59.556Z",
+  "generatedAt": "2026-11-27T01:30:50.028Z",
   "month": "2026-08",
   "count": 723,
   "entries": [
@@ -625,7 +625,7 @@
       "category": "local-llm",
       "importance": 1,
       "halfLife": "news",
-      "archiveTier": "warm",
+      "archiveTier": "cold",
       "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . Ollama's app now follows the system appearance again, restoring dark mode support Fixed the macOS app to properly hand off to an already-running instance instead of starting a second one The Claude Desktop proxy no longer interrupts in-flight requests when the model catalog updates Full Changelog : v0.33.1...v0.33.2 There was an error while loading. Please reload this page . You can’t perform that action at this time.",
       "image": {
         "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
@@ -736,7 +736,7 @@
       "category": "tech-news",
       "importance": 2,
       "halfLife": "news",
-      "archiveTier": "warm",
+      "archiveTier": "cold",
       "contentSnippet": "Access AI and development tools—not to mention expert guidance and Startup credits—when you join Microsoft for Startups. PONS shares three design decisions behind its legal AI platform on Microsoft Azure, from separating public legal knowledge and customer data to using managed services and implementing security and compliance controls. The article highlights practical considerations for startups developing AI for regulated enterprise customers. Building legal AI for regulated industries requires more than connecting a model to documents. For startups serving regulated industries, the challenge isn’t only model capability, but how the system handles trusted sources, private data, infrastructure priorities, and compliance requirements. PONS built its legal AI platform around those constraints.",
       "excerptOrigin": "article",
       "feedSnippet": "The post How startups in regulated industries are using AI appeared first on Source .",
@@ -774,7 +774,7 @@
       "category": "tech-news",
       "importance": 2,
       "halfLife": "news",
-      "archiveTier": "warm",
+      "archiveTier": "cold",
       "contentSnippet": "AI-powered imaging detects wildfires in their earliest moments, when rapid response makes all the difference Firefighters held the line. Radios crackled with updates as dry brush reignited. Kids counted “three, two, one” as planes dropped ribbons of red slurry, slowing the blaze. Then the wind shifted. Neighbors packed their cars . The Sorrento Fires burned more than 220 acres of parched coastal shrub in San Diego this summer. Once you watch a wildfire climb a canyon toward your home, you start noticing what might fuel the next. Fire has shaped California—long before neighborhoods sprawled across its hills. It renewed forests and grasslands, cleared old growth , and returned nutrients to the soil. Fire itself isn’t the enemy. What’s changed is how we live alongside it.",
       "excerptOrigin": "article",
       "feedSnippet": "The post Catching wildfires earlier: AI gives firefighters a head start appeared first on Source .",
@@ -812,7 +812,7 @@
       "category": "agent-fw",
       "importance": 2,
       "halfLife": "news",
-      "archiveTier": "warm",
+      "archiveTier": "cold",
       "contentSnippet": "Alpha preview of langchain.mcp — a first-party adapter that turns any MCP server into LangChain tools you can hand straight to create_agent . Connection handling is FastMCP 's, so its client features are available as-is rather than re-implemented behind a narrower interface. pip install \" langchain[mcp]==1.4.0a2 \" Connect MCPAdapter takes any target fastmcp.Client accepts — transport is inferred, so there is one entry point rather than one per protocol. from langchain . agents import create_agent from langchain . mcp import MCPAdapter async with MCPAdapter ( \"https://example.com/mcp\" ) as adapter : agent = create_agent ( \"anthropic:claude-sonnet-5\" , await adapter . get_tools ()) result = await agent . ainvoke ({ \"messages\" : [{ \"role\" : \"user\" , \"content\" : \"...\" }]}) Valid targets: a URL",
       "image": {
         "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",

@@ -1,28 +1,13 @@
 {
-  "generatedAt": "2026-11-26T05:30:59.556Z",
+  "generatedAt": "2026-11-27T01:30:50.028Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
-    "allTime": 8231,
-    "last30d": 24,
-    "last7d": 8,
-    "last24h": 1
+    "allTime": 8257,
+    "last30d": 47,
+    "last7d": 21,
+    "last24h": 0
   },
   "byDay": [
-    {
-      "date": "2026-08-28",
-      "count": 27,
-      "byCategory": {
-        "vscode": 2,
-        "copilot": 3,
-        "cline": 1,
-        "gemini": 2,
-        "claude": 6,
-        "agent-fw": 5,
-        "tech-news": 6,
-        "local-llm": 1,
-        "opencode": 1
-      }
-    },
     {
       "date": "2026-08-29",
       "count": 10,
@@ -74,8 +59,8 @@
         "tech-news": 8,
         "cline": 5,
         "agent-fw": 2,
-        "cursor": 2,
         "gemini": 3,
+        "cursor": 2,
         "claude": 3,
         "local-llm": 1,
         "copilot": 2,
@@ -312,8 +297,8 @@
       "byCategory": {
         "tech-news": 4,
         "local-llm": 2,
-        "cursor": 1,
         "gemini": 1,
+        "cursor": 1,
         "agent-fw": 2,
         "cline": 1,
         "copilot": 5,
@@ -346,8 +331,8 @@
         "cline": 2,
         "codex": 1,
         "research": 1,
-        "copilot": 5,
         "local-llm": 1,
+        "copilot": 5,
         "vscode": 1
       }
     },
@@ -385,10 +370,10 @@
         "research": 1,
         "cline": 2,
         "local-llm": 2,
-        "tech-news": 3,
         "cursor": 1,
-        "copilot": 1,
-        "vscode": 2
+        "tech-news": 3,
+        "vscode": 2,
+        "copilot": 1
       }
     },
     {
@@ -400,8 +385,8 @@
         "tech-news": 3,
         "cline": 5,
         "vscode": 2,
-        "research": 1,
         "gemini": 1,
+        "research": 1,
         "local-llm": 2,
         "agent-fw": 1
       }
@@ -476,8 +461,8 @@
         "claude": 1,
         "local-llm": 2,
         "opencode": 1,
-        "cursor": 1,
         "gemini": 3,
+        "cursor": 1,
         "copilot": 2
       }
     },
@@ -491,8 +476,8 @@
         "copilot": 1,
         "tech-news": 4,
         "local-llm": 5,
-        "claude": 1,
         "gemini": 1,
+        "claude": 1,
         "agent-fw": 2,
         "research": 1
       }
@@ -509,10 +494,31 @@
       }
     },
     {
+      "date": "2026-10-13",
+      "count": 1,
+      "byCategory": {
+        "copilot": 1
+      }
+    },
+    {
       "date": "2026-10-19",
       "count": 1,
       "byCategory": {
         "mcp": 1
+      }
+    },
+    {
+      "date": "2026-10-20",
+      "count": 1,
+      "byCategory": {
+        "copilot": 1
+      }
+    },
+    {
+      "date": "2026-10-21",
+      "count": 1,
+      "byCategory": {
+        "copilot": 1
       }
     },
     {
@@ -530,6 +536,13 @@
       }
     },
     {
+      "date": "2026-10-30",
+      "count": 1,
+      "byCategory": {
+        "research": 1
+      }
+    },
+    {
       "date": "2026-11-05",
       "count": 1,
       "byCategory": {
@@ -538,9 +551,17 @@
     },
     {
       "date": "2026-11-06",
+      "count": 2,
+      "byCategory": {
+        "opencode": 1,
+        "research": 1
+      }
+    },
+    {
+      "date": "2026-11-07",
       "count": 1,
       "byCategory": {
-        "opencode": 1
+        "copilot": 1
       }
     },
     {
@@ -552,9 +573,10 @@
     },
     {
       "date": "2026-11-11",
-      "count": 3,
+      "count": 4,
       "byCategory": {
         "mcp": 1,
+        "research": 1,
         "tech-news": 2
       }
     },
@@ -567,6 +589,13 @@
       }
     },
     {
+      "date": "2026-11-13",
+      "count": 1,
+      "byCategory": {
+        "copilot": 1
+      }
+    },
+    {
       "date": "2026-11-14",
       "count": 1,
       "byCategory": {
@@ -575,16 +604,19 @@
     },
     {
       "date": "2026-11-17",
-      "count": 1,
+      "count": 2,
       "byCategory": {
-        "opencode": 1
+        "opencode": 1,
+        "research": 1
       }
     },
     {
       "date": "2026-11-18",
-      "count": 1,
+      "count": 3,
       "byCategory": {
-        "mcp": 1
+        "mcp": 1,
+        "tech-news": 1,
+        "research": 1
       }
     },
     {
@@ -597,38 +629,52 @@
     },
     {
       "date": "2026-11-20",
-      "count": 2,
+      "count": 4,
       "byCategory": {
+        "tech-news": 2,
         "gemini": 2
       }
     },
     {
       "date": "2026-11-21",
-      "count": 1,
+      "count": 4,
       "byCategory": {
+        "tech-news": 3,
         "opencode": 1
       }
     },
     {
       "date": "2026-11-23",
-      "count": 1,
+      "count": 2,
       "byCategory": {
+        "tech-news": 1,
         "gemini": 1
       }
     },
     {
       "date": "2026-11-24",
-      "count": 3,
+      "count": 9,
       "byCategory": {
         "opencode": 2,
-        "gemini": 1
+        "tech-news": 4,
+        "gemini": 1,
+        "local-llm": 1,
+        "copilot": 1
       }
     },
     {
       "date": "2026-11-25",
-      "count": 1,
+      "count": 2,
       "byCategory": {
-        "opencode": 1
+        "opencode": 1,
+        "tech-news": 1
+      }
+    },
+    {
+      "date": "2026-11-26",
+      "count": 2,
+      "byCategory": {
+        "copilot": 2
       }
     }
   ],
@@ -880,12 +926,12 @@
       "count": 65,
       "byCategory": {
         "codex": 33,
-        "research": 4,
-        "opencode": 3,
         "gemini": 6,
         "cursor": 5,
         "local-llm": 9,
+        "research": 4,
         "agent-fw": 3,
+        "opencode": 3,
         "claude": 1,
         "vscode": 1
       }
@@ -902,10 +948,10 @@
         "cursor": 6,
         "claude": 3,
         "tech-news": 4,
-        "mcp": 3,
-        "research": 7,
         "codex": 38,
-        "opencode": 2
+        "research": 7,
+        "opencode": 2,
+        "mcp": 3
       }
     },
     {
@@ -1012,8 +1058,8 @@
         "tech-news": 71,
         "cline": 34,
         "vscode": 38,
-        "research": 9,
         "gemini": 21,
+        "research": 9,
         "local-llm": 31,
         "agent-fw": 32,
         "opencode": 8,
@@ -1024,31 +1070,34 @@
     },
     {
       "month": "2026-10",
-      "count": 124,
+      "count": 128,
       "byCategory": {
+        "research": 5,
         "mcp": 5,
+        "copilot": 18,
         "agent-fw": 6,
-        "copilot": 15,
         "cursor": 7,
         "vscode": 12,
-        "research": 4,
         "cline": 10,
         "tech-news": 34,
         "local-llm": 15,
-        "claude": 5,
         "gemini": 7,
+        "claude": 5,
         "opencode": 1,
         "codex": 3
       }
     },
     {
       "month": "2026-11",
-      "count": 23,
+      "count": 45,
       "byCategory": {
+        "copilot": 5,
         "opencode": 10,
+        "tech-news": 18,
         "gemini": 4,
-        "tech-news": 6,
-        "mcp": 3
+        "local-llm": 1,
+        "mcp": 3,
+        "research": 4
       }
     }
   ],
@@ -1074,13 +1123,13 @@
       "last30d": 0
     },
     {
-      "source": "arxiv-cs-cl",
-      "total": 404,
-      "last30d": 0
+      "source": "github-changelog",
+      "total": 407,
+      "last30d": 10
     },
     {
-      "source": "github-changelog",
-      "total": 397,
+      "source": "arxiv-cs-cl",
+      "total": 404,
       "last30d": 0
     },
     {
@@ -1234,13 +1283,13 @@
       "last30d": 0
     },
     {
-      "source": "anthropic-news",
-      "total": 42,
-      "last30d": 0
+      "source": "github-copilot",
+      "total": 44,
+      "last30d": 3
     },
     {
-      "source": "github-copilot",
-      "total": 38,
+      "source": "anthropic-news",
+      "total": 42,
       "last30d": 0
     },
     {
@@ -1249,24 +1298,24 @@
       "last30d": 0
     },
     {
+      "source": "meta-newsroom",
+      "total": 35,
+      "last30d": 4
+    },
+    {
       "source": "vscode-updates",
       "total": 33,
       "last30d": 0
     },
     {
-      "source": "meta-newsroom",
+      "source": "simonw-blog",
       "total": 31,
-      "last30d": 0
+      "last30d": 1
     },
     {
       "source": "meta-engineering",
       "total": 30,
       "last30d": 6
-    },
-    {
-      "source": "simonw-blog",
-      "total": 30,
-      "last30d": 0
     },
     {
       "source": "semantic-kernel-releases",
@@ -1304,6 +1353,11 @@
       "last30d": 0
     },
     {
+      "source": "microsoft-research",
+      "total": 16,
+      "last30d": 5
+    },
+    {
       "source": "apple-newsroom",
       "total": 15,
       "last30d": 0
@@ -1314,17 +1368,12 @@
       "last30d": 0
     },
     {
-      "source": "microsoft-research",
-      "total": 11,
-      "last30d": 0
-    },
-    {
-      "source": "aider-releases",
+      "source": "autogen-releases",
       "total": 10,
       "last30d": 0
     },
     {
-      "source": "autogen-releases",
+      "source": "aider-releases",
       "total": 10,
       "last30d": 0
     },
@@ -1345,8 +1394,8 @@
     }
   ],
   "byImportance": {
-    "1": 4621,
-    "2": 3261,
+    "1": 4633,
+    "2": 3275,
     "3": 349
   }
 }

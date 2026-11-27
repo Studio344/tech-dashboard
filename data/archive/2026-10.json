@@ -1,8 +1,32 @@
 {
-  "generatedAt": "2026-11-26T05:30:59.556Z",
+  "generatedAt": "2026-11-27T01:30:50.028Z",
   "month": "2026-10",
-  "count": 110,
+  "count": 114,
   "entries": [
+    {
+      "id": "742d69c4e9a1c77b",
+      "source": "microsoft-research",
+      "sourceType": "blog",
+      "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
+      "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
+      "titleJa": "",
+      "titleEn": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
+      "lang": "en",
+      "publishedAt": "2026-10-30T13:05:28.000Z",
+      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "tags": [
+        "enterprise",
+        "microsoft",
+        "research"
+      ],
+      "category": "research",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "contentSnippet": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances. To resolve this tension, we built Industry Evaluation Data Generation Platform: full-scale synthetic enterprise environments grounded in publicly available real-world data sources such as O*NET occupational data, online job postings, and SEC filings. The synthetic environments mimic real business workflows, helping Microsoft find issues that generic benchmarks would miss. Safety and privacy are built into the platform by design. Every environment is fully synthetic and automated content-safety checks keep the generated data free of harmful or personally identifiable material.",
+      "feedSnippet": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances. The post From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence appeared first on Microsoft Research .",
+      "excerptOrigin": "article"
+    },
     {
       "id": "cfea7d479ade0a4f",
       "source": "mcp-servers-releases",
@@ -100,6 +124,59 @@
       }
     },
     {
+      "id": "7cf69f7ae5c77b67",
+      "source": "github-copilot",
+      "sourceType": "blog",
+      "url": "https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/",
+      "title": "How 3 Java Champions are using GitHub Copilot for increased productivity",
+      "titleJa": "",
+      "titleEn": "How 3 Java Champions are using GitHub Copilot for increased productivity",
+      "summaryJa": "このエントリは github-copilot から収集した copilot 領域の最新アップデートです。原題:「How 3 Java Champions are using GitHub Copilot for increased productivity」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "How 3 Java Champions are using GitHub Copilot for increased productivity",
+      "lang": "en",
+      "publishedAt": "2026-10-20T16:05:03.000Z",
+      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "tags": [
+        "copilot",
+        "github"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "AI coding tools can generate code quickly, but speed alone does not solve the hardest software engineering problems. Developers still need to provide context, validate results, protect maintainability, and remain accountable for what ships. To learn how experienced developers strike that balance, we spoke with three Java Champions, all with over a decade of experience in using Java. They shared concrete examples of using GitHub Copilot in production and open source, along with the practices they use to turn AI-generated output into reliable software. Here are the tips they shared with us. How has GitHub Copilot helped you recently? I’ve been using it to analyze, design, and implement various features in both Hypersistence Utils and Hypersistence Optimizer.",
+      "feedSnippet": "Three Java Champions share how they use GitHub Copilot to solve problems, accelerate development, and keep humans responsible for the results. The post How 3 Java Champions are using GitHub Copilot for increased productivity appeared first on The GitHub Blog .",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "f9c5095dcdcc7bb0",
+      "source": "github-copilot",
+      "sourceType": "blog",
+      "url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
+      "title": "How to continue a GitHub Copilot app session in VS Code",
+      "titleJa": "",
+      "titleEn": "How to continue a GitHub Copilot app session in VS Code",
+      "summaryJa": "このエントリは github-copilot から収集した copilot 領域の最新アップデートです。原題:「How to continue a GitHub Copilot app session in VS Code」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "How to continue a GitHub Copilot app session in VS Code",
+      "lang": "en",
+      "publishedAt": "2026-10-19T18:47:22.000Z",
+      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "tags": [
+        "copilot",
+        "github",
+        "tutorial"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "The agent has finished the bulk of your change. Now you want to inspect one implementation detail, adjust a few lines by hand, and run the project locally before you ship it. But the work is sitting in the GitHub Copilot app … and your editor is where you review diffs, debug code, and make final adjustments. Do you have to choose between staying in the session and starting over in Visual Studio Code? You don’t. You can open the Copilot app session directly in VS Code and continue with its conversation, code changes, and working context intact. That means Copilot can handle the repetitive or time-consuming work, then hand control back to you for closer review, hands-on editing, and local testing. Open a Copilot app session in VS Code. Review the agent’s changes line by line. Continue the same conversation from your editor. Modify and test the code locally.",
+      "feedSnippet": "Learn how to move an agent session from the GitHub Copilot app into VS Code without losing the conversation, code changes, or working context. The post How to continue a GitHub Copilot app session in VS Code appeared first on The GitHub Blog .",
+      "excerptOrigin": "article"
+    },
+    {
       "id": "5387974c3335c576",
       "source": "mcp-servers-releases",
       "sourceType": "release",
@@ -130,6 +207,33 @@
         "height": 0,
         "source": "media"
       }
+    },
+    {
+      "id": "73f986d3e9b463d0",
+      "source": "github-copilot",
+      "sourceType": "blog",
+      "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
+      "title": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
+      "titleJa": "",
+      "titleEn": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
+      "summaryJa": "このエントリは github-copilot から収集した copilot 領域の最新アップデートです。原題:「GitHub Copilot app for Beginners: How to teach Copilot about your codebase」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
+      "lang": "en",
+      "publishedAt": "2026-10-12T17:43:59.000Z",
+      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "tags": [
+        "copilot",
+        "github",
+        "tutorial"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "Context matters when you’re working with AI. Every codebase has its own house rules: how components are structured, which scripts to run, and which conventions apply to different frameworks and file types. Copilot can help you make changes across a project, but it works best when it knows those rules, too. Much of that knowledge can live inside the repository, so Copilot can pick it up automatically instead of requiring you to explain the same standards, scripts, and workflows every time you start a new task. In this installment of our GitHub Copilot app for Beginners series, we’ll look at four ways to tailor how Copilot works with your project: Custom instructions communicate the conventions Copilot should follow. Agent skills package repeatable procedures. Custom agents bring specialized guidance to larger tasks.",
+      "feedSnippet": "Learn how to add custom instructions and skills to your repository, use custom agents, and connect MCP servers like Playwright. The post GitHub Copilot app for Beginners: How to teach Copilot about your codebase appeared first on The GitHub Blog .",
+      "excerptOrigin": "article"
     },
     {
       "id": "1cb36d6b3d7aacfb",
@@ -218,7 +322,7 @@
       "summaryEn": "AI agents now touch one-third of GitHub pull requests, up from under one-tenth last year. Automated secret protection can prevent leaks and cut manual response work for developers.",
       "lang": "en",
       "publishedAt": "2026-10-07T17:45:34.000Z",
-      "collectedAt": "2026-10-07T19:01:20.765Z",
+      "collectedAt": "2026-11-27T01:30:33.312Z",
       "tags": [
         "ai-agents",
         "copilot",
@@ -230,6 +334,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "Today, one in three pull requests on GitHub involves an AI agent . A year ago, that number was fewer than one in 10. If that pace holds, within the next two years, most of the code pushed to GitHub could be written by an agent. Much of it may never be fully read by a human. If developers and agents move faster, we have a responsibility to ensure protection keeps up with the accelerated rate of code creation. That means preventing more leaks before they happen and making the response to exposures that remain less dependent on manual human effort. This is a pivotal point for leaked secrets. Developers aren’t becoming more careless; they’re being outpaced. The tools that let developers create more software should also take on more of the work of protecting it. In this essay, I share the nine quarters of data behind that claim.",
       "excerptOrigin": "article",
       "feedSnippet": "Developers aren’t becoming more careless; they’re being outpaced. The tools that let developers create more software should also take on more of the work of protecting it. The post Secret protection must scale with software appeared first on The GitHub Blog .",
@@ -240,8 +345,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "9113ed39fa04c200",
@@ -1878,7 +1982,7 @@
       "summaryEn": "ReviewBench offers an open evaluation set based on GitHub pull requests, with multi-source labels, calibrated scoring, and production metrics for fair assessment of review agents.",
       "lang": "en",
       "publishedAt": "2026-10-05T15:59:40.000Z",
-      "collectedAt": "2026-10-07T19:01:20.765Z",
+      "collectedAt": "2026-11-27T01:30:33.312Z",
       "tags": [
         "ai-code-review",
         "benchmark",
@@ -1890,6 +1994,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "We’re launching ReviewBench, a benchmark for code review agents built on representative GitHub pull requests, multi-source ground truth, calibrated evaluation, and production-aligned metrics. The post ReviewBench: An open benchmark for AI code review appeared first on The GitHub Blog .",
       "excerptOrigin": "article-unavailable",
       "image": {
@@ -1899,8 +2004,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "e33a2620e79a8313",

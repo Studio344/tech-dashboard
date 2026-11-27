@@ -1,8 +1,190 @@
 {
-  "generatedAt": "2026-11-27T01:30:50.028Z",
+  "generatedAt": "2026-11-27T09:37:49.176Z",
   "month": "2026-11",
-  "count": 45,
+  "count": 65,
   "entries": [
+    {
+      "id": "92248fb31d2fb5b9",
+      "source": "qiita-mcp",
+      "sourceType": "blog",
+      "url": "https://qiita.com/s06181110/items/fe3f45effb1074c34daf",
+      "title": "Google Workspace MCP の承認（input_required）を agent の確認ダイアログに中継する ― stdio リレーと 60 秒タイムアウトの落とし穴",
+      "titleJa": "Google Workspace MCP の承認（input_required）を agent の確認ダイアログに中継する ― stdio リレーと 60 秒タイムアウトの落とし穴",
+      "titleEn": "",
+      "lang": "ja",
+      "publishedAt": "2026-11-27T06:56:04.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "agent",
+        "mcp",
+        "mcp-server",
+        "qiita"
+      ],
+      "category": "mcp",
+      "importance": 2,
+      "halfLife": "tutorial",
+      "archiveTier": "hot",
+      "contentSnippet": "Google Workspace MCP の承認（input_required）を agent の確認ダイアログに中継する ― stdio リレーと 60 秒タイムアウトの落とし穴 2026 年 11 月 24 日、Google Workspace のリモート MCP サーバーが GA になりました。Gmail / Drive / Docs / Sheets / Calendar などが、製品ごとに https://<product>mcp.googleapis.com/mcp/v1 で提供されています。2027 年 2 月 1 日以降、AI エージェントは REST API を直接呼ぶのではなく、この MCP サーバーか Workspace CLI を経由することが求められます。 ここで引っかかるのが 承認 です。Google 側は一部のツール呼び出しをいきなり実行せず、結果として input_required を返して「ユーザーに確認を取ってから再送して」と求めてきます。これは MCP 2026-07-28 のステートレスな形式（Multi Round-Trip Requests）で、従来の「サーバーからクライアントへ elicitation/create を送る」方式とは別物です。 手元の agent は、従来の elicitation/create （確認ダイアログ）には対応していても、この input_required 形式をまだ扱えないことがあります。そこでこの記事では、 Google の MCP サーバーと agent の間に ローカルの stdio リレー を挟み、上流の input_required を下流の elicitation/create に変換して中継する方法 を紹介します。検証は Claude Code（2.1.332）、 @modelcontextprotocol/sdk 1.32.2 で行いました。 この記事のコードは検証用（spike）です。本番利用を想定したエラー処理やトークン管理はしていません。",
+      "feedSnippet": "はじめに 2026 年 11 月 24 日、Google Workspace のリモート MCP サーバーが GA になりました。Gmail / Drive / Docs / Sheets / Calendar などが、製品ごとに https://mcp...",
+      "excerptOrigin": "article",
+      "image": {
+        "src": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMwLmdpdGh1YnVzZXJjb250ZW50LmNvbSUyRnUlMkYyNzc5ODc3OCUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1kMDVhYmJmMGFhM2QxNmEwMTIyYjMxMGUyNTQzOTg1Zg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd6c7e1661ac3e687edda9be4a6b5d567?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9R29vZ2xlJTIwV29ya3NwYWNlJTIwTUNQJTIwJUUzJTgxJUFFJUU2JTg5JUJGJUU4JUFBJThEJUVGJUJDJTg4aW5wdXRfcmVxdWlyZWQlRUYlQkMlODklRTMlODIlOTIlMjBhZ2VudCUyMCVFMyU4MSVBRSVFNyVBMiVCQSVFOCVBQSU4RCVFMyU4MyU4MCVFMyU4MiVBNCVFMyU4MiVBMiVFMyU4MyVBRCVFMyU4MiVCMCVFMyU4MSVBQiVFNCVCOCVBRCVFNyVCNiU5OSVFMyU4MSU5OSVFMyU4MiU4QiUyMCVFMiU4MCU5NSUyMHN0ZGlvJTIwJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MzU3YzZmZjRiNmMwNzdhZDFkNDFkN2QwZjE5YjU3MDA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzMDYxODExMTAmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz05ZjZhOTYwMzc1NWFkNjJmMDIzN2ZmNTc1MWE4NzMzNQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=593edbc9e0fd4f6e3022573a84db2397",
+        "origSrc": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRmF2YXRhcnMwLmdpdGh1YnVzZXJjb250ZW50LmNvbSUyRnUlMkYyNzc5ODc3OCUzRnYlM0Q0P2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz1kMDVhYmJmMGFhM2QxNmEwMTIyYjMxMGUyNTQzOTg1Zg%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Dd6c7e1661ac3e687edda9be4a6b5d567?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9R29vZ2xlJTIwV29ya3NwYWNlJTIwTUNQJTIwJUUzJTgxJUFFJUU2JTg5JUJGJUU4JUFBJThEJUVGJUJDJTg4aW5wdXRfcmVxdWlyZWQlRUYlQkMlODklRTMlODIlOTIlMjBhZ2VudCUyMCVFMyU4MSVBRSVFNyVBMiVCQSVFOCVBQSU4RCVFMyU4MyU4MCVFMyU4MiVBNCVFMyU4MiVBMiVFMyU4MyVBRCVFMyU4MiVCMCVFMyU4MSVBQiVFNCVCOCVBRCVFNyVCNiU5OSVFMyU4MSU5OSVFMyU4MiU4QiUyMCVFMiU4MCU5NSUyMHN0ZGlvJTIwJUUyJTgwJUE2JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9MzU3YzZmZjRiNmMwNzdhZDFkNDFkN2QwZjE5YjU3MDA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzMDYxODExMTAmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT0zNiZ0eHQtcGFkPTAmcz05ZjZhOTYwMzc1NWFkNjJmMDIzN2ZmNTc1MWE4NzMzNQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=593edbc9e0fd4f6e3022573a84db2397",
+        "alt": "Google Workspace MCP の承認（input_required）を agent の確認ダイアログに中継する ― stdio リレーと 60 秒タイムアウトの落とし穴",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
+    },
+    {
+      "id": "b3b8acc62503ad85",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.19-rc0",
+      "title": "Ollama Releases v0.40.19",
+      "titleJa": "",
+      "titleEn": "Ollama Releases v0.40.19",
+      "lang": "en",
+      "publishedAt": "2026-11-26T17:52:02.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . inkling2: faster short histories, draft proposals and conv snapshots by @dhiltgen in #19881 Full Changelog : v0.40.18...v0.40.19-rc0 There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "Ollama Releases v0.40.19",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "What's Changed inkling2: faster short histories, draft proposals and conv snapshots by @dhiltgen in #19881 mlxrunner: compact Engram history buffers by @pdevine in #19913 bump llama-server by @pdevine in #19917 Full Changelog : v0.40.18...v0.40.19-rc0",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "1f13cb1893cdf33d",
+      "source": "cline-releases",
+      "sourceType": "release",
+      "url": "https://github.com/cline/cline/releases/tag/v4.1.28",
+      "title": "Cline Releases v4.1.28",
+      "titleJa": "",
+      "titleEn": "Cline Releases v4.1.28",
+      "lang": "en",
+      "publishedAt": "2026-11-26T09:57:51.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "cline",
+        "release"
+      ],
+      "category": "cline",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Changed Refreshed the model catalog. The OpenAI provider no longer lists ids the upstream catalog marks deprecated, including gpt-4o , gpt-4.1 , gpt-5 , gpt-5-mini , gpt-5.1 , gpt-5.3-codex , o3 and o3-pro . gpt-5.3-codex-spark is no longer listed for ChatGPT subscriptions. Adds the Concentrate and Prima Labs providers. The third-party license notices in the extension package now cover software that was missing from the list. Internal telemetry cleanup. Full Changelog : v4.1.27...v4.1.28",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "Cline Releases v4.1.28",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
+      "id": "bd0ccefa9e234441",
+      "source": "cline-releases",
+      "sourceType": "release",
+      "url": "https://github.com/cline/cline/releases/tag/desktop-v0.0.51",
+      "title": "Cline Desktop v0.0.51",
+      "titleJa": "",
+      "titleEn": "Cline Desktop v0.0.51",
+      "lang": "en",
+      "publishedAt": "2026-11-26T09:54:23.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "cline",
+        "release"
+      ],
+      "category": "cline",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Refreshed the model catalog. The OpenAI provider no longer lists ids the upstream catalog marks deprecated, including gpt-4o , gpt-4.1 , gpt-5 , gpt-5-mini , gpt-5.1 , gpt-5.3-codex , o3 and o3-pro . gpt-5.3-codex-spark is no longer listed for ChatGPT subscriptions. Adds the Concentrate and Prima Labs providers The third-party notices in Settings → About now cover software that was missing from the list Internal telemetry cleanup Full Changelog : desktop-v0.0.50...desktop-v0.0.51",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "Cline Desktop v0.0.51",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
+      "id": "ed1c6ddb98a3c966",
+      "source": "cline-releases",
+      "sourceType": "release",
+      "url": "https://github.com/cline/cline/releases/tag/cli-v3.0.76",
+      "title": "Cline CLI v3.0.76",
+      "titleJa": "",
+      "titleEn": "Cline CLI v3.0.76",
+      "lang": "en",
+      "publishedAt": "2026-11-26T08:56:12.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "cline",
+        "release"
+      ],
+      "category": "cline",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . The npm package now ships one THIRD_PARTY_NOTICES.txt at its root that covers every platform binary Refreshed the bundled model catalog. The OpenAI picker no longer lists ids the upstream catalog marks deprecated, including gpt-4o , gpt-4.1 , gpt-5 , gpt-5-mini , gpt-5.1 , gpt-5.3-codex , o3 and o3-pro . gpt-5.3-codex-spark is no longer listed for ChatGPT subscriptions Full Changelog : cli-v3.0.75...cli-v3.0.76 There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "Cline CLI v3.0.76",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "The npm package now ships one THIRD_PARTY_NOTICES.txt at its root that covers every platform binary Refreshed the bundled model catalog. The OpenAI picker no longer lists ids the upstream catalog marks deprecated, including gpt-4o , gpt-4.1 , gpt-5 , gpt-5-mini , gpt-5.1 , gpt-5.3-codex , o3 and o3-pro . gpt-5.3-codex-spark is no longer listed for ChatGPT subscriptions Internal telemetry cleanup Full Changelog : cli-v3.0.75...cli-v3.0.76",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "1d2989d42b2b793b",
+      "source": "cline-releases",
+      "sourceType": "release",
+      "url": "https://github.com/cline/cline/releases/tag/sdk%2Fsdk%2Fv0.2.2",
+      "title": "Cline SDK v0.2.2",
+      "titleJa": "",
+      "titleEn": "Cline SDK v0.2.2",
+      "lang": "en",
+      "publishedAt": "2026-11-26T08:40:10.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "cline",
+        "release"
+      ],
+      "category": "cline",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Internal telemetry cleanup. Some telemetry helper exports were removed from @cline/llms , @cline/shared and @cline/core , and @cline/llms has fewer dependencies writeGlobalSettings , setTelemetryOptOutGlobally and setAutoUpdateEnabledGlobally no longer take an options argument Refreshed the bundled model catalog. It adds the concentrate and primalabs providers and changes the default model for 28 providers. OpenAI ids the upstream catalog now marks deprecated are no longer listed: gpt-4o , gpt-4o-mini , gpt-4.1 , gpt-4.1-mini , gpt-5 , gpt-5-mini , gpt-5-nano , gpt-5-pro , gpt-5.1 , gpt-5.3-codex , gpt-5.3-codex-spark , gpt-5.4-nano , gpt-image-2 , o3 and o3-pro . MiniMax-M3 is no longer listed on the MiniMax coding plans Full Changelog : sdk/sdk/v0.2.1...sdk/sdk/v0.2.2",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "Cline SDK v0.2.2",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
     {
       "id": "2cc74419b488e9e2",
       "source": "github-changelog",
@@ -56,10 +238,10 @@
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "A request to modernize an application often starts with a technology question: Which framework should replace the old one? Before you choose, find out what still works. Then collect evidence that can act as a regression net for that behavior and show where modernization is necessary. I used an evidence-first method on four public applications, from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each needed a different treatment, but the way I collected evidence, chose the next experiment, and decided on possible proof points was repeatable. This post walks through that process so you can apply it to one application of your own. It also shows how to encode the procedure in a GitHub Copilot agent skill while keeping architectural judgment with the people responsible for the system. The label on an application rarely tells you enough.",
       "feedSnippet": "Learn how to assess a legacy application, choose a bounded modernization step, and reuse the method with a GitHub Copilot agent skill. The post How to choose the next safe step in application modernization appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "evergreen": true
     },
     {
       "id": "231f1a322b3ba681",
@@ -143,6 +325,37 @@
       }
     },
     {
+      "id": "9d8ed90684ed3ce6",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.18",
+      "title": "Ollama Releases v0.40.18",
+      "titleJa": "",
+      "titleEn": "Ollama Releases v0.40.18",
+      "lang": "en",
+      "publishedAt": "2026-11-24T08:27:44.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . mlxrunner: share tensor helpers and model setup across architectures by @jaingaurav in #19805 llama.cpp: version bump b12651 + remove jetpack5 support by @pdevine in #19865 Full Changelog : v0.40.17...v0.40.18-rc0 There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "Ollama Releases v0.40.18",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "What's Changed mlx: fuse Inkling residual mixing on Metal by @dhiltgen in #19808 mlxrunner: share tensor helpers and model setup across architectures by @jaingaurav in #19805 llama.cpp: version bump b12651 + remove jetpack5 support by @pdevine in #19865 inkling2: faster Metal decode, prefill and draft rounds by @dhiltgen in #19843 Full Changelog : v0.40.17...v0.40.18-rc0",
+      "excerptOrigin": "article"
+    },
+    {
       "id": "abedf03c6144948d",
       "source": "meta-newsroom",
       "sourceType": "blog",
@@ -172,6 +385,35 @@
         "source": "media"
       },
       "excerptOrigin": "article-unavailable"
+    },
+    {
+      "id": "f43e8c38c468acf6",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.18-rc0",
+      "title": "v0.40.18-rc0: inkling2: faster Metal decode, prefill and draft rounds (#19843)",
+      "titleJa": "",
+      "titleEn": "v0.40.18-rc0: inkling2: faster Metal decode, prefill and draft rounds (#19843)",
+      "lang": "en",
+      "publishedAt": "2026-11-24T01:35:09.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "inkling2: faster Metal decode, prefill and draft rounds Add Inkling-only Metal kernels, each with a stock-graph fallback, gated by GPU generation and size class: short BF16 products, deduplicated NVFP4/MXFP8 expert gathers with fused SwiGLU, fused loop controllers and residual mixing, relative-position split attention, fused short convolutions, faster global prefill, an ordered window cache that appends in place, and an 8-bit draft with a 4-bit vocabulary head (proposals only; outputs stay exact).",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "alt": "v0.40.18-rc0: inkling2: faster Metal decode, prefill and draft rounds (#19843)",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
     },
     {
       "id": "f45f77aee2b9a1ee",
@@ -407,6 +649,95 @@
       "contentSnippet": "Semantic governance policies protect AI agents from indirect prompt injection and intent hijacking by validating every proposed tool call against user intent and natural language constraints before execution. As demonstrated on the AgentDojo benchmark using a Gemini 2.5 Flash agent, this mechanism reduced attack success rates from 48.7% to 0.9% while maintaining high task utility. Developers can leverage these policies in preview within the Gemini platform via Agent Gateway to secure tool-use workflows."
     },
     {
+      "id": "cd23b3f138af1f15",
+      "source": "cline-releases",
+      "sourceType": "release",
+      "url": "https://github.com/cline/cline/releases/tag/v4.1.27",
+      "title": "Cline Releases v4.1.27",
+      "titleJa": "",
+      "titleEn": "Cline Releases v4.1.27",
+      "lang": "en",
+      "publishedAt": "2026-11-21T06:05:06.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "cline",
+        "release"
+      ],
+      "category": "cline",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Added LM Studio settings have an API key field, for servers with \"Require Authentication\" turned on. The MCP tab shows a \"read-only\" badge on tools whose server declares them read-only. The Account view has a Privacy settings link to the Cline web app's data-use preferences. The extension package now includes its third-party license notices. Changed With no saved model, the Cline provider now starts on the first free model instead of Claude Sonnet 5.5. Saved selections are untouched. The reasoning effort dropdown shows the effort a new task will actually use, and has a Default entry that clears the saved setting. A provider's model list refreshes after you save its API key or base URL, and a failed refresh (such as a rejected key) shows as an error in the model picker. read_files results a",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "Cline Releases v4.1.27",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
+      "id": "7b3a743f616f5625",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17",
+      "title": "Ollama Releases v0.40.17",
+      "titleJa": "",
+      "titleEn": "Ollama Releases v0.40.17",
+      "lang": "en",
+      "publishedAt": "2026-11-21T04:05:14.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Inkling 2 Mini Inkling 2 Mini from Thinking Machines is a 26B parameter model with 5.4B active. Its looped layers give it more computation per token than its size suggests, and it still fits on a Mac at about 20GB. It handles text and images, tool calls, and thinking, and scores 79.2% on SWE-Bench Verified). ollama run inkling-2-mini Note: inkling-2-mini is supported on Apple silicon only in this release. PC support will follow in an upcoming release. What's Changed ollama launch claude supports Claude Code's deferred tool loading, so MCP tools are loaded when needed instead of all at once Ollama on Apple silicon now serves multiple requests at once. ollama launch opencode sets thinking options from the model's metadata ollama launch pi refreshes Pi's model list after sign-in and passes al",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "Ollama Releases v0.40.17",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
+      "id": "15bb135334f836c3",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17-rc4",
+      "title": "Ollama Releases v0.40.17-rc4",
+      "titleJa": "",
+      "titleEn": "Ollama Releases v0.40.17-rc4",
+      "lang": "en",
+      "publishedAt": "2026-11-20T23:04:26.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . Merge remote-tracking branch 'upstream/main' into release_v0.40.17 There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "alt": "Ollama Releases v0.40.17-rc4",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "Merge remote-tracking branch 'upstream/main' into release_v0.40.17",
+      "excerptOrigin": "article"
+    },
+    {
       "id": "314f4cfc7e495c0d",
       "source": "github-changelog",
       "sourceType": "changelog",
@@ -482,6 +813,37 @@
         "height": 0,
         "source": "media"
       }
+    },
+    {
+      "id": "1454bbc81e17e8e8",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17-rc3",
+      "title": "Ollama Releases v0.40.17-rc3",
+      "titleJa": "",
+      "titleEn": "Ollama Releases v0.40.17-rc3",
+      "lang": "en",
+      "publishedAt": "2026-11-20T18:37:07.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "alt": "Ollama Releases v0.40.17-rc3",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "mlxrunner: add Inkling 2 Mini",
+      "excerptOrigin": "article"
     },
     {
       "id": "7d2674843567dc79",
@@ -607,6 +969,79 @@
       "contentSnippet": "Enterprise teams adopting Gemini Enterprise are increasingly building custom Model Context Protocol (MCP) servers to connect AI agents with internal APIs, databases, and business workflows. Google Cloud Run is a natural fit for hosting these lightweight StreamableHTTP MCP servers: it scales automatically, manages TLS certificates out of the box, and integrates natively with Cloud IAM. However, moving a custom MCP server from an initial prototype to an enterprise production environment immediately introduces three real-world security and networking challenges: No public internet exposure (internal-only ingress): Enterprise security policies require internal MCP servers to block all public internet traffic and accept requests only from private Virtual Private Cloud (VPC) networks.",
       "feedSnippet": "How to connect Gemini Enterprise privately to internal StreamableHTTP MCP servers on Cloud Run using Egress Agent Gateway, Private Service Connect, FQDN-scoped Private Cloud DNS, and dual-header OAuth 2.0 authentication.",
       "excerptOrigin": "article"
+    },
+    {
+      "id": "cd42dd7807fd8434",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17-rc2",
+      "title": "v0.40.17-rc2: mlxrunner: adapt saved history to memory pressure (#19678)",
+      "titleJa": "",
+      "titleEn": "v0.40.17-rc2: mlxrunner: adapt saved history to memory pressure (#19678)",
+      "lang": "en",
+      "publishedAt": "2026-11-19T23:41:42.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. This commit was created on GitHub.com and signed with GitHub’s verified signature . There was an error while loading. Please reload this page . v0.40.17-rc2: mlxrunner: adapt saved history to memory pressure (#19678) There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . workspace rather than a fixed 8 GiB allowance. Release unused buffers and There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "alt": "v0.40.17-rc2: mlxrunner: adapt saved history to memory pressure (#19678)",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "mlxrunner: adapt saved history to memory pressure Retain Metal prefix history using observed memory headroom and execution workspace rather than a fixed 8 GiB allowance. Release unused buffers and cold history when system compression grows, preserving reusable paths and active requests. Cover pressure reclamation, snapshot ownership, memory observation, and cacheless request isolation. address comments address comments",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "d15916ebb27fea0f",
+      "source": "youtube-anthropic",
+      "sourceType": "blog",
+      "url": "https://www.youtube.com/watch?v=sof3vW4mHTs",
+      "title": "The making of Anthropic",
+      "titleJa": "",
+      "titleEn": "The making of Anthropic",
+      "lang": "en",
+      "publishedAt": "2026-11-19T21:03:23.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "anthropic",
+        "youtube"
+      ],
+      "category": "claude",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "excerptOrigin": "article-unavailable"
+    },
+    {
+      "id": "75ce1625dfb139b5",
+      "source": "youtube-anthropic",
+      "sourceType": "blog",
+      "url": "https://www.youtube.com/watch?v=JDsFHmq9hlA",
+      "title": "What we make of this moment, will make this moment.",
+      "titleJa": "",
+      "titleEn": "What we make of this moment, will make this moment.",
+      "lang": "en",
+      "publishedAt": "2026-11-19T15:02:49.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "anthropic",
+        "youtube"
+      ],
+      "category": "claude",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "excerptOrigin": "article-unavailable"
     },
     {
       "id": "c4d861b1467d890d",
@@ -823,6 +1258,35 @@
       "excerptOrigin": "article"
     },
     {
+      "id": "a8516a8e18e8648b",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17-rc1",
+      "title": "v0.40.17-rc1: mlxrunner: batch speculative verification (#19663)",
+      "titleJa": "",
+      "titleEn": "v0.40.17-rc1: mlxrunner: batch speculative verification (#19663)",
+      "lang": "en",
+      "publishedAt": "2026-11-16T16:43:54.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "mlxrunner: batch speculative verification Keep drafting active for concurrent generation by sharing target verification while preserving per-request sampling and cache rollback. Learn draft depth for each concurrent workload separately from isolated requests, and preserve probes that short requests never execute. Materialize owned target features before a reader can pause, and cover acceptance, cancellation, handoffs, mixed decoding and retained-memory boundaries. address comments",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "alt": "v0.40.17-rc1: mlxrunner: batch speculative verification (#19663)",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
       "id": "ac50575e9dc4cc41",
       "source": "meta-engineering",
       "sourceType": "blog",
@@ -871,10 +1335,10 @@
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "How many times this week did you re-explain the same task to an agent? How many times did you ask your colleague with deep institutional knowledge how to solve a specific problem? That context shouldn’t be lost in a chat or locked in one person’s head. Agent skills let you capture repeatable instructions so you and your agents can reuse them. The skill you write for yourself tonight can later become part of a team’s pipeline. An agent skill is a versioned directory centered on a SKILL.md file that describes when and how to do a repeatable task. You can share those instructions across agents, but the environment still needs to provide the tools, credentials, and permissions to carry them out. A skill can describe how to query a database, for example, but it doesn’t grant access to that database.",
       "feedSnippet": "Agent skills capture repeatable engineering work in files teams can review and reuse, while tools, project context, and permissions remain specific to the host that runs them. The post Build once, run on any agent: A practical guide to agent skills appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "evergreen": true
     },
     {
       "id": "78f83a6bd571ce8a",
@@ -997,6 +1461,39 @@
       }
     },
     {
+      "id": "13485a77e5131fe3",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17-rc0",
+      "title": "Ollama Releases v0.40.17-rc0",
+      "titleJa": "",
+      "titleEn": "Ollama Releases v0.40.17-rc0",
+      "summaryJa": "このエントリは ollama-releases から収集した local-llm 領域の最新アップデートです。原題:「Ollama Releases v0.40.17-rc0」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Ollama Releases v0.40.17-rc0",
+      "lang": "en",
+      "publishedAt": "2026-11-10T21:42:11.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. This commit was created on GitHub.com and signed with GitHub’s verified signature . There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/4033016?s=60&v=4",
+        "alt": "Ollama Releases v0.40.17-rc0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "MLX, MLX-C: version bump ( #19647 )",
+      "excerptOrigin": "article"
+    },
+    {
       "id": "63d4895ee7d64f88",
       "source": "microsoft-research",
       "sourceType": "blog",
@@ -1097,6 +1594,69 @@
       }
     },
     {
+      "id": "7ae1c927094d45b0",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.16",
+      "title": "Ollama Releases v0.40.16",
+      "titleJa": "",
+      "titleEn": "Ollama Releases v0.40.16",
+      "summaryJa": "このエントリは ollama-releases から収集した local-llm 領域の最新アップデートです。原題:「Ollama Releases v0.40.16」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Ollama Releases v0.40.16",
+      "lang": "en",
+      "publishedAt": "2026-11-09T23:45:36.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "Ripple Preview Ripple Preview from Ricursive Intelligence is a 65B dense model built for agentic coding. ollama run ripple-preview What's Changed Qwen3.8 Flash Next uses about 27 GiB less memory on Apple silicon ollama launch claude always routes Claude Code to the selected model ollama launch explains when a cloud model has been retired /v1/responses respects truncation and no longer silently truncates by default /v1/models returns an empty list instead of null when no models are installed CUDA 13.5 support for Windows on ARM Updated llama.cpp Full Changelog : v0.40.15...v0.40.16",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "Ollama Releases v0.40.16",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
+      "id": "a8256a8bf6828cc7",
+      "source": "semantic-kernel-releases",
+      "sourceType": "release",
+      "url": "https://github.com/microsoft/semantic-kernel/releases/tag/dotnet-1.82.0",
+      "title": "Semantic Kernel dotnet-1.82.0",
+      "titleJa": "",
+      "titleEn": "Semantic Kernel dotnet-1.82.0",
+      "summaryJa": "このエントリは semantic-kernel-releases から収集した agent-fw 領域の最新アップデートです。原題:「Semantic Kernel dotnet-1.82.0」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Semantic Kernel dotnet-1.82.0",
+      "lang": "en",
+      "publishedAt": "2026-11-07T01:00:07.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "agent",
+        "release",
+        "semantic-kernel"
+      ],
+      "category": "agent-fw",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "Changes: df1cb33 .Net: Bump package version to 1.82.0 ( #14721 ) d08a482 Python: Prepare 1.47.0 release and consolidate dependency updates ( #14720 ) [ #14708 , #14596 , #14597 , #14598 , #14599 , #14600 , #14627 ] 28c0d60 .Net: Harden structured data mutation boundaries ( #14718 ) 1a3ccd8 .Net: Bind validated HTTP addresses to connections ( #14719 ) c36f221 Python: Fix OracleCollection search with multiple filters ( #14541 ) [ #14539 ] 530f2e8 Python: Use storage_name for hybrid search fields and vector queries ( #14684 ) ( #14688 ) 78f6124 Python: close native generators when stream invocations end ( #14701 ) 703eb5f Python: Send the NVIDIA nvext setting in extra_body ( #14698 ) e68f977 Python: Build an array schema for variadic tuple parameters ( #14692 ) 1ae2a39 Python: docs(python): f",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/13853051?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/13853051?s=60&v=4",
+        "alt": "Semantic Kernel dotnet-1.82.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
       "id": "df55124286315754",
       "source": "github-copilot",
       "sourceType": "blog",
@@ -1119,10 +1679,10 @@
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "This October, GitHub saw more than 1.2 billion commits in one week—over 400% more than a year earlier. This is more commits than GitHub received in all of 2025. Chances are, you’re generating more code than you were a year ago. But ask yourself: do you feel 400% more productive than you were last year? Building software takes more than a good prompt. As AI speeds up implementation, software developers are feeling more pressure in other places: a Faros AI study found that pull requests spent 441% longer in review when teams went from low to high AI adoption. As a software developer, you gather requirements and steer implementation, review changes and evaluate test results, then investigate what happens in production. Agents can help you work more efficiently across all of these stages: Plan, Build, Verify, and Observe.",
       "feedSnippet": "Writing code got faster. The work around it didn't. See how you can plan, write code, review changes, and investigate production issues with GitHub Copilot, and what work still needs your judgment. The post Beyond code generation: A developer’s guide to agentic engineering appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "evergreen": true
     },
     {
       "id": "f55adabac8496bb3",
@@ -1176,6 +1736,38 @@
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "AI agents can generate code at a scale that’s hard for humans to review line-by-line. PDD Kit helps ensure the code is doing what the developer intended by creating formal specifications and testing against them. It converts developer intent into a Verus specification, proves AI-generated code meets it for every input, and uses tests where proofs aren't practical. Developers review intent, not every line. The post Formally verifying agent-written full-stack web apps with PDD Kit appeared first on Microsoft Research ."
+    },
+    {
+      "id": "c4da587295f8e590",
+      "source": "semantic-kernel-releases",
+      "sourceType": "release",
+      "url": "https://github.com/microsoft/semantic-kernel/releases/tag/python-1.47.0",
+      "title": "Semantic Kernel python-1.47.0",
+      "titleJa": "",
+      "titleEn": "Semantic Kernel python-1.47.0",
+      "summaryJa": "このエントリは semantic-kernel-releases から収集した agent-fw 領域の最新アップデートです。原題:「Semantic Kernel python-1.47.0」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Semantic Kernel python-1.47.0",
+      "lang": "en",
+      "publishedAt": "2026-11-05T10:19:56.000Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "tags": [
+        "agent",
+        "release",
+        "semantic-kernel"
+      ],
+      "category": "agent-fw",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "Python compatibility This release requires Python 3.11 or later. Python 3.10 support has been removed. Supported and tested Python versions are 3.11 through 3.14. Includes consolidated Python dependency updates and the bug fixes listed below. What's Changed .Net: Remove migrated .NET Milvus connector by Adam Sitnik (@adamsitnik) in #14682 .Net: Bump Aspire.Azure.Search.Documents from 13.4.6 to 13.5.4 by Dependabot (@dependabot) [bot] in #14499 .Net: Bump Aspire.Hosting.Azure.CognitiveServices from 13.4.6 to 13.5.4 by Dependabot (@dependabot) [bot] in #14501 .Net: [BREAKING] Consolidate file access by westey (@westey-m) in #14679 Python: preserve path case in OpenAPI allowed URLs by Eduard van Valkenburg (@eavanvalkenburg) in #14693 Python: normalize OpenAPI allowlist paths before prefix ma",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/13749212?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/13749212?s=60&v=4",
+        "alt": "Semantic Kernel python-1.47.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
     },
     {
       "id": "91282f609e645db4",

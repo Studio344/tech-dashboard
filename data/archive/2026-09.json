@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T01:30:50.028Z",
+  "generatedAt": "2026-11-27T09:37:49.176Z",
   "month": "2026-09",
   "count": 366,
   "entries": [
@@ -1951,6 +1951,8 @@
       "title": "PALM: Point-in-Time Adaptation for Financial Language Models",
       "titleJa": "PALM：金融言語モデルのポイントインタイム適応",
       "titleEn": "PALM: Point-in-Time Adaptation for Financial Language Models",
+      "summaryJa": "PALMは、年ごとの完全な事前学習を不要とする時点適応を提案し、各年のチェックポイントを後継モデルと比較して検証する。金融バックテストで将来の情報を見てしまう偏りを避け、信頼できる評価を必要とする研究者に役立つ。",
+      "summaryEn": "PALM argues that a full pretraining run for every calendar year is unnecessary, comparing each annual checkpoint with its successor. It helps researchers run financial backtests without leaking future information.",
       "lang": "en",
       "publishedAt": "2026-09-28T04:00:00.000Z",
       "collectedAt": "2026-09-29T03:30:26.843Z",
@@ -1965,7 +1967,7 @@
       "category": "research",
       "importance": 2,
       "halfLife": "architecture",
-      "archiveTier": "hot",
+      "archiveTier": "warm",
       "contentSnippet": "arXiv:2609.30316v1 Announce Type: new Abstract: Language models used in financial backtests suffer from look-ahead bias, as a model trained on text published after the study period has already observed the outcomes it is asked to predict. To handle this issue, point-in-time (PIT) language models are pretrained on chronologically filtered corpora and released as one checkpoint per calendar year, each with a documented cutoff. However, each additional year costs a full pretraining run, and whether that run is necessary has never been tested. In this paper, we show that the annual pretraining run is not necessary. We instead compare each checkpoint against the newer one that replaced it, and find that the newer checkpoint scores no better on the same evaluation window. Motivated by this obser",
       "image": {
         "src": "https://arxiv.org/static/browse/0.3.4/images/arxiv-logo-fb.png",
@@ -2255,7 +2257,6 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "warm",
-      "evergreen": true,
       "contentSnippet": "Most tools give you a fixed set of screens and ask you to fit your work into them. But what if you could start with the workflow you want instead and have the interface take shape around it? That’s the idea behind canvases in the GitHub Copilot app . A canvas, also called a canvas extension, is a customizable interface that you and the agent share. It can be a kanban board, an issue triage board, a release checklist, a dashboard, a form, or even a spreadsheet: a UI shaped to how you work. Because the canvas is bidirectional, the agent can update it as it works, and you can use buttons, cards, filters, and other controls to make changes too. Just like using a live shared whiteboard. To create a canvas, you don’t have to do any coding or design by hand. Just open an agent session, enter the /create-canvas skill , and describe what you want in plain English.",
       "excerptOrigin": "article",
       "feedSnippet": "Describe the interface you need in plain English, then let the agent build a live surface you can both use and update—so you spend less time adapting to tools and more time getting work done. The post GitHub Copilot app for Beginners: How to build custom workflows with canvases appeared first on The GitHub Blog .",
@@ -2266,7 +2267,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "969d8392e395ca07",
@@ -2790,7 +2792,6 @@
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "warm",
-      "evergreen": true,
       "contentSnippet": "We’re 176 years into this AI experiment. Wait…it’s only been three years? Sometimes I remember things that happened last year, but it feels like it was so long ago. Did that really happen to me, or was it something that happened to my dad and he just told me about it when I was a kid? Anyway… we’re three years into this AI experiment and the primary interaction surface we have with LLMs is still chat. I’m pretty sure it was @pmarca who first argued for a textarea component in the HTML spec. And I’m pretty sure of that fact because I asked AI about it. In a textarea. But I would like to propose to you that perhaps, just maybe, chat is the wrong UI. Well, at least most of the time. It’s kind of a shame that the first large-scale implementation of AI was kind of a gimmick—a first-person chatbot. But there is tremendous promise for AI if it is task oriented.",
       "excerptOrigin": "article",
       "feedSnippet": "What is a developer to do when they need something more tangible than a chat box? Enter canvases. The post When chat is the wrong UI appeared first on The GitHub Blog .",
@@ -2801,7 +2802,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "406d2910f581a63c",
@@ -3589,7 +3591,7 @@
       "summaryEn": "Anthropic offers an inside look at its molecular biology lab, giving researchers and developers a clearer view of the AI company's work in biology.",
       "lang": "en",
       "publishedAt": "2026-09-23T18:01:32.000Z",
-      "collectedAt": "2026-10-07T21:31:25.742Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
       "tags": [
         "anthropic",
         "life-sciences",
@@ -11158,7 +11160,7 @@
       "summaryEn": "Semantic Kernel .NET 1.80.1 updates the SDK to 10.0.303 and refreshes OpenAPI dependencies, CI configuration, and tests, improving reliability for .NET developers.",
       "lang": "en",
       "publishedAt": "2026-09-03T18:41:24.000Z",
-      "collectedAt": "2026-10-07T21:31:25.742Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
       "tags": [
         "agent",
         "ci",
@@ -12616,7 +12618,7 @@
       "summaryEn": "Claude Fable 5.1 is introduced as a new model version. While capabilities and availability are not detailed, viewers can quickly identify the Claude lineup update.",
       "lang": "en",
       "publishedAt": "2026-09-01T19:21:24.000Z",
-      "collectedAt": "2026-10-07T21:31:25.742Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
       "tags": [
         "anthropic",
         "claude-fable-5-1",
@@ -12641,7 +12643,7 @@
       "summaryEn": "Claude Fable 5.1 is introduced as a new version in an Anthropic YouTube video, helping Claude users and developers track the latest model update.",
       "lang": "en",
       "publishedAt": "2026-09-01T18:02:31.000Z",
-      "collectedAt": "2026-10-07T21:31:25.742Z",
+      "collectedAt": "2026-11-27T09:37:32.824Z",
       "tags": [
         "anthropic",
         "claude-fable",

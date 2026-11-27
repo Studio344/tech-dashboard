@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T20:30:51.383Z",
+  "generatedAt": "2026-11-27T21:31:02.417Z",
   "count": 366,
   "bodies": {
     "08a802224f9dfe23": {
@@ -12586,81 +12586,17 @@
       "model": "claude-opus-4.8",
       "generatedAt": "2026-07-02T03:05:39.300Z"
     },
-    "e33edd69f7816887": {
-      "bodyJa": "## 支援から実行へ\n\nOpenAIの調査は、企業のAI活用が単純な支援から自律的な実行へ移りつつあることを示した。ChatGPTとCodexを通じ、AIをアシスタントとして使う段階から、実行エージェントとして活用する動きが明らかになった。\n\n## 先進企業の先行\n\n調査では、企業間の採用状況にも差があるとされる。特に先進企業は、AIを自律的な実行エージェントへ移行させる採用で他の企業より大きく先行しており、支援中心の利用との違いが示されている。",
-      "bodyEn": "## From simple assistance\n\nOpenAI research examines how enterprises are adopting agentic AI through ChatGPT and Codex. The shift matters because the research describes companies moving beyond simple assistance toward AI that can perform autonomous execution.\n\n## Frontier adopters pulling ahead\n\nAccording to the research, this transition is taking place through the use of ChatGPT and Codex, with AI moving from an assistant role to an execution agent. The findings also indicate a gap in adoption: frontier firms are pulling significantly ahead of their peers as enterprises put agentic AI into use.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIが「支援」から「実行」に移るって、ChatGPTやCodexが何をするようになるの？",
-          "en": "When AI shifts from “assistance” to “execution,” what do ChatGPT and Codex actually start doing?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、人を支えるだけでなく、仕事を自律的に実行するエージェントとして使う流れを示しているよ。",
-          "en": "The research describes companies using them not just to assist people, but as agents that execute work autonomously."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ企業は、AIに助けてもらうだけじゃなく、仕事の実行も任せ始めているんだね？",
-          "en": "So companies are starting to let AI carry out work, rather than only asking it for help?"
-        },
-        {
-          "s": "b",
-          "ja": "うん。ChatGPTやCodexを支援の道具から実行を担う仕組みへ広げ、先進企業ほど採用で先行しているんだ。",
-          "en": "Yes. They’re expanding ChatGPT and Codex from support tools into execution systems, with frontier firms further ahead in adoption."
-        },
-        {
-          "s": "a",
-          "ja": "AI活用が、相談相手を置く段階から、実際に動いてもらう段階へ進んでいるんだね。",
-          "en": "Got it—AI use is moving from having a helper to having something that actually carries out the work."
-        },
-        {
-          "s": "b",
-          "ja": "ただ、先進企業とほかの企業には採用の差があるから、すべての企業が同じ段階とは限らないよ。",
-          "en": "One caution: adoption differs between frontier firms and their peers, so not every company is at the same stage."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T18:10:07.705Z"
+    "fc2abce9886b6d89": {
+      "bodyJa": "大規模言語モデル（LLM）を中核に据えたエージェントが、タスク遂行に必要なツールを自ら生成・改良しながら、低遅延が求められる環境で動作する枠組みを提案する研究がarXivで公開された。自律的な能力拡張と応答速度の両立を狙う点が特徴で、実運用に近い制約下でのエージェント設計に一石を投じる内容と見られる。\n\n近年のLLMエージェントは、外部のAPIや計算処理を「ツール」として呼び出すことで、モデル単体では難しい正確な演算や最新情報の取得を実現してきた。OpenAIのfunction callingや、Anthropic、Googleが提供する同種の仕組みは、あらかじめ人間が用意したツール群を前提とする場合が多い。これに対し本研究が扱う「ツール生成（tool-making）」は、エージェントが必要に応じてコードとしてのツールを自作し、再利用可能な形で蓄積していくアプローチにあたる。過去にはLATM（LLMs as Tool Makers）やCREATOR、ゲーム環境で技能を積み上げるVoyagerなど、近い発想を持つ研究が報告されている。\n\n本論文の主眼は、この自己進化のプロセスを低遅延の制約と両立させる点にある。一般に、ツールの新規生成や検証、エージェントの内省的な自己改善は追加の推論を伴うため、応答時間を押し上げやすい。リアルタイム性が重視される対話システムや制御用途では、この遅延が実用上の障壁となりうる。提案手法は、ツールの作成・洗練を動作の妨げにならない形で組み込み、速度を犠牲にせずに自己改善を進めることを目指すとされる。\n\n自己進化型エージェントには、生成したツールの品質や安全性の担保、誤ったツールが蓄積するリスクといった課題も従来から指摘されてきた。低遅延という条件を加えると、検証にかけられる時間や計算資源はさらに限られる可能性がある。提案手法がどの程度の汎用性を持つかは、対象タスクや評価環境に依存すると見られ、今後の追試や実装公開を通じた検証が注目される。エージェントの実運用が広がるなか、能力と速度のトレードオフに正面から取り組む試みとして位置づけられそうだ。",
+      "bodyEn": "Large language model agents that can build and improve their own tools while meeting strict response-time requirements are the focus of a new paper posted to arXiv's software engineering section. The work addresses a tension that has become increasingly visible as autonomous agents move from research demos toward production: the same self-improvement mechanisms that make agents more capable often add latency that makes them impractical for interactive or time-sensitive applications. The paper proposes a framework in which an agent creates and refines tools autonomously while operating under low-latency constraints, aiming to reconcile these competing goals.\n\nThe central idea is what researchers commonly call tool-making, sometimes described as tool creation or self-generated tooling. Rather than being limited to a fixed set of predefined functions, the agent writes new tools, typically small pieces of executable code, when it encounters a task that its existing capabilities do not cover well. Once created, a tool can be validated, stored, and reused, so the cost of authoring it is amortized across many future calls. The paper positions this as a path to self-evolution, meaning the agent's effective skill set grows over time through its own activity rather than through additional human engineering or model retraining.\n\nWhat distinguishes this contribution, according to the summary, is the emphasis on low latency. Generating a tool with an LLM is comparatively slow because it may involve multiple model calls, reasoning steps, code generation, and testing. If an agent were to attempt this synthesis in the middle of every user interaction, response times would suffer. The framework appears to separate the expensive process of creating and refining tools from the cheaper process of invoking already-built tools, so that at runtime the agent can favor fast, cached, or precompiled capabilities. This kind of design, where costly learning is decoupled from fast execution, is a recurring pattern in systems that must remain responsive while still adapting.\n\nTechnically, self-evolving agents of this type generally rely on a few shared components. There is usually a memory or library that persists tools and metadata about when they succeeded or failed, a mechanism for deciding whether an existing tool suffices or a new one is needed, and a feedback loop that refines tools based on execution results. Refinement is important because a first-draft tool may contain bugs or handle only narrow inputs; iterating on it using error messages and test outcomes tends to improve reliability. The low-latency claim is likely to depend heavily on how aggressively the system reuses prior work and how it schedules the slower creation steps, for example by performing them asynchronously or during idle periods.\n\nThe paper sits within a well-established line of research. Earlier projects such as Voyager, which built a skill library while playing Minecraft, and work often referred to as LLMs As Tool Makers demonstrated that agents can author reusable functions rather than only consuming human-written APIs. Broader agent frameworks, including ReAct-style reasoning-and-acting loops and toolkits like LangChain, AutoGPT, and the tool-and-function-calling interfaces offered by major model providers, established the surrounding infrastructure for connecting language models to external actions. Retrieval-augmented approaches and code-execution sandboxes are frequent prerequisites, since generated tools must be stored, retrieved, and run safely. Against this backdrop, the present work reads as an attempt to make these ideas viable under the timing budgets that real deployments impose.\n\nThe industry context helps explain why the timing angle matters. Vendors are increasingly marketing agents for customer support, coding assistance, and operations, where users expect prompt replies and where per-request cost and speed are scrutinized. A method that lets an agent keep expanding its abilities without degrading responsiveness would be attractive in those settings, though the trade-offs deserve scrutiny.\n\nAs with most arXiv preprints, several caveats apply. The results have not necessarily undergone peer review, and claims about latency and self-improvement are best interpreted alongside the specific benchmarks and baselines the authors used, which determine how far the findings generalize. Autonomous tool generation also raises safety and correctness questions, since code an agent writes and executes on its own must be sandboxed and monitored. Readers evaluating the approach will want to consult the full paper for its experimental setup, measured latency figures, and the boundaries of the tasks tested.",
+      "model": "claude-opus-4.8",
+      "generatedAt": "2026-07-11T01:08:34.754Z"
     },
-    "e308cad69399bfa1": {
-      "bodyJa": "## AI時代のスコアカード\n\nOpenAIは、AI時代の社会・経済・安全面における進捗を評価するスコアカードの枠組みを公開した。AIの影響を可視化し、継続的に追跡する基準を設けることで、説明責任と透明性の向上を目指す取り組みだ。\n\n## ROIの測定基準\n\nOpenAIのCFOであるSarah Friarは、実用的なAIスコアカードを紹介した。ROIは、有用な仕事、成功したタスク当たりのコスト、信頼性、コンピュートに対するリターンという観点から測定する。AIの成果を単一の指標ではなく、実際の仕事や費用、安定性を含めて捉える枠組みとなっている。",
-      "bodyEn": "## Practical AI scorecard\n\nOpenAI introduced a framework for measuring and tracking AI progress across social, economic, and safety dimensions. The scorecard matters because it is intended to improve accountability and transparency around how AI development affects the world.\n\n## Measuring useful work\n\nSarah Friar, OpenAI’s CFO, presents the scorecard as a practical way to measure return on investment. Its measures include useful work, the cost per successful task, dependability, and return on compute.\n\nBy establishing criteria for tracking these areas, the framework is designed to make AI’s effects more visible and support evaluation of social, economic, and safety progress.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "ROIを4つの項目で測るんだね。これって大きい変化なの？",
-          "en": "They’re measuring ROI across four areas. Is that a big shift?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、AIの成果を複数の軸で追い、社会・経済・安全への影響と説明責任を見えやすくする試みなんだ。",
-          "en": "Here, the idea is to track AI outcomes across several dimensions, making its social, economic, and safety impact—and accountability—more visible."
-        },
-        {
-          "s": "a",
-          "ja": "「リターン・オン・コンピュート」って、どういう意味？",
-          "en": "What does “return on compute” mean?"
-        },
-        {
-          "s": "b",
-          "ja": "計算資源を使った分に対して、どれだけ役立つ成果が得られたかを見る考え方だよ。",
-          "en": "It means looking at how much useful output you get for the computing resources you use."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、よくする作業で、成功した回数や費用を記録してみたいな。",
-          "en": "I’d try tracking successful runs and costs for a task I do often."
-        },
-        {
-          "s": "b",
-          "ja": "いいね。成功したタスク当たりの費用だけでなく、役立つ仕事か、安定して動くかも一緒に見る枠組みだよ。",
-          "en": "That fits. The framework also considers whether the work is useful and dependable, not just the cost per successful task."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T20:10:32.501Z"
+    "04cbb69e89ad467f": {
+      "bodyJa": "AIコーディングエージェント基盤「OpenHands」のクラウド版で、バージョン1.45.0が公開された。今回はパッチ/マイナー更新に位置づけられ、クラウドホスト環境における機能改善と不具合修正を中心とした内容とされる。\n\nOpenHandsは、旧称「OpenDevin」として知られるオープンソースプロジェクトで、大規模言語モデル(LLM)を用いてコードの記述やコマンド実行、ブラウザ操作などを自律的に行うAIエージェントを提供する。開発者が自らのインフラで動かすセルフホスト版に加え、環境構築の手間を省いて利用できるクラウド版が用意されており、今回のリリースは後者に向けたものだ。\n\nバージョン番号が示すとおり、1.45.0は大規模な刷新ではなく、既存機能の安定性や使い勝手を高めるための漸進的な更新と見られる。この種のパッチリリースでは、エージェントの実行挙動の微調整、UIやAPI周りの改善、特定条件下で発生していたバグの解消などが含まれることが多い。具体的な変更点の詳細は、公式のリリースノートで確認するのが望ましい。\n\nAIエージェント分野は開発競争が激しく、商用の「Devin」やGitHubの各種AI機能、Cursor、Aiderといったツール、研究由来のSWE-agentなど、多様な選択肢が並ぶ。こうした中でOpenHandsは、オープンソースであることを強みに、コミュニティ主導で頻繁に更新を重ねている点が特徴といえる。バージョンが小刻みに上がっていくのも、こうした継続的な開発体制を反映したものだろう。\n\nクラウド版は、利用者が常に最新の改良をサーバー側で受け取れる利点がある一方、更新のたびに細かな挙動が変わる可能性もある。CI/CDや自動化ワークフローにエージェントを組み込んでいる場合は、リリースごとに動作を検証しておくと安全だろう。地道な小刻みの改善は、自律型ツールに求められる信頼性を段階的に底上げする狙いがあると考えられる。",
+      "bodyEn": "OpenHands cloud has reached version 1.45.0, a maintenance-oriented update to the hosted edition of the open-source agentic software development platform. The release is described primarily as a set of incremental improvements and bug fixes rather than a headline feature launch, but it reflects the steady, high-frequency release cadence that has become characteristic of the fast-moving field of AI coding agents. For teams that rely on the managed service in day-to-day workflows, even small patches to reliability and behavior can matter.\n\nOpenHands, developed by All Hands AI and previously known as OpenDevin, is a framework in which large language models operate as autonomous or semi-autonomous software engineers. Rather than simply suggesting inline code completions, the platform's agents can read and edit files, execute shell commands, run tests, and browse the web inside a sandboxed runtime environment. The cloud offering packages these capabilities as a managed service, removing the need for users to self-host the runtime, provision containers, or maintain the surrounding infrastructure themselves. That distinction is central to understanding this release: cloud updates are typically applied server-side, so most changes take effect without any manual action from the user.\n\nPatch and minor releases in an agentic system tend to concentrate on areas that are difficult to see from the outside but strongly affect real-world usability. These commonly include refinements to how the agent parses and invokes tools, handling of edge cases when commands fail or time out, adjustments to prompt construction, session and state management, and integration with underlying model providers. Because the summary for 1.45.0 does not enumerate specific fixes, the precise scope is best treated as incremental hardening; the changes appear aimed at stability and correctness rather than a change in core capability. Users seeking exact details would need to consult the project's published changelog.\n\nThe broader context helps explain why such frequent updates are worthwhile. Agentic coding tools sit on top of external model APIs from providers such as Anthropic, OpenAI, and Google, whose model versions, pricing, and behavior evolve continually. A framework that orchestrates those models must keep pace, and small regressions in how an agent recovers from an error or manages a long-running task can meaningfully degrade the experience. Rapid, targeted releases are one way maintainers keep the system aligned with a shifting foundation, and OpenHands has maintained an active release stream on that basis.\n\nOpenHands operates in an increasingly crowded landscape of AI software engineering tools. Adjacent projects and products include Cognition's Devin, which helped popularize the idea of an autonomous software engineer; Princeton's SWE-agent research project; command-line assistants such as Aider and Anthropic's Claude Code; editor-integrated tools like Cursor and GitHub Copilot; and cloud-based agents such as Google's Jules and Amazon Q Developer. OpenHands has distinguished itself in part through its open-source foundation and its performance on benchmarks such as SWE-bench, a widely cited evaluation that measures an agent's ability to resolve real GitHub issues drawn from open-source repositories. The open codebase allows organizations to inspect, extend, or self-host the platform, while the cloud edition serves users who prefer a ready-to-use hosted option.\n\nFor readers new to this category, a few prerequisite concepts are useful. Agentic coding refers to systems where a model plans and executes multi-step tasks, invoking external tools and observing the results, rather than producing a single response. A sandboxed runtime is an isolated environment, often a container, in which the agent can safely run code and shell commands without affecting the host machine. Tool use, sometimes called function calling, is the mechanism by which a model requests actions such as editing a file or running a test. These building blocks are common across most modern coding agents, and improvements to any of them tend to compound across a platform.\n\nAs a point release, OpenHands cloud 1.45.0 is unlikely to change how the platform is used, but it is consistent with a development pattern that prioritizes frequent, low-risk updates over large, infrequent overhauls. Organizations evaluating agentic coding tools may find that cadence itself informative, as it signals ongoing maintenance and responsiveness to the rapidly changing model ecosystem on which such platforms depend.",
+      "model": "claude-opus-4.8",
+      "generatedAt": "2026-07-10T00:04:21.443Z"
     }
   }
 }

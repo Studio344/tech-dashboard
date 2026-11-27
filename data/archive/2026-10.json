@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T20:30:55.488Z",
+  "generatedAt": "2026-11-27T21:31:06.687Z",
   "month": "2026-10",
   "count": 132,
   "entries": [
@@ -15,6 +15,7 @@
       "publishedAt": "2026-10-30T13:05:28.000Z",
       "collectedAt": "2026-11-27T19:21:30.639Z",
       "tags": [
+        "benchmark",
         "copilot",
         "enterprise",
         "evaluation",
@@ -106,6 +107,7 @@
       "publishedAt": "2026-10-28T17:00:00.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "agent",
         "agent-host",
         "copilot-harness",
         "deprecation",
@@ -140,7 +142,7 @@
       "summaryEn": "Semantic Kernel python-1.46.0 stops logging function argument values, blocks dot-segment remote paths in SessionsPythonTool.upload_file, and validates PostgreSQL field types, hardening Python deployments.",
       "lang": "en",
       "publishedAt": "2026-10-28T14:10:00.000Z",
-      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "collectedAt": "2026-11-27T21:30:43.960Z",
       "tags": [
         "agent",
         "postgresql",
@@ -1793,7 +1795,7 @@
       "summaryEn": "Semantic Kernel .NET 1.81.0 updates FileIOPlugin file handling, refines Milvus filtering, and aligns plugin path validation, enabling more reliable file and search integrations.",
       "lang": "en",
       "publishedAt": "2026-10-06T16:37:23.000Z",
-      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "collectedAt": "2026-11-27T21:30:43.960Z",
       "tags": [
         "agent",
         "dotnet",
@@ -2010,7 +2012,7 @@
       "summaryEn": "Semantic Kernel Python 1.45.0 removes an unsupported service authentication mode from the Copilot Studio agent, a breaking change that helps users plan required migrations.",
       "lang": "en",
       "publishedAt": "2026-10-06T12:55:19.000Z",
-      "collectedAt": "2026-11-27T09:37:32.824Z",
+      "collectedAt": "2026-11-27T21:30:43.960Z",
       "tags": [
         "agent",
         "breaking-change",

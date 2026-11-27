@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-27T20:30:55.488Z",
+  "generatedAt": "2026-11-27T21:31:06.687Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
-    "allTime": 8337,
+    "allTime": 8338,
     "last30d": 109,
     "last7d": 43,
-    "last24h": 1
+    "last24h": 2
   },
   "byDay": [
     {
@@ -76,8 +76,8 @@
         "gemini": 1,
         "agent-fw": 3,
         "cline": 1,
-        "local-llm": 1,
-        "tech-news": 5
+        "tech-news": 5,
+        "local-llm": 1
       }
     },
     {
@@ -769,9 +769,10 @@
     },
     {
       "date": "2026-11-26",
-      "count": 11,
+      "count": 12,
       "byCategory": {
         "cline": 4,
+        "local-llm": 1,
         "copilot": 2,
         "agent-fw": 2,
         "cursor": 2,
@@ -780,9 +781,15 @@
     },
     {
       "date": "2026-11-27",
-      "count": 2,
+      "count": 1,
       "byCategory": {
-        "mcp": 1,
+        "mcp": 1
+      }
+    },
+    {
+      "date": "2026-11-28",
+      "count": 1,
+      "byCategory": {
         "local-llm": 1
       }
     }
@@ -1198,10 +1205,10 @@
     },
     {
       "month": "2026-11",
-      "count": 106,
+      "count": 107,
       "byCategory": {
+        "local-llm": 12,
         "mcp": 4,
-        "local-llm": 11,
         "cline": 5,
         "copilot": 15,
         "agent-fw": 12,
@@ -1218,7 +1225,7 @@
   "bySource": [
     {
       "source": "openai-news",
-      "total": 639,
+      "total": 602,
       "last30d": 0
     },
     {
@@ -1318,8 +1325,8 @@
     },
     {
       "source": "ollama-releases",
-      "total": 156,
-      "last30d": 10
+      "total": 157,
+      "last30d": 11
     },
     {
       "source": "langchain-releases",
@@ -1387,6 +1394,11 @@
       "last30d": 10
     },
     {
+      "source": "openai-blog",
+      "total": 64,
+      "last30d": 0
+    },
+    {
       "source": "zenn-ai",
       "total": 52,
       "last30d": 0
@@ -1442,11 +1454,6 @@
       "last30d": 2
     },
     {
-      "source": "openai-blog",
-      "total": 27,
-      "last30d": 0
-    },
-    {
       "source": "youtube-anthropic",
       "total": 26,
       "last30d": 2
@@ -1459,7 +1466,7 @@
     {
       "source": "mcp-servers-releases",
       "total": 23,
-      "last30d": 4
+      "last30d": 3
     },
     {
       "source": "github-blog-ai",
@@ -1508,8 +1515,8 @@
     }
   ],
   "byImportance": {
-    "1": 4640,
-    "2": 3335,
-    "3": 362
+    "1": 4636,
+    "2": 3336,
+    "3": 366
   }
 }

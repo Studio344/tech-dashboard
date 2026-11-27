@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-27T19:21:44.968Z",
+  "generatedAt": "2026-11-27T20:30:55.488Z",
   "month": "2026-10",
-  "count": 128,
+  "count": 132,
   "entries": [
     {
       "id": "742d69c4e9a1c77b",
@@ -9,18 +9,22 @@
       "sourceType": "blog",
       "url": "https://www.microsoft.com/en-us/research/blog/from-synthetic-enterprise-data-evaluations-to-real-microsoft-copilot-ai-confidence/",
       "title": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
-      "titleJa": "",
+      "titleJa": "合成エンタープライズデータによる評価から、実際のMicrosoft Copilotへの信頼へ",
       "titleEn": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
       "lang": "en",
       "publishedAt": "2026-10-30T13:05:28.000Z",
       "collectedAt": "2026-11-27T19:21:30.639Z",
       "tags": [
+        "copilot",
         "enterprise",
+        "evaluation",
         "microsoft",
-        "research"
+        "privacy",
+        "research",
+        "synthetic-data"
       ],
       "category": "research",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances. To resolve this tension, we built Industry Evaluation Data Generation Platform: full-scale synthetic enterprise environments grounded in publicly available real-world data sources such as O*NET occupational data, online job postings, and SEC filings. The synthetic environments mimic real business workflows, helping Microsoft find issues that generic benchmarks would miss. Safety and privacy are built into the platform by design. Every environment is fully synthetic and automated content-safety checks keep the generated data free of harmful or personally identifiable material.",
@@ -28,22 +32,51 @@
       "feedSnippet": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances. The post From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence appeared first on Microsoft Research ."
     },
     {
+      "id": "56a0a646526d9fc5",
+      "source": "huggingface-blog",
+      "sourceType": "blog",
+      "url": "https://huggingface.co/blog/announcing-project-protostar",
+      "title": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+      "titleJa": "",
+      "titleEn": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+      "summaryJa": "このエントリは huggingface-blog から収集した local-llm 領域の最新アップデートです。原題:「Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Announcing Project ProtoStar: Making Publicly Funded Science AI-Ready",
+      "lang": "en",
+      "publishedAt": "2026-10-29T00:00:00.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "huggingface",
+        "open-model"
+      ],
+      "category": "local-llm",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "An initiative bringing together universities, research organizations, industry, and the open science community to make publicly funded research easier to discover, reuse, and build upon. Today, we're announcing Project ProtoStar , an initiative to unlock the potential of publicly funded scientific research by making datasets, models, and code more accessible and reusable, particularly for AI-driven research. ProtoStar brings together research institutions, industry, and the open science community to support the release of scientific artifacts in AI-ready, machine-actionable formats, and to demonstrate their value through a series of open challenges. The first challenge, hosted by Carnegie Mellon University , opens on November 2. See How to Participate below.",
+      "excerptOrigin": "article"
+    },
+    {
       "id": "cfea7d479ade0a4f",
       "source": "mcp-servers-releases",
       "sourceType": "release",
       "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.2.0",
       "title": "MCP Servers Releases v2.2.0",
-      "titleJa": "",
+      "titleJa": "MCP Servers v2.2.0 リリース",
       "titleEn": "MCP Servers Releases v2.2.0",
-      "summaryJa": "このエントリは mcp-servers-releases から収集した mcp 領域の最新アップデートです。原題:「MCP Servers Releases v2.2.0」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "MCP Servers Releases v2.2.0",
+      "summaryJa": "MCP Servers v2.2.0 は、eMudhra の中間CA秘密鍵が復元可能と判明した問題と、Node.js の更新を受けたセキュリティ情報を掲載している。TypeScript 版は Node.js の証明書検証に依存し、外部へHTTPS通信するのは server-everything のみで、運用者が影響範囲を把握しやすい。",
+      "summaryEn": "MCP Servers v2.2.0 documents its response to the eMudhra intermediate CA key exposure and the Node.js security releases. TypeScript servers rely on Node.js for certificate checks, so operators can quickly gauge their exposure.",
       "lang": "en",
       "publishedAt": "2026-10-28T20:57:13.000Z",
       "collectedAt": "2026-11-26T05:30:40.162Z",
       "tags": [
+        "ca-certificates",
+        "emudhra",
         "mcp",
         "mcp-server",
-        "release"
+        "nodejs",
+        "release",
+        "security",
+        "typescript"
       ],
       "category": "mcp",
       "importance": 2,
@@ -65,14 +98,17 @@
       "sourceType": "release",
       "url": "https://code.visualstudio.com/updates/v1_144",
       "title": "Visual Studio Code 1.144 Release Notes",
-      "titleJa": "",
+      "titleJa": "Visual Studio Code 1.144 リリースノート",
       "titleEn": "Visual Studio Code 1.144 Release Notes",
-      "summaryJa": "このエントリは vscode-updates から収集した vscode 領域の最新アップデートです。原題:「Visual Studio Code 1.144 Release Notes」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Visual Studio Code 1.144 Release Notes",
+      "summaryJa": "VS Code 1.144では、Local harnessが非推奨となり2027年2月に削除される予定で、Copilot harnessへの移行が案内されています。クライアントを閉じてもエージェントが動き続けるAgent Hostの仕組みも紹介されています。",
+      "summaryEn": "VS Code 1.144 deprecates the Local harness, to be removed in February 2027, and points users to the Copilot harness. It also recaps the Agent Host, which keeps agent sessions running after a client closes.",
       "lang": "en",
       "publishedAt": "2026-10-28T17:00:00.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "agent-host",
+        "copilot-harness",
+        "deprecation",
         "release",
         "vscode"
       ],
@@ -98,16 +134,19 @@
       "sourceType": "release",
       "url": "https://github.com/microsoft/semantic-kernel/releases/tag/python-1.46.0",
       "title": "Semantic Kernel python-1.46.0",
-      "titleJa": "",
+      "titleJa": "Semantic Kernel python-1.46.0 リリース",
       "titleEn": "Semantic Kernel python-1.46.0",
-      "summaryJa": "このエントリは semantic-kernel-releases から収集した agent-fw 領域の最新アップデートです。原題:「Semantic Kernel python-1.46.0」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Semantic Kernel python-1.46.0",
+      "summaryJa": "Semantic Kernel python-1.46.0 は、関数引数の値をログに出力しない変更や、SessionsPythonTool.upload_file でドット区切りのリモートパスを拒否する対策、PostgreSQL コレクションのフィールド型検証を加えました。Python 利用者の安全性向上に役立ちます。",
+      "summaryEn": "Semantic Kernel python-1.46.0 stops logging function argument values, blocks dot-segment remote paths in SessionsPythonTool.upload_file, and validates PostgreSQL field types, hardening Python deployments.",
       "lang": "en",
       "publishedAt": "2026-10-28T14:10:00.000Z",
       "collectedAt": "2026-11-27T09:37:32.824Z",
       "tags": [
         "agent",
+        "postgresql",
+        "python",
         "release",
+        "security",
         "semantic-kernel"
       ],
       "category": "agent-fw",
@@ -186,19 +225,23 @@
       "sourceType": "blog",
       "url": "https://www.anthropic.com/news/s1-sec",
       "title": "Anthropic files S-1 with the SEC for proposed initial public offering",
-      "titleJa": "",
+      "titleJa": "AnthropicがIPO計画に向けSECへS-1を提出",
       "titleEn": "Anthropic files S-1 with the SEC for proposed initial public offering",
-      "summaryJa": "このエントリは anthropic-news から収集した claude 領域の最新アップデートです。原題:「Anthropic files S-1 with the SEC for proposed initial public offering」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Anthropic files S-1 with the SEC for proposed initial public offering",
+      "summaryJa": "Anthropicが米証券取引委員会にS-1登録届出書を提出し、クラスA普通株をNasdaq上場のティッカー「ANT」で公開する計画を示した。株数と価格帯は未定で、投資家や業界に重要な節目となる。",
+      "summaryEn": "Anthropic submitted a Form S-1 to the SEC for a planned IPO of Class A stock, targeting a Nasdaq listing as ANT. Share count and pricing are still unset, a milestone for investors and the AI industry.",
       "lang": "en",
       "publishedAt": "2026-10-26T00:00:00.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "anthropic",
-        "claude"
+        "claude",
+        "finance",
+        "ipo",
+        "nasdaq",
+        "sec-filing"
       ],
       "category": "claude",
-      "importance": 1,
+      "importance": 3,
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "Today, Anthropic, PBC filed a registration statement on Form S-1 with the U.S. Securities and Exchange Commission relating to its proposed initial public offering of its Class A common stock. Anthropic intends to list its Class A common stock on the Nasdaq Global Select Market under the symbol “ANT.” The number of shares of Class A common stock to be offered and the price range for the proposed offering have not yet been determined. The proposed offering will be made only by means of a prospectus. Copies of the preliminary prospectus, when available, may be obtained from: Goldman Sachs & Co. LLC, Attention: Prospectus Department, 200 West Street, New York, NY 10282, by telephone at (866) 471-2526, or by email at prospectus-ny@ny.email.gs.com; or Morgan Stanley & Co. LLC, Attention: Prospectus Department, 180 Varick Street, 2nd Floor, New York, NY 10014.",
@@ -330,6 +373,31 @@
       "evergreen": true
     },
     {
+      "id": "b1d92492b7f0e9d8",
+      "source": "aws-news",
+      "sourceType": "blog",
+      "url": "https://aws.amazon.com/blogs/aws/aws-continuum-for-code-vulnerabilities-is-now-generally-available/",
+      "title": "AWS Continuum for code vulnerabilities is now generally available",
+      "titleJa": "",
+      "titleEn": "AWS Continuum for code vulnerabilities is now generally available",
+      "summaryJa": "このエントリは aws-news から収集した tech-news 領域の最新アップデートです。原題:「AWS Continuum for code vulnerabilities is now generally available」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "AWS Continuum for code vulnerabilities is now generally available",
+      "lang": "en",
+      "publishedAt": "2026-10-22T20:33:10.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "amazon",
+        "aws",
+        "news"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "AWS Continuum for code vulnerabilities is a new security service that uses AI to automatically find, validate, and prioritize code vulnerabilities in your environment, then delivers ready-to-review fixes as pull requests replacing what previously took hours of manual investigation and days of cross-team coordination.",
+      "excerptOrigin": "article-unavailable"
+    },
+    {
       "id": "c6d7d327b3177bde",
       "source": "vscode-updates",
       "sourceType": "release",
@@ -367,6 +435,31 @@
       "excerptOrigin": "article"
     },
     {
+      "id": "090e9651ee5e3090",
+      "source": "aws-news",
+      "sourceType": "blog",
+      "url": "https://aws.amazon.com/blogs/aws/introducing-amazon-ecs-gateway-a-fully-managed-ingress-solution-for-ecs-services/",
+      "title": "Introducing Amazon ECS Gateway: A fully-managed ingress solution for ECS services",
+      "titleJa": "",
+      "titleEn": "Introducing Amazon ECS Gateway: A fully-managed ingress solution for ECS services",
+      "summaryJa": "このエントリは aws-news から収集した tech-news 領域の最新アップデートです。原題:「Introducing Amazon ECS Gateway: A fully-managed ingress solution for ECS services」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Introducing Amazon ECS Gateway: A fully-managed ingress solution for ECS services",
+      "lang": "en",
+      "publishedAt": "2026-10-20T17:03:38.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "amazon",
+        "aws",
+        "news"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "Try Amazon ECS Gateway, a new account-level resource that simplifies ingress networking for containerized workloads by dynamically provisioning and managing the necessary infrastructure on your behalf, with all resources created directly in your account.",
+      "excerptOrigin": "article-unavailable"
+    },
+    {
       "id": "7cf69f7ae5c77b67",
       "source": "github-copilot",
       "sourceType": "blog",
@@ -391,10 +484,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "AI coding tools can generate code quickly, but speed alone does not solve the hardest software engineering problems. Developers still need to provide context, validate results, protect maintainability, and remain accountable for what ships. To learn how experienced developers strike that balance, we spoke with three Java Champions, all with over a decade of experience in using Java. They shared concrete examples of using GitHub Copilot in production and open source, along with the practices they use to turn AI-generated output into reliable software. Here are the tips they shared with us. How has GitHub Copilot helped you recently? I’ve been using it to analyze, design, and implement various features in both Hypersistence Utils and Hypersistence Optimizer.",
       "excerptOrigin": "article",
-      "feedSnippet": "Three Java Champions share how they use GitHub Copilot to solve problems, accelerate development, and keep humans responsible for the results. The post How 3 Java Champions are using GitHub Copilot for increased productivity appeared first on The GitHub Blog ."
+      "feedSnippet": "Three Java Champions share how they use GitHub Copilot to solve problems, accelerate development, and keep humans responsible for the results. The post How 3 Java Champions are using GitHub Copilot for increased productivity appeared first on The GitHub Blog .",
+      "evergreen": true
     },
     {
       "id": "ec2b5dc833750aa5",
@@ -417,6 +510,7 @@
         "deployment",
         "evals",
         "mcp",
+        "release",
         "templates"
       ],
       "category": "cursor",
@@ -453,10 +547,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "The agent has finished the bulk of your change. Now you want to inspect one implementation detail, adjust a few lines by hand, and run the project locally before you ship it. But the work is sitting in the GitHub Copilot app … and your editor is where you review diffs, debug code, and make final adjustments. Do you have to choose between staying in the session and starting over in Visual Studio Code? You don’t. You can open the Copilot app session directly in VS Code and continue with its conversation, code changes, and working context intact. That means Copilot can handle the repetitive or time-consuming work, then hand control back to you for closer review, hands-on editing, and local testing. Open a Copilot app session in VS Code. Review the agent’s changes line by line. Continue the same conversation from your editor. Modify and test the code locally.",
       "excerptOrigin": "article",
-      "feedSnippet": "Learn how to move an agent session from the GitHub Copilot app into VS Code without losing the conversation, code changes, or working context. The post How to continue a GitHub Copilot app session in VS Code appeared first on The GitHub Blog ."
+      "feedSnippet": "Learn how to move an agent session from the GitHub Copilot app into VS Code without losing the conversation, code changes, or working context. The post How to continue a GitHub Copilot app session in VS Code appeared first on The GitHub Blog .",
+      "evergreen": true
     },
     {
       "id": "5387974c3335c576",
@@ -549,6 +643,31 @@
       "contentSnippet": "クラウドエージェント が、作業の中で対話型の キャンバス を構築できるようになりました。完成したキャンバスは、リンクを送るだけでチームと共有できます。 Environments API がベータ版として利用可能になりました。エージェントを実行するクラウド環境を、プログラムから作成・管理できます。 クラウドエージェント環境 で、最大300個のリポジトリをサポートするようになりました。また、大規模な環境の読み込み速度も5倍に向上しています。 クラウドエージェント が、作業の中で対話型の キャンバス を構築できるようになりました。完成したキャンバスは、リンクを送るだけでチームと共有できます。 Environments API がベータ版として利用可能になりました。エージェントを実行するクラウド環境を、プログラムから作成・管理できます。 クラウドエージェント環境 で、最大300個のリポジトリをサポートするようになりました。また、大規模な環境の読み込み速度も5倍に向上しています。",
       "feedSnippet": "Cloud agents can now build and share interactive canvases. The Environments API is available in beta, environments support up to 300 repos, and large environments load 5x faster.",
       "excerptOrigin": "article"
+    },
+    {
+      "id": "a06cdc5222d8dc6b",
+      "source": "aws-news",
+      "sourceType": "blog",
+      "url": "https://aws.amazon.com/blogs/aws/amazon-s3-vercel-marketplace-v0/",
+      "title": "Amazon S3 is now available on the Vercel Marketplace and v0 by Vercel",
+      "titleJa": "",
+      "titleEn": "Amazon S3 is now available on the Vercel Marketplace and v0 by Vercel",
+      "summaryJa": "このエントリは aws-news から収集した tech-news 領域の最新アップデートです。原題:「Amazon S3 is now available on the Vercel Marketplace and v0 by Vercel」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Amazon S3 is now available on the Vercel Marketplace and v0 by Vercel",
+      "lang": "en",
+      "publishedAt": "2026-10-14T19:30:48.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "amazon",
+        "aws",
+        "news"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "Amazon Simple Storage Service (Amazon S3), including Amazon S3 Tables and Amazon S3 Vectors, is natively available on the Vercel Marketplace and v0 by Vercel.",
+      "excerptOrigin": "article-unavailable"
     },
     {
       "id": "26d1c78ff9f0ac95",
@@ -671,10 +790,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Context matters when you’re working with AI. Every codebase has its own house rules: how components are structured, which scripts to run, and which conventions apply to different frameworks and file types. Copilot can help you make changes across a project, but it works best when it knows those rules, too. Much of that knowledge can live inside the repository, so Copilot can pick it up automatically instead of requiring you to explain the same standards, scripts, and workflows every time you start a new task. In this installment of our GitHub Copilot app for Beginners series, we’ll look at four ways to tailor how Copilot works with your project: Custom instructions communicate the conventions Copilot should follow. Agent skills package repeatable procedures. Custom agents bring specialized guidance to larger tasks.",
       "excerptOrigin": "article",
-      "feedSnippet": "Learn how to add custom instructions and skills to your repository, use custom agents, and connect MCP servers like Playwright. The post GitHub Copilot app for Beginners: How to teach Copilot about your codebase appeared first on The GitHub Blog ."
+      "feedSnippet": "Learn how to add custom instructions and skills to your repository, use custom agents, and connect MCP servers like Playwright. The post GitHub Copilot app for Beginners: How to teach Copilot about your codebase appeared first on The GitHub Blog .",
+      "evergreen": true
     },
     {
       "id": "1cb36d6b3d7aacfb",
@@ -775,7 +894,6 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Today, one in three pull requests on GitHub involves an AI agent . A year ago, that number was fewer than one in 10. If that pace holds, within the next two years, most of the code pushed to GitHub could be written by an agent. Much of it may never be fully read by a human. If developers and agents move faster, we have a responsibility to ensure protection keeps up with the accelerated rate of code creation. That means preventing more leaks before they happen and making the response to exposures that remain less dependent on manual human effort. This is a pivotal point for leaked secrets. Developers aren’t becoming more careless; they’re being outpaced. The tools that let developers create more software should also take on more of the work of protecting it. In this essay, I share the nine quarters of data behind that claim.",
       "excerptOrigin": "article",
       "feedSnippet": "Developers aren’t becoming more careless; they’re being outpaced. The tools that let developers create more software should also take on more of the work of protecting it. The post Secret protection must scale with software appeared first on The GitHub Blog .",
@@ -786,7 +904,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "9113ed39fa04c200",
@@ -2435,7 +2554,6 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "We’re launching ReviewBench, a benchmark for code review agents built on representative GitHub pull requests, multi-source ground truth, calibrated evaluation, and production-aligned metrics. The post ReviewBench: An open benchmark for AI code review appeared first on The GitHub Blog .",
       "excerptOrigin": "article-unavailable",
       "image": {
@@ -2445,7 +2563,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "e33a2620e79a8313",
@@ -3748,7 +3867,7 @@
       "summaryEn": "AWS Well-Architected Agent enters public preview, inspecting AWS setups and suggesting fixes for security, cost, performance, and resilience to help teams meet business priorities.",
       "lang": "en",
       "publishedAt": "2026-10-01T20:04:04.000Z",
-      "collectedAt": "2026-10-07T20:19:17.063Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
       "tags": [
         "agent",
         "amazon",

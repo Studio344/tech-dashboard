@@ -243,6 +243,66 @@
       ],
       "category": "claude",
       "importance": 3
+    },
+    {
+      "sequence": 24,
+      "observedAt": "2026-11-27T20:30:55.488Z",
+      "sourceKey": "anthropic.com/news/s1-sec",
+      "topicKey": null,
+      "siteUrl": "https://techdb.studio344.net/e/f488ab92286122dc/",
+      "id": "f488ab92286122dc",
+      "publicationHold": true,
+      "source": "anthropic-news",
+      "sourceType": "blog",
+      "url": "https://www.anthropic.com/news/s1-sec",
+      "title": "Anthropic files S-1 with the SEC for proposed initial public offering",
+      "titleJa": "AnthropicがIPO計画に向けSECへS-1を提出",
+      "titleEn": "Anthropic files S-1 with the SEC for proposed initial public offering",
+      "summaryJa": "Anthropicが米証券取引委員会にS-1登録届出書を提出し、クラスA普通株をNasdaq上場のティッカー「ANT」で公開する計画を示した。株数と価格帯は未定で、投資家や業界に重要な節目となる。",
+      "summaryEn": "Anthropic submitted a Form S-1 to the SEC for a planned IPO of Class A stock, targeting a Nasdaq listing as ANT. Share count and pricing are still unset, a milestone for investors and the AI industry.",
+      "lang": "en",
+      "publishedAt": "2026-10-26T00:00:00.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "anthropic",
+        "claude",
+        "finance",
+        "ipo",
+        "nasdaq",
+        "sec-filing"
+      ],
+      "category": "claude",
+      "importance": 3
+    },
+    {
+      "sequence": 25,
+      "observedAt": "2026-11-27T20:30:55.488Z",
+      "sourceKey": "cursor.com/changelog/build-live-apps",
+      "topicKey": null,
+      "siteUrl": "https://techdb.studio344.net/e/771fdb1f1b3dfa77/",
+      "id": "771fdb1f1b3dfa77",
+      "publicationHold": true,
+      "source": "cursor-changelog",
+      "sourceType": "changelog",
+      "url": "https://cursor.com/changelog/build-live-apps",
+      "title": "Build Live Apps in Cursor",
+      "titleJa": "Cursorでライブアプリを構築",
+      "titleEn": "Build Live Apps in Cursor",
+      "summaryJa": "Cursorのクラウドエージェントが、Postgresの用意、Cursor SSO認証、ホスティングまで担い、作ったアプリを一意のドメインの公開リンクで共有できるようになった。非エンジニアも社内ツールを作れる。",
+      "summaryEn": "Cursor's cloud agent can now build web apps end to end, provisioning Postgres, Cursor SSO auth and hosting, then publish them at a unique domain link. Anyone in an organization can ship internal tools.",
+      "lang": "en",
+      "publishedAt": "2026-11-05T00:00:00.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "app-deployment",
+        "changelog",
+        "cloud-agent",
+        "cursor",
+        "postgres",
+        "sso"
+      ],
+      "category": "cursor",
+      "importance": 3
     }
   ]
 }

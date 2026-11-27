@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T19:21:41.853Z",
+  "generatedAt": "2026-11-27T20:30:51.383Z",
   "count": 344,
   "bodies": {
     "17f496c665a12174": {
@@ -11270,45 +11270,39 @@
       "bodyJa": "Excelで作られた業務フロー図をそのままAIに読み込ませると、図中に並ぶはずの見出しがごく一部しか認識されない——。そんな落とし穴が改めて注目を集めている。ある事例では、本来180個ある見出しのうちAIが把握できたのはわずか5個で、残りは丸ごと欠落していたという。\n\n原因は、Excelにおけるデータの保持方法の違いにある。xlsx形式のファイルは実体としてはZIP圧縮されたXMLの集合体で、セルに入力した値はワークシートのXML(sheet1.xmlなど)に格納される。一方、四角形や矢印といった図形(Shapeオブジェクト)や、その中に書き込んだテキストは、描画レイヤーを扱う別のXML(drawing1.xmlなど)に保存される。業務フロー図の多くは、この図形の内部にプロセス名や判断条件を書き込む形で作られている。\n\n問題は、AIやその前段にある変換ツールが「セルの値」だけを読み取り、描画レイヤーを無視しがちな点だ。pandasやopenpyxlといった一般的なライブラリはセルデータの扱いに強い一方、図形内テキストの抽出は限定的とされる。結果として、モデルにはセルに残ったわずかな文字列しか渡らず、図形に埋め込まれた大半の情報が消えてしまう。\n\nここで重要なのは、LLMがファイルそのものを直接「見て」いるわけではないという前提だ。実際にモデルへ届くのは、取り込みパイプラインが抽出したテキストにすぎない。したがって欠落が起きても、AIの読解力ではなく前処理の設計に原因がある可能性が高い。同種の現象は、画像化された文字を含むPDFや、テキストボックスを多用したPowerPointでも起こりうる。\n\n対策としては、描画XMLを直接パースして図形内テキストを取り出す、あるいは図形情報に対応した抽出処理を挟み、構造化テキストに変換してからAIに渡す方法が挙げられる。可視化された図であっても、機械にとって読める形へ整える前処理の一手間が、精度を左右すると言える。ツールへ丸投げする前に「モデルには何が見えているのか」を確認する姿勢が、実務では欠かせない。",
       "bodyEn": "Spreadsheets remain one of the most common formats for documenting business processes, and teams increasingly hand those files to large language models to summarize, restructure, or automate the workflows they describe. A recent post on Zenn highlights a subtle but consequential failure in that pipeline: when an Excel workflow diagram assembled from Shape objects was fed to an AI tool, the model appeared to recognize only about five of the roughly 180 headings present. The remaining text was effectively invisible to the model, and nothing in the output signaled that anything was missing.\n\nThe cause is structural rather than a limitation of the model's reasoning. A modern Excel file (.xlsx) is a ZIP archive containing multiple XML parts. Cell values live in the worksheet XML, but text typed into drawing objects — text boxes, autoshapes, connectors, and the boxes that make up a flowchart — is stored separately in DrawingML parts under a drawings folder. To a person viewing the sheet, both look like text on a grid. To a program that reads only cell values, the shape text does not exist.\n\nThis distinction matters because many tools that prepare Excel data for an LLM extract cell contents and ignore the drawing layer. Popular Python libraries such as pandas and openpyxl are oriented around cells and tables; openpyxl exposes some drawing information but does not surface shape text in a convenient, first-class way. When such a converter turns a spreadsheet into CSV, Markdown, or plain text for a model, any content that lived inside shapes is dropped before the model ever sees it. The model then answers confidently based on the fraction of the document it actually received.\n\nThe problem is especially acute in workflows common in Japanese enterprises, where Excel is frequently used as a general-purpose diagramming and layout tool. Process flows, organization charts, and approval routes are often drawn with connected shapes rather than entered into cells, a style sometimes associated with the \"Excel graph paper\" convention. A file that looks information-rich on screen can therefore carry most of its meaning in a layer that text-based extraction skips entirely.\n\nThe practical remedy is preprocessing: extract and convert the shape text into a form the model can read before passing the file along. Because the drawing XML is accessible inside the archive, one approach is to parse those parts directly and pull the text runs from each shape, optionally preserving position or connection data so the flow's structure survives. On Windows, COM automation through libraries like pywin32, or tools built on the Office object model, can enumerate shapes and read their text more reliably than pure-parsing approaches. Commercial libraries also offer shape-aware extraction. The common thread is that the transformation step, not the model, is where fidelity is won or lost.\n\nAn alternative worth considering is treating the diagram as an image. Rendering the sheet or the shape region and passing it to a vision-capable model lets optical character recognition and layout understanding recover text that a structural parser might miss, though this trades one set of errors for another and can struggle with dense or overlapping elements. In some cases, combining both signals — extracted shape text plus a rendered image — is likely to produce the most complete result.\n\nThe broader lesson extends beyond Excel. Document ingestion for AI systems, including retrieval-augmented generation, depends heavily on how faithfully a file is converted to text. PDFs, slide decks, and scanned forms all have layers or encodings that naive extractors miss, and the failures tend to be silent: the model produces fluent output regardless of how much context it actually received. Validating that extraction captured what a human sees — for instance, by checking that the number of detected headings matches expectations — is a cheap safeguard against confidently wrong answers.\n\nThe Zenn case is a useful reminder that when AI results seem thin or incomplete, the problem may lie upstream in the data handed to the model rather than in the model itself. As organizations move toward automating document-heavy workflows, the reliability of these systems will depend less on raw model capability and more on the unglamorous work of parsing, extraction, and verification that happens before a prompt is ever sent.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:16:12.918Z"
-    },
-    "7944fc8cac623dff": {
-      "bodyJa": "## 中小企業向け\n\nOpenAIは、中小企業向けの「ChatGPT for small business」プログラムを開始した。AIツールを業務へ取り入れやすくし、生産性の向上と競争力の強化を後押しする取り組みだ。\n\n## ChatGPT活用支援\n\n小規模な組織によるAIツールの導入に向けて、リソースと支援を提供する。起業家がAIスキルを身につけ、ChatGPT Workで業務を自動化し、成長につなげることを支援すると説明されている。",
-      "bodyEn": "## ChatGPT for Small Businesses\n\nOpenAI has launched a dedicated ChatGPT program for small businesses. It is intended to make AI tools easier for smaller organizations to adopt, supporting improved productivity, operational efficiency, and competitiveness.\n\n## Resources and support\n\nThe ChatGPT for Small Businesses program offers resources and support to help entrepreneurs and smaller organizations build AI skills. According to the announcement, participants can use ChatGPT Work to automate work and support growth. The program focuses on helping small businesses integrate AI tools into their operations rather than leaving them to navigate adoption without dedicated assistance.",
+      "generatedAt": "2026-08-30T16:16:12.918Z",
       "chat": [
         {
           "s": "a",
-          "ja": "中小企業向けのプログラムって、ChatGPTの使い方を教えてくれるの？",
-          "en": "Is this small-business program meant to teach teams how to use ChatGPT?"
+          "ja": "セルに入っていた値が5個だけって、本当？ 業務の中身はどこにあったの？",
+          "en": "Only 5 values in the cells, really? Where did the actual workflow content go?"
         },
         {
           "s": "b",
-          "ja": "OpenAIが、AIスキルの習得や仕事の自動化を支えるリソースとサポートを提供するプログラムだよ。",
-          "en": "OpenAI describes it as a program offering resources and support to build AI skills and automate work."
+          "ja": "業務の中身180個は、全部「図形」の中にありました。セルにあったのは、申請者や自治体などスイムレーンの見出し5つだけです。",
+          "en": "All 180 pieces of workflow content were inside shapes. The cells held only the 5 swimlane headings, like applicant and municipality."
         },
         {
           "s": "a",
-          "ja": "じゃあ、AIを仕事に取り入れたい中小企業や起業家が、業務を進めやすくするための支援なんだね？",
-          "en": "So it supports small businesses and entrepreneurs that want to bring AI into their everyday work?"
+          "ja": "じゃあExcelをそのままAIに渡すと、図形の中身が届いていないかもしれないってこと？",
+          "en": "So if I hand an Excel file straight to AI, the shape contents might not even reach it?"
         },
         {
           "s": "b",
-          "ja": "うん。業務効率や生産性を高め、事業の成長や競争力の強化を後押しする狙いがあるよ。",
-          "en": "Yes. The goal is to improve efficiency and productivity while supporting business growth and competitiveness."
+          "ja": "そうなんです。しかもAIは届いていなくても「レビューしました」という顔で返すので、渡す側からは区別がつきません。",
+          "en": "Right. And the AI replies as if it reviewed everything even when it didn't, so you can't tell the difference from your side."
         },
         {
           "s": "a",
-          "ja": "ChatGPTを渡すだけじゃなくて、使う力と仕事の自動化まで支えるプログラムなんだ。",
-          "en": "So it’s not just access to ChatGPT—it also helps businesses build skills and automate work."
+          "ja": "なるほど。AIに渡す前に、図形の中の文字を取り出して確かめることが大事なんだね。",
+          "en": "I see. So before passing it over, you pull the text out of the shapes and check it first."
         },
         {
           "s": "b",
-          "ja": "そうだね。対象は中小企業で、ChatGPT Workを使った成長支援として紹介されている点は押さえておこう。",
-          "en": "Right. Keep in mind that it’s presented specifically for small businesses, with support centered on growing through ChatGPT Work."
+          "ja": "はい。記事では渡し方4通りの比較や確認事項もまとめています。ただ、今回確かめたのは一つの公開資料なので、その点は頭に置いておきたいですね。",
+          "en": "Yes. The article compares four ways of passing files and lists checks. But this was one public file, so keep that in mind."
         }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T18:10:06.831Z"
+      ]
     },
     "e9b0cacc1c6518eb": {
       "bodyJa": "2026年7月に相次いで登場した新しいAIモデル群は、これまで慣習となっていた「ベンチマークスコアを横一列に並べて比べる」という評価手法を成り立ちにくくしている。評価軸が多層化し、たった一つの数字でモデルの優劣を語ることが難しくなってきたためだ。\n\n背景にあるのは、ベンチマークそのものの多様化である。かつてはMMLUやGSM8Kといった知識・数学系のスコアが比較の中心だったが、近年はコーディング能力を測るSWE-bench、長文脈の読解、エージェントとしての自律的なタスク遂行、ツール呼び出しの正確さなど、測る対象が細かく分かれてきた。あるモデルが数学推論で高得点でも、実務的なコード修正や長文処理では別のモデルが上回る、という逆転が珍しくない。\n\nさらに、モデルごとに思考モードや推論時の計算量を調整できる仕組みが広がったことも、比較を複雑にしている。同じモデルでも、推論に費やすトークン量や設定によってスコアが変わるため、どの条件で測ったかを確認しないと数字の意味を取り違える可能性がある。ClaudeやGPT系、Gemini、オープンウェイト系など各陣営がそれぞれ得意領域を打ち出しており、単純な総合順位はつけにくい状況だ。\n\nこうした環境では、技術仕様書を丁寧に読み解く姿勢が重要になる。記事は、対応コンテキスト長、入出力コスト、レイテンシ、対応モダリティ、そして測定条件といった項目を突き合わせ、自分の用途に照らして評価することを勧めている。たとえば大量の社内文書を扱うなら文脈長とコスト、対話型の補助ツールなら応答速度が効いてくる、といった具合だ。\n\nベンチマークの数字は依然として有用な出発点だが、あくまで特定条件下の一断面にすぎない。今後は公開された総合スコアを鵜呑みにせず、自らのワークロードに近いタスクで小さく試す「自前評価」の重要性が増していくと見られる。モデル選定は、単なる数字の大小比較から、要件との適合を見極める作業へと移りつつある。",
@@ -11562,44 +11556,6 @@
       "model": "gpt-5.6-sol",
       "generatedAt": "2026-10-07T21:40:57.346Z"
     },
-    "a8c1d643ce8b147e": {
-      "bodyJa": "## Canvases\n\nCursorに、エージェントの応答を対話型の「Canvases」として作成する機能が加わった。生成された内容を視覚的な作業空間として扱えるため、開発者が複雑な出力を把握し、整理しやすくなる。\n\n## ビジュアル表現\n\nキャンバスには、テーブル、ボックス、図、グラフといった標準コンポーネントを配置できる。これらを組み合わせ、情報をまとめたダッシュボードや、用途に合わせたカスタムインターフェースを構築することが可能だ。文章だけで応答するのではなく、内容に応じた視覚的な形式で提示できる点が特徴となる。\n\n## Cursor部品\n\n標準コンポーネントに加えて、diffやToDoリストなど、既存のCursorコンポーネントもキャンバスに含められる。コードの差分と作業項目を、ほかの図表やボックスと同じビジュアル表現の中で扱えるため、エージェントが生成した複数種類の情報を一つの作業空間に整理できる。\n\n## サイドパネル\n\nエージェントウィンドウでは、キャンバスは永続的なアーティファクトとしてサイドパネルに表示される。配置上はターミナル、ブラウザ、ソース管理と並ぶ形となり、一時的な応答ではなく、作業中に参照できる表示として扱われる。Canvasesは、Cursor 3.1のエージェントウィンドウまたはエディターで試せる。",
-      "bodyEn": "## Interactive Canvases\n\nCursor has added Canvases, enabling agents to present their responses as interactive visual workspaces. The feature matters because it gives developers a visual way to organize and understand complex generated output.\n\nRather than limiting a response to a conventional presentation, an agent can create a canvas containing visual representations and interactive material. These canvases can serve as workspaces for handling generated content and keeping different parts of a complex task organized.\n\n## Dashboards and Custom Interfaces\n\nCanvases can include dashboards and custom interfaces built from standard components. Supported elements described in the announcement include tables, boxes, diagrams, and charts.\n\nThese components allow an agent’s response to be arranged according to the material being presented. Tables can appear alongside diagrams or charts, while boxes can provide additional structure within the same visual representation. The result can be organized as a dashboard or as a custom interface rather than a single undifferentiated response.\n\nCanvases can also incorporate existing Cursor components. The examples provided are diffs and ToDo lists, allowing those elements to appear within the broader visual workspace alongside the standard canvas components.\n\n## Agent Window\n\nIn the Agent window, a canvas appears as a persistent artifact in the side panel. It is presented alongside the terminal, browser, and source control.\n\nThis placement means the canvas remains available as part of the Agent window rather than appearing only as a transient response. Developers can use that persistent visual artifact to keep generated material arranged while working with the other side-panel elements.\n\n## Cursor 3.1\n\nCanvases are available to try in the Cursor 3.1 Agent window or editor. In either location, agents can respond by creating an interactive canvas that combines visual components, dashboards, custom interfaces, diffs, and ToDo lists into an organized workspace.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "Cursor 3.1では、エージェントの返事を対話型の画面にできるんだね。これって大きい変化？",
-          "en": "In Cursor 3.1, agent responses can become interactive visual workspaces. Is that a big change?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、表や図、グラフなどで複雑な生成内容を整理しやすくなる変化として紹介しているよ。",
-          "en": "The article frames it as a way to organize complex output using tables, diagrams, graphs, and other visual components."
-        },
-        {
-          "s": "a",
-          "ja": "キャンバスに入れられる「diff」って、なんだろう？",
-          "en": "What’s a “diff,” one of the things a Canvas can include?"
-        },
-        {
-          "s": "b",
-          "ja": "変更前と変更後の差分を見せるものだよ。どこが変わったかを確かめるための表示、と考えると近いよ。",
-          "en": "It shows the difference between before and after a change—basically, a view for checking what changed."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、複雑な作業でToDoリストとdiffを並べて、順番に確認してみたいな。",
-          "en": "I’d use it for a complex task, putting a ToDo list beside a diff and checking each step in order."
-        },
-        {
-          "s": "b",
-          "ja": "それなら内容を見比べやすそうだね。Cursor 3.1のエージェントウィンドウかエディターで試せて、サイドパネルにも残るよ。",
-          "en": "That could make the output easier to compare. It’s available in the Cursor 3.1 agent window or editor, and the Canvas remains in the side panel."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T21:41:45.224Z"
-    },
     "7fd88aafef0c1bf5": {
       "bodyJa": "Claude CodeやOpenAIのCodex、GitHub Copilotといったコーディングエージェントが、開発者の手元を離れてクラウド上で自律的に動くケースが増えている。こうした環境では、ローカルのgitフックやCIチェックだけではmainブランチを守り切れないという構造的な問題を、Zennに公開された記事が指摘している。\n\nこれまで多くのチームは、コミット前にpre-commitフックでリンターやテストを走らせ、さらにプルリクエスト時にCIで検査するという二段構えでコード品質を担保してきた。しかしローカルフックはあくまで開発者の端末上で動く仕組みであり、実行するかどうかは最終的にクライアント側の裁量に委ねられる。悪意がなくても、設定漏れや--no-verifyオプションで簡単に回避できてしまう。\n\nエージェントがクラウドで動くようになると、この前提はさらに崩れる。人間のレビューを介さずにブランチを切り、コミットし、場合によっては直接pushやマージまで実行する可能性があるためだ。端末という「境界」が存在しないため、クライアント側に置いたガードは意味をなさなくなる。記事は、監視や制御の重心をローカルからクラウド側へ移す必要があると論じている。\n\n具体的な対策として挙げられるのが、GitHubやGitLabが提供するブランチ保護ルールやリポジトリ側のポリシー設定だ。mainへの直接pushを禁止し、必須のステータスチェックや所定の承認者によるレビューを通過しなければマージできないよう構成すれば、どのクライアントから来た変更であっても一律に規制できる。エージェント用のアクセストークンやサービスアカウントに与える権限を最小限に絞ることも有効とされる。\n\n背景には、AIエージェントの実行環境がIDEのプラグインから、クラウドのサンドボックスや非同期タスクへと広がっている流れがある。GitHub Copilotのcoding agentやAnthropicのClaude Codeなどは、割り当てられたタスクを裏側で処理してPRを提出する形態を取り始めた。生産性が上がる一方で、誰が何をマージできるのかというガバナンスをサーバー側で明示的に定義し直すことが、今後いっそう重要になると見られる。",
       "bodyEn": "The rapid adoption of autonomous AI coding agents is exposing a structural weakness in how many teams protect their most important branch. As tools such as Anthropic's Claude Code, OpenAI's Codex, and GitHub Copilot increasingly run in cloud environments rather than only on a developer's laptop, the traditional safeguards that live locally, like git hooks and developer-side checks, no longer sit in the path of every change. This matters because the main branch is usually the source of truth for production, and a single unvetted merge can propagate quickly through automated pipelines.\n\nThe core issue is where enforcement actually happens. Client-side git hooks, such as pre-commit and pre-push scripts, execute only on the machine that runs them. They were designed for a world in which a human engineer cloned a repository, configured their environment, and pushed from that same machine. Hooks are not distributed with the repository by default, they can be skipped with flags like --no-verify, and they simply do not run in an environment that never installed them. When an agent operates in an ephemeral cloud sandbox, opens a pull request through an API, or commits from a hosted runner, those local controls are effectively absent.\n\nContinuous integration checks are stronger because they run on shared infrastructure, but the article argues they are still insufficient on their own. CI validates the contents of a proposed change, yet it does not inherently govern who or what is allowed to merge, whether a review occurred, or whether a check can be bypassed. If a workflow has permission to push directly, or if required checks are not enforced as a merge gate, a passing build does not guarantee that policy was respected. Agents that hold write credentials can, in principle, act faster than any human reviewer can intervene.\n\nThis is why the recommended posture is to move governance to the server side, closer to the repository itself. On platforms like GitHub, this means branch protection rules or the newer repository rulesets, which can require pull requests before merging, mandate a minimum number of approving reviews, require that specific status checks pass, enforce linear history or signed commits, and prevent force pushes to protected branches. Crucially, these rules can be configured so they apply to everyone, including administrators and automation, rather than trusting each actor to enforce them locally. CODEOWNERS files can further require review from designated maintainers for sensitive paths.\n\nThe identity of the agent also becomes central to enforcement. Whether a change arrives from a GitHub App, a fine-grained personal access token, or an OAuth-scoped integration, the permissions attached to that identity determine what the agent can do. Scoping tokens narrowly, avoiding broad write access, and treating agent credentials with the same care as human credentials all reduce the blast radius if an agent behaves unexpectedly or is misdirected by a crafted prompt. Environment protection rules and required reviewers for deployments add another layer between a merged change and production.\n\nContext helps explain why this shift is happening now. Claude Code, Codex, and Copilot have each moved toward more autonomous, cloud-hosted modes. GitHub's Copilot coding agent, for example, can be assigned an issue and produce a pull request on its own, running in a hosted environment rather than the developer's terminal. Codex has offered cloud-based execution, and Claude Code can operate in sandboxes and CI-like settings. These modes are convenient, but they relocate work away from the individual machine where local guardrails traditionally lived.\n\nFor teams evaluating their exposure, a few prerequisites are worth confirming. Protected branches should reject direct pushes and require pull requests. Required status checks should be marked as mandatory rather than advisory. Merge permissions should be restricted, and automation identities should be inventoried and least-privileged. Audit logging and, where available, artifact or build provenance can help reconstruct what an agent did after the fact.\n\nNone of this eliminates the value of local hooks or CI, which remain useful for fast feedback and catching mistakes early. The article's argument is narrower: as more code originates from agents running outside the developer's machine, controls that only exist on that machine cannot be the last line of defense. The main branch appears best protected when policy is enforced by the platform itself, applied uniformly to humans and agents alike.",
@@ -11761,6 +11717,82 @@
       "bodyEn": "The latest generation of coding agents has crossed a practical threshold: tools such as Claude Code v2.1.198 and Cursor 3.8, along with client updates like GitHub Desktop 3.6, can now push branches and open draft pull requests without a human pressing the button. This shift matters because many teams built their review and continuous integration workflows on an implicit assumption that a person initiates every push. When that assumption no longer holds, branch protection rules and CI/CD trigger design need to be re-examined to avoid unintended automated changes, wasted pipeline minutes, and accidental exposure of secrets.\n\nThe core change is that agents are increasingly granted the credentials and permissions to act on a repository directly, rather than merely proposing edits for a developer to commit manually. In practice this means an agent can create a feature branch, commit its work, push to the remote, and open a draft pull request as a single autonomous sequence. Draft PRs are significant here because they were designed to signal work in progress that is not yet ready for review, but they still exist inside the repository and can, depending on configuration, trigger workflows. An agent that reaches the draft-PR stage has effectively entered the collaboration surface that humans and automation share.\n\nBranch protection is the first control worth revisiting. Rules that require pull request reviews, passing status checks, or signed commits still apply, but teams should confirm how those rules treat automated actors. If an agent authenticates using a personal access token or a developer's session, its pushes may inherit that human's privileges, potentially bypassing restrictions intended for bots. Using a dedicated machine identity, such as a GitHub App installation token or a bot account with narrowly scoped permissions, makes it easier to apply distinct rules to agent activity. Requiring reviews from CODEOWNERS, blocking force pushes, and restricting who can push to protected branches remain relevant, and they appear more important, not less, when non-human actors are in the loop.\n\nCI/CD trigger design deserves equal attention. Pipelines commonly fire on push and on pull_request events, and an autonomous agent that pushes frequently can multiply the number of triggered runs. Teams may want to distinguish draft pull requests from ready-for-review ones, since GitHub exposes events such as pull_request with a types filter that includes ready_for_review. Gating expensive jobs behind that transition, rather than running them on every draft update, can control cost and noise. Path filters, concurrency groups that cancel superseded runs, and manual approval gates for deployment environments are established mechanisms that become more valuable when the volume and cadence of commits are driven partly by software.\n\nSecurity is the context that ties these concerns together. Workflows triggered by automated changes can access secrets, and a misconfigured pipeline could allow generated code to run with elevated permissions. The distinction between pull_request and pull_request_target has long been a source of vulnerabilities, because the latter runs in the context of the base repository with access to secrets. As agents author more of the code that triggers these events, reviewing which workflows expose credentials, and to what, is prudent. Principle-of-least-privilege token scoping, required human approval before merge, and environment protection rules provide layered defenses.\n\nThis development sits within a broader industry movement toward agentic software development. GitHub Copilot has been expanding from inline completion toward a coding agent that can be assigned issues, and other vendors are pursuing similar autonomous workflows. The common thread is that the unit of automation is shifting from a suggestion a developer accepts to a task an agent completes end to end. That is likely to increase throughput, but it also redistributes where human judgment is applied, moving it from the moment of writing code toward the moment of reviewing and merging it.\n\nFor teams adopting these tools, a reasonable starting point is to inventory how agents authenticate, confirm that protected branches cannot be bypassed by agent identities, and audit which events start CI runs and which of those runs touch secrets. Treating draft PRs as a deliberate checkpoint, rather than an incidental byproduct, gives reviewers a clear place to intervene. None of these controls are new, but the arrival of agents that reach push and draft-PR stages without human approval makes revisiting them a timely exercise rather than an optional one.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-05T13:22:32.020Z"
+    },
+    "289a3dd4fa86a3f9": {
+      "bodyJa": "## 中小企業向け\n\nOpenAIは、中小企業向けの「ChatGPT for small business」プログラムを開始した。AIツールを業務へ取り入れやすくし、生産性の向上と競争力の強化を後押しする取り組みだ。\n\n## ChatGPT活用支援\n\n小規模な組織によるAIツールの導入に向けて、リソースと支援を提供する。起業家がAIスキルを身につけ、ChatGPT Workで業務を自動化し、成長につなげることを支援すると説明されている。",
+      "bodyEn": "## ChatGPT for Small Businesses\n\nOpenAI has launched a dedicated ChatGPT program for small businesses. It is intended to make AI tools easier for smaller organizations to adopt, supporting improved productivity, operational efficiency, and competitiveness.\n\n## Resources and support\n\nThe ChatGPT for Small Businesses program offers resources and support to help entrepreneurs and smaller organizations build AI skills. According to the announcement, participants can use ChatGPT Work to automate work and support growth. The program focuses on helping small businesses integrate AI tools into their operations rather than leaving them to navigate adoption without dedicated assistance.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "中小企業向けのプログラムって、ChatGPTの使い方を教えてくれるの？",
+          "en": "Is this small-business program meant to teach teams how to use ChatGPT?"
+        },
+        {
+          "s": "b",
+          "ja": "OpenAIが、AIスキルの習得や仕事の自動化を支えるリソースとサポートを提供するプログラムだよ。",
+          "en": "OpenAI describes it as a program offering resources and support to build AI skills and automate work."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、AIを仕事に取り入れたい中小企業や起業家が、業務を進めやすくするための支援なんだね？",
+          "en": "So it supports small businesses and entrepreneurs that want to bring AI into their everyday work?"
+        },
+        {
+          "s": "b",
+          "ja": "うん。業務効率や生産性を高め、事業の成長や競争力の強化を後押しする狙いがあるよ。",
+          "en": "Yes. The goal is to improve efficiency and productivity while supporting business growth and competitiveness."
+        },
+        {
+          "s": "a",
+          "ja": "ChatGPTを渡すだけじゃなくて、使う力と仕事の自動化まで支えるプログラムなんだ。",
+          "en": "So it’s not just access to ChatGPT—it also helps businesses build skills and automate work."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。対象は中小企業で、ChatGPT Workを使った成長支援として紹介されている点は押さえておこう。",
+          "en": "Right. Keep in mind that it’s presented specifically for small businesses, with support centered on growing through ChatGPT Work."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T18:10:06.831Z"
+    },
+    "92248fb31d2fb5b9": {
+      "bodyJa": "Google Workspace のリモート MCP サーバーが承認を求めてきたとき、手元の agent が新しい形式に対応していないと確認が通らないことがあります。この問題に対し、ローカルの stdio リレーで承認要求を従来の確認ダイアログへ橋渡しする方法が紹介されています。\n\n## GA とアクセス経路\n\n2026 年 11 月 24 日、Google Workspace のリモート MCP サーバーが GA になりました。Gmail、Drive、Docs、Sheets、Calendar などが、製品ごとに https://&lt;product&gt;mcp.googleapis.com/mcp/v1 の形で提供されています。\n\nまた 2027 年 2 月 1 日以降、AI エージェントは REST API を直接呼ぶのではなく、この MCP サーバーか Workspace CLI を経由することが求められます。\n\n## 承認の新形式\n\n問題になるのが承認です。Google 側は一部のツール呼び出しをすぐには実行せず、結果として input_required を返します。これは「ユーザーに確認を取ってから再送してほしい」という要求です。\n\nこの形式は MCP 2026-07-28 のステートレスな方式（Multi Round-Trip Requests）にあたります。従来のように、サーバーからクライアントへ elicitation/create を送る方式とは別物です。\n\n手元の agent は、従来の elicitation/create による確認ダイアログには対応していても、input_required 形式をまだ扱えない場合があります。\n\n## stdio リレーの役割\n\n記事が示すのは、Google の MCP サーバーと agent の間にローカルの stdio リレーを挟む構成です。リレーは上流から返る input_required を下流の elicitation/create に変換して中継します。agent から見れば従来どおりの確認ダイアログが出るため、新方式に未対応の agent でも承認つきのツールを使えるようになります。\n\nあわせて、このリレーを実装する際の 60 秒タイムアウトに関する落とし穴も取り上げられています。\n\n## 検証環境と spike\n\n検証は Claude Code（2.1.332）と @modelcontextprotocol/sdk 1.32.2 で行われました。\n\n記事中のコードは検証用の spike で、本番利用を想定したエラー処理やトークン管理は含まれていません。実運用に取り入れる場合は、その部分を別途用意する必要があります。",
+      "bodyEn": "Google Workspace's remote MCP servers reached general availability, and they now ask for user approval in a format some agents cannot yet handle. This explainer covers an article that bridges that gap with a small local relay, so an agent that lacks the new flow can still show its usual confirmation dialog.\n\n## Remote MCP Servers Reach GA\n\nAccording to the article, Google Workspace's remote MCP servers became generally available on November 24, 2026. Gmail, Drive, Docs, Sheets, Calendar and others are each served at their own endpoint, in the form https://<product>mcp.googleapis.com/mcp/v1. The article also states that from February 1, 2027, AI agents are expected to go through either this MCP server or the Workspace CLI, rather than calling the REST API directly.\n\n## The input_required Approval Problem\n\nThe sticking point is approval. For some tool calls, Google does not execute the request immediately. It returns input_required, asking the client to confirm with the user and then resend the request.\n\nThe article explains that this belongs to the stateless format of MCP 2026-07-28, called Multi Round-Trip Requests. It differs from the older method, in which the server sends elicitation/create to the client. Many agents already support elicitation/create, which drives a confirmation dialog, but may not yet handle input_required.\n\n## A Local stdio Relay\n\nThe approach is to place a local stdio relay between Google's MCP server and the agent. The relay takes the upstream input_required response and converts it into a downstream elicitation/create request, which the agent can show as its normal confirmation dialog. The summary says this makes the approach usable even with agents that do not support the new flow. The article also covers a 60-second timeout pitfall, which its title highlights.\n\n## Spike Code, Not Production\n\nThe author verified the approach with Claude Code 2.1.332 and @modelcontextprotocol/sdk 1.32.2. The article stresses that the code is a verification spike. It does not include production-grade error handling or token management, so it should be read as a demonstration of the relay idea rather than a finished implementation.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Googleのサービスをエージェントに触らせるとき、普段の使い方で何が変わるの？",
+          "en": "When I let an agent touch Google services, what actually changes in everyday use?"
+        },
+        {
+          "s": "b",
+          "ja": "一部の操作で、Google側がすぐ実行せず input_required を返して「ユーザーに確認して再送して」と求めてきます。この記事は、その承認を手元の確認ダイアログにつなぐ方法です。",
+          "en": "For some actions, Google won't just run them. It returns input_required, asking for user confirmation first. This article shows how to connect that to your agent's usual confirmation dialog."
+        },
+        {
+          "s": "a",
+          "ja": "前は、そういう確認ってできなかったの？",
+          "en": "So before, confirmations like that weren't possible?"
+        },
+        {
+          "s": "b",
+          "ja": "従来は、サーバーからelicitation/createを送る方式でした。今回のinput_requiredは別の形式で、手元のagentが未対応のことがあります。以前のGoogle側の挙動までは、この記事では分かりません。",
+          "en": "Before, the server sent elicitation/create. input_required is a different format, and some agents can't handle it yet. How Google behaved earlier isn't covered in this article."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、間にリレーを挟んで新しい形を古いダイアログに翻訳するのが一番の収穫だね。",
+          "en": "So the big takeaway is a relay in the middle that translates the new format into the old dialog?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。ただ、コードは検証用で、エラー処理やトークン管理は本番向けではありません。タイトルにある60秒タイムアウトの落とし穴も、注目したい点です。",
+          "en": "Right. But the code is just a spike, without production-grade error handling or token management. The 60-second timeout pitfall in the title is also worth a close look."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T19:22:35.234Z"
     }
   }
 }

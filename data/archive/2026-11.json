@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-27T19:21:44.968Z",
+  "generatedAt": "2026-11-27T20:30:55.488Z",
   "month": "2026-11",
-  "count": 84,
+  "count": 106,
   "entries": [
     {
       "id": "92248fb31d2fb5b9",
@@ -244,6 +244,70 @@
       }
     },
     {
+      "id": "86f1cfd68d515956",
+      "source": "langchain-releases",
+      "sourceType": "release",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-core%3D%3D1.8.5",
+      "title": "langchain-core==1.8.5",
+      "titleJa": "",
+      "titleEn": "langchain-core==1.8.5",
+      "lang": "en",
+      "publishedAt": "2026-11-25T21:52:41.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "langchain",
+        "release"
+      ],
+      "category": "agent-fw",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . Changes since langchain-core==1.8.4 release(core): 1.8.5 ( #42103 ) release(standard-tests): 1.2.0 ( #41996 ) release(text-splitters): 1.2.0 ( #41998 ) chore(deps): bump mistune from 3.3.3 to 3.3.4 in /libs/core ( #41968 ) There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "langchain-core==1.8.5",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "Changes since langchain-core==1.8.4 release(core): 1.8.5 ( #42103 ) fix(core): reuse provider message id on later stream chunks ( #42050 ) docs(core): clarify v3 runtime warning behavior ( #42040 ) docs(core): clarify supported streaming event APIs ( #42038 ) release(standard-tests): 1.2.0 ( #41996 ) release(text-splitters): 1.2.0 ( #41998 ) chore(deps): bump mistune from 3.3.3 to 3.3.4 in /libs/core ( #41968 )",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "7e0dffda14167f42",
+      "source": "langchain-releases",
+      "sourceType": "release",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-anthropic%3D%3D1.7.13",
+      "title": "langchain-anthropic==1.7.13",
+      "titleJa": "",
+      "titleEn": "langchain-anthropic==1.7.13",
+      "lang": "en",
+      "publishedAt": "2026-11-25T21:42:01.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "langchain",
+        "release"
+      ],
+      "category": "agent-fw",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . Changes since langchain-anthropic==1.7.12 release(anthropic): 1.7.13 ( #42102 ) release(standard-tests): 1.2.0 ( #41996 ) There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "langchain-anthropic==1.7.13",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "Changes since langchain-anthropic==1.7.12 release(anthropic): 1.7.13 ( #42102 ) feat(anthropic): accept custom HTTP and SDK clients ( #42101 ) chore(model-profiles): refresh model profile data ( #42085 ) chore(model-profiles): refresh model profile data ( #42062 ) release(standard-tests): 1.2.0 ( #41996 )",
+      "excerptOrigin": "article"
+    },
+    {
       "id": "237b0f3a0fa44b4f",
       "source": "zed-releases",
       "sourceType": "release",
@@ -373,7 +437,6 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "A request to modernize an application often starts with a technology question: Which framework should replace the old one? Before you choose, find out what still works. Then collect evidence that can act as a regression net for that behavior and show where modernization is necessary. I used an evidence-first method on four public applications, from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each needed a different treatment, but the way I collected evidence, chose the next experiment, and decided on possible proof points was repeatable. This post walks through that process so you can apply it to one application of your own. It also shows how to encode the procedure in a GitHub Copilot agent skill while keeping architectural judgment with the people responsible for the system. The label on an application rarely tells you enough.",
       "excerptOrigin": "article",
       "feedSnippet": "Learn how to assess a legacy application, choose a bounded modernization step, and reuse the method with a GitHub Copilot agent skill. The post How to choose the next safe step in application modernization appeared first on The GitHub Blog .",
@@ -384,7 +447,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "231f1a322b3ba681",
@@ -447,6 +511,42 @@
         "src": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-improvements.jpg",
         "origSrc": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-improvements.jpg",
         "alt": "More predictable notifications on GitHub.com",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
+    },
+    {
+      "id": "6efae4f335b4e52c",
+      "source": "microsoft-foundry",
+      "sourceType": "blog",
+      "url": "https://devblogs.microsoft.com/foundry/whats-new-in-microsoft-foundry-ignite-2026/",
+      "title": "What’s new in Microsoft Foundry | Ignite 2026",
+      "titleJa": "",
+      "titleEn": "What’s new in Microsoft Foundry | Ignite 2026",
+      "summaryJa": "このエントリは microsoft-foundry から収集した copilot 領域の最新アップデートです。原題:「What’s new in Microsoft Foundry | Ignite 2026」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "What’s new in Microsoft Foundry | Ignite 2026",
+      "lang": "en",
+      "publishedAt": "2026-11-24T16:00:51.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "ai",
+        "foundry",
+        "microsoft"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "knowledgeEligible": false,
+      "contentSnippet": "At Ignite, we added a more direct path from a recurring problem in your agent’s traces to a fix you can test. New preview capabilities connect Insights to Agent Optimizer, learn reusable skills from real conversations, and find cheaper configurations that still meet your quality bar. You decide which changes go into the next version. Continuous improvement : Insights and multi-turn evaluation are GA. Human annotation, rubric evaluators, and new Agent Optimizer capabilities are in preview. Agents : Voice agents, external-agent registration, hosted-agent egress controls, and the A2A tool are GA. Browser Automation adds enterprise features and previews. Developer tools : The Foundry Dev Pack and Foundry CLI ( azd ai ) are GA. Models : Microsoft-Decision-1.1 and Managed Compute are GA. Model router Auto, MAI image models, MAI-Code-2-Flash, fal video models, and Baseten are in preview.",
+      "feedSnippet": "Microsoft Foundry Ignite 2026 updates for agents, developer tools, models, training, enterprise context, and governance, with continuous improvement. The post What’s new in Microsoft Foundry | Ignite 2026 appeared first on Microsoft Foundry Blog .",
+      "excerptOrigin": "article",
+      "image": {
+        "src": "https://devblogs.microsoft.com/foundry/wp-content/uploads/sites/89/2026/11/whats-new-in-foundry-nov-2026.webp",
+        "origSrc": "https://devblogs.microsoft.com/foundry/wp-content/uploads/sites/89/2026/11/whats-new-in-foundry-nov-2026.webp",
+        "alt": "What’s new in Microsoft Foundry | Ignite 2026",
         "width": 0,
         "height": 0,
         "source": "og"
@@ -662,6 +762,36 @@
       }
     },
     {
+      "id": "70932e96e2d93a9e",
+      "source": "langchain-releases",
+      "sourceType": "release",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-huggingface%3D%3D1.3.0",
+      "title": "langchain-huggingface==1.3.0",
+      "titleJa": "",
+      "titleEn": "langchain-huggingface==1.3.0",
+      "lang": "en",
+      "publishedAt": "2026-11-23T20:48:59.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "langchain",
+        "release"
+      ],
+      "category": "agent-fw",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Changes since langchain-huggingface==1.2.3 fix(huggingface): correct forced tool choice and streaming token counts ( #42043 ) test(huggingface): accumulate pipeline streaming output ( #42039 ) test(huggingface): use Together’s GPT-OSS for standard chat coverage ( #42035 ) test(huggingface): use live Novita routing for chat tests ( #42033 ) release(huggingface): 1.3.0 ( #41999 ) release(standard-tests): 1.2.0 ( #41996 ) chore(model-profiles): refresh model profile data ( #42013 ) chore(model-profiles): refresh model profile data ( #41955 ) chore(langchain): require langgraph 1.2.16 or newer ( #41959 ) chore(model-profiles): refresh model profile data ( #41917 ) chore(model-profiles): refresh model profile data ( #41861 ) chore(deps): bump tornado from 6.6 to 6.6.1 in /libs/partners/huggingf",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "langchain-huggingface==1.3.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
       "id": "30f6de5437c897a8",
       "source": "github-changelog",
       "sourceType": "changelog",
@@ -758,6 +888,218 @@
       },
       "excerptOrigin": "article",
       "feedSnippet": "We brought researchers together for the Open Source AI For Science Summit, where they shared how they’re using AI to accelerate scientific discovery. The post Researchers Are Using Meta’s Open-Weight AI Models to Transform Medicine appeared first on Meta Newsroom ."
+    },
+    {
+      "id": "f6b94ed3ab463313",
+      "source": "langchain-releases",
+      "sourceType": "release",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-nomic%3D%3D1.1.0",
+      "title": "langchain-nomic==1.1.0",
+      "titleJa": "",
+      "titleEn": "langchain-nomic==1.1.0",
+      "lang": "en",
+      "publishedAt": "2026-11-23T17:21:25.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "langchain",
+        "release"
+      ],
+      "category": "agent-fw",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Changes since langchain-nomic==1.0.1 fix(nomic): run integration tests serially to avoid credentials file race ( #42034 ) release(nomic): 1.1.0 ( #41993 ) release(standard-tests): 1.2.0 ( #41996 ) feat(partners): Remove EOL'd Python 3.10 from partner packages ( #41268 ) chore(deps): patch newer-python security lock resolutions ( #41585 ) revert: patch vulnerable integration dependencies ( #41481 ) build(deps): patch vulnerable integration dependencies ( #41473 ) chore(infra): relax third-party dependency upper bounds ( #41407 ) chore(deps): bump certifi from 2025.8.3 to 2026.10.19 in /libs/partners/nomic ( #41382 ) fix: fix dependencies in some partner packages ( #41266 ) chore(deps): bump urllib3 from 2.7.0 to 2.8.0 in /libs/partners/nomic ( #40954 ) chore(deps): bump pyjwt from 2.13.0 to",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "langchain-nomic==1.1.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
+      "id": "812084e5e2f2ccd4",
+      "source": "langchain-releases",
+      "sourceType": "release",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-fireworks%3D%3D1.8.0",
+      "title": "langchain-fireworks==1.8.0",
+      "titleJa": "",
+      "titleEn": "langchain-fireworks==1.8.0",
+      "lang": "en",
+      "publishedAt": "2026-11-23T17:13:26.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "langchain",
+        "release"
+      ],
+      "category": "agent-fw",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . Changes since langchain-fireworks==1.7.3 release(fireworks): 1.8.0 ( #42000 ) release(standard-tests): 1.2.0 ( #41996 ) chore(langchain): require langgraph 1.2.16 or newer ( #41959 ) feat(partners): Remove EOL'd Python 3.10 from partner packages ( #41268 ) There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "langchain-fireworks==1.8.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "Changes since langchain-fireworks==1.7.3 test(fireworks): replace retired serverless test model ( #42032 ) release(fireworks): 1.8.0 ( #42000 ) release(standard-tests): 1.2.0 ( #41996 ) chore(langchain): require langgraph 1.2.16 or newer ( #41959 ) chore(model-profiles): refresh model profile data ( #41861 ) feat(partners): Remove EOL'd Python 3.10 from partner packages ( #41268 )",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "d0aba9bb5e13edd6",
+      "source": "langchain-releases",
+      "sourceType": "release",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-qdrant%3D%3D1.2.0",
+      "title": "langchain-qdrant==1.2.0",
+      "titleJa": "",
+      "titleEn": "langchain-qdrant==1.2.0",
+      "lang": "en",
+      "publishedAt": "2026-11-23T17:04:41.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "langchain",
+        "release"
+      ],
+      "category": "agent-fw",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Changes since langchain-qdrant==1.1.0 release(qdrant): 1.2.0 ( #41992 ) release(standard-tests): 1.2.0 ( #41996 ) chore(deps): bump filelock from 4.2.5 to 4.2.10 in /libs/partners/qdrant ( #41835 ) feat(partners): Remove EOL'd Python 3.10 from partner packages ( #41268 ) chore(deps): patch newer-python security lock resolutions ( #41585 ) revert: patch vulnerable integration dependencies ( #41481 ) build(deps): patch vulnerable integration dependencies ( #41473 ) chore(infra): relax third-party dependency upper bounds ( #41407 ) chore(deps): bump certifi from 2025.8.3 to 2026.10.19 in /libs/partners/qdrant ( #41376 ) fix: fix dependencies in some partner packages ( #41266 ) chore(deps): bump fsspec from 2026.6.0 to 2026.9.0 in /libs/partners/qdrant ( #41090 ) chore(deps): bump fsspec from",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "langchain-qdrant==1.2.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
+      "id": "a0042df48ddfc236",
+      "source": "langchain-releases",
+      "sourceType": "release",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-perplexity%3D%3D1.5.0",
+      "title": "langchain-perplexity==1.5.0",
+      "titleJa": "",
+      "titleEn": "langchain-perplexity==1.5.0",
+      "lang": "en",
+      "publishedAt": "2026-11-23T16:51:05.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "langchain",
+        "release"
+      ],
+      "category": "agent-fw",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Changes since langchain-perplexity==1.4.2 release(perplexity): 1.5.0 ( #42001 ) release(standard-tests): 1.2.0 ( #41996 ) feat(partners): Remove EOL'd Python 3.10 from partner packages ( #41268 ) build(infra): patch test-only Pillow without dropping Python 3.10 ( #41484 ) revert: patch vulnerable integration dependencies ( #41481 ) build(deps): patch vulnerable integration dependencies ( #41473 ) chore(deps): bump certifi from 2026.10.19 to 2026.10.23 in /libs/partners/perplexity ( #41438 ) chore(infra): relax third-party dependency upper bounds ( #41407 )",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "langchain-perplexity==1.5.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
+      "id": "22931a925a33dde9",
+      "source": "langchain-releases",
+      "sourceType": "release",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-ollama%3D%3D1.2.0",
+      "title": "langchain-ollama==1.2.0",
+      "titleJa": "",
+      "titleEn": "langchain-ollama==1.2.0",
+      "lang": "en",
+      "publishedAt": "2026-11-23T16:16:08.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "langchain",
+        "release"
+      ],
+      "category": "agent-fw",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Changes since langchain-ollama==1.1.0 release(ollama): 1.2.0 ( #41997 ) release(standard-tests): 1.2.0 ( #41996 ) feat(partners): Remove EOL'd Python 3.10 from partner packages ( #41268 ) chore(infra): relax third-party dependency upper bounds ( #41407 ) chore(deps): bump certifi from 2025.8.3 to 2026.10.19 in /libs/partners/ollama ( #41381 ) fix: fix dependencies in some partner packages ( #41266 ) fix(ollama): raise ollama floor to 0.6.3 for thinking levels ( #40986 ) chore(deps): bump urllib3 from 2.7.0 to 2.8.0 in /libs/partners/ollama ( #40953 ) chore(deps): bump anyio from 4.11.0 to 4.14.2 in /libs/partners/ollama ( #40632 ) chore(deps): refresh lockfiles ( #38746 ) chore: bump vcrpy from 8.1.1 to 8.2.1 in /libs/partners/ollama ( #38295 ) chore: bump langsmith from 0.8.5 to 0.8.18 in",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "langchain-ollama==1.2.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
+      "id": "06bea836423c5b57",
+      "source": "langchain-releases",
+      "sourceType": "release",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-tests%3D%3D1.2.0",
+      "title": "langchain-tests==1.2.0",
+      "titleJa": "",
+      "titleEn": "langchain-tests==1.2.0",
+      "lang": "en",
+      "publishedAt": "2026-11-23T16:14:26.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "langchain",
+        "release"
+      ],
+      "category": "agent-fw",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Changes since langchain-tests==1.1.9 release(standard-tests): 1.2.0 ( #41996 ) feat: Remove EOL'd Python 3.10 from text_splitters, model_profiles and standard-tests ( #41343 ) chore(deps): bump the minor-and-patch group across 2 directories with 4 updates ( #41615 ) chore(deps): bump vcrpy from 8.3.0 to 8.5.0 in /libs/standard-tests in the major group across 1 directory ( #41617 ) chore(deps): bump the minor-and-patch group across 2 directories with 4 updates ( #41464 ) chore(infra): relax third-party dependency upper bounds ( #41407 ) chore(deps): bump certifi from 2025.11.12 to 2026.10.19 in /libs/standard-tests ( #41368 ) feat(core,langchain,standard-tests): read tool-call-delta in stream consumers ( #41246 ) chore(deps): bump the minor-and-patch group across 3 directories with 4 update",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "langchain-tests==1.2.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
+    },
+    {
+      "id": "3f9c836891e14a6c",
+      "source": "langchain-releases",
+      "sourceType": "release",
+      "url": "https://github.com/langchain-ai/langchain/releases/tag/langchain-text-splitters%3D%3D1.2.0",
+      "title": "langchain-text-splitters==1.2.0",
+      "titleJa": "",
+      "titleEn": "langchain-text-splitters==1.2.0",
+      "lang": "en",
+      "publishedAt": "2026-11-23T16:11:46.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "langchain",
+        "release"
+      ],
+      "category": "agent-fw",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Changes since langchain-text-splitters==1.1.3 release(text-splitters): 1.2.0 ( #41998 ) chore(text-splitters): bump mistune from 3.3.3 to 3.3.4 in /libs/text-splitters ( #42006 ) chore(infra): update vulnerable development dependencies ( #41933 ) feat: Remove EOL'd Python 3.10 from text_splitters, model_profiles and standard-tests ( #41343 ) build(text-splitters): constrain setuptools to patched releases ( #41485 ) revert: patch vulnerable integration dependencies ( #41481 ) build(deps): patch vulnerable integration dependencies ( #41473 ) chore(deps): bump nbconvert from 7.17.1 to 7.17.2 in /libs/text-splitters ( #41421 ) chore(infra): relax third-party dependency upper bounds ( #41407 ) chore(text-splitters): bump certifi to 2026.10.19 ( #41393 ) chore(deps): bump fsspec from 2025.9.0 to",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "langchain-text-splitters==1.2.0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
     },
     {
       "id": "68d36b4f6cf45894",
@@ -857,6 +1199,7 @@
       "publishedAt": "2026-11-23T00:00:00.000Z",
       "collectedAt": "2026-11-26T05:30:40.162Z",
       "tags": [
+        "agent",
         "agent-gateway",
         "agentdojo",
         "ai-agents",
@@ -870,6 +1213,33 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Semantic governance policies protect AI agents from indirect prompt injection and intent hijacking by validating every proposed tool call against user intent and natural language constraints before execution. As demonstrated on the AgentDojo benchmark using a Gemini 2.5 Flash agent, this mechanism reduced attack success rates from 48.7% to 0.9% while maintaining high task utility. Developers can leverage these policies in preview within the Gemini platform via Agent Gateway to secure tool-use workflows."
+    },
+    {
+      "id": "80dab020bafccfd3",
+      "source": "microsoft-foundry",
+      "sourceType": "blog",
+      "url": "https://devblogs.microsoft.com/foundry/hosted-agents-private-network-setup/",
+      "title": "Hosted agents in your own virtual network: five checks when the Agents page times out",
+      "titleJa": "",
+      "titleEn": "Hosted agents in your own virtual network: five checks when the Agents page times out",
+      "summaryJa": "このエントリは microsoft-foundry から収集した copilot 領域の最新アップデートです。原題:「Hosted agents in your own virtual network: five checks when the Agents page times out」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Hosted agents in your own virtual network: five checks when the Agents page times out",
+      "lang": "en",
+      "publishedAt": "2026-11-21T18:12:21.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "ai",
+        "foundry",
+        "microsoft"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "Over the last few weeks I have worked with several teams moving hosted agents into their own virtual network. Different industries, same five questions. This post answers each one with the commands I use to check it. Picture a financial services team running claims agents in a locked-down network. Public access on the Foundry resource is off. The agent subnet sits in a spoke VNet. Azure Cosmos DB, Storage and Azure AI Search sit behind private endpoints, some of them in a hub VNet. All outbound traffic goes through a firewall that inspects TLS. The deployment succeeds. Then the Agents page spins and fails with a timeout. Nothing is wrong with the agent. The network around it is missing one piece. Here is how to find it.",
+      "feedSnippet": "The five questions teams ask most when they run hosted agents in their own virtual network: which subnet is the agent subnet, why listing agents times out, why a TLS-inspecting firewall still breaks after you add your CA, how peered VNets and DNS fit, and why a subnet stays in use after you delete an account. The post Hosted agents in your own virtual network: five checks when the Agents page times out appeared first on Microsoft Foundry Blog .",
+      "excerptOrigin": "article"
     },
     {
       "id": "cd23b3f138af1f15",
@@ -886,6 +1256,7 @@
         "cline",
         "lm-studio",
         "mcp",
+        "mcp-server",
         "reasoning-effort",
         "release"
       ],
@@ -919,6 +1290,7 @@
         "claude-code",
         "inkling-2-mini",
         "mcp",
+        "mcp-server",
         "ollama",
         "release"
       ],
@@ -1201,6 +1573,33 @@
       "excerptOrigin": "article"
     },
     {
+      "id": "96026e367b11000a",
+      "source": "microsoft-foundry",
+      "sourceType": "blog",
+      "url": "https://devblogs.microsoft.com/foundry/managed-compute-ga/",
+      "title": "Serve open models in production with Foundry Managed Compute",
+      "titleJa": "",
+      "titleEn": "Serve open models in production with Foundry Managed Compute",
+      "summaryJa": "このエントリは microsoft-foundry から収集した copilot 領域の最新アップデートです。原題:「Serve open models in production with Foundry Managed Compute」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Serve open models in production with Foundry Managed Compute",
+      "lang": "en",
+      "publishedAt": "2026-11-20T15:00:44.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "ai",
+        "foundry",
+        "microsoft"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "We are excited to announce the general availability of Managed Compute in Microsoft Foundry. When we introduced Managed Compute in preview at Microsoft Build in June, we set out to make serving open models as approachable as calling a managed model API. You choose the model that fits your application; we provision the GPUs, maintain the containers, and operate the serving runtime. Since Build, we’ve scaled serving capacity, improved prompt reuse, and expanded GPU and deployment options, including US and EU Data Zones. Customer feedback helped us refine the experience and give teams a clearer view of how their deployments are running. We’ve also strengthened the software supply chain and added more open models to the catalog. The result is a managed platform for serving open models on dedicated GPUs in the Foundry experience you already use.",
+      "feedSnippet": "Managed Compute serves open models on dedicated GPUs in Microsoft Foundry, with Global and US or EU Data Zone deployments. The post Serve open models in production with Foundry Managed Compute appeared first on Microsoft Foundry Blog .",
+      "excerptOrigin": "article"
+    },
+    {
       "id": "235f054b81912456",
       "source": "github-changelog",
       "sourceType": "changelog",
@@ -1420,6 +1819,32 @@
       "excerptOrigin": "article-unavailable"
     },
     {
+      "id": "988e5d719ad3bf3e",
+      "source": "microsoft-foundry",
+      "sourceType": "blog",
+      "url": "https://devblogs.microsoft.com/foundry/build-trusted-autonomous-agents-for-your-team-with-microsoft-foundry/",
+      "title": "Build trusted autonomous agents for your team with Microsoft Foundry",
+      "titleJa": "",
+      "titleEn": "Build trusted autonomous agents for your team with Microsoft Foundry",
+      "summaryJa": "このエントリは microsoft-foundry から収集した copilot 領域の最新アップデートです。原題:「Build trusted autonomous agents for your team with Microsoft Foundry」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Build trusted autonomous agents for your team with Microsoft Foundry",
+      "lang": "en",
+      "publishedAt": "2026-11-19T19:53:30.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "ai",
+        "foundry",
+        "microsoft"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "Enterprises are all-in on AI agents, but the ROI hasn’t followed. What’s holding those agents back isn’t capability. Today’s agents can do remarkable work on their own. They can solve math problems that stumped mathematicians for decades, build functional operating systems from scratch, and teach themselves a new skill by watching you do a task […] The post Build trusted autonomous agents for your team with Microsoft Foundry appeared first on Microsoft Foundry Blog ."
+    },
+    {
       "id": "75ce1625dfb139b5",
       "source": "youtube-anthropic",
       "sourceType": "blog",
@@ -1548,6 +1973,29 @@
       }
     },
     {
+      "id": "9c759b8cbd27d766",
+      "source": "aws-news",
+      "sourceType": "blog",
+      "url": "https://aws.amazon.com/blogs/aws/aws-lambda-now-supports-gpu-instances-for-event-functions-on-lambda-managed-instances/",
+      "title": "AWS Lambda now supports GPU instances for Event Functions on Lambda Managed Instances",
+      "titleJa": "",
+      "titleEn": "AWS Lambda now supports GPU instances for Event Functions on Lambda Managed Instances",
+      "lang": "en",
+      "publishedAt": "2026-11-18T19:39:07.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "amazon",
+        "aws",
+        "news"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "AWS Lambda now supports GPU instances (G-series) for Event Functions running on Lambda Managed Instances, enabling serverless GPU workloads like machine learning inference, media processing, and rendering. Lambda handles all infrastructure tasks, including instance lifecycle, driver management, and auto scaling, while maximizing GPU utilization across concurrent requests with standard EC2 pricing plus a management fee",
+      "excerptOrigin": "article-unavailable"
+    },
+    {
       "id": "6ea7c68e79ec5ea8",
       "source": "zed-releases",
       "sourceType": "release",
@@ -1580,6 +2028,143 @@
         "height": 0,
         "source": "media"
       }
+    },
+    {
+      "id": "3ad60ab107d49ee0",
+      "source": "microsoft-foundry",
+      "sourceType": "blog",
+      "url": "https://devblogs.microsoft.com/foundry/hosted-agents-foundry-agent-service-ignite-2026/",
+      "title": "Hosted agents in Foundry Agent Service at Ignite 2026: from pilot to production inside your enterprise boundaries",
+      "titleJa": "",
+      "titleEn": "Hosted agents in Foundry Agent Service at Ignite 2026: from pilot to production inside your enterprise boundaries",
+      "summaryJa": "このエントリは microsoft-foundry から収集した copilot 領域の最新アップデートです。原題:「Hosted agents in Foundry Agent Service at Ignite 2026: from pilot to production inside your enterprise boundaries」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Hosted agents in Foundry Agent Service at Ignite 2026: from pilot to production inside your enterprise boundaries",
+      "lang": "en",
+      "publishedAt": "2026-11-18T17:00:54.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "ai",
+        "enterprise",
+        "foundry",
+        "microsoft"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "Over the last few months I’ve worked with a lot of teams taking a hosted agent from pilot to production. A working demo is only the start. The questions that decide whether it ships come next: Will the subnet hold up when usage takes off? Can the agent call internal services that use our own certificates? Where exactly can it connect, and who decides? Can it run on the Azure Kubernetes Service (AKS) clusters we already operate? And what happens when a two-hour job gets interrupted? At Microsoft Ignite 2026, we’re announcing a solution to each of these challenges for hosted agents in Foundry Agent Service. Below you’ll find what’s new, what you can use today, and what’s still to come. The egress and private CA updates apply to managed hosted agents, the ones Foundry runs for you; BYO-AKS support will be documented separately.",
+      "feedSnippet": "What is new for hosted agents in Foundry Agent Service at Ignite 2026: shared subnet IPs, private CA trust, network egress controls, deployment to your own AKS clusters, resilient execution and memory snapshots. The post Hosted agents in Foundry Agent Service at Ignite 2026: from pilot to production inside your enterprise boundaries appeared first on Microsoft Foundry Blog .",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "5d58e6d7df384830",
+      "source": "microsoft-foundry",
+      "sourceType": "blog",
+      "url": "https://devblogs.microsoft.com/foundry/browser-automation-tool-ignite/",
+      "title": "Browser Automation Tool in Microsoft Foundry : Ignite’26 Announcements",
+      "titleJa": "",
+      "titleEn": "Browser Automation Tool in Microsoft Foundry : Ignite’26 Announcements",
+      "summaryJa": "このエントリは microsoft-foundry から収集した copilot 領域の最新アップデートです。原題:「Browser Automation Tool in Microsoft Foundry : Ignite’26 Announcements」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Browser Automation Tool in Microsoft Foundry : Ignite’26 Announcements",
+      "lang": "en",
+      "publishedAt": "2026-11-18T17:00:47.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "ai",
+        "foundry",
+        "microsoft"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "Much of the work that keeps a business running still happens in a browser: internal portals, vendor consoles and legacy apps with no API. The Browser Automation tool in Foundry Agent Service , powered by Azure Playwright Workspaces, is now generally available. It gives every Foundry agent secure, scalable browsers with isolated sessions, and includes the following capabilities: Human-in-the-loop: Live View and Take control for authentication and steering the agent (GA) This Ignite, the Browser automation tool is enabled with additional features for your agentic automation workloads Secure sign-in: Secret management (preview) and profile reuse (preview, coming soon) Our sample agent’s task is clear – Process 15 invoices, validate them against the rules, flag anomalies in Excel, and enter the validated invoices into the expense portal.",
+      "feedSnippet": "Enterprise-ready cloud browsers for every Foundry agent: MCP action batching, Live View and Take control, session recording, VNet injection, browser proxy, profile reuse, secret management, and CAPTCHA handling. The post Browser Automation Tool in Microsoft Foundry : Ignite’26 Announcements appeared first on Microsoft Foundry Blog .",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "b5224437f0f7e864",
+      "source": "microsoft-foundry",
+      "sourceType": "blog",
+      "url": "https://devblogs.microsoft.com/foundry/the-foundry-dev-pack-is-here-build-foundry-agents-your-way/",
+      "title": "The Foundry Dev Pack is here: build Foundry agents your way",
+      "titleJa": "",
+      "titleEn": "The Foundry Dev Pack is here: build Foundry agents your way",
+      "summaryJa": "このエントリは microsoft-foundry から収集した copilot 領域の最新アップデートです。原題:「The Foundry Dev Pack is here: build Foundry agents your way」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "The Foundry Dev Pack is here: build Foundry agents your way",
+      "lang": "en",
+      "publishedAt": "2026-11-18T17:00:39.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "ai",
+        "foundry",
+        "microsoft"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "knowledgeEligible": false,
+      "contentSnippet": "Your next agent can start wherever you like to build: in your editor, at the terminal, or with your favorite coding agent. At Microsoft Ignite, we’re making that first step easier: the Foundry Dev Pack (aka.ms/foundrydevpack) is now generally available, bringing the Microsoft Foundry developer tools to your machine in a single install. Move from […] The post The Foundry Dev Pack is here: build Foundry agents your way appeared first on Microsoft Foundry Blog ."
+    },
+    {
+      "id": "79ea65685ecb3048",
+      "source": "microsoft-foundry",
+      "sourceType": "blog",
+      "url": "https://devblogs.microsoft.com/foundry/whats-new-in-foundry-agent-service-at-ignite-2026/",
+      "title": "What’s new in Foundry Agent Service at Ignite 2026",
+      "titleJa": "",
+      "titleEn": "What’s new in Foundry Agent Service at Ignite 2026",
+      "summaryJa": "このエントリは microsoft-foundry から収集した copilot 領域の最新アップデートです。原題:「What’s new in Foundry Agent Service at Ignite 2026」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "What’s new in Foundry Agent Service at Ignite 2026",
+      "lang": "en",
+      "publishedAt": "2026-11-18T17:00:28.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "ai",
+        "foundry",
+        "microsoft"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "knowledgeEligible": false,
+      "contentSnippet": "Your customers don’t judge agents by how well they demo. They judge them by whether the work gets done: the case resolved, the report delivered, the follow-up sent. That takes more than a model. It takes the right context and tools, a runtime that holds up under real demand, and a way to keep improving once real users put agents to work. At Ignite 2026 , Foundry Agent Service delivers new capabilities to get you there across the agent lifecycle: Build, Deploy, and Operate. Build more capable agents faster with the managed Microsoft Copilot harness, real-time voice, and richer tool connections. Deploy them at scale with enterprise controls, and bring them into Microsoft 365 where people already work. Operate them with confidence by turning production evidence into validated improvements. Here’s what’s new, and how each capability helps you move from idea to impact.",
+      "feedSnippet": "Your customers don’t judge agents by how well they demo. They judge them by whether the work gets done: the case resolved, the report delivered, the follow-up sent. That takes more than a model. It takes the right context and tools, a runtime that holds up under real demand, and a way to keep improving […] The post What’s new in Foundry Agent Service at Ignite 2026 appeared first on Microsoft Foundry Blog .",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "fa6498cd23aab5d3",
+      "source": "microsoft-foundry",
+      "sourceType": "blog",
+      "url": "https://devblogs.microsoft.com/foundry/build-once-reuse-across-your-agent-fleet-tools-and-toolboxes-in-foundry/",
+      "title": "Build once, reuse across your agent fleet: Tools and Toolboxes in Foundry",
+      "titleJa": "",
+      "titleEn": "Build once, reuse across your agent fleet: Tools and Toolboxes in Foundry",
+      "summaryJa": "このエントリは microsoft-foundry から収集した copilot 領域の最新アップデートです。原題:「Build once, reuse across your agent fleet: Tools and Toolboxes in Foundry」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Build once, reuse across your agent fleet: Tools and Toolboxes in Foundry",
+      "lang": "en",
+      "publishedAt": "2026-11-18T17:00:18.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "agent",
+        "ai",
+        "foundry",
+        "microsoft"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "Connecting one tool to one agent is not hard. The challenge is managing a useful set of tools and agentic capabilities across a fleet of production agents at scale. Every new agent shouldn’t require you to build the same integrations, copy the same instructions, and troubleshoot the same dependencies. And adding a useful capability shouldn’t […] The post Build once, reuse across your agent fleet: Tools and Toolboxes in Foundry appeared first on Microsoft Foundry Blog ."
     },
     {
       "id": "c4d861b1467d890d",
@@ -1830,17 +2415,21 @@
       "sourceType": "blog",
       "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
       "title": "Can AI help build a healthier future?",
-      "titleJa": "",
+      "titleJa": "AIはより健康な未来づくりに役立つのか",
       "titleEn": "Can AI help build a healthier future?",
       "lang": "en",
       "publishedAt": "2026-11-17T16:52:17.000Z",
       "collectedAt": "2026-11-27T19:21:30.639Z",
       "tags": [
+        "ai-health",
+        "healthcare",
         "microsoft",
+        "microsoft-research",
+        "podcast",
         "research"
       ],
       "category": "research",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
@@ -1986,10 +2575,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "How many times this week did you re-explain the same task to an agent? How many times did you ask your colleague with deep institutional knowledge how to solve a specific problem? That context shouldn’t be lost in a chat or locked in one person’s head. Agent skills let you capture repeatable instructions so you and your agents can reuse them. The skill you write for yourself tonight can later become part of a team’s pipeline. An agent skill is a versioned directory centered on a SKILL.md file that describes when and how to do a repeatable task. You can share those instructions across agents, but the environment still needs to provide the tools, credentials, and permissions to carry them out. A skill can describe how to query a database, for example, but it doesn’t grant access to that database.",
       "excerptOrigin": "article",
-      "feedSnippet": "Agent skills capture repeatable engineering work in files teams can review and reuse, while tools, project context, and permissions remain specific to the host that runs them. The post Build once, run on any agent: A practical guide to agent skills appeared first on The GitHub Blog ."
+      "feedSnippet": "Agent skills capture repeatable engineering work in files teams can review and reuse, while tools, project context, and permissions remain specific to the host that runs them. The post Build once, run on any agent: A practical guide to agent skills appeared first on The GitHub Blog .",
+      "evergreen": true
     },
     {
       "id": "78f83a6bd571ce8a",
@@ -2021,6 +2610,31 @@
         "height": 0,
         "source": "media"
       }
+    },
+    {
+      "id": "1dcce708fb98d4bf",
+      "source": "microsoft-foundry",
+      "sourceType": "blog",
+      "url": "https://devblogs.microsoft.com/foundry/content-understanding-adds-gpt-5-6-gpt-6-and-gpt-6-1-choose-the-right-model-for-your-workload/",
+      "title": "Content Understanding adds GPT-6.1, 6, and 5.6: Choose the right model for your workload",
+      "titleJa": "",
+      "titleEn": "Content Understanding adds GPT-6.1, 6, and 5.6: Choose the right model for your workload",
+      "summaryJa": "このエントリは microsoft-foundry から収集した copilot 領域の最新アップデートです。原題:「Content Understanding adds GPT-6.1, 6, and 5.6: Choose the right model for your workload」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Content Understanding adds GPT-6.1, 6, and 5.6: Choose the right model for your workload",
+      "lang": "en",
+      "publishedAt": "2026-11-11T18:24:28.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "ai",
+        "foundry",
+        "microsoft"
+      ],
+      "category": "copilot",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "Azure Content Understanding now supports the GPT-5.6, GPT-6, and GPT-6.1 model families, giving you more choices for document, text, speech, and video workflows. This adds to the existing set of supported models like the GPT-5 series. To help customers understand how to use this expanded set of options, we’re updating our model recommendations and sharing […] The post Content Understanding adds GPT-6.1, 6, and 5.6: Choose the right model for your workload appeared first on Microsoft Foundry Blog ."
     },
     {
       "id": "baf18629dd764293",
@@ -2409,10 +3023,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "This October, GitHub saw more than 1.2 billion commits in one week—over 400% more than a year earlier. This is more commits than GitHub received in all of 2025. Chances are, you’re generating more code than you were a year ago. But ask yourself: do you feel 400% more productive than you were last year? Building software takes more than a good prompt. As AI speeds up implementation, software developers are feeling more pressure in other places: a Faros AI study found that pull requests spent 441% longer in review when teams went from low to high AI adoption. As a software developer, you gather requirements and steer implementation, review changes and evaluate test results, then investigate what happens in production. Agents can help you work more efficiently across all of these stages: Plan, Build, Verify, and Observe.",
       "excerptOrigin": "article",
-      "feedSnippet": "Writing code got faster. The work around it didn't. See how you can plan, write code, review changes, and investigate production issues with GitHub Copilot, and what work still needs your judgment. The post Beyond code generation: A developer’s guide to agentic engineering appeared first on The GitHub Blog ."
+      "feedSnippet": "Writing code got faster. The work around it didn't. See how you can plan, write code, review changes, and investigate production issues with GitHub Copilot, and what work still needs your judgment. The post Beyond code generation: A developer’s guide to agentic engineering appeared first on The GitHub Blog .",
+      "evergreen": true
     },
     {
       "id": "f55adabac8496bb3",
@@ -2451,16 +3065,20 @@
       "sourceType": "changelog",
       "url": "https://cursor.com/changelog/voice-chat",
       "title": "Voice Chat with Agents",
-      "titleJa": "",
+      "titleJa": "エージェントとのボイスチャット",
       "titleEn": "Voice Chat with Agents",
-      "summaryJa": "このエントリは cursor-changelog から収集した cursor 領域の最新アップデートです。原題:「Voice Chat with Agents」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Voice Chat with Agents",
+      "summaryJa": "Cursorにエージェントと音声通話で対話できるボイスチャットが登場し、Grok Voiceで動作します。エージェントウィンドウ、IDE、ウェブ、iOSで使え、手を止めずに進捗確認や指示出しができます。",
+      "summaryEn": "Cursor adds Voice Chat, a live voice call with agents powered by Grok Voice. It works in the Agents Window, IDE, web and iOS, letting developers direct coding work and check progress hands-free.",
       "lang": "en",
       "publishedAt": "2026-11-06T00:00:00.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "agent",
         "changelog",
-        "cursor"
+        "cursor",
+        "grok-voice",
+        "ios",
+        "voice-chat"
       ],
       "category": "cursor",
       "importance": 2,
@@ -2476,18 +3094,22 @@
       "sourceType": "blog",
       "url": "https://www.microsoft.com/en-us/research/blog/formally-verifying-agent-written-full-stack-web-apps-with-pdd-kit/",
       "title": "Formally verifying agent-written full-stack web apps with PDD Kit",
-      "titleJa": "",
+      "titleJa": "PDD Kitでエージェントが書いたフルスタックWebアプリを形式検証する",
       "titleEn": "Formally verifying agent-written full-stack web apps with PDD Kit",
       "lang": "en",
       "publishedAt": "2026-11-05T16:00:00.000Z",
       "collectedAt": "2026-11-27T19:21:30.639Z",
       "tags": [
         "agent",
+        "code-generation",
+        "formal-verification",
         "microsoft",
-        "research"
+        "research",
+        "verus",
+        "web-development"
       ],
       "category": "research",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "AI agents can generate code at a scale that’s hard for humans to review line-by-line. PDD Kit helps ensure the code is doing what the developer intended by creating formal specifications and testing against them. It converts developer intent into a Verus specification, proves AI-generated code meets it for every input, and uses tests where proofs aren't practical. Developers review intent, not every line. The post Formally verifying agent-written full-stack web apps with PDD Kit appeared first on Microsoft Research ."
@@ -2498,15 +3120,19 @@
       "sourceType": "release",
       "url": "https://github.com/microsoft/semantic-kernel/releases/tag/python-1.47.0",
       "title": "Semantic Kernel python-1.47.0",
-      "titleJa": "",
+      "titleJa": "Semantic Kernel python-1.47.0 リリース",
       "titleEn": "Semantic Kernel python-1.47.0",
-      "summaryJa": "このエントリは semantic-kernel-releases から収集した agent-fw 領域の最新アップデートです。原題:「Semantic Kernel python-1.47.0」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Semantic Kernel python-1.47.0",
+      "summaryJa": "Semantic Kernel Python版1.47.0でPython 3.10のサポートが終了し、3.11〜3.14が対象になりました。依存関係の更新とOpenAPI許可URLの大文字小文字保持などの修正を含み、Python利用者は環境の確認が必要です。",
+      "summaryEn": "Semantic Kernel python-1.47.0 drops Python 3.10 and now targets 3.11 through 3.14, with consolidated dependency updates and an OpenAPI URL path-case fix. Python users should check their runtime before upgrading.",
       "lang": "en",
       "publishedAt": "2026-11-05T10:19:56.000Z",
       "collectedAt": "2026-11-27T09:37:32.824Z",
       "tags": [
         "agent",
+        "breaking-change",
+        "dependencies",
+        "openapi",
+        "python",
         "release",
         "semantic-kernel"
       ],
@@ -2530,19 +3156,23 @@
       "sourceType": "changelog",
       "url": "https://cursor.com/changelog/build-live-apps",
       "title": "Build Live Apps in Cursor",
-      "titleJa": "",
+      "titleJa": "Cursorでライブアプリを構築",
       "titleEn": "Build Live Apps in Cursor",
-      "summaryJa": "このエントリは cursor-changelog から収集した cursor 領域の最新アップデートです。原題:「Build Live Apps in Cursor」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Build Live Apps in Cursor",
+      "summaryJa": "Cursorのクラウドエージェントが、Postgresの用意、Cursor SSO認証、ホスティングまで担い、作ったアプリを一意のドメインの公開リンクで共有できるようになった。非エンジニアも社内ツールを作れる。",
+      "summaryEn": "Cursor's cloud agent can now build web apps end to end, provisioning Postgres, Cursor SSO auth and hosting, then publish them at a unique domain link. Anyone in an organization can ship internal tools.",
       "lang": "en",
       "publishedAt": "2026-11-05T00:00:00.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "app-deployment",
         "changelog",
-        "cursor"
+        "cloud-agent",
+        "cursor",
+        "postgres",
+        "sso"
       ],
       "category": "cursor",
-      "importance": 2,
+      "importance": 3,
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "エージェントの登場でコードを書くコストは下がりましたが、ユーザーが作るアプリやツールのほとんどは、いまだに localhost の外に出ることがありません。 これからは、Cursor 上でライブアプリを直接構築し、リンクで共有できます。作りたいものを説明するだけで、アプリの構築からデータベースのセットアップ、認証の設定、デプロイまで、あとはすべて Cursor が引き受けます。 今回のリリースにより、組織内の誰もが自分の業務に役立つツールを構築し、チームメンバーと共有できるようになりました。Cursor を更新して、ぜひお試しください。 はじめるには、 クラウドエージェント を起動し、アプリを構築したいと明示的に伝えます。 Cursor はウェブアプリの雛形を作成し、必要に応じて Postgres データベースを立ち上げ、Cursor SSO による認証を設定し、ホスティング環境を用意します。データウェアハウスなど、既存のシステムにアプリを接続する必要がある場合は、Cursor が必要なシークレットの入力を求めます。 アプリを公開する際は、一意のドメインを選ぶだけで、Cursor がすぐにアクセスできる公開リンクを発行します。 Cursor 社内では、営業、オペレーション、法務、財務、エンジニアリングなど、さまざまな部門のユーザーが社内アプリを構築しています。特に役に立っているものの例は次のとおりです。 Cursor は、Cursor Origin と GitHub 上の新規または既存のリポジトリからアプリをデプロイできます。GitLab など他の Git プロバイダーのサポートも近日公開予定です。 アプリを公開する際、Cursor は決定論的なチェックとエージェント型のセキュリティチェックを実行し、アプリのファイルに書き込まれたシークレットや露出した認証情報など、よくある Issue を検出します。チェックに失敗した場合は、何を修正すべきかをエージェントが知らせます。チェックに合格し、明示的に公開操作を行うまで、アプリが公開されることはありません。",
@@ -2550,22 +3180,51 @@
       "excerptOrigin": "article"
     },
     {
+      "id": "3e85b6f77707bee6",
+      "source": "aws-news",
+      "sourceType": "blog",
+      "url": "https://aws.amazon.com/blogs/aws/amazon-s3-tables-now-offer-managed-migration-of-apache-hive-tables-to-apache-iceberg/",
+      "title": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg",
+      "titleJa": "",
+      "titleEn": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg",
+      "summaryJa": "このエントリは aws-news から収集した tech-news 領域の最新アップデートです。原題:「Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Amazon S3 Tables now offer managed migration of Apache Hive tables to Apache Iceberg",
+      "lang": "en",
+      "publishedAt": "2026-11-04T23:34:52.000Z",
+      "collectedAt": "2026-11-27T20:30:38.138Z",
+      "tags": [
+        "amazon",
+        "aws",
+        "news"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "You can now migrate existing Apache Hive datasets in Amazon S3 to fully managed Apache Iceberg tables in Amazon S3 Tables, with no pipelines to build or compute to provision, while production workloads keep running.",
+      "excerptOrigin": "article-unavailable"
+    },
+    {
       "id": "91282f609e645db4",
       "source": "mcp-servers-releases",
       "sourceType": "release",
       "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.3.0",
       "title": "MCP Servers Releases v2.3.0",
-      "titleJa": "",
+      "titleJa": "MCP Servers v2.3.0 リリース",
       "titleEn": "MCP Servers Releases v2.3.0",
-      "summaryJa": "このエントリは mcp-servers-releases から収集した mcp 領域の最新アップデートです。原題:「MCP Servers Releases v2.3.0」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "MCP Servers Releases v2.3.0",
+      "summaryJa": "MCP Servers v2.3.0 では npm 版の everything 2.2.1、filesystem 2.2.0、memory 2.1.0 などと、PyPI 版の fetch、git、time が公開され、everything ではツール注釈の網羅テストも追加された。サーバー実装を利用する開発者が更新内容を把握しやすくなる。",
+      "summaryEn": "MCP Servers v2.3.0 ships npm updates such as everything 2.2.1, filesystem 2.2.0 and memory 2.1.0, plus PyPI fetch, git and time builds, with new annotation tests for everything. Developers can track which servers to upgrade.",
       "lang": "en",
       "publishedAt": "2026-11-04T21:28:41.000Z",
       "collectedAt": "2026-11-26T05:30:40.162Z",
       "tags": [
         "mcp",
         "mcp-server",
-        "release"
+        "npm",
+        "pypi",
+        "release",
+        "server-everything",
+        "server-filesystem"
       ],
       "category": "mcp",
       "importance": 2,
@@ -2587,15 +3246,19 @@
       "sourceType": "release",
       "url": "https://code.visualstudio.com/updates/v1_145",
       "title": "Visual Studio Code 1.145 Release Notes",
-      "titleJa": "",
+      "titleJa": "Visual Studio Code 1.145 リリースノート",
       "titleEn": "Visual Studio Code 1.145 Release Notes",
-      "summaryJa": "このエントリは vscode-updates から収集した vscode 領域の最新アップデートです。原題:「Visual Studio Code 1.145 Release Notes」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Visual Studio Code 1.145 Release Notes",
+      "summaryJa": "VS Code 1.145では、リモートエージェントのセッション内でアプリのプレビューやインタラクティブなキャンバスを使えるようになり、cronによる自動実行スケジュールの調整やチャットの通知軽減も加わりました。Local harnessは2027年2月に廃止予定で、Copilot harnessへの移行が必要です。",
+      "summaryEn": "VS Code 1.145 lets remote agent sessions preview apps and use interactive canvases, adds cron-based automation schedules, and reduces chat noise. The Local harness is deprecated, so users should plan their move to the Copilot harness before February 2027.",
       "lang": "en",
       "publishedAt": "2026-11-04T17:00:00.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "canvas",
+        "copilot-harness",
+        "deprecation",
         "release",
+        "remote-agents",
         "vscode"
       ],
       "category": "vscode",

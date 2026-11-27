@@ -35,7 +35,10 @@ import {
 } from "../../web/src/lib/feed-catalog.ts";
 import { isArxivEntry } from "../../web/src/lib/research-lane.ts";
 import { isRealBodyRecord } from "../../web/src/lib/body-quality.ts";
-import { isNonIndexableLane } from "../../web/src/lib/detail-index-policy.ts";
+import {
+  DETAIL_PAGES_INDEXABLE,
+  isNonIndexableLane,
+} from "../../web/src/lib/detail-index-policy.ts";
 import {
   isAddressableDetailEntry,
   type DetailAddressableEntry,
@@ -1107,10 +1110,21 @@ test.describe("Publisher generated artifact", () => {
     const sitemap = await sitemapResponse.text();
 
     expect(bodiedResponse.status()).toBe(200);
-    expect(await bodiedResponse.text()).toMatch(
-      /<meta\s+name="robots"\s+content="index,\s*follow"\s*\/?>/,
-    );
-    expect(sitemap).toContain(`<loc>${SITE_URL}/e/${bodied!.id}/</loc>`);
+    const bodiedHtml = await bodiedResponse.text();
+    if (DETAIL_PAGES_INDEXABLE) {
+      expect(bodiedHtml).toMatch(
+        /<meta\s+name="robots"\s+content="index,\s*follow"\s*\/?>/,
+      );
+      expect(sitemap).toContain(`<loc>${SITE_URL}/e/${bodied!.id}/</loc>`);
+    } else {
+      // Site-wide switch off (detail-index-policy.ts): even a bodied,
+      // released, in-lane page stays reachable but is not offered for indexing.
+      expect(bodiedHtml).toMatch(
+        /<meta\s+name="robots"\s+content="noindex,\s*follow"\s*\/?>/,
+      );
+      expect(sitemap).not.toContain(`<loc>${SITE_URL}/e/${bodied!.id}/</loc>`);
+      expect(sitemap).not.toContain(`<loc>${SITE_URL}/e/`);
+    }
 
     // 404 here would strand every inbound link to the page.
     expect(bodylessResponse.status()).toBe(200);
@@ -1226,7 +1240,11 @@ test.describe("Publisher generated artifact", () => {
     expect(await coldResponse.text()).toMatch(
       /<meta\s+name="robots"\s+content="noindex,\s*follow"\s*\/?>/,
     );
-    expect(sitemap).toContain(`<loc>${SITE_URL}/e/${hot!.id}/</loc>`);
+    if (DETAIL_PAGES_INDEXABLE) {
+      expect(sitemap).toContain(`<loc>${SITE_URL}/e/${hot!.id}/</loc>`);
+    } else {
+      expect(sitemap).not.toContain(`<loc>${SITE_URL}/e/${hot!.id}/</loc>`);
+    }
     // Archive-only warm entries carry no generated body, so they stay
     // reachable (200 above) but must not be advertised for indexing.
     expect(sitemap).not.toContain(`<loc>${SITE_URL}/e/${warmOnly!.id}/</loc>`);

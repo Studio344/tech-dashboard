@@ -28,6 +28,19 @@ export const DISPATCH_CRON = "*/30 * * * *";
 /** Minimum age of the newest run before another one is requested. */
 export const DISPATCH_MIN_GAP_MS = 50 * 60_000;
 export const DISPATCH_WORKFLOW_FILE = "publisher.yml";
+/**
+ * Inputs for every bridge-started run. The workflow's own default for
+ * `full_reconcile` is `true`, so a dispatch without inputs ran the full
+ * Astro/Pagefind/Publisher E2E reconcile every hour. Stopgap (2026-11-27):
+ * while no new AI summaries arrive, the reconcile E2E correctly fails on a
+ * Home with no summarized card, and a failed reconcile commits nothing, so the
+ * site stopped refreshing. Hourly bridge runs therefore use publish mode; the
+ * full reconcile stays on the daily `17 2 * * *` schedule and on manual
+ * dispatch. Restore `full_reconcile: "true"` once summaries flow again.
+ */
+export const DISPATCH_INPUTS: Readonly<Record<string, string>> = Object.freeze({
+  full_reconcile: "false",
+});
 
 const GITHUB_API = "https://api.github.com";
 /** Run states that mean a Publisher run is already on its way. */
@@ -153,7 +166,10 @@ export async function runScheduledPublisherDispatch(
     const response = await fetchImpl(`${workflowUrl}/dispatches`, {
       method: "POST",
       headers: { ...githubHeaders(token), "content-type": "application/json" },
-      body: JSON.stringify({ ref: dispatchRefFromWorkflowRef(env.PUBLISHER_WORKFLOW_REF) }),
+      body: JSON.stringify({
+        ref: dispatchRefFromWorkflowRef(env.PUBLISHER_WORKFLOW_REF),
+        inputs: DISPATCH_INPUTS,
+      }),
     });
     if (response.status !== 204) {
       return report({

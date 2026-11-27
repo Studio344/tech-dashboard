@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "initializedAt": "2026-09-28T15:00:44.273Z",
-  "lastObservedAt": "2026-10-07T20:01:32.737Z",
-  "lastSequence": 15,
+  "lastObservedAt": "2026-11-27T19:21:44.968Z",
+  "lastSequence": 23,
   "baseline": {
     "sourceKeys": [
       "about.fb.com/news/2026/07/meta-ai-muse-spark-doesnt-just-think-it-acts",
@@ -159,6 +159,12 @@
       "firstSequence": 1,
       "lastSequence": 15,
       "count": 15
+    },
+    {
+      "month": "2026-11",
+      "firstSequence": 16,
+      "lastSequence": 23,
+      "count": 8
     }
   ]
 }

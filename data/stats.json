@@ -1,10 +1,10 @@
 {
-  "generatedAt": "2026-11-27T19:00:55.872Z",
+  "generatedAt": "2026-11-27T19:21:44.968Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
     "allTime": 8311,
     "last30d": 86,
-    "last7d": 32,
+    "last7d": 31,
     "last24h": 1
   },
   "byDay": [
@@ -1490,8 +1490,8 @@
     }
   ],
   "byImportance": {
-    "1": 4643,
-    "2": 3318,
-    "3": 350
+    "1": 4633,
+    "2": 3321,
+    "3": 357
   }
 }

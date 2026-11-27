@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T19:00:55.872Z",
+  "generatedAt": "2026-11-27T19:21:44.968Z",
   "month": "2026-09",
   "count": 367,
   "entries": [
@@ -2244,7 +2244,7 @@
       "summaryEn": "GitHub Copilot app canvases let users and agents jointly edit custom interfaces, from kanban boards to release checklists, enabling teams to tailor workflows to their needs.",
       "lang": "en",
       "publishedAt": "2026-09-25T18:00:00.000Z",
-      "collectedAt": "2026-11-27T19:00:39.586Z",
+      "collectedAt": "2026-11-27T19:21:30.639Z",
       "tags": [
         "canvases",
         "copilot",
@@ -2780,7 +2780,7 @@
       "summaryEn": "LLMs still default to chat as their main interface three years into the current AI wave, and the author challenges that assumption to help developers design interactions suited to each task.",
       "lang": "en",
       "publishedAt": "2026-09-24T20:00:00.000Z",
-      "collectedAt": "2026-11-27T19:00:39.586Z",
+      "collectedAt": "2026-11-27T19:21:30.639Z",
       "tags": [
         "copilot",
         "github",
@@ -5399,16 +5399,20 @@
       "sourceType": "blog",
       "url": "https://www.anthropic.com/news/features",
       "title": "Features",
-      "titleJa": "",
+      "titleJa": "特集",
       "titleEn": "Features",
-      "summaryJa": "このエントリは anthropic-news から収集した claude 領域の最新アップデートです。原題:「Features」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Features",
+      "summaryJa": "Anthropicの特集ページは、コンゴ民主共和国でのエボラ出血熱への対応にClaudeを活用する保健機関の事例や、Claude Codeの開発秘話、NASAの火星探査車Perseveranceの走行支援を紹介している。AIの実社会での活用例を知りたい読者に役立つ。",
+      "summaryEn": "Anthropic's Features page collects stories of Claude in action: health groups tackling a rare Ebola strain in the DRC, the origins of Claude Code, and help with NASA's Perseverance rover drive. It shows real-world AI uses.",
       "lang": "en",
       "publishedAt": "2026-09-21T00:00:00.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "anthropic",
-        "claude"
+        "case-study",
+        "claude",
+        "claude-code",
+        "healthcare",
+        "nasa"
       ],
       "category": "claude",
       "importance": 1,

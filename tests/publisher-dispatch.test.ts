@@ -121,7 +121,7 @@ describe("runScheduledPublisherDispatch", () => {
       "GET https://api.github.com/repos/Studio344/tech-dashboard/actions/workflows/publisher.yml/runs?per_page=1",
       "POST https://api.github.com/repos/Studio344/tech-dashboard/actions/workflows/publisher.yml/dispatches",
     ]);
-    expect(JSON.parse(calls[1]!.body!)).toEqual({ ref: "main" });
+    expect(JSON.parse(calls[1]!.body!)).toEqual({ ref: "main", inputs: { full_reconcile: "false" } });
     expect(calls[1]!.headers.authorization).toBe("Bearer github_pat_test");
   });
 

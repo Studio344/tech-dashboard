@@ -21,6 +21,7 @@ TECH Dashboard の利用者向け機能、データ契約、収集・公開基�
 
 ### 変更
 
+- bridge Worker が毎時起動する Publisher run を publish モード (`full_reconcile=false`) にしました。新着記事に AI 要約が付かない間、reconcile の E2E が要約付きカードのない Home で失敗し、データが更新されなくなっていたためのつなぎです。全体の reconcile は毎日の schedule と手動実行で続けます。要約が戻ったら `worker/src/publisher-dispatch.ts` の `DISPATCH_INPUTS` を戻します。
 - Daily Summary のカテゴリ一覧で、長い名前 (例: OpenHands/OpenCode) がタブレット幅で切れないよう、スラッシュの後で 2 行目へ折り返すようにしました (最大 2 行)。
 - リポジトリを GitHub organization `Studio344` へ移したため、Publisher の実行元チェック、bridge の OIDC 検証 (`PUBLISHER_REPOSITORY` / `PUBLISHER_WORKFLOW_REF`)、「Deploy Workers」の実行条件、本番ヘルスチェックとサイトのリポジトリリンクを `Studio344/tech-dashboard` に合わせました。「Deploy Workers」は target `bridge` で `update_dispatch_token` を選ぶと、environment secret `DISPATCH_TOKEN` を bridge の `GITHUB_DISPATCH_TOKEN` として登録します。
 - bridge の OIDC 検証で、`sub` を GitHub の immutable subject 形式 (owner ID と repository ID 入り) で照合するようにしました。期待値は `PUBLISHER_OIDC_SUBJECT_PREFIX` で設定し、未設定の bridge は `/health` が `503 bridge-misconfigured` を返します。移管後のリポジトリが immutable subject を使っていたため、Publisher が bridge で 401 になっていた問題を直します。

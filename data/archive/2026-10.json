@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-27T09:37:49.176Z",
+  "generatedAt": "2026-11-27T18:00:59.321Z",
   "month": "2026-10",
-  "count": 115,
+  "count": 128,
   "entries": [
     {
       "id": "742d69c4e9a1c77b",
@@ -60,6 +60,39 @@
       }
     },
     {
+      "id": "5eaa0889b3ff2853",
+      "source": "vscode-updates",
+      "sourceType": "release",
+      "url": "https://code.visualstudio.com/updates/v1_144",
+      "title": "Visual Studio Code 1.144 Release Notes",
+      "titleJa": "",
+      "titleEn": "Visual Studio Code 1.144 Release Notes",
+      "summaryJa": "このエントリは vscode-updates から収集した vscode 領域の最新アップデートです。原題:「Visual Studio Code 1.144 Release Notes」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Visual Studio Code 1.144 Release Notes",
+      "lang": "en",
+      "publishedAt": "2026-10-28T17:00:00.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "release",
+        "vscode"
+      ],
+      "category": "vscode",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "🎬 Watch the VS Code session recordings from Microsoft Ignite. ⚠️ The Local harness is deprecated and will be removed in February 2027. Learn about the move to the Copilot harness. .deb .rpm .tar.gz Arm instructions Snap The road to GitHub Universe ( join us virtually! ) is paved with lots of pull requests! So, let's take a step back and look at what we've shipped recently. Remember when agent sessions would stop as soon as you closed your client? We built the Agent Host , a separate process that keeps your agents running, on your local machine or remotely. With language servers in mind, we designed the Agent Host Protocol (AHP) to allow any client to interact with agent sessions. All of a sudden, session continuity across VS Code, Copilot CLI, GitHub Copilot App, and github.com lets you pick up right where you left off.",
+      "image": {
+        "src": "https://code.visualstudio.com/assets/updates/1_144/release-highlights.webp",
+        "origSrc": "https://code.visualstudio.com/assets/updates/1_144/release-highlights.webp",
+        "alt": "Visual Studio Code 1.144 Release Notes",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "Learn what's new in Visual Studio Code 1.144 Read the full article",
+      "excerptOrigin": "article"
+    },
+    {
       "id": "0ca309f378516fe4",
       "source": "semantic-kernel-releases",
       "sourceType": "release",
@@ -90,6 +123,79 @@
         "height": 0,
         "source": "media"
       }
+    },
+    {
+      "id": "5ebccf67a9de1f56",
+      "source": "netflix-techblog",
+      "sourceType": "blog",
+      "url": "https://netflixtechblog.com/making-failure-diagnosis-reliable-with-pensive-ai-6b0811a1c015?source=rss----2615bd06b42e---4",
+      "title": "Making Failure Diagnosis Reliable with Pensive AI",
+      "titleJa": "",
+      "titleEn": "Making Failure Diagnosis Reliable with Pensive AI",
+      "summaryJa": "このエントリは netflix-techblog から収集した tech-news 領域の最新アップデートです。原題:「Making Failure Diagnosis Reliable with Pensive AI」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Making Failure Diagnosis Reliable with Pensive AI",
+      "lang": "en",
+      "publishedAt": "2026-10-26T17:04:57.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "engineering",
+        "netflix"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "excerptOrigin": "article-unavailable"
+    },
+    {
+      "id": "32b5d3e2c34f5a54",
+      "source": "netflix-techblog",
+      "sourceType": "blog",
+      "url": "https://netflixtechblog.com/multi-ratio-video-resizing-for-mobile-feed-and-marketing-2e6b42810f49?source=rss----2615bd06b42e---4",
+      "title": "Multi‑Ratio Video Resizing for Mobile Feed and Marketing",
+      "titleJa": "",
+      "titleEn": "Multi‑Ratio Video Resizing for Mobile Feed and Marketing",
+      "summaryJa": "このエントリは netflix-techblog から収集した tech-news 領域の最新アップデートです。原題:「Multi‑Ratio Video Resizing for Mobile Feed and Marketing」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Multi‑Ratio Video Resizing for Mobile Feed and Marketing",
+      "lang": "en",
+      "publishedAt": "2026-10-26T16:01:02.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "engineering",
+        "netflix"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "excerptOrigin": "article-unavailable"
+    },
+    {
+      "id": "f488ab92286122dc",
+      "source": "anthropic-news",
+      "sourceType": "blog",
+      "url": "https://www.anthropic.com/news/s1-sec",
+      "title": "Anthropic files S-1 with the SEC for proposed initial public offering",
+      "titleJa": "",
+      "titleEn": "Anthropic files S-1 with the SEC for proposed initial public offering",
+      "summaryJa": "このエントリは anthropic-news から収集した claude 領域の最新アップデートです。原題:「Anthropic files S-1 with the SEC for proposed initial public offering」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Anthropic files S-1 with the SEC for proposed initial public offering",
+      "lang": "en",
+      "publishedAt": "2026-10-26T00:00:00.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "anthropic",
+        "claude"
+      ],
+      "category": "claude",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "Today, Anthropic, PBC filed a registration statement on Form S-1 with the U.S. Securities and Exchange Commission relating to its proposed initial public offering of its Class A common stock. Anthropic intends to list its Class A common stock on the Nasdaq Global Select Market under the symbol “ANT.” The number of shares of Class A common stock to be offered and the price range for the proposed offering have not yet been determined. The proposed offering will be made only by means of a prospectus. Copies of the preliminary prospectus, when available, may be obtained from: Goldman Sachs & Co. LLC, Attention: Prospectus Department, 200 West Street, New York, NY 10282, by telephone at (866) 471-2526, or by email at prospectus-ny@ny.email.gs.com; or Morgan Stanley & Co. LLC, Attention: Prospectus Department, 180 Varick Street, 2nd Floor, New York, NY 10014.",
+      "feedSnippet": "Today, Anthropic, PBC filed a registration statement on Form S-1 with the U.S. Securities and Exchange Commission relating to its proposed initial public offering of its Class A common stock. Anthropic intends to list its Class A common stock on the Nasdaq Global Select Market under the symbol “ANT.” The number of shares of Class A common stock to be offered and the price range for the proposed offering have not yet been determined.",
+      "excerptOrigin": "article"
     },
     {
       "id": "b16604bccef4572d",
@@ -156,57 +262,171 @@
       }
     },
     {
-      "id": "7cf69f7ae5c77b67",
-      "source": "github-copilot",
+      "id": "aed2e616bb5028a4",
+      "source": "netflix-techblog",
+      "sourceType": "blog",
+      "url": "https://netflixtechblog.com/beyond-api-compatibility-building-a-tool-to-measure-the-blast-radius-of-library-changes-9474f2fd4f90?source=rss----2615bd06b42e---4",
+      "title": "Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library Changes",
+      "titleJa": "",
+      "titleEn": "Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library Changes",
+      "summaryJa": "このエントリは netflix-techblog から収集した tech-news 領域の最新アップデートです。原題:「Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library Changes」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library Changes",
+      "lang": "en",
+      "publishedAt": "2026-10-23T18:32:51.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "engineering",
+        "netflix"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "excerptOrigin": "article-unavailable"
+    },
+    {
+      "id": "cc9f1fc4deba48fb",
+      "source": "netflix-techblog",
+      "sourceType": "blog",
+      "url": "https://netflixtechblog.com/single-tenant-titus-vm-level-isolation-on-a-multi-tenant-container-platform-6d8b1909d163?source=rss----2615bd06b42e---4",
+      "title": "Single-tenant Titus: VM-level isolation on a multi-tenant container platform",
+      "titleJa": "",
+      "titleEn": "Single-tenant Titus: VM-level isolation on a multi-tenant container platform",
+      "summaryJa": "このエントリは netflix-techblog から収集した tech-news 領域の最新アップデートです。原題:「Single-tenant Titus: VM-level isolation on a multi-tenant container platform」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Single-tenant Titus: VM-level isolation on a multi-tenant container platform",
+      "lang": "en",
+      "publishedAt": "2026-10-22T22:19:12.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "engineering",
+        "netflix"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
+      "excerptOrigin": "article-unavailable"
+    },
+    {
+      "id": "c6d7d327b3177bde",
+      "source": "vscode-updates",
+      "sourceType": "release",
+      "url": "https://code.visualstudio.com/updates/v1_143",
+      "title": "Visual Studio Code 1.143 Release Notes",
+      "titleJa": "",
+      "titleEn": "Visual Studio Code 1.143 Release Notes",
+      "summaryJa": "このエントリは vscode-updates から収集した vscode 領域の最新アップデートです。原題:「Visual Studio Code 1.143 Release Notes」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Visual Studio Code 1.143 Release Notes",
+      "lang": "en",
+      "publishedAt": "2026-10-21T17:00:00.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "release",
+        "vscode"
+      ],
+      "category": "vscode",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "🎬 Watch the VS Code session recordings from Microsoft Ignite. ⚠️ The Local harness is deprecated and will be removed in February 2027. Learn about the move to the Copilot harness. Welcome to the 1.143 release of Visual Studio Code. .deb .rpm .tar.gz Arm instructions Snap Already installed? Use Check for Updates in VS Code. For upcoming features, use the Insiders build . Update 1.143.1 : The update addresses these issues . This release makes the Copilot harness the default for new sessions and adds tools to compare models, reclaim storage, run models locally, and navigate file changes. Copilot harness by default : The default for new sessions, built on the Copilot SDK, lets you switch between the editor and Agents window. Compare models (Preview) : Run the same task with multiple models in the Agents window, then compare and combine their solutions.",
+      "image": {
+        "src": "https://code.visualstudio.com/assets/updates/1_143/release-highlights.webp",
+        "origSrc": "https://code.visualstudio.com/assets/updates/1_143/release-highlights.webp",
+        "alt": "Visual Studio Code 1.143 Release Notes",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "Learn what's new in Visual Studio Code 1.143 Read the full article",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "c4607aa43c817be8",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/",
       "title": "How 3 Java Champions are using GitHub Copilot for increased productivity",
-      "titleJa": "",
+      "titleJa": "3人のJava ChampionがGitHub Copilotで生産性を高める方法",
       "titleEn": "How 3 Java Champions are using GitHub Copilot for increased productivity",
-      "summaryJa": "このエントリは github-copilot から収集した copilot 領域の最新アップデートです。原題:「How 3 Java Champions are using GitHub Copilot for increased productivity」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "How 3 Java Champions are using GitHub Copilot for increased productivity",
+      "summaryJa": "10年以上のJava経験を持つ3人のJava Championが、GitHub Copilotを本番開発やOSSで使う具体例を紹介する。文脈の提示、結果の検証、保守性の確保といった実践知は、AI生成コードを信頼できるソフトウェアにしたい開発者の参考になる。",
+      "summaryEn": "Three Java Champions, each with over ten years of Java experience, share real production and open source uses of GitHub Copilot, plus habits for giving context and validating output. Useful for developers who want reliable AI-assisted code.",
       "lang": "en",
       "publishedAt": "2026-10-20T16:05:03.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "ai-coding",
         "copilot",
-        "github"
+        "developer-productivity",
+        "github",
+        "java",
+        "java-champions"
       ],
       "category": "copilot",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "AI coding tools can generate code quickly, but speed alone does not solve the hardest software engineering problems. Developers still need to provide context, validate results, protect maintainability, and remain accountable for what ships. To learn how experienced developers strike that balance, we spoke with three Java Champions, all with over a decade of experience in using Java. They shared concrete examples of using GitHub Copilot in production and open source, along with the practices they use to turn AI-generated output into reliable software. Here are the tips they shared with us. How has GitHub Copilot helped you recently? I’ve been using it to analyze, design, and implement various features in both Hypersistence Utils and Hypersistence Optimizer.",
-      "feedSnippet": "Three Java Champions share how they use GitHub Copilot to solve problems, accelerate development, and keep humans responsible for the results. The post How 3 Java Champions are using GitHub Copilot for increased productivity appeared first on The GitHub Blog .",
       "excerptOrigin": "article",
-      "evergreen": true
+      "feedSnippet": "Three Java Champions share how they use GitHub Copilot to solve problems, accelerate development, and keep humans responsible for the results. The post How 3 Java Champions are using GitHub Copilot for increased productivity appeared first on The GitHub Blog ."
     },
     {
-      "id": "f9c5095dcdcc7bb0",
-      "source": "github-copilot",
+      "id": "ec2b5dc833750aa5",
+      "source": "cursor-changelog",
+      "sourceType": "changelog",
+      "url": "https://cursor.com/changelog/agent-sdk",
+      "title": "Agent SDK",
+      "titleJa": "",
+      "titleEn": "Agent SDK",
+      "summaryJa": "このエントリは cursor-changelog から収集した cursor 領域の最新アップデートです。原題:「Agent SDK」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Agent SDK",
+      "lang": "en",
+      "publishedAt": "2026-10-20T00:00:00.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "agent",
+        "changelog",
+        "cursor"
+      ],
+      "category": "cursor",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "Agent SDK の提供を本日より開始しました。エージェントをコードのフォルダとして定義し、評価でテストしたうえで、Cursor または自社のインフラストラクチャにデプロイできます。 npx @cursor/agent-sdk init ./my-bot を実行したあと agent-sdk dev を実行すると、プレイグラウンド付きでボットをローカルで起動できます。 --template を指定すれば、セキュリティレビュアー、オーナーポリシーに基づく承認ボット、PR 自動修正ツール、Linear または Jira のトリアージボットといったテンプレートから始めることもできます。 エージェントを実運用する準備が整ったら、プロジェクトディレクトリで agent-sdk deploy を実行するだけで Cursor にデプロイできます。このコマンドはエージェントをビルドして URL を割り当て、Cursor のインフラストラクチャ上で起動します。シークレットや連携はダッシュボードから管理でき、ローカルで使っているログ、評価、プレイグラウンドもそのまま引き続き利用できます。 エージェントは 1 つのプロジェクトとして構成されます。 instructions.md がプロンプトです。 tools/ 内の各ファイルは、モデルが呼び出せる型付きアクション 1 つに対応します。 skills/ にはモデルが必要に応じて読み込む手順を格納し、 mcp-connections/ では MCP サーバーのツールを追加し、 channels/ ではボットがメッセージを受信・応答する場所を定義します。 agent-sdk validate でプロジェクトを検証し、 agent-sdk info で検出された内容を出力できます。 エージェントは、GitHub、GitLab、Bitbucket の PR、コメント、CI イベント、Slack でのメンションや DM、任意のプロバイダーからのウェブフック、そして cron スケジュールをトリガーに起動します。",
+      "feedSnippet": "Define an agent as a folder of code, test it with evals, and deploy it to Cursor or your own infrastructure.",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "cb4f638784301c3b",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
       "title": "How to continue a GitHub Copilot app session in VS Code",
-      "titleJa": "",
+      "titleJa": "GitHub Copilot アプリのセッションを VS Code で続行する方法",
       "titleEn": "How to continue a GitHub Copilot app session in VS Code",
-      "summaryJa": "このエントリは github-copilot から収集した copilot 領域の最新アップデートです。原題:「How to continue a GitHub Copilot app session in VS Code」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "How to continue a GitHub Copilot app session in VS Code",
+      "summaryJa": "GitHub Copilot アプリのセッションを VS Code で直接開き、会話履歴やコード変更、作業文脈をそのまま引き継げる。エージェントの作業後に差分確認や手動修正、ローカル実行を行いたい開発者に役立つ。",
+      "summaryEn": "A Copilot app session can be opened directly in VS Code, carrying over its chat, code edits, and context. Developers can let the agent do the heavy lifting, then review diffs, edit by hand, and test locally.",
       "lang": "en",
       "publishedAt": "2026-10-19T18:47:22.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "agent-workflow",
         "copilot",
+        "copilot-app",
         "github",
-        "tutorial"
+        "tutorial",
+        "vscode"
       ],
       "category": "copilot",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "The agent has finished the bulk of your change. Now you want to inspect one implementation detail, adjust a few lines by hand, and run the project locally before you ship it. But the work is sitting in the GitHub Copilot app … and your editor is where you review diffs, debug code, and make final adjustments. Do you have to choose between staying in the session and starting over in Visual Studio Code? You don’t. You can open the Copilot app session directly in VS Code and continue with its conversation, code changes, and working context intact. That means Copilot can handle the repetitive or time-consuming work, then hand control back to you for closer review, hands-on editing, and local testing. Open a Copilot app session in VS Code. Review the agent’s changes line by line. Continue the same conversation from your editor. Modify and test the code locally.",
-      "feedSnippet": "Learn how to move an agent session from the GitHub Copilot app into VS Code without losing the conversation, code changes, or working context. The post How to continue a GitHub Copilot app session in VS Code appeared first on The GitHub Blog .",
       "excerptOrigin": "article",
-      "evergreen": true
+      "feedSnippet": "Learn how to move an agent session from the GitHub Copilot app into VS Code without losing the conversation, code changes, or working context. The post How to continue a GitHub Copilot app session in VS Code appeared first on The GitHub Blog ."
     },
     {
       "id": "5387974c3335c576",
@@ -241,31 +461,165 @@
       }
     },
     {
-      "id": "73f986d3e9b463d0",
-      "source": "github-copilot",
+      "id": "205d8e87e8d51cf8",
+      "source": "anthropic-news",
       "sourceType": "blog",
-      "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
-      "title": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
+      "url": "https://www.anthropic.com/news/public-benefit-fund",
+      "title": "Investing in the public benefit",
       "titleJa": "",
-      "titleEn": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
-      "summaryJa": "このエントリは github-copilot から収集した copilot 領域の最新アップデートです。原題:「GitHub Copilot app for Beginners: How to teach Copilot about your codebase」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
+      "titleEn": "Investing in the public benefit",
+      "summaryJa": "このエントリは anthropic-news から収集した claude 領域の最新アップデートです。原題:「Investing in the public benefit」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Investing in the public benefit",
       "lang": "en",
-      "publishedAt": "2026-10-12T17:43:59.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "publishedAt": "2026-10-18T00:00:00.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
-        "copilot",
-        "github",
-        "tutorial"
+        "anthropic",
+        "claude"
+      ],
+      "category": "claude",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "Today, we’re committing a portion of Anthropic’s shares to the Anthropic Public Benefit Fund, a new wholly owned entity with a structure that increases the stake as the company grows. Subject to stockholder approval, 5% of Anthropic’s shares will be committed today, with an additional 2% added at the board’s discretion for every 50% increase in the company’s value above a set baseline. As a public benefit corporation, most of our work in pursuit of our mission takes place inside the company: research relevant to AI safety and interpretability; applied biomedical research; discounts on Claude for nonprofits and scientific institutions. These activities have both a public benefit component and for-profit value, so we house them directly in the company."
+    },
+    {
+      "id": "1f8433e1adf8a5ff",
+      "source": "cursor-changelog",
+      "sourceType": "changelog",
+      "url": "https://cursor.com/changelog/cloud-agent-canvases-and-environments",
+      "title": "Cloud Agent Canvases and Environment Improvements",
+      "titleJa": "",
+      "titleEn": "Cloud Agent Canvases and Environment Improvements",
+      "summaryJa": "このエントリは cursor-changelog から収集した cursor 領域の最新アップデートです。原題:「Cloud Agent Canvases and Environment Improvements」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Cloud Agent Canvases and Environment Improvements",
+      "lang": "en",
+      "publishedAt": "2026-10-16T00:00:00.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "agent",
+        "changelog",
+        "cursor"
+      ],
+      "category": "cursor",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "クラウドエージェント が、作業の中で対話型の キャンバス を構築できるようになりました。完成したキャンバスは、リンクを送るだけでチームと共有できます。 Environments API がベータ版として利用可能になりました。エージェントを実行するクラウド環境を、プログラムから作成・管理できます。 クラウドエージェント環境 で、最大300個のリポジトリをサポートするようになりました。また、大規模な環境の読み込み速度も5倍に向上しています。 クラウドエージェント が、作業の中で対話型の キャンバス を構築できるようになりました。完成したキャンバスは、リンクを送るだけでチームと共有できます。 Environments API がベータ版として利用可能になりました。エージェントを実行するクラウド環境を、プログラムから作成・管理できます。 クラウドエージェント環境 で、最大300個のリポジトリをサポートするようになりました。また、大規模な環境の読み込み速度も5倍に向上しています。",
+      "feedSnippet": "Cloud agents can now build and share interactive canvases. The Environments API is available in beta, environments support up to 300 repos, and large environments load 5x faster.",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "26d1c78ff9f0ac95",
+      "source": "vscode-updates",
+      "sourceType": "release",
+      "url": "https://code.visualstudio.com/updates/v1_142",
+      "title": "Visual Studio Code 1.142 Release Notes",
+      "titleJa": "",
+      "titleEn": "Visual Studio Code 1.142 Release Notes",
+      "summaryJa": "このエントリは vscode-updates から収集した vscode 領域の最新アップデートです。原題:「Visual Studio Code 1.142 Release Notes」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Visual Studio Code 1.142 Release Notes",
+      "lang": "en",
+      "publishedAt": "2026-10-14T17:00:00.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "release",
+        "vscode"
+      ],
+      "category": "vscode",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "🎬 Watch the VS Code session recordings from Microsoft Ignite. ⚠️ The Local harness is deprecated and will be removed in February 2027. Learn about the move to the Copilot harness. .deb .rpm .tar.gz Arm instructions Snap Already installed? Use Check for Updates in VS Code. For upcoming features, use the Insiders build . This release adds shared canvases for agent workflows, lets you move chats without losing context, expands the Markdown editor, and gives administrators more control over agent permissions. Canvases (Preview) : Collaborate with agents beyond chat using visual and interactive canvases. Move chats : Continue a chat in another folder or a new Git worktree without losing conversation history. Markdown editor : Work on Markdown files more efficiently with features like pasting images, renaming file links, or breadcrumb navigation.",
+      "image": {
+        "src": "https://code.visualstudio.com/assets/updates/1_142/release-highlights.webp",
+        "origSrc": "https://code.visualstudio.com/assets/updates/1_142/release-highlights.webp",
+        "alt": "Visual Studio Code 1.142 Release Notes",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "Learn what's new in Visual Studio Code 1.142 Read the full article",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "74ffca4992b2bed0",
+      "source": "github-blog-ai",
+      "sourceType": "blog",
+      "url": "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/",
+      "title": "GitHub’s model for secret detection: Finding more secrets with less noise",
+      "titleJa": "",
+      "titleEn": "GitHub’s model for secret detection: Finding more secrets with less noise",
+      "summaryJa": "このエントリは github-blog-ai から収集した copilot 領域の最新アップデートです。原題:「GitHub’s model for secret detection: Finding more secrets with less noise」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "GitHub’s model for secret detection: Finding more secrets with less noise",
+      "lang": "en",
+      "publishedAt": "2026-10-13T17:56:33.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "github"
       ],
       "category": "copilot",
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
+      "contentSnippet": "GitHub’s context-aware secret classifier improves detection quality, raises weighted acceptance by 11.5%, and reduces median scan execution time by 86%. The post GitHub’s model for secret detection: Finding more secrets with less noise appeared first on The GitHub Blog .",
+      "excerptOrigin": "article-unavailable"
+    },
+    {
+      "id": "18ea178a7f4055ec",
+      "source": "cursor-changelog",
+      "sourceType": "changelog",
+      "url": "https://cursor.com/changelog/origin-app-marketplace",
+      "title": "Origin App Marketplace",
+      "titleJa": "",
+      "titleEn": "Origin App Marketplace",
+      "summaryJa": "このエントリは cursor-changelog から収集した cursor 領域の最新アップデートです。原題:「Origin App Marketplace」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Origin App Marketplace",
+      "lang": "en",
+      "publishedAt": "2026-10-13T00:00:00.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "changelog",
+        "cursor"
+      ],
+      "category": "cursor",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "Origin が、デプロイ、CI、コードレビュー、セキュリティ、監視、プロジェクト管理に対応する 20 以上のアプリと連携できるようになりました。Cloudflare、Linear、Sentry、Socket Security などのパートナーが提供するアプリを利用できます。 また本日より、マーケットプレイスで一般からのアプリ申請の受け付けを開始しました。開発者向けツールを構築しているチームなら、どなたでも Origin 向けのアプリを公開できます。 マーケットプレイスに、次のカテゴリのアプリが追加されました。 自分のネームスペースで アプリを作成 します。構築中、アプリはネームスペース内で非公開のままです。 Origin API を使って構築します。アプリはアプリ JWT とインストールアクセストークンで認証し、ウェブフックイベントを受信して、チェック実行、PR コメント、レビューを書き戻します。 アプリを公開に設定し、アプリのページからスラッグ、推奨タグ、デモ動画を添えて申請します。動画では、インストール、アンインストール、および製品の主要なフローを紹介してください。 申請内容を当社でレビューし、承認され次第アプリを掲載します。 Origin App Marketplaceの アプリを今すぐ試してみましょう 。 Origin アプリを構築したい場合は、まず 公開ガイド と Origin API リファレンス をご覧ください。 Origin Apps プラグイン を使えば、最新の Origin API ドキュメントをもとにご質問に回答したり、すでに運用中のアプリを Origin へ移行する計画を立てたりすることもできます。 Origin が、デプロイ、CI、コードレビュー、セキュリティ、監視、プロジェクト管理に対応する 20 以上のアプリと連携できるようになりました。Cloudflare、Linear、Sentry、Socket Security などのパートナーが提供するアプリを利用できます。",
+      "feedSnippet": "Origin integrates with over 20 apps for deployments, CI, code review, security, monitoring, and project management, and the marketplace is now open to public submissions.",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "aab87b57e449c025",
+      "source": "github-blog-ai",
+      "sourceType": "blog",
+      "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
+      "title": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
+      "titleJa": "GitHub Copilot app 入門:Copilot にコードベースを理解させる方法",
+      "titleEn": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
+      "summaryJa": "GitHub Copilot app 入門シリーズの最新回で、カスタム指示など4つの手法を紹介し、リポジトリ内に規約やスクリプトを置いて Copilot に自動で把握させる方法を解説する。毎回同じ説明を繰り返したくない開発者に役立つ。",
+      "summaryEn": "This GitHub Copilot app beginner installment covers four ways, including custom instructions, to store conventions and scripts in a repo so Copilot learns them automatically, saving developers repeated explanations.",
+      "lang": "en",
+      "publishedAt": "2026-10-12T17:43:59.000Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "tags": [
+        "copilot",
+        "custom-instructions",
+        "github",
+        "onboarding",
+        "repository-context",
+        "tutorial"
+      ],
+      "category": "copilot",
+      "importance": 2,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "Context matters when you’re working with AI. Every codebase has its own house rules: how components are structured, which scripts to run, and which conventions apply to different frameworks and file types. Copilot can help you make changes across a project, but it works best when it knows those rules, too. Much of that knowledge can live inside the repository, so Copilot can pick it up automatically instead of requiring you to explain the same standards, scripts, and workflows every time you start a new task. In this installment of our GitHub Copilot app for Beginners series, we’ll look at four ways to tailor how Copilot works with your project: Custom instructions communicate the conventions Copilot should follow. Agent skills package repeatable procedures. Custom agents bring specialized guidance to larger tasks.",
-      "feedSnippet": "Learn how to add custom instructions and skills to your repository, use custom agents, and connect MCP servers like Playwright. The post GitHub Copilot app for Beginners: How to teach Copilot about your codebase appeared first on The GitHub Blog .",
       "excerptOrigin": "article",
-      "evergreen": true
+      "feedSnippet": "Learn how to add custom instructions and skills to your repository, use custom agents, and connect MCP servers like Playwright. The post GitHub Copilot app for Beginners: How to teach Copilot about your codebase appeared first on The GitHub Blog ."
     },
     {
       "id": "1cb36d6b3d7aacfb",
@@ -343,8 +697,8 @@
       "evergreen": true
     },
     {
-      "id": "5cb4ed49cbdddf72",
-      "source": "github-copilot",
+      "id": "80955af470da00f0",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/",
       "title": "Secret protection must scale with software",
@@ -354,7 +708,7 @@
       "summaryEn": "AI agents now touch one-third of GitHub pull requests, up from under one-tenth last year. Automated secret protection can prevent leaks and cut manual response work for developers.",
       "lang": "en",
       "publishedAt": "2026-10-07T17:45:34.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "ai-agents",
         "copilot",
@@ -366,6 +720,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "Today, one in three pull requests on GitHub involves an AI agent . A year ago, that number was fewer than one in 10. If that pace holds, within the next two years, most of the code pushed to GitHub could be written by an agent. Much of it may never be fully read by a human. If developers and agents move faster, we have a responsibility to ensure protection keeps up with the accelerated rate of code creation. That means preventing more leaks before they happen and making the response to exposures that remain less dependent on manual human effort. This is a pivotal point for leaked secrets. Developers aren’t becoming more careless; they’re being outpaced. The tools that let developers create more software should also take on more of the work of protecting it. In this essay, I share the nine quarters of data behind that claim.",
       "excerptOrigin": "article",
       "feedSnippet": "Developers aren’t becoming more careless; they’re being outpaced. The tools that let developers create more software should also take on more of the work of protecting it. The post Secret protection must scale with software appeared first on The GitHub Blog .",
@@ -376,8 +731,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "9113ed39fa04c200",
@@ -463,7 +817,7 @@
       "summaryEn": "Visual Studio Code 1.141 adds agent worktree cleanup, terminal sandboxing across Windows, macOS, and Linux, and session arrangement, helping developers manage agents safely and efficiently.",
       "lang": "en",
       "publishedAt": "2026-10-07T17:00:00.000Z",
-      "collectedAt": "2026-10-07T18:01:19.809Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "agent",
         "agent-sessions",
@@ -1901,7 +2255,7 @@
       "summaryEn": "Cursor Remote Control now lets the iOS app inspect and message local agents on an online computer. Enabled by default outside enterprise orgs, it supports oversight away from the desk.",
       "lang": "en",
       "publishedAt": "2026-10-06T00:00:00.000Z",
-      "collectedAt": "2026-10-07T18:01:19.809Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "changelog",
         "cursor",
@@ -2003,8 +2357,8 @@
       "knowledgeEligible": false
     },
     {
-      "id": "571c8c47df881aa3",
-      "source": "github-copilot",
+      "id": "ed744c789037c203",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
       "title": "ReviewBench: An open benchmark for AI code review",
@@ -2014,7 +2368,7 @@
       "summaryEn": "ReviewBench offers an open evaluation set based on GitHub pull requests, with multi-source labels, calibrated scoring, and production metrics for fair assessment of review agents.",
       "lang": "en",
       "publishedAt": "2026-10-05T15:59:40.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "ai-code-review",
         "benchmark",
@@ -2026,6 +2380,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "We’re launching ReviewBench, a benchmark for code review agents built on representative GitHub pull requests, multi-source ground truth, calibrated evaluation, and production-aligned metrics. The post ReviewBench: An open benchmark for AI code review appeared first on The GitHub Blog .",
       "excerptOrigin": "article-unavailable",
       "image": {
@@ -2035,8 +2390,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "e33a2620e79a8313",
@@ -2911,7 +3265,7 @@
       "summaryEn": "AI-assisted development shifts execution toward framing tasks, supplying context, and reviewing generated code. These skills help developers make sound shipping decisions.",
       "lang": "en",
       "publishedAt": "2026-10-02T15:00:00.000Z",
-      "collectedAt": "2026-10-07T18:01:19.809Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "ai-assisted-development",
         "career-development",
@@ -2922,6 +3276,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "AI is changing how developers work and apply their skills. Writing code is still essential, but developers increasingly need to know how to direct AI, evaluate its output, communicate tradeoffs, and make sound technical decisions. The good news? You can start preparing today. Here’s where to focus: Tip #1: Learn to direct AI, not just use it. AI is changing what execution looks like. Increasingly, great execution means defining the problem clearly, providing the right context, evaluating AI-generated code, and deciding what’s ready to ship. As AI agents take on more of the implementation, these skills become even more valuable. For example, imagine you’re asked to add a new authentication flow. As AI tools become more capable and more deeply integrated into day-to-day workflows, those same skills can help you coordinate multiple AI agents.",
       "excerptOrigin": "article",
       "feedSnippet": "Learn to direct AI agents, critically review their output, and keep technical judgment at the center of your workflow. The post AI is changing developer work. Here are three skills to strengthen. appeared first on The GitHub Blog .",
@@ -2932,8 +3287,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "d76bc67b3882fa08",

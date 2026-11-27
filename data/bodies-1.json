@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T09:37:46.366Z",
+  "generatedAt": "2026-11-27T18:00:55.251Z",
   "count": 343,
   "bodies": {
     "7b752c9b3e3af2c6": {
@@ -227,44 +227,6 @@
           "s": "b",
           "ja": "その理解でよいぞ。記事ではLLMベースの翻訳は今後の予定なので、現在の対応機能とは分けて見るのがポイントじゃな。",
           "en": "Exactly. The article presents LLM-powered translation as a future capability, so the key is to distinguish it from what is supported now."
-        }
-      ]
-    },
-    "eaa306b281deba94": {
-      "bodyJa": "Anthropicが、コーディング支援ツール「Claude Code」に機械学習分類器を組み込んだautoモードの開発を進めている。権限承認をめぐる手間を減らしつつ安全性を高めることを狙った仕組みで、AIエージェントの自律性と安全性の両立という難題に一つの解を示そうとするものだ。\n\nClaude Codeは、ファイルの編集や外部コマンドの実行といった操作を行う前に、ユーザーへ承認を求める仕組みを備えている。これは意図しない変更や危険な操作を防ぐための安全装置だが、Anthropicの分析によれば、こうした権限プロンプトの約93%は実際には承認されているという。大半が承認される一方で頻繁に表示される確認は、開発者の集中を妨げ、深く考えずに承認してしまう「承認疲れ」を招きかねない。形骸化したプロンプトはかえって安全性を損なう可能性がある、という問題意識が今回の取り組みの背景にある。\n\nautoモードでは、機械学習分類器が個々の操作のリスクを判定し、安全と見なせるものは自動で承認する一方、危険性のある操作については従来どおりユーザーに確認を求める。狙いは、明らかに無害な大量の操作を自動化することで、人間の注意を本当に重要な判断に集中させる点にある。Anthropicは、この分類器が何を捕捉でき、何を見逃すのかを率直に示しており、自動化が万能ではないことを明確にしている。\n\n技術的な課題として、分類器の誤判定は避けられない。安全な操作を誤って危険と判断すれば利便性が下がり、逆に危険な操作を安全と誤認すれば実害につながる恐れがある。Anthropicはこうした限界を踏まえ、自動承認の対象を慎重に絞り込む設計思想を採っていると見られる。\n\n同種の課題は業界全体で顕在化している。GitHub CopilotやCursor、各種のコーディングエージェントでも、自律的にコマンドを実行する機能が広がるなか、どこまでを自動化し、どこで人間の判断を介在させるかが重要なテーマになっている。権限管理を機械学習で動的に最適化するアプローチは、エージェント型開発ツールの設計における一つの方向性を示す可能性がある。\n\n承認疲れの軽減は利便性向上にとどまらず、ユーザーが確認の意味を見失わないようにする安全上の意義も持つ。autoモードの実効性は、分類器の精度と、限界を補う運用設計にかかっていると言える。",
-      "bodyEn": "Anthropic has introduced an automatic permission mode for Claude Code, its agentic command-line coding assistant, aimed at one of the most persistent friction points in AI-assisted development: the steady stream of permission prompts that interrupt a developer's workflow. According to the company, users approve roughly 93 percent of these prompts, a figure that captures both the value of asking and the diminishing returns of asking so often. The new auto mode uses machine learning classifiers to handle some of those decisions automatically, with the stated goal of increasing safety while reducing what the team calls approval fatigue.\n\nPermission prompts are central to how Claude Code operates safely. The tool can read and edit files, run shell commands, install dependencies, and execute tests, and by default it pauses to request confirmation before taking actions that could modify a system or expose sensitive data. This human-in-the-loop checkpoint is the primary guardrail against unintended or harmful operations, including those that might arise from prompt injection, where malicious instructions embedded in files, web content, or tool output attempt to redirect the agent's behavior. The challenge is that when nearly every prompt is approved, the ritual of clicking through them can become automatic, eroding the very vigilance the mechanism is meant to preserve.\n\nThe core technical idea is to replace some of that manual review with classifiers that evaluate each proposed action and decide whether it is routine enough to proceed without interruption. Rather than treating all actions identically, the system distinguishes low-risk operations, such as reading a file or running a standard build command, from higher-risk ones, such as deleting data, modifying system configuration, sending information to external endpoints, or executing commands that could have irreversible effects. Actions judged safe can be auto-approved, while anything ambiguous or potentially destructive is still escalated to the user. Anthropic frames this as a way to make the human reviews that remain more meaningful, because the prompts that do appear are more likely to warrant genuine attention.\n\nImportantly, the company is candid that the approach has limits, describing both what the classifiers catch and what they miss. No classifier is perfect, and a model that approves the wrong action could allow a harmful command to run without review, while one that is too cautious would reintroduce the fatigue it set out to solve. The framing suggests the system is tuned to err toward asking when uncertain, and it appears designed to complement rather than replace existing protections such as sandboxing, restricted file-system access, and allowlists of trusted commands. Users likely retain the ability to configure how aggressive the automation is, keeping full manual control where they want it.\n\nThis work fits into a broader industry move toward more autonomous coding agents and the safety questions that accompany them. Tools such as GitHub Copilot's agent features, Cursor, OpenAI's Codex-style assistants, and various open-source frameworks are all grappling with how much independence to grant a model that can run code on a developer's machine. The tension is consistent across products: greater autonomy improves productivity but widens the attack surface and the potential for costly mistakes. Approaches like permission tiers, execution sandboxes, and now learned classifiers represent different points on the spectrum between full manual oversight and unsupervised action.\n\nFor developers, the practical context matters. Claude Code already supports configuration options that let teams pre-approve categories of commands or run the agent in more constrained environments, and the auto mode extends that philosophy by making the approval decision adaptive rather than static. The 93 percent statistic is a useful anchor: it implies that a large majority of interruptions are unnecessary, but it also means a meaningful minority are not, and those are precisely the cases where automation must not fail.\n\nThe release reflects an ongoing effort to balance usability against the security obligations of an agent with real system access. Whether classifier-driven approval becomes a standard pattern will depend on how reliably such models hold up against adversarial inputs and edge cases in practice. Anthropic's own description, emphasizing both capabilities and gaps, signals that the feature is best understood as a measured improvement to an existing safety model rather than a wholesale removal of human oversight.",
-      "model": "claude-opus-4.8",
-      "generatedAt": "2026-06-28T07:12:37.866Z",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "権限プロンプトの93％が承認されているって、つまりほとんど毎回「許可」を押しているの？",
-          "en": "Users approve 93% of permission prompts? Does that mean they’re clicking “allow” almost every time?"
-        },
-        {
-          "s": "b",
-          "ja": "記事によればそうじゃよ。そこでAnthropicは、機械学習分類器で一部の判断を自動化するautoモードを開発したんじゃ。",
-          "en": "According to the article, yes. Anthropic built auto mode to automate some of those decisions with machine-learning classifiers."
-        },
-        {
-          "s": "a",
-          "ja": "それって何が嬉しいの？確認を全部飛ばしてしまうなら、ちょっと不安かも。",
-          "en": "What’s the benefit? I’d be a little nervous if it skipped every check."
-        },
-        {
-          "s": "b",
-          "ja": "簡単に言うと、日常的な承認を自動化して「承認疲れ」を減らす仕組みじゃな。記事では、安全の境界を保ちながら一部だけ自動化するとしておる。",
-          "en": "Put simply, it automates routine approvals to reduce approval fatigue. The article says it only automates some decisions while preserving safety boundaries."
-        },
-        {
-          "s": "a",
-          "ja": "なるほど、全部を無条件で許可するのではなく、分類器に一部の判断を任せて確認の負担を減らすんだね。",
-          "en": "Got it—it doesn’t blindly allow everything. It lets classifiers handle some decisions so users face fewer approval checks."
-        },
-        {
-          "s": "b",
-          "ja": "その理解でよいぞ。記事は分類器が捉えられるものだけでなく、見逃すものもあるとしており、その限界が注意点じゃな。",
-          "en": "Exactly. The article also discusses what the classifiers catch and what they miss, so their limits are the key thing to watch."
         }
       ]
     },
@@ -9388,44 +9350,6 @@
       "model": "gpt-5.6-sol",
       "generatedAt": "2026-09-17T23:16:44.796Z"
     },
-    "3ee41050eba871c0": {
-      "bodyJa": "## エージェントウィンドウ\n\nCursor 3.0では、エージェントを中心に据えた新しいインターフェースが導入された。ローカル、gitワークツリー、クラウド、SSH接続先のリモート環境など、複数のリポジトリや環境にまたがって複数のエージェントを並行実行できる。\n\nエージェントウィンドウは、Cursorをアップグレードしたうえで、Cmd+Shift+Pから「Agents Window」と入力して開く。必要に応じてIDEへ戻れるほか、IDEとエージェントウィンドウを同時に開いておくことも可能だ。複数のチャットは、エージェントタブを使って横並びやグリッドで表示できる。\n\n## デザインモード\n\nデザインモードでは、ブラウザ上のUI要素に直接注釈を付けたり、エージェントが扱う対象として指定したりできる。参照してほしい箇所を正確に示すことで、より的確なフィードバックを伝えながら、改善をすばやく重ねられると説明されている。\n\n## ワークツリー\n\n新しい「/worktree」コマンドは、別のgitワークツリーを作成し、変更を分離した状態で作業するためのものだ。「/best-of-n」では、同じタスクを複数のモデルで並列実行し、それぞれを独立したワークツリーで動かしたうえで結果を比較できる。これに伴い、エディタにあった従来のワークツリーおよびbest-of-nの選択機能は非推奨となった。\n\n## MCP Apps\n\nMCP Appsは構造化コンテンツに対応し、よりリッチなツール出力が可能になった。企業向けプランでは、未設定の場合、サードパーティ製プラグインのインポートがデフォルトでオフになる。Adminが明示的に上書きした設定は維持される。\n\n管理面では、監査ログにディレクトリグループ名が追加され、IDを確認せずに読めるようになった。さらにクラウドエージェント向けとして、チームシークレットの作成、編集、削除をAdminだけに制限するチームレベルの設定も追加された。",
-      "bodyEn": "## Agents Window\n\nCursor 3.0 introduces a new agent-first interface for running multiple agents in parallel across different repositories and environments. It covers local environments, git worktrees, cloud environments, and remote environments reached through SSH connections, while retaining the depth of the development environment.\n\nTo try the Agents Window, upgrade Cursor and enter Cmd+Shift+P -> Agents Window. Users can return to the IDE at any time or keep both the IDE and Agents Window open simultaneously.\n\n## Design Mode and Agent Tabs\n\nWithin the Agents Window, Design Mode lets users annotate or directly target UI elements in the browser. This provides agents with a precise reference point, supporting more targeted feedback and faster rounds of improvement.\n\nAgent Tabs can display multiple chats at the same time. The chats can be arranged side by side or in a grid, making parallel agent activity visible within the same interface.\n\n## /worktree and /best-of-n\n\nThe new /worktree command creates a separate git worktree so that changes can be made in isolation. The /best-of-n command runs the same task in parallel with multiple models, assigns each run an independent worktree, and allows the results to be compared.\n\nThe previous worktree and best-of-n selection features in the editor are now deprecated in favor of these commands.\n\n## MCP Apps and Admin Settings\n\nMCP Apps now support structured content, allowing richer tool output. For enterprise plans, importing third-party plugins is now off by default when no setting has been configured. Existing explicit Admin override settings remain in place.\n\nDirectory group names have also been added to audit logs, making the logs readable without requiring users to check IDs. For cloud agents, a new team-level Admin setting can restrict the creation, editing, and deletion of team secrets to Admins.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "同じタスクを複数モデルに任せて比べる「/best-of-n」って何？変更がごちゃ混ぜにならないの？",
-          "en": "What’s /best-of-n? It gives the same task to multiple models, but won’t all their changes get mixed together?"
-        },
-        {
-          "s": "b",
-          "ja": "ワークツリーは変更を分ける作業場所、くらいの意味じゃ。この記事では、モデルごとに独立させて並列実行し、結果を比較できるとしておる。",
-          "en": "Think of a worktree as a separate workspace for changes. The article says each model runs independently and in parallel, so you can compare their results without mixing them."
-        },
-        {
-          "s": "a",
-          "ja": "つまり開発者が、同じ課題の案を別々の机で作ってもらい、よい結果を早く選ぶ感じ？",
-          "en": "So it’s like having several models solve the same problem at separate desks, letting developers compare their work quickly?"
-        },
-        {
-          "s": "b",
-          "ja": "そういうイメージじゃよ。紹介された機能では、ローカルやクラウド、SSH接続先でも複数エージェントを並行運用できるのじゃ。",
-          "en": "That’s the idea. The new interface supports multiple agents running in parallel across local, cloud, and remote SSH environments."
-        },
-        {
-          "s": "a",
-          "ja": "へえ、変更を分けたまま複数案を走らせて、横に並べて比べられるようになったんだね！",
-          "en": "Nice! So you can keep each set of changes separate, run multiple approaches, and compare them side by side."
-        },
-        {
-          "s": "b",
-          "ja": "うむ。ただし今回の変更では、エディタ内の従来のワークツリーとbest-of-nの選択機能は非推奨になった点に注意じゃ。",
-          "en": "Exactly. One caution from this update: the older worktree and best-of-n selection features in the editor are now deprecated."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-09-18T07:32:52.541Z"
-    },
     "3f13a3ed847f3f00": {
       "bodyJa": "## 正式提供\n\nGitHub Actions向けのUbuntu 26.04ランナーイメージがパブリックプレビューを終え、x64とarm64の本番ワークフローで正式に利用できるようになった。あわせて、標準ラベルであるubuntu-latestの移行も行われるため、既存ワークフローへの影響を事前に確認する必要がある。\n\n## ラベル移行\n\nubuntu-latestラベルは、Ubuntu 24.04からUbuntu 26.04へ移行する。移行後にubuntu-latestを指定したワークフローでは、デフォルトで最新のサポート対象UbuntuリリースとなるUbuntu 26.04が使われる。\n\nこのため、ワークフローファイルを変更していなくても、ubuntu-latestを利用している場合は実行環境が切り替わる。特定のイメージを明示せず、ubuntu-latestに依存しているワークフローは、移行前の確認対象となる。\n\n## 実行環境の指定\n\n新しいイメージを利用するには、ワークフローファイルのruns-onにubuntu-26.04またはubuntu-26.04-armを設定する。これにより、ubuntu-latestの移行開始を待たずにUbuntu 26.04のランナー上でワークフローを実行し、動作を検証できる。\n\nx64とarm64の両方が正式サポートの対象であり、本番ワークフローで利用可能とされている。\n\n## ツール変更に注意\n\nUbuntu 26.04では、以前のイメージと比べてツールやツールのバージョンが更新され、一部は削除されている。特定のソフトウェアバージョンや、あらかじめインストールされたパッケージに依存するワークフローは、こうした変更によって動作しなくなる可能性がある。\n\nubuntu-latestの移行前に変更点の全一覧を確認し、Ubuntu 26上で既存ワークフローをテストすることが求められる。",
       "bodyEn": "## Ubuntu 26.04 runner image\n\nThe Ubuntu 26.04 runner image for GitHub Actions is out of public preview and fully supported for production workflows. It is available for both x64 and arm64, allowing workflows on either architecture to use the new image directly.\n\nThe release also begins a change to the default Ubuntu environment used by GitHub Actions. The ubuntu-latest label will migrate from Ubuntu 24.04 to Ubuntu 26.04, making Ubuntu 26.04 the latest supported Ubuntu release selected through that label.\n\n## Run your workflows\n\nWorkflows can target the Ubuntu 26.04 image explicitly through the runs-on setting in a workflow file. For x64, set runs-on to ubuntu-26.04. For arm64, use ubuntu-26.04-arm.\n\nSelecting the image explicitly gives teams a way to run workflows on Ubuntu 26.04 before the ubuntu-latest migration. This also provides an opportunity to check whether existing workflow steps continue to operate with the software included in the new runner image.\n\n## Updated and removed tools\n\nUbuntu 26.04 contains updated tools and tool versions compared with earlier images. In some cases, tools or versions that were available previously have been removed.\n\nThese differences can break workflows that depend on a particular software version or assume that a package is already installed. Workflows with such dependencies should therefore be tested against Ubuntu 26 before the migration starts.\n\nUsers should review the full list of changes and verify their workflows on the new image. Testing is particularly relevant for workflows that rely on bundled tools, specific versions, or preinstalled packages, because the move of ubuntu-latest from Ubuntu 24.04 to Ubuntu 26.04 will change the image selected by default.",
@@ -11610,44 +11534,6 @@
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T16:07:56.531Z"
     },
-    "571c8c47df881aa3": {
-      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
-      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
-          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
-          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
-        },
-        {
-          "s": "a",
-          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
-          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
-          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
-          "en": "I’d line up a few review agents and compare which one might suit me best."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
-          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T12:37:57.149Z"
-    },
     "4c9d688cf44b534e": {
       "bodyJa": "## 巨大な変更\n\nGitHub Copilotアプリでは、巨大な差分と大量の会話を含む場合でも、高速で滑らかに確認できるようプルリクエスト画面を刷新した。分割しにくい移行や広範なリファクタリングを、一つの変更としてレビューする場面を想定した取り組みだ。\n\n## 分割しにくい変更\n\n作業を小さな変更に分けるスタック型のプルリクエストは、レビューを容易にし、チームがより少ないリスクで変更を届けるのに役立つ。しかし、広範なリファクタリングや移行の中には、きれいに分割できず、一つのプルリクエストとしてまとめる必要があるものも存在する。さらにレビューでのやり取りが加わると、その規模は一段と大きくなる。\n\n## レビュー性能\n\n刷新時に重視されたのは、差分だけでなく、それに伴う会話まで巨大になった状況でレビュー体験を維持することだ。大規模な変更では、ファイル数や変更行数に加え、各箇所に付くインラインレビューコメントも確認対象となる。GitHub Copilotアプリの新しいプルリクエスト画面は、こうした要素を含む極端なケースでも快適に確認できるよう再構築された。\n\n## 2,200ファイル\n\n性能の検証には、見つけられた中で最大のオープンソースのプルリクエストが使われた。その規模は2,200ファイル、100万行を超える変更、400件を超えるインラインレビューコメントに達する。この検証により、単純に差分が大きいだけでなく、レビューの会話も膨らんだプルリクエストを扱えることが示されている。",
       "bodyEn": "## Broad refactors and migrations\n\nThe GitHub Copilot app has rebuilt its pull request view to handle exceptionally large changes while keeping reviews fast and smooth. This matters for teams working on broad refactors or migrations that need to land as a single change rather than being divided cleanly.\n\nStacked pull requests can split work into smaller changes, making reviews easier and helping teams ship with less risk. However, that approach does not fit every change. Some refactors and migrations cannot be separated cleanly, leaving reviewers with one pull request that may become very large.\n\nThe pull request can continue growing as the review conversation develops. As a result, the review experience must handle both an enormous diff and an extensive discussion without becoming slow or difficult to navigate.\n\n## Pull request view\n\nThe pull request view in the GitHub Copilot app was rebuilt with this requirement in mind. Its focus is maintaining a fast, smooth review experience even when the amount of changed material and the associated conversation are unusually large.\n\nThe work addresses the practical review conditions created by changes that must remain together. Instead of relying on the pull request being divided into smaller units, the rebuilt view is intended to remain performant when presented with a single, extensive change.\n\n## Biggest pull request\n\nTo test how far the rebuilt view could go, the team opened the biggest pull request it could find. The open source pull request contained 2,200 files, more than a million changed lines, and over 400 inline review comments.\n\nThis test combined a very large file count and diff with a substantial inline review conversation. According to the announcement, the rebuilt pull request view made even this extreme pull request performant. The result is aimed at teams reviewing massive refactors and migrations whose structure prevents them from being split cleanly into smaller pull requests.",
@@ -12107,6 +11993,56 @@
       "bodyEn": "Reachy Mini, the compact desktop robot developed by Pollen Robotics and backed by Hugging Face, can now operate entirely on local large language models, removing the need for a constant cloud connection. The update matters because it addresses two persistent concerns for anyone deploying conversational robots: keeping user data private, and ensuring the device keeps working when the network does not.\n\nUntil recently, many voice-driven robotic assistants relied on remote inference services to transcribe speech and generate replies. That approach can deliver strong model quality, but it introduces trade-offs, including network latency, recurring API costs, and the transmission of potentially sensitive audio to third-party servers. By running the full conversational pipeline locally, Reachy Mini keeps captured audio and generated text on the device or on a nearby machine that the user controls. For classrooms, labs, and home environments where connectivity is unreliable or where privacy is a priority, that shift meaningfully broadens where and how the robot can be used.\n\nThe local configuration appears to combine several open components that have matured over the past two years. Speech recognition can be handled by compact automatic speech recognition models, such as Whisper variants, while response generation runs on smaller language models that have been optimized and quantized to fit modest memory budgets. Text-to-speech synthesis closes the loop, allowing the robot to listen, reason, and speak without any request leaving the local environment. Tooling like llama.cpp and Ollama has made it considerably easier to serve such models on consumer-grade CPUs and GPUs, and the availability of capable small language models means that useful on-device performance no longer requires a data-center accelerator.\n\nThere are practical constraints worth noting. Local models that fit on limited hardware are generally less capable than the largest cloud-hosted systems, so responses may be shorter, slower, or less nuanced depending on the chosen model and the hardware it runs on. Reachy Mini is offered in more than one form, including a version built around a Raspberry Pi and a lighter variant intended to be tethered to a more powerful computer. The realistic quality of the fully local experience is therefore likely to vary with the setup, and users can trade off model size against responsiveness to suit their needs.\n\nReachy Mini fits into a broader strategy at Hugging Face, which acquired Pollen Robotics in 2025 and has been expanding from hosting models and datasets into physical AI and robotics. The robot is positioned as an open-source, hackable platform aimed at developers, educators, and researchers rather than as a polished consumer appliance. It is designed to be programmed in Python, to integrate with the Hugging Face Hub, and to draw on the company's growing robotics stack, including the LeRobot library that provides shared tooling for robot learning and control. Enabling local operation is consistent with that open ethos, since it lets builders inspect, swap, and fine-tune each component of the pipeline rather than depend on a closed service.\n\nThe move also reflects a wider industry shift toward on-device and edge AI. Chipmakers and framework maintainers have invested heavily in running inference closer to the user, and techniques such as quantization, distillation, and efficient attention have steadily reduced the footprint of capable models. Companies across the sector have promoted offline assistants and privacy-preserving inference as differentiators, and open-weight model families have made it feasible for smaller teams to assemble competitive local systems. A conversational robot that runs without the cloud is a natural expression of that trend, bringing the tangible benefits of edge computing into a physical, interactive product.\n\nFor prospective users, the change lowers a meaningful barrier: there is no requirement to send children's voices, meeting audio, or personal conversations to an external API, and no ongoing subscription is needed simply to keep the robot talking. It remains to be seen how the local experience compares with cloud-backed alternatives across languages and complex tasks, and much will depend on which models the community adopts. Even so, the addition of a fully local mode strengthens Reachy Mini's appeal as an open, flexible platform for experimenting with embodied AI, and it aligns the product with the growing expectation that on-device intelligence should be a first-class option rather than an afterthought.",
       "model": "claude-opus-4.8",
       "generatedAt": "2026-07-11T06:30:38.293Z"
+    },
+    "80955af470da00f0": {
+      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
+      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
+          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
+          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
+        },
+        {
+          "s": "a",
+          "ja": "シークレットって、秘密のコードってこと？",
+          "en": "Does “secret” mean secret code?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
+          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
+          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
+          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T20:07:43.460Z"
+    },
+    "021807f22be722c3": {
+      "bodyJa": "## 2日で利用枠\n\n個人開発でGitHub Copilot Proを使い、設計から実装、リファクタリング、リポジトリ解析まで進めたところ、わずか2日で月間のレート制限に達したという。想定以上にCreditsを消費しており、翌月まで利用できないため、コスト管理とツール選定が課題になった。\n\n## OpenCode Go\n\n上位プランも選択肢にあるものの、小規模な個人開発では判断に迷うとして、別の選択肢を調査している。そこで取り上げられたのが、OSSのターミナルAIコーディングエージェント「OpenCode」のGo実装だ。記事では、GitHub Copilot Proの利用枠を短期間で使い切った経験を起点に、日常の開発で検討できる、コストを意識した代替候補としてOpenCode Goを紹介している。",
+      "bodyEn": "## GitHub Copilot Pro\n\nThe article examines a cost-management problem in personal development: the author exhausted GitHub Copilot Pro’s monthly quota in just two days. Because the rate limit is monthly, access would not become available again until the following month.\n\nThe author attributes the unexpectedly high credit consumption to using the service across design, implementation, refactoring, and repository analysis. Although moving to a higher plan was an option, the author was unsure whether that made sense for a small-scale personal project.\n\n## OpenCode Go\n\nIn response, the author looked for another option and investigated OpenCode Go. The article presents it as a Go implementation of OpenCode, an open-source, terminal-based AI coding agent.\n\nThe focus is not a new GitHub Copilot feature, but the practical choice of an alternative after reaching the existing quota. According to the summary, OpenCode Go is considered from the perspective of controlling costs and selecting a tool suitable for regular development workflows.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T20:55:37.629Z"
+    },
+    "9881ffcc88fc92bf": {
+      "bodyJa": "大規模言語モデルを業務システムに組み込む際、避けて通れないのがコスト管理だ。Anthropicが提供するClaude APIには、リクエストを実際に送信する前に入力トークン数を見積もれるcount_tokensエンドポイントが用意されており、これを活用することで予算超過や想定外の課金を事前に抑えられる。今回取り上げる記事は、このエンドポイントの実装方法と、料金試算でつまずきやすい3つのポイントを具体的に解説したものだ。\n\ncount_tokensは、messages APIと同じ構造のリクエストを受け取り、そのまま送った場合に消費される入力トークン数を返す仕組みとされる。ポイントは、ユーザーのメッセージ本文だけでなく、システムプロンプトやtool（関数呼び出し）の定義も計算対象に含まれる点にある。特にツール定義はJSONスキーマとして展開されるため、関数の数や引数の説明が増えるほどトークン数がかさみやすい。会話履歴に加えてこうした固定的な要素が毎回加算されることを見落とすと、実際の請求額と試算が乖離する可能性がある。\n\n記事が挙げる落とし穴の中でも重要なのは、count_tokensが返すのはあくまで入力トークンであり、モデルが生成する出力トークンは含まれないという点だ。多くの料金体系では出力トークンの単価が入力より高く設定されているため、入力側だけで試算すると総コストを過小評価しかねない。加えて、システムプロンプトやツール定義といった共通部分の扱い、そしてプロンプトキャッシュ利用時の課金差なども、見積もりと実測がずれる要因になり得る。\n\nこうしたトークン計測の重要性は、Claudeに限った話ではない。OpenAIが公開するtiktokenのようなトークナイザーライブラリや、各社が提供する料金計算ツールも同様の目的で使われている。ただし、モデルごとにトークン化の方式や課金の単位が異なるため、他社向けの計算をそのまま流用すると誤差が生じる恐れがある。公式のcount_tokensのようなAPI提供元自身の手段を用いるほうが、より正確な数値に近づけると考えられる。\n\nエージェント的な用途でツール呼び出しを多用する構成が広がる中、固定オーバーヘッドの把握はコスト予測の精度を大きく左右する。実運用に踏み出す前に、こうした事前見積もりの仕組みを組み込んでおくことが、堅実なコスト設計の第一歩になるだろう。",
+      "bodyEn": "Estimating how many tokens a request will consume before it is sent to Claude has become a practical necessity for anyone building on the Anthropic API, both for staying within a model's context window and for keeping costs predictable. Anthropic's count_tokens endpoint addresses this directly by returning an exact input token count for a given payload, but using it correctly requires accounting for elements of a request that are easy to overlook.\n\nThe endpoint is available at /v1/messages/count_tokens and accepts essentially the same request structure as the Messages API itself. That means you can pass the model, the messages array, the system prompt, and any tools you intend to use, and receive back an input_token figure that reflects the full request as Claude would actually process it. Because the token count depends on the tokenizer associated with a specific model, the model field matters, and counts can differ between model families. The call is designed to be lightweight, and Anthropic documents it as free to use, though it is still subject to its own rate limits, so high-frequency counting in a tight loop can run into throttling.\n\nThe first common pitfall is treating the user message as the whole request. In many real applications the system prompt is long, sometimes containing detailed instructions, formatting rules, or few-shot examples that dwarf the actual user input. Every one of those tokens is billed as input on each call, and because the system prompt is resent with each stateless request, its cost is incurred repeatedly across a conversation. A naive estimate based only on visible user text can therefore understate real usage by a wide margin. Passing the system parameter to count_tokens, exactly as it will appear in production, is the only reliable way to capture this.\n\nThe second pitfall involves tool definitions. When you enable tool use, the JSON schemas describing each tool's name, description, and parameters are serialized and included in the input the model sees. These definitions can be surprisingly large, especially when a request exposes many tools or tools with deeply nested parameter schemas. Verbose descriptions written to improve the model's tool-selection accuracy carry a direct token cost, and that cost is paid on every request where the tools are attached, not just when a tool is actually invoked. Estimating tokens without including the tools array will consistently produce a figure lower than what you are billed. There is also additional overhead from the internal system-level instructions Anthropic injects to support tool use, which the endpoint accounts for but a hand-rolled tokenizer would not.\n\nThe third pitfall is in translating token counts into a cost figure. count_tokens reports only input tokens; it cannot know how many output tokens the model will generate, and output is typically priced at a higher per-token rate than input. Any cost projection must therefore combine a measured input count with an assumed or historically observed output length, and should make that assumption explicit. Pricing also varies by model, so a Haiku-tier estimate does not transfer to Sonnet or Opus tiers. Prompt caching complicates the arithmetic further: cached input tokens are billed at a reduced rate on cache hits but at a premium on cache writes, and the count_tokens response does not itself distinguish cached from uncached content. Overlooking these factors tends to produce estimates that look precise but are systematically off.\n\nAs background, this endpoint sits alongside a broader set of cost-control features. The usage object returned by ordinary Messages API responses reports actual input and output tokens after the fact, which is useful for reconciliation, while prompt caching and, more recently, batch processing offer ways to reduce spend for repeated or non-urgent workloads. Other providers offer comparable pre-flight tooling; OpenAI users often reach for the open-source tiktoken library, and community tokenizers exist for many models. Anthropic's server-side approach trades the offline convenience of a local library for the assurance that the count matches production billing, which is particularly valuable given that exact tokenization details are not always public.\n\nThe practical takeaway is that a trustworthy estimate mirrors the production request as closely as possible: the same model, the same system prompt, the same tool set, plus a reasoned assumption about output length and the correct per-model rates. Treated that way, count_tokens becomes a dependable input to budgeting rather than a source of false confidence.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T17:35:23.805Z"
     }
   }
 }

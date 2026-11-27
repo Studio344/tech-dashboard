@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T09:37:49.176Z",
+  "generatedAt": "2026-11-27T18:00:59.321Z",
   "month": "2026-07",
   "count": 1360,
   "entries": [
@@ -5482,7 +5482,7 @@
       "summaryEn": "Cursor has expanded to iPad, making the AI coding assistant available on Apple's tablet for all paid plan subscribers.",
       "lang": "en",
       "publishedAt": "2026-07-29T00:00:00.000Z",
-      "collectedAt": "2026-10-07T18:01:19.809Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "changelog",
         "cursor",
@@ -6692,7 +6692,7 @@
       "summaryEn": "Cursor has launched Cursor Start, a ₹649/month plan aimed at developers in India, offering local pricing and UPI payment support to make agentic development more accessible.",
       "lang": "en",
       "publishedAt": "2026-07-28T12:00:00.000Z",
-      "collectedAt": "2026-10-07T18:01:19.809Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "agent",
         "changelog",
@@ -14810,7 +14810,7 @@
       "summaryEn": "Cursor introduced Router, a feature that automatically directs requests to the most suitable model based on task context, improving both response quality and cost efficiency.",
       "lang": "en",
       "publishedAt": "2026-07-22T00:00:00.000Z",
-      "collectedAt": "2026-10-07T18:01:19.809Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "ai",
         "changelog",
@@ -22002,7 +22002,7 @@
       "summaryEn": "Cursor's Slack integration received several enhancements, making it easier and more efficient for teams to collaborate with the AI assistant directly in Slack.",
       "lang": "en",
       "publishedAt": "2026-07-17T00:00:00.000Z",
-      "collectedAt": "2026-10-07T18:01:19.809Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "changelog",
         "cursor",
@@ -35147,7 +35147,7 @@
       "summaryEn": "Cursor introduces Side Chats and Conversation Search, enabling users to run multiple chat threads simultaneously and quickly retrieve past conversations, significantly improving multitasking and workflow continuity.",
       "lang": "en",
       "publishedAt": "2026-07-10T00:00:00.000Z",
-      "collectedAt": "2026-10-07T18:01:19.809Z",
+      "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "changelog",
         "cursor",

@@ -1,25 +1,13 @@
 {
-  "generatedAt": "2026-11-27T09:37:49.176Z",
+  "generatedAt": "2026-11-27T18:00:59.321Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
-    "allTime": 8278,
-    "last30d": 68,
-    "last7d": 32,
-    "last24h": 4
+    "allTime": 8311,
+    "last30d": 86,
+    "last7d": 34,
+    "last24h": 1
   },
   "byDay": [
-    {
-      "date": "2026-08-29",
-      "count": 10,
-      "byCategory": {
-        "tech-news": 3,
-        "agent-fw": 1,
-        "cursor": 1,
-        "vscode": 2,
-        "local-llm": 1,
-        "copilot": 2
-      }
-    },
     {
       "date": "2026-08-30",
       "count": 2,
@@ -269,10 +257,11 @@
     },
     {
       "date": "2026-09-21",
-      "count": 6,
+      "count": 7,
       "byCategory": {
         "tech-news": 1,
         "vscode": 3,
+        "claude": 1,
         "agent-fw": 1,
         "copilot": 1
       }
@@ -495,9 +484,38 @@
     },
     {
       "date": "2026-10-13",
+      "count": 2,
+      "byCategory": {
+        "cursor": 1,
+        "copilot": 1
+      }
+    },
+    {
+      "date": "2026-10-14",
       "count": 1,
       "byCategory": {
         "copilot": 1
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "count": 1,
+      "byCategory": {
+        "vscode": 1
+      }
+    },
+    {
+      "date": "2026-10-16",
+      "count": 1,
+      "byCategory": {
+        "cursor": 1
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "count": 1,
+      "byCategory": {
+        "claude": 1
       }
     },
     {
@@ -509,8 +527,9 @@
     },
     {
       "date": "2026-10-20",
-      "count": 1,
+      "count": 2,
       "byCategory": {
+        "cursor": 1,
         "copilot": 1
       }
     },
@@ -522,10 +541,45 @@
       }
     },
     {
+      "date": "2026-10-22",
+      "count": 1,
+      "byCategory": {
+        "vscode": 1
+      }
+    },
+    {
+      "date": "2026-10-23",
+      "count": 1,
+      "byCategory": {
+        "tech-news": 1
+      }
+    },
+    {
+      "date": "2026-10-24",
+      "count": 1,
+      "byCategory": {
+        "tech-news": 1
+      }
+    },
+    {
       "date": "2026-10-25",
       "count": 2,
       "byCategory": {
         "mcp": 2
+      }
+    },
+    {
+      "date": "2026-10-26",
+      "count": 1,
+      "byCategory": {
+        "claude": 1
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "count": 2,
+      "byCategory": {
+        "tech-news": 2
       }
     },
     {
@@ -537,9 +591,10 @@
     },
     {
       "date": "2026-10-29",
-      "count": 1,
+      "count": 2,
       "byCategory": {
-        "mcp": 1
+        "mcp": 1,
+        "vscode": 1
       }
     },
     {
@@ -551,17 +606,20 @@
     },
     {
       "date": "2026-11-05",
-      "count": 2,
+      "count": 4,
       "byCategory": {
         "agent-fw": 1,
-        "mcp": 1
+        "cursor": 1,
+        "mcp": 1,
+        "vscode": 1
       }
     },
     {
       "date": "2026-11-06",
-      "count": 2,
+      "count": 3,
       "byCategory": {
         "opencode": 1,
+        "cursor": 1,
         "research": 1
       }
     },
@@ -575,10 +633,11 @@
     },
     {
       "date": "2026-11-10",
-      "count": 2,
+      "count": 3,
       "byCategory": {
         "opencode": 1,
-        "local-llm": 1
+        "local-llm": 1,
+        "tech-news": 1
       }
     },
     {
@@ -593,10 +652,11 @@
     },
     {
       "date": "2026-11-12",
-      "count": 3,
+      "count": 4,
       "byCategory": {
         "opencode": 2,
-        "tech-news": 1
+        "tech-news": 1,
+        "vscode": 1
       }
     },
     {
@@ -624,39 +684,43 @@
     },
     {
       "date": "2026-11-18",
-      "count": 3,
+      "count": 5,
       "byCategory": {
         "mcp": 1,
-        "tech-news": 1,
+        "claude": 1,
+        "tech-news": 2,
         "research": 1
       }
     },
     {
       "date": "2026-11-19",
-      "count": 3,
+      "count": 8,
       "byCategory": {
+        "cursor": 4,
         "tech-news": 2,
+        "vscode": 1,
         "opencode": 1
       }
     },
     {
       "date": "2026-11-20",
-      "count": 7,
+      "count": 9,
       "byCategory": {
         "tech-news": 2,
         "gemini": 2,
-        "local-llm": 1,
-        "claude": 2
+        "claude": 4,
+        "local-llm": 1
       }
     },
     {
       "date": "2026-11-21",
-      "count": 8,
+      "count": 10,
       "byCategory": {
         "cline": 1,
         "local-llm": 3,
         "tech-news": 3,
-        "opencode": 1
+        "opencode": 1,
+        "cursor": 2
       }
     },
     {
@@ -688,10 +752,12 @@
     },
     {
       "date": "2026-11-26",
-      "count": 6,
+      "count": 9,
       "byCategory": {
         "cline": 4,
-        "copilot": 2
+        "copilot": 2,
+        "cursor": 2,
+        "vscode": 1
       }
     },
     {
@@ -965,17 +1031,17 @@
       "month": "2026-03",
       "count": 100,
       "byCategory": {
+        "codex": 38,
+        "research": 7,
         "local-llm": 7,
         "gemini": 8,
+        "opencode": 2,
         "copilot": 10,
+        "tech-news": 4,
         "vscode": 4,
         "agent-fw": 8,
         "cursor": 6,
         "claude": 3,
-        "codex": 38,
-        "research": 7,
-        "opencode": 2,
-        "tech-news": 4,
         "mcp": 3
       }
     },
@@ -992,8 +1058,8 @@
         "copilot": 4,
         "tech-news": 21,
         "mcp": 1,
-        "codex": 67,
         "local-llm": 14,
+        "codex": 67,
         "cline": 10,
         "research": 2
       }
@@ -1023,8 +1089,8 @@
       "byCategory": {
         "local-llm": 170,
         "codex": 23,
-        "cursor": 154,
         "claude": 194,
+        "cursor": 154,
         "tech-news": 277,
         "mcp": 441,
         "opencode": 7,
@@ -1076,7 +1142,7 @@
     },
     {
       "month": "2026-09",
-      "count": 361,
+      "count": 362,
       "byCategory": {
         "cursor": 24,
         "copilot": 71,
@@ -1089,41 +1155,43 @@
         "agent-fw": 32,
         "opencode": 8,
         "codex": 3,
-        "claude": 16,
+        "claude": 17,
         "mcp": 3
       }
     },
     {
       "month": "2026-10",
-      "count": 129,
+      "count": 142,
       "byCategory": {
         "research": 5,
         "mcp": 5,
+        "vscode": 15,
         "agent-fw": 7,
-        "copilot": 18,
-        "cursor": 7,
-        "vscode": 12,
+        "tech-news": 38,
+        "claude": 7,
+        "copilot": 19,
+        "cursor": 10,
         "cline": 10,
-        "tech-news": 34,
         "local-llm": 15,
         "gemini": 7,
-        "claude": 5,
         "opencode": 1,
         "codex": 3
       }
     },
     {
       "month": "2026-11",
-      "count": 65,
+      "count": 84,
       "byCategory": {
         "mcp": 4,
         "local-llm": 11,
         "cline": 5,
         "copilot": 5,
+        "cursor": 10,
+        "vscode": 4,
         "opencode": 10,
-        "tech-news": 18,
+        "tech-news": 20,
         "gemini": 4,
-        "claude": 2,
+        "claude": 5,
         "research": 4,
         "agent-fw": 2
       }
@@ -1256,6 +1324,11 @@
       "last30d": 0
     },
     {
+      "source": "zed-releases",
+      "total": 114,
+      "last30d": 8
+    },
+    {
       "source": "google-keyword",
       "total": 113,
       "last30d": 0
@@ -1268,11 +1341,6 @@
     {
       "source": "microsoft-source",
       "total": 110,
-      "last30d": 0
-    },
-    {
-      "source": "zed-releases",
-      "total": 106,
       "last30d": 0
     },
     {
@@ -1292,8 +1360,8 @@
     },
     {
       "source": "cursor-changelog",
-      "total": 83,
-      "last30d": 0
+      "total": 88,
+      "last30d": 2
     },
     {
       "source": "openhands-releases",
@@ -1311,14 +1379,14 @@
       "last30d": 0
     },
     {
-      "source": "github-copilot",
-      "total": 44,
+      "source": "anthropic-news",
+      "total": 48,
       "last30d": 3
     },
     {
-      "source": "anthropic-news",
-      "total": 42,
-      "last30d": 0
+      "source": "vscode-updates",
+      "total": 40,
+      "last30d": 4
     },
     {
       "source": "aws-news",
@@ -1326,14 +1394,14 @@
       "last30d": 0
     },
     {
+      "source": "github-copilot",
+      "total": 36,
+      "last30d": 0
+    },
+    {
       "source": "meta-newsroom",
       "total": 35,
       "last30d": 4
-    },
-    {
-      "source": "vscode-updates",
-      "total": 33,
-      "last30d": 0
     },
     {
       "source": "simonw-blog",
@@ -1346,8 +1414,18 @@
       "last30d": 6
     },
     {
+      "source": "netflix-techblog",
+      "total": 30,
+      "last30d": 2
+    },
+    {
       "source": "semantic-kernel-releases",
       "total": 29,
+      "last30d": 2
+    },
+    {
+      "source": "github-blog-ai",
+      "total": 27,
       "last30d": 3
     },
     {
@@ -1361,11 +1439,6 @@
       "last30d": 0
     },
     {
-      "source": "netflix-techblog",
-      "total": 24,
-      "last30d": 0
-    },
-    {
       "source": "mcp-servers-releases",
       "total": 23,
       "last30d": 4
@@ -1373,11 +1446,6 @@
     {
       "source": "microsoft-foundry",
       "total": 23,
-      "last30d": 0
-    },
-    {
-      "source": "github-blog-ai",
-      "total": 18,
       "last30d": 0
     },
     {
@@ -1422,8 +1490,8 @@
     }
   ],
   "byImportance": {
-    "1": 4649,
-    "2": 3280,
-    "3": 349
+    "1": 4653,
+    "2": 3308,
+    "3": 350
   }
 }

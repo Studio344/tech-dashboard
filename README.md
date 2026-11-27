@@ -593,7 +593,7 @@ tech-dashboard/
 │  │  ├─ lib/source-meta.ts  # web 自己完結用の sources メタ複製 (R-005)
 │  │  ├─ lib/site.ts         # canonical URL 単一情報源 (R-004)
 │  │  ├─ lib/detail-addressability.ts # JSON-free な live/hot/warm detail route policy (到達可能性)
-│  │  ├─ lib/detail-indexability.ts   # sitemap 収録 + robots meta を決める索引可能性 policy (実本文が条件)
+│  │  ├─ lib/detail-indexability.ts   # sitemap 収録 + robots meta を決める索引可能性 policy (現在は DETAIL_PAGES_INDEXABLE=false で全件 noindex)
 │  │  ├─ lib/body-quality.ts          # JSON-free な「実本文か filler か」述語 (bodies.ts / e2e が共有)
 │  │  ├─ lib/sitemap.ts      # indexable route 列挙 + 50,000 URL / 50 MB fail-closed serializer
 │  │  ├─ styles/portal.css   # 全 CSS (モバイル最適化済み)

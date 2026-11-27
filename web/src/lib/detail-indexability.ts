@@ -3,9 +3,10 @@ import {
   isAddressableDetailEntry,
   type DetailAddressableEntry,
 } from "./detail-addressability.ts";
-import { isNonIndexableLane } from "./detail-index-policy.ts";
+import { DETAIL_PAGES_INDEXABLE, isNonIndexableLane } from "./detail-index-policy.ts";
 
 export {
+  DETAIL_PAGES_INDEXABLE,
   NON_INDEXABLE_SOURCE_TYPES,
   isNonIndexableLane,
 } from "./detail-index-policy.ts";
@@ -18,6 +19,11 @@ export {
  *   stays reachable, so inbound links, feed items, and in-site cards never 404.
  * - indexable (this module): the route is also listed in sitemap.xml and served
  *   with `index, follow`.
+ *
+ * Site-wide switch first: while DETAIL_PAGES_INDEXABLE (detail-index-policy.ts)
+ * is false, NO detail page is indexable, whatever the per-entry criteria say.
+ * The rest of this note describes those per-entry criteria
+ * (meetsDetailIndexCriteria), which apply once the switch is back on.
  *
  * A detail page earns indexing only once data/bodies.json holds a real
  * long-form body for it. A summary-only page carries an AI digest plus a link
@@ -56,7 +62,14 @@ export interface DetailIndexableEntry extends DetailAddressableEntry {
   sourceType?: string;
 }
 
-export function isIndexableDetailEntry(entry: DetailIndexableEntry): boolean {
+/**
+ * True when the entry would be indexable on its own merits: released, not
+ * decayed, outside the excluded lane, and carrying a real source-grounded
+ * body. This is the per-entry half of the decision; it ignores the site-wide
+ * DETAIL_PAGES_INDEXABLE switch so the criteria stay testable while the switch
+ * is off.
+ */
+export function meetsDetailIndexCriteria(entry: DetailIndexableEntry): boolean {
   // The publication gate lives HERE, not in route existence: a held entry
   // keeps its /e/[id]/ route so card titles always land in-site, but stays
   // `noindex` and out of the sitemap until released. This is what keeps a
@@ -75,6 +88,16 @@ export function isIndexableDetailEntry(entry: DetailIndexableEntry): boolean {
   // cannot be bypassed here: a body generated without a usable source excerpt
   // must not make its page indexable either.
   return isAddressableDetailEntry(entry) && hasRealBody(entry);
+}
+
+/**
+ * The indexing decision for one detail route: the site-wide switch AND the
+ * per-entry criteria. While DETAIL_PAGES_INDEXABLE is false (the current
+ * AdSense remediation, see detail-index-policy.ts) every detail page is
+ * `noindex, follow` and none is listed in sitemap.xml.
+ */
+export function isIndexableDetailEntry(entry: DetailIndexableEntry): boolean {
+  return DETAIL_PAGES_INDEXABLE && meetsDetailIndexCriteria(entry);
 }
 
 /**

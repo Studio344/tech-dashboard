@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T13:52:31.658Z",
+  "generatedAt": "2026-10-06T13:31:25.437Z",
   "month": "2025-10",
   "count": 88,
   "entries": [
@@ -530,7 +530,7 @@
       "summaryEn": "huggingface_hub reaches v1.0 after five years of development, signaling a stable, production-ready API for interacting with the Hugging Face Hub. This milestone solidifies its role as the foundational toolkit for the open ML ecosystem.",
       "lang": "en",
       "publishedAt": "2025-10-27T00:00:00.000Z",
-      "collectedAt": "2026-09-16T08:03:32.552Z",
+      "collectedAt": "2026-10-02T14:31:13.774Z",
       "tags": [
         "huggingface",
         "huggingface-hub",
@@ -644,7 +644,7 @@
       "summaryEn": "MedGemma adds Gemma 3-based 4B and 27B multimodal models and the MedSigLIP image encoder, helping developers fine-tune and run medical image-and-text AI locally.",
       "lang": "en",
       "publishedAt": "2025-10-25T18:02:50.000Z",
-      "collectedAt": "2026-09-13T16:42:01.871Z",
+      "collectedAt": "2026-09-24T16:00:37.699Z",
       "tags": [
         "deepmind",
         "gemma-3",
@@ -661,7 +661,7 @@
       "importance": 3,
       "halfLife": "news",
       "archiveTier": "cold",
-      "contentSnippet": "We’re announcing new multimodal models in the MedGemma collection, our most capable open models for health AI development.",
+      "contentSnippet": "Daniel Golden, Engineering Manager, and Rory Pilgrim, Product Manager, Google Research We’re announcing new multimodal models in the MedGemma collection, our most capable open models for health AI development. Healthcare is increasingly embracing AI to improve workflow management, patient communication, and diagnostic and treatment support. It’s critical that these AI-based systems are not only high-performing, but also efficient and privacy-preserving. It’s with these considerations in mind that we built and recently released Health AI Developer Foundations (HAI-DEF). HAI-DEF is a collection of lightweight open models designed to offer developers robust starting points for their own health research and application development. Because HAI-DEF models are open, developers retain full control over privacy, infrastructure and modifications to the models.",
       "image": {
         "src": "https://lh3.googleusercontent.com/9ORfmyRK985B2p8J18NGBCEKWe9deGWaYCxvKtMg8FULW2eiShH-OfZh72wAXROrpcC4UalsW_cGIVzBssP8Q3NZJEQbsD9RwWvy9tJpzNpTNklHqQ=w528-h297-n-nu-rw-lo",
         "origSrc": "https://lh3.googleusercontent.com/9ORfmyRK985B2p8J18NGBCEKWe9deGWaYCxvKtMg8FULW2eiShH-OfZh72wAXROrpcC4UalsW_cGIVzBssP8Q3NZJEQbsD9RwWvy9tJpzNpTNklHqQ=w528-h297-n-nu-rw-lo",
@@ -669,7 +669,9 @@
         "width": 0,
         "height": 0,
         "source": "media"
-      }
+      },
+      "excerptOrigin": "article",
+      "feedSnippet": "We’re announcing new multimodal models in the MedGemma collection, our most capable open models for health AI development."
     },
     {
       "id": "697e098af371935a",
@@ -1876,29 +1878,28 @@
       "sourceType": "blog",
       "url": "https://dora.dev/insights/builder-mindset/",
       "title": "Understanding builder intent in the AI era",
-      "titleJa": "AI時代における「ビルダー意図」の理解とDORAの新視点",
+      "titleJa": "AI時代における作り手の意図を理解する",
       "titleEn": "Understanding builder intent in the AI era",
-      "summaryJa": "AIがコード生成を担う時代に、DORAは人間の「ビルダーとしての意図」こそが成果を左右すると指摘。目的意識・判断・責任の質を捉える「ビルダーマインドセット」枠組みを提示し、4つの中核的意図を定義している。",
-      "summaryEn": "As AI decouples roles from tasks, DORA introduces a \"Builder Mindset\" framework defining four core intents, arguing that the quality of human intent now drives software delivery performance.",
+      "summaryJa": "DORAの調査は、AIによって職種の枠を超えたソフトウェア開発作業が可能になる変化を分析し、作り手の意図に基づく人物像の必要性を示す。製品チームが経験者と新規参入者双方のニーズを捉え、適切な製品設計を行うのに役立つ。",
+      "summaryEn": "DORA research examines how AI lets software builders work beyond traditional job boundaries and calls for intent-based personas, helping product teams address real user needs.",
       "lang": "en",
       "publishedAt": "2025-10-17T00:00:00.000Z",
-      "collectedAt": "2026-09-16T13:52:10.940Z",
+      "collectedAt": "2026-10-06T13:31:09.501Z",
       "tags": [
-        "ai-automation",
-        "ai-coding",
-        "builder-mindset",
-        "developer-productivity",
+        "ai-assisted-development",
+        "builder-intent",
+        "developer-personas",
         "devops",
-        "devops-metrics",
         "dora",
-        "research",
-        "software-delivery"
+        "research"
       ],
       "category": "research",
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "warm",
-      "contentSnippet": "As AI decouples roles from tasks, traditional developer personas are becoming less relevant. This article introduces the &ldquo;Builder Mindset&rdquo; framework, identifying four core intents—Founder, Optimizer, Accelerator, and Learner—to help teams design better AI-assisted experiences."
+      "contentSnippet": "Download the ROI of AI-assisted Software Development report. AI is fundamentally changing software development, not just how people build, but who can build. For years, a developer’s identity was closely tied to their role. A title like “front-end engineer” was a reliable predictor of their skills, tools, and goals. But as AI abstracts away technical complexity, it decouples a person’s role from the tasks they can perform, triggering a shift in developer identity for seasoned professionals and newcomers alike. Because of this, the role-based personas that product teams have traditionally relied on are failing to capture a software builder’s true needs. These labels are too simplistic in an era where a person’s job title or skillset no longer predicts their goals.",
+      "feedSnippet": "As AI decouples roles from tasks, traditional developer personas are becoming less relevant. This article introduces the &ldquo;Builder Mindset&rdquo; framework, identifying four core intents—Founder, Optimizer, Accelerator, and Learner—to help teams design better AI-assisted experiences.",
+      "excerptOrigin": "article"
     },
     {
       "id": "c1a14d8c20f23ef0",

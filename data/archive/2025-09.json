@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-16T13:52:31.658Z",
+  "generatedAt": "2026-10-01T13:01:21.370Z",
   "month": "2025-09",
   "count": 70,
   "entries": [
@@ -15,7 +15,7 @@
       "summaryEn": "AutoGen's Python edition ships a maintenance release with fixes for streaming Bedrock responses using empty tool arguments, RedisMemory linear memory support, and documentation typo corrections.",
       "lang": "en",
       "publishedAt": "2025-09-30T06:18:26.000Z",
-      "collectedAt": "2026-09-16T13:52:10.940Z",
+      "collectedAt": "2026-10-01T13:01:05.642Z",
       "tags": [
         "agent",
         "autogen",
@@ -447,7 +447,7 @@
       "summaryEn": "The MCP team shared a timeline and priority breakdown for the upcoming protocol specification version, giving developers clarity on what changes to expect and when.",
       "lang": "en",
       "publishedAt": "2025-09-26T18:00:00.000Z",
-      "collectedAt": "2026-09-13T16:42:01.871Z",
+      "collectedAt": "2026-10-01T10:01:19.809Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -461,8 +461,8 @@
       "halfLife": "architecture",
       "archiveTier": "warm",
       "contentSnippet": "Update (November 11, 2025): The specification release candidate (RC) date has been shifted from November 11th to November 14th, 2025 . The specification release date remains to be November 25th, 2025 . The next version of the Model Context Protocol specification will be released on November 25th, 2025 , with a release candidate (RC) available on November 11th, 2025 . We’re building in a 14-day RC validation window so client implementors and SDK maintainers can thoroughly test the protocol changes. This approach gives us the focused time we need to deliver critical improvements while applying our new governance model to the process. Our last spec was released on June 18, 2025, and focused on structured tool outputs, OAuth-based authorization, elicitation for server-initiated user interactions, and improved security best practices.",
-      "feedSnippet": "An update on the timeline and priorities for the next Model Context Protocol specification version",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "An update on the timeline and priorities for the next Model Context Protocol specification version"
     },
     {
       "id": "3ec67b20acdeb55f",
@@ -570,7 +570,7 @@
       "importance": 1,
       "halfLife": "news",
       "archiveTier": "cold",
-      "contentSnippet": "Release : v2025.9.25 Updated packages @modelcontextprotocol/server-everything@2025.9.25 @modelcontextprotocol/server-memory@2025.9.25 mcp-server-git@2025.9.25 mcp-server-time@2025.9.25",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . @modelcontextprotocol/server-everything@2025.9.25 @modelcontextprotocol/server-memory@2025.9.25 There was an error while loading. Please reload this page . You can’t perform that action at this time.",
       "image": {
         "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
         "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
@@ -578,7 +578,9 @@
         "width": 0,
         "height": 0,
         "source": "media"
-      }
+      },
+      "feedSnippet": "Release : v2025.9.25 Updated packages @modelcontextprotocol/server-everything@2025.9.25 @modelcontextprotocol/server-memory@2025.9.25 mcp-server-git@2025.9.25 mcp-server-time@2025.9.25",
+      "excerptOrigin": "article"
     },
     {
       "id": "3be8fcfea73307c9",
@@ -749,7 +751,7 @@
       "summaryEn": "DORA research finds that letting developers customize their workflows and AI tools boosts engagement, productivity, and well-being, urging organizations to build flexibility into tool choice and operations.",
       "lang": "en",
       "publishedAt": "2025-09-23T00:00:00.000Z",
-      "collectedAt": "2026-09-16T13:52:10.940Z",
+      "collectedAt": "2026-10-01T07:00:58.923Z",
       "tags": [
         "ai-coding-assistants",
         "customization",
@@ -765,7 +767,9 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "warm",
-      "contentSnippet": "While AI coding assistants excel at mechanical tasks, research with UC Berkeley students reveals they can introduce friction and cognitive load during complex, interpretive work. By customizing AI tools to align with specific tasks and preferences, developers can reduce this friction and create a more efficient, satisfying development experience."
+      "contentSnippet": "Download the ROI of AI-assisted Software Development report. This DORA Insight is an excerpt from the 2025 DORA report, State of AI-Assisted Software Development . As AI assistants become more common in development work, a graduate research team at UC Berkeley studied how student developers use AI-powered integrated development environments (IDEs) in practice. Using eye-tracking data and interviews, the team observed how Python developers with between one and five years of experience tackled two short tasks: one involving an unfamiliar library, and another requiring interpretation of a cryptic function. By applying insights from this study, developers of all experience levels may find ways of working with AI coding assistants that are more attuned to their needs. To reduce friction and better support focused work, developers and teams can customize their AI tools.",
+      "excerptOrigin": "article",
+      "feedSnippet": "While AI coding assistants excel at mechanical tasks, research with UC Berkeley students reveals they can introduce friction and cognitive load during complex, interpretive work. By customizing AI tools to align with specific tasks and preferences, developers can reduce this friction and create a more efficient, satisfying development experience."
     },
     {
       "id": "13c7a029c506b001",
@@ -1116,7 +1120,7 @@
       "summaryEn": "LeRobotDataset v3.0 introduces large-scale dataset support for the lerobot framework, making it significantly easier to manage and train on high-volume robot learning data.",
       "lang": "en",
       "publishedAt": "2025-09-16T00:00:00.000Z",
-      "collectedAt": "2026-09-16T08:03:32.552Z",
+      "collectedAt": "2026-09-30T20:00:35.773Z",
       "tags": [
         "dataset",
         "huggingface",
@@ -1236,27 +1240,29 @@
       "sourceType": "release",
       "url": "https://github.com/modelcontextprotocol/servers/releases/tag/2025.9.12",
       "title": "MCP Servers Releases 2025.9.12",
-      "titleJa": "MCP Servers リファレンス実装の定期リリース 2025.9.12",
+      "titleJa": "MCP Servers 2025.9.12 リリース",
       "titleEn": "MCP Servers Releases 2025.9.12",
-      "summaryJa": "Anthropic主導のModel Context Protocol公式リポジトリが、リファレンスサーバー群の定期リリース2025.9.12を公開した。日付ベースのバージョニングで継続的に保守されるサンプル実装の更新で、各種ツール連携の改善が含まれる見込みだ。",
-      "summaryEn": "MCP Servers Releases 2025.9.12 is a mcp entry from mcp-servers-releases.",
+      "summaryJa": "MCP Servers 2025.9.12は、Model Context Protocolのリファレンスサーバー群を日付ベースの版として公開した定期更新だ。MCP対応ツールの開発者が最新の実装基準を確認できる。",
+      "summaryEn": "MCP Servers 2025.9.12 publishes a date-versioned update to the Model Context Protocol reference server collection, giving MCP developers a current implementation baseline.",
       "lang": "en",
       "publishedAt": "2025-09-12T19:58:34.000Z",
       "collectedAt": "2026-08-18T10:15:48.942Z",
       "tags": [
         "anthropic",
+        "developer-tools",
         "llm-tooling",
         "mcp",
         "mcp-server",
         "model-context-protocol",
         "open-source",
+        "reference-implementation",
         "release"
       ],
       "category": "mcp",
       "importance": 1,
       "halfLife": "news",
       "archiveTier": "cold",
-      "contentSnippet": "Release 2025.9.12",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . You can’t perform that action at this time.",
       "image": {
         "src": "https://avatars.githubusercontent.com/u/65916846?s=60&v=4",
         "origSrc": "https://avatars.githubusercontent.com/u/65916846?s=60&v=4",
@@ -1264,7 +1270,9 @@
         "width": 0,
         "height": 0,
         "source": "media"
-      }
+      },
+      "feedSnippet": "Release 2025.9.12",
+      "excerptOrigin": "article"
     },
     {
       "id": "a04b6bb4b20e82ad",
@@ -1564,7 +1572,7 @@
       "summaryEn": "MCP Registry launches in preview as an open catalog and API that lets developers browse and discover publicly available MCP servers, lowering the barrier to integrating MCP-based tooling.",
       "lang": "en",
       "publishedAt": "2025-09-08T00:00:00.000Z",
-      "collectedAt": "2026-09-13T16:42:01.871Z",
+      "collectedAt": "2026-09-30T16:00:52.150Z",
       "tags": [
         "developer-tools",
         "mcp",
@@ -1577,8 +1585,8 @@
       "halfLife": "architecture",
       "archiveTier": "warm",
       "contentSnippet": "Today, we’re launching the Model Context Protocol (MCP) Registry—an open catalog and API for publicly available MCP servers to improve discoverability and implementation. By standardizing how servers are distributed and discovered, we’re expanding their reach while making it easier for clients to get connected. The MCP Registry is now available in preview. To get started: Add your server by following our guide on Adding Servers to the MCP Registry (for server maintainers) Access server data by following our guide on Accessing MCP Registry Data (for client maintainers) In March 2025, we shared that we wanted to build a central registry for the MCP ecosystem. Today we are announcing that we’ve launched https://registry.modelcontextprotocol.io as the official MCP Registry.",
-      "feedSnippet": "Launching the MCP Registry in preview: an open catalog and API for discovering publicly available MCP servers.",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Launching the MCP Registry in preview: an open catalog and API for discovering publicly available MCP servers."
     },
     {
       "id": "6ab1500ad6704897",
@@ -1638,12 +1646,13 @@
       "title": "Announcing the Official PHP SDK for MCP",
       "titleJa": "MCP公式PHP SDKの正式リリースを発表",
       "titleEn": "Announcing the Official PHP SDK for MCP",
-      "summaryJa": "PHP FoundationおよびSymfonyとの共同開発により、Model Context Protocol向け公式PHP SDKが正式に一般提供開始。PHPエコシステムの開発者がMCPサーバーを構築しやすくなる。",
-      "summaryEn": "The official PHP SDK for MCP has reached general availability, developed in partnership with the PHP Foundation and Symfony, enabling PHP developers to build MCP servers using familiar tooling.",
+      "summaryJa": "MCP公式PHP SDKが一般提供を開始し、ツール、プロンプト、リソースを公開するサーバーを構築できる。PHP FoundationとSymfonyの共同開発で、将来はクライアントにも対応し、PHP開発者のMCP導入を容易にする。",
+      "summaryEn": "The official MCP PHP SDK is now generally available, with server support for tools, prompts, and resources; planned client support will help PHP teams adopt MCP.",
       "lang": "en",
       "publishedAt": "2025-09-05T00:00:00.000Z",
-      "collectedAt": "2026-09-13T16:42:01.871Z",
+      "collectedAt": "2026-09-29T16:14:28.751Z",
       "tags": [
+        "general-availability",
         "mcp",
         "mcp-server",
         "php",
@@ -1656,7 +1665,9 @@
       "importance": 3,
       "halfLife": "architecture",
       "archiveTier": "warm",
-      "contentSnippet": "The official PHP SDK for the Model Context Protocol is now generally available, built in collaboration with the PHP Foundation and Symfony."
+      "contentSnippet": "The official PHP SDK for the Model Context Protocol is now generally available. Built in collaboration with the PHP Foundation and Symfony , the PHP SDK handles protocol details, so developers don’t have to worry about low-level mechanics and can focus on building their applications. The initial release enables PHP developers to build MCP servers , exposing tools , prompts , and resources to AI applications. Support for PHP applications to act as MCP clients will follow. The PHP SDK now joins 9 other officially supported language SDKs in the MCP ecosystem, making it easier for developers everywhere to adopt MCP in their preferred language. We welcome your feedback and contribution, including issues, documentation improvements, and pull requests. Framework-specific integrations and real-world examples are also particularly valuable.",
+      "excerptOrigin": "article",
+      "feedSnippet": "The official PHP SDK for the Model Context Protocol is now generally available, built in collaboration with the PHP Foundation and Symfony."
     },
     {
       "id": "e3a7c16870a28b2f",
@@ -1716,8 +1727,8 @@
       "title": "MCP Servers Releases 2025.9.3",
       "titleJa": "MCP Servers 2025.9.3 リリース公開",
       "titleEn": "MCP Servers Releases 2025.9.3",
-      "summaryJa": "Model Context Protocol公式リポジトリのリファレンスサーバー群について、2025.9.3版がGitHubで公開された。日付ベースのバージョニングを採用しており、参照実装や運用基盤の継続的更新が進められている。",
-      "summaryEn": "MCP Servers Releases 2025.9.3 is a mcp entry from mcp-servers-releases.",
+      "summaryJa": "MCP Serversの2025.9.3版が、Model Context Protocol公式リポジトリのリファレンスサーバー群向けに公開された。開発者や運用担当者が参照実装の最新版を確認できる。",
+      "summaryEn": "MCP Servers version 2025.9.3 is now available for the Model Context Protocol reference server collection, enabling developers and operators to track the latest implementations.",
       "lang": "en",
       "publishedAt": "2025-09-03T17:58:52.000Z",
       "collectedAt": "2026-07-08T12:00:11.908Z",
@@ -1728,13 +1739,14 @@
         "mcp",
         "mcp-server",
         "model-context-protocol",
+        "reference-servers",
         "release"
       ],
       "category": "mcp",
       "importance": 1,
       "halfLife": "news",
       "archiveTier": "cold",
-      "contentSnippet": "Release 2025.9.3",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . You can’t perform that action at this time.",
       "image": {
         "src": "https://avatars.githubusercontent.com/u/65916846?s=60&v=4",
         "origSrc": "https://avatars.githubusercontent.com/u/65916846?s=60&v=4",
@@ -1742,7 +1754,9 @@
         "width": 0,
         "height": 0,
         "source": "media"
-      }
+      },
+      "feedSnippet": "Release 2025.9.3",
+      "excerptOrigin": "article"
     },
     {
       "id": "2757412a5b49dc6f",
@@ -1852,27 +1866,30 @@
       "sourceType": "release",
       "url": "https://github.com/modelcontextprotocol/servers/releases/tag/2025.9.1",
       "title": "MCP Servers Releases 2025.9.1",
-      "titleJa": "MCP Servers 2025.9.1 リリース、Everythingサーバ更新",
+      "titleJa": "MCP Servers 2025.9.1リリース、Everythingサーバーを更新",
       "titleEn": "MCP Servers Releases 2025.9.1",
-      "summaryJa": "Model Context Protocolの公式サーバーリポジトリが2025.9.1としてリリースされた。Everythingリファレンスサーバーにelicitationテストツールが追加され、依存関係の更新やドキュメント整備など複数の細かな改善が含まれる。",
-      "summaryEn": "MCP Servers Releases 2025.9.1 is a mcp entry from mcp-servers-releases.",
+      "summaryJa": "MCP Servers 2025.9.1は、Everythingリファレンスサーバーにelicitationテストツールを追加し、依存関係と文書も更新した。MCP実装者が対話的な情報取得の挙動を検証しやすくなる。",
+      "summaryEn": "MCP Servers 2025.9.1 adds an elicitation testing tool to the Everything reference server, plus dependency and documentation updates, helping MCP implementers validate interactive flows.",
       "lang": "en",
       "publishedAt": "2025-09-01T10:14:56.000Z",
       "collectedAt": "2026-07-04T04:00:27.060Z",
       "tags": [
         "anthropic",
+        "dependency-updates",
         "elicitation",
+        "everything-server",
         "mcp",
         "mcp-server",
         "model-context-protocol",
         "reference-server",
-        "release"
+        "release",
+        "testing-tools"
       ],
       "category": "mcp",
       "importance": 1,
       "halfLife": "news",
       "archiveTier": "cold",
-      "contentSnippet": "Release 2025.9.1",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . You can’t perform that action at this time.",
       "image": {
         "src": "https://avatars.githubusercontent.com/u/65916846?s=60&v=4",
         "origSrc": "https://avatars.githubusercontent.com/u/65916846?s=60&v=4",
@@ -1880,7 +1897,9 @@
         "width": 0,
         "height": 0,
         "source": "media"
-      }
+      },
+      "feedSnippet": "Release 2025.9.1",
+      "excerptOrigin": "article"
     }
   ]
 }

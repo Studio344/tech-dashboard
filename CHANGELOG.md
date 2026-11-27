@@ -22,6 +22,8 @@ TECH Dashboard の利用者向け機能、データ契約、収集・公開基�
 
 ### 変更
 
+- Google AdSense の審査対策として、記事詳細ページ (`/e/<id>/`) を一律に検索エンジンの index 対象から外しました。要約と解説本文は短い抜粋から LLM が書いたもので事実確認をしていないため、人手で書いた・確認した内容が揃うまでは sitemap に載せず `noindex, follow` で配信します。ページ自体は従来どおり開けるので、一覧カード、フィード、外部からのリンクは 404 になりません。切り替えは `web/src/lib/detail-index-policy.ts` の `DETAIL_PAGES_INDEXABLE` 1 か所で、ページ単位の条件 (本文あり、release/changelog 以外など) はそのまま残しています。
+- 全ページの `<head>` に AdSense のサイト確認用 meta タグ (`google-adsense-account`) を出すようにしました。広告 script は従来どおり同意後にだけ読み込み、この tag 自体は何も読み込みません。
 - Daily Summary のカテゴリ一覧で、長い名前 (例: OpenHands/OpenCode) がタブレット幅で切れないよう、スラッシュの後で 2 行目へ折り返すようにしました (最大 2 行)。
 - リポジトリを GitHub organization `Studio344` へ移したため、Publisher の実行元チェック、bridge の OIDC 検証 (`PUBLISHER_REPOSITORY` / `PUBLISHER_WORKFLOW_REF`)、「Deploy Workers」の実行条件、本番ヘルスチェックとサイトのリポジトリリンクを `Studio344/tech-dashboard` に合わせました。「Deploy Workers」は target `bridge` で `update_dispatch_token` を選ぶと、environment secret `DISPATCH_TOKEN` を bridge の `GITHUB_DISPATCH_TOKEN` として登録します。
 - bridge の OIDC 検証で、`sub` を GitHub の immutable subject 形式 (owner ID と repository ID 入り) で照合するようにしました。期待値は `PUBLISHER_OIDC_SUBJECT_PREFIX` で設定し、未設定の bridge は `/health` が `503 bridge-misconfigured` を返します。移管後のリポジトリが immutable subject を使っていたため、Publisher が bridge で 401 になっていた問題を直します。

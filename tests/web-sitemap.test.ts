@@ -16,12 +16,13 @@ import {
   isAddressableDetailEntry,
 } from "../web/src/lib/detail-addressability.ts";
 import {
-  DETAIL_ROBOTS_INDEX,
+  DETAIL_PAGES_INDEXABLE,
   DETAIL_ROBOTS_NOINDEX,
   NON_INDEXABLE_SOURCE_TYPES,
   collectIndexableDetailEntries,
   detailRobotsContent,
   isIndexableDetailEntry,
+  meetsDetailIndexCriteria,
 } from "../web/src/lib/detail-indexability.ts";
 import { hasRealBody } from "../web/src/lib/bodies.ts";
 import { entryDestination } from "../web/src/lib/entry-destination.ts";
@@ -218,91 +219,103 @@ describe("sitemap", () => {
     expect(collectSitemapPaths().some((path) => path.includes("?"))).toBe(false);
   });
 
-  it("excludes cold IDs and body-less details while retaining bodied hot and warm details", () => {
+  it("keeps every detail page out of the sitemap while the site-wide switch is off", () => {
+    // AdSense remediation: every detail page is machine-written (LLM summary
+    // and explainer from a short excerpt, not fact-checked), so none is
+    // offered for indexing until reviewed content exists
+    // (detail-index-policy.ts DETAIL_PAGES_INDEXABLE). Guard that the switch
+    // is really off and that it really empties the detail half of the
+    // sitemap, including entries that clear every per-entry criterion.
+    expect(DETAIL_PAGES_INDEXABLE).toBe(false);
+
+    const addressable = collectAddressableDetailEntries(ALL_ENTRIES, ARCHIVE_WARM_ENTRIES);
+    const wouldBeIndexable = addressable.filter((entry) => meetsDetailIndexCriteria(entry));
+    expect(
+      wouldBeIndexable.length,
+      "switch is load-bearing: some entries clear the per-entry criteria",
+    ).toBeGreaterThan(0);
+
+    expect(collectIndexableDetailEntries(ALL_ENTRIES, ARCHIVE_WARM_ENTRIES)).toHaveLength(0);
+    const sitemapDetailCount = SITEMAP_DOCUMENT.urls.filter((url) =>
+      new URL(url).pathname.startsWith("/e/"),
+    ).length;
+    expect(sitemapDetailCount).toBe(0);
+
+    for (const entry of addressable) {
+      expect(isIndexableDetailEntry(entry)).toBe(false);
+      expect(detailRobotsContent(entry)).toBe(DETAIL_ROBOTS_NOINDEX);
+      // De-indexing must never 404: the route stays generated.
+      expect(isAddressableDetailEntry(entry)).toBe(true);
+    }
+
+    // The operator's own pages stay indexable.
     const urls = new Set(SITEMAP_DOCUMENT.urls);
+    for (const path of ["/about/", "/editorial-policy/", "/glossary/", "/privacy/", "/contact/"]) {
+      expect(urls.has(canonical(path)), `${path} stays in the sitemap`).toBe(true);
+    }
+  });
+
+  it("per-entry criteria still exclude cold and body-less details and keep bodied hot and warm ones", () => {
     const liveIds = new Set(ALL_ENTRIES.map((entry) => entry.id));
     const coldEntries = ALL_ENTRIES.filter((entry) => entry.archiveTier === "cold");
-    const indexableHot = ALL_ENTRIES.find(
-      (entry) => entry.archiveTier === "hot" && isIndexableDetailEntry(entry),
+    const qualifyingHot = ALL_ENTRIES.find(
+      (entry) => entry.archiveTier === "hot" && meetsDetailIndexCriteria(entry),
     );
-    const noindexHot = ALL_ENTRIES.find(
+    const bodylessHot = ALL_ENTRIES.find(
       (entry) =>
         entry.archiveTier === "hot"
         && isAddressableDetailEntry(entry)
-        && !isIndexableDetailEntry(entry),
+        && !hasRealBody(entry),
     );
-    const indexableWarm = ARCHIVE_WARM_ENTRIES.find((entry) =>
-      isIndexableDetailEntry(entry),
+    const qualifyingWarm = ARCHIVE_WARM_ENTRIES.find((entry) =>
+      meetsDetailIndexCriteria(entry),
     );
-    // Archive-only warm entries carry no generated body today, so this group
-    // exists purely to prove body-less details stay out of the sitemap.
-    const noindexArchiveOnlyWarm = ARCHIVE_WARM_ENTRIES.find(
+    const bodylessArchiveOnlyWarm = ARCHIVE_WARM_ENTRIES.find(
       (entry) =>
         !liveIds.has(entry.id)
         && isAddressableDetailEntry(entry)
-        && !isIndexableDetailEntry(entry),
+        && !meetsDetailIndexCriteria(entry),
     );
 
     expect(coldEntries.length).toBeGreaterThan(0);
-    expect(indexableHot, "fixture includes a bodied hot entry").toBeTruthy();
-    expect(noindexHot, "fixture includes a body-less hot entry").toBeTruthy();
-    expect(indexableWarm, "fixture includes a bodied warm entry").toBeTruthy();
+    expect(qualifyingHot, "fixture includes a bodied hot entry").toBeTruthy();
+    expect(bodylessHot, "fixture includes a body-less hot entry").toBeTruthy();
+    expect(qualifyingWarm, "fixture includes a bodied warm entry").toBeTruthy();
     expect(
-      noindexArchiveOnlyWarm,
+      bodylessArchiveOnlyWarm,
       "fixture includes a body-less archive-only warm entry",
     ).toBeTruthy();
 
     for (const entry of coldEntries) {
-      expect(urls.has(canonical(`/e/${encodeURIComponent(entry.id)}/`))).toBe(false);
+      expect(meetsDetailIndexCriteria(entry)).toBe(false);
     }
-    for (const entry of [indexableHot, indexableWarm]) {
-      expect(urls.has(canonical(`/e/${encodeURIComponent(entry?.id ?? "")}/`))).toBe(true);
-    }
-    for (const entry of [noindexHot, noindexArchiveOnlyWarm]) {
-      expect(urls.has(canonical(`/e/${encodeURIComponent(entry?.id ?? "")}/`))).toBe(false);
-    }
+    expect(meetsDetailIndexCriteria(bodylessHot!)).toBe(false);
   });
 
-  it("lists a detail route only when data/bodies.json holds a real body", () => {
-    const urls = new Set(SITEMAP_DOCUMENT.urls);
+  it("per-entry criteria require a real body and allow only the declared exclusion reasons", () => {
     const addressable = collectAddressableDetailEntries(ALL_ENTRIES, ARCHIVE_WARM_ENTRIES);
-    const indexable = addressable.filter((entry) => isIndexableDetailEntry(entry));
-    const notIndexable = addressable.filter((entry) => !isIndexableDetailEntry(entry));
+    const qualifying = addressable.filter((entry) => meetsDetailIndexCriteria(entry));
+    const notQualifying = addressable.filter((entry) => !meetsDetailIndexCriteria(entry));
 
-    expect(indexable.length, "fixture has indexable details").toBeGreaterThan(0);
-    expect(notIndexable.length, "fixture has non-indexable details").toBeGreaterThan(0);
+    expect(qualifying.length, "fixture has qualifying details").toBeGreaterThan(0);
+    expect(notQualifying.length, "fixture has non-qualifying details").toBeGreaterThan(0);
 
-    for (const entry of indexable) {
+    for (const entry of qualifying) {
       expect(hasRealBody(entry)).toBe(true);
-      // A real body is necessary but not sufficient: the release/changelog
-      // lane is excluded regardless, so nothing from it may appear here.
       expect(NON_INDEXABLE_SOURCE_TYPES.has(String(entry.sourceType))).toBe(false);
-      expect(urls.has(canonical(detailPath(entry.id)))).toBe(true);
-      expect(detailRobotsContent(entry)).toBe(DETAIL_ROBOTS_INDEX);
     }
-    for (const entry of notIndexable) {
-      // Exactly four reasons are allowed to keep a page out of the index
-      // (isIndexableDetailEntry, in the order it applies them): a
-      // publication-gate hold, a cold or dropped archive tier, an excluded
-      // lane, or no real body yet. Each one keeps the route reachable as
-      // noindex so listing cards still land in-site. Anything else means the
-      // gate grew a rule nobody declared.
+    for (const entry of notQualifying) {
+      // Exactly four per-entry reasons are allowed (meetsDetailIndexCriteria,
+      // in the order it applies them): a publication-gate hold, a cold or
+      // dropped archive tier, an excluded lane, or no real body yet. Anything
+      // else means the gate grew a rule nobody declared.
       const excludedLane = NON_INDEXABLE_SOURCE_TYPES.has(String(entry.sourceType));
       const decayedTier = entry.archiveTier === "cold" || entry.archiveTier === "dropped";
       expect(
         !hasRealBody(entry) || excludedLane || entry.publicationHold === true || decayedTier,
-        `${entry.id} is non-indexable for an undeclared reason`,
+        `${entry.id} is non-qualifying for an undeclared reason`,
       ).toBe(true);
-      expect(urls.has(canonical(detailPath(entry.id)))).toBe(false);
-      expect(detailRobotsContent(entry)).toBe(DETAIL_ROBOTS_NOINDEX);
     }
-
-    const sitemapDetailCount = SITEMAP_DOCUMENT.urls.filter((url) =>
-      new URL(url).pathname.startsWith("/e/"),
-    ).length;
-    expect(sitemapDetailCount).toBe(
-      collectIndexableDetailEntries(ALL_ENTRIES, ARCHIVE_WARM_ENTRIES).length,
-    );
   });
 
   it("keeps release/changelog details out of the index even when they have a body", () => {
@@ -352,7 +365,7 @@ describe("sitemap", () => {
       );
     expect(bodied, "fixture has a bodied non-release released entry").toBeTruthy();
     const { sourceType: _dropped, ...withoutSourceType } = bodied as Record<string, unknown>;
-    expect(isIndexableDetailEntry(withoutSourceType as never)).toBe(true);
+    expect(meetsDetailIndexCriteria(withoutSourceType as never)).toBe(true);
   });
 
   it("emits the shared robots directive from the detail template", () => {

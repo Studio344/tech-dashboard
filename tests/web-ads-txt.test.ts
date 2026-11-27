@@ -45,4 +45,16 @@ describe("ads.txt", () => {
     expect(endpointSource).not.toMatch(/ca-pub-\d{16}/);
     expect(helperSource).not.toMatch(/ca-pub-\d{16}/);
   });
+
+  it("emits the AdSense account meta tag from the shared layout on every page", () => {
+    // Site-ownership signal for the AdSense review. It must not depend on the
+    // consent gate (the reviewer never clicks "allow"), and it must come from
+    // the configured client ID rather than a hard-coded copy.
+    const portalSource = readFileSync("web/src/layouts/Portal.astro", "utf8");
+
+    expect(portalSource).toContain(
+      '<meta name="google-adsense-account" content={ADSENSE_CLIENT_ID} />',
+    );
+    expect(portalSource).not.toMatch(/ca-pub-\d{16}/);
+  });
 });

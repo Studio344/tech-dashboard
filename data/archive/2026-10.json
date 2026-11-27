@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T18:00:59.321Z",
+  "generatedAt": "2026-11-27T19:00:55.872Z",
   "month": "2026-10",
   "count": 128,
   "entries": [
@@ -13,7 +13,7 @@
       "titleEn": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
       "lang": "en",
       "publishedAt": "2026-10-30T13:05:28.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "enterprise",
         "microsoft",
@@ -24,8 +24,8 @@
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances. To resolve this tension, we built Industry Evaluation Data Generation Platform: full-scale synthetic enterprise environments grounded in publicly available real-world data sources such as O*NET occupational data, online job postings, and SEC filings. The synthetic environments mimic real business workflows, helping Microsoft find issues that generic benchmarks would miss. Safety and privacy are built into the platform by design. Every environment is fully synthetic and automated content-safety checks keep the generated data free of harmful or personally identifiable material.",
-      "feedSnippet": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances. The post From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence appeared first on Microsoft Research .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances. The post From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence appeared first on Microsoft Research ."
     },
     {
       "id": "cfea7d479ade0a4f",
@@ -130,23 +130,27 @@
       "sourceType": "blog",
       "url": "https://netflixtechblog.com/making-failure-diagnosis-reliable-with-pensive-ai-6b0811a1c015?source=rss----2615bd06b42e---4",
       "title": "Making Failure Diagnosis Reliable with Pensive AI",
-      "titleJa": "",
+      "titleJa": "Pensive AIによる障害診断の信頼性向上",
       "titleEn": "Making Failure Diagnosis Reliable with Pensive AI",
-      "summaryJa": "このエントリは netflix-techblog から収集した tech-news 領域の最新アップデートです。原題:「Making Failure Diagnosis Reliable with Pensive AI」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Making Failure Diagnosis Reliable with Pensive AI",
+      "summaryJa": "Netflixのエンジニアリングチームが、Pensive AIと呼ぶ仕組みで障害の原因診断を安定して正確に行う取り組みを紹介している。運用担当者の調査負荷を減らす狙いがある。",
+      "summaryEn": "Netflix's engineering team presents Pensive AI, an approach aimed at making automated diagnosis of system failures more dependable, which could cut investigation effort for on-call engineers.",
       "lang": "en",
       "publishedAt": "2026-10-26T17:04:57.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "ai",
         "engineering",
-        "netflix"
+        "failure-diagnosis",
+        "netflix",
+        "observability",
+        "reliability"
       ],
       "category": "tech-news",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "32b5d3e2c34f5a54",
@@ -154,23 +158,27 @@
       "sourceType": "blog",
       "url": "https://netflixtechblog.com/multi-ratio-video-resizing-for-mobile-feed-and-marketing-2e6b42810f49?source=rss----2615bd06b42e---4",
       "title": "Multi‑Ratio Video Resizing for Mobile Feed and Marketing",
-      "titleJa": "",
+      "titleJa": "モバイルフィードとマーケティング向けのマルチアスペクト比動画リサイズ",
       "titleEn": "Multi‑Ratio Video Resizing for Mobile Feed and Marketing",
-      "summaryJa": "このエントリは netflix-techblog から収集した tech-news 領域の最新アップデートです。原題:「Multi‑Ratio Video Resizing for Mobile Feed and Marketing」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Multi‑Ratio Video Resizing for Mobile Feed and Marketing",
+      "summaryJa": "Netflixのエンジニアリングブログが、モバイルのフィードや宣伝素材向けに、1本の動画を複数の縦横比へ自動で変換するリサイズ手法を紹介している。素材制作の手間を減らしたい制作者に役立つ。",
+      "summaryEn": "Netflix's engineering blog covers an approach for automatically converting a single video into several aspect ratios for mobile feeds and promotional use, easing the workload for creative and marketing teams.",
       "lang": "en",
       "publishedAt": "2026-10-26T16:01:02.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "aspect-ratio",
         "engineering",
-        "netflix"
+        "marketing",
+        "mobile",
+        "netflix",
+        "video-processing"
       ],
       "category": "tech-news",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "f488ab92286122dc",
@@ -267,23 +275,27 @@
       "sourceType": "blog",
       "url": "https://netflixtechblog.com/beyond-api-compatibility-building-a-tool-to-measure-the-blast-radius-of-library-changes-9474f2fd4f90?source=rss----2615bd06b42e---4",
       "title": "Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library Changes",
-      "titleJa": "",
+      "titleJa": "API互換性の先へ:ライブラリ変更の影響範囲を測定するツールの構築",
       "titleEn": "Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library Changes",
-      "summaryJa": "このエントリは netflix-techblog から収集した tech-news 領域の最新アップデートです。原題:「Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library Changes」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Beyond API Compatibility: Building a Tool to Measure the Blast Radius of Library Changes",
+      "summaryJa": "Netflixのエンジニアリングチームが、ライブラリ変更が下流のコードへ及ぼす影響範囲を測定するツールの構築事例を紹介している。API互換性の確認だけでは見逃す挙動の変化を把握でき、安全なライブラリ更新に役立つ。",
+      "summaryEn": "Netflix engineers describe building a tool that measures how far a library change ripples through dependent code, catching impacts that API compatibility checks miss. It helps teams ship safer library updates.",
       "lang": "en",
       "publishedAt": "2026-10-23T18:32:51.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "api-compatibility",
+        "dependency-analysis",
         "engineering",
-        "netflix"
+        "library-management",
+        "netflix",
+        "software-engineering"
       ],
       "category": "tech-news",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "cc9f1fc4deba48fb",
@@ -291,23 +303,27 @@
       "sourceType": "blog",
       "url": "https://netflixtechblog.com/single-tenant-titus-vm-level-isolation-on-a-multi-tenant-container-platform-6d8b1909d163?source=rss----2615bd06b42e---4",
       "title": "Single-tenant Titus: VM-level isolation on a multi-tenant container platform",
-      "titleJa": "",
+      "titleJa": "シングルテナントTitus:マルチテナントのコンテナ基盤におけるVMレベルの分離",
       "titleEn": "Single-tenant Titus: VM-level isolation on a multi-tenant container platform",
-      "summaryJa": "このエントリは netflix-techblog から収集した tech-news 領域の最新アップデートです。原題:「Single-tenant Titus: VM-level isolation on a multi-tenant container platform」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Single-tenant Titus: VM-level isolation on a multi-tenant container platform",
+      "summaryJa": "NetflixのコンテナプラットフォームTitusに、仮想マシン単位でワークロードを分離するシングルテナント構成が加わった。マルチテナント基盤の利点を保ちつつ、高い分離性が必要なサービスの運用を支える。",
+      "summaryEn": "Netflix's Titus container platform gains a single-tenant mode that isolates workloads at the virtual machine level, letting teams with strict isolation needs keep using the shared multi-tenant platform.",
       "lang": "en",
       "publishedAt": "2026-10-22T22:19:12.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "containers",
         "engineering",
-        "netflix"
+        "isolation",
+        "netflix",
+        "titus",
+        "virtualization"
       ],
       "category": "tech-news",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "c6d7d327b3177bde",
@@ -343,8 +359,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "c4607aa43c817be8",
-      "source": "github-blog-ai",
+      "id": "7cf69f7ae5c77b67",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/",
       "title": "How 3 Java Champions are using GitHub Copilot for increased productivity",
@@ -354,7 +370,7 @@
       "summaryEn": "Three Java Champions, each with over ten years of Java experience, share real production and open source uses of GitHub Copilot, plus habits for giving context and validating output. Useful for developers who want reliable AI-assisted code.",
       "lang": "en",
       "publishedAt": "2026-10-20T16:05:03.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "ai-coding",
         "copilot",
@@ -399,8 +415,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "cb4f638784301c3b",
-      "source": "github-blog-ai",
+      "id": "f9c5095dcdcc7bb0",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
       "title": "How to continue a GitHub Copilot app session in VS Code",
@@ -410,8 +426,9 @@
       "summaryEn": "A Copilot app session can be opened directly in VS Code, carrying over its chat, code edits, and context. Developers can let the agent do the heavy lifting, then review diffs, edit by hand, and test locally.",
       "lang": "en",
       "publishedAt": "2026-10-19T18:47:22.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
+        "agent",
         "agent-workflow",
         "copilot",
         "copilot-app",
@@ -548,23 +565,27 @@
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/githubs-model-for-secret-detection-finding-more-secrets-with-less-noise/",
       "title": "GitHub’s model for secret detection: Finding more secrets with less noise",
-      "titleJa": "",
+      "titleJa": "GitHubのシークレット検出モデル:ノイズを減らしてより多くのシークレットを発見",
       "titleEn": "GitHub’s model for secret detection: Finding more secrets with less noise",
-      "summaryJa": "このエントリは github-blog-ai から収集した copilot 領域の最新アップデートです。原題:「GitHub’s model for secret detection: Finding more secrets with less noise」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "GitHub’s model for secret detection: Finding more secrets with less noise",
+      "summaryJa": "GitHubがコンテキストを考慮するシークレット分類モデルを導入し、重み付き採用率が11.5%向上、スキャン実行時間の中央値は86%短縮された。誤検知を抑えつつ検出精度を高められ、開発者やセキュリティ担当者の負担軽減に役立つ。",
+      "summaryEn": "GitHub's context-aware secret classifier lifts weighted acceptance by 11.5% and cuts median scan time by 86%, helping developers and security teams catch more leaks with fewer false alarms.",
       "lang": "en",
       "publishedAt": "2026-10-13T17:56:33.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
-        "github"
+        "github",
+        "github-advanced-security",
+        "machine-learning",
+        "secret-scanning",
+        "security"
       ],
       "category": "copilot",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "GitHub’s context-aware secret classifier improves detection quality, raises weighted acceptance by 11.5%, and reduces median scan execution time by 86%. The post GitHub’s model for secret detection: Finding more secrets with less noise appeared first on The GitHub Blog .",
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "18ea178a7f4055ec",
@@ -592,8 +613,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "aab87b57e449c025",
-      "source": "github-blog-ai",
+      "id": "73f986d3e9b463d0",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
       "title": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
@@ -603,7 +624,7 @@
       "summaryEn": "This GitHub Copilot app beginner installment covers four ways, including custom instructions, to store conventions and scripts in a repo so Copilot learns them automatically, saving developers repeated explanations.",
       "lang": "en",
       "publishedAt": "2026-10-12T17:43:59.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "copilot",
         "custom-instructions",
@@ -697,8 +718,8 @@
       "evergreen": true
     },
     {
-      "id": "80955af470da00f0",
-      "source": "github-blog-ai",
+      "id": "5cb4ed49cbdddf72",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/",
       "title": "Secret protection must scale with software",
@@ -708,7 +729,7 @@
       "summaryEn": "AI agents now touch one-third of GitHub pull requests, up from under one-tenth last year. Automated secret protection can prevent leaks and cut manual response work for developers.",
       "lang": "en",
       "publishedAt": "2026-10-07T17:45:34.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "ai-agents",
         "copilot",
@@ -2357,8 +2378,8 @@
       "knowledgeEligible": false
     },
     {
-      "id": "ed744c789037c203",
-      "source": "github-blog-ai",
+      "id": "571c8c47df881aa3",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
       "title": "ReviewBench: An open benchmark for AI code review",
@@ -2368,7 +2389,7 @@
       "summaryEn": "ReviewBench offers an open evaluation set based on GitHub pull requests, with multi-source labels, calibrated scoring, and production metrics for fair assessment of review agents.",
       "lang": "en",
       "publishedAt": "2026-10-05T15:59:40.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "ai-code-review",
         "benchmark",
@@ -3276,7 +3297,6 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "AI is changing how developers work and apply their skills. Writing code is still essential, but developers increasingly need to know how to direct AI, evaluate its output, communicate tradeoffs, and make sound technical decisions. The good news? You can start preparing today. Here’s where to focus: Tip #1: Learn to direct AI, not just use it. AI is changing what execution looks like. Increasingly, great execution means defining the problem clearly, providing the right context, evaluating AI-generated code, and deciding what’s ready to ship. As AI agents take on more of the implementation, these skills become even more valuable. For example, imagine you’re asked to add a new authentication flow. As AI tools become more capable and more deeply integrated into day-to-day workflows, those same skills can help you coordinate multiple AI agents.",
       "excerptOrigin": "article",
       "feedSnippet": "Learn to direct AI agents, critically review their output, and keep technical judgment at the center of your workflow. The post AI is changing developer work. Here are three skills to strengthen. appeared first on The GitHub Blog .",
@@ -3287,7 +3307,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "d76bc67b3882fa08",

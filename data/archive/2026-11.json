@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T18:00:59.321Z",
+  "generatedAt": "2026-11-27T19:00:55.872Z",
   "month": "2026-11",
   "count": 84,
   "entries": [
@@ -217,13 +217,14 @@
       "titleEn": "Copilot code review billing will default to the organization",
       "lang": "en",
       "publishedAt": "2026-11-25T22:18:03.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "billing",
         "changelog",
         "copilot-business",
         "copilot-code-review",
         "copilot-enterprise",
+        "enterprise",
         "github"
       ],
       "category": "copilot",
@@ -231,8 +232,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "If you haven’t chosen how to bill Copilot code review for members with a Copilot license, those reviews will be billed to your organization starting December 30, 2026. To keep billing unchanged, select Member before then. This change applies to organizations and enterprises with Copilot Business or Copilot Enterprise. Today, when no billing choice is saved, reviews by members who have a paid Copilot license use the member’s Copilot entitlement. Starting December 30, 2026, those reviews will be billed to the organization that owns the repository. Accounts that don’t have AI Credits paid usage enabled, have a billing lock, or have no billable customer will be set to Member instead. If you already chose Member or Organization , your choice stays in effect. The separate setting for members without a Copilot license doesn’t change.",
-      "feedSnippet": "If you haven’t chosen how to bill Copilot code review for members with a Copilot license, those reviews will be billed to your organization starting December 30, 2026. To keep… The post Copilot code review billing will default to the organization appeared first on The GitHub Blog .",
       "excerptOrigin": "article",
+      "feedSnippet": "If you haven’t chosen how to bill Copilot code review for members with a Copilot license, those reviews will be billed to your organization starting December 30, 2026. To keep… The post Copilot code review billing will default to the organization appeared first on The GitHub Blog .",
       "image": {
         "src": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-improvements.jpg",
         "origSrc": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-improvements.jpg",
@@ -248,15 +249,19 @@
       "sourceType": "release",
       "url": "https://github.com/zed-industries/zed/releases/tag/v1.31.0-pre",
       "title": "Zed Editor Releases v1.31.0-pre",
-      "titleJa": "",
+      "titleJa": "Zed Editor v1.31.0-pre をリリース",
       "titleEn": "Zed Editor Releases v1.31.0-pre",
       "lang": "en",
       "publishedAt": "2026-11-25T18:02:11.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "editor",
+        "openai",
+        "performance",
+        "pre-release",
         "release",
-        "zed"
+        "zed",
+        "zed-agent"
       ],
       "category": "cursor",
       "importance": 1,
@@ -278,13 +283,16 @@
       "sourceType": "release",
       "url": "https://github.com/zed-industries/zed/releases/tag/v1.30.2",
       "title": "Zed Editor Releases v1.30.2",
-      "titleJa": "",
+      "titleJa": "Zed Editor v1.30.2 をリリース",
       "titleEn": "Zed Editor Releases v1.30.2",
       "lang": "en",
       "publishedAt": "2026-11-25T17:43:29.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
         "editor",
+        "git-panel",
+        "gpt-6.1-terra",
+        "gpu-performance",
         "release",
         "zed"
       ],
@@ -308,13 +316,17 @@
       "sourceType": "release",
       "url": "https://code.visualstudio.com/updates/v1_148",
       "title": "Visual Studio Code 1.148 Release Notes",
-      "titleJa": "",
+      "titleJa": "Visual Studio Code 1.148 リリースノート",
       "titleEn": "Visual Studio Code 1.148 Release Notes",
       "lang": "en",
       "publishedAt": "2026-11-25T17:00:00.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "copilot-agent",
+        "deprecation",
+        "dev-containers",
         "release",
+        "sandbox",
         "vscode"
       ],
       "category": "vscode",
@@ -334,8 +346,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "e781aae55ec024a5",
-      "source": "github-blog-ai",
+      "id": "b2937bbd676220f2",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-to-choose-the-next-safe-step-in-application-modernization/",
       "title": "How to choose the next safe step in application modernization",
@@ -345,7 +357,7 @@
       "summaryEn": "Using GitHub Copilot, the author tested an evidence-first approach on four public apps, from a small Node.js game to a large Java ERP system, gathering regression evidence before picking a framework. Teams can repeat it on their own application.",
       "lang": "en",
       "publishedAt": "2026-11-25T15:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "copilot",
         "github",
@@ -379,14 +391,16 @@
       "sourceType": "release",
       "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.46.0",
       "title": "OpenHands Releases v1.46.0",
-      "titleJa": "",
+      "titleJa": "OpenHands v1.46.0 リリース",
       "titleEn": "OpenHands Releases v1.46.0",
       "lang": "en",
       "publishedAt": "2026-11-25T14:19:07.000Z",
       "collectedAt": "2026-11-26T05:30:40.162Z",
       "tags": [
+        "automation",
         "openhands",
-        "release"
+        "release",
+        "team-collaboration"
       ],
       "category": "opencode",
       "importance": 2,
@@ -408,22 +422,34 @@
       "sourceType": "changelog",
       "url": "https://github.blog/changelog/2026-11-24-more-predictable-notifications-on-github-com",
       "title": "More predictable notifications on GitHub.com",
-      "titleJa": "",
+      "titleJa": "GitHub.comの通知がより予測しやすく変わります",
       "titleEn": "More predictable notifications on GitHub.com",
       "lang": "en",
       "publishedAt": "2026-11-24T16:40:59.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "changelog",
-        "github"
+        "github",
+        "github-com",
+        "notifications",
+        "rollout",
+        "subscriptions"
       ],
       "category": "tech-news",
       "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Starting December 1, 2026, we’re migrating notifications on GitHub.com over the course of a week to make subscriptions more predictable, correct unexpected behavior, and support the growing scale of activity. During the rollout, notifications may behave differently for different users. No action is required, but the changes below may affect how you manage and filter notifications. This does not apply to GitHub Enterprise Server. Routine activity won’t resubscribe you: Previously, after manually unsubscribing, notification activities such as commenting, submitting a pull request review, changing a thread’s state, or merge queue activity resulted in a re-subscription. Now, those actions leave you unsubscribed. Being mentioned, assigned, or receiving a pull request review request will continue to resubscribe you since those actions ask for your attention.",
+      "excerptOrigin": "article",
       "feedSnippet": "Starting December 1, 2026, we’re migrating notifications on GitHub.com over the course of a week to make subscriptions more predictable, correct unexpected behavior, and support the growing scale of activity.… The post More predictable notifications on GitHub.com appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "image": {
+        "src": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-improvements.jpg",
+        "origSrc": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-improvements.jpg",
+        "alt": "More predictable notifications on GitHub.com",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "b27de98209ff2a51",
@@ -431,14 +457,18 @@
       "sourceType": "release",
       "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.45.0",
       "title": "OpenHands Releases v1.45.0",
-      "titleJa": "",
+      "titleJa": "OpenHands v1.45.0 をリリース",
       "titleEn": "OpenHands Releases v1.45.0",
       "lang": "en",
       "publishedAt": "2026-11-24T09:25:38.000Z",
       "collectedAt": "2026-11-26T05:30:40.162Z",
       "tags": [
+        "canvas",
+        "factories",
         "openhands",
-        "release"
+        "openhands-projects",
+        "release",
+        "sub-agents"
       ],
       "category": "opencode",
       "importance": 2,
@@ -460,13 +490,17 @@
       "sourceType": "release",
       "url": "https://github.com/ollama/ollama/releases/tag/v0.40.18",
       "title": "Ollama Releases v0.40.18",
-      "titleJa": "",
+      "titleJa": "Ollama v0.40.18 リリース",
       "titleEn": "Ollama Releases v0.40.18",
       "lang": "en",
       "publishedAt": "2026-11-24T08:27:44.000Z",
       "collectedAt": "2026-11-27T09:37:32.824Z",
       "tags": [
+        "jetpack",
+        "llama-cpp",
+        "mlx",
         "ollama",
+        "pre-release",
         "release"
       ],
       "category": "local-llm",
@@ -491,18 +525,22 @@
       "sourceType": "blog",
       "url": "https://about.fb.com/news/2026/11/introducing-muse-in-the-uk-a-personal-ai-agent-you-control/",
       "title": "Introducing Muse in the UK: A Personal AI Agent You Control",
-      "titleJa": "",
+      "titleJa": "英国でMuseを提供開始:ユーザーが主導権を握るパーソナルAIエージェント",
       "titleEn": "Introducing Muse in the UK: A Personal AI Agent You Control",
       "lang": "en",
       "publishedAt": "2026-11-24T06:00:40.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "agent",
+        "ai-agents",
         "meta",
-        "news"
+        "muse",
+        "news",
+        "personal-assistant",
+        "uk-launch"
       ],
       "category": "tech-news",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Muse is now in the UK: a personal AI agent that doesn't just answer questions, but one that you can task to get things done on your behalf The post Introducing Muse in the UK: A Personal AI Agent You Control appeared first on Meta Newsroom .",
@@ -522,14 +560,19 @@
       "sourceType": "release",
       "url": "https://github.com/ollama/ollama/releases/tag/v0.40.18-rc0",
       "title": "v0.40.18-rc0: inkling2: faster Metal decode, prefill and draft rounds (#19843)",
-      "titleJa": "",
+      "titleJa": "v0.40.18-rc0: inkling2のMetal向けデコード・プリフィル・ドラフト処理を高速化 (#19843)",
       "titleEn": "v0.40.18-rc0: inkling2: faster Metal decode, prefill and draft rounds (#19843)",
       "lang": "en",
       "publishedAt": "2026-11-24T01:35:09.000Z",
       "collectedAt": "2026-11-27T09:37:32.824Z",
       "tags": [
+        "apple-silicon",
+        "inkling2",
+        "metal",
         "ollama",
-        "release"
+        "pre-release",
+        "release",
+        "speculative-decoding"
       ],
       "category": "local-llm",
       "importance": 1,
@@ -551,17 +594,22 @@
       "sourceType": "blog",
       "url": "https://developers.googleblog.com/from-files-to-cited-answers-in-one-api-call-managed-ingestion-and-searchdocuments-in-agent-retrieval/",
       "title": "From Files to Cited Answers in One API Call: Managed Ingestion and SearchDocuments in Agent Retrieval",
-      "titleJa": "",
+      "titleJa": "1回のAPI呼び出しでファイルから出典付き回答へ:Agent Retrievalのマネージド取り込みとSearchDocuments",
       "titleEn": "From Files to Cited Answers in One API Call: Managed Ingestion and SearchDocuments in Agent Retrieval",
       "lang": "en",
       "publishedAt": "2026-11-24T00:00:00.000Z",
       "collectedAt": "2026-11-26T05:30:40.162Z",
       "tags": [
         "agent",
-        "google"
+        "agent-retrieval",
+        "gemini-api",
+        "google",
+        "multimodal",
+        "rag",
+        "search-documents"
       ],
       "category": "gemini",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "From Files to Cited Answers in One API Call: Managed Ingestion and SearchDocuments in Agent Retrieval A guide to the new managed ingestion and SearchDocuments features in Agent Retrieval , for searching PDFs, Office files, and videos without writing an ingestion pipeline. Before an agent can answer a question about your PDFs, someone has to build the pipeline: parse every file, split it into chunks, embed each chunk, write the chunks to a vector database, and then learn that database's schema to query it. For video it gets harder: transcode the files, cut them into clips, embed the frames, and keep track of which second of which video each clip came from. Before: every step of the pipeline is custom code you write and maintain, separately for documents and for videos. Most of that code has nothing to do with your application.",
@@ -582,17 +630,21 @@
       "sourceType": "blog",
       "url": "https://simonwillison.net/2026/Nov/23/glm-54/",
       "title": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
-      "titleJa": "",
+      "titleJa": "GLM-5.4:初のループ型Transformerで目指す汎用コーディング",
       "titleEn": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
       "lang": "en",
       "publishedAt": "2026-11-23T23:40:49.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
+        "coding-model",
+        "glm",
         "llm",
-        "newsletter"
+        "looped-transformer",
+        "newsletter",
+        "z-ai"
       ],
       "category": "local-llm",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer GLM 5.4 is now available from Chinese AI lab Z.ai. It's their first model to use a looped transformer architecture, which they describe like this: In a standard Transformer, each layer runs once per forward pass. In a Loop Transformer, a group of weight-shared layers runs for multiple iterations, refining the hidden states from the previous pass. This gives us a deeper network without increasing the parameter count. This is the second mention of looped transformers I've seen in the past week - the first was Inkling 2 Mini from Thinking Machines Lab on November 20th, who said: Inkling 2 Mini is a looped transformer, running the middle layers of the model three times for every token. This allows the model to apply more reason",
@@ -611,22 +663,25 @@
       "sourceType": "changelog",
       "url": "https://github.blog/changelog/2026-11-23-issue-statuses-and-repository-boards-are-in-public-preview",
       "title": "Issue statuses and repository boards are in public preview",
-      "titleJa": "",
+      "titleJa": "Issueステータスとリポジトリボードがパブリックプレビューに",
       "titleEn": "Issue statuses and repository boards are in public preview",
       "lang": "en",
       "publishedAt": "2026-11-23T20:37:11.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "changelog",
-        "github"
+        "github",
+        "github-issues",
+        "project-management",
+        "public-preview"
       ],
       "category": "copilot",
       "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Open or closed doesn’t always tell you where an issue stands. You can now use more specific statuses to give your team and agents shared context about what’s in flight and what to work on next, then visualize your progress with repository boards. Track progress directly on an issue. Choose a status when creating an issue or change it from the issue header. You’ll see it reflected in issue icons across the repository issues page, the issues dashboard , and repository boards, where you can use the status: filter to find the issues you’re looking for. Automated status updates. To help keep your statuses accurate, the following automations are applied to your issues: Linking a draft pull request to an issue moves the issue to In progress . Marking a draft pull request as Ready for review moves the issue to In review . Linking an open pull request to an issue moves the issue to In review .",
-      "feedSnippet": "Open or closed doesn’t always tell you where an issue stands. You can now use more specific statuses to give your team and agents shared context about what’s in flight… The post Issue statuses and repository boards are in public preview appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Open or closed doesn’t always tell you where an issue stands. You can now use more specific statuses to give your team and agents shared context about what’s in flight… The post Issue statuses and repository boards are in public preview appeared first on The GitHub Blog ."
     },
     {
       "id": "61020694e8fd4971",
@@ -634,22 +689,26 @@
       "sourceType": "changelog",
       "url": "https://github.blog/changelog/2026-11-23-secret-scanning-reduces-false-positives-for-slack",
       "title": "Secret scanning reduces false positives for Slack",
-      "titleJa": "",
+      "titleJa": "シークレットスキャン、Slack向け検出の誤検知を削減",
       "titleEn": "Secret scanning reduces false positives for Slack",
       "lang": "en",
       "publishedAt": "2026-11-23T18:32:59.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "changelog",
-        "github"
+        "false-positives",
+        "github",
+        "secret-scanning",
+        "security",
+        "slack"
       ],
       "category": "tech-news",
       "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Secret scanning now reduces false-positive detections for Slack secrets. The following detector improvements reduce false-positive matches for supported secrets. Exclude URLs that do not use Slack’s incoming-webhook URL format. Learn more about secret scanning and see the full list of supported secrets in our documentation. Let us know what you think in the community discussion . Discover tips, technical guides, and best practices in our biweekly newsletter just for devs.",
-      "feedSnippet": "Secret scanning now reduces false-positive detections for Slack secrets. False positives reduced The following detector improvements reduce false-positive matches for supported secrets. Provider Secret type Improvement Slack slack_incoming_webhook_url Exclude URLs… The post Secret scanning reduces false positives for Slack appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Secret scanning now reduces false-positive detections for Slack secrets. False positives reduced The following detector improvements reduce false-positive matches for supported secrets. Provider Secret type Improvement Slack slack_incoming_webhook_url Exclude URLs… The post Secret scanning reduces false positives for Slack appeared first on The GitHub Blog ."
     },
     {
       "id": "f0b45997129f8d0d",
@@ -657,17 +716,23 @@
       "sourceType": "blog",
       "url": "https://about.fb.com/news/2026/11/researchers-using-meta-open-weight-ai-models-medical-breakthroughs/",
       "title": "Researchers Are Using Meta’s Open-Weight AI Models to Transform Medicine",
-      "titleJa": "",
+      "titleJa": "Metaのオープンウェイト AI モデルを活用し、研究者たちが医療を変革している",
       "titleEn": "Researchers Are Using Meta’s Open-Weight AI Models to Transform Medicine",
       "lang": "en",
       "publishedAt": "2026-11-23T18:00:01.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
+        "academic-partnerships",
+        "dinov3",
+        "healthcare",
+        "medical-research",
         "meta",
-        "news"
+        "news",
+        "open-weight-models",
+        "sam3"
       ],
       "category": "tech-news",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Meta’s research funding and open weight AI models are helping address critical gaps in medicine. Researchers are adapting these models to train medical professionals in low-resource settings, locate epilepsy sources in the brain, and advance understanding of rare diseases. Open science is critical to advancing medical research. To accelerate this progress, we’ve expanded our academic partnerships , giving researchers funding and access to our AI models like Muse Glimmer, SAM3, DINOv3, and Brain2Qwertyv2. These researchers are independently adapting our models for their own investigational research. Here are a few of the projects that are benefitting from our partnership: At Louisiana State University, Dr.",
@@ -679,8 +744,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "We brought researchers together for the Open Source AI For Science Summit, where they shared how they’re using AI to accelerate scientific discovery. The post Researchers Are Using Meta’s Open-Weight AI Models to Transform Medicine appeared first on Meta Newsroom .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "We brought researchers together for the Open Source AI For Science Summit, where they shared how they’re using AI to accelerate scientific discovery. The post Researchers Are Using Meta’s Open-Weight AI Models to Transform Medicine appeared first on Meta Newsroom ."
     },
     {
       "id": "68d36b4f6cf45894",
@@ -724,7 +789,7 @@
       "titleEn": "Code coverage uploads now flag invalid report formats",
       "lang": "en",
       "publishedAt": "2026-11-23T15:28:36.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "changelog",
         "cobertura",
@@ -738,8 +803,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "The GitHub Code Quality upload-code-coverage action now checks that your coverage report is in Cobertura XML format. If it isn’t in a supported format, the upload step fails and the Actions log shows this error: This file is not a Cobertura XML report. Upload a Cobertura XML report. Previously, these uploads appeared to succeed, but no coverage showed up on your pull requests. Now you’ll find out about the problem in the workflow run, with a clear next step. If your workflow begins failing with this error, configure your test framework to output Cobertura XML, or convert your report to Cobertura XML before the upload step. We’ve also made processing more forgiving for valid Cobertura reports. We no longer reject a report because of minor structural issues, and we skip individual lines that don’t have a usable line number or hit count instead of discarding the whole report.",
-      "feedSnippet": "The GitHub Code Quality upload-code-coverage action now checks that your coverage report is in Cobertura XML format. If it isn’t in a supported format, the upload step fails and the… The post Code coverage uploads now flag invalid report formats appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "The GitHub Code Quality upload-code-coverage action now checks that your coverage report is in Cobertura XML format. If it isn’t in a supported format, the upload step fails and the… The post Code coverage uploads now flag invalid report formats appeared first on The GitHub Blog ."
     },
     {
       "id": "7f08ea7454c46558",
@@ -751,7 +816,7 @@
       "titleEn": "Usage reports will include a user ID column starting December 1",
       "lang": "en",
       "publishedAt": "2026-11-23T10:29:36.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "billing",
         "breaking-change",
@@ -765,8 +830,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Starting December 1, 2026, usage reports that include a username column will also include a user_id column next to it. Every column after username will move one position to the right. This change applies to the detailed usage report, the AI usage report, and the premium request usage report, including exports you create with the GitHub REST API. The summarized usage report won’t change. These changes apply to all GitHub Enterprise Cloud account types and standalone organizations on GitHub Team. If your scripts or tools read these reports by column position, update them to read columns by header name before December 1. The user_id column contains the ID of the account that generated the usage, including bot accounts. It’s empty for usage that isn’t tied to an account. With this column, you can: Identify usage from deleted accounts, which currently have an empty username .",
-      "feedSnippet": "Starting December 1, 2026, usage reports that include a username column will also include a user_id column next to it. Every column after username will move one position to the… The post Usage reports will include a user ID column starting December 1 appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Starting December 1, 2026, usage reports that include a username column will also include a user_id column next to it. Every column after username will move one position to the… The post Usage reports will include a user ID column starting December 1 appeared first on The GitHub Blog ."
     },
     {
       "id": "742fc090dcb6b5f6",
@@ -888,7 +953,7 @@
       "titleEn": "Security advisory permissions are now generally available",
       "lang": "en",
       "publishedAt": "2026-11-20T21:49:29.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "changelog",
         "github"
@@ -898,8 +963,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Organization owners can now let people work on repository security advisories, including private vulnerability reports, through custom repository roles . You no longer have to make them repository administrators or give them the organization-wide security manager role. Four new permissions are available under Security when you create or edit a custom repository role: View security advisories : view draft security advisories, their status, and comments. Create, Edit, and Manage security advisories : everything in View, plus Create and Edit advisories, comment, manage collaborators, and create a temporary private fork. Accept private vulnerability reports and close or reopen security advisories : requires View or Create, Edit, and Manage . Publish security advisories and request CVEs : requires View or Create, Edit, and Manage .",
-      "feedSnippet": "Organization owners can now let people work on repository security advisories, including private vulnerability reports, through custom repository roles. You no longer have to make them repository administrators or give… The post Security advisory permissions are now generally available appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Organization owners can now let people work on repository security advisories, including private vulnerability reports, through custom repository roles. You no longer have to make them repository administrators or give… The post Security advisory permissions are now generally available appeared first on The GitHub Blog ."
     },
     {
       "id": "02652ae32ee08f5f",
@@ -911,7 +976,7 @@
       "titleEn": "GitHub Enterprise Server 3.23 release candidate",
       "lang": "en",
       "publishedAt": "2026-11-20T20:41:26.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "changelog",
         "enterprise",
@@ -923,8 +988,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "GitHub Enterprise Server (GHES) 3.23 is now available and introduces new capabilities across the platform. Here are a few highlights in the 3.23 release: When working in GitHub Projects, you can create more precise project views by combining filters with logical OR , explicit AND , and parentheses for grouping. For example, (status:Done OR status:Todo) is:issue shows issues with either status. If your enterprise uses GitHub Secret Protection, you can detect unstructured secrets entirely within your network using AI secret detection on GHES, including in air-gapped environments. A self-contained, fine-tuned model runs on the appliance’s CPU without a GPU, hosted LLM, or outbound connection. This feature is in public preview and subject to change.",
-      "feedSnippet": "GitHub Enterprise Server (GHES) 3.23 is now available and introduces new capabilities across the platform. Here are a few highlights in the 3.23 release: When working in GitHub Projects, you… The post GitHub Enterprise Server 3.23 release candidate appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "GitHub Enterprise Server (GHES) 3.23 is now available and introduces new capabilities across the platform. Here are a few highlights in the 3.23 release: When working in GitHub Projects, you… The post GitHub Enterprise Server 3.23 release candidate appeared first on The GitHub Blog ."
     },
     {
       "id": "2a489a3739513030",
@@ -932,12 +997,15 @@
       "sourceType": "release",
       "url": "https://github.com/OpenHands/OpenHands/releases/tag/v1.43.0",
       "title": "OpenHands Releases v1.43.0",
-      "titleJa": "",
+      "titleJa": "OpenHands v1.43.0 をリリース",
       "titleEn": "OpenHands Releases v1.43.0",
       "lang": "en",
       "publishedAt": "2026-11-20T19:03:08.000Z",
       "collectedAt": "2026-11-26T05:30:40.162Z",
       "tags": [
+        "automations",
+        "chat-ui",
+        "experimental-features",
         "openhands",
         "release"
       ],
@@ -961,14 +1029,17 @@
       "sourceType": "release",
       "url": "https://github.com/ollama/ollama/releases/tag/v0.40.17-rc3",
       "title": "Ollama Releases v0.40.17-rc3",
-      "titleJa": "",
+      "titleJa": "Ollama v0.40.17-rc3 リリース",
       "titleEn": "Ollama Releases v0.40.17-rc3",
       "lang": "en",
       "publishedAt": "2026-11-20T18:37:07.000Z",
       "collectedAt": "2026-11-27T09:37:32.824Z",
       "tags": [
+        "github-releases",
         "ollama",
-        "release"
+        "pre-release",
+        "release",
+        "release-candidate"
       ],
       "category": "local-llm",
       "importance": 1,
@@ -992,17 +1063,22 @@
       "sourceType": "blog",
       "url": "https://about.fb.com/news/2026/11/advancing-science-together-highlights-from-the-open-source-ai-for-science-summit/",
       "title": "Advancing Science Together: Highlights From the Open Source AI for Science Summit",
-      "titleJa": "",
+      "titleJa": "科学を共に前進させる:Open Source AI for Science Summit のハイライト",
       "titleEn": "Advancing Science Together: Highlights From the Open Source AI for Science Summit",
       "lang": "en",
       "publishedAt": "2026-11-20T18:30:45.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
+        "ai-for-science",
+        "drug-discovery",
+        "fair",
         "meta",
-        "news"
+        "news",
+        "open-source-ai",
+        "research"
       ],
       "category": "tech-news",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "https://about.fb.com/wp-content/uploads/2026/11/Highlights-From-the-Open-Source-AI-For-Science-Summit_Header.mp4 Last month, we brought researchers from universities, hospitals, and industry together for the Open Source AI for Science Summit, an event built around using open source AI to accelerate scientific discovery. Researchers at the summit shared how they’re using AI to better understand neurology, make chemistry more accessible, advance drug discovery, and more. From studying the brain to discovering new materials, open source AI is giving scientists new ways to tackle difficult problems. Last month, Meta’s Fundamental AI Research (FAIR) team brought researchers from universities, hospitals, and industry together at our Menlo Park, California, headquarters for the Open Source AI for Science Summit.",
@@ -1014,8 +1090,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "We brought researchers from universities, hospitals, and industry together for the Open Source AI for Science Summit, an event built around using open source AI to accelerate scientific discovery. The post Advancing Science Together: Highlights From the Open Source AI for Science Summit appeared first on Meta Newsroom .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "We brought researchers from universities, hospitals, and industry together for the Open Source AI for Science Summit, an event built around using open source AI to accelerate scientific discovery. The post Advancing Science Together: Highlights From the Open Source AI for Science Summit appeared first on Meta Newsroom ."
     },
     {
       "id": "bcb61ab4ef08a3e6",
@@ -1087,22 +1163,26 @@
       "sourceType": "changelog",
       "url": "https://github.blog/changelog/2026-11-20-pin-your-favorite-repositories-to-your-dashboard",
       "title": "Pin your favorite repositories to your dashboard",
-      "titleJa": "",
+      "titleJa": "お気に入りのリポジトリをダッシュボードにピン留めしよう",
       "titleEn": "Pin your favorite repositories to your dashboard",
       "lang": "en",
       "publishedAt": "2026-11-20T14:12:05.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "changelog",
-        "github"
+        "dashboard",
+        "favorite-repositories",
+        "github",
+        "github-mobile",
+        "rollback"
       ],
       "category": "tech-news",
       "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Editor’s note (November 23, 2026): We have temporarily rolled back this change while we improve the experience based on user feedback. Choose which repositories appear on the Dashboard with the new Favorite repositories section. If the new dashboard experience isn’t enabled, Top repositories remains unchanged. Select Edit or Add repositories to open the picker. Search for repositories and select or deselect them. Your selections stay visible as you search. Select Save to apply your changes. New favorites are added to the end of your list. To discard your changes, select Cancel . Your favorites sync with your pinned repositories in GitHub Mobile. Changes you make in either place appear in the other after you refresh. You can pin up to 25 repositories across both experiences. If saving would put you over the limit, you’ll see an error and your list won’t change.",
-      "feedSnippet": "Editor’s note (November 23, 2026): We have temporarily rolled back this change while we improve the experience based on user feedback. Choose which repositories appear on the Dashboard with the… The post Pin your favorite repositories to your dashboard appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Editor’s note (November 23, 2026): We have temporarily rolled back this change while we improve the experience based on user feedback. Choose which repositories appear on the Dashboard with the… The post Pin your favorite repositories to your dashboard appeared first on The GitHub Blog ."
     },
     {
       "id": "90db74e0e3c4d6de",
@@ -1110,22 +1190,25 @@
       "sourceType": "changelog",
       "url": "https://github.blog/changelog/2026-11-19-github-desktop-now-supports-multiple-accounts-per-host",
       "title": "GitHub Desktop now supports multiple accounts per host",
-      "titleJa": "",
+      "titleJa": "GitHub Desktop、1つのホストで複数アカウントに対応",
       "titleEn": "GitHub Desktop now supports multiple accounts per host",
       "lang": "en",
       "publishedAt": "2026-11-20T02:06:01.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "changelog",
-        "github"
+        "github",
+        "github-desktop",
+        "github-enterprise",
+        "multiple-accounts"
       ],
       "category": "tech-news",
       "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "GitHub Desktop now lets you sign in with more than one account on the same host, including GitHub.com, GitHub Enterprise Server, and GHE.com. This has been one of the most requested features in the Desktop community. Add more than one account for a single host, with no fixed limit. Associate each repository with a specific account, so clone, publish, and Git operations use the right credentials automatically. Choose an account when adding or cloning a repository that multiple signed-in accounts can access, or let Desktop infer it when only one can. Change a repository’s account association at any time from repository settings or the repository list’s context menu. Existing repositories are migrated automatically to the account you were already using, so if you only have one account per host, nothing changes for you.",
-      "feedSnippet": "GitHub Desktop now lets you sign in with more than one account on the same host, including GitHub.com, GitHub Enterprise Server, and GHE.com. This has been one of the most… The post GitHub Desktop now supports multiple accounts per host appeared first on The GitHub Blog .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "GitHub Desktop now lets you sign in with more than one account on the same host, including GitHub.com, GitHub Enterprise Server, and GHE.com. This has been one of the most… The post GitHub Desktop now supports multiple accounts per host appeared first on The GitHub Blog ."
     },
     {
       "id": "f033b8ce934dcf8a",
@@ -1133,17 +1216,21 @@
       "sourceType": "blog",
       "url": "https://developers.googleblog.com/check-what-your-ai-agents-do-before-they-do-it-with-semantic-governance-policies/",
       "title": "Check what your AI agents do before they do it, with Semantic governance policies",
-      "titleJa": "",
+      "titleJa": "AIエージェントの動作を実行前に確認する、セマンティック ガバナンス ポリシー",
       "titleEn": "Check what your AI agents do before they do it, with Semantic governance policies",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
       "collectedAt": "2026-11-26T05:30:40.162Z",
       "tags": [
+        "ai-agents",
         "enterprise",
-        "google"
+        "google",
+        "governance",
+        "guardrails",
+        "preview"
       ],
       "category": "gemini",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Check what your AI agents do before they do it, with Semantic governance policies Two days before earnings, an employee asks their coworker agent to send the preliminary quarterly results to an investor who says they're under NDA, and to copy the employee's personal Gmail so they can review the numbers tonight. The agent can read the file and send email, so it fulfills the user request. Semantic governance policies, available in Preview in Gemini platform, enable enterprises to govern their agents and provide guardrails to stop that call before it runs. They check each tool call an agent proposes against what the user asked for and against rules you write in plain language. Permissions alone can't catch this. They say what an agent can do, not whether a particular call follows your rules.",
@@ -1431,6 +1518,7 @@
       "collectedAt": "2026-11-26T05:30:40.162Z",
       "tags": [
         "ads-ranking",
+        "agent",
         "ai-agents",
         "engineering",
         "machine-learning",
@@ -1593,7 +1681,7 @@
       "titleEn": "Muse Is Now Available in Australia: The World’s First Personal AI Agent Built for Everyone",
       "lang": "en",
       "publishedAt": "2026-11-17T18:00:31.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "agent",
         "meta",
@@ -1612,8 +1700,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Muse is available in Australia from today, with local connector experiences across creativity, shopping, property, fitness and entertainment rolling out progressively. The post Muse Is Now Available in Australia: The World’s First Personal AI Agent Built for Everyone appeared first on Meta Newsroom .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Muse is available in Australia from today, with local connector experiences across creativity, shopping, property, fitness and entertainment rolling out progressively. The post Muse Is Now Available in Australia: The World’s First Personal AI Agent Built for Everyone appeared first on Meta Newsroom ."
     },
     {
       "id": "4c36b31e9b579c12",
@@ -1636,8 +1724,8 @@
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "255f21e05c50335e",
@@ -1649,7 +1737,7 @@
       "titleEn": "Can AI help build a healthier future?",
       "lang": "en",
       "publishedAt": "2026-11-17T16:52:17.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "microsoft",
         "research"
@@ -1659,8 +1747,8 @@
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
-      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research ."
     },
     {
       "id": "37e0b176c97615e8",
@@ -1701,7 +1789,7 @@
       "titleEn": "TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient",
       "lang": "en",
       "publishedAt": "2026-11-16T17:01:35.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "microsoft",
         "research"
@@ -1711,8 +1799,8 @@
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "Developers use AI coding agents in the same codebases day after day, yet agents often start each session from scratch: rediscovering familiar facts, loading unused tools, and repeating unsuccessful approaches. TokenEconomizer is an open-source plugin that learns from an agent’s past sessions in a repository to reduce waste in future sessions, without modifying the agent or its underlying model. Across 277 real bug-fixing tasks, TokenEconomizer reduced costs by 18.4–30.9% across multiple AI coding agents. Costs fell in every repository tested, while task success rates remained broadly stable. AI coding agents are increasingly helping developers fix bugs and build features largely on their own, but every interaction with their models consumes tokens. In each session , an agent sends instructions, tool descriptions, and session history to its model.",
-      "feedSnippet": "AI coding agents can waste time and tokens relearning the same lessons. TokenEconomizer is an open-source plugin that builds on past sessions to cut costs while maintaining task success. It’s a path toward coding agents that learn not only how to solve tasks, but also how to spend computation more effectively. The post TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient appeared first on Microsoft Research .",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "AI coding agents can waste time and tokens relearning the same lessons. TokenEconomizer is an open-source plugin that builds on past sessions to cut costs while maintaining task success. It’s a path toward coding agents that learn not only how to solve tasks, but also how to spend computation more effectively. The post TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient appeared first on Microsoft Research ."
     },
     {
       "id": "a8516a8e18e8648b",
@@ -1775,8 +1863,8 @@
       "evergreen": true
     },
     {
-      "id": "d9302d8306c35a57",
-      "source": "github-blog-ai",
+      "id": "9bf242a7c3461006",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/",
       "title": "Build once, run on any agent: A practical guide to agent skills",
@@ -1786,7 +1874,7 @@
       "summaryEn": "GitHub Copilot's agent skills package repeatable task instructions in a versioned directory built around SKILL.md, shareable across agents, though the runtime must supply tools, credentials, and permissions. This helps developers turn personal know-how into team assets.",
       "lang": "en",
       "publishedAt": "2026-11-12T22:54:52.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "agent",
         "agent-skills",
@@ -2007,7 +2095,7 @@
       "titleEn": "Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
       "lang": "en",
       "publishedAt": "2026-11-10T20:52:56.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "microsoft",
         "research"
@@ -2144,23 +2232,27 @@
       "sourceType": "blog",
       "url": "https://netflixtechblog.com/fact-checking-at-scale-building-a-more-accurate-and-efficient-synopsis-factuality-system-d7d85859d808?source=rss----2615bd06b42e---4",
       "title": "Fact-Checking at Scale: Building a More Accurate and Efficient Synopsis Factuality System",
-      "titleJa": "",
+      "titleJa": "大規模なファクトチェック:より正確で効率的な作品あらすじ事実性検証システムの構築",
       "titleEn": "Fact-Checking at Scale: Building a More Accurate and Efficient Synopsis Factuality System",
-      "summaryJa": "このエントリは netflix-techblog から収集した tech-news 領域の最新アップデートです。原題:「Fact-Checking at Scale: Building a More Accurate and Efficient Synopsis Factuality System」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Fact-Checking at Scale: Building a More Accurate and Efficient Synopsis Factuality System",
+      "summaryJa": "Netflixが、作品あらすじの内容が事実と合っているかを大規模に確認する検証システムを、精度と効率の両面で改良した。誤った紹介文を減らし、コンテンツ制作や運用の担当者の確認負担を軽くする狙いがある。",
+      "summaryEn": "Netflix has reworked its system for checking whether title synopses match the facts, improving both accuracy and efficiency at scale, which helps content teams catch errors and review text faster.",
       "lang": "en",
       "publishedAt": "2026-11-09T17:01:02.000Z",
       "collectedAt": "2026-11-27T18:00:39.400Z",
       "tags": [
+        "content-quality",
         "engineering",
-        "netflix"
+        "factuality",
+        "llm",
+        "netflix",
+        "synopsis"
       ],
       "category": "tech-news",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "a8256a8bf6828cc7",
@@ -2195,8 +2287,8 @@
       }
     },
     {
-      "id": "9c3380ee4f1290dc",
-      "source": "github-blog-ai",
+      "id": "df55124286315754",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/",
       "title": "Beyond code generation: A developer’s guide to agentic engineering",
@@ -2206,7 +2298,7 @@
       "summaryEn": "A GitHub Copilot guide to agentic engineering, noting a week of over 1.2 billion commits and a 441% rise in review time, to help developers manage work beyond code generation.",
       "lang": "en",
       "publishedAt": "2026-11-06T22:15:59.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "agent",
         "agentic-engineering",
@@ -2291,7 +2383,7 @@
       "titleEn": "Formally verifying agent-written full-stack web apps with PDD Kit",
       "lang": "en",
       "publishedAt": "2026-11-05T16:00:00.000Z",
-      "collectedAt": "2026-11-27T01:30:33.312Z",
+      "collectedAt": "2026-11-27T19:00:39.586Z",
       "tags": [
         "agent",
         "microsoft",

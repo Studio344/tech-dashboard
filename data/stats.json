@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-28T09:30:59.934Z",
+  "generatedAt": "2026-11-28T10:23:32.411Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
-    "allTime": 8353,
-    "last30d": 120,
-    "last7d": 47,
-    "last24h": 6
+    "allTime": 8354,
+    "last30d": 121,
+    "last7d": 48,
+    "last24h": 5
   },
   "byDay": [
     {
@@ -758,9 +758,9 @@
     },
     {
       "date": "2026-11-24",
-      "count": 21,
+      "count": 22,
       "byCategory": {
-        "gemini": 2,
+        "gemini": 3,
         "opencode": 2,
         "mcp": 1,
         "local-llm": 3,
@@ -1219,7 +1219,7 @@
     },
     {
       "month": "2026-11",
-      "count": 118,
+      "count": 119,
       "byCategory": {
         "vscode": 6,
         "local-llm": 13,
@@ -1230,7 +1230,7 @@
         "cursor": 10,
         "opencode": 10,
         "tech-news": 23,
-        "gemini": 5,
+        "gemini": 6,
         "claude": 5,
         "research": 4
       }
@@ -1354,8 +1354,8 @@
     },
     {
       "source": "google-deepmind",
-      "total": 132,
-      "last30d": 1
+      "total": 133,
+      "last30d": 2
     },
     {
       "source": "qiita-llm",
@@ -1529,7 +1529,7 @@
     }
   ],
   "byImportance": {
-    "1": 4623,
+    "1": 4624,
     "2": 3363,
     "3": 367
   }

@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-11-28T09:30:59.934Z",
+  "generatedAt": "2026-11-28T10:23:32.411Z",
   "count": 2000,
   "health": {
-    "lastRunAt": "2026-11-28T09:30:59.917Z",
-    "batchIndex": 4,
+    "lastRunAt": "2026-11-28T10:23:32.391Z",
+    "batchIndex": 5,
     "batchTotal": 6,
-    "sourcesAttempted": 10,
-    "sourcesOk": 10,
+    "sourcesAttempted": 9,
+    "sourcesOk": 9,
     "sourcesFailed": [],
     "summarized": 0,
     "summarizeErrors": 0,
@@ -15,7 +15,7 @@
     "fallbackTotal": 6,
     "fallbackPercent": 0,
     "kvLookupCap": 35,
-    "kvLookupCount": 4,
+    "kvLookupCount": 5,
     "queueMode": "enabled",
     "queueCap": 35,
     "summaryQueueSnapshotStage": "final-entries",
@@ -27,7 +27,7 @@
     "summaryQueueCooldownCount": 1,
     "copilotOk": true,
     "copilotError": null,
-    "ogCached": 4562,
+    "ogCached": 4563,
     "ogNewHits": 1,
     "excerptFetchCandidates": 1,
     "excerptFetchAttempted": 1,
@@ -36,62 +36,62 @@
     "excerptFetchDeferred": 0,
     "excerptFetchPrioritized": 0,
     "excerptFetchUnlockable": 0,
-    "excerptBodyBatchPinned": 12,
+    "excerptBodyBatchPinned": 25,
     "excerptBodyBatchEnqueued": 10,
     "publisherContractFingerprint": "sha256:266dd4595d0557a506cda949689e0df1d122361294958d844533678bd71eba3f",
     "bodyQueueMode": "enabled",
     "bodyEnqueueCap": 31,
     "bodyEnqueueCandidates": 15,
     "bodyEnqueued": 15,
-    "bodyBacklog": 120,
+    "bodyBacklog": 96,
     "bodyQueueDrainEstimateHours": 4,
     "bodyLookupCount": 35,
     "chatLookupCount": 120,
-    "chatCompatibilityRejected": 88,
+    "chatCompatibilityRejected": 92,
     "chatRepairBlocked": 0,
-    "chatRepairCandidates": 117,
+    "chatRepairCandidates": 131,
     "chatRepairEnqueued": 5,
     "chatRepairPendingIds": [
-      "f09bc9da35f20e1a",
-      "12b67920a60929cf",
-      "abfb46c9c802e355",
-      "4a0da68c49316bac",
-      "2413843f80fd5497"
+      "c51dd1e4af1e1960",
+      "a8910827eadb238e",
+      "7d01db02c3e40e2d",
+      "448f3c7f65b2459d",
+      "3b062ba11c940deb"
     ],
-    "bodyPendingLookupCount": 23,
+    "bodyPendingLookupCount": 10,
     "bodyMergePendingIds": [
-      "f9c5095dcdcc7bb0",
-      "5387974c3335c576",
-      "205d8e87e8d51cf8",
-      "1f8433e1adf8a5ff",
-      "a06cdc5222d8dc6b",
-      "c7fe1a4b9a11fcf4",
-      "af58193a4eeed442",
-      "8f5e74f6b09e75e3",
-      "0e30ac054502a116",
-      "e873680ad43a8d05"
+      "2eba3bd38fed592a",
+      "2524908e466fa3d0",
+      "92f16f4ebfcac8d7",
+      "bd009a557c1cfae9",
+      "cf23135d6ba00615",
+      "2c20253c6c5a3afa",
+      "f150dc52052a0a18",
+      "65e3a8e409da5821",
+      "b00e54e01d20ac8c",
+      "722cc9f7f6ac4f8f"
     ],
-    "bodyMerged": 29,
-    "bodyPruned": 0,
-    "bodiesTotal": 1618,
+    "bodyMerged": 30,
+    "bodyPruned": 1,
+    "bodiesTotal": 1642,
     "bodyRetentionDays": 30,
     "bodyRetentionEligible": 1786,
     "bodyBudgetTargetBytes": 18000000,
-    "bodyBudgetBytes": 11950345,
+    "bodyBudgetBytes": 12081081,
     "bodyShardBytes": [
-      2932583,
-      2919829,
-      3068616,
-      3029317
+      2963913,
+      2935293,
+      3103918,
+      3077957
     ],
     "bodyStorageMode": "shards-v1",
     "bodyBudgetPruned": 0,
     "bodyBudgetEvictedIds": [],
     "bodyShardDigests": [
-      "1dab3e5b5c3667ac4fc5badacf70a01d711b3aeffdc2449ae6601fd7871ace61",
-      "d032e35096a1ceefa3d2132faad091c7f45c65f84d9ed889951bf2a904b9c5c8",
-      "fe440f04c4f2922f7c90e9c244052badf15b32f2e15f21a173fd3019a0caa774",
-      "0113eb7b405fc10b3dbbfe744bdb75431f73950ef19d8d6a7a91569ee10adaa9"
+      "070403c0924cc52d1457dd6a4ef50e0787c4eba7074538df8ff16357a4ed969c",
+      "157651ce75bfd2c6175ed36278941449cbbe1ae84d6e7957c190ae762fd670f7",
+      "6f28fd92ded0144dcf1cfe5383f4e50c24d0ab470a1a0978f234ea5e2f3fd8d4",
+      "d50182723f42a533010c335c65d771a0188659073c96a5b3f6464509610da831"
     ],
     "enrichmentEnqueueCap": 35,
     "enrichmentEnqueued": 19,
@@ -110,7 +110,7 @@
       "summaryEn": "Covers a fix for the Remote SSH extension in VSCode on macOS failing with a bad install script result error. The remedy centers on stopping VSCode processes and retrying, helping users locked out of remote servers.",
       "lang": "ja",
       "publishedAt": "2026-11-28T01:44:27.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "macos",
         "qiita",
@@ -124,6 +124,8 @@
       "archiveTier": "hot",
       "contentSnippet": "発生事象 タイトルのとおりです。 got bad result from install script 動作環境 OS : macOS 接続方法 : VSCode 拡張の Remote SSH 経由でアクセス 対処法 VSCode のプロセスを一度 停止 (ki...",
       "excerptOrigin": "article-unavailable",
+      "bodyJa": "",
+      "bodyEn": "",
       "image": {
         "src": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGMzI3NDA3JTJGcHJvZmlsZS1pbWFnZXMlMkYxNTQ0OTUyMTkzP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0yZmQ0MmM3NzYxNWFhYmRjM2FiNWRjMzllNWJlMTdjMw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D45a85dd3feeef40b3f940694e5eeafef?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JTVCVlNDb2RlJTIwJTJGJTIwU1NIJTVEJTIwJUUzJTgzJUFBJUUzJTgzJUEyJUUzJTgzJUJDJUUzJTgzJTg4JUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkwJUUzJTgxJUFCJUU2JThFJUE1JUU3JUI2JTlBJUUzJTgxJTk3JUUzJTgyJTg4JUUzJTgxJTg2JUUzJTgxJUE4JUUzJTgxJTk3JUUzJTgxJTlGJUU2JTk5JTgyJUUzJTgxJUFCJTIwZ290JTIwYmFkJTIwcmVzdWx0JTIwZnJvbSUyMGluc3RhbGwlMjBzY3JpcHQlMjAlRTMlODElQTglRTglQTElQTglRTclQTQlQkElRTMlODElOTUlRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz04NmE0ZWYwYWZhY2YxZWJlMjAwMzNjNTM4ZGQwNDk5ZA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzaXJ1a3U2JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9N2FlYzk1ZjE5OTdjMzVjMDRlY2Y1ODJmNTk0ZDA0ZmE&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=ad334859be04dcf20cffe8927e35c568",
         "origSrc": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnFpaXRhLWltYWdlLXN0b3JlLnMzLmFtYXpvbmF3cy5jb20lMkYwJTJGMzI3NDA3JTJGcHJvZmlsZS1pbWFnZXMlMkYxNTQ0OTUyMTkzP2l4bGliPXJiLTQuMS4xJmFyPTElM0ExJmZpdD1jcm9wJm1hc2s9ZWxsaXBzZSZiZz1GRkZGRkYmZm09cG5nMzImcz0yZmQ0MmM3NzYxNWFhYmRjM2FiNWRjMzllNWJlMTdjMw%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3D45a85dd3feeef40b3f940694e5eeafef?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9JTVCVlNDb2RlJTIwJTJGJTIwU1NIJTVEJTIwJUUzJTgzJUFBJUUzJTgzJUEyJUUzJTgzJUJDJUUzJTgzJTg4JUUzJTgyJUI1JUUzJTgzJUJDJUUzJTgzJTkwJUUzJTgxJUFCJUU2JThFJUE1JUU3JUI2JTlBJUUzJTgxJTk3JUUzJTgyJTg4JUUzJTgxJTg2JUUzJTgxJUE4JUUzJTgxJTk3JUUzJTgxJTlGJUU2JTk5JTgyJUUzJTgxJUFCJTIwZ290JTIwYmFkJTIwcmVzdWx0JTIwZnJvbSUyMGluc3RhbGwlMjBzY3JpcHQlMjAlRTMlODElQTglRTglQTElQTglRTclQTQlQkElRTMlODElOTUlRTIlODAlQTYmdHh0LWFsaWduPWxlZnQlMkN0b3AmdHh0LWNvbG9yPSUyMzFFMjEyMSZ0eHQtZm9udD1IaXJhZ2lubyUyMFNhbnMlMjBXNiZ0eHQtc2l6ZT01NiZ0eHQtcGFkPTAmcz04NmE0ZWYwYWZhY2YxZWJlMjAwMzNjNTM4ZGQwNDk5ZA&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBzaXJ1a3U2JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9N2FlYzk1ZjE5OTdjMzVjMDRlY2Y1ODJmNTk0ZDA0ZmE&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=ad334859be04dcf20cffe8927e35c568",
@@ -131,9 +133,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "bodyJa": "",
-      "bodyEn": ""
+      }
     },
     {
       "id": "1e0b95e9935b584c",
@@ -147,7 +147,7 @@
       "summaryEn": "Shows how to fix VS Code extensions failing to reach servers with self-signed certificates by pointing the NODE_EXTRA_CA_CERTS variable at a .crt file, useful for internal or test environments.",
       "lang": "ja",
       "publishedAt": "2026-11-27T23:13:06.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "node-extra-ca-certs",
         "qiita",
@@ -161,8 +161,8 @@
       "halfLife": "tutorial",
       "archiveTier": "hot",
       "contentSnippet": "export NODE_EXTRA_CA_CERTS ={ オレオレ証明書 ( .crt ) のパス } export NODE_EXTRA_CA_CERTS={オレオレ証明書(.crt)のパス} ※実行するたびに追記されるため、間違った場合は ~/.bashrc ファイルを直接編集すること HOME_URL = \"https://www.debian.org/\" SUPPORT_URL = \"https://www.debian.org/support\" BUG_REPORT_URL = \"https://bugs.debian.org/\"",
-      "feedSnippet": "課題 VSCode の AI コードアシスタント(Cline)で自宅の LLM サーバーに https 接続出来ない (接続設定について) 解決方法 NodeJS が追加で信頼する crt ファイルを指定する その後 VSCode を再起動する export ...",
       "excerptOrigin": "article",
+      "feedSnippet": "課題 VSCode の AI コードアシスタント(Cline)で自宅の LLM サーバーに https 接続出来ない (接続設定について) 解決方法 NodeJS が追加で信頼する crt ファイルを指定する その後 VSCode を再起動する export ...",
       "bodyJa": "",
       "bodyEn": "",
       "image": {
@@ -257,16 +257,19 @@
       "sourceType": "release",
       "url": "https://github.com/ollama/ollama/releases/tag/v0.40.20-rc0",
       "title": "Ollama Releases v0.40.20-rc0",
-      "titleJa": "",
+      "titleJa": "Ollama v0.40.20-rc0 がリリース",
       "titleEn": "Ollama Releases v0.40.20-rc0",
-      "summaryJa": "このエントリは ollama-releases から収集した local-llm 領域の最新アップデートです。原題:「Ollama Releases v0.40.20-rc0」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Ollama Releases v0.40.20-rc0",
+      "summaryJa": "Ollama がリリース候補版 v0.40.20-rc0 を GitHub で公開した。取得できた本文は GitHub の定型メッセージのみで、具体的な変更点は確認できない。正式版前の動作確認をしたい利用者向けの試験版である。",
+      "summaryEn": "Ollama has published release candidate v0.40.20-rc0 on GitHub. The collected page text contains only generic interface messages, so no specific changes are confirmed; it suits users who want to test ahead of the stable release.",
       "lang": "en",
       "publishedAt": "2026-11-27T21:06:59.000Z",
       "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
+        "github-release",
         "ollama",
-        "release"
+        "pre-release",
+        "release",
+        "release-candidate"
       ],
       "category": "local-llm",
       "importance": 1,
@@ -1002,7 +1005,7 @@
       "summaryEn": "Mass Spec Skills for Google Antigravity, built with analytical chemists, interprets tandem mass spectra and lays out its evidence, reaching frontier-level retrieval accuracy even on a lightweight model. It helps scientists identify unknown small molecules.",
       "lang": "en",
       "publishedAt": "2026-11-24T13:07:53.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent-skills",
         "antigravity",
@@ -1024,8 +1027,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Mass Spec Skills empowers scientists using Google Antigravity to interpret tandem mass spectra.",
       "excerptOrigin": "article",
+      "feedSnippet": "Mass Spec Skills empowers scientists using Google Antigravity to interpret tandem mass spectra.",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -1079,7 +1082,7 @@
       "summaryEn": "The Model Context Protocol marks its second anniversary, having drawn more than 2,500 unique contributors on GitHub. It recaps community milestones, useful for developers eyeing MCP's third year.",
       "lang": "en",
       "publishedAt": "2026-11-24T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "anniversary",
         "community",
@@ -1565,6 +1568,41 @@
         "height": 0,
         "source": "media"
       },
+      "bodyJa": "",
+      "bodyEn": ""
+    },
+    {
+      "id": "3c7ddc6c8207a40b",
+      "source": "google-deepmind",
+      "sourceType": "blog",
+      "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+      "title": "Finding faster quantum algorithms with agents and formal verification",
+      "titleJa": "",
+      "titleEn": "Finding faster quantum algorithms with agents and formal verification",
+      "summaryJa": "このエントリは google-deepmind から収集した gemini 領域の最新アップデートです。原題:「Finding faster quantum algorithms with agents and formal verification」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Finding faster quantum algorithms with agents and formal verification",
+      "lang": "en",
+      "publishedAt": "2026-11-23T16:59:40.000Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
+      "tags": [
+        "deepmind",
+        "google"
+      ],
+      "category": "gemini",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "How using agent teams and formal verification can improve quantum algorithms for modelling fusion energy, chemistry and enzymes Quantum computers could soon solve problems beyond the reach of classical supercomputers. However, there is a catch: even when using the best quantum algorithms, some important applications still require more resources than early quantum hardware will be able to support. In a new paper , we used teams of Gemini 4 agents to improve well-known quantum algorithms, creating highly efficient quantum circuits. These optimized circuits, which are instructions for how a quantum computer should carry out an algorithm, could one day help us run simulations that solve complex scientific challenges, from fusion energy to drug design. To help the community build on this work, we are open-sourcing our Lean library , problem specifications, and verified solutions on GitHub.",
+      "image": {
+        "src": "https://lh3.googleusercontent.com/jIoM2lo98EDqLMQjIaXBlXPmXgPbUPpM2GgtXcDsGekZBOPUY41IjBsnuZIhLac7MSOuRkklNBsp20a5M25oDz-xTIY0BIqoBxUqmmXvEHwlM3MJJw=w528-h297-n-nu-rw-lo",
+        "origSrc": "https://lh3.googleusercontent.com/jIoM2lo98EDqLMQjIaXBlXPmXgPbUPpM2GgtXcDsGekZBOPUY41IjBsnuZIhLac7MSOuRkklNBsp20a5M25oDz-xTIY0BIqoBxUqmmXvEHwlM3MJJw=w528-h297-n-nu-rw-lo",
+        "alt": "Finding faster quantum algorithms with agents and formal verification",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "Using agent teams and formal verification to improve quantum algorithms for fusion and chemistry.",
+      "excerptOrigin": "article",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -2118,7 +2156,7 @@
       "summaryEn": "Amazon Textract Insights is now generally available, letting you name the fields you want in plain language and extract structured data from single documents or mixed packets, with per-value confidence scores and page-level grounding, no training needed. It helps teams automate document workflows while keeping results auditable.",
       "lang": "en",
       "publishedAt": "2026-11-20T20:22:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "amazon-textract",
@@ -2133,6 +2171,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
+      "knowledgeEligible": false,
       "contentSnippet": "Announcing the general availability of Amazon Textract Insights, a new generative AI feature of Amazon Textract. Describe the fields you need in natural language, submit a document or a mixed packet, and receive structured results with a confidence score and page-level grounding for each value, with no model training required.",
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
@@ -2144,9 +2184,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true,
-      "knowledgeEligible": false
+      }
     },
     {
       "id": "2a489a3739513030",
@@ -2374,7 +2412,6 @@
       "feedSnippet": "Managed Compute serves open models on dedicated GPUs in Microsoft Foundry, with Global and US or EU Data Zone deployments. The post Serve open models in production with Foundry Managed Compute appeared first on Microsoft Foundry Blog .",
       "bodyJa": "",
       "bodyEn": "",
-      "evergreen": true,
       "image": {
         "src": "https://devblogs.microsoft.com/foundry/wp-content/uploads/sites/89/2026/11/managed-compute-ga-banner.webp",
         "origSrc": "https://devblogs.microsoft.com/foundry/wp-content/uploads/sites/89/2026/11/managed-compute-ga-banner.webp",
@@ -2382,7 +2419,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "235f054b81912456",
@@ -2413,7 +2451,15 @@
       "excerptOrigin": "article",
       "feedSnippet": "Editor’s note (November 23, 2026): We have temporarily rolled back this change while we improve the experience based on user feedback. Choose which repositories appear on the Dashboard with the… The post Pin your favorite repositories to your dashboard appeared first on The GitHub Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "image": {
+        "src": "https://github.blog/wp-content/uploads/2026/11/social-image.jpeg",
+        "origSrc": "https://github.blog/wp-content/uploads/2026/11/social-image.jpeg",
+        "alt": "Pin your favorite repositories to your dashboard",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "90db74e0e3c4d6de",
@@ -3431,7 +3477,7 @@
       "summaryEn": "Apple began the US-only Apple Health AI Usage Study with OpenEvidence, using a dedicated app to examine trust, comprehension and actions around conversational health AI, guiding more responsible designs.",
       "lang": "en",
       "publishedAt": "2026-11-16T01:18:33.934Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "apple",
         "apple-health",
@@ -3445,8 +3491,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "The Apple Health AI Usage Study, conducted in collaboration with OpenEvidence, will evaluate trust, comprehension, and real-world health AI engagement Apple today announced the launch of the Apple Health AI Usage Study in the United States, a virtual research study and associated app designed to advance the understanding of how people interact with conversational health AI tools. 1 By examining what drives user trust, the quality of responses, comprehension, and everyday health actions, the study aims to inform the responsible design of health AI experiences for Apple and the industry. “At Apple, we believe responsible innovation starts with scientific rigor and clinical grounding.",
-      "feedSnippet": "Apple today announced the launch of the Apple Health AI Usage Study in the United States, which includes a virtual research study and associated app.",
       "excerptOrigin": "article",
+      "feedSnippet": "Apple today announced the launch of the Apple Health AI Usage Study in the United States, which includes a virtual research study and associated app.",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -3707,7 +3753,7 @@
       "summaryEn": "The MCP project is introducing a more predictable release cycle that clarifies when proposals get reviewed, how long authors have to revise, and when the spec freezes, helping contributors, SDK maintainers, and developers plan.",
       "lang": "en",
       "publishedAt": "2026-11-11T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "governance",
         "mcp",
@@ -3913,7 +3959,7 @@
       "summaryEn": "MCP explores standard ways to handle file uploads and downloads, such as saving PDFs to cloud storage or loading CSVs into a sandbox, so server developers can skip bespoke transfer conventions.",
       "lang": "en",
       "publishedAt": "2026-11-10T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "file-transfer",
@@ -4434,7 +4480,7 @@
       "summaryEn": "The official Ruby SDK for MCP has been promoted to Tier 1, the top level of the SDK tiering system, joining the TypeScript, Python, C#, Go, and Rust SDKs. Ruby developers building MCP servers or clients get full spec support, complete conformance, and fast issue triage.",
       "lang": "en",
       "publishedAt": "2026-10-30T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -4615,7 +4661,7 @@
       "summaryEn": "Apple Creator Studio now builds MotionVFX effects and templates into Final Cut Pro, adds Pixelmator Pro editing, and brings new intelligence features to Logic Pro, Keynote, Pages, and Numbers for creators.",
       "lang": "en",
       "publishedAt": "2026-10-27T12:58:45.444Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-features",
         "apple",
@@ -4630,8 +4676,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "Updates bring built-in MotionVFX content to Final Cut Pro, video assets in the Content Hub, expanded music creation tools to Logic Pro, and new intelligence features to Logic Pro, Keynote, Pages, and Numbers CUPERTINO, CALIFORNIA Apple today introduced transformative updates to Apple Creator Studio , the powerful collection of creative apps designed to put studio-grade tools into the hands of modern creators across Mac, iPad, and iPhone. Final Cut Pro for Mac now includes built-in MotionVFX — an expansive collection of visual effects, plug-ins, transitions, templates, and motion graphics tools — as well as seamless editing in Pixelmator Pro. Apple’s curated Content Hub now includes video assets and is available in Final Cut Pro.",
-      "feedSnippet": "Apple introduces updates to Apple Creator Studio, the collection of creative apps designed to put studio-grade tools into the hands of creators.",
       "excerptOrigin": "article",
+      "feedSnippet": "Apple introduces updates to Apple Creator Studio, the collection of creative apps designed to put studio-grade tools into the hands of creators.",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -4647,7 +4693,7 @@
       "summaryEn": "Siri AI, built on Apple Intelligence, now supports French, Japanese, Korean, Portuguese and Spanish via the 27.2 updates, letting more users get personal, privacy-minded help with messages, email and photos.",
       "lang": "en",
       "publishedAt": "2026-10-26T18:37:30.189Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "apple",
         "apple-intelligence",
@@ -4661,8 +4707,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "With the 27.2 software updates released today, Siri AI — an entirely new version of Siri that is profoundly more capable, conversational, and personal — is expanding to more people around the world, with availability now in the French, Japanese, Korean, Portuguese, and Spanish languages. Siri AI is a completely reimagined version of Siri that is more personal and powerful, without compromising users’ privacy. Built on Apple Intelligence, it draws on personal context understanding to help users find what they need in the moment across their messages, emails, photos, and more. With even more systemwide app actions, Siri AI can help users with tasks such as drafting an email from scratch or editing and sharing a set of photos. With onscreen awareness, Siri AI can answer questions or take actions related to the content on a user’s screen.",
-      "feedSnippet": "With the 27.2 software updates released today, Siri AI is expanding to French, Japanese, Korean, Portuguese, and Spanish.",
       "excerptOrigin": "article",
+      "feedSnippet": "With the 27.2 software updates released today, Siri AI is expanding to French, Japanese, Korean, Portuguese, and Spanish.",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -4937,7 +4983,7 @@
       "summaryEn": "Apps and games optimized for iPhone Duo, Apple's first foldable, become available this Friday. Its inner display is 50 percent larger than iPhone 18 Pro Max, so users get richer streaming, gaming, and multitasking.",
       "lang": "en",
       "publishedAt": "2026-10-22T11:59:15.686Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "app-store",
         "apple",
@@ -4951,8 +4997,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "From streaming and gaming to creativity and productivity, developers worldwide are taking advantage of the unique capabilities of the first foldable iPhone Starting this Friday, iPhone Duo users can discover amazing apps and games optimized for the first foldable iPhone. With an inner display that’s 50 percent larger than iPhone 18 Pro Max, and the flexibility to use iPhone Duo in a variety of poses, developers are enhancing their apps to create exciting new experiences for capturing and sharing memories, streaming entertainment, gaming, multitasking, and much more. Because both displays share the same aspect ratio, apps transition smoothly from the outer display to the inner display and scale proportionally, so users can pick up right where they left off.",
-      "feedSnippet": "Starting this Friday, iPhone Duo users can discover amazing apps and games optimized for the first foldable iPhone.",
       "excerptOrigin": "article",
+      "feedSnippet": "Starting this Friday, iPhone Duo users can discover amazing apps and games optimized for the first foldable iPhone.",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -9386,7 +9432,7 @@
       "summaryEn": "Gemini 4 Argon adds a one-million-token context window for demanding, long-running professional reasoning. It supports coding, legal and financial work, and trusted cyber defenders patching vulnerabilities.",
       "lang": "en",
       "publishedAt": "2026-09-30T20:01:45.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "cybersecurity",
         "deepmind",
@@ -17232,7 +17278,7 @@
       "summaryEn": "Google DeepMind's proactive cyber defense effort targets public agencies and businesses, supporting earlier action on threats and stronger protection across both sectors.",
       "lang": "en",
       "publishedAt": "2026-09-02T16:24:24.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "cybersecurity",
         "deepmind",
@@ -17848,7 +17894,7 @@
       "summaryEn": "Gemini gains agent-driven capabilities for interpreting video, adding a more active approach to visual analysis. It helps users find needed information and context in footage.",
       "lang": "en",
       "publishedAt": "2026-09-01T17:08:51.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "deepmind",
@@ -18892,7 +18938,7 @@
       "summaryEn": "Google released Gemini Omni 1.1 Flash with enhanced developer controls over model behavior and output, giving builders finer-grained tools for production AI applications.",
       "lang": "en",
       "publishedAt": "2026-08-27T16:11:32.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "developer-tools",
@@ -19010,7 +19056,7 @@
       "summaryEn": "Google DeepMind has piloted a double-blind AI evaluation framework where neither evaluators nor model providers know each other's identity, aiming to reduce bias and improve the credibility of AI capability assessments.",
       "lang": "en",
       "publishedAt": "2026-08-27T12:59:16.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-evaluation",
         "benchmark",
@@ -19382,7 +19428,7 @@
       "summaryEn": "Google launched Gemini 3.5 Transcribe, a new model delivering higher-quality speech-to-text conversion, benefiting developers and enterprises building transcription pipelines.",
       "lang": "en",
       "publishedAt": "2026-08-26T17:01:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "gemini-3-5",
@@ -21224,7 +21270,7 @@
       "summaryEn": "The MCP team has published its forward-looking roadmap, outlining priority focus areas for upcoming specification releases, giving developers clear guidance on where the protocol is headed.",
       "lang": "en",
       "publishedAt": "2026-08-22T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -21444,7 +21490,7 @@
       "summaryEn": "Google DeepMind is partnering with game studios to prototype breakthrough AI gameplay experiences, drawing on 15 years of games-based AI research spanning from Atari to EVE Online.",
       "lang": "en",
       "publishedAt": "2026-08-21T11:59:48.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "atari",
         "deepmind",
@@ -26412,7 +26458,7 @@
       "summaryEn": "Google DeepMind announced Gemini 3.7 Flash, a new efficient model in the Gemini lineup designed to deliver fast, capable AI performance across a broad range of tasks.",
       "lang": "en",
       "publishedAt": "2026-08-13T17:04:18.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "gemini-flash",
@@ -27962,7 +28008,7 @@
       "summaryEn": "Google DeepMind introduced SL2T (sign-language-to-text), a breakthrough model that powers new sign language recognition features aimed at making technology more accessible for Deaf and hard of hearing users.",
       "lang": "en",
       "publishedAt": "2026-08-12T14:01:59.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "accessibility",
         "deaf",
@@ -32136,7 +32182,7 @@
       "summaryEn": "Google DeepMind's WeatherNext AI model has achieved a breakthrough in tropical cyclone forecasting, surpassing traditional numerical models in track and intensity prediction accuracy.",
       "lang": "en",
       "publishedAt": "2026-08-06T15:06:15.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "climate-ai",
         "cyclone",
@@ -38795,7 +38841,7 @@
       "summaryEn": "Google DeepMind introduced Gemini Robotics ER 2, delivering significant advances in video understanding, tool orchestration, and multi-robot collaboration that enable robots to reason through and solve complex real-world tasks.",
       "lang": "en",
       "publishedAt": "2026-07-30T15:00:59.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "gemini-robotics",
@@ -40086,7 +40132,7 @@
       "summaryEn": "Google DeepMind is releasing Lyria 3.5 in Google Flow Music, bringing meaningful improvements to musicality, lyric generation, vocal quality, and user creative control over AI-generated music.",
       "lang": "en",
       "publishedAt": "2026-07-29T16:02:10.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-music",
         "deepmind",
@@ -41626,7 +41672,7 @@
       "summaryEn": "Google DeepMind unveiled Gemini Robotics 2, a new model enabling robots to coordinate whole-body movements for complex tasks, marking a significant step toward general-purpose robotic intelligence.",
       "lang": "en",
       "publishedAt": "2026-07-28T13:21:37.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "foundation-models",
@@ -41905,7 +41951,7 @@
       "summaryEn": "MCP's 2026-07-28 spec introduces a stateless core, Multi Round-Trip Requests, and header-based routing alongside cacheable list results and an extensions framework, giving developers cleaner primitives for building interoperable servers.",
       "lang": "en",
       "publishedAt": "2026-07-28T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "authorization",
         "mcp",
@@ -42967,7 +43013,7 @@
       "summaryEn": "The official MCP Ruby SDK hits v1.0 with a stable public API and a 100% Tier 2 conformance pass rate, giving Ruby developers a production-ready foundation for building MCP servers.",
       "lang": "en",
       "publishedAt": "2026-07-27T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -47505,7 +47551,7 @@
       "summaryEn": "Google has committed $40 million to the Genesis Mission, an initiative aimed at using AI to accelerate breakthroughs across scientific disciplines, signaling a major investment in AI-driven research.",
       "lang": "en",
       "publishedAt": "2026-07-22T13:38:54.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-for-science",
         "deepmind",
@@ -48678,7 +48724,7 @@
       "summaryEn": "Google DeepMind has announced three new Gemini models—3.6 Flash, 3.5 Flash-Lite, and 3.5 Flash Cyber—expanding its Flash family to serve a broader range of performance and efficiency needs.",
       "lang": "en",
       "publishedAt": "2026-07-21T15:16:30.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "gemini-flash",
@@ -53589,7 +53635,7 @@
       "summaryEn": "Google DeepMind introduced Gemini 3.5 Flash Cyber, a model optimized for cybersecurity tasks, offering enhanced reasoning and analysis capabilities tailored to security professionals.",
       "lang": "en",
       "publishedAt": "2026-07-17T15:00:11.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "cybersecurity",
         "deepmind",
@@ -54482,7 +54528,7 @@
       "summaryEn": "Google DeepMind outlined its bioresilience strategy, detailing how AI can be responsibly applied to detect and mitigate biological threats and pandemic risks. The framework matters as it sets safety boundaries for AI use in sensitive life-science domains.",
       "lang": "en",
       "publishedAt": "2026-07-16T09:30:42.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-safety",
         "bioresilience",
@@ -59381,7 +59427,7 @@
       "summaryEn": "Google and DeepMind announced ATL Saathi, a program partnering with India's Atal Tinkering Labs to bring AI-powered mentorship and resources to young student innovators across the country.",
       "lang": "en",
       "publishedAt": "2026-07-13T12:37:28.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "atl-saathi",
         "deepmind",
@@ -65064,7 +65110,7 @@
       "summaryEn": "Google DeepMind and acclaimed film studio A24 have formed a first-of-its-kind research partnership, exploring how AI can intersect with cinematic storytelling and creative production in a meaningful way.",
       "lang": "en",
       "publishedAt": "2026-07-03T14:25:43.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "a24",
         "creative-ai",
@@ -65580,7 +65626,7 @@
       "summaryEn": "Google has made Nano Banana 2 Lite and Gemini Omni Flash available for developers, expanding the Gemini model lineup with lightweight and fast options suited for a wider range of applications.",
       "lang": "en",
       "publishedAt": "2026-06-30T16:02:40.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "gemini",
@@ -66042,7 +66088,7 @@
       "summaryEn": "Beta versions of four MCP SDKs—Python, TypeScript, Go, and C#—now support the 2026-07-28 spec release candidate, giving server developers a window to migrate and validate their implementations before the specification is finalized.",
       "lang": "en",
       "publishedAt": "2026-06-29T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "beta",
         "csharp",
@@ -66373,7 +66419,7 @@
       "summaryEn": "Google DeepMind has added computer use capabilities to Gemini 3.5 Flash, enabling the model to autonomously interact with desktop environments and automate complex multi-step tasks.",
       "lang": "en",
       "publishedAt": "2026-06-24T16:30:01.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-agents",
         "automation",
@@ -67437,7 +67483,7 @@
       "summaryEn": "Continue.dev has published v2.0.0 of its VS Code extension, representing a major version milestone for the AI coding assistant. The release was co-developed with Cursor agent.",
       "lang": "en",
       "publishedAt": "2026-06-19T00:24:01.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "continue",
@@ -67477,7 +67523,7 @@
       "summaryEn": "Continue.dev has released v2.1.0 of its VS Code extension. This routine chore update was co-authored with the Cursor agent, incrementing the extension version.",
       "lang": "en",
       "publishedAt": "2026-06-19T00:24:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "continue",
@@ -67678,7 +67724,7 @@
       "summaryEn": "The Enterprise-Managed Authorization extension for MCP has reached stable status, letting IT teams centrally provision server access via their identity provider. Employees gain immediate server connectivity at first login, eliminating per-application OAuth flows.",
       "lang": "en",
       "publishedAt": "2026-06-18T17:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "authorization",
         "enterprise",
@@ -68478,7 +68524,7 @@
       "summaryEn": "Google DeepMind announced an AI-powered initiative to accelerate UK planning approvals, aiming to cut bureaucratic delays and help address the country's chronic housing shortage.",
       "lang": "en",
       "publishedAt": "2026-06-16T21:29:50.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "google",
@@ -68561,7 +68607,7 @@
       "summaryEn": "Google DeepMind published a framework addressing security risks posed by increasingly autonomous AI agents, outlining threat models and guidelines to ensure safe real-world deployment.",
       "lang": "en",
       "publishedAt": "2026-06-16T15:46:31.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -68774,7 +68820,7 @@
       "summaryEn": "Continue ships v1.2.24 of its VS Code extension, removing the CLI-install banner and the Generate Rule feature while switching onboarding and the new-config template to explicit model definitions for a clearer setup.",
       "lang": "en",
       "publishedAt": "2026-06-15T16:59:46.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-coding",
         "configuration",
@@ -68815,7 +68861,7 @@
       "summaryEn": "Continue VS Code extension v1.2.23 drops the CLI-install banner and Generate Rule feature while switching onboarding to explicit model definitions instead of Hub slugs, giving developers clearer, more transparent config setups from the start.",
       "lang": "en",
       "publishedAt": "2026-06-15T16:43:38.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-coding-assistant",
         "continue",
@@ -68858,7 +68904,7 @@
       "summaryEn": "Continue.dev has published v1.3.40-vscode as a pre-release of its VS Code extension, focusing on housekeeping tasks ahead of a stable release, benefiting users awaiting a polished final build.",
       "lang": "en",
       "publishedAt": "2026-06-15T16:31:09.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "continue",
         "extension",
@@ -69308,7 +69354,7 @@
       "summaryEn": "DiffusionGemma applies diffusion-based generation to language modeling, achieving up to 4x faster text output than autoregressive approaches, marking a significant architectural advance for practical LLM deployment.",
       "lang": "en",
       "publishedAt": "2026-06-10T16:24:11.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "diffusion-model",
@@ -69452,7 +69498,7 @@
       "summaryEn": "Google DeepMind announces increased investment in multi-agent AI safety research, addressing the unique risks that emerge when multiple AI agents interact and coordinate autonomously.",
       "lang": "en",
       "publishedAt": "2026-06-10T10:21:19.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "ai-safety",
@@ -69705,7 +69751,7 @@
       "summaryEn": "Google DeepMind introduced Gemini 3.5 Live Translate, enabling fluid real-time voice translation that preserves natural speech patterns, lowering language barriers in live conversations.",
       "lang": "en",
       "publishedAt": "2026-06-09T15:16:25.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "gemini-3-5",
@@ -69737,7 +69783,7 @@
       "summaryEn": "Google released Gemma 4 12B, an open multimodal model that handles text and images within a single encoder-free architecture, lowering deployment complexity for developers.",
       "lang": "en",
       "publishedAt": "2026-06-09T14:10:19.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "gemma",
@@ -69769,7 +69815,7 @@
       "summaryEn": "Google DeepMind announced initiatives to advance robotics research and development across Europe, highlighting AI-driven investments that aim to accelerate innovation in the field.",
       "lang": "en",
       "publishedAt": "2026-06-09T14:02:33.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "europe",
@@ -70085,7 +70131,7 @@
       "summaryEn": "DeepMind measured the educational impact of AI-assisted learning in Sierra Leone, providing evidence that AI tools can meaningfully improve outcomes in underserved regions.",
       "lang": "en",
       "publishedAt": "2026-06-08T13:04:59.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-for-good",
         "deepmind",
@@ -72004,7 +72050,7 @@
       "summaryEn": "Google DeepMind has launched an accelerator program in Asia Pacific supporting startups using AI to address environmental risks, providing resources and mentorship to drive impactful climate solutions in the region.",
       "lang": "en",
       "publishedAt": "2026-05-21T19:46:42.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "accelerator",
         "asia-pacific",
@@ -72044,7 +72090,7 @@
       "summaryEn": "The release candidate for the next MCP specification introduces a stateless protocol core alongside new constructs like Extensions, Tasks, and MCP Apps, plus tightened authorization and a deprecation policy — giving developers a concrete preview to prepare implementations against.",
       "lang": "en",
       "publishedAt": "2026-05-21T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "extensions",
         "mcp",
@@ -72333,7 +72379,7 @@
       "summaryEn": "DeepMind published research on fast-tracking the identification of genetic factors that can reverse cellular aging, potentially accelerating therapies for age-related diseases.",
       "lang": "en",
       "publishedAt": "2026-05-18T18:21:39.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "aging",
         "biology",
@@ -72544,7 +72590,7 @@
       "summaryEn": "Project Genie now integrates with Google Street View to simulate real-world environments, enabling AI agents to be trained in photorealistic interactive representations of actual places.",
       "lang": "en",
       "publishedAt": "2026-05-17T19:53:18.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-agents",
         "deepmind",
@@ -72576,7 +72622,7 @@
       "summaryEn": "Google DeepMind announced Gemini Omni, a new multimodal model capable of natively processing text, audio, and images together, marking a significant step forward in unified AI understanding.",
       "lang": "en",
       "publishedAt": "2026-05-17T19:50:57.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "gemini",
@@ -72606,7 +72652,7 @@
       "summaryEn": "Google DeepMind announced Antigravity 2.0, bringing significant capability improvements and new features over its predecessor, marking a notable milestone in AI development.",
       "lang": "en",
       "publishedAt": "2026-05-17T19:43:45.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "antigravity",
         "deepmind",
@@ -72633,7 +72679,7 @@
       "summaryEn": "Google DeepMind unveiled Gemini-powered AI experiments and tools aimed at accelerating scientific discovery, marking a significant push to bring frontier AI capabilities directly into researchers' workflows.",
       "lang": "en",
       "publishedAt": "2026-05-17T13:50:34.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "gemini",
@@ -72664,7 +72710,7 @@
       "summaryEn": "Google DeepMind announced improvements to content provenance tools, making it easier for users to understand whether content was AI-generated or edited, boosting transparency and trust.",
       "lang": "en",
       "publishedAt": "2026-05-17T13:43:50.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-transparency",
         "content-provenance",
@@ -72694,7 +72740,7 @@
       "summaryEn": "Google DeepMind announced a national AI partnership with Singapore to advance research, infrastructure, and talent development, reinforcing the country's position as a regional AI hub.",
       "lang": "en",
       "publishedAt": "2026-05-16T09:13:34.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-policy",
         "deepmind",
@@ -72732,7 +72778,7 @@
       "summaryEn": "DeepMind researchers used AI tools to identify molecular switches that govern the behavior of emerging infectious disease pathogens, potentially accelerating the discovery of new therapeutic targets.",
       "lang": "en",
       "publishedAt": "2026-05-16T08:16:06.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "alphafold",
         "deepmind",
@@ -72771,7 +72817,7 @@
       "summaryEn": "Google DeepMind announced new AI-driven approaches using Gemini to advance aging research, potentially accelerating the discovery of biological aging mechanisms and therapeutic targets.",
       "lang": "en",
       "publishedAt": "2026-05-16T08:08:44.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "aging",
         "biology",
@@ -72811,7 +72857,7 @@
       "summaryEn": "Google DeepMind published research using AI to accelerate the discovery of liver disease mechanisms, potentially identifying new therapeutic targets and speeding up drug development.",
       "lang": "en",
       "publishedAt": "2026-05-16T08:00:15.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "biology",
         "deepmind",
@@ -72850,7 +72896,7 @@
       "summaryEn": "DeepMind unveiled an approach that combines multiple biological toolkits to advance ALS research, potentially accelerating the understanding and treatment of this neurodegenerative disease.",
       "lang": "en",
       "publishedAt": "2026-05-16T07:53:11.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "alphafold",
         "als",
@@ -72889,7 +72935,7 @@
       "summaryEn": "Google DeepMind researchers identified existing approved medicines that could be repurposed to treat liver fibrosis, potentially accelerating therapy delivery while reducing drug development costs.",
       "lang": "en",
       "publishedAt": "2026-05-16T07:40:27.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "alphafold",
         "biomedical-research",
@@ -72928,7 +72974,7 @@
       "summaryEn": "Google's WeatherNext AI forecasting system helped the National Hurricane Center improve track predictions for Hurricane Melissa's historic Jamaica landfall, demonstrating real-world impact of AI in operational meteorology.",
       "lang": "en",
       "publishedAt": "2026-05-16T03:14:17.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "deepmind",
         "forecasting",
@@ -72967,7 +73013,7 @@
       "summaryEn": "Google DeepMind announced Gemini 3.5, a new frontier model combining advanced reasoning with agentic action capabilities, enabling AI to autonomously execute complex multi-step tasks at scale.",
       "lang": "en",
       "publishedAt": "2026-05-15T22:50:12.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "agentic-ai",
@@ -73474,7 +73520,7 @@
       "summaryEn": "Google DeepMind introduced Co-Scientist, a multi-agent AI system designed to assist researchers by automating hypothesis generation and experimental planning, potentially accelerating the pace of scientific discovery.",
       "lang": "en",
       "publishedAt": "2026-05-12T14:40:07.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "co-scientist",
@@ -74036,7 +74082,7 @@
       "summaryEn": "AlphaEvolve applies Gemini-powered evolutionary search to real-world problems spanning chip design, algorithm optimization, and scientific research, broadening access for researchers and developers.",
       "lang": "en",
       "publishedAt": "2026-05-06T10:43:49.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "algorithm-optimization",
@@ -74494,39 +74540,6 @@
       "feedSnippet": "Admins can now create a team marketplace without connecting a repository first. Add, remove, and configure install behavior for first-party plugins directly in team marketplace settings.",
       "bodyJa": "",
       "bodyEn": ""
-    },
-    {
-      "id": "9e3af0ca34f72e87",
-      "source": "github-blog-ai",
-      "sourceType": "blog",
-      "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-cli-for-beginners-interactive-v-non-interactive-mode/",
-      "title": "GitHub Copilot CLI for Beginners: Interactive v. non-interactive mode",
-      "titleJa": "GitHub Copilot CLI入門：対話モードと非対話モードの使い分け",
-      "titleEn": "GitHub Copilot CLI for Beginners: Interactive v. non-interactive mode",
-      "summaryJa": "GitHub Copilot CLIの対話モードと非対話モードを比較し、会話しながら進める作業と自動化に組み込む実行の違いを解説。初心者が目的に合う操作方法を選び、CLIを効率よく活用できる。",
-      "summaryEn": "GitHub Copilot CLI's interactive and non-interactive modes are compared, clarifying when to use guided exchanges or scripted runs so beginners can choose an efficient workflow.",
-      "lang": "en",
-      "publishedAt": "2026-04-30T16:09:02.000Z",
-      "collectedAt": "2026-06-10T14:00:40.742Z",
-      "tags": [
-        "ai-agents",
-        "automation",
-        "command-line-interface",
-        "copilot-cli",
-        "developer-tools",
-        "github",
-        "interactive-mode",
-        "workflow-automation"
-      ],
-      "category": "copilot",
-      "importance": 1,
-      "halfLife": "architecture",
-      "archiveTier": "warm",
-      "bodyJa": "",
-      "bodyEn": "",
-      "contentSnippet": "Welcome to GitHub Copilot CLI for Beginners! In this series (available in video and blog format), we’ll give you everything you need to get started using GitHub Copilot CLI , from your first prompt to tips for navigating the command line like a pro! In this blog, we’ll cover the two main modes of the CLI: interactive and non-interactive. You’ll learn the differences between the two modes, how to enter them, and what they’re most useful for. What is GitHub Copilot CLI interactive mode? Interactive mode is a back-and-forth, chat-like experience. When you launch Copilot CLI with Copilot, you’re already in interactive mode—that’s the default. Non-interactive mode is a separate option for when you want a quick, one-off answer without entering a session.",
-      "excerptOrigin": "article",
-      "evergreen": true
     }
   ]
 }

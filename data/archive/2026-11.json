@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-28T09:30:59.934Z",
+  "generatedAt": "2026-11-28T10:23:32.411Z",
   "month": "2026-11",
-  "count": 118,
+  "count": 119,
   "entries": [
     {
       "id": "acff2e94dd9223b7",
@@ -13,7 +13,7 @@
       "titleEn": "[VSCode / SSH] Cannot Connect to Remote Server: \"got bad result from install script\" Error",
       "lang": "ja",
       "publishedAt": "2026-11-28T01:44:27.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "macos",
         "qiita",
@@ -46,7 +46,7 @@
       "titleEn": "How to Make VS Code Extensions Trust a Self-Signed SSL Certificate",
       "lang": "ja",
       "publishedAt": "2026-11-27T23:13:06.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "node-extra-ca-certs",
         "qiita",
@@ -60,8 +60,8 @@
       "halfLife": "tutorial",
       "archiveTier": "hot",
       "contentSnippet": "export NODE_EXTRA_CA_CERTS ={ オレオレ証明書 ( .crt ) のパス } export NODE_EXTRA_CA_CERTS={オレオレ証明書(.crt)のパス} ※実行するたびに追記されるため、間違った場合は ~/.bashrc ファイルを直接編集すること HOME_URL = \"https://www.debian.org/\" SUPPORT_URL = \"https://www.debian.org/support\" BUG_REPORT_URL = \"https://bugs.debian.org/\"",
-      "feedSnippet": "課題 VSCode の AI コードアシスタント(Cline)で自宅の LLM サーバーに https 接続出来ない (接続設定について) 解決方法 NodeJS が追加で信頼する crt ファイルを指定する その後 VSCode を再起動する export ...",
       "excerptOrigin": "article",
+      "feedSnippet": "課題 VSCode の AI コードアシスタント(Cline)で自宅の LLM サーバーに https 接続出来ない (接続設定について) 解決方法 NodeJS が追加で信頼する crt ファイルを指定する その後 VSCode を再起動する export ...",
       "image": {
         "src": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NTI3NjAxJTJGYzAwOGQ1YTZjYzg1YjEwYzg2NTkyMGFlMmJmNTVjM2Y1YzQ3NDA4MiUyRmxhcmdlLnBuZyUzRjE3OTQxMDMzNjc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPThlNDNjN2QzNmNkYTczMTU4Mjc4YjdkYjUzMjI4Yjdl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da55d56adb06331faff8d4b1a0a07cd6e?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9VlNjb2RlJUUzJTgxJUFFJUU2JThCJUExJUU1JUJDJUI1JUU2JUE5JTlGJUU4JTgzJUJEJUUzJTgxJUE3JUU4JTg3JUFBJUU1JTg5JThEJTIwU1NMJTIwJUU4JUE4JUJDJUU2JTk4JThFJUU2JTlCJUI4JUUzJTgyJTkyJUU0JUJGJUExJUU5JUEwJUJDJUUzJTgxJTk5JUUzJTgyJThCJUU2JTk2JUI5JUU2JUIzJTk1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NTcyODdkOWVhY2U3NmI5NDVkOTM3NGM4ZmFkMDM1MzQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrazAxMjk4JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDRkODE1MWVjZGRlMjQ3M2ZlMGExY2QyMDk5NWZkYmQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=045e4f35bf0f5a93b88a708cb57613b6",
         "origSrc": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NTI3NjAxJTJGYzAwOGQ1YTZjYzg1YjEwYzg2NTkyMGFlMmJmNTVjM2Y1YzQ3NDA4MiUyRmxhcmdlLnBuZyUzRjE3OTQxMDMzNjc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPThlNDNjN2QzNmNkYTczMTU4Mjc4YjdkYjUzMjI4Yjdl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da55d56adb06331faff8d4b1a0a07cd6e?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9VlNjb2RlJUUzJTgxJUFFJUU2JThCJUExJUU1JUJDJUI1JUU2JUE5JTlGJUU4JTgzJUJEJUUzJTgxJUE3JUU4JTg3JUFBJUU1JTg5JThEJTIwU1NMJTIwJUU4JUE4JUJDJUU2JTk4JThFJUU2JTlCJUI4JUUzJTgyJTkyJUU0JUJGJUExJUU5JUEwJUJDJUUzJTgxJTk5JUUzJTgyJThCJUU2JTk2JUI5JUU2JUIzJTk1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NTcyODdkOWVhY2U3NmI5NDVkOTM3NGM4ZmFkMDM1MzQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrazAxMjk4JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDRkODE1MWVjZGRlMjQ3M2ZlMGExY2QyMDk5NWZkYmQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=045e4f35bf0f5a93b88a708cb57613b6",
@@ -146,14 +146,17 @@
       "sourceType": "release",
       "url": "https://github.com/ollama/ollama/releases/tag/v0.40.20-rc0",
       "title": "Ollama Releases v0.40.20-rc0",
-      "titleJa": "",
+      "titleJa": "Ollama v0.40.20-rc0 がリリース",
       "titleEn": "Ollama Releases v0.40.20-rc0",
       "lang": "en",
       "publishedAt": "2026-11-27T21:06:59.000Z",
       "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
+        "github-release",
         "ollama",
-        "release"
+        "pre-release",
+        "release",
+        "release-candidate"
       ],
       "category": "local-llm",
       "importance": 1,
@@ -817,7 +820,7 @@
       "titleEn": "From spectrum to structure: Identifying molecules with Mass Spec Skills for Google Antigravity",
       "lang": "en",
       "publishedAt": "2026-11-24T13:07:53.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent-skills",
         "antigravity",
@@ -839,8 +842,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Mass Spec Skills empowers scientists using Google Antigravity to interpret tandem mass spectra.",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Mass Spec Skills empowers scientists using Google Antigravity to interpret tandem mass spectra."
     },
     {
       "id": "b27de98209ff2a51",
@@ -886,7 +889,7 @@
       "titleEn": "Two Years of MCP Builders",
       "lang": "en",
       "publishedAt": "2026-11-24T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "anniversary",
         "community",
@@ -1324,6 +1327,37 @@
         "height": 0,
         "source": "media"
       }
+    },
+    {
+      "id": "3c7ddc6c8207a40b",
+      "source": "google-deepmind",
+      "sourceType": "blog",
+      "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
+      "title": "Finding faster quantum algorithms with agents and formal verification",
+      "titleJa": "",
+      "titleEn": "Finding faster quantum algorithms with agents and formal verification",
+      "lang": "en",
+      "publishedAt": "2026-11-23T16:59:40.000Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
+      "tags": [
+        "deepmind",
+        "google"
+      ],
+      "category": "gemini",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "How using agent teams and formal verification can improve quantum algorithms for modelling fusion energy, chemistry and enzymes Quantum computers could soon solve problems beyond the reach of classical supercomputers. However, there is a catch: even when using the best quantum algorithms, some important applications still require more resources than early quantum hardware will be able to support. In a new paper , we used teams of Gemini 4 agents to improve well-known quantum algorithms, creating highly efficient quantum circuits. These optimized circuits, which are instructions for how a quantum computer should carry out an algorithm, could one day help us run simulations that solve complex scientific challenges, from fusion energy to drug design. To help the community build on this work, we are open-sourcing our Lean library , problem specifications, and verified solutions on GitHub.",
+      "image": {
+        "src": "https://lh3.googleusercontent.com/jIoM2lo98EDqLMQjIaXBlXPmXgPbUPpM2GgtXcDsGekZBOPUY41IjBsnuZIhLac7MSOuRkklNBsp20a5M25oDz-xTIY0BIqoBxUqmmXvEHwlM3MJJw=w528-h297-n-nu-rw-lo",
+        "origSrc": "https://lh3.googleusercontent.com/jIoM2lo98EDqLMQjIaXBlXPmXgPbUPpM2GgtXcDsGekZBOPUY41IjBsnuZIhLac7MSOuRkklNBsp20a5M25oDz-xTIY0BIqoBxUqmmXvEHwlM3MJJw=w528-h297-n-nu-rw-lo",
+        "alt": "Finding faster quantum algorithms with agents and formal verification",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "Using agent teams and formal verification to improve quantum algorithms for fusion and chemistry.",
+      "excerptOrigin": "article"
     },
     {
       "id": "a0042df48ddfc236",
@@ -1821,7 +1855,7 @@
       "summaryEn": "Amazon Textract Insights is now generally available, letting you name the fields you want in plain language and extract structured data from single documents or mixed packets, with per-value confidence scores and page-level grounding, no training needed. It helps teams automate document workflows while keeping results auditable.",
       "lang": "en",
       "publishedAt": "2026-11-20T20:22:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "amazon-textract",
@@ -1836,6 +1870,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
+      "knowledgeEligible": false,
       "contentSnippet": "Announcing the general availability of Amazon Textract Insights, a new generative AI feature of Amazon Textract. Describe the fields you need in natural language, submit a document or a mixed packet, and receive structured results with a confidence score and page-level grounding for each value, with no model training required.",
       "excerptOrigin": "article-unavailable",
       "image": {
@@ -1845,9 +1881,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true,
-      "knowledgeEligible": false
+      }
     },
     {
       "id": "2a489a3739513030",
@@ -2053,7 +2087,6 @@
       "contentSnippet": "We are excited to announce the general availability of Managed Compute in Microsoft Foundry. When we introduced Managed Compute in preview at Microsoft Build in June, we set out to make serving open models as approachable as calling a managed model API. You choose the model that fits your application; we provision the GPUs, maintain the containers, and operate the serving runtime. Since Build, we’ve scaled serving capacity, improved prompt reuse, and expanded GPU and deployment options, including US and EU Data Zones. Customer feedback helped us refine the experience and give teams a clearer view of how their deployments are running. We’ve also strengthened the software supply chain and added more open models to the catalog. The result is a managed platform for serving open models on dedicated GPUs in the Foundry experience you already use.",
       "excerptOrigin": "article",
       "feedSnippet": "Managed Compute serves open models on dedicated GPUs in Microsoft Foundry, with Global and US or EU Data Zone deployments. The post Serve open models in production with Foundry Managed Compute appeared first on Microsoft Foundry Blog .",
-      "evergreen": true,
       "image": {
         "src": "https://devblogs.microsoft.com/foundry/wp-content/uploads/sites/89/2026/11/managed-compute-ga-banner.webp",
         "origSrc": "https://devblogs.microsoft.com/foundry/wp-content/uploads/sites/89/2026/11/managed-compute-ga-banner.webp",
@@ -2061,7 +2094,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "235f054b81912456",
@@ -2088,7 +2122,15 @@
       "archiveTier": "hot",
       "contentSnippet": "Editor’s note (November 23, 2026): We have temporarily rolled back this change while we improve the experience based on user feedback. Choose which repositories appear on the Dashboard with the new Favorite repositories section. If the new dashboard experience isn’t enabled, Top repositories remains unchanged. Select Edit or Add repositories to open the picker. Search for repositories and select or deselect them. Your selections stay visible as you search. Select Save to apply your changes. New favorites are added to the end of your list. To discard your changes, select Cancel . Your favorites sync with your pinned repositories in GitHub Mobile. Changes you make in either place appear in the other after you refresh. You can pin up to 25 repositories across both experiences. If saving would put you over the limit, you’ll see an error and your list won’t change.",
       "excerptOrigin": "article",
-      "feedSnippet": "Editor’s note (November 23, 2026): We have temporarily rolled back this change while we improve the experience based on user feedback. Choose which repositories appear on the Dashboard with the… The post Pin your favorite repositories to your dashboard appeared first on The GitHub Blog ."
+      "feedSnippet": "Editor’s note (November 23, 2026): We have temporarily rolled back this change while we improve the experience based on user feedback. Choose which repositories appear on the Dashboard with the… The post Pin your favorite repositories to your dashboard appeared first on The GitHub Blog .",
+      "image": {
+        "src": "https://github.blog/wp-content/uploads/2026/11/social-image.jpeg",
+        "origSrc": "https://github.blog/wp-content/uploads/2026/11/social-image.jpeg",
+        "alt": "Pin your favorite repositories to your dashboard",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "90db74e0e3c4d6de",
@@ -3002,7 +3044,7 @@
       "titleEn": "Apple launches research study to explore the use of AI for health",
       "lang": "en",
       "publishedAt": "2026-11-16T01:18:33.934Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "apple",
         "apple-health",
@@ -3016,8 +3058,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "The Apple Health AI Usage Study, conducted in collaboration with OpenEvidence, will evaluate trust, comprehension, and real-world health AI engagement Apple today announced the launch of the Apple Health AI Usage Study in the United States, a virtual research study and associated app designed to advance the understanding of how people interact with conversational health AI tools. 1 By examining what drives user trust, the quality of responses, comprehension, and everyday health actions, the study aims to inform the responsible design of health AI experiences for Apple and the industry. “At Apple, we believe responsible innovation starts with scientific rigor and clinical grounding.",
-      "feedSnippet": "Apple today announced the launch of the Apple Health AI Usage Study in the United States, which includes a virtual research study and associated app.",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Apple today announced the launch of the Apple Health AI Usage Study in the United States, which includes a virtual research study and associated app."
     },
     {
       "id": "ac50575e9dc4cc41",
@@ -3260,7 +3302,7 @@
       "titleEn": "A More Predictable Release Cycle for MCP",
       "lang": "en",
       "publishedAt": "2026-11-11T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "governance",
         "mcp",
@@ -3450,7 +3492,7 @@
       "titleEn": "Exploring File Uploads and Downloads in MCP",
       "lang": "en",
       "publishedAt": "2026-11-10T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "agent",
         "file-transfer",

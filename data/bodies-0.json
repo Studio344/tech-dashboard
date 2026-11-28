@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T09:30:55.546Z",
-  "count": 397,
+  "generatedAt": "2026-11-28T10:23:29.211Z",
+  "count": 403,
   "bodies": {
     "17f496c665a12174": {
       "bodyJa": "Metaは、AIネイティブ時代に向けたプライバシー対応インフラの中核として、社内の膨大なデータアセットを正確に分類する取り組みをエンジニアリングブログで公開した。データ保持期間やアクセス制御、利用目的の制限、第三者への共有可否、匿名化といったプライバシー制御は、対象となるデータの性質を正しく把握して初めて機能するためだ。\n\n同社の出発点はシンプルである。あらゆるプライバシーコントロールは「どこに、どのようなデータが存在するか」という信頼できる理解を前提とする。たとえば特定の個人情報を一定期間で削除する保持ポリシーを適用するには、まずそのデータがどのテーブルやログ、ストレージのどこに含まれているかを機械的に判別できなければならない。分類が曖昧なままでは、制御そのものが空回りしてしまう。\n\nしかし、この前提を大規模に満たすことは容易ではない。Meta規模のサービスでは、データは無数のシステムを横断して生成・変換・複製され、形式やスキーマも多様だ。さらに生成AIや機械学習パイプラインの普及により、学習用データセットや派生データが増え、データの流れはいっそう複雑になっている。こうした環境で分類の精度と網羅性を保つには、自動化された分類基盤と継続的な検証の仕組みが欠かせない。\n\nこの課題は業界共通のものでもある。EUのGDPRや米カリフォルニア州のCCPAをはじめとする各国の規制は、データの利用目的や保持に厳格な要件を課しており、データガバナンスの基盤整備は大手テック各社にとって避けて通れない。GoogleやMicrosoftなども独自のデータ分類・カタログ化の仕組みを整えてきたとされ、Metaの今回の公開はその一つの実装例と位置づけられる。\n\nAIの普及はデータ活用の幅を広げる一方で、プライバシー保護の難度を押し上げている。データを正確に「知る」ための分類基盤は、派手さこそないが、信頼できるAIサービスを支える土台になると見られる。Metaの事例は、プライバシーを後付けではなく設計段階から組み込む「プライバシー・バイ・デザイン」の実践として参考になりそうだ。",
@@ -11886,7 +11886,39 @@
       "bodyJa": "タスク自動化ライブラリ「Dandori」が、過剰な安全設計に起因する処理性能の問題を解消するため、「Bounded Adaptive Orchestration(境界付き適応的オーケストレーション)」と呼ぶ新しいアーキテクチャで再設計された。柔軟性とパフォーマンスの両立を狙った取り組みで、AIエージェントによるタスク実行基盤の設計に一つの示唆を与える事例と言える。\n\nDandoriは、複数のタスクを依存関係に沿って調整・実行するオーケストレーション機能を提供するライブラリだ。「段取り」を語源とする名称が示すように、処理の順序や前提条件を整理し、安全に自動化を進めることを重視して設計されていたと見られる。しかし、その安全性を担保するために課された制約が過度に保守的だったため、本来なら並行して処理できる作業まで直列化されるなど、実行の重さを招いていたという。\n\n今回導入されたBounded Adaptive Orchestrationは、安全性の境界(bounded)をあらかじめ定義したうえで、その範囲内では実行方法を状況に応じて適応的(adaptive)に変化させるという考え方に基づく。すべてを一律に厳格な制約で縛るのではなく、守るべき不変条件を明確にし、それ以外の部分では並行実行や動的な最適化を許容することで、安全性を損なわずに処理効率を高める狙いがあると考えられる。\n\nこうしたアプローチは、AIエージェントの実行制御という広い文脈とも重なる。LangChainやLlamaIndex、Microsoftのオーケストレーション関連ツールなど、複数の処理やツール呼び出しを協調させる仕組みは各所で開発が進んでおり、いずれも信頼性と実行効率のバランスが共通の課題となっている。制約を厳しくするほど予期せぬ挙動は抑えられる一方、動作が遅く硬直的になりやすいというトレードオフは、この種の基盤に付きまといがちだ。\n\nDandoriの事例は、安全設計を後から一律に緩めるのではなく、境界を再定義して適応の余地を組み込むという設計判断を示す点で参考になる。もっとも、適応的な挙動は再現性やデバッグの難しさを伴う可能性もあり、境界の設定が適切かどうかが実運用での鍵になるとみられる。今後、同様の課題を抱えるオーケストレーション基盤にとって、一つの設計パターンとして検討されていく可能性がある。",
       "bodyEn": "Dandori, a task orchestration library aimed at coordinating automated and AI-driven workflows, has been rewritten around a new design its author calls Bounded Adaptive Orchestration. The redesign matters because it tackles a recurring tension in agent and pipeline tooling: safety mechanisms that are so cautious they turn into a performance bottleneck. According to the accompanying write-up, the previous version of Dandori was reliable but heavy, and the goal of the rework was to preserve correctness while restoring flexibility and speed.\n\nIn orchestration systems, \"safety\" usually refers to the guarantees that keep a workflow in a consistent state even when individual steps fail. Common techniques include strict sequential execution, validation before and after each task, defensive locking to prevent concurrent modification, and automatic retries or rollbacks. These measures reduce the risk of corrupted state or duplicated side effects, but they come at a cost. When every step is treated as if it were the most dangerous possible operation, the system loses opportunities to run tasks in parallel, and it spends significant time on checks that are often redundant. The original Dandori appears to have leaned heavily toward this conservative end of the spectrum, which is why it was described as overly safe and, as a result, slow.\n\nBounded Adaptive Orchestration is presented as a middle path. The name points to two ideas working together. \"Bounded\" suggests that explicit limits and guardrails are defined up front, establishing the region within which the orchestrator is allowed to operate. \"Adaptive\" suggests that, inside those boundaries, the system can adjust its execution strategy dynamically rather than applying a single fixed policy everywhere. In practice this likely means the scheduler can parallelize independent tasks, reorder work when dependencies permit, and skip or relax checks that are provably unnecessary, while still enforcing hard constraints where correctness genuinely depends on them. The effect is that safety cost is paid where it is warranted instead of being spread uniformly across the whole graph.\n\nThis approach reflects a broader pattern in modern workflow engineering, where task dependencies are frequently modeled as a directed acyclic graph. Representing work as a DAG makes it possible to identify which steps are truly ordered and which can run concurrently. A conservative engine may collapse that structure into a single line of execution for simplicity and safety; an adaptive one uses the graph to extract parallelism without violating the declared dependencies. Bounding the adaptation is what keeps this from becoming unpredictable, since the orchestrator is never free to reorganize work beyond the constraints the developer has stated.\n\nDandori sits alongside a growing set of tools for coordinating multi-step and multi-agent processes. In the AI agent space, frameworks such as LangGraph, CrewAI, and AutoGen have popularized the idea of orchestrating language-model calls, tool invocations, and control flow as explicit, inspectable structures. In the more traditional data and job scheduling world, systems like Apache Airflow and Prefect have long used DAGs to manage pipelines, while durable execution engines such as Temporal focus on surviving failures through persisted state and replay. The challenge Dandori is addressing—balancing guardrails against throughput—is familiar across all of these categories, which is part of what makes the redesign broadly relevant rather than specific to one niche.\n\nThe reported outcome is improved flexibility and efficiency, though the write-up frames this as an architectural shift rather than a claim of universally faster performance. It is reasonable to expect that the gains are most visible in workflows with many independent tasks, where the old model's forced serialization was the dominant cost. Workloads that are inherently sequential, or that depend on shared mutable state, would see smaller benefits because their bounds leave little room to adapt. As with any refactor that loosens previously strict guarantees, the practical question is whether the new boundaries are drawn correctly, since an adaptive engine is only as safe as the constraints it is told to respect.\n\nFor readers evaluating orchestration libraries, the Dandori rework is a useful illustration of a design principle worth keeping in mind: safety and speed are not necessarily opposed, but treating every operation as maximally risky tends to sacrifice both usability and performance. Encoding where safety actually matters, and allowing the runtime to adapt elsewhere, is an increasingly common way to resolve that trade-off.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:03:04.575Z"
+      "generatedAt": "2026-08-30T17:03:04.575Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "安全のためなのに「重かった」って、どこが重かったの？",
+          "en": "It was built for safety, so what exactly made it heavy?"
+        },
+        {
+          "s": "b",
+          "ja": "Task Flow Reviewに情報を載せすぎて確認に時間がかかり、調査後に少し段取りを変えるだけでも再承認が必要になったそうです。",
+          "en": "The Task Flow Review packed in so much detail that checking it took a long time, and even a small plan change after investigating could mean re-approval."
+        },
+        {
+          "s": "a",
+          "ja": "Task Cardは、Workerが何をしていいかを決める契約書みたいなものかな？それが厳しすぎたの？",
+          "en": "So the Task Card is like a contract for what the Worker may do? And it was too strict?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、記事では実行契約と書かれています。ただ各ステップからはみ出せない設計で、作業開始後の調整が難しくなっていたようです。",
+          "en": "Yes, the article calls it an execution contract. But it couldn't stray from any approved step, which made adjusting mid-task hard."
+        },
+        {
+          "s": "a",
+          "ja": "1ファイルの修正のつもりが、テストや呼び出し元も直すと分かる、みたいな時に困るんだね。",
+          "en": "So if you think it's a one-file fix, then find tests and callers need changes too, that's where it gets stuck."
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。この記事では範囲を限定する効果は出ていたとあるので、その良さと調整のしやすさをどう両立するかが焦点だと思います。",
+          "en": "Right. The article says limiting scope worked well, so the real question is how to balance that with room to adjust."
+        }
+      ]
     },
     "b6fdda0932f5e27a": {
       "bodyJa": "## 長期記憶\n\nClaude Codeにセッションをまたぐ長期記憶を持たせるOSSが、MCPサーバーとして実装・公開された。毎回同じ説明を繰り返す負担を減らし、AIコーディング支援の継続性と利便性を高めるものとされる。\n\n## JSONLとMCP\n\nClaude Codeでは、同じプロジェクトであっても、セッションが終わると会話の記憶が消える。アーキテクチャを選んだ理由、別の実装案を却下した理由、将来改善する予定の箇所なども、次のセッションには引き継がれない。\n\n一方、ログ自体は「~/.claude/projects/」にJSONL形式で残っているが、次のセッションでは参照されないという。今回のOSSは、この「記憶は存在するのにClaude自身が使えない」状態に対し、MCPサーバーによって長期記憶を与える取り組みである。",
@@ -13903,6 +13935,170 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T08:41:46.736Z"
+    },
+    "f9c5095dcdcc7bb0": {
+      "bodyJa": "## Copilot アプリから VS Code へ\n\nGitHub Copilot アプリのセッションを Visual Studio Code で直接開き、そのまま作業を続けられると説明されている。エージェントが変更の大部分を終えたあと、細部の確認や手作業での修正、ローカルでの実行といった工程を、同じ流れの中で進められる点が要点だ。\n\n## 作業が分断される場面\n\n想定されているのは、エージェントが変更の大半を完了した段階だ。開発者はここで、ある実装の細部を確認し、数行を手で直し、出荷前にプロジェクトをローカルで動かしたいと考える。ところが作業は Copilot アプリの中にあり、差分のレビューやデバッグ、最終調整を行う場所はエディターである。\n\nこの状況で、アプリのセッションに留まるか、VS Code で最初からやり直すかの二択を迫られるように見える。それに対して、そのような選択は不要だというのが今回の説明だ。\n\n## 引き継がれるもの\n\nCopilot アプリのセッションを VS Code で開くと、会話、コードの変更、作業の文脈がそのまま保たれるとされる。新しく始め直すのではなく、同じセッションの続きとして扱える。\n\nこれにより、反復的な作業や時間のかかる作業は Copilot に任せ、その後の制御を開発者の手に戻すという進め方ができると説明されている。\n\n## 手順の流れ\n\n紹介されている流れは次の四つだ。まず Copilot アプリのセッションを VS Code で開く。次にエージェントによる変更を一行ずつ確認する。続いて同じ会話をエディターから継続する。最後にコードを修正し、ローカルでテストする。\n\n会話の継続とコードの手動編集が同じ場所で行えるため、エージェントへの追加の指示と自分での修正を行き来しやすくなる。具体的な操作手順や画面上のボタン名、対応する環境の条件などは示されていない。",
+      "bodyEn": "The GitHub Copilot app's agent can complete much of a code change, but developers often still want to inspect, adjust, and run the result in their editor. According to the GitHub Copilot blog, a Copilot app session can be opened directly in Visual Studio Code, so moving to the editor does not mean starting over.\n\n## The Agent Has Finished the Bulk\n\nThe post begins with a familiar situation. The agent has done most of your change, and you now want to inspect one implementation detail, adjust a few lines by hand, and run the project locally before shipping. The work is sitting in the GitHub Copilot app, while the editor is where you review diffs, debug code, and make final adjustments.\n\nThe post frames this as an apparent choice between staying in the session and starting over in VS Code. Its answer is that you don't have to choose.\n\n## Continue With Context Intact\n\nThe post says you can open the Copilot app session directly in VS Code and continue with its conversation, code changes, and working context intact. In other words, the chat, the code edits, and the surrounding context carry over rather than being left behind in the app.\n\nThe post describes this as a division of labor. Copilot handles the repetitive or time-consuming work, then hands control back to you for closer review, hands-on editing, and local testing.\n\n## Review, Edit, and Test Locally\n\nThe post summarizes the workflow in four steps. First, open a Copilot app session in VS Code. Second, review the agent's changes line by line. Third, continue the same conversation from your editor. Fourth, modify and test the code locally.\n\nThis matters most for developers who want the agent to do the heavy lifting but still want to check diffs, make manual corrections, and run the code themselves before finalizing. Because the same conversation continues in the editor, the session you started with the agent remains the thread you work from, rather than a separate starting point.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "エージェントが作業を終えたあとで、細かい部分は自分で直したいとき、どうすればいいの？",
+          "en": "When the agent finishes most of the work and I want to tweak the details myself, what do I do?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、Copilot アプリのセッションを VS Code で直接開けるんだ。会話や코ード変更、作業の文脈もそのまま続けられるよ。",
+          "en": "The article says you can open the Copilot app session directly in VS Code. The conversation, code changes, and working context all carry over."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、最初からやり直さなくていいんだね。それって、どんな人に役立つの？",
+          "en": "So I don't have to start over. Who does that help most?"
+        },
+        {
+          "s": "b",
+          "ja": "エージェントの作業後に、差分の確認や手での修正、ローカルでのテストをしたい開発者だね。時間のかかる作業は Copilot に任せて、最後は自分で見られるよ。",
+          "en": "Developers who want to review diffs, edit by hand, and test locally after the agent's work. Copilot handles the time-consuming parts, then hands control back to you."
+        },
+        {
+          "s": "a",
+          "ja": "つまり、任せたあとにエディタで細かく確かめて、同じ会話の続きもできるんだね。",
+          "en": "So I let it do the heavy lifting, check things closely in my editor, and keep the same conversation going."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。流れは、セッションを開く、変更を一行ずつ見直す、会話を続ける、直してテストする、の順だよ。",
+          "en": "Right. The flow is: open the session, review changes line by line, continue the conversation, then modify and test the code."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T09:37:25.801Z"
+    },
+    "205d8e87e8d51cf8": {
+      "bodyJa": "## 自社株5%を公益ファンドへ\n\nAnthropicは、自社株の一部を新設の「Anthropic Public Benefit Fund」に拠出すると発表した。このファンドは同社の完全子会社で、会社の成長に応じて持ち分が増える構造になっているとされる。公益への資金提供を、事業の拡大と連動させる仕組みである。\n\n## 株主承認と追加拠出の条件\n\n拠出は株主の承認を前提としている。承認が得られれば、同社の株式の5%が今回コミットされる。\n\nさらに、企業価値が設定された基準(ベースライン)を上回って50%増えるごとに、取締役会の裁量で2%が追加される。追加は自動ではなく、取締役会が判断する形だと説明されている。基準となる具体的な金額や、追加の上限については、ここでは示されていない。\n\n## 社内で担う公益活動\n\nAnthropicは公益法人(public benefit corporation)として、使命の追求に関わる活動の大半を社内で行っているという。具体例として挙げられているのは、AIの安全性や解釈可能性に関する研究、応用的な生物医学研究、そして非営利団体や科学機関向けのClaudeの割引である。\n\nこれらの活動には公益としての側面と営利上の価値の両方があるため、会社の内部に置いているとの説明だ。今回のファンドは、こうした社内の取り組みとは別に、株式を通じた公益への拠出を担う器として位置づけられている。\n\n## 成長と連動する設計\n\n要点は、拠出額が固定ではなく会社の価値の伸びに合わせて拡大する点にある。企業価値が基準から50%伸びるごとに2%が加わる設計のため、成長すれば公益に回る持ち分も増える。\n\nファンドの具体的な使途や運営体制については、ここでは明らかにされていない。現時点で確認できるのは、5%の拠出方針、株主承認という条件、そして企業価値に連動した追加拠出のルールである。",
+      "bodyEn": "## Anthropic Public Benefit Fund\n\nAnthropic has announced that it is committing a portion of its shares to a new entity, the Anthropic Public Benefit Fund. The announcement matters because it ties the size of the company's public-benefit commitment to how much the company grows.\n\nAccording to the announcement, the Fund is a wholly owned entity with a structure that increases the stake as the company grows. The commitment is subject to stockholder approval.\n\n## Committing a Portion of Shares\n\nThe announcement states that 5% of Anthropic's shares will be committed today. On top of that, an additional 2% will be added at the board's discretion for every 50% increase in the company's value above a set baseline. The source does not say what that baseline is.\n\nBecause the additions are linked to increases in company value, the amount set aside for public benefit is designed to scale as the company becomes more valuable. The word \"discretion\" indicates that the board decides whether each 2% addition is made.\n\n## Work Inside the Company\n\nThe announcement also explains what it does not intend to move into the Fund. As a public benefit corporation, Anthropic says most of its work in pursuit of its mission takes place inside the company. It lists several examples: research relevant to AI safety and interpretability, applied biomedical research, and discounts on Claude for nonprofits and scientific institutions.\n\nAccording to Anthropic, these activities have both a public benefit component and for-profit value, which is why they are housed directly in the company rather than in a separate entity. The new Fund is therefore presented as an addition to this in-company work, not a replacement for it.\n\n## What Is Stated So Far\n\nThe announcement describes the mechanism: an initial 5% share commitment, a possible 2% increase for each 50% rise in company value above a baseline, and a requirement for stockholder approval. It does not detail here how the Fund will operate or what it will support, and those points remain outside what the announcement states.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "自社株の5%を拠出して、さらに50%成長するごとに2%追加って、けっこう大きいことなのかな？",
+          "en": "5% of shares, plus 2% more for every 50% growth. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、成長に合わせて拠出が増える仕組みなのがポイントだよ。ただ株主承認が前提で、追加分は取締役会の判断とされているよ。",
+          "en": "The point is that the commitment grows with the company. But it needs stockholder approval, and the extra 2% is at the board's discretion."
+        },
+        {
+          "s": "a",
+          "ja": "「完全子会社」って、どういうものなの？",
+          "en": "What does \"wholly owned\" mean?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、親会社がすべての株を持つ会社のことだよ。この記事では、新しい基金がAnthropicの完全子会社だと書かれているね。",
+          "en": "Generally, it means the parent company owns all of it. Here, the article says the new fund is wholly owned by Anthropic."
+        },
+        {
+          "s": "a",
+          "ja": "もし私が非営利団体で働いていたら、Claudeの割引は基金から受けられるのかな？",
+          "en": "If I worked at a nonprofit, would Claude discounts come from this fund?"
+        },
+        {
+          "s": "b",
+          "ja": "割引は、会社の中で行う活動の例として挙がっているよ。基金とは別の話だから、基金の拠出は株主承認が前提、という点は分けて見ようね。",
+          "en": "Discounts are listed as work done inside the company, so that's separate from the fund. Keep in mind the fund's commitment still needs stockholder approval."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T09:37:57.008Z"
+    },
+    "a06cdc5222d8dc6b": {
+      "bodyJa": "## S3がVercelで利用可能に\n\nAmazon S3が、Amazon S3 TablesとAmazon S3 Vectorsを含めて、Vercel Marketplaceとv0 by Vercelでネイティブに利用できるようになった。\n\nVercel上でアプリを作る開発者にとっては、AWSのストレージを自分のアプリに組み込みやすくなる点が要点とされる。\n\n## Marketplaceとv0での提供\n\n提供の入口は、Vercel Marketplaceとv0 by Vercelの2つである。対象にはS3本体のほか、S3 TablesとS3 Vectorsが含まれる。\n\nネイティブに採用できる形で提供されるため、Vercelの開発者はより手軽にストレージを追加できると説明されている。",
+      "bodyEn": "## Native on Vercel Marketplace\n\nAmazon Simple Storage Service (Amazon S3) is now natively available on the Vercel Marketplace and v0 by Vercel. For developers building applications on Vercel, this puts AWS storage within reach of the platform they already use.\n\n## S3 Tables and S3 Vectors\n\nAccording to the announcement, the availability covers Amazon S3 as well as Amazon S3 Tables and Amazon S3 Vectors. The source says developers can adopt these services through the Vercel Marketplace and v0, which lets them add AWS storage to their apps more easily and incorporate storage quickly while building on Vercel.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "S3だけじゃなくて、S3 TablesやS3 VectorsもVercel Marketplaceとv0で使えるようになったんだね。これって大きいこと？",
+          "en": "So it's not just S3, but S3 Tables and S3 Vectors too, on Vercel Marketplace and v0? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、三つともネイティブに使えるとあります。Vercelでアプリを作る人が、AWSのストレージを組み込みやすくなる、という流れですね。",
+          "en": "The piece says all three are natively available. The point is that developers building on Vercel can add AWS storage to their apps more easily."
+        },
+        {
+          "s": "a",
+          "ja": "「ネイティブに使える」って、どういうことなの？",
+          "en": "What does \"natively available\" actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的な言い方だと、外から無理につなぐ形ではなく、最初から用意された形で使える、くらいの意味です。細かい手順までは、記事では触れていません。",
+          "en": "Generally, it means you use it as a built-in option rather than wiring it up from outside. The article doesn't go into the exact steps, though."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ自分がv0でアプリを作るとき、データをしまう場所をすぐ足せたりするのかな？",
+          "en": "So if I build an app in v0, could I add a place to keep my data right away?"
+        },
+        {
+          "s": "b",
+          "ja": "そうなるかもね。ただ記事で確かなのは、Marketplaceとv0から使えるようになった点まで。設定や条件の詳細は、この記事からは分からないよ。",
+          "en": "Maybe! What the article confirms is that it's available through Marketplace and v0. Setup details and conditions aren't covered here."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T09:38:13.232Z"
+    },
+    "e873680ad43a8d05": {
+      "bodyJa": "AWS Security Agentに、STRIDE方式の脅威モデリング、リポジトリ全体とプルリクエストのコード検査、修復支援、IDE連携が追加された。開発者がコンテキストを切り替えずにセキュリティレビューと問題修正を行えるようにする拡張とされる。\n\n## STRIDEによる脅威モデリング\n\n今回加わった機能の一つが、STRIDE方式の脅威モデリングである。これにより、Security Agentを使った設計面の脅威の洗い出しを、開発の流れの中で実行できるようになる。\n\n## リポジトリとPRの検査\n\nコードスキャンは、リポジトリ全体とプルリクエスト(PR)の両方が対象となる。主要なGitプラットフォーム上で動作し、検出した問題に対する修復支援も提供されると説明されている。\n\n## Kiro、Claude Code、MCP\n\nIDE側からは、Kiro power、Claude Codeプラグイン、MCPを通じて利用できる。開発者は使い慣れたIDEを離れることなく、セキュリティレビューの実行と問題の修正まで進められる点が特徴だ。",
+      "bodyEn": "## AWS Security Agent adds STRIDE\n\nAWS Security Agent has gained new capabilities aimed at letting developers handle security work without leaving their normal workflow. According to the announcement, the update adds STRIDE-based threat modeling alongside code scanning and remediation support.\n\n## Repo and PR code scanning\n\nThe announcement says the agent can now scan full repositories as well as pull requests, and it pairs those checks with remediation. This works across major Git platforms. The stated goal is for developers to run security reviews and fix the issues they find without context switching.\n\n## IDE integrations via Kiro and MCP\n\nAccess is extended through several integration points: a Kiro power, a Claude Code plugin, and MCP. The source describes these as keeping developers in their IDEs, so they can check the security of their code from the environment where they already work.\n\nThe source does not go beyond this list of additions in the material provided, so the scope of each integration and the specific Git platforms supported are not spelled out here.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "開発の途中で、セキュリティの確認って何が楽になるの？",
+          "en": "When I'm building something, what gets easier on the security side?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、Kiro power、Claude Codeプラグイン、MCP経由で、IDEを離れずに安全性の確認と修正ができるよ。",
+          "en": "Per this piece, you can run security reviews and fix issues without leaving your IDE, through the Kiro power, the Claude Code plugin, or MCP."
+        },
+        {
+          "s": "a",
+          "ja": "前はそういう検査やリスクの洗い出しはできなかったの？",
+          "en": "So couldn't you do this kind of scanning and risk analysis before?"
+        },
+        {
+          "s": "b",
+          "ja": "STRIDE方式の脅威モデリングと、リポジトリ全体やPRの検査・修復が今回加わったと書かれているよ。以前との細かい違いは分からないな。",
+          "en": "The article says STRIDE threat modeling plus repo-wide and PR scanning with remediation are new additions. How it compares with before isn't spelled out, so I can't say."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番うれしいのは、画面を行き来せずに見つけて直せるところかな？",
+          "en": "So the best part is finding and fixing issues without switching screens, right?"
+        },
+        {
+          "s": "b",
+          "ja": "記事もそこを押しているよ。あとは主要なGitサービスでの使い勝手も、実際に確かめたいところだね。",
+          "en": "The article leans on that point too. I'd also want to see how it feels in practice across the major Git platforms."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T09:39:13.373Z"
+    },
+    "d46c3e833aea489d": {
+      "bodyJa": "シンガポールでは英語、標準中国語、マレー語、タミル語が公用語として使われ、日常会話ではこれらが入り交じる「コードスイッチング」や、Singlish（シングリッシュ）と呼ばれる口語英語が広く用いられている。こうした多言語混在環境に音声言語モデル（Spoken Language Model）を適応させる効率的な手法を提案する論文が、arXivで公開された。大規模な再学習を行わずに、Singlishやコードスイッチング音声で高い認識・理解性能を得られると報告している。\n\n近年の自動音声認識（ASR）や音声理解は、大量の音声とテキストで事前学習された大規模モデルが主流となっている。OpenAIのWhisperやMetaのSeamlessシリーズ、音声対応の大規模言語モデルはその代表例だが、多くは英語や主要言語に最適化されており、話者数が相対的に限られ書き起こしデータも乏しいSinglishのような言語変種では、精度が落ちやすいという課題があった。\n\n本研究の要点は、モデル全体を作り直すのではなく、少ないパラメータ更新で対象環境へ寄せる「効率的なファインチューニング」にある。LoRA（低ランク適応）に代表されるパラメータ効率型微調整（PEFT）は、元の重みを大きく変えずに小さな追加モジュールだけを学習するため、必要な計算量やデータ量を抑えつつ、既存モデルが持つ汎用的な言語能力を保ちやすい。限られた資源で運用したい地域や組織にとって、現実的な選択肢となりうる。\n\nこのアプローチは、単一言語を前提としないアジアの多言語社会において、音声アシスタントや会議の文字起こし、コールセンター支援などの実用化を後押しする可能性がある。一方で、コードスイッチングの扱いはデータの偏りや評価指標の設計に左右されやすく、公開ベンチマークや再現実験を通じた検証が今後の焦点になると見られる。地域特化の音声モデル整備は他の多言語地域でも進んでおり、本研究もその流れの一つとして位置づけられる。",
+      "bodyEn": "Spoken language technology has improved rapidly for widely represented languages, but systems still struggle with the informal, mixed-language speech that characterizes many multilingual societies. A new paper posted to arXiv addresses this gap by proposing efficient methods to adapt existing spoken language models to Singapore's linguistic environment, with a particular focus on Singlish and code-switched speech. The work matters because standard models trained largely on formal English tend to degrade sharply when confronted with the colloquial vocabulary, borrowed terms, and rapid language mixing common in everyday Singaporean conversation.\n\nSinglish is an English-based creole shaped by contact with Mandarin, Malay, Tamil, and various Chinese dialects such as Hokkien and Cantonese. Speakers frequently switch languages within a single sentence, drop grammatical markers, and use discourse particles like \"lah,\" \"leh,\" and \"lor\" that carry pragmatic meaning. For automatic speech recognition (ASR) and downstream understanding tasks, this presents several compounding challenges: unfamiliar lexical items, non-standard pronunciation, and code-switching that can shift mid-utterance. Models that perform well on benchmark English datasets often produce transcription errors or misinterpret intent when applied directly to this domain.\n\nThe central contribution of the paper appears to be an adaptation strategy that avoids large-scale retraining. Rather than training a model from scratch or fully fine-tuning all parameters, which is computationally expensive and data-hungry, the authors focus on efficient adaptation of already-capable spoken language models. This class of techniques, often grouped under parameter-efficient fine-tuning, typically updates only a small subset of weights or inserts lightweight trainable modules such as adapters or low-rank matrices. The reported goal is to reach strong performance on Singlish and code-switching speech while keeping compute and data requirements modest, which is significant given that annotated data for such varieties is comparatively scarce.\n\nThe distinction between a spoken language model and a conventional ASR system is worth noting for context. Traditional ASR maps audio to text, whereas spoken language models increasingly integrate acoustic processing with the broader capabilities of large language models, enabling not only transcription but also understanding, question answering, and instruction following over speech. Adapting such models to a new dialect therefore involves aligning both the acoustic representation of accented, mixed-language audio and the language model's expectations about vocabulary and structure. The paper's framing suggests it targets this combined recognition-and-understanding capability rather than transcription alone, though the precise architecture and the scope of evaluated tasks would need to be confirmed from the full text.\n\nThis research sits within a broader regional effort to build language technology suited to Southeast Asia. Singapore's Infocomm Media Development Authority has released the National Speech Corpus, a large collection of local English and code-switched recordings intended to support exactly this kind of work. AI Singapore has developed the SEA-LION family of language models for regional languages, and the MERaLiON project has produced multimodal and speech-oriented models tuned for the Singaporean context. Widely used open systems such as OpenAI's Whisper, Meta's wav2vec 2.0, and various multilingual encoders provide the pretrained foundations that adaptation methods like the one described here can build upon. The emphasis on efficiency reflects a practical reality: many organizations cannot justify the cost of full retraining, so techniques that deliver localized accuracy at a fraction of the expense are attractive.\n\nThe reported approach aligns with a wider trend in the field toward low-resource and domain-specific adaptation, where the aim is to preserve the general knowledge of a large pretrained model while injecting targeted competence. If the results hold under independent evaluation, the practical implications could include more reliable voice interfaces, transcription services, and conversational agents for Singaporean users, as well as a template that other multilingual communities might follow. Readers should treat specific performance claims cautiously until the methodology, datasets, and baselines are examined in detail, since gains on curated test sets do not always transfer to unconstrained real-world speech.\n\nMore broadly, the paper is a reminder that inclusive speech technology depends on more than scaling data and parameters. Handling creoles, dialects, and habitual code-switching requires deliberate adaptation, and efficient fine-tuning offers one route to serving linguistic communities that mainstream models have historically underserved.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T17:28:55.121Z"
+    },
+    "6434478feb881825": {
+      "bodyJa": "## Codex\n\nOpenAIは2026年7月14日、データサイエンスチームによるChatGPT WorkとCodexの活用事例を公開した。実際の業務入力を分析成果へつなぐ具体的なワークフローを示す点が要点だ。\n\n## KPIメモ\n\n作成例には、根本原因ブリーフ、影響に関する報告、KPIメモ、範囲を定めた分析、ダッシュボード仕様が挙げられている。分析・コーディング業務を効率化するための実践的なパターンを紹介するガイドとされる。",
+      "bodyEn": "## Data science teams\n\nOpenAI published a guide showing how data science teams can use ChatGPT Work and Codex to streamline analytics and coding workflows. It matters because the guide focuses on practical patterns for adoption in real work rather than abstract examples.\n\n## Real work inputs\n\nAccording to the source, teams can use ChatGPT Work with real work inputs to create root-cause briefs, impact readouts, KPI memos, scoped analyses, and dashboard specifications. These examples outline concrete workflows for applying the tools across analysis and coding tasks.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T20:50:39.191Z"
     }
   }
 }

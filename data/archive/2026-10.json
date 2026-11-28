@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T09:30:59.934Z",
+  "generatedAt": "2026-11-28T10:23:32.411Z",
   "month": "2026-10",
   "count": 136,
   "entries": [
@@ -42,7 +42,7 @@
       "titleEn": "The Official Ruby SDK for MCP Reaches Tier 1",
       "lang": "en",
       "publishedAt": "2026-10-30T09:00:00.000Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -213,7 +213,7 @@
       "summaryEn": "Apple Creator Studio now builds MotionVFX effects and templates into Final Cut Pro, adds Pixelmator Pro editing, and brings new intelligence features to Logic Pro, Keynote, Pages, and Numbers for creators.",
       "lang": "en",
       "publishedAt": "2026-10-27T12:58:45.444Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "ai-features",
         "apple",
@@ -228,8 +228,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "Updates bring built-in MotionVFX content to Final Cut Pro, video assets in the Content Hub, expanded music creation tools to Logic Pro, and new intelligence features to Logic Pro, Keynote, Pages, and Numbers CUPERTINO, CALIFORNIA Apple today introduced transformative updates to Apple Creator Studio , the powerful collection of creative apps designed to put studio-grade tools into the hands of modern creators across Mac, iPad, and iPhone. Final Cut Pro for Mac now includes built-in MotionVFX — an expansive collection of visual effects, plug-ins, transitions, templates, and motion graphics tools — as well as seamless editing in Pixelmator Pro. Apple’s curated Content Hub now includes video assets and is available in Final Cut Pro.",
-      "feedSnippet": "Apple introduces updates to Apple Creator Studio, the collection of creative apps designed to put studio-grade tools into the hands of creators.",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Apple introduces updates to Apple Creator Studio, the collection of creative apps designed to put studio-grade tools into the hands of creators."
     },
     {
       "id": "dd76cdda13b8633a",
@@ -243,7 +243,7 @@
       "summaryEn": "Siri AI, built on Apple Intelligence, now supports French, Japanese, Korean, Portuguese and Spanish via the 27.2 updates, letting more users get personal, privacy-minded help with messages, email and photos.",
       "lang": "en",
       "publishedAt": "2026-10-26T18:37:30.189Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "apple",
         "apple-intelligence",
@@ -257,8 +257,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "With the 27.2 software updates released today, Siri AI — an entirely new version of Siri that is profoundly more capable, conversational, and personal — is expanding to more people around the world, with availability now in the French, Japanese, Korean, Portuguese, and Spanish languages. Siri AI is a completely reimagined version of Siri that is more personal and powerful, without compromising users’ privacy. Built on Apple Intelligence, it draws on personal context understanding to help users find what they need in the moment across their messages, emails, photos, and more. With even more systemwide app actions, Siri AI can help users with tasks such as drafting an email from scratch or editing and sharing a set of photos. With onscreen awareness, Siri AI can answer questions or take actions related to the content on a user’s screen.",
-      "feedSnippet": "With the 27.2 software updates released today, Siri AI is expanding to French, Japanese, Korean, Portuguese, and Spanish.",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "With the 27.2 software updates released today, Siri AI is expanding to French, Japanese, Korean, Portuguese, and Spanish."
     },
     {
       "id": "5ebccf67a9de1f56",
@@ -515,7 +515,7 @@
       "summaryEn": "Apps and games optimized for iPhone Duo, Apple's first foldable, become available this Friday. Its inner display is 50 percent larger than iPhone 18 Pro Max, so users get richer streaming, gaming, and multitasking.",
       "lang": "en",
       "publishedAt": "2026-10-22T11:59:15.686Z",
-      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
         "app-store",
         "apple",
@@ -529,8 +529,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "From streaming and gaming to creativity and productivity, developers worldwide are taking advantage of the unique capabilities of the first foldable iPhone Starting this Friday, iPhone Duo users can discover amazing apps and games optimized for the first foldable iPhone. With an inner display that’s 50 percent larger than iPhone 18 Pro Max, and the flexibility to use iPhone Duo in a variety of poses, developers are enhancing their apps to create exciting new experiences for capturing and sharing memories, streaming entertainment, gaming, multitasking, and much more. Because both displays share the same aspect ratio, apps transition smoothly from the outer display to the inner display and scale proportionally, so users can pick up right where they left off.",
-      "feedSnippet": "Starting this Friday, iPhone Duo users can discover amazing apps and games optimized for the first foldable iPhone.",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "feedSnippet": "Starting this Friday, iPhone Duo users can discover amazing apps and games optimized for the first foldable iPhone."
     },
     {
       "id": "c6d7d327b3177bde",

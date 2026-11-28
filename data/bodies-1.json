@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-27T23:30:58.434Z",
-  "count": 358,
+  "generatedAt": "2026-11-28T00:30:58.213Z",
+  "count": 363,
   "bodies": {
     "7b752c9b3e3af2c6": {
       "bodyJa": "AIエージェントが高度化するにつれ、誤動作や悪用が発生した際の影響範囲（ブラスト半径）も拡大する。本記事はAnthropicのエンジニアリングブログに掲載され、その上限をどう設計するかという実践的な問いに答えている。\n\n対象製品はclaude.ai・Claude Code・Coworkの3つ。それぞれ異なるユースケースと権限モデルを持つ中で、共通の封じ込め原則をどう適用したかが論点と推察される。具体的な実装詳細は原文で確認することを推奨する。\n\nエージェントの安全設計に携わる開発者や、Claudeを自社プロダクトに組み込む実務者にとって参考になる内容と見られる。",
@@ -11982,44 +11982,6 @@
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T17:35:23.805Z"
     },
-    "571c8c47df881aa3": {
-      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
-      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
-          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
-          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
-        },
-        {
-          "s": "a",
-          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
-          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
-          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
-          "en": "I’d line up a few review agents and compare which one might suit me best."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
-          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T12:37:57.149Z"
-    },
     "dffbfbf5f86caa1c": {
       "bodyJa": "NVIDIAは、オープンモデル群「Nemotron」を軸とした新たな取り組み「Nemotron Labs」を通じ、企業や各国政府が自前のインフラ上でAIを構築・カスタマイズし、完全に制御できる基盤の提供を打ち出した。生成AIの活用が広がる一方でデータ主権やセキュリティへの懸念が高まるなか、外部のクラウドサービスに依存しない選択肢として注目される。\n\nNemotronは、NVIDIAが公開してきた大規模言語モデル(LLM)のファミリーで、モデルの重み(パラメータ)や関連ツールを開示する「オープン」な形態を特徴とする。利用者は自社のデータセンターや管理下の環境にモデルを配置し、独自データを使ったファインチューニングや、業務に合わせた調整を行える。API経由でしか使えないクローズドなモデルと異なり、内部の挙動を検証しやすく、機密情報を外部に送らずに運用できる点が、信頼性を重視する組織にとっての利点とされる。\n\n背景には「AI主権(AI sovereignty)」と呼ばれる潮流がある。各国政府や規制産業では、国民や顧客のデータを国外のサーバーに預けることへの警戒が強まっており、自国の言語や文化、法制度に適合したAIを国内インフラ上で運用したいという需要が拡大している。医療、金融、公共分野など、規制やコンプライアンスの制約が厳しい領域では、モデルの制御可能性やカスタマイズ性が導入の前提条件になりつつある。\n\nオープンモデルをめぐっては、MetaのLlamaシリーズやフランスのMistral、各国発の地域特化型モデルなど、企業や研究機関の選択肢が近年急速に増えている。NVIDIAの場合、こうしたモデル自体に加え、学習・推論を担うGPUや開発基盤「NeMo」、推論最適化のためのソフトウェア群を一体で提供できる点が特徴と見られる。ハードウェアからモデル、運用ツールまでを組み合わせて訴求することで、自社エコシステムへの取り込みを狙う戦略とも受け取れる。\n\nもっとも、オープンモデルの自社運用には、GPUなどの計算資源の確保や、モデルを扱う専門人材、継続的な保守といったコストが伴う。すべての組織にとって最適な解になるとは限らず、クローズドなクラウドサービスとの使い分けが現実的な論点となる可能性がある。データの管理主体をどこに置くかという問いは今後も各組織で議論が続くとみられ、Nemotron Labsはその選択肢を広げる動きとして位置づけられる。",
       "bodyEn": "NVIDIA has consolidated its open-model efforts under a banner it calls Nemotron Labs, positioning openly available AI systems as a way for enterprises and national governments to deploy, adapt, and retain full control over models running on their own infrastructure. The framing matters because it lands directly in an ongoing debate over who controls the most capable AI systems, and whether organizations handling sensitive data must route that data through third-party cloud APIs to benefit from advanced models.\n\nAt its core, the Nemotron family consists of models distributed with open weights, and in several cases accompanied by documentation of the datasets, training recipes, and post-training techniques used to build them. That distinction is important. \"Open\" spans a spectrum: some releases publish only the final model weights, while others also share data and code that let outside teams reproduce or audit the work. NVIDIA has generally described Nemotron as sitting toward the more transparent end, which the company argues gives customers a clearer basis for trust than a closed API whose inner workings are not inspectable.\n\nThe practical appeal centers on control and customization. Because the weights can be downloaded and run locally, an organization can fine-tune a model on proprietary data without that data leaving its environment. For regulated sectors such as finance, healthcare, and the public sector, this supports air-gapped or on-premises deployment where compliance rules restrict sending information to external services. It also insulates users from the risk of a vendor changing pricing, deprecating a model version, or altering behavior in ways that break downstream applications, a recurring concern with proprietary hosted systems.\n\nThe government angle is tied to what the industry has taken to calling sovereign AI. NVIDIA and others have promoted the idea that nations may want to build and operate AI capabilities on domestic infrastructure, trained to reflect local languages, laws, and cultural context, rather than depending on models hosted abroad. Several countries have announced national compute and model initiatives along these lines. Open weights fit that agenda because they can be localized, retrained, and governed under domestic oversight, though doing so still requires substantial hardware, talent, and data resources that not every organization possesses.\n\nNemotron Labs does not exist in isolation within NVIDIA's stack. The models are designed to work with the company's broader tooling, including the NeMo framework for training and customization and NIM inference microservices for packaging models into deployable containers, alongside optimization libraries such as TensorRT. This integration is a notable part of the strategy: even when the models themselves are free to use, they tend to run best on NVIDIA GPUs and software, so an open-model approach can reinforce demand for the company's core hardware business. That commercial logic is worth keeping in view when assessing the initiative's motivations.\n\nThe effort also reflects a wider industry shift. Open-weight releases from Meta's Llama family, Mistral, Alibaba's Qwen, and DeepSeek, among others, have narrowed the gap with closed frontier systems and made self-hosted deployment more viable. NVIDIA's participation signals that the hardware layer of the ecosystem is actively encouraging this direction rather than resisting it. For customers, the growing catalog of competitive open models increases leverage and reduces lock-in, though it also raises the burden of evaluating which model, license, and deployment path best fits a given use case.\n\nSome caveats apply. Open weights lower barriers to control but shift responsibility for security, safety testing, and ongoing maintenance onto the deploying organization. Running large models on private infrastructure demands significant expertise and capital expenditure, which can offset the flexibility gains for smaller teams. License terms also vary across open models and merit close reading, since \"open\" does not always mean unrestricted commercial use.\n\nTaken together, Nemotron Labs appears to formalize a strategy NVIDIA has been building toward for some time: offering high-quality models that organizations can own and operate rather than merely rent. Whether it becomes a default choice will likely depend on how the models perform against both open and closed competitors, how sustainable the licensing proves, and how much the promised gains in trust, control, and data sovereignty outweigh the operational cost of running frontier AI in-house.",
@@ -12325,6 +12287,202 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-27T21:42:08.116Z"
+    },
+    "80955af470da00f0": {
+      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
+      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
+          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
+          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
+        },
+        {
+          "s": "a",
+          "ja": "シークレットって、秘密のコードってこと？",
+          "en": "Does “secret” mean secret code?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
+          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
+          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
+          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T20:07:43.460Z"
+    },
+    "61020694e8fd4971": {
+      "bodyJa": "GitHubのシークレットスキャンが、Slack向けシークレットの検出で起きていた誤検知を減らしました。検出器の改善により、Slackの受信Webhook用URLの形式に合わないURLは、検出の対象から外れます。\n\n## 検出器の改善内容\n\n今回の更新は、サポート対象のシークレットに対する誤検知を減らすための検出器の改善の一環として案内されています。Slackについては、Incoming Webhook URLの形式を使っていないURLを除外する、という変更です。これまでSlackのシークレット候補として拾われていたURLのうち、形式が一致しないものはマッチしなくなります。\n\n## 受信Webhook URLの形式\n\n変更の焦点は、URLがSlackの受信Webhook用の形式に従っているかどうかです。形式に合致しないURLはSlackのシークレットとは見なされず、検出から外れます。その結果、Slack関連で不要なアラートが上がる場面が減ると説明されています。\n\n## 確認負担の軽減\n\n誤検知のアラートが減ることで、アラートを確認する開発者やセキュリティ担当者のトリアージ作業の負担が軽くなるとされています。確認すべきアラートの数そのものが、Slackのシークレットに関しては絞り込まれる形です。\n\n## 詳細とフィードバック\n\nシークレットスキャンの仕組みや、サポート対象シークレットの全一覧は、GitHubのドキュメントで確認できます。今回の変更への意見や感想は、コミュニティディスカッションで受け付けています。",
+      "bodyEn": "## Fewer false positives for Slack\n\nGitHub's secret scanning has been updated to reduce false-positive detections for Slack secrets. For teams that review secret scanning alerts, fewer incorrect matches means less time spent checking findings that turn out not to be real secrets.\n\n## Detector improvements\n\nThe announcement describes the change as a set of detector improvements that reduce false-positive matches for supported secrets. The specific improvement it names is that URLs which do not use Slack's incoming-webhook URL format are now excluded from detection. In other words, a URL that does not match the format Slack uses for incoming webhooks should no longer be flagged as a Slack secret.\n\nAccording to the source, the practical result is fewer false-positive alerts for Slack secrets. The summary of the change adds that this eases triage work for developers and security teams, since fewer spurious alerts need to be reviewed and dismissed.\n\n## Where to learn more\n\nThe announcement points readers to the secret scanning documentation, which includes the full list of supported secrets. Anyone who wants to see which secret types the feature covers beyond Slack can find that list there.\n\nGitHub also invites feedback on the change through a community discussion. Separately, the post promotes a biweekly newsletter aimed at developers, which offers tips, technical guides, and best practices.\n\nThe source does not describe any other changes to secret scanning in this update. The announcement is limited to the narrowing of Slack detection so that only URLs matching the incoming-webhook format are considered.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "普段の開発やセキュリティ確認だと、何が変わるの？Slackまわりのアラートが減るってこと？",
+          "en": "In day-to-day dev or security work, what changes? Do we just get fewer Slack-related alerts?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。Slackのシークレット検出で、受信Webhook用のURL形式に合わないURLを対象外にしたから、誤検知が減るんだ。",
+          "en": "Right. Secret scanning now skips URLs that don't match Slack's incoming-webhook format, so Slack false positives should drop."
+        },
+        {
+          "s": "a",
+          "ja": "前は、形式に合わないURLも拾っちゃってたの？",
+          "en": "So before, it could flag URLs that didn't even match that format?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、誤検知を減らす改善とあるから、そういう一致があったとは読めるよ。ただ、以前の細かい挙動までは書かれていないんだ。",
+          "en": "The post says this reduces false-positive matches, so that's a fair reading. But it doesn't spell out how the old detection behaved in detail."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、本物じゃないURLの確認に使う時間が減ることかな？",
+          "en": "So the big win is less time checking URLs that aren't real secrets?"
+        },
+        {
+          "s": "b",
+          "ja": "その見方でいいと思う。記事には、対応シークレットの一覧や詳しい説明はドキュメントで確認できると案内されているよ。",
+          "en": "I think that's a good takeaway. The post also points to the documentation for the full list of supported secrets and more details."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:39:21.221Z"
+    },
+    "6ea7c68e79ec5ea8": {
+      "bodyJa": "Zed v1.30.0-preでは、アプリ全体でGPU使用量が減り、Gitパネルでコミットメッセージ生成に使うモデルを選べるようになった。タイトルバーを隠す設定や大規模プロジェクトのスキャン高速化も含まれ、AI関連の対応モデルも広がっている。\n\n## GPU使用量の削減\n\n今回のリリースの柱の一つが、アプリ全体でのGPU使用量の低減である。あわせて、大規模なプロジェクトをより速くスキャンできるようになったと説明されている。タイトルバーを非表示にする設定も追加された。\n\nGitパネルでは、AIによるコミットメッセージ生成で使うモデルをピッカーから選択できる。\n\n## Terra対応\n\nOpenAIプロバイダーにGPT-6.1 Terraへの対応が加わった(#66659、貢献者はnymo)。Zedから利用できるOpenAI系モデルの選択肢が一つ増えた形である。\n\n## スレッド切替\n\nエージェントスレッドの切り替え画面に、キーボード操作が追加された(#66951、貢献者はkinoute)。この画面はAgent PanelまたはThreads Sidebarからctrl-tabで開く。\n\n選択の移動には、上下キー、ctrl-nとctrl-p、homeとendが使える。ctrlを押したままの状態であれば、ctrl-upとctrl-downでも選択を動かせる。\n\n## Extra High追加\n\nGemini 4 Hydrogen(gemini-4-hydrogen)に、思考の強度としてExtra Highのレベルが追加された(#67011、貢献者はLorenzoBiassio)。このモデルの既定値はHighになっている。\n\n今回のバージョンは、GPU負荷の低減やスキャン速度の改善といった基盤面の変更と、モデル選択やスレッド操作といったAI周りの機能追加が並ぶ内容である。",
+      "bodyEn": "## Zed v1.30.0-pre Highlights\n\nZed Editor v1.30.0-pre is a pre-release build that targets everyday performance and workflow. According to the release notes, this week's update reduces GPU usage across the app, speeds up scanning of large projects, and adds several AI-related options.\n\nThe announcement lists the headline items as reduced GPU usage, a model picker for AI commit message generation in the Git Panel, a setting to hide the title bar, support for GPT-6.1 Terra, and faster scanning of large projects.\n\n## AI Features Added\n\nMost of the detailed entries fall under AI. The release adds support for GPT-6.1 Terra to the OpenAI provider, credited to contributor nymo (#66659).\n\nThe agent thread switcher, which opens with ctrl-tab from the Agent Panel or the Threads Sidebar, gains keyboard navigation. Per the notes, up and down, ctrl-n and ctrl-p, and home and end move the selection. Ctrl-up and ctrl-down also work while ctrl is still held. This change is credited to kinoute (#66951).\n\nThe release also adds the Extra High thinking effort level for Gemini 4 Hydrogen (gemini-4-hydrogen). The notes say the model now defaults to High (#67011, credited to LorenzoBiassio).\n\nThe notes also mention an improvement to GitHub Copilot models so they use their full context, but the entry is cut off and no further detail is available.\n\n## Git Panel and Interface\n\nIn the Git Panel, a model picker now lets users choose which model generates AI commit messages. This gives direct control over the model used for that task from within the panel itself.\n\nOn the interface side, a new setting allows the title bar to be hidden. The announcement presents this alongside the other headline changes for the release.\n\n## Performance Improvements\n\nTwo performance changes are called out at the top of the notes. The first is reduced GPU usage across the app. The second is faster scanning of large projects.\n\nThe announcement gives no figures for either improvement, so the size of the gains is not stated. Because this is a pre-release version, the changes are described as part of the current weekly release rather than a finalized stable build.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "GPU使用量が減るって書いてあったけど、これってアプリ全体で軽くなるってこと？",
+          "en": "It says GPU usage goes down. Does that mean the whole app gets lighter?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では「アプリ全体でGPU使用量が減る」と書かれているよ。ただ、どのくらい減るかの数字は載っていないね。",
+          "en": "The article says GPU usage is reduced across the app. It doesn't give any numbers on how much, though."
+        },
+        {
+          "s": "a",
+          "ja": "Gitパネルのモデル選びは、コミットメッセージをAIに書かせる時に使うモデルを自分で選べるってこと？",
+          "en": "And the Git Panel picker lets me choose which model writes my AI commit messages, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そう、AIでコミットメッセージを生成する時のモデルを選べる機能だよ。GPT-6.1 Terra対応も同じ週に入っているね。",
+          "en": "Right, it's a picker for the model that generates commit messages. GPT-6.1 Terra support also landed in this release."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ軽くなって、モデルも選べて、大きなプロジェクトのスキャンも速くなるんだね。",
+          "en": "So it's lighter, I can pick the model, and big projects scan faster. Nice!"
+        },
+        {
+          "s": "b",
+          "ja": "その通り。ただ、これはv1.30.0-preというプレリリース版の話だから、その点は頭に置いておこうね。",
+          "en": "Exactly. Just keep in mind this is v1.30.0-pre, a pre-release version, so that's worth remembering."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:39:41.496Z"
+    },
+    "5d58e6d7df384830": {
+      "bodyJa": "業務を支える作業の多くは、いまもブラウザー上で行われています。社内ポータルやベンダーのコンソール、APIを持たないレガシーアプリなどです。Foundry Agent Service のブラウザー自動化ツール（Browser Automation tool）が一般提供（GA）となり、こうした作業をエージェントに任せる手段として使えるようになりました。\n\n## 一般提供となったツール\n\nこのツールは Azure Playwright Workspaces を基盤にしています。Foundry の各エージェントに、安全でスケーラブルなブラウザーを提供するものと説明されています。セッションは分離されており、エージェントごとに独立した環境でブラウザー操作を行える点が特徴です。\n\n## 人が介入できる仕組み\n\nヒューマン・イン・ザ・ループの機能として、Live View と Take control が一般提供されています。認証が必要な場面や、エージェントの進め方を人が舵取りしたい場面で、利用者が状況を見ながら操作を引き取れる仕組みです。完全な自動化だけでなく、人の関与を組み込める設計だといえます。\n\n## 安全なサインイン\n\nIgnite では、エージェントによる自動化ワークロード向けに追加機能が発表されました。サインイン関連では、シークレット管理がプレビューで提供されます。プロファイルの再利用もプレビュー機能として挙げられており、こちらは近日提供予定とされています。\n\n## 請求書15件の処理例\n\n紹介されているサンプルエージェントの課題は具体的です。15件の請求書を処理し、ルールに照らして検証します。異常があれば Excel 上でフラグを付け、検証を通過した請求書を経費ポータルに入力します。\n\nこのシナリオは、API のないポータルへの入力という、ブラウザー自動化が想定する典型的な業務を示しています。認証が必要な場面では、先に挙げた Live View や Take control、シークレット管理といった機能が関わってきます。",
+      "bodyEn": "## Browser Automation Reaches GA\n\nMuch of the work that keeps a business running still happens in a browser, including internal portals, vendor consoles and legacy apps with no API. According to the announcement, the Browser Automation tool in Foundry Agent Service is now generally available, which gives agents a way to work with systems that cannot be reached any other way.\n\nThe tool is powered by Azure Playwright Workspaces. The announcement says it gives every Foundry agent secure, scalable browsers with isolated sessions.\n\n## Human-in-the-Loop Control\n\nAmong the capabilities listed as generally available is human-in-the-loop support. The announcement names two features: Live View and Take control. It describes them as intended for authentication and for steering the agent, so a person can step in while the agent works in the browser.\n\n## Secure Sign-In Features\n\nThe announcement says the tool is enabled with additional features for agentic automation workloads at this Ignite. These centre on secure sign-in. Secret management is offered in preview. Profile reuse is also in preview and is described as coming soon, so it is not yet available. The source does not describe how either feature works beyond these labels.\n\n## Sample Invoice Task\n\nTo illustrate the tool, the announcement describes a sample agent with a clearly defined task. The agent processes 15 invoices and validates them against the rules. It flags anomalies in Excel and then enters the validated invoices into the expense portal. The scenario reflects the kind of browser-based work the announcement highlights, where the target system is a portal rather than an API.\n\nIn short, the Browser Automation tool in Foundry Agent Service is generally available on Azure Playwright Workspaces, with isolated sessions and live human takeover. Secret management and profile reuse are preview additions for secure sign-in, with profile reuse still to come.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ブラウザー自動化ツールって、何がいちばん新しいの？一般提供になった、ってことだよね。",
+          "en": "What's the big news with the Browser Automation tool? It's now generally available, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。Azure Playwright Workspacesを基盤に、各エージェントが分離セッションの安全なブラウザーを使えるようになったよ。",
+          "en": "Right. Built on Azure Playwright Workspaces, every agent gets secure browsers with isolated sessions."
+        },
+        {
+          "s": "a",
+          "ja": "APIがない社内ポータルとかで役立つのかな？人はずっと見てなくていいの？",
+          "en": "So it helps with internal portals that have no API? Does a person need to keep watching?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、そうした画面操作の自動化が想定されてるよ。ライブビューとテイクコントロールで、認証や操作の誘導に人が入れるんだ。",
+          "en": "Yes, the article targets that kind of work. Live View and Take control let a person step in for sign-in or steering."
+        },
+        {
+          "s": "a",
+          "ja": "請求書15件を確認して、Excelに異常を記して、経費ポータルに入力する例もあったよね。ログインの工夫もあるんだ。",
+          "en": "There was that example of 15 invoices, flagging issues in Excel, then entering them in the portal. And sign-in got some help too?"
+        },
+        {
+          "s": "b",
+          "ja": "うん。シークレット管理はプレビューで、プロファイルの再利用もプレビュー扱いで近日登場とのことだよ。そこは確認しておきたいね。",
+          "en": "Yes. Secret management is in preview, and profile reuse is preview too, coming soon. Worth keeping in mind."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:40:01.599Z"
+    },
+    "fa6498cd23aab5d3": {
+      "bodyJa": "Microsoft Foundryが、エージェントの機能を共有・管理するための仕組みとしてToolsとToolboxesを打ち出した。多数の本番エージェントを動かす現場で、ツール管理の手間をどう抑えるかが主題である。\n\n## 本番エージェントの課題\n\nブログでは、1つのツールを1つのエージェントに接続すること自体は難しくないと説明されている。難しいのは、有用なツールやエージェントの機能を、本番で動く多数のエージェントにまたがって大規模に管理することだという。\n\nこの前提から、新しいエージェントを作るたびに同じ統合を作り直したり、同じ指示をコピーしたり、同じ依存関係の問題を調べ直したりする状況は避けるべきだ、という問題意識が示されている。\n\n## Toolboxesの役割\n\nToolboxesは、ツールや機能を一か所で集中管理し、多数の本番エージェントで共有するための仕組みとされる。エージェントごとに個別の接続を用意するのではなく、一度作った機能を再利用する考え方である。タイトルの「一度作って全エージェントで再利用」は、この方針を端的に表している。\n\n## 重複作成の回避\n\nこの仕組みにより、統合や指示をエージェントごとに作り直す必要がなくなると説明されている。同じ作業の繰り返しが減るため、運用チームの負担軽減につながるとされる。\n\nまた、有用な機能を追加する場面でも、エージェントを一つずつ手作業で更新するような負担を避けたいという趣旨が読み取れる。エージェントの数が増えても管理しやすくなり、本番のエージェント群をスケールさせやすくなる点が、Toolsと Toolboxesの狙いとして示されている。",
+      "bodyEn": "Microsoft Foundry has introduced Tools and Toolboxes, aimed at the problem of managing agent capabilities across many production agents. According to the announcement, the difficulty is not wiring one tool to one agent but keeping a useful set of tools and capabilities manageable at scale.\n\n## Managing Tools Across a Fleet\n\nThe source frames the challenge as operational. Connecting a single tool to a single agent is described as not hard. What becomes difficult is managing a useful set of tools and agentic capabilities across a fleet of production agents.\n\nThe post argues that every new agent shouldn't require building the same integrations again, copying the same instructions, or troubleshooting the same dependencies. In its framing, repeating that work for each agent is the cost that grows as a fleet expands.\n\n## Build Once, Reuse Everywhere\n\nToolboxes are presented as a way to manage shared agent capabilities centrally. Instead of rebuilding integrations for each agent, teams set up tools and capabilities once and reuse them across the agents they operate. The title of the post states the idea directly: build once, reuse across your agent fleet.\n\nThe announcement describes Tools and Toolboxes together as the mechanism for this approach within Foundry.\n\n## Why It Matters for Operations\n\nThe stated benefit is less duplicated effort for teams running production agents. By avoiding repeated integration work and repeated instructions, teams can scale their agent fleets more easily, according to the source.\n\nThe emphasis is on central management. Capabilities are maintained in one place and shared, rather than being reassembled agent by agent, which the post positions as a way to reduce the burden on the teams responsible for operating those agents.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "同じ統合や指示を毎回作り直すのが大変、って書いてあったけど、具体的に何が困るの？",
+          "en": "The piece says rebuilding the same integrations is painful. What exactly goes wrong?"
+        },
+        {
+          "s": "b",
+          "ja": "エージェントごとに同じ統合を作り、同じ指示をコピーし、同じ依存関係のトラブルに対応する点ですね。1つなら簡単でも、本番で数が増えると重くなる、という話です。",
+          "en": "Each new agent means building the same integrations, copying the same instructions, and fixing the same dependency issues. One agent is easy, but a production fleet gets heavy."
+        },
+        {
+          "s": "a",
+          "ja": "Toolboxesはそれをまとめて管理して、みんなで使い回せるってこと？運用の人が助かるのかな？",
+          "en": "So Toolboxes manages that in one place and everyone reuses it? Does that help the people running things?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、ツールや機能を一元管理して多数のエージェントで共有する仕組みとされています。統合や指示の重複作成を避けられ、運用チームの負担を減らす狙いです。",
+          "en": "Yes, the post describes central management of tools and capabilities shared across many agents. It avoids duplicate integrations and instructions, easing the load on operations teams."
+        },
+        {
+          "s": "a",
+          "ja": "一度作れば、エージェントが増えても同じ作業を繰り返さなくていいんだね。",
+          "en": "So build once, and more agents don't mean repeating the same work. Got it!"
+        },
+        {
+          "s": "b",
+          "ja": "ただ、ここで語られているのは本番エージェントを多数抱える場合の課題です。1つのエージェントにツールをつなぐだけなら難しくない、と記事も言っています。",
+          "en": "One note: the focus is on running many production agents. The post itself says connecting one tool to one agent isn't hard."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:40:53.736Z"
+    },
+    "ce4027fc2ea184a2": {
+      "bodyJa": "大規模言語モデル（LLM）の思考過程をどう捉えるか——。本研究は、LLM内部で進む「Chain-of-Thought（CoT、思考の連鎖）」推論を、数学の動的システム理論の枠組みで分析する手法を提案する。推論の途中経過が隠れ状態（潜在空間）の中でどのように変化していくかを数理的に記述し、複雑な多段階推論の解釈可能性を高めることを狙う。\n\nCoTは、モデルに順を追って考えるよう促すことで、算術や論理といった多段階問題の精度を引き上げる代表的な手法として知られる。通常のCoTは中間ステップを自然言語のテキストとして出力するが、近年はトークンを介さずモデル内部の潜在表現のまま推論を進める「潜在CoT（latent CoT）」の研究も広がっている。潜在CoTは効率や表現力の面で利点が期待される一方、途中の思考が言語として表に出ないため、何が起きているかを外から観察しづらいという課題があった。\n\n本論文が採るのは、隠れ状態の時間変化を一つの力学系（dynamical system）とみなす視点だ。各推論ステップを状態の遷移として捉えれば、軌道の収束や安定性、不動点（アトラクター）といった動的システム論の概念を使って、推論がどこへ向かうのかを分析できる。著者らは、こうした数理的なレンズによって、これまでブラックボックス的に扱われてきた内部推論の構造に一定の秩序を見いだせる可能性を示している。\n\nこの方向性は、近年活発な「メカニズム的解釈可能性（mechanistic interpretability）」の潮流とも重なる。AnthropicやOpenAIなどが取り組む、モデル内部の回路や特徴を理解しようとする研究群と同様に、本研究も推論の内部動態を可視化・定量化しようとする試みと位置づけられる。動的システムという確立された理論体系を持ち込むことで、経験則に頼りがちだった解析に共通の言語を与えられる点が特徴と言える。\n\nもっとも、提案手法が多様なモデル規模やタスクにどこまで一般化するかは、今後の検証が必要と見られる。とはいえ、推論の失敗がどの段階で生じるかを特定したり、望ましい思考の軌道へ誘導したりする応用につながる可能性があり、安全性や信頼性の向上という観点からも注目される。",
+      "bodyEn": "Large language models increasingly solve complex problems by generating intermediate reasoning steps, yet how that reasoning actually unfolds inside the network remains poorly understood. A new arXiv paper proposes treating latent Chain-of-Thought (CoT) reasoning as a dynamical system, offering a mathematical framework for describing how intermediate reasoning states evolve within a model's hidden representations. The work matters because interpretability of multi-step reasoning is one of the central open challenges in current AI research, with direct implications for reliability, safety, and debugging.\n\nChain-of-thought prompting, popularized in 2022, showed that encouraging a model to \"think step by step\" in natural language substantially improves performance on arithmetic, logical, and commonsense tasks. More recently, researchers have explored latent or implicit reasoning, where the intermediate computation happens inside the model's continuous hidden states rather than being spelled out as text tokens. Methods such as latent-space reasoning and continuous \"thought\" vectors suggest that models can perform meaningful multi-step computation without externalizing every step. That shift makes reasoning harder to inspect, since there is no readable trace to examine, which is precisely the gap this paper appears to target.\n\nThe core idea is to view the sequence of hidden states produced during reasoning as a trajectory through a high-dimensional state space, governed by an update rule analogous to the equations of a dynamical system. In this framing, each reasoning step is a transition from one state to the next, and the overall reasoning process becomes a path that can be studied with tools from dynamical-systems theory. Concepts such as fixed points, attractors, stability, and convergence, long used to analyze recurrent neural networks and physical systems, are brought to bear on how a model settles toward an answer. The authors argue that this lens provides a principled way to characterize reasoning that is otherwise opaque.\n\nTechnically, such an approach typically involves extracting hidden-state representations across layers or generation steps, then modeling their evolution as a flow in latent space. Analyses of this kind often look at whether trajectories converge to stable regions, how perturbations propagate, and whether distinct problem types produce distinguishable dynamical signatures. If reasoning behaves like movement toward an attractor, that could help explain phenomena such as models locking onto an incorrect answer or self-correcting mid-generation. The framework is likely intended to be descriptive and diagnostic rather than a replacement for training methods, giving researchers a vocabulary for what the network is doing over the course of a reasoning chain.\n\nThis work sits within the broader field of mechanistic interpretability, which seeks to reverse-engineer the internal computations of neural networks. Related efforts include probing classifiers that decode information from hidden states, circuit analysis that traces how specific components combine to produce behavior, and sparse autoencoders that attempt to isolate interpretable features from dense activations. The dynamical-systems perspective is complementary: rather than identifying individual features or circuits, it describes the temporal or layer-wise evolution of the model's internal state as a whole. There is also historical precedent, as dynamical-systems analysis was a well-established approach for understanding recurrent networks before the transformer era, and applying it to CoT reasoning extends that tradition to modern architectures.\n\nThe practical value of the framework will depend on how well its predictions hold up empirically and whether the identified structures generalize across models and tasks. Latent reasoning is still an emerging area, and mapping continuous internal dynamics to human-understandable reasoning remains difficult. It is also worth noting that a compelling mathematical description does not automatically confer causal control over model behavior; understanding a trajectory is not the same as steering it. Still, if the approach yields measurable, reproducible signatures of reasoning, it could inform methods for detecting failures, evaluating robustness, or intervening on flawed reasoning before a final answer is produced.\n\nAs models increasingly rely on internal computation that users cannot directly observe, frameworks that make latent reasoning legible are likely to grow in importance. This paper contributes one such lens, and its longer-term significance will hinge on empirical validation and adoption by the wider interpretability community.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T17:24:22.870Z"
     }
   }
 }

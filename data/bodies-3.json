@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-27T23:30:58.434Z",
-  "count": 372,
+  "generatedAt": "2026-11-28T00:30:58.213Z",
+  "count": 377,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -12430,7 +12430,39 @@
       "bodyJa": "複数のLLMエージェントを協調させる「マルチエージェント」構成は、複雑なタスクを分担して処理できる一方で、トークン使用量が読みにくくコストが膨らみやすいという課題を抱える。この点について、あるZennの記事が、構成内の「意思決定ポイント（決断の数）」を412から38へ大幅に削減したところ、トークン消費の約15倍もの差の大部分を説明できたと報告している。\n\nマルチエージェントでは、各エージェントが「次にどの行動を取るか」「どのツールを呼ぶか」「タスクを完了とみなすか」といった判断を繰り返す。こうした判断のたびに、モデルはそれまでの文脈（コンテキスト）を読み込み直し、推論のための出力を生成する。つまり決断が一つ増えるごとに、入力・出力の両面でトークンが積み上がっていく。著者の観察は、トークン増加の主因がタスクそのものの規模ではなく、この「決断の回数」にあった可能性を示唆している。\n\nこの視点は、近年広がるエージェント開発の実務と重なる。CursorやClaude Code、あるいはLangGraphやAutoGen、CrewAIといったフレームワークでは、エージェントの自律性を高めるほど反復的な判断が増え、結果として長いコンテキストを何度も往復させる構造になりやすい。自律性と効率は、しばしばトレードオフの関係にあるといえる。\n\nしたがって効率化の鍵は、単純にモデルを軽量なものへ置き換えることだけではなく、そもそも「決断の数を減らす」設計にある、というのが今回の示唆だ。判断を要しない定型処理はコード側で固定する、エージェントの分岐を統合する、不要な問い合わせを省くといった工夫が、トークン削減に直結する可能性がある。\n\nただし、決断を減らしすぎれば、マルチエージェント本来の柔軟性や精度が損なわれる恐れもある。今回の412→38という数値は特定の構成における一例であり、あらゆるケースに当てはまるとは限らない点には注意が必要だ。それでも、コスト管理の指標として「決断の数」に着目する発想は、エージェント設計を見直す実践的な切り口として参考になるだろう。",
       "bodyEn": "Multi-agent systems built on large language models promise to divide complex work into specialized roles, but they also have a reputation for consuming tokens at rates that are difficult to predict or contain. A recent post on Zenn tackles this problem head on, reporting that when the author reduced the number of decision points in a multi-agent workflow from 412 to 38, that single change accounted for most of a roughly 15x difference in token consumption. The author's conclusion is that the count of discrete decisions a system makes may be a more direct lever for cost control than many of the optimizations teams try first.\n\nThe argument rests on what the author calls decision points: moments in a workflow where an agent must evaluate context and choose an action, such as which tool to invoke, whether to hand off to another agent, or when to stop. Each of these moments generally requires sending accumulated context back to the model for a fresh inference. In a multi-agent arrangement that context often includes prior messages, tool outputs, and role instructions for several agents at once. Because the history tends to grow with every step, a workflow with hundreds of decision points can multiply token usage far beyond what the underlying task would appear to require.\n\nThat compounding effect helps explain why the relationship the author describes is closer to multiplicative than additive. Cutting decision points does not merely remove a few calls; it removes calls whose inputs would each have carried a large and growing context payload. When the author collapsed redundant deliberation, consolidated steps that had been split across agents, and let more work happen inside a single reasoning pass, the number of expensive round trips fell sharply. The reported 15x gap suggests that decision count, rather than prompt wording or model choice alone, was the dominant factor in that particular setup.\n\nThe findings are worth situating within the broader tooling landscape. The post appears in a Cursor-focused source, and Cursor is one of several AI coding environments, alongside tools such as GitHub Copilot and Windsurf, that increasingly rely on agentic loops to plan, edit, and verify code across multiple steps. Frameworks like LangGraph, AutoGen, and CrewAy have popularized orchestrator-and-worker patterns where a coordinating agent dispatches subtasks to specialists. These designs can improve reliability and modularity, but they also introduce exactly the kind of branching and hand-off logic that generates additional decision points, and therefore additional inference calls.\n\nFor readers less familiar with the underlying mechanics, a few prerequisite concepts make the result easier to interpret. Large language models are typically billed per token, counting both the input context and the generated output, so long conversation histories carry a running cost on every call. Patterns such as ReAct, which interleave reasoning and actions, deliberately create more model invocations in exchange for more deliberate behavior. Context windows are finite, and repeatedly resending history is a common source of hidden expense. Against that backdrop, the author's emphasis on counting decisions is a way of making the invisible cost of orchestration visible.\n\nSome caution is warranted before generalizing. A 412-to-38 reduction is a large structural change, and the exact multiplier likely depends on the specific tasks, models, and prompt sizes involved. It is plausible that aggressively trimming decision points could reduce a system's ability to recover from errors or to explore alternatives, trading token savings for lower robustness on harder problems. The post seems to describe a case where many of the original decisions were redundant, which is not guaranteed to hold in every workflow. As with most single-author reports, the numbers are illustrative rather than a controlled benchmark.\n\nEven with those caveats, the practical guidance is concrete and broadly applicable. Teams building agentic systems can audit how many decision points a workflow actually contains, question whether each hand-off and tool selection earns its cost, and consider consolidating steps that do not need independent reasoning. Measuring token usage against decision count, rather than only against task complexity, offers a diagnostic that is straightforward to apply. As agent-based coding tools continue to spread, this kind of structural accounting is likely to become a routine part of keeping both latency and spending under control.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:54:24.480Z"
+      "generatedAt": "2026-08-30T16:54:24.480Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "412回って、1日の判断の数なの？数えようと思ったきっかけは何だったんだろう？",
+          "en": "412 decisions in one day? What made the author start counting?"
+        },
+        {
+          "s": "b",
+          "ja": "朝9時から18時まで働いても、没頭できたのは2時間だけだったのがきっかけです。紙に棒を引いて数えたら412回で、8割がマルチエージェント絡みでした。",
+          "en": "They worked 9 to 6 but only got about two hours of real focus. Tallying on paper gave 412 decisions, and 80% were about multi-agent setups."
+        },
+        {
+          "s": "a",
+          "ja": "1回1〜3秒なら、たいしたことない気がするけど…減ると何がいいの？",
+          "en": "But if each one is just 1 to 3 seconds, that doesn't sound like much. Why does cutting them matter?"
+        },
+        {
+          "s": "b",
+          "ja": "停止だけなら412回で約20分です。でも次の一手を考える切り替えに3〜5秒かかるので、合わせて約1時間分。それが38回まで減ったわけです。",
+          "en": "The pauses alone add up to about 20 minutes. Add the 3 to 5 seconds of mental switching each time and it's roughly an hour. Now it's down to 38."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ「15倍トークン」って、お金だけじゃなくて人の判断の数にも当てはまるってこと？",
+          "en": "So the \"15x tokens\" isn't only about cost? It applies to the number of human decisions too?"
+        },
+        {
+          "s": "b",
+          "ja": "筆者はそう感じたようです。ただ15倍はモデル側の数字で、人の判断が同じ倍率で増えたというのは筆者の実感として書かれています。",
+          "en": "That's how the author felt. One caution: the 15x is the model-side figure, and the matching rise in human decisions is the author's own impression."
+        }
+      ]
     },
     "f0d11c41945733a2": {
       "bodyJa": "MCP（Model Context Protocol）は、AIエージェントが外部ツールやデータソースへ標準化された方法で接続するための仕組みとして急速に広がっている。しかし普及に伴ってMCPサーバーの数が増え、エージェントに「どのサーバーの、どのツールを使うべきか」を把握させるコストが無視できなくなってきた。今回取り上げる記事は、この課題に対して必要なツールを動的に発見する「Agentic Resource Discovery（ARD）」という仕組みを解説している。\n\n従来の構成では、利用可能なMCPサーバーとツール定義をあらかじめすべてエージェントに読み込ませることが多い。ツールが数個であれば問題ないが、数十から数百に膨らむと、ツール定義がコンテキストウィンドウを圧迫し、選択の精度が下がるという弊害が生じやすい。似た名前や機能のツールが並ぶと、エージェントが誤ったツールを呼び出す可能性も高まる。\n\nARDの発想はシンプルで、すべてのツールを常時ロードするのではなく、タスクに応じて「今必要なツールを探しに行く」段階を挟む点にある。エージェントはまず要求内容を解釈し、レジストリやインデックスに対して関連するMCPサーバーやツールを検索し、絞り込んだうえで実際に呼び出す。検索そのものをエージェント的な判断で行うため、Agenticという語が冠されている。\n\n実装面では、各ツールのメタデータ（説明文、入出力、用途など）を検索可能な形で登録しておき、意味的な近さで候補を返す仕組みが軸になる。記事ではこうしたディスカバリ層を設ける具体的な方法と、設定の手間を減らしつつツールの発見性を高められるといった導入メリットが示されている。\n\nこの方向性はMCP単体の話にとどまらない。ツールが増えすぎる問題は、関数呼び出しやプラグインを扱う多くのエージェント基盤に共通しており、ツールのルーティングや動的選択を担うライブラリ、レジストリ的なサービスの整備も各所で進みつつある。ARDはそうした流れの一つと位置づけられ、今後MCPエコシステムが拡大するほど有用性が増すと見られる。一方で、検索層の精度やレイテンシ、登録メタデータの品質管理といった新たな運用課題も生まれるため、規模や用途に応じた設計判断が求められる。",
@@ -12473,44 +12505,6 @@
       "bodyEn": "As AI agents move from single-user demos into production systems that serve many people at once, the way they store and retrieve memory has become a critical design concern. This article describes a three-layer namespace scheme built around user_id, agent_id, and memory_space_id, intended to prevent one user's or one agent's stored context from leaking into another's. The problem it addresses is often called memory cross-contamination, and it matters because a memory system that mixes contexts can produce incorrect answers, break user privacy, and undermine trust in an agent's behavior.\n\nThe core idea is straightforward. Rather than treating agent memory as a single flat store, the design partitions it hierarchically using three identifiers. The user_id isolates data belonging to distinct end users, so that information gathered while helping one person is never surfaced when serving another. The agent_id separates memories by the agent or role that created them, which is useful when several specialized agents operate on behalf of the same user. The memory_space_id provides a finer-grained boundary within those layers, for example to distinguish separate projects, sessions, or task contexts that should not bleed together. Combined, these keys form a composite namespace that scopes every read and write operation.\n\nIn practice, this typically means that each memory record is tagged with all three identifiers, and every query is filtered against them before results are returned. When memory is backed by a vector database or similar retrieval store, the namespace values commonly become part of the metadata used to filter candidate records, so that a similarity search only considers entries within the correct scope. Some systems implement the separation as physically distinct collections or partitions, while others enforce it purely through metadata filtering; the article frames the choice as a trade-off between strict isolation and operational simplicity. The stated benefits are improved safety, because contexts cannot inadvertently mix, and improved reusability, because a well-defined agent_id or memory_space_id can be recreated or shared without carrying over unrelated data.\n\nThe discussion is situated in the context of the Model Context Protocol, or MCP, an open standard that defines how AI applications connect to external tools and data sources through servers. Memory is a natural candidate to expose as an MCP server, since it gives a model a consistent interface for storing and recalling information across sessions. In that setting, namespace design is not merely an internal detail but part of the contract between the agent and the memory service, and getting the identifiers right at the protocol boundary appears to make multi-tenant deployments considerably easier to reason about.\n\nThis approach connects to several broader ideas that readers may want to understand as prerequisites. Retrieval-augmented generation, or RAG, is the general technique of fetching relevant stored information and injecting it into a model's prompt, and agent memory is essentially a persistent, writable form of the same pattern. Multi-tenancy, a long-standing concern in conventional software architecture, brings the same requirement to keep one tenant's data logically or physically separate, and namespace partitioning is a familiar answer there as well. The three-layer scheme can be seen as applying those established practices to the newer domain of autonomous agents.\n\nAdjacent tools illustrate why the topic is timely. Dedicated memory frameworks such as Mem0, Zep, and Letta, along with the memory features accumulating in agent libraries like LangChain and LlamaIndex, all grapple with how to scope stored context, and vector stores such as Pinecone, Weaviate, and Qdrant expose namespace or collection concepts for exactly this purpose. The design described here is consistent with those patterns rather than a departure from them, which suggests it reflects an emerging convention rather than a single vendor's idiosyncrasy.\n\nIt is worth noting some caveats the design does not fully resolve. Namespace filtering enforced only through metadata depends on correct application logic, so a bug that omits an identifier could still expose data; stricter physical isolation reduces that risk but can complicate cross-context features and increase overhead. Choosing the right granularity for memory_space_id also involves judgment, since overly narrow spaces can fragment useful context while overly broad ones weaken isolation. Readers evaluating the approach should treat it as a starting framework to adapt to their own safety, privacy, and performance requirements rather than a finished specification.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T17:02:35.888Z"
-    },
-    "5cb4ed49cbdddf72": {
-      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
-      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
-          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
-        },
-        {
-          "s": "b",
-          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
-          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
-        },
-        {
-          "s": "a",
-          "ja": "シークレットって、秘密のコードってこと？",
-          "en": "Does “secret” mean secret code?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
-          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
-          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
-          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T20:07:43.460Z"
     },
     "f991dad192f67ad2": {
       "bodyJa": "複数のAIエージェントを協調動作させる「マルチエージェント」構成を、コードで宣言的に定義する手法が注目を集めている。今回取り上げる記事は、Anthropicの「Claude Code」とOpenAIの「Codex」を題材に、自律的なワークフローをコードとして記述する「プログラマブル・オーケストレーション」の実践的な入門を解説している。\n\n背景には、単一のAIエージェントだけでは複雑なソフトウェア開発タスクをこなしきれないという課題がある。近年、コード生成やリファクタリング、テスト作成などを担うAIコーディングエージェントが急速に普及したが、大規模な開発では役割を分担させ、複数のエージェントを連携させる需要が高まっている。たとえば設計を担当するエージェント、実装を担当するエージェント、レビューを担当するエージェントを分け、それぞれが成果物を受け渡しながら作業を進める構成が考えられる。\n\nプログラマブル・オーケストレーションの要点は、こうしたエージェント間の連携やタスクの流れを、GUIの手作業ではなくコードとして宣言的に記述する点にある。宣言的な定義によって、構成のバージョン管理や再現、チーム内での共有が容易になる。また、条件分岐やループ、エラー時の再試行といった制御を組み込むことで、人手の介入を減らした自律的な処理フローを構築しやすくなると見られる。\n\n同様の発想を持つツールは他にも存在する。LangChain系の「LangGraph」やMicrosoftの「AutoGen」、複数エージェントの役割分担を扱う「CrewAI」などがあり、マルチエージェント設計は特定の製品に限らない広がりを見せている。今回の記事はその中でも、実際の開発現場で使われるClaude CodeとCodexという二つのエージェントを組み合わせる具体例に焦点を当てている点が特徴といえる。\n\n一方で、複数エージェントを連携させる構成にはコストや制御の難しさも伴う。エージェントごとにAPI呼び出しが発生するため実行コストが増える可能性があり、想定外の挙動や無限ループを防ぐ設計も欠かせない。導入にあたっては、まず小さなタスクで挙動を検証し、段階的に自律度を高めていく進め方が現実的だろう。プログラマブルな定義は、こうした試行錯誤を再現可能な形で積み重ねられる点にも意義があると考えられる。",
@@ -12674,44 +12668,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-27T21:39:43.328Z"
     },
-    "b2937bbd676220f2": {
-      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
-      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
-          "en": "If my team wants to modernize an app, how does the usual way of working change?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
-          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
-        },
-        {
-          "s": "a",
-          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
-          "en": "So people used to start by picking a framework? And what is that evidence for?"
-        },
-        {
-          "s": "b",
-          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
-          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
-          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
-        },
-        {
-          "s": "b",
-          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
-          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-27T21:40:18.238Z"
-    },
     "231f1a322b3ba681": {
       "bodyJa": "## チーム組織との共有会話\n\nOpenHands v1.46.0が2026年11月25日付でリリースされた。主な新機能は、チーム組織と共有した会話の一覧表示と共有解除、フィードバックボタンと送信フローの追加、オートメーションのGit Sync切替の3点である。\n\n会話まわりでは、チーム組織と共有している会話を一覧で確認し、そのうえで共有を解除できるようになった。この変更はOHE-4205として、#19954で@hieptlが取り込んだものだ。共有中の会話を把握して取り下げる操作が用意されたことで、チームでの共有管理がしやすくなると説明されている。\n\n## Feedbackボタン\n\nFeedbackボタンと、その送信フローが新たに加わった。#19272で@DevinVinsonが追加したもので、利用者が画面上のボタンからフィードバックを送れるようにする機能である。\n\n## Git Syncスイッチ\n\nオートメーションには、Git Syncのスイッチが追加された。目的は、有効化の状態(activation status)をローカルに保つことだとされる。OHE-3927として、#19925で@hieptlが実装した。設定の扱いを利用者側で切り替えられる点が、チーム運用や設定管理に携わる人にとって便利な更新と位置づけられる。\n\n## メンテナンス更新\n\n保守面では、リリースボットによってagent-serverが1.63.1、automationが1.35.1、extensionsが0.44.0へ更新された(#20026)。\n\n依存関係の更新も複数含まれる。@tanstack/react-virtualは3.11.3から3.14.26へ(#19864)、開発用のelectronは45.3.2から45.3.3へ(#20024)上がった。eslintグループでは2件の更新が入っている(#20023)。これらはいずれもDependabotによる自動更新である。",
       "bodyEn": "## OpenHands v1.46.0 Features\n\nOpenHands v1.46.0, dated 2026-11-25, adds three user-facing features and a set of dependency and component updates. The changes mainly affect how teams manage shared conversations, collect feedback, and handle automation settings.\n\nThe first feature lets users list and unshare conversations that have been shared with a team org. The release notes tie this to the reference OHE-4205 and attribute it to @hieptl in pull request #19954. According to the release summary, this gives teams more control over what is shared.\n\nThe second feature is a Feedback button together with a submission flow. The notes credit @DevinVinson and reference pull request #19272.\n\n## Automations Git Sync Switch\n\nThe third feature adds a Git Sync switch to automations, intended to keep activation status local. It is listed under OHE-3927 and attributed to @hieptl in pull request #19925. The notes describe the purpose only as keeping activation status local, so the switch is best understood as a setting that affects where an automation's active or inactive state is kept.\n\n## Maintenance Updates\n\nThe maintenance section begins with a bump of several components, made by the release bot in pull request #20026: agent-server moves to 1.63.1, automation to 1.35.1, and extensions to 0.44.0.\n\nSeveral dependency updates from Dependabot are also listed:\n\n@tanstack/react-virtual rises from 3.11.3 to 3.14.26 within the tanstack group, in pull request #19864.\n\nelectron, a development dependency, moves from 45.3.2 to 45.3.3 in pull request #20024.\n\nThe eslint group receives two updates in pull request #20023.\n\nThe notes also mention an i18next group bump, though the listing is cut off, so no further detail is available on that item.\n\n## What Changed for Users\n\nIn the release's own framing, the changes are most relevant to people who run OpenHands in a team setting or who manage automation configuration. The ability to review and withdraw shared conversations, the new route for sending feedback, and the local-activation option for automations are the user-visible items. The remaining entries are routine version bumps to supporting components and development tooling.",
@@ -12793,6 +12749,176 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-27T21:42:04.524Z"
+    },
+    "e781aae55ec024a5": {
+      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
+      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
+          "en": "If my team wants to modernize an app, how does the usual way of working change?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
+          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
+        },
+        {
+          "s": "a",
+          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
+          "en": "So people used to start by picking a framework? And what is that evidence for?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
+          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
+          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
+          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:40:18.238Z"
+    },
+    "78a255837b86de03": {
+      "bodyJa": "MCP Servers v2.5.0 は、3つのサーバーにあった8件の脆弱性を修正したセキュリティリリースです。該当バージョンを使っている場合は、各パッケージを修正版へ更新する必要があります。\n\n## 8件の脆弱性と更新先\n\n今回の修正対象は、mcp-server-git、@modelcontextprotocol/server-filesystem、@modelcontextprotocol/server-everything の3つです。更新先は、mcp-server-git が 2026.11.18、server-filesystem が 2.4.0、server-everything が 2.3.1 とされています。\n\n## 影響を受けるバージョン\n\nmcp-server-git は 2026.11.11 までが影響範囲で、修正版は 2026.11.18 です。\n\nserver-filesystem は、2.4.0 より前のすべてのバージョンに加え、日付形式のバージョン 2025.1.14 から 2026.8.31 までが該当します。修正版は 2.4.0 です。\n\nserver-everything は 2.3.0 までが対象で、2.3.1 で修正されました。\n\n## git_merge と自動メンテナンス\n\nmcp-server-git 2026.11.18 では、マージ後に Git の自動メンテナンスが起動しなくなりました。\n\n従来は、git_merge が成功すると、fast-forward の場合も含めて、最後に git maintenance run --auto が実行されていました。このコマンドのガベージコレクションは、リポジトリ自身の gc.recentObjectsHook に指定されたコマンドを実行します。そのコマンドは、サーバーの権限で動作すると説明されています。\n\nこの対処として、maintenance.auto は false に、gc.auto は 0 に設定されるようになりました。\n\nリポジトリ側の設定に書かれたコマンドが、マージという通常の操作をきっかけにサーバーの権限で実行されうる点が、この修正の要点です。",
+      "bodyEn": "## Security fixes in v2.5.0\n\nMCP Servers v2.5.0 addresses eight vulnerabilities across three servers, which matters for anyone running these packages in affected versions. The release notes tell users to upgrade mcp-server-git to 2026.11.18, @modelcontextprotocol/server-filesystem to 2.4.0, and @modelcontextprotocol/server-everything to 2.3.1.\n\n## Affected versions and fixed releases\n\nThe release lists the affected ranges for each package. For mcp-server-git, versions through 2026.11.11 are affected, and the fix is in 2026.11.18. For @modelcontextprotocol/server-filesystem, the affected set is all versions before 2.4.0, along with date-based versions from 2025.1.14 through 2026.8.31; the fix is in 2.4.0. For @modelcontextprotocol/server-everything, versions through 2.3.0 are affected, and 2.3.1 contains the fix.\n\n## mcp-server-git 2026.11.18\n\nThe one fix described in detail concerns merges. According to the release notes, a merge no longer starts Git's automatic maintenance. Previously, a successful git_merge, including a fast-forward, ended with git maintenance run --auto. Its garbage collection runs the commands that a repository's own gc.recentObjectsHook names, and it does so with the server's privileges. In other words, a setting stored in a repository could lead to commands being executed under the server's own permissions after a merge.\n\nThe release notes say the change sets maintenance.auto to false and gc.auto to 0, which turns off that automatic maintenance path. The remaining details of this entry are not given here.\n\n## What to do\n\nThe release's guidance is direct: users running any of the affected versions should move to the fixed versions listed above. Because the notes name specific minimum versions for each of the three packages, checking the installed version of each server against the table of affected and fixed releases is the practical first step. The notes provide no further detail on the other vulnerabilities covered by the eight fixes.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "このMCPサーバーを使っている人は、普段何をすればいいの？",
+          "en": "If I'm using these MCP servers, what do I actually need to do?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、3つのサーバーの更新が案内されています。mcp-server-gitは2026.11.18、server-filesystemは2.4.0、server-everythingは2.3.1です。",
+          "en": "The release lists upgrades for three servers: mcp-server-git 2026.11.18, server-filesystem 2.4.0, and server-everything 2.3.1."
+        },
+        {
+          "s": "a",
+          "ja": "8件も直したんだね。前のバージョンだと、gitの方はどんな問題があったの？",
+          "en": "Eight fixes, wow. What was wrong with the older git server?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、git_mergeが成功すると自動メンテナンスが動き、リポジトリ側が指定したコマンドをサーバーの権限で実行しうる流れでした。今回は自動メンテナンスを止めています。",
+          "en": "Here, a successful git_merge triggered automatic maintenance, which could run commands named by the repository, using the server's privileges. Now that maintenance is turned off."
+        },
+        {
+          "s": "a",
+          "ja": "マージしただけで動いちゃうのがこわいね。まず自分のバージョンを確かめるのが大事なんだ。",
+          "en": "Scary that a merge alone could trigger it. So the first step is checking my own version."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。表では対象が決まっているから、まず照らし合わせよう。ほかの脆弱性の中身は、この記事の範囲では詳しく分からないよ。",
+          "en": "Right. The table lists affected versions, so compare yours first. This piece doesn't detail the other vulnerabilities."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:37:42.193Z"
+    },
+    "7e0dffda14167f42": {
+      "bodyJa": "langchain-anthropic のパッチ版 1.7.13 が公開されました。同時に、テスト基盤である standard-tests も 1.2.0 にリリースされています。Anthropic 連携を利用している開発者にとって、依存関係を更新する際の目安になるリリースです。\n\n## 1.7.13 のリリース\n\n今回の langchain-anthropic は 1.7.12 の次のパッチ版です。公開日時は 2026年11月25日 21:42(UTC)で、リリースは langchain のリリース情報として配信されました。バージョン番号の付け方から、マイナーやメジャーの更新ではなく、パッチレベルの更新であることが分かります。\n\nこのリリースのコミットは GitHub.com 上で作成され、GitHub の検証済み署名が付いています。変更は「release(anthropic): 1.7.13」(#42102)として記録されています。\n\n## 1.7.12 からの変更\n\n1.7.12 以降の変更として一覧に挙がっているのは、次の二件のリリースコミットです。\n\n一件目は、langchain-anthropic を 1.7.13 にする「release(anthropic): 1.7.13」(#42102)です。二件目は、standard-tests を 1.2.0 にする「release(standard-tests): 1.2.0」(#41996)です。\n\n一覧にあるのはこの二件のみです。個々の機能追加や不具合修正の内容は示されていないため、1.7.13 で挙動がどう変わるのかは、この情報からは判断できません。\n\n## 1.2.0 のテスト基盤\n\nstandard-tests は、langchain 系のテスト基盤にあたるパッケージとして位置づけられています。今回は 1.2.0 が同じタイミングでリリースされました。プルリクエスト番号は #41996 で、langchain-anthropic 側の #42102 とは別に管理されています。\n\n## 更新時の目安\n\nAnthropic 連携を使うプロジェクトでは、langchain-anthropic が 1.7.12 から 1.7.13 に進んだことを、依存関係を見直す際の目安にできます。あわせて standard-tests 1.2.0 も公開されている点を確認しておくとよいでしょう。\n\nただし、リリースの記録だけでは変更の中身までは分かりません。更新の影響を確かめるには、各プルリクエストの内容を参照する必要があります。",
+      "bodyEn": "langchain-anthropic has been released as version 1.7.13, published on 2025-11-25 per the release listing from langchain-releases. For developers who depend on the Anthropic integration, the release marks the newest patch version and a natural checkpoint when reviewing dependencies.\n\n## Changes since 1.7.12\n\nThe release notes compare 1.7.13 against the previous version, langchain-anthropic 1.7.12, and list two changes. The first is the release commit for the Anthropic package itself, titled \"release(anthropic): 1.7.13\" and tracked as #42102. The second is \"release(standard-tests): 1.2.0\", tracked as #41996.\n\nBoth entries are release entries rather than descriptions of individual feature additions or bug fixes. The notes do not break down what behavior differs inside the Anthropic package, so the release is best understood as a version bump that accompanies a standard-tests update to 1.2.0.\n\n## A patch release with a companion\n\nThe Anthropic package moves only by a patch increment, from 1.7.12 to 1.7.13. By contrast, standard-tests is listed at 1.2.0, a different version line that appears in the same set of changes. The two items are presented together under the same comparison, which indicates they were part of the same release activity.\n\n## Updating dependencies\n\nAccording to the summary of this release, developers who use the Anthropic integration can treat 1.7.13 as a reference point when they update their dependencies. The listing also notes that the commit was created on GitHub.com and signed with GitHub's verified signature, which describes how the commit was produced.\n\nAnyone planning an upgrade can look at the two referenced items, #42102 and #41996, to see the release changes in detail. Beyond the version numbers and those references, the release listing offers no further specifics.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:38:25.075Z"
+    },
+    "9c759b8cbd27d766": {
+      "bodyJa": "## G系列GPUに対応\n\nAWS Lambdaが、Lambda Managed Instances上で動くEvent FunctionsでG系列のGPUインスタンスをサポートしました。これにより、機械学習の推論、メディア処理、レンダリングといったGPUを使うワークロードをサーバーレスで実行できるようになります。\n\n## Lambdaが担う運用作業\n\nGPUインスタンスを使う際の基盤まわりの作業は、Lambdaが引き受けると説明されています。具体的には、インスタンスのライフサイクル管理、ドライバーの管理、オートスケーリングが含まれます。利用者側でGPUのフリートを運用する手間を省ける点が特徴です。\n\n## 同時リクエストでの利用効率\n\nLambdaは、並行して届く複数のリクエストにわたってGPUの利用率を最大化するとされています。GPUを使う処理を複数のリクエストで効率よくさばくための仕組みが組み込まれている、という位置づけです。\n\n## 料金体系\n\n課金は、標準のEC2料金に管理手数料を加えた形です。Lambda独自のGPU料金が別に設けられるのではなく、EC2の料金体系がベースになっています。\n\n対象はLambda Managed InstancesのEvent Functionsで、サポートされるGPUインスタンスはG系列です。",
+      "bodyEn": "## GPU instances for Event Functions\n\nAWS Lambda now supports G-series GPU instances for Event Functions running on Lambda Managed Instances. This lets teams run GPU-dependent work in a serverless model instead of operating their own GPU fleets.\n\nThe announcement names three workload types that this enables: machine learning inference, media processing, and rendering. All three are described as serverless GPU workloads, meaning the code runs as Lambda Event Functions rather than on infrastructure the customer provisions directly.\n\n## Lambda handles infrastructure\n\nAccording to the source, Lambda takes on the infrastructure tasks involved in running GPU instances. These include instance lifecycle management, driver management, and auto scaling. The practical effect, as the key points put it, is that teams skip the operational work of running a GPU fleet themselves.\n\nThe announcement also says Lambda maximizes GPU utilization across concurrent requests. In other words, the service is meant to make use of the GPU while handling multiple requests at once, rather than leaving the hardware idle between them.\n\n## Standard EC2 pricing plus fee\n\nOn cost, the source states that billing follows standard EC2 pricing plus a management fee. The GPU instances are therefore charged at the same rates as the underlying EC2 instances, with an added charge for the management Lambda provides.\n\nThe material does not give specific instance types within the G-series, prices, regions, or availability details, so those points should be confirmed against AWS documentation before planning a deployment.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "LambdaでGPUが使えるようになったって、具体的に何ができるの？",
+          "en": "Lambda can use GPUs now? What can you actually do with that?"
+        },
+        {
+          "s": "b",
+          "ja": "Lambda Managed InstancesのEvent FunctionsでG系列のGPUが使えて、機械学習の推論やメディア処理、レンダリングをサーバーレスで動かせるんだ。",
+          "en": "Event Functions on Lambda Managed Instances can run on G-series GPU instances. That covers ML inference, media processing, and rendering, all serverless."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあGPUのサーバーを自分で面倒みたくない人に役立つってこと？",
+          "en": "So it helps people who don't want to babysit their own GPU servers?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。インスタンスのライフサイクルやドライバー管理、オートスケーリングはLambdaが担うと書かれているよ。同時リクエスト間でGPUを使い切る工夫もあるみたい。",
+          "en": "Right. The post says Lambda handles instance lifecycle, driver management, and auto scaling. It also aims to maximize GPU utilization across concurrent requests."
+        },
+        {
+          "s": "a",
+          "ja": "GPUの運用はLambdaに任せて、推論や動画処理に集中できるんだね。",
+          "en": "So Lambda handles the GPU upkeep, and we can focus on inference or video work."
+        },
+        {
+          "s": "b",
+          "ja": "うん。ただ課金は標準のEC2料金に管理手数料が加わる形だから、そこは押さえておこう。",
+          "en": "Yes. Just remember billing is standard EC2 pricing plus a management fee, so keep that in mind."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:39:27.206Z"
+    },
+    "3ad60ab107d49ee0": {
+      "bodyJa": "Foundry Agent Serviceのホステッドエージェントについて、Microsoft Ignite 2026で本番運用に向けた一連の更新が発表された。動くデモはあくまで出発点で、出荷できるかどうかはその後に出てくる運用上の問いで決まる、と説明されている。\n\n## パイロットから本番へ\n\n筆者は数か月にわたり、ホステッドエージェントをパイロットから本番へ移そうとする多くのチームと関わってきたという。そこで繰り返し挙がる問いとして、次の五つが示されている。\n\n利用が急増したとき、サブネットは持ちこたえるか。自社の証明書を使う社内サービスを、エージェントは呼び出せるか。接続できる先は正確にどこで、それを誰が決めるのか。すでに運用しているAzure Kubernetes Service(AKS)のクラスター上で動かせるか。2時間かかるジョブが中断されたら何が起きるのか。\n\n## 発表された対応\n\nIgnite 2026では、これらの課題それぞれに対する解決策がホステッドエージェント向けに発表されたとされる。対象は、サブネットの拡張性、独自証明書を使う社内サービスへの接続、接続先の制御、AKS上での稼働、長時間ジョブの中断への対処である。企業の統制下で運用したいチームに向けた機能群といえる。\n\n元の記事は、何が新しく、何が現時点で使え、何がこれから提供されるのかを分けて整理する構成になっている。\n\n## 対象範囲の注意点\n\negress(外向きの接続)とプライベートCAに関する更新は、Foundryが代わりに運用するマネージド型のホステッドエージェントに適用される。自前のAKSを使う構成(BYO-AKS)への対応については、別途ドキュメントで説明されるという。\n\n自社のAKS環境で使うことを想定しているチームは、この適用範囲の違いを踏まえて確認する必要がある。",
+      "bodyEn": "## Pilot to production\n\nMoving a hosted agent from a working demo to production is where many enterprise teams get stuck. According to the author, who has worked with a number of teams making that move over recent months, a demo is only the start, and a set of operational questions then decides whether the agent ships. At Microsoft Ignite 2026, the announcement says, Foundry Agent Service is adding capabilities for hosted agents aimed at those questions.\n\n## Questions that decide shipping\n\nThe source lists the concerns teams raise. Will the subnet hold up when usage takes off? Can the agent call internal services that use the organization's own certificates? Where exactly can the agent connect, and who decides? Can it run on Azure Kubernetes Service (AKS) clusters the team already operates? And what happens when a two-hour job is interrupted?\n\nThe announcement says each of these challenges now has a corresponding solution for hosted agents in Foundry Agent Service. In short, the updates cover subnet scale, internal services with custom certificates, control over connection destinations, AKS support, and recovery of interrupted long-running jobs. The source frames them as useful for enterprise teams that want to operate agents within their own controls and boundaries.\n\n## What applies where\n\nThe source notes an important scope limit. The egress and private CA updates apply to managed hosted agents, meaning the ones Foundry runs on the customer's behalf. Support for bringing your own AKS (BYO-AKS) will be documented separately, so teams planning to run on their existing clusters should not assume those two updates carry over to that setup.\n\n## What's new, available now, and coming\n\nThe author says the full post sets out three things: what is new, what can be used today, and what is still to come. The material available here does not break individual features down into those categories, so readers should check the original post for which capabilities are available now and which are planned. What the announcement does establish is the overall direction: giving teams concrete answers on network capacity, certificate trust, connection control, cluster placement, and job resilience as they take hosted agents from pilot to production inside enterprise boundaries.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "会社でAIエージェントを動かすとき、このアップデートで何が変わるの？",
+          "en": "If my company runs an AI agent, what actually changes with this update?"
+        },
+        {
+          "s": "b",
+          "ja": "パイロットから本番に進むときの悩みに答える内容だよ。サブネットの拡張性、社内サービスへの接続、接続先の制御、AKS対応、長時間ジョブの中断対策が挙がってるね。",
+          "en": "It targets the worries teams hit moving from pilot to production: subnet scale, internal services, connection controls, AKS support, and recovering interrupted long jobs."
+        },
+        {
+          "s": "a",
+          "ja": "独自証明書の社内サービスにつなぐのは、前はできなかったの？",
+          "en": "Was calling internal services with our own certificates not possible before?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは「前は不可能だった」とまでは書かれてないから、従来との差は分からないな。この記事では、それも解決策が発表される課題のひとつとして挙げられているよ。",
+          "en": "The article doesn't say it was impossible before, so I can't tell what changed. It lists this as one challenge that now gets an announced solution."
+        },
+        {
+          "s": "a",
+          "ja": "一番の収穫は、デモが動くだけじゃなく、本番で出る疑問に答えが用意されたことかな。",
+          "en": "So the big takeaway is that production questions now have answers, not just a working demo?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。注目点は、記事が「今使えるもの」と「これから出るもの」を分けていること。接続先制御や独自証明書は、Foundryが動かすマネージド型が対象で、BYO-AKSは別に説明される予定だよ。",
+          "en": "Yes. Watch how it separates what's usable today from what's coming. Egress and private CA apply to managed hosted agents; BYO-AKS will be documented separately."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:39:52.629Z"
+    },
+    "a60e79fd42ab6dab": {
+      "bodyJa": "複数の大規模言語モデル（LLM）エージェントが数珠つなぎに情報を受け渡す「マルチホップエージェントリレー」において、メッセージの形式が下流エージェントの振る舞いに与える影響は、そのエージェントが連鎖の中で占める階層（ティア）によって異なる——arXivで公開された研究がこう報告した。複数エージェントを組み合わせたシステムの信頼性を評価するうえで重要な示唆を含む知見だ。\n\n近年、単一のLLMにすべての処理を任せるのではなく、役割の異なる複数エージェントを連携させる「マルチエージェント」や「チェーン・オブ・エージェント」と呼ばれる構成が注目を集めている。長い文脈の分割処理や、計画・実行・検証といった役割分担に有効とされる一方、エージェント間で受け渡されるメッセージが積み重なるにつれて、誤りがどのように伝播するかは十分に解明されていなかった。\n\nこの研究が着目したのは、メッセージの「形式」がもたらす効果である。同じ内容でも記述の形式が変われば下流エージェントの出力が変化しうるが、分析の結果、その影響の度合いはエージェントが上流にあるか下流にあるかというティアに依存することが示されたという。\n\nさらに注目されるのは、上流エージェントが受け取った内容に誤りが含まれていても、それを自ら修正せず「忠実に」下流へ伝達する傾向が見られた点だ。エージェントが誤りを訂正する検証者として機能するとは限らず、むしろ誤情報をそのまま増幅させてしまう可能性を示唆している。\n\nこの知見は、複数エージェント系を設計する実務にも直結する。LangChainやAutoGen、CrewAIといったフレームワークの普及でマルチエージェント構成の構築は容易になったが、各エージェントを単純に連結するだけでは、上流の誤りが下流で温存されるリスクがある。信頼性を確保するには、明示的な検証ステップの挿入やメッセージ形式の標準化、ティアごとの挙動を踏まえた評価設計が求められると見られる。ただし本結果は特定の実験設定に基づくものであり、モデルやタスクの違いによる一般化可能性については、今後さらなる検証が必要となるだろう。",
+      "bodyEn": "Multi-agent systems built on large language models increasingly rely on relay architectures, in which a task passes through a sequence of agents that each read, process, and forward information to the next. A new paper posted to arXiv examines how the format of the messages exchanged between these agents shapes downstream behavior, and reports that the effect is not uniform along the chain but depends on where an agent sits, or its tier. The question matters because relay and pipeline patterns are becoming a common way to decompose complex work, and small design choices in how agents talk to one another can quietly determine whether the overall system is reliable.\n\nThe central finding is that message-format effects in multi-hop agent relays are tier-dependent. Rather than acting as quality-control checkpoints, the agents studied tend to propagate the content they receive faithfully, passing information along—including apparent errors—without correcting it. The authors summarize this as behavior that is faithful but not corrective. The practical implication is that once a mistake or a particular formatting choice enters the chain, it is likely to persist and travel downstream rather than being filtered out by later agents. Because the influence of format varies by tier, the same formatting decision can carry different weight depending on how far into the relay it occurs.\n\nThis framing connects to a broader concern in multi-agent research often described informally as a telephone-game or error-propagation problem. When outputs from one model become the inputs to another, ambiguities, hallucinations, or brittle structure can compound across hops. The paper's contribution appears to be in isolating message format—for example, whether content is passed as free-form natural language or as more structured representations—as a variable and measuring its downstream effect at different positions rather than treating the chain as a single black box. That per-tier view is useful because it suggests reliability interventions may need to be placed at specific points rather than applied uniformly.\n\nThe work sits alongside a growing body of research and tooling around what is sometimes called chain-of-agents, a pattern in which multiple specialized agents collaborate sequentially or hierarchically on long or multi-step tasks. Frameworks such as LangGraph, AutoGen, and CrewAI have made it easier to wire together such pipelines, but they also make it easy to introduce many hand-off points where formatting conventions differ. The finding that upstream agents do not reliably correct upstream content is a caution for developers who might assume that adding more agents, or a downstream reviewer agent, will naturally catch and repair mistakes introduced earlier.\n\nFor readers less familiar with the underlying mechanics, a few prerequisite ideas help. In these systems, each agent is typically an LLM guided by a prompt that specifies its role and the expected input and output structure. The message format is the contract between agents, and it interacts with how models parse instructions: structured formats can reduce ambiguity but may also encourage an agent to accept the received content at face value, while looser formats leave more room for reinterpretation. The reported tendency toward faithful propagation is consistent with the observation that models often follow the framing of their input closely, though the paper's specific measurements are what ground this as an empirical result rather than an assumption.\n\nThe stated significance is for reliability evaluation in multi-agent system design. If the influence of message format is genuinely tier-dependent, then benchmarking a single agent in isolation may not predict how it behaves inside a relay, and evaluation should account for position within the chain. This points toward design practices such as adding explicit verification steps, defining clearer hand-off contracts, or validating content at chosen tiers rather than trusting that errors will self-correct.\n\nAs with any single study, the results should be read with appropriate caution. The findings likely depend on the particular models, tasks, and formats tested, and generalization to other architectures is not guaranteed. Still, the paper adds a useful, more granular lens to a practical problem, reframing message format from a minor implementation detail into a factor whose reliability impact varies systematically across an agent relay.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T17:23:43.706Z"
+    },
+    "4e305a69a4ddb89a": {
+      "bodyJa": "## AI対応度\n\n日本の主要SaaS 31社を対象に、AIエージェントから発見・利用されやすいかを独自指標で検証した調査だ。ソフトウェアを選ぶ主体にAIエージェントが加わり始めるなか、各社のMCP対応やAPI公開状況を評価している。\n\n## 31社を検証\n\n検証した31社のうち26社をAAA〜Dで格付けし、算定式も本文で全公開した。会計分野のfreeeとマネーフォワード、サイボウズ系が先行する一方、人事・契約・決済では、APIはあるもののAI向けの入口となる公式MCPはまだないケースが大半とされる。\n\n## SaaS支出\n\nGartnerは2026年7月1日、エンタープライズソフトウェアをエージェントのために買う時代に入り、2030年までにSaaS支出の約20％、$234Bが影響を受けると予測した。レポートは、MCP対応やAPI公開状況の差が競争優位に直結すると説明している。",
+      "bodyEn": "## AI readiness\n\nThe report examines whether major Japanese SaaS offerings are prepared to be discovered and used by AI agents. This matters as software selection begins to involve AI agents as well as humans.\n\nAccording to the source, Gartner said on July 1, 2026, that enterprise software was entering an era in which products would be purchased for agents. It predicted that about 20% of SaaS spending, or $234 billion, would be affected by 2030.\n\n## MCP support and API\n\nThe research tested 31 major Japanese SaaS companies and assigned ratings to 26 of them, ranging from AAA to D. The report says its rating formula is fully disclosed in the main text.\n\nThe assessment focuses on differences in MCP support and API availability as indicators of how readily AI agents can discover and interact with SaaS products.\n\n## Accounting leads\n\nAccounting services, including freee and Money Forward, and the Cybozu group were ahead in the assessment. In human resources, contracts, and payments, most services had APIs but did not yet offer an official MCP as an AI-facing entry point.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T20:48:02.034Z"
     }
   }
 }

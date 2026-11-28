@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-27T23:30:58.434Z",
-  "count": 348,
+  "generatedAt": "2026-11-28T00:30:58.213Z",
+  "count": 356,
   "bodies": {
     "17f496c665a12174": {
       "bodyJa": "Metaは、AIネイティブ時代に向けたプライバシー対応インフラの中核として、社内の膨大なデータアセットを正確に分類する取り組みをエンジニアリングブログで公開した。データ保持期間やアクセス制御、利用目的の制限、第三者への共有可否、匿名化といったプライバシー制御は、対象となるデータの性質を正しく把握して初めて機能するためだ。\n\n同社の出発点はシンプルである。あらゆるプライバシーコントロールは「どこに、どのようなデータが存在するか」という信頼できる理解を前提とする。たとえば特定の個人情報を一定期間で削除する保持ポリシーを適用するには、まずそのデータがどのテーブルやログ、ストレージのどこに含まれているかを機械的に判別できなければならない。分類が曖昧なままでは、制御そのものが空回りしてしまう。\n\nしかし、この前提を大規模に満たすことは容易ではない。Meta規模のサービスでは、データは無数のシステムを横断して生成・変換・複製され、形式やスキーマも多様だ。さらに生成AIや機械学習パイプラインの普及により、学習用データセットや派生データが増え、データの流れはいっそう複雑になっている。こうした環境で分類の精度と網羅性を保つには、自動化された分類基盤と継続的な検証の仕組みが欠かせない。\n\nこの課題は業界共通のものでもある。EUのGDPRや米カリフォルニア州のCCPAをはじめとする各国の規制は、データの利用目的や保持に厳格な要件を課しており、データガバナンスの基盤整備は大手テック各社にとって避けて通れない。GoogleやMicrosoftなども独自のデータ分類・カタログ化の仕組みを整えてきたとされ、Metaの今回の公開はその一つの実装例と位置づけられる。\n\nAIの普及はデータ活用の幅を広げる一方で、プライバシー保護の難度を押し上げている。データを正確に「知る」ための分類基盤は、派手さこそないが、信頼できるAIサービスを支える土台になると見られる。Metaの事例は、プライバシーを後付けではなく設計段階から組み込む「プライバシー・バイ・デザイン」の実践として参考になりそうだ。",
@@ -11734,13 +11734,77 @@
       "bodyJa": "iPhone上で使えるClaude Voice Modeを経営実務にどこまで組み込めるのか、その限界と勘所を実際に試して探る「境界調査」が公開された。音声で対話するAIが、経営者や管理職の日常業務をどの程度まで肩代わりできるかを検証した実践レポートである。\n\nVoice Modeは、Anthropicが提供するClaudeのモバイルアプリに搭載された音声対話機能で、テキスト入力を介さずに話しかけて応答を得られる点が特徴とされる。移動中や手が塞がっている状況でも、思考の整理やメール文面の下書き、スケジュールの検討といったタスクを声だけで進められる可能性がある。今回の調査は、こうした「ハンズフリーで業務を回す」という理想が、実務の現場でどこまで成立するかを見極めようとしたものだと見られる。\n\n報告では、有効に機能する場面と、そうでない場面の切り分けが焦点になっている。一般に音声AIは、アイデアの壁打ち、要点の口頭整理、短い文章の生成といった発散的・対話的な作業と相性がよいとされる。一方で、複数の資料を横断して数値を突き合わせるような正確性が要求される業務や、画面上での細かな編集・確認を伴う作業では、音声だけでの完結は難しい傾向があると指摘されることが多い。本調査もそうした実用上の境界線を具体的に明らかにしようとしている点に価値がある。\n\n背景として、音声で操作するAIアシスタントは各社が競って強化している領域でもある。OpenAIはChatGPTにAdvanced Voice Modeを、GoogleはGeminiにLiveと呼ばれるリアルタイム音声対話を導入しており、応答の自然さや割り込み対応などで進化が続いている。Claudeの音声機能もこうした潮流の一つに位置づけられ、どのモデルが業務用途で使い物になるかは、実際に手を動かした検証の積み重ねによって見えてくる部分が大きい。\n\n経営業務の自動化という観点では、音声AIはあくまで既存ワークフローを補完するツールと捉えるのが現実的だろう。今回のように利用者自身が試行錯誤し、得手不得手を言語化した知見は、導入を検討する組織にとって過度な期待や誤解を避けるための実用的な指針になり得る。音声インターフェースの精度と業務システムとの連携が今後さらに深まれば、任せられる範囲は段階的に広がっていく可能性がある。",
       "bodyEn": "Voice interfaces have become a common front end for large language models, and a recent hands-on report investigates a specific question: how much of a manager's day-to-day work can realistically be handled by talking to Claude Voice Mode on an iPhone. Rather than treating voice AI as a novelty, the investigation frames it as a \"boundary\" exercise, mapping where spoken interaction genuinely accelerates executive tasks and where it breaks down. That framing matters because voice is often marketed as frictionless, yet the practical constraints of running a business through speech alone are rarely documented.\n\nClaude Voice Mode is Anthropic's spoken conversation feature within its mobile apps, allowing a user to hold a back-and-forth dialogue with the model instead of typing. On iPhone it competes for attention with the built-in dictation, Siri, and the voice features now common in rival assistants such as ChatGPT's Advanced Voice Mode and Google's Gemini Live. The appeal for a busy operator is obvious: hands-free drafting, quick summarization, and the ability to think out loud while walking or commuting. The report appears to test these against concrete workflows rather than staged demos, which is where the more useful findings emerge.\n\nAccording to the summary, the investigation clarifies both practical limits and effective use cases. In practice, voice tends to excel at what might be called generative and exploratory tasks: dictating the rough shape of an email, talking through a decision, brainstorming agenda items, or asking the model to summarize a concept before a meeting. These play to the strengths of a conversational model, where approximate input and iterative refinement are acceptable. The friction rises sharply, however, when tasks require precision, structured data, or interaction with other applications. Correcting a misheard figure, formatting a table, pasting content into a specific field, or verifying a name or number is often slower by voice than by hand, because spoken correction loops are cumbersome and the model cannot reliably act inside external business tools.\n\nThat distinction reflects a broader architectural reality. A voice conversation with Claude is, at its core, still a language model exchange with speech recognition on the front and text-to-speech on the back. Unless the assistant is wired into calendars, email, documents, or a company's systems through integrations, it cannot directly execute actions; it can only produce text or spoken output that a human then transfers manually. This is the gap that agentic and tool-using approaches aim to close. Anthropic has published the Model Context Protocol, an open standard for connecting models to external data sources and tools, and has demonstrated computer-use capabilities that let a model operate software. Voice Mode on a phone, by contrast, is a comparatively contained experience, which likely explains why the report positions it as an assistant for thinking and drafting rather than a system of record.\n\nContext from the wider industry reinforces why boundary testing is worthwhile. Vendors are converging on multimodal assistants that listen, speak, and increasingly act, and productivity suites from Microsoft and Google are embedding similar capabilities into email and documents. For an individual manager, though, the meaningful unit of work is a completed task, not a clever response. The investigation's value lies in separating the moments where voice removes friction from the moments where it adds a hidden verification and re-entry cost. Latency, transcription accuracy in noisy environments, and the awkwardness of speaking confidential business details aloud in public are all realistic constraints that shape adoption.\n\nThe reasonable takeaway is that voice-driven operation is best treated as one mode among several, not a wholesale replacement for typing, screens, and dedicated software. It appears most effective as a capture-and-draft layer that feeds into more structured tools, and least effective as the final step where accuracy and system integration matter. Readers considering a similar setup should weigh which of their recurring tasks are tolerant of approximation and iteration, since those are the ones most likely to benefit. As integrations mature and assistants gain more reliable ability to act on a user's behalf, this boundary is likely to shift, but for now the report suggests the practical line sits well short of running an entire executive workflow by voice.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:54:49.643Z"
+      "generatedAt": "2026-08-30T16:54:49.643Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「PCなし、タイピングなし、音声だけ」で経営の仕事を回せるか試したんだね。Voice Modeは速くて割り込みにも強いって、これって大きいこと？",
+          "en": "They tried running executive work with just a voice, no PC, no typing. Voice Mode feels fast and handles interruptions well. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "体感としては大きいみたい。口頭の方がタイピングより速いと感じる場面が増えたと書かれているよ。ただ、会話は得意でも「実行」は別、というのがこの記事の軸なんだ。",
+          "en": "It seems so. Speaking often felt faster than typing. But the article's main point is that Voice Mode is good at talking, while actually doing tasks needs something else."
+        },
+        {
+          "s": "a",
+          "ja": "マイクボタンの音声入力と、Voice Modeは別ものなの？どこが違うのかな。",
+          "en": "Wait, the mic button and Voice Mode are different things? What's the difference?"
+        },
+        {
+          "s": "b",
+          "ja": "マイクボタンは声を文字にするだけで、送信後は普通のテキストチャット。だからツール呼び出しも使えるよ。Voice Modeは音声での会話そのもので、ツール呼び出しは使えないんだ。",
+          "en": "The mic button just turns speech into text, so it's a normal text chat afterward, and tools work. Voice Mode is the live spoken conversation itself, and tool calls aren't available there."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ私なら、移動中はVoice Modeで相談して、予定を入れるのは別の方法でやるのかな？",
+          "en": "So on the go, I'd talk things through in Voice Mode and add the schedule some other way?"
+        },
+        {
+          "s": "b",
+          "ja": "その使い分けがまさに記事の提案だよ。相談はVoice Mode、実行はSiriやAction Button経由のShortcuts。ただ単発コマンド向きで、直接操作できる連携はApple純正アプリ限定という制約があるよ。",
+          "en": "That's exactly the article's suggestion: Voice Mode for discussion, Shortcuts via Siri or the Action Button for execution. It suits single commands, though, and native integration is limited to Apple's own apps."
+        }
+      ]
     },
     "781a91b6808decf4": {
       "bodyJa": "Apple SiliconのローカルLLM実行環境で、Googleのオープンモデル「Gemma」シリーズの最新版とされるGemma 4 12Bが、前世代のGemma 3に対してどの程度の推論速度向上をもたらすのか。M5チップを搭載したMac上で両モデルを実際に走らせて比較したベンチマーク記事がZennに公開され、手元でLLMを動かすユーザーの関心を集めている。\n\nGemmaは、Googleが自社の大規模モデルGeminiと同系統の技術を基盤に公開している軽量なオープンモデル群で、比較的小さなパラメータ規模でも実用的な性能を狙える点が特徴とされる。近年はスマートフォンやノートPCなど手元の端末で言語モデルを動かす「オンデバイスAI」への関心が高まっており、クラウドに送信せず処理できるプライバシー面の利点や、通信コスト・遅延を抑えられる点が評価されている。\n\n今回の検証で焦点となっているのは、Gemma 4が採用したとされるエンコーダーフリー設計だ。記事では、この構成が推論時の処理を簡素化し、トークン生成の高速化に寄与する可能性があると説明されている。ただし実際の体感速度は、モデルの量子化方式やコンテキスト長、プロンプトの内容によっても変動するため、アーキテクチャの違いだけで決まるわけではない点には注意が必要だ。\n\n計測には、AppleのMシリーズ向けに最適化された実行環境が用いられているとみられる。ローカルLLMの分野では、llama.cppやOllama、Appleが開発するMLXフレームワークなどがApple Silicon上での高速化を進めており、同じモデルでも実行基盤の違いによって速度が大きく変わることが知られている。記事が示す実測データは、こうした前提を踏まえたうえで参照する必要があるだろう。\n\nこうしたハンズオンによる比較は、公式のベンチマーク数値だけでは見えにくい実運用時の挙動を補う情報として価値がある。Metaのllamaシリーズやアリババのqwenなど、オープンモデルの選択肢が増えるなかで、手元のハードウェアでどのモデルがどれだけ動くかを実測する取り組みは、今後もローカルLLM選定の重要な判断材料になっていくと見られる。",
       "bodyEn": "Running large language models locally has moved from a hobbyist experiment to a practical workflow, and each new open-weight release invites the same question: is it actually faster on the hardware people already own? A recent hands-on benchmark posted to Zenn tackles exactly that, pitting Google's Gemma 4 12B against the previous Gemma 3 generation on an M5-based Mac to see whether the newer model's architecture translates into inference speed gains that users can feel.\n\nThe comparison matters because inference speed, not just answer quality, often determines whether a local model is usable day to day. On Apple Silicon, memory bandwidth and the efficiency of the runtime frequently dominate the experience, so a model that is nominally similar in size can behave very differently depending on how it is built and how it is served. The author frames the test around a specific claim: that Gemma 4's encoder-free design should reduce overhead and improve token throughput compared with Gemma 3.\n\nThe central technical point is the architecture change the author refers to as \"encoder-free.\" In practice this appears to mean streamlining how the model processes input before generation begins, cutting steps that add latency without proportionally improving output. The expected payoff shows up in two commonly measured figures: time to first token, which reflects how quickly the model starts responding, and tokens per second during sustained generation, which reflects how fast it produces text once it is going. Both metrics tend to be sensitive to prompt length, so the benefit is likely to be more visible on longer inputs.\n\nContext helps explain why the M5 Mac is a reasonable testbed. Apple's unified memory architecture lets the GPU and CPU share a single pool, which is well suited to holding model weights and the growing key-value cache that attention mechanisms require. A 12B-parameter model, once quantized to roughly four bits, fits comfortably within the memory of many current Macs, making it a realistic target for on-device use rather than something confined to a server. That practicality is a large part of Gemma's appeal, as Google has positioned the family as open-weight models tuned to run efficiently across a range of devices.\n\nThe surrounding tooling ecosystem shapes results as much as the model itself. Local inference on Macs typically runs through frameworks such as MLX, Apple's own array library optimized for Silicon, or llama.cpp, which underpins popular front ends like Ollama and LM Studio. Each handles quantization, memory layout, and Metal acceleration differently, so a fair comparison generally requires holding the runtime, quantization level, and prompt set constant across both models. Readers evaluating the benchmark should keep those variables in mind, because a speed difference can originate from the runtime rather than the model architecture alone.\n\nFor anyone selecting a local LLM, the value of a test like this lies in the real measured data it provides rather than vendor claims. Benchmarks on identical hardware make it easier to weigh trade-offs, since a faster model is only worthwhile if its output quality holds up for the intended tasks. The article appears aimed at that decision, offering a reference point for whether upgrading from Gemma 3 to Gemma 4 is justified for latency-sensitive workflows such as interactive chat, coding assistance, or local retrieval-augmented generation.\n\nThe broader backdrop is a steady stream of open-weight releases from Google, Meta, Alibaba, Mistral, and others, each iterating on efficiency as much as raw capability. As competition shifts toward models that run well outside the data center, architecture refinements aimed at lowering inference cost are becoming a differentiator. Independent, reproducible measurements on consumer hardware are therefore increasingly useful, and results from a single Mac should be read as indicative rather than definitive. Confirming the pattern would ideally involve multiple hardware configurations, runtimes, and prompt profiles before treating any speed advantage as universal.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:56:37.219Z"
+      "generatedAt": "2026-08-30T16:56:37.219Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "画像4枚で11.2秒が6.0秒になったって、ほぼ半分だよね。これって大きいこと？",
+          "en": "Four images went from 11.2 seconds to 6.0. That's almost half, right? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、入力トークン数はほぼ同じなので、縮んだ時間はエンコーダの計算分と見ています。枚数が増えるほど差が開くのもポイントです。",
+          "en": "The article says token counts are nearly the same, so the saved time is roughly the encoder's compute cost. The gap also widens as you add more images."
+        },
+        {
+          "s": "a",
+          "ja": "「プリフィル」って何？ テキスト生成は約15 tok/sで互角だったのは、なんでなんだろう。",
+          "en": "What's \"prefill\"? And why was text generation about even at around 15 tok/s?"
+        },
+        {
+          "s": "b",
+          "ja": "プリフィルは、答えを書き始める前に入力を読み込む段階のことです。生成は12B本体が律速なので、互角なのは理屈どおりと書かれています。",
+          "en": "Prefill is the stage where the model reads your input before it starts answering. Generation is limited by the 12B core, so the article calls an even result expected."
+        },
+        {
+          "s": "a",
+          "ja": "私なら音声を文字起こしに使いたいな。ほぼ完璧だったなら、すぐ試せそう？",
+          "en": "I'd want to use it for audio transcription. If it was nearly perfect, could I just try it right away?"
+        },
+        {
+          "s": "b",
+          "ja": "動いたそうですが、罠があります。/api/chat の audios フィールドはエラーなしで無視されるので、OpenAI互換エンドポイントの input_audio を使う必要があります。",
+          "en": "It worked, but there's a catch. The /api/chat audios field gets silently ignored with no error, so you need input_audio on the OpenAI-compatible endpoint."
+        }
+      ]
     },
     "bc1c0f98e4b92dbc": {
       "bodyJa": "GoogleとGoogle DeepMindは、アジア太平洋(APAC)地域で環境リスクの課題に取り組むスタートアップを対象としたアクセラレータープログラムを開始したと発表した。AIを活用して気候変動や自然災害、環境劣化といった地域固有の問題の解決を後押しする狙いがあり、先端技術と社会課題を結びつける取り組みとして注目される。\n\nこのプログラムでは、選ばれたスタートアップに対して技術リソースやメンタリング、専門家による助言が提供されると見られる。GoogleやDeepMindが蓄積してきた機械学習の知見に加え、Geminiをはじめとする生成AIモデルや各種開発ツールへのアクセスを通じて、初期段階の企業が抱える技術的なハードルを下げることが期待される。アジア太平洋地域は台風や洪水、熱波などの自然災害が頻発し、気候変動の影響を強く受ける地域とされ、現地のニーズに即したソリューションの創出が課題となっている。\n\n背景には、AIを気候・環境分野へ応用する動きの世界的な広がりがある。GoogleやDeepMindはこれまでにも、天気予報モデル「GraphCast」や洪水予測の取り組みなどで環境分野へのAI適用を進めてきた。気象や生態系のモニタリング、エネルギー効率の最適化、災害の早期警戒といった領域では、大量のデータを扱うAIの活用が有効とされている。同様のアクセラレーターや支援枠組みは、MicrosoftやAmazonなど他の大手テック企業も気候技術系スタートアップ向けに展開しており、業界全体で持続可能性を軸にした投資と人材育成が活発化している。\n\n一方で、AIモデルの学習や運用には相応の計算資源と電力が必要となり、環境負荷との両立が課題として指摘されることもある。今回のプログラムがどの程度の規模で、どのような選考基準や支援期間を設けるのかといった詳細については、公式の発表内容を確認する必要がある。地域のスタートアップ育成を通じて、AIが環境リスク対策の実装をどこまで加速できるかが、今後の焦点となりそうだ。",
@@ -11913,6 +11977,246 @@
       "bodyEn": "Ollama v0.40.18-rc0 is a release candidate whose headline change targets Inkling on Metal. The change, tracked as #19843 and titled \"inkling2: faster Metal decode, prefill and draft rounds,\" speeds up three stages of running the model: decode, prefill and draft rounds.\n\n## Inkling-only Metal kernels\n\nAccording to the release note, the new Metal kernels apply to Inkling only. Each one comes with a stock-graph fallback, and each is gated by GPU generation and size class. The kernels are therefore not applied across the board, and a fallback path exists for each of them.\n\n## Expert gathers and attention\n\nThe note lists several specific kernel changes. They include short BF16 products and deduplicated NVFP4/MXFP8 expert gathers with fused SwiGLU. Fused loop controllers and residual mixing are also listed.\n\nOn the attention side, the release adds relative-position split attention. It also adds fused short convolutions. The summary describes these changes as speeding up NVFP4/MXFP8 expert handling and split attention.\n\n## Prefill and window cache\n\nFor prefill, the release describes a faster global prefill. It also adds an ordered window cache that appends in place. The note does not give benchmark figures, so the size of the speedups is not stated.\n\n## Exact outputs with 8-bit draft\n\nThe last item is an 8-bit draft model paired with a 4-bit vocabulary head. The note says this draft is used for proposals only and that outputs stay exact. In other words, the lower-precision draft changes how candidates are proposed, not the final results.\n\nThe release summary says the work benefits Mac users who run Inkling. It is a release-candidate build, as the \"rc0\" suffix indicates.",
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-27T21:41:33.750Z"
+    },
+    "6efae4f335b4e52c": {
+      "bodyJa": "## トレースから修正へ\n\nMicrosoft FoundryはIgnite 2026で、エージェントのトレースに現れる繰り返しの問題から、テストできる修正へ至る経路をより直接的にしたと発表した。この改善サイクルを支える新機能が、プレビューとして加わっている。\n\nプレビューの柱は3つある。InsightsとAgent Optimizerの連携、実際の会話から再利用可能なスキルを学ぶ機能、品質基準を満たしたままより低コストな構成を探す機能である。どの変更を次のバージョンに取り込むかは、利用者自身が決めるとされている。\n\n## 継続的改善の範囲\n\n継続的改善の領域では、Insightsとマルチターン評価が一般提供(GA)になった。一方、人手によるアノテーション、ルーブリック評価者、Agent Optimizerの新機能はプレビューの扱いである。トレースの分析と評価の部分はGA、最適化に踏み込む部分はプレビューという位置づけだ。\n\n## エージェント関連の更新\n\nエージェント分野では、音声エージェント、外部エージェントの登録、ホステッドエージェントのegress制御、A2Aツールがそれぞれ一般提供となった。Browser Automationにはエンタープライズ向けの機能とプレビュー機能が加わっている。\n\n## 開発ツールとモデル\n\n開発ツールでは、Foundry Dev PackとFoundry CLI(azd ai)がGAとなった。\n\nモデル関連では、Microsoft-Decision-1.1とManaged Computeが一般提供である。プレビューとして挙げられているのは、Model router Auto、MAIの画像モデル、MAI-Code-2-Flash、falの動画モデル、Basetenだ。GAとプレビューが混在しているため、利用にあたっては項目ごとの提供段階を確認したい。",
+      "bodyEn": "## Continuous improvement path\n\nMicrosoft Foundry used Ignite to announce a more direct route from a recurring problem in an agent's traces to a fix that can be tested. For teams building agents, the announcement positions this as a way to iterate faster on quality and cost.\n\nAccording to the announcement, new preview capabilities do three things: they connect Insights to Agent Optimizer, learn reusable skills from real conversations, and find cheaper configurations that still meet a team's quality bar. The announcement states that the team decides which changes go into the next version of the agent.\n\nOn the evaluation side, Insights and multi-turn evaluation are generally available. Human annotation, rubric evaluators, and new Agent Optimizer capabilities are in preview.\n\n## Agents and developer tools\n\nFor agents, several items reach general availability: voice agents, external-agent registration, hosted-agent egress controls, and the A2A tool. Browser Automation adds enterprise features and previews, though the announcement does not spell out what those include.\n\nFor developers, the Foundry Dev Pack and the Foundry CLI, invoked as azd ai, are generally available. The announcement lists them without further description, so their exact scope is not covered here.\n\n## Models\n\nThe model updates are split between general availability and preview. Microsoft-Decision-1.1 and Managed Compute are generally available.\n\nIn preview are Model router Auto, MAI image models, MAI-Code-2-Flash, fal video models, and Baseten. The announcement presents these as a list and gives no further detail about capabilities, pricing, or regional availability.\n\n## What is GA and what is preview\n\nThe announcement draws a clear line between the two statuses. The continuous-improvement features that tie trace analysis to optimization, skill learning, and cost-aware configuration search are preview, as are human annotation and rubric evaluators. Insights and multi-turn evaluation, along with voice agents and the other agent items above, are generally available.\n\nTeams reading the announcement should treat the preview items as capabilities to try rather than settled features, since the source marks them explicitly as preview. The framing throughout is that Foundry shortens the loop between spotting a problem in an agent's behavior and testing a change, while leaving the final decision about what ships to the people who run the agent.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "エージェントの「繰り返す問題」から「試せる修正」までの道が、もっと直接になったってあるよね。具体的に何がつながるの？",
+          "en": "The post says there's a more direct path from a recurring problem in an agent's traces to a fix you can test. What actually gets connected?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、InsightsとAgent Optimizerがつながるプレビューが挙げられています。ほかに会話から再利用できるスキルを学ぶ機能や、品質基準を満たす低コスト構成を探す機能もありますよ。",
+          "en": "Per this post, Insights now links to Agent Optimizer in preview. There's also learning reusable skills from real conversations, and finding cheaper configurations that still meet your quality bar."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、エージェントを作っている人が、問題を見つけて直して試す流れを速く回せるってこと？",
+          "en": "So people building agents can spot a problem, fix it, and test it faster? Is that the idea?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね、記事でも改善を素早く回せるとされています。しかもどの変更を次のバージョンに入れるかは、自分で決められると書かれていますよ。",
+          "en": "Yes, the post says teams can iterate faster. And it notes that you decide which changes go into the next version."
+        },
+        {
+          "s": "a",
+          "ja": "Insightsとマルチターン評価と音声エージェントはGAで、新しい最適化まわりはプレビューなんだね。",
+          "en": "So Insights, multi-turn evaluation and voice agents are GA, while the new optimizer features are still in preview. Got it."
+        },
+        {
+          "s": "b",
+          "ja": "はい。人による注釈やルーブリック評価も含め、プレビュー扱いのものがあるので、導入前にその区別は確認したいですね。",
+          "en": "Right. Human annotation and rubric evaluators are in preview too, so it's worth checking which features are GA before you adopt them."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:38:31.201Z"
+    },
+    "3b69ac30374c3fdd": {
+      "bodyJa": "Z.aiがGLM 5.4を公開した。同社として初めてループ型Transformerのアーキテクチャを採用したモデルで、タイトルには「汎用コーディングを目指す」という方向性が掲げられている。\n\n## 同社初のループ型\n\nGLM 5.4は、中国のAIラボZ.aiから提供が始まったモデルである。Z.aiはこれを、自社で初めてループ型Transformerを用いたモデルと位置づけている。\n\nタイトルは「Toward Generalized Coding」、つまり汎用的なコーディングへ向かうことをうたう。ただ、コーディング性能をどう高めるのかという具体的な中身は、ここで確認できる範囲では示されていない。\n\n## 重みを共有する層\n\nZ.aiの説明によれば、通常のTransformerでは各層がフォワードパスごとに1回だけ実行される。これに対してループ型Transformerでは、重みを共有する層のグループを複数回の反復で実行する。反復のたびに、前回のパスで得られた隠れ状態を磨き直していく仕組みだ。\n\nこの構成により、パラメータ数を増やさずに、より深いネットワークが得られるとZ.aiは述べている。層の数そのものを積み増すのではなく、同じ層を繰り返し通すことで実効的な深さを稼ぐ、という考え方である。\n\n## Inkling 2 Miniとの並び\n\nブログの筆者は、ループ型Transformerに触れたのはこの1週間で2例目だと書いている。1例目は、11月20日にThinking Machines Labが発表したInkling 2 Miniである。\n\n同社はこのモデルについて、中間層をトークンごとに3回実行するループ型Transformerだと説明している。ここでも、モデルの一部の層を繰り返し使うという点は、GLM 5.4と共通している。\n\n短期間に2つのモデルが同様の設計を打ち出したことから、この設計が複数のラボで注目を集めているとも読める。ただし、両モデルの性能を比べた数値などは示されておらず、優劣については何も言えない。",
+      "bodyEn": "## GLM-5.4 and Looped Transformers\n\nZ.ai, a Chinese AI lab, has released GLM 5.4, which it presents as a step toward generalized coding. It is the lab's first model built on a looped transformer architecture, a design that aims to add depth without making the model larger in parameter terms.\n\n## How the Loop Works\n\nZ.ai describes the difference this way. In a standard Transformer, each layer runs once per forward pass. In a Loop Transformer, a group of weight-shared layers runs for multiple iterations, refining the hidden states produced by the previous pass. According to the announcement, this gives a deeper network without increasing the parameter count.\n\nThe key point is that the same weights are reused. Because the layers are shared across iterations, the effective depth grows through repetition rather than through additional distinct layers.\n\n## A Second Sighting in a Week\n\nThe blog author, Simon Willison, notes that this is the second mention of looped transformers he has seen in the past week. The first was Inkling 2 Mini from Thinking Machines Lab, dated November 20th. Its description says that Inkling 2 Mini is a looped transformer that runs the middle layers of the model three times for every token. The quoted passage continues by saying this allows the model to apply more reason, but the text breaks off there, so the rest of the claim is not available.\n\nTaken together, the two descriptions show a similar idea in both releases: a portion of the network is run repeatedly instead of once. Z.ai refers to a group of weight-shared layers, while the Inkling 2 Mini description specifies the middle layers and three passes per token. The source does not give a pass count for GLM 5.4.\n\n## What Is Stated So Far\n\nThe material available about GLM 5.4 is limited to its release, its first-of-its-kind architecture for Z.ai, and the lab's explanation of the looping mechanism. No benchmark results, parameter totals, pricing, or availability details appear in the source, so none are asserted here. What the source does establish is that two labs have described looped designs within days of each other, and that Z.ai frames its version as a way to deepen the network while keeping the parameter count unchanged.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "同じ層を何回も回すって、どういうこと？普通のTransformerと何が違うの？",
+          "en": "What does it mean to rerun the same layers? How is that different from a regular Transformer?"
+        },
+        {
+          "s": "b",
+          "ja": "普通は各層が1回ずつ動くだけです。ループ型は重みを共有する層のグループを複数回回して、前の回の隠れ状態を磨き直します。",
+          "en": "In a standard Transformer, each layer runs once. In a loop transformer, a group of weight-shared layers runs several times, refining the hidden states from the previous pass."
+        },
+        {
+          "s": "a",
+          "ja": "層を新しく足すんじゃないんだね。それだと何が良いの？",
+          "en": "So they're not adding new layers. What's the upside of that?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、パラメータ数を増やさずに深いネットワークが得られる点が特徴です。Inkling 2 Miniも、真ん中の層を1トークンごとに3回回すそうです。",
+          "en": "The article highlights getting a deeper network without raising the parameter count. Inkling 2 Mini also runs its middle layers three times for every token."
+        },
+        {
+          "s": "a",
+          "ja": "同じ層を繰り返して中身を磨くんだね。しかも一週間で二つ目なんだ！",
+          "en": "So it repeats the same layers to polish the states. And it's already the second one in a week!"
+        },
+        {
+          "s": "b",
+          "ja": "筆者が一週間で見かけたのは二例目、という話です。流行と決めつけず、様子を見るのがよさそうですね。",
+          "en": "The author says it's the second mention in a week. I'd not call it a trend just yet, and keep watching."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:38:52.242Z"
+    },
+    "30f6de5437c897a8": {
+      "bodyJa": "## Open/closedを超えるステータス\n\nGitHubのIssueで、開いているか閉じているかだけでなく、より細かなステータスを設定できるようになった。パブリックプレビューとして提供され、チームとエージェントが「何が進行中で、次に何に取り組むか」という共通の文脈を持てるようにすることが狙いとされる。あわせて、進捗を可視化するリポジトリボードも利用できる。\n\n## Issue上での設定と確認\n\nステータスは、Issueの作成時に選ぶか、Issueのヘッダーから変更できる。設定した内容は、リポジトリのIssueページ、Issuesダッシュボード、リポジトリボードに表示されるIssueアイコンへ反映される。\n\nリポジトリボードでは、status: フィルターを使って目的のIssueを絞り込める。ステータスの状態がアイコンとフィルターの両方から確認できるため、一覧を見るだけで現在地を把握しやすくなると説明されている。\n\n## プルリクエストと連動する自動更新\n\nステータスを正確に保つため、プルリクエストの操作に応じた自動更新が適用される。内容は次の三つである。\n\nドラフトのプルリクエストをIssueにリンクすると、そのIssueは In progress に移る。\n\nドラフトのプルリクエストを Ready for review にすると、Issueは In review に移る。\n\nオープンなプルリクエストをIssueにリンクした場合も、Issueは In review に移る。\n\nつまり、作業の開始やレビュー依頼といったプルリクエスト側の動きが、手作業の更新なしにIssueのステータスへ反映される仕組みだ。\n\n## 押さえておきたい点\n\n今回の変更は、Issueの状態を「open」「closed」の二値から、作業の段階を示すステータスへ広げるものだ。ステータスはIssue単体で設定でき、ボードやダッシュボードといった複数の画面で共通して確認できる。自動更新はドラフトか通常かというプルリクエストの状態に紐づいており、必要に応じてIssueのヘッダーから手動で変更する運用も可能である。",
+      "bodyEn": "## Issue statuses in public preview\n\nOpen or closed does not always show where an issue stands. According to the announcement, GitHub issues can now carry more specific statuses, giving teams and agents shared context about what is in flight and what to work on next. Repository boards then let people visualize that progress. The feature is described as being in public preview.\n\n## Track progress directly on an issue\n\nA status can be chosen when an issue is created, or changed afterward from the issue header. The status is reflected in issue icons across several places: the repository issues page, the issues dashboard, and repository boards. On repository boards, a status: filter is available to help locate the issues you are looking for.\n\nThe announcement frames the purpose as shared context. Instead of relying only on whether an issue is open or closed, people and agents working in the same repository can see a more precise indication of where each piece of work sits.\n\n## Automated status updates\n\nTo help keep statuses accurate, the announcement lists three automations applied to issues:\n\nLinking a draft pull request to an issue moves the issue to In progress.\n\nMarking a draft pull request as Ready for review moves the issue to In review.\n\nLinking an open pull request to an issue moves the issue to In review.\n\nIn each case, the change in pull request state drives the issue status, so the status follows the work without a manual edit. A status can still be set by hand at creation or from the issue header, as described above.\n\n## What this covers\n\nIn summary, the announcement describes three connected pieces: finer-grained statuses on issues, repository boards for visualizing progress, and automations that update statuses when pull requests are linked or marked ready for review. Statuses appear in issue icons on the repository issues page, the issues dashboard, and repository boards, and the status: filter on boards narrows the view to the issues of interest.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "開いている・閉じているだけじゃなくて、細かいステータスが付けられるようになったんだよね。それってどこで選ぶの？",
+          "en": "So issues aren't just open or closed anymore, right? Where do you actually pick a status?"
+        },
+        {
+          "s": "b",
+          "ja": "Issueを作るときに選べるし、Issueのヘッダーからも変えられるよ。リポジトリのIssueページやダッシュボード、ボードのアイコンにも反映されるんだ。",
+          "en": "You can choose one when creating an issue, or change it from the issue header. It shows up in the icons on the issues page, the dashboard, and repository boards."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあチームもエージェントも、今なにが進行中で次になにをやるか、同じ情報を見られるってこと？",
+          "en": "So the team and agents can all see what's in flight and what's next, from the same place?"
+        },
+        {
+          "s": "b",
+          "ja": "そう、記事でも「共有された文脈」と言っているよ。ボードで進捗を見渡せるし、status:フィルターで探したいIssueも絞り込めるんだ。",
+          "en": "Yes, the post calls it shared context. Boards let you see progress at a glance, and the status: filter helps you find the issues you want."
+        },
+        {
+          "s": "a",
+          "ja": "手で更新しなくても、PRをリンクするとステータスが自動で動くのも便利そう。ドラフトなら「進行中」、レビュー待ちなら「レビュー中」だよね。",
+          "en": "And statuses can update automatically when you link a PR. Draft means In progress, and ready means In review, right?"
+        },
+        {
+          "s": "b",
+          "ja": "合ってるよ。ドラフトPRのリンクで進行中、ドラフトを Ready for review にするか、開いているPRをリンクするとレビュー中になる。ただ、今はパブリックプレビューの段階だね。",
+          "en": "Right. Linking a draft PR means In progress; marking it Ready for review or linking an open PR means In review. Just note it's still in public preview."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:39:08.919Z"
+    },
+    "b5224437f0f7e864": {
+      "bodyJa": "Microsoft Ignit在で、Foundry Dev Packが一般提供(GA)になった。Microsoft Foundryの開発者向けツールを手元のマシンへまとめて導入できるもので、エージェント開発の最初の一歩を容易にするものとして紹介されている。\n\n## Dev Packが一般提供へ\n\nFoundry Dev Packは、Microsoft Igniteの場で一般提供が発表された。入手先としてはaka.ms/foundrydevpackが示されている。位置づけとしては、Foundryのエージェントを開発するための入り口を整える取り組みである。\n\n## 1回のインストール\n\nDev Packの特徴は、Microsoft Foundryの開発者ツールを、1回のインストールでローカル環境に届ける点にある。開発に使うツール群を単一のパッケージとして自分のマシンに用意できる、と説明されている。\n\n## エディタやターミナルから\n\n次のエージェントを作り始める場所として、エディタ、ターミナル、そして普段使っているコーディングエージェントが挙げられている。開発者が好みの場所から着手できることが前提にあり、「自分のスタイルでFoundryエージェントを構築」というタイトルもこの考え方を表している。\n\nDev Packは、こうしたさまざまな開発スタイルのどこからでもFoundryの開発ツールを使い始められるようにするものだ。",
+      "bodyEn": "Microsoft has announced that the Foundry Dev Pack is now generally available. It is meant to make the first step of building agents with Microsoft Foundry easier, which matters most to developers who want to begin in the environment they already prefer.\n\n## Now Generally Available\n\nThe announcement came at Microsoft Ignite and was published on the Microsoft Foundry Blog. According to the post, the Foundry Dev Pack, linked at aka.ms/foundrydevpack, has reached general availability. The post presents the release as a way of simplifying how developers get started, rather than as a change to what Foundry agents are.\n\n## One Install, Local Machine\n\nThe central technical point is delivery. The Foundry Dev Pack brings the Microsoft Foundry developer tools to a developer's machine in a single install. The announcement describes the tooling as arriving locally through that one step, so developers do not have to treat setup as a separate hurdle before they can begin work on an agent.\n\n## Build Foundry Agents Your Way\n\nThe post stresses flexibility in where development begins. It says the next agent can start wherever a developer likes to build: in an editor, at the terminal, or with a favorite coding agent. The Dev Pack is positioned as the means of bringing the Foundry developer tools to any of those starting points.\n\nIn short, the announcement covers general availability, a single-install route to Foundry's developer tooling on a local machine, and the freedom to choose an editor, terminal, or coding agent as the place to start.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Foundry Dev Packって、何が一番のポイントなの？一般提供になったって書いてあったけど。",
+          "en": "What's the main point of the Foundry Dev Pack? It says it's now generally available, right?"
+        },
+        {
+          "s": "b",
+          "ja": "Microsoft Foundryの開発ツール群を、1回のインストールで手元のマシンに入れられる点だね。Microsoft Igniteで一般提供が発表されたよ。",
+          "en": "It brings the Microsoft Foundry developer tools to your machine in a single install. The general availability was announced at Microsoft Ignite."
+        },
+        {
+          "s": "a",
+          "ja": "手元ってことは、普段使ってる場所からそのまま始められるのかな？どんな人に役立つの？",
+          "en": "So you can start from wherever you already work? Who is it useful for?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、エディタやターミナル、好みのコーディングエージェントからエージェント開発を始めたい開発者向けだね。作り始める場所を選べる、という考え方みたい。",
+          "en": "The post says it's for developers who want to start agent work from an editor, terminal, or favorite coding agent. The idea is that you choose where to begin."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、いつものやり方のまま、最初の一歩がラクになるってことだね。",
+          "en": "So you keep your usual way of working, and that first step gets easier. Got it."
+        },
+        {
+          "s": "b",
+          "ja": "うん、書かれているのは「最初の一歩を楽にする」ところまでだよ。具体的な中身や手順は、aka.ms/foundrydevpackで確かめてみてね。",
+          "en": "Right, the post only covers making that first step easier. For what's inside and how it works, check aka.ms/foundrydevpack."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:40:21.623Z"
+    },
+    "79ea65685ecb3048": {
+      "bodyJa": "Microsoft Foundry Agent Serviceに、Ignite 2026で新機能が加わった。構築(Build)、デプロイ(Deploy)、運用(Operate)というエージェントのライフサイクル全体を対象にしたもので、実業務で成果を出すエージェントを作る開発者向けの強化だと説明されている。\n\n## 仕事が完了するか\n\n発表の前提にあるのは、顧客はエージェントをデモの出来栄えでは評価せず、仕事が実際に完了したかどうかで判断するという考え方だ。具体例としては、案件が解決された、レポートが届けられた、フォローアップが送信された、といった結果が挙げられている。\n\nそのためにはモデルだけでは足りないとされる。適切なコンテキストとツール、実際の需要に耐えるランタイム、そして実ユーザーが使い始めた後も改善を続ける手段が必要だという位置づけだ。今回の新機能は、この三点に応える形で整理されている。\n\n## Build:構築を速く\n\n構築面では、より高機能なエージェントをより速く作るために、マネージドなMicrosoft Copilot harness、リアルタイム音声、より豊富なツール接続が用意される。\n\nharnessがマネージドであるとは、利用者が自前で用意するのではなく、サービス側が提供する形を指すと読める。リアルタイム音声は、エージェントとの対話手段を広げるものだ。ツール接続の拡充は、エージェントが仕事を完了させるために触れられる対象を増やす役割を担う。\n\n## Deploy:Microsoft 365へ\n\nデプロイ面では、エンタープライズ向けの制御を備えたうえで、エージェントを大規模に展開できるとされる。あわせて、人々がすでに働いている場所であるMicrosoft 365にエージェントを持ち込めることも示されている。\n\n作ったエージェントを、利用者が普段使う環境の中で動かせるようにする点が、この段階の要点だ。\n\n## Operate:改善を検証する\n\n運用面では、本番環境で得られた証拠を、検証済みの改善につなげることが掲げられている。実ユーザーがエージェントを使い始めてからが本番であり、その利用結果を根拠に改善を進めるという発想だ。\n\nBuild、Deploy、Operateの三段階を通じて、アイデアから成果までを一貫して進められるようにする、というのが今回の発表の骨子である。",
+      "bodyEn": "## Work Getting Done\n\nFoundry Agent Service received new capabilities announced at Ignite 2026, and the announcement frames them around a practical test. According to the source, customers judge agents by whether the work gets done: the case resolved, the report delivered, the follow-up sent. They do not judge by how well an agent demos.\n\nThe announcement argues that this takes more than a model. It names three needs: the right context and tools, a runtime that holds up under real demand, and a way to keep improving once real users put agents to work. The new features are organized across the agent lifecycle in three stages: Build, Deploy, and Operate.\n\n## Build More Capable Agents\n\nFor the Build stage, the announcement lists three additions: a managed Microsoft Copilot harness, real-time voice, and richer tool connections. The stated aim is to help developers build more capable agents faster. The announcement does not describe how each of these works in the material provided here, so the details are best checked in the full post.\n\n## Deploy at Scale\n\nThe Deploy stage centers on running agents at scale with enterprise controls. The announcement also says agents can be brought into Microsoft 365, described as the place where people already work. This ties the deployment story to where users already spend their time, rather than asking them to adopt a separate surface.\n\n## Operate with Confidence\n\nFor the Operate stage, the announcement describes turning production evidence into validated improvements. This responds to the earlier point about needing a way to keep improving once real users are working with agents. The emphasis is on using what happens in production to guide changes, and on validating those changes.\n\nTaken together, the announcement presents the release as a path from idea to impact, with each stage addressing a different part of getting production agents to finish real tasks.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「マネージドなMicrosoft Copilot harness」って、何が新しいの？エージェントを作る場面で出てくるのかな。",
+          "en": "What's the \"managed Microsoft Copilot harness\"? Is it something you use when building agents?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、Build段階の新機能のひとつとして紹介されているよ。リアルタイム音声や、より豊富なツール接続と並んで、エージェントをより高機能に、速く作るためのものだね。",
+          "en": "The article lists it as a Build-stage feature, alongside real-time voice and richer tool connections. The aim is building more capable agents faster."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、作るだけじゃなくて、実際に使う人の役にも立つってこと？",
+          "en": "So it's not just about building. It helps people actually using the agents too?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、Microsoft 365への展開に対応していて、人が普段働いている場所にエージェントを持ち込めるとあるよ。大規模に動かすための企業向けの管理機能にも触れているね。",
+          "en": "The article says agents can come into Microsoft 365, where people already work. It also mentions enterprise controls for deploying at scale."
+        },
+        {
+          "s": "a",
+          "ja": "作って、動かして、運用して、よくしていくところまで一続きなんだね。",
+          "en": "So it's one flow: build, deploy, operate, and keep improving."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。ただ、この記事は新機能の概要を紹介する内容だから、細かい仕様や使い方までは書かれていないよ。",
+          "en": "Right. But this article is an overview of what's new, so it doesn't cover detailed specs or how to use each feature."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:40:25.562Z"
+    },
+    "c4d861b1467d890d": {
+      "bodyJa": "MetaはEngineering at Metaのシリーズ記事で、AIエージェントを使い、広告ランキングモデルの機械学習の改善を多様なモデル群へ展開する方法を紹介した。土台になるのは、前回の記事で取り上げられたRanking Engineer Agent(REA)である。\n\n## 前回紹介されたREA\n\nシリーズの前回記事で紹介されたREAは、仮説を生成し、実験を設計し、広告ランキングモデルにおける新しい機械学習技術を実証する自律システムと説明されている。前回は、有効な改善手法を見つけて確かめる側の話だったといえる。\n\n今回の記事はその続きにあたる。見つかった改善をどのように広げていくかが主題である。\n\n## 横展開される改善\n\n展開の対象として挙げられているのは、アーキテクチャの進化といったモデル構造の改良と、学習の最適化である。これらを、大規模で多様な広告ランキングモデルの集まりへ効率的に行き渡らせる方法が述べられている。\n\nここで注目したいのは、対象が単一のモデルではなく、多様なモデルからなる大きな群である点だ。改善が一つのモデルで完結せず、広告ランキング全体に及ぶことが想定されている。\n\n## チームごとの移植作業\n\n要点として示されているのは、REAを土台にしたエージェントが改善を各モデルへ運ぶことで、チームごとの手作業による移植(ポーティング)を減らせるという点である。個々のチームが同じ改善を別々に取り込む必要が薄れ、その分、改善を広告全体へ素早く行き渡らせられると説明されている。\n\nREAが改善を「見つけて実証する」役割を担い、エージェントがそれを「広げる」役割を担う、という二段構えの流れが今回の記事から読み取れる。",
+      "bodyEn": "Meta's engineering blog describes how it spreads machine learning improvements across its ads ranking systems. The post matters because it addresses getting a proven improvement to many models, rather than only discovering it in one.\n\n## Ranking Engineer Agent Recap\n\nThe post is part of a series. According to the source, the previous installment introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning techniques on ads ranking models. This installment turns to what happens after such a technique has been shown to work.\n\n## A Large and Diverse Fleet\n\nThe post says Meta wants to propagate ranking model improvements efficiently across a large and diverse fleet of ads models. It names two kinds of improvement as examples: architectural advancements and training optimizations. The emphasis is on the fleet as a whole, which the post describes as varied, not uniform.\n\n## Agents Carrying Improvements Across\n\nAccording to the summary of the post, Meta explains how agents built on REA carry these upgrades across the range of ads ranking models. The stated benefit is a reduction in the manual porting work that each team would otherwise have to do to adopt an improvement for its own model. The summary adds that this lets improvements reach ads ranking more broadly and more quickly.\n\n## Scope of This Summary\n\nThe post was published on Meta's Engineering blog on November 18, 2026. The material available here covers the framing and goals of the approach: REA as the foundation, the kinds of improvements involved, and the aim of reducing per-team manual effort. Readers who want specifics on how the agents work, how results are measured, or which models are covered will need to read the full post.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "各チームが手作業で改善を移す負担が減るって話だけど、これって大きいこと？",
+          "en": "The article says each team does less manual porting work. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "広告ランキングモデルは大規模で多様な群だと書かれているよ。改善を一つずつ手で移す手間が減るなら、全体に速く届けやすくなるね。",
+          "en": "The article describes a large, diverse fleet of ads ranking models. If improvements stop being ported by hand, they could reach everything faster."
+        },
+        {
+          "s": "a",
+          "ja": "「アーキテクチャの改良」と「学習の最適化」って、何が違うの？",
+          "en": "What's the difference between an architecture upgrade and a training optimization?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、アーキテクチャはモデルの設計や骨組み、学習の最適化は育て方の工夫、くらいの意味だよ。どちらも横展開する改善の例として挙がっているね。",
+          "en": "Generally, architecture is the model's design or framework, and training optimization is how you teach it better. The post names both as improvements being carried across models."
+        },
+        {
+          "s": "a",
+          "ja": "自分のチームなら、うまくいった改善を他のモデルにも配る役をエージェントに任せたいな。",
+          "en": "If I were on a team, I'd want an agent to spread the improvements that worked to our other models."
+        },
+        {
+          "s": "b",
+          "ja": "その発想は近いかもね。ただ、この記事の舞台はMetaの広告ランキングモデル群で、多様なモデルが前提だから、他の環境にそのまま当てはまるかは別の話だよ。",
+          "en": "That's close to the idea. But the setting here is Meta's ads ranking models, a diverse fleet, so it may not carry over to other environments as is."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:41:01.175Z"
+    },
+    "a237b2dca29c1096": {
+      "bodyJa": "## AWSでの運用\n\nAWSでGemma 4をセルフホスティングし、推論時のクラッシュを避けるための実践的な知見を扱う。EC2インスタンスの選定とメモリ管理を通じ、コスト効率と安定稼働の両立を目指す内容だ。\n\n## メモリ管理\n\n特に、メモリ不足によるOOMクラッシュを回避できるインスタンス選びと、安定した推論に向けたメモリの扱いが焦点となる。Gemma 4はApache 2.0ライセンスで、マルチモーダル対応とMoEアーキテクチャを採用すると説明されている。",
+      "bodyEn": "## Self-hosting Gemma 4\n\nThis practical guide covers self-hosting Gemma 4 on AWS, focusing on why EC2 instance selection and memory management matter for stable inference. It addresses avoiding out-of-memory crashes while seeking a balance between cost efficiency and reliable operation.\n\n## Instance selection and memory\n\nThe source describes Google’s recently announced Gemma 4 as an open-weight model under the Apache 2.0 license, making commercial use easier. It also notes multimodal support and a Mixture-of-Experts architecture. The guide presents practical knowledge and specific procedures for choosing an appropriate EC2 instance and managing memory to reduce crashes during self-hosted inference.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T20:47:26.866Z"
+    },
+    "4a3ab08a9322ef13": {
+      "bodyJa": "## 毎朝7時\n\nClaude Code RoutinesとMCPを組み合わせ、毎朝7時にWeb検索からNotionへの記録までを自動化したワークフローの事例だ。起床後にNotionを開けば、その日のページがすでに作成されており、人が行う作業はゼロと説明されている。\n\n## 4カテゴリ\n\nブリーフィングは4カテゴリで構成される。テック・AIニュースでは、直近24時間の新モデルのリリース、半導体、クラウド/SaaS、主要テック企業の動向から3〜5件を扱う。開発者トレンドは、GitHub Trending、主要フレームワークのリリース情報、Hacker Newsで話題のトピックが対象となる。\n\nまた、米国市場サマリーには主要3指数の終値が含まれる。AIニュースと株式市況を自動収集してNotionのデータベースへ書き込むことで、毎日の定型的な情報収集を完全自動化している。",
+      "bodyEn": "## Automated workflow\n\nA developer built an automated workflow using Claude Code Routines and MCP to collect AI news and stock data every morning at 7 AM and write the results to Notion. The system matters as a practical example of fully automating recurring information gathering without human action.\n\nClaude automatically searches the web and creates that day’s briefing in a Notion database. According to the source, when the user wakes up and opens Notion, the day’s page is already available.\n\n## Tech and AI news\n\nThe briefing is organized into four categories. The source excerpt describes tech and AI news covering the previous 24 hours, with three to five items on new model releases, semiconductors, cloud and SaaS, and developments involving major technology companies.\n\nIt also includes developer trends drawn from GitHub Trending, release information for major frameworks, and topics attracting attention on Hacker News.\n\n## US market summary\n\nThe workflow also gathers stock-market information for a US market summary. The excerpt specifically identifies closing values for the three major indexes as part of that section.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T20:49:23.886Z"
     }
   }
 }

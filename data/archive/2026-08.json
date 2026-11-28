@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T23:31:02.920Z",
+  "generatedAt": "2026-11-28T00:31:02.668Z",
   "month": "2026-08",
   "count": 723,
   "entries": [
@@ -2150,7 +2150,7 @@
       "summaryEn": "Cursor Cloud Agents can now run with no repository linked, with live previews and Vercel deployment, helping developers create and ship new projects faster.",
       "lang": "en",
       "publishedAt": "2026-08-27T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cloud-agents",
@@ -8015,7 +8015,7 @@
       "summaryEn": "Cursor continues to refine its cloud agents and harness infrastructure, enabling always-on agents to collaborate as a system and autonomously build and ship software without requiring manual intervention at each loop.",
       "lang": "en",
       "publishedAt": "2026-08-19T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-agents",
         "automation",
@@ -9887,7 +9887,7 @@
       "summaryEn": "Origin code hosting enters initial beta on all paid plans with repositories, PR and code browsing, and GitHub sync. Direct pushes make it the source of truth for agent-scale teams.",
       "lang": "en",
       "publishedAt": "2026-08-17T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "changelog",
@@ -13900,7 +13900,7 @@
       "summaryEn": "Cursor introduces Builds for Cloud Agents, pre-baking repo clones and dependency installs into ready-to-use snapshots so agents start roughly 3× faster than before.",
       "lang": "en",
       "publishedAt": "2026-08-13T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "builds",
         "changelog",
@@ -24266,7 +24266,7 @@
       "summaryEn": "Cursor now integrates with Google Workspace, enabling the AI to read, write, and take actions across Docs, Sheets, and other services. This significantly expands what Cursor agents can automate in day-to-day workflows.",
       "lang": "en",
       "publishedAt": "2026-08-03T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cursor",

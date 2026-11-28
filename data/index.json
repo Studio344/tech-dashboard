@@ -1,107 +1,102 @@
 {
-  "generatedAt": "2026-11-27T23:31:02.920Z",
+  "generatedAt": "2026-11-28T00:31:02.668Z",
   "count": 2000,
   "health": {
-    "lastRunAt": "2026-11-27T23:31:02.904Z",
-    "batchIndex": 6,
+    "lastRunAt": "2026-11-28T00:31:02.652Z",
+    "batchIndex": 1,
     "batchTotal": 6,
-    "sourcesAttempted": 9,
-    "sourcesOk": 9,
+    "sourcesAttempted": 10,
+    "sourcesOk": 10,
     "sourcesFailed": [],
     "summarized": 0,
     "summarizeErrors": 0,
-    "summaryFallbacks": 4,
+    "summaryFallbacks": 0,
     "bodyFallbacks": 0,
-    "fallbackTotal": 7,
+    "fallbackTotal": 5,
     "fallbackPercent": 0,
     "kvLookupCap": 35,
-    "kvLookupCount": 12,
+    "kvLookupCount": 5,
     "queueMode": "enabled",
     "queueCap": 35,
     "summaryQueueSnapshotStage": "final-entries",
-    "enqueueCandidates": 5,
-    "summaryQueueBacklog": 5,
-    "summaryQueueEnqueued": 5,
+    "enqueueCandidates": 3,
+    "summaryQueueBacklog": 3,
+    "summaryQueueEnqueued": 3,
     "summaryQueueDrainEstimateHours": 1,
     "summaryQueueStartIndex": 0,
     "summaryQueueCooldownCount": 1,
     "copilotOk": true,
     "copilotError": null,
-    "ogCached": 4552,
+    "ogCached": 4553,
     "ogNewHits": 1,
-    "excerptFetchCandidates": 1,
-    "excerptFetchAttempted": 1,
-    "excerptFetched": 1,
+    "excerptFetchCandidates": 0,
+    "excerptFetchAttempted": 0,
+    "excerptFetched": 0,
     "excerptFetchUnavailable": 0,
     "excerptFetchDeferred": 0,
     "excerptFetchPrioritized": 0,
     "excerptFetchUnlockable": 0,
-    "excerptBodyBatchPinned": 16,
-    "excerptBodyBatchEnqueued": 16,
+    "excerptBodyBatchPinned": 19,
+    "excerptBodyBatchEnqueued": 11,
     "publisherContractFingerprint": "sha256:266dd4595d0557a506cda949689e0df1d122361294958d844533678bd71eba3f",
     "bodyQueueMode": "enabled",
-    "bodyEnqueueCap": 30,
-    "bodyEnqueueCandidates": 21,
-    "bodyEnqueued": 21,
-    "bodyBacklog": 297,
-    "bodyQueueDrainEstimateHours": 10,
+    "bodyEnqueueCap": 32,
+    "bodyEnqueueCandidates": 16,
+    "bodyEnqueued": 16,
+    "bodyBacklog": 275,
+    "bodyQueueDrainEstimateHours": 9,
     "bodyLookupCount": 35,
     "chatLookupCount": 120,
-    "chatCompatibilityRejected": 99,
+    "chatCompatibilityRejected": 117,
     "chatRepairBlocked": 0,
-    "chatRepairCandidates": 118,
+    "chatRepairCandidates": 124,
     "chatRepairEnqueued": 5,
     "chatRepairPendingIds": [
-      "781a91b6808decf4",
-      "56f3a73e308bce4b",
-      "e72ede698c418edc",
-      "4e517fee1332feb3",
-      "cb7a18ba66fee7b0"
+      "7f48c4201422ef0a",
+      "e8e2c91188516b96",
+      "812999a7f5c48ecb",
+      "28438ddbdcb8b1de",
+      "724a424d08ce51b3"
     ],
-    "bodyPendingLookupCount": 19,
+    "bodyPendingLookupCount": 16,
     "bodyMergePendingIds": [
-      "78a255837b86de03",
-      "86f1cfd68d515956",
-      "7e0dffda14167f42",
-      "6efae4f335b4e52c",
-      "3b69ac30374c3fdd",
-      "70932e96e2d93a9e",
-      "30f6de5437c897a8",
-      "61020694e8fd4971",
-      "9c759b8cbd27d766",
-      "6ea7c68e79ec5ea8",
-      "3ad60ab107d49ee0",
-      "5d58e6d7df384830",
-      "b5224437f0f7e864",
-      "79ea65685ecb3048",
-      "fa6498cd23aab5d3",
-      "c4d861b1467d890d"
+      "3afd307d15f302ce",
+      "f0b45997129f8d0d",
+      "f6b94ed3ab463313",
+      "812084e5e2f2ccd4",
+      "d0aba9bb5e13edd6",
+      "a0042df48ddfc236",
+      "22931a925a33dde9",
+      "06bea836423c5b57",
+      "3f9c836891e14a6c",
+      "82125adf0975fcf0",
+      "241fa848d362de15"
     ],
-    "bodyMerged": 24,
-    "bodyPruned": 1,
-    "bodiesTotal": 1434,
+    "bodyMerged": 29,
+    "bodyPruned": 0,
+    "bodiesTotal": 1458,
     "bodyRetentionDays": 30,
     "bodyRetentionEligible": 1780,
     "bodyBudgetTargetBytes": 18000000,
-    "bodyBudgetBytes": 10798303,
+    "bodyBudgetBytes": 10938672,
     "bodyShardBytes": [
-      2627792,
-      2649760,
-      2751205,
-      2769546
+      2674902,
+      2683489,
+      2782894,
+      2797387
     ],
     "bodyStorageMode": "shards-v1",
     "bodyBudgetPruned": 0,
     "bodyBudgetEvictedIds": [],
     "bodyShardDigests": [
-      "a46f7bfc2165beceb1a4045d441e73a5d264d91c792e72fce29944bb1808f859",
-      "821609f775bfd34dae16abdf62317616f5344742788e70592b36d73afdece385",
-      "fd15723fe3b265066f7db7fb160b14bcc217556589ca628fcafe4ab18ae1cc0a",
-      "fab01d22617d3f0d88773c3e2dd127b68a8e8cc00e9c3e0f43e2a4c82e571a3b"
+      "1fb03ced15dbef9314e7acc58dfd8e599cf5855ad5fcdcf8a56b66cc2e8a6d9a",
+      "df9b298bbd999224cd21831f2da8ff25ce1f612545058636ae0d8f33302720d9",
+      "e8fdac2685c1b16bd63278982953a73509f1764d9e3a275ae98a263e219735c4",
+      "653f8fd40345eb8fb6c095de4b73c5efe510da3ca1fc2ebf2afe0bec1693bb03"
     ],
     "enrichmentEnqueueCap": 35,
-    "enrichmentEnqueued": 26,
-    "enrichmentRemaining": 9
+    "enrichmentEnqueued": 19,
+    "enrichmentRemaining": 16
   },
   "entries": [
     {
@@ -187,20 +182,24 @@
       "sourceType": "release",
       "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.6.0",
       "title": "MCP Servers Releases v2.6.0",
-      "titleJa": "",
+      "titleJa": "MCP Servers リリース v2.6.0",
       "titleEn": "MCP Servers Releases v2.6.0",
-      "summaryJa": "このエントリは mcp-servers-releases から収集した mcp 領域の最新アップデートです。原題:「MCP Servers Releases v2.6.0」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "MCP Servers Releases v2.6.0",
+      "summaryJa": "MCP Servers v2.6.0 は3つのサーバーで8件の脆弱性を修正し、v2.5.0で不完全だった2件の対応も完了させました。git、memory、fetch の各サーバーと Windows 版 filesystem の利用者は、早めの更新が必要です。",
+      "summaryEn": "MCP Servers v2.6.0 patches eight vulnerabilities across three servers and finishes two fixes left incomplete in v2.5.0. Users of the git, memory, fetch and Windows filesystem servers should upgrade promptly.",
       "lang": "en",
       "publishedAt": "2026-11-27T09:58:10.000Z",
       "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
+        "git-lfs",
         "mcp",
         "mcp-server",
-        "release"
+        "release",
+        "security-fix",
+        "vulnerability",
+        "windows"
       ],
       "category": "mcp",
-      "importance": 2,
+      "importance": 3,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Security fixes v2.6.0 fixes eight vulnerabilities in three servers, and completes two fixes that v2.5.0 left open. Upgrade mcp-server-git to 2026.11.27, @modelcontextprotocol/server-memory to 2.2.2 and mcp-server-fetch to 2026.11.27; on Windows, also @modelcontextprotocol/server-filesystem to 2.4.1. Package Affected Fixed in mcp-server-git through 2026.11.18 2026.11.27 @modelcontextprotocol/server-memory 1.0.0 through 2.2.1 2.2.2 mcp-server-fetch 2026.10.10 through 2026.11.18 2026.11.27 @modelcontextprotocol/server-filesystem on Windows, through 2.4.0 2.4.1 mcp-server-git 2026.11.27 Git LFS no longer runs programs that a repository's configuration names. With Git LFS installed (the official Docker image installs it system-wide), the server kept the LFS filter from the user's own configurat",
@@ -263,15 +262,20 @@
       "url": "https://zenn.dev/hrendoh/articles/agentforce-mcp-per-user-auth",
       "title": "Agentforce エージェントからユーザー単位の認証で外部 MCP サーバーに接続する",
       "titleJa": "Agentforce エージェントからユーザー単位の認証で外部 MCP サーバーに接続する",
-      "titleEn": "",
-      "summaryJa": "Agentforce エージェントからユーザー単位の認証で外部 MCP サーバーに接続する",
-      "summaryEn": "mcp update from zenn-mcp. AI summary not yet available; a future Worker run will refresh this entry.",
+      "titleEn": "Connecting Agentforce Agents to External MCP Servers with Per-User Authentication",
+      "summaryJa": "Salesforce Winter '27 で GA となった Agentforce Employee のユーザー単位認証を使い、Asana の MCP サーバーへ OAuth 2.0 ブラウザフローで接続する設定手順を解説する。共有トークンを廃し、監査証跡も明確にできる。",
+      "summaryEn": "Walks through switching an Agentforce Employee agent from a shared connection to per-user OAuth 2.0 browser-flow auth against Asana's MCP server, a Winter '27 GA feature. It removes shared tokens and clarifies audit trails.",
       "lang": "ja",
       "publishedAt": "2026-11-26T11:22:02.000Z",
       "collectedAt": "2026-11-27T23:30:39.995Z",
       "tags": [
+        "agentforce",
+        "asana",
         "mcp",
         "mcp-server",
+        "oauth",
+        "salesforce",
+        "winter-27",
         "zenn"
       ],
       "category": "mcp",
@@ -610,7 +614,7 @@
       "summaryEn": "Zed v1.31.0-pre lets users change the agent model, profile, and thinking effort for just one thread, and adds an Ultrafast speed option for supported OpenAI models. Remote skills and faster rendering help AI-assisted developers.",
       "lang": "en",
       "publishedAt": "2026-11-25T18:02:11.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "editor",
@@ -649,7 +653,7 @@
       "summaryEn": "Zed v1.30.2 lowers GPU usage across the app and adds a model picker for AI commit messages, a hide-title-bar setting, and GPT-6.1 Terra support, speeding up large-project scans for daily developers.",
       "lang": "en",
       "publishedAt": "2026-11-25T17:43:29.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "editor",
         "git-panel",
@@ -686,7 +690,7 @@
       "summaryEn": "VS Code 1.148 adds a preview option that stops the host from idle sleeping while agents run, plus worktree cleanup on remote hosts. The Local harness will be retired in February 2027, so teams should plan to move to the Copilot harness.",
       "lang": "en",
       "publishedAt": "2026-11-25T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "copilot-agent",
         "deprecation",
@@ -708,14 +712,14 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Learn what's new in Visual Studio Code 1.148 Read the full article",
       "excerptOrigin": "article",
+      "feedSnippet": "Learn what's new in Visual Studio Code 1.148 Read the full article",
       "bodyJa": "",
       "bodyEn": ""
     },
     {
-      "id": "b2937bbd676220f2",
-      "source": "github-copilot",
+      "id": "e781aae55ec024a5",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-to-choose-the-next-safe-step-in-application-modernization/",
       "title": "How to choose the next safe step in application modernization",
@@ -725,7 +729,7 @@
       "summaryEn": "Using GitHub Copilot, the author tested an evidence-first approach on four public apps, from a small Node.js game to a large Java ERP system, gathering regression evidence before picking a framework. Teams can repeat it on their own application.",
       "lang": "en",
       "publishedAt": "2026-11-25T15:00:00.000Z",
-      "collectedAt": "2026-11-27T19:21:30.639Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "copilot",
         "github",
@@ -740,6 +744,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "A request to modernize an application often starts with a technology question: Which framework should replace the old one? Before you choose, find out what still works. Then collect evidence that can act as a regression net for that behavior and show where modernization is necessary. I used an evidence-first method on four public applications, from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each needed a different treatment, but the way I collected evidence, chose the next experiment, and decided on possible proof points was repeatable. This post walks through that process so you can apply it to one application of your own. It also shows how to encode the procedure in a GitHub Copilot agent skill while keeping architectural judgment with the people responsible for the system. The label on an application rarely tells you enough.",
       "excerptOrigin": "article",
       "feedSnippet": "Learn how to assess a legacy application, choose a bounded modernization step, and reuse the method with a GitHub Copilot agent skill. The post How to choose the next safe step in application modernization appeared first on The GitHub Blog .",
@@ -752,8 +757,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "231f1a322b3ba681",
@@ -1592,7 +1596,15 @@
       "excerptOrigin": "article",
       "feedSnippet": "The GitHub Code Quality upload-code-coverage action now checks that your coverage report is in Cobertura XML format. If it isn’t in a supported format, the upload step fails and the… The post Code coverage uploads now flag invalid report formats appeared first on The GitHub Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "image": {
+        "src": "https://github.blog/wp-content/uploads/2026/11/712280380-8f5619e7-924c-43b1-baec-ef1763ad1870.jpeg",
+        "origSrc": "https://github.blog/wp-content/uploads/2026/11/712280380-8f5619e7-924c-43b1-baec-ef1763ad1870.jpeg",
+        "alt": "Code coverage uploads now flag invalid report formats",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "7f08ea7454c46558",
@@ -1993,7 +2005,7 @@
       "summaryEn": "Zed v1.29.3 repairs prompt caching for reusable OpenAI system instructions on GPT-6.2 and later, and stops Text Finder from showing stale results when a query matches nothing. Users get more reliable AI and search behavior.",
       "lang": "en",
       "publishedAt": "2026-11-20T16:10:31.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "editor",
         "openai",
@@ -2016,8 +2028,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Fixed prompt caching for reusable OpenAI system instructions on GPT-6.2 and later. ( #67252 ) Fixed Text Finder showing results from the previous query when a search found no matches. ( #67189 )",
       "excerptOrigin": "article",
+      "feedSnippet": "Fixed prompt caching for reusable OpenAI system instructions on GPT-6.2 and later. ( #67252 ) Fixed Text Finder showing results from the previous query when a search found no matches. ( #67189 )",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -2033,7 +2045,7 @@
       "summaryEn": "Zed v1.30.2-pre fixes prompt caching for reusable OpenAI system instructions on GPT-6.2 and later, and stops Text Finder from showing stale results after a search with no matches. It helps preview-channel users.",
       "lang": "en",
       "publishedAt": "2026-11-20T15:57:54.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "editor",
         "openai",
@@ -2056,8 +2068,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Fixed prompt caching for reusable OpenAI system instructions on GPT-6.2 and later. ( #67253 ) Fixed Text Finder showing results from the previous query when a search found no matches. ( #67188 )",
       "excerptOrigin": "article",
+      "feedSnippet": "Fixed prompt caching for reusable OpenAI system instructions on GPT-6.2 and later. ( #67253 ) Fixed Text Finder showing results from the previous query when a search found no matches. ( #67188 )",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -2234,7 +2246,7 @@
       "summaryEn": "Anthropic closed its IPO of 1.127 billion Class A shares at $83 each, with underwriters fully using their 147 million-share option and a private placement also completed. It marks a major capital milestone for the company.",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "anthropic",
         "claude",
@@ -2247,8 +2259,8 @@
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "Anthropic announces closing of initial public offering, including full exercise of underwriters’ option to purchase additional shares, and closing of concurrent private placement Today Anthropic, PBC announced the closing of its initial public offering of an aggregate of 1,127,000,000 shares of its Class A common stock at a public offering price of $83.00 per share, including the full exercise by the underwriters of their option to purchase an additional 147,000,000 shares of Class A common stock from Anthropic at the initial public offering price.",
-      "feedSnippet": "Anthropic announces closing of initial public offering, including full exercise of underwriters’ option to purchase additional shares, and closing of concurrent private placement",
       "excerptOrigin": "article",
+      "feedSnippet": "Anthropic announces closing of initial public offering, including full exercise of underwriters’ option to purchase additional shares, and closing of concurrent private placement",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -2264,7 +2276,7 @@
       "summaryEn": "Anthropic closed its IPO of 1.127 billion Class A shares at $83 each, with underwriters fully exercising their option. Gross proceeds of about $93.5 billion strengthen its funding for growth.",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "anthropic",
         "claude",
@@ -2450,7 +2462,7 @@
       "summaryEn": "Zed Editor published the prerelease build v1.30.1-pre on GitHub. The available page text lists no specific changes, so it mainly serves users who want to test early builds before the stable release.",
       "lang": "en",
       "publishedAt": "2026-11-18T22:35:16.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "editor",
         "github-release",
@@ -2472,8 +2484,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Added an official Snap package for Linux ( #67163 )",
       "excerptOrigin": "article",
+      "feedSnippet": "Added an official Snap package for Linux ( #67163 )",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -2489,7 +2501,7 @@
       "summaryEn": "Zed Editor published patch version v1.29.2 on GitHub. The available excerpt lists no specific changes, so users should check the official release page for details before upgrading.",
       "lang": "en",
       "publishedAt": "2026-11-18T21:44:41.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "editor",
         "github-release",
@@ -2510,8 +2522,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Added an official Snap package for Linux ( #67164 )",
       "excerptOrigin": "article",
+      "feedSnippet": "Added an official Snap package for Linux ( #67164 )",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -2527,7 +2539,7 @@
       "summaryEn": "Zed v1.29.1 adds a Git Panel branch mode showing all files changed from a base branch, a bookmark picker, and Claude Fable 5.2 support, helping Git-heavy and Anthropic BYOK users.",
       "lang": "en",
       "publishedAt": "2026-11-18T19:39:36.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "anthropic-byok",
@@ -2598,7 +2610,7 @@
       "summaryEn": "Zed v1.30.0-pre cuts GPU usage app-wide and adds a model picker for AI commit messages in the Git Panel, plus GPT-6.1 Terra support, a title bar toggle, and faster large-project scans.",
       "lang": "en",
       "publishedAt": "2026-11-18T17:26:01.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "editor",
         "git-panel",
@@ -2820,10 +2832,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Our previous post in this series introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning (ML) techniques on ads ranking models. Now, we’re sharing how we propagate ranking model improvements like architectural advancements and training optimizations efficiently across a large and diverse fleet of ads [...] Read More... The post How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "f700ec0a7df3f16a",
@@ -2837,7 +2849,7 @@
       "summaryEn": "VS Code 1.147 adds experimental scheduled sending for local agent requests and a preview of browser integration that lets agents drive your default browser. Local harness retires in February 2027, so teams should plan their move to the Copilot harness.",
       "lang": "en",
       "publishedAt": "2026-11-18T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "browser-integration",
@@ -2859,8 +2871,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Learn what's new in Visual Studio Code 1.147 Read the full article",
       "excerptOrigin": "article",
+      "feedSnippet": "Learn what's new in Visual Studio Code 1.147 Read the full article",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -2889,10 +2901,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "As ML ecosystems grow to a large number of production models, the bottleneck is no longer inventing new techniques to improve these models, but rather shipping them reliably and efficiently across a fragmented model space, creating a rising tide that lifts all the boats. At Meta, we built a template-driven approach that standardizes model design [...] Read More... The post Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "0c31d85b1964e019",
@@ -2942,7 +2954,7 @@
       "summaryEn": "Anthropic set its IPO price at $83 per Class A share, offering 980 million shares in total, with trading on Nasdaq as ANT planned for November 19, 2026. This matters to investors and the wider AI market.",
       "lang": "en",
       "publishedAt": "2026-11-18T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "anthropic",
         "claude",
@@ -3010,7 +3022,7 @@
       "summaryEn": "Engineering AI Discover",
       "lang": "en",
       "publishedAt": "2026-11-17T17:01:02.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "engineering",
         "netflix"
@@ -3019,10 +3031,10 @@
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "37e0b176c97615e8",
@@ -3156,16 +3168,16 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. Meta’s Reality Labs builds products such as AI glasses . Emulators provide us with a way to scale development and testing without relying on scarce physical hardware. Testing software for non-phone Android devices depends on how closely a virtual device reproduces the software behavior of the physical product. While a lightweight emulator like Goldfish gets you part of the way, differences from the real device can hide bugs until later in development. This lack of fidelity also erodes trust in device emulation, increasing reliance on scarce physical hardware. Cuttlefish is the Android Open Source Project’s (AOSP’s) virtual-device framework for testing Android software against virtual hardware.",
       "excerptOrigin": "article",
       "feedSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. [...] Read More... The post Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple Silicon appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
-      "id": "9bf242a7c3461006",
-      "source": "github-copilot",
+      "id": "d9302d8306c35a57",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/",
       "title": "Build once, run on any agent: A practical guide to agent skills",
@@ -3175,7 +3187,7 @@
       "summaryEn": "GitHub Copilot's agent skills package repeatable task instructions in a versioned directory built around SKILL.md, shareable across agents, though the runtime must supply tools, credentials, and permissions. This helps developers turn personal know-how into team assets.",
       "lang": "en",
       "publishedAt": "2026-11-12T22:54:52.000Z",
-      "collectedAt": "2026-11-27T19:21:30.639Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "agent-skills",
@@ -3190,12 +3202,12 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "How many times this week did you re-explain the same task to an agent? How many times did you ask your colleague with deep institutional knowledge how to solve a specific problem? That context shouldn’t be lost in a chat or locked in one person’s head. Agent skills let you capture repeatable instructions so you and your agents can reuse them. The skill you write for yourself tonight can later become part of a team’s pipeline. An agent skill is a versioned directory centered on a SKILL.md file that describes when and how to do a repeatable task. You can share those instructions across agents, but the environment still needs to provide the tools, credentials, and permissions to carry them out. A skill can describe how to query a database, for example, but it doesn’t grant access to that database.",
       "excerptOrigin": "article",
       "feedSnippet": "Agent skills capture repeatable engineering work in files teams can review and reuse, while tools, project context, and permissions remain specific to the host that runs them. The post Build once, run on any agent: A practical guide to agent skills appeared first on The GitHub Blog .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "78f83a6bd571ce8a",
@@ -3329,12 +3341,12 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "By Zhaojun Zhang , Qinwei Zhu , Gang Li , Jianwei Xiao , Yanan Wang , Hongmei Li , Deepak Vijaywargi , Ke Pan , Li Yu Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built Intelligent Delivery, an ML-driven system that allocates resources across the serving stack toward the system-wide optimum. It has delivered ~10% incremental ranking performance on top of model and system advancements since 2017.",
       "excerptOrigin": "article",
       "feedSnippet": "Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built [...] Read More... The post Intelligent Delivery: Making Every Unit of Compute Serve Better Ads appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "daeb565598eece93",
@@ -3348,7 +3360,7 @@
       "summaryEn": "VS Code 1.146 adds experimental Inbox mode to surface sessions needing attention across projects, plus preview model comparison with Copilot Fusion. Local harness is deprecated for February 2027 removal, so teams should plan to move to the Copilot harness.",
       "lang": "en",
       "publishedAt": "2026-11-11T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "copilot-fusion",
         "deprecation",
@@ -3370,8 +3382,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Learn what's new in Visual Studio Code 1.146 Read the full article",
       "excerptOrigin": "article",
+      "feedSnippet": "Learn what's new in Visual Studio Code 1.146 Read the full article",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -3507,10 +3519,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Your algorithm is a suite of AI-powered tools that makes Facebook recommendations more transparent and steerable, with a single editable view of the interests that shape Feed and Reels. We’re sharing how Your algorithm turns people’s natural language preferences into responsive recommendations, and how LLMs are tailored to specific tasks within the system. Traditionally, the [...] Read More... The post Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "3517424a62574db3",
@@ -3538,10 +3550,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Triton Low-Level Extensions (TLX), is an extension to Triton that helps engineers optimize GPU performance while preserving Triton’s productive programming model. TLX introduces explicit warp-group and cluster-level orchestration, letting developers adopt new hardware capabilities without sacrificing velocity. TLX has demonstrated performance improvements in RecSys training, RecSys inference, and large-scale LLM pretraining. Modern GPU architectures increasingly [...] Read More... The post How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "e8fc8139ea60e079",
@@ -3630,7 +3642,7 @@
       "summaryEn": "Netflix has reworked its system for checking whether title synopses match the facts, improving both accuracy and efficiency at scale, which helps content teams catch errors and review text faster.",
       "lang": "en",
       "publishedAt": "2026-11-09T17:01:02.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "content-quality",
         "engineering",
@@ -3643,10 +3655,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "a8256a8bf6828cc7",
@@ -3686,8 +3698,8 @@
       "bodyEn": ""
     },
     {
-      "id": "df55124286315754",
-      "source": "github-copilot",
+      "id": "9c3380ee4f1290dc",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/",
       "title": "Beyond code generation: A developer’s guide to agentic engineering",
@@ -3697,7 +3709,7 @@
       "summaryEn": "A GitHub Copilot guide to agentic engineering, noting a week of over 1.2 billion commits and a 441% rise in review time, to help developers manage work beyond code generation.",
       "lang": "en",
       "publishedAt": "2026-11-06T22:15:59.000Z",
-      "collectedAt": "2026-11-27T19:21:30.639Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "agentic-engineering",
@@ -3711,12 +3723,12 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "This October, GitHub saw more than 1.2 billion commits in one week—over 400% more than a year earlier. This is more commits than GitHub received in all of 2025. Chances are, you’re generating more code than you were a year ago. But ask yourself: do you feel 400% more productive than you were last year? Building software takes more than a good prompt. As AI speeds up implementation, software developers are feeling more pressure in other places: a Faros AI study found that pull requests spent 441% longer in review when teams went from low to high AI adoption. As a software developer, you gather requirements and steer implementation, review changes and evaluate test results, then investigate what happens in production. Agents can help you work more efficiently across all of these stages: Plan, Build, Verify, and Observe.",
       "excerptOrigin": "article",
       "feedSnippet": "Writing code got faster. The work around it didn't. See how you can plan, write code, review changes, and investigate production issues with GitHub Copilot, and what work still needs your judgment. The post Beyond code generation: A developer’s guide to agentic engineering appeared first on The GitHub Blog .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "f55adabac8496bb3",
@@ -3766,7 +3778,7 @@
       "summaryEn": "Cursor adds Voice Chat, a live voice call with agents powered by Grok Voice. It works in the Agents Window, IDE, web and iOS, letting developers direct coding work and check progress hands-free.",
       "lang": "en",
       "publishedAt": "2026-11-06T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "changelog",
@@ -3780,8 +3792,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "リアルタイムの音声通話で、エージェントと会話できるようになりました。加えたい変更を声で伝えたり、エージェントが今何に取り組んでいるかを尋ねたりしながら、作業の進み具合を音声で聞くことができます。 ボイスチャットは、エージェントウィンドウ、IDE、ウェブ、そして Cursor for iOS で利用できます。 エージェントがアイドル状態でチャット入力欄が空のときに、 Start ボイスチャット というラベルの付いた波形ボタンをクリックします。このボタンは通常「送信」ボタンがある位置に表示され、音声入力用のマイクボタンの隣にあります。 iOS では、「Hey Siri, call Cursor」と話しかけて新しいエージェントとの通話を開始したり、ロック画面のライブアクティビティからミュートや通話終了を行ったりすることもできます。 音声エージェントはユーザーの話を聞いて応答し、コーディング作業をチャット内のエージェントに引き渡します。そのエージェントの実行中も、会話を続けることができます。diff で何が変更されたかを質問したり、実行の状況を確認したり、このエージェントとの過去のメッセージや通話を検索したり、ワーカーがある Project ではワーカーを切り替えたりできます。 コーディングエージェント自身も音声で伝えます。作業中は短い進捗メモを、完了時には簡潔な回答を共有するため、通常はテキストの回答全文ではなく、短い更新情報を聞くことになります。 ボイスチャットは Grok Voice で実行されます。音声は Voice 設定から、Ara、Eve、Leo、Rex、Sal をはじめとする多数の中から選べます。Privacy Mode をオンにすると、ボイスチャットはデータ保持なしで実行されます。 ボイスチャットは、以前のリリースで Voice Mode と呼ばれていた音声入力とは別の機能です。音声入力では引き続き、話した内容がテキストとしてチャット入力欄に入力され、IDE では Cmd+Shift+Space でオン/オフを切り替えられます。",
-      "feedSnippet": "Talk with your agents in a realtime voice call on desktop, web, and iOS.",
       "excerptOrigin": "article",
+      "feedSnippet": "Talk with your agents in a realtime voice call on desktop, web, and iOS.",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -3865,7 +3877,7 @@
       "summaryEn": "Cursor's cloud agent can now build web apps end to end, provisioning Postgres, Cursor SSO auth and hosting, then publish them at a unique domain link. Anyone in an organization can ship internal tools.",
       "lang": "en",
       "publishedAt": "2026-11-05T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "app-deployment",
@@ -3880,8 +3892,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "エージェントの登場でコードを書くコストは下がりましたが、ユーザーが作るアプリやツールのほとんどは、いまだに localhost の外に出ることがありません。 これからは、Cursor 上でライブアプリを直接構築し、リンクで共有できます。作りたいものを説明するだけで、アプリの構築からデータベースのセットアップ、認証の設定、デプロイまで、あとはすべて Cursor が引き受けます。 今回のリリースにより、組織内の誰もが自分の業務に役立つツールを構築し、チームメンバーと共有できるようになりました。Cursor を更新して、ぜひお試しください。 はじめるには、 クラウドエージェント を起動し、アプリを構築したいと明示的に伝えます。 Cursor はウェブアプリの雛形を作成し、必要に応じて Postgres データベースを立ち上げ、Cursor SSO による認証を設定し、ホスティング環境を用意します。データウェアハウスなど、既存のシステムにアプリを接続する必要がある場合は、Cursor が必要なシークレットの入力を求めます。 アプリを公開する際は、一意のドメインを選ぶだけで、Cursor がすぐにアクセスできる公開リンクを発行します。 Cursor 社内では、営業、オペレーション、法務、財務、エンジニアリングなど、さまざまな部門のユーザーが社内アプリを構築しています。特に役に立っているものの例は次のとおりです。 Cursor は、Cursor Origin と GitHub 上の新規または既存のリポジトリからアプリをデプロイできます。GitLab など他の Git プロバイダーのサポートも近日公開予定です。 アプリを公開する際、Cursor は決定論的なチェックとエージェント型のセキュリティチェックを実行し、アプリのファイルに書き込まれたシークレットや露出した認証情報など、よくある Issue を検出します。チェックに失敗した場合は、何を修正すべきかをエージェントが知らせます。チェックに合格し、明示的に公開操作を行うまで、アプリが公開されることはありません。",
-      "feedSnippet": "Build and deploy web apps directly in Cursor with cloud agents handling hosting, database, auth, and deployment.",
       "excerptOrigin": "article",
+      "feedSnippet": "Build and deploy web apps directly in Cursor with cloud agents handling hosting, database, auth, and deployment.",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -3967,7 +3979,7 @@
       "summaryEn": "VS Code 1.145 lets remote agent sessions preview apps and use interactive canvases, adds cron-based automation schedules, and reduces chat noise. The Local harness is deprecated, so users should plan their move to the Copilot harness before February 2027.",
       "lang": "en",
       "publishedAt": "2026-11-04T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "canvas",
@@ -3990,8 +4002,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Learn what's new in Visual Studio Code 1.145 Read the full article",
       "excerptOrigin": "article",
+      "feedSnippet": "Learn what's new in Visual Studio Code 1.145 Read the full article",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -4046,7 +4058,8 @@
         "datasets",
         "huggingface",
         "open-model",
-        "open-science"
+        "open-science",
+        "release"
       ],
       "category": "local-llm",
       "importance": 2,
@@ -4108,7 +4121,7 @@
       "summaryEn": "VS Code 1.144 deprecates the Local harness, to be removed in February 2027, and points users to the Copilot harness. It also recaps the Agent Host, which keeps agent sessions running after a client closes.",
       "lang": "en",
       "publishedAt": "2026-10-28T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "agent-host",
@@ -4130,8 +4143,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Learn what's new in Visual Studio Code 1.144 Read the full article",
       "excerptOrigin": "article",
+      "feedSnippet": "Learn what's new in Visual Studio Code 1.144 Read the full article",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -4184,7 +4197,7 @@
       "summaryEn": "Netflix's engineering team presents Pensive AI, an approach aimed at making automated diagnosis of system failures more dependable, which could cut investigation effort for on-call engineers.",
       "lang": "en",
       "publishedAt": "2026-10-26T17:04:57.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai",
         "engineering",
@@ -4197,10 +4210,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "32b5d3e2c34f5a54",
@@ -4214,7 +4227,7 @@
       "summaryEn": "Netflix's engineering blog covers an approach for automatically converting a single video into several aspect ratios for mobile feeds and promotional use, easing the workload for creative and marketing teams.",
       "lang": "en",
       "publishedAt": "2026-10-26T16:01:02.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "aspect-ratio",
         "engineering",
@@ -4227,10 +4240,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "f488ab92286122dc",
@@ -4244,7 +4257,7 @@
       "summaryEn": "Anthropic submitted a Form S-1 to the SEC for a planned IPO of Class A stock, targeting a Nasdaq listing as ANT. Share count and pricing are still unset, a milestone for investors and the AI industry.",
       "lang": "en",
       "publishedAt": "2026-10-26T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "anthropic",
         "claude",
@@ -4258,8 +4271,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "Today, Anthropic, PBC filed a registration statement on Form S-1 with the U.S. Securities and Exchange Commission relating to its proposed initial public offering of its Class A common stock. Anthropic intends to list its Class A common stock on the Nasdaq Global Select Market under the symbol “ANT.” The number of shares of Class A common stock to be offered and the price range for the proposed offering have not yet been determined. The proposed offering will be made only by means of a prospectus. Copies of the preliminary prospectus, when available, may be obtained from: Goldman Sachs & Co. LLC, Attention: Prospectus Department, 200 West Street, New York, NY 10282, by telephone at (866) 471-2526, or by email at prospectus-ny@ny.email.gs.com; or Morgan Stanley & Co. LLC, Attention: Prospectus Department, 180 Varick Street, 2nd Floor, New York, NY 10014.",
-      "feedSnippet": "Today, Anthropic, PBC filed a registration statement on Form S-1 with the U.S. Securities and Exchange Commission relating to its proposed initial public offering of its Class A common stock. Anthropic intends to list its Class A common stock on the Nasdaq Global Select Market under the symbol “ANT.” The number of shares of Class A common stock to be offered and the price range for the proposed offering have not yet been determined.",
       "excerptOrigin": "article",
+      "feedSnippet": "Today, Anthropic, PBC filed a registration statement on Form S-1 with the U.S. Securities and Exchange Commission relating to its proposed initial public offering of its Class A common stock. Anthropic intends to list its Class A common stock on the Nasdaq Global Select Market under the symbol “ANT.” The number of shares of Class A common stock to be offered and the price range for the proposed offering have not yet been determined.",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -4351,7 +4364,7 @@
       "summaryEn": "Netflix engineers describe building a tool that measures how far a library change ripples through dependent code, catching impacts that API compatibility checks miss. It helps teams ship safer library updates.",
       "lang": "en",
       "publishedAt": "2026-10-23T18:32:51.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "api-compatibility",
         "dependency-analysis",
@@ -4364,10 +4377,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "cc9f1fc4deba48fb",
@@ -4381,7 +4394,7 @@
       "summaryEn": "Netflix's Titus container platform gains a single-tenant mode that isolates workloads at the virtual machine level, letting teams with strict isolation needs keep using the shared multi-tenant platform.",
       "lang": "en",
       "publishedAt": "2026-10-22T22:19:12.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "containers",
         "engineering",
@@ -4394,10 +4407,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "b1d92492b7f0e9d8",
@@ -4443,7 +4456,7 @@
       "summaryEn": "VS Code 1.143 makes the Copilot SDK-based Copilot harness the default for new sessions, while the Local harness is slated for removal in February 2027. Copilot users also get model comparison and storage cleanup tools.",
       "lang": "en",
       "publishedAt": "2026-10-21T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "copilot-harness",
         "copilot-sdk",
@@ -4465,8 +4478,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Learn what's new in Visual Studio Code 1.143 Read the full article",
       "excerptOrigin": "article",
+      "feedSnippet": "Learn what's new in Visual Studio Code 1.143 Read the full article",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -4502,8 +4515,8 @@
       "bodyEn": ""
     },
     {
-      "id": "7cf69f7ae5c77b67",
-      "source": "github-copilot",
+      "id": "c4607aa43c817be8",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/",
       "title": "How 3 Java Champions are using GitHub Copilot for increased productivity",
@@ -4513,7 +4526,7 @@
       "summaryEn": "Three Java Champions, each with over ten years of Java experience, share real production and open source uses of GitHub Copilot, plus habits for giving context and validating output. Useful for developers who want reliable AI-assisted code.",
       "lang": "en",
       "publishedAt": "2026-10-20T16:05:03.000Z",
-      "collectedAt": "2026-11-27T19:21:30.639Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-coding",
         "copilot",
@@ -4526,12 +4539,12 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "AI coding tools can generate code quickly, but speed alone does not solve the hardest software engineering problems. Developers still need to provide context, validate results, protect maintainability, and remain accountable for what ships. To learn how experienced developers strike that balance, we spoke with three Java Champions, all with over a decade of experience in using Java. They shared concrete examples of using GitHub Copilot in production and open source, along with the practices they use to turn AI-generated output into reliable software. Here are the tips they shared with us. How has GitHub Copilot helped you recently? I’ve been using it to analyze, design, and implement various features in both Hypersistence Utils and Hypersistence Optimizer.",
       "excerptOrigin": "article",
       "feedSnippet": "Three Java Champions share how they use GitHub Copilot to solve problems, accelerate development, and keep humans responsible for the results. The post How 3 Java Champions are using GitHub Copilot for increased productivity appeared first on The GitHub Blog .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "ec2b5dc833750aa5",
@@ -4545,7 +4558,7 @@
       "summaryEn": "Cursor launched Agent SDK, letting teams define agents as project folders with instructions, tools, and skills, test them with evals, and ship via agent-sdk deploy. It suits teams moving bots into production.",
       "lang": "en",
       "publishedAt": "2026-10-20T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "agent-sdk",
@@ -4562,14 +4575,14 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "Agent SDK の提供を本日より開始しました。エージェントをコードのフォルダとして定義し、評価でテストしたうえで、Cursor または自社のインフラストラクチャにデプロイできます。 npx @cursor/agent-sdk init ./my-bot を実行したあと agent-sdk dev を実行すると、プレイグラウンド付きでボットをローカルで起動できます。 --template を指定すれば、セキュリティレビュアー、オーナーポリシーに基づく承認ボット、PR 自動修正ツール、Linear または Jira のトリアージボットといったテンプレートから始めることもできます。 エージェントを実運用する準備が整ったら、プロジェクトディレクトリで agent-sdk deploy を実行するだけで Cursor にデプロイできます。このコマンドはエージェントをビルドして URL を割り当て、Cursor のインフラストラクチャ上で起動します。シークレットや連携はダッシュボードから管理でき、ローカルで使っているログ、評価、プレイグラウンドもそのまま引き続き利用できます。 エージェントは 1 つのプロジェクトとして構成されます。 instructions.md がプロンプトです。 tools/ 内の各ファイルは、モデルが呼び出せる型付きアクション 1 つに対応します。 skills/ にはモデルが必要に応じて読み込む手順を格納し、 mcp-connections/ では MCP サーバーのツールを追加し、 channels/ ではボットがメッセージを受信・応答する場所を定義します。 agent-sdk validate でプロジェクトを検証し、 agent-sdk info で検出された内容を出力できます。 エージェントは、GitHub、GitLab、Bitbucket の PR、コメント、CI イベント、Slack でのメンションや DM、任意のプロバイダーからのウェブフック、そして cron スケジュールをトリガーに起動します。",
-      "feedSnippet": "Define an agent as a folder of code, test it with evals, and deploy it to Cursor or your own infrastructure.",
       "excerptOrigin": "article",
+      "feedSnippet": "Define an agent as a folder of code, test it with evals, and deploy it to Cursor or your own infrastructure.",
       "bodyJa": "",
       "bodyEn": ""
     },
     {
-      "id": "f9c5095dcdcc7bb0",
-      "source": "github-copilot",
+      "id": "cb4f638784301c3b",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
       "title": "How to continue a GitHub Copilot app session in VS Code",
@@ -4579,7 +4592,7 @@
       "summaryEn": "A Copilot app session can be opened directly in VS Code, carrying over its chat, code edits, and context. Developers can let the agent do the heavy lifting, then review diffs, edit by hand, and test locally.",
       "lang": "en",
       "publishedAt": "2026-10-19T18:47:22.000Z",
-      "collectedAt": "2026-11-27T19:21:30.639Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "agent-workflow",
@@ -4593,12 +4606,12 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "The agent has finished the bulk of your change. Now you want to inspect one implementation detail, adjust a few lines by hand, and run the project locally before you ship it. But the work is sitting in the GitHub Copilot app … and your editor is where you review diffs, debug code, and make final adjustments. Do you have to choose between staying in the session and starting over in Visual Studio Code? You don’t. You can open the Copilot app session directly in VS Code and continue with its conversation, code changes, and working context intact. That means Copilot can handle the repetitive or time-consuming work, then hand control back to you for closer review, hands-on editing, and local testing. Open a Copilot app session in VS Code. Review the agent’s changes line by line. Continue the same conversation from your editor. Modify and test the code locally.",
       "excerptOrigin": "article",
       "feedSnippet": "Learn how to move an agent session from the GitHub Copilot app into VS Code without losing the conversation, code changes, or working context. The post How to continue a GitHub Copilot app session in VS Code appeared first on The GitHub Blog .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "5387974c3335c576",
@@ -4650,7 +4663,7 @@
       "summaryEn": "Anthropic plans to commit 5% of its shares to a new wholly owned Anthropic Public Benefit Fund, pending stockholder approval, adding 2% per 50% rise in value, so public-benefit funding scales with the company's growth.",
       "lang": "en",
       "publishedAt": "2026-10-18T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "anthropic",
         "anthropic-fund",
@@ -4678,7 +4691,7 @@
       "summaryEn": "Cursor's cloud agents can now build interactive canvases and share them via link. A beta Environments API, support for up to 300 repositories, and 5x faster loading of large environments help teams scale.",
       "lang": "en",
       "publishedAt": "2026-10-16T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "beta",
@@ -4693,8 +4706,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "クラウドエージェント が、作業の中で対話型の キャンバス を構築できるようになりました。完成したキャンバスは、リンクを送るだけでチームと共有できます。 Environments API がベータ版として利用可能になりました。エージェントを実行するクラウド環境を、プログラムから作成・管理できます。 クラウドエージェント環境 で、最大300個のリポジトリをサポートするようになりました。また、大規模な環境の読み込み速度も5倍に向上しています。 クラウドエージェント が、作業の中で対話型の キャンバス を構築できるようになりました。完成したキャンバスは、リンクを送るだけでチームと共有できます。 Environments API がベータ版として利用可能になりました。エージェントを実行するクラウド環境を、プログラムから作成・管理できます。 クラウドエージェント環境 で、最大300個のリポジトリをサポートするようになりました。また、大規模な環境の読み込み速度も5倍に向上しています。",
-      "feedSnippet": "Cloud agents can now build and share interactive canvases. The Environments API is available in beta, environments support up to 300 repos, and large environments load 5x faster.",
       "excerptOrigin": "article",
+      "feedSnippet": "Cloud agents can now build and share interactive canvases. The Environments API is available in beta, environments support up to 300 repos, and large environments load 5x faster.",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -4742,7 +4755,7 @@
       "summaryEn": "VS Code 1.142 adds preview canvases for working with agents, lets you move a chat to another folder or Git worktree with context intact, and widens Markdown editing and admin permission controls.",
       "lang": "en",
       "publishedAt": "2026-10-14T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "canvases",
@@ -4765,8 +4778,8 @@
         "height": 0,
         "source": "media"
       },
-      "feedSnippet": "Learn what's new in Visual Studio Code 1.142 Read the full article",
       "excerptOrigin": "article",
+      "feedSnippet": "Learn what's new in Visual Studio Code 1.142 Read the full article",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -4782,7 +4795,7 @@
       "summaryEn": "GitHub's context-aware secret classifier lifts weighted acceptance by 11.5% and cuts median scan time by 86%, helping developers and security teams catch more leaks with fewer false alarms.",
       "lang": "en",
       "publishedAt": "2026-10-13T17:56:33.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "github",
         "github-advanced-security",
@@ -4794,11 +4807,11 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "GitHub’s context-aware secret classifier improves detection quality, raises weighted acceptance by 11.5%, and reduces median scan execution time by 86%. The post GitHub’s model for secret detection: Finding more secrets with less noise appeared first on The GitHub Blog .",
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "18ea178a7f4055ec",
@@ -4812,7 +4825,7 @@
       "summaryEn": "Origin App Marketplace launches with 20+ integrations from partners such as Cloudflare, Linear, Sentry and Socket Security, and opens submissions so any developer-tool team can list an app built on the Origin API.",
       "lang": "en",
       "publishedAt": "2026-10-13T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "api",
         "changelog",
@@ -4827,14 +4840,14 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "Origin が、デプロイ、CI、コードレビュー、セキュリティ、監視、プロジェクト管理に対応する 20 以上のアプリと連携できるようになりました。Cloudflare、Linear、Sentry、Socket Security などのパートナーが提供するアプリを利用できます。 また本日より、マーケットプレイスで一般からのアプリ申請の受け付けを開始しました。開発者向けツールを構築しているチームなら、どなたでも Origin 向けのアプリを公開できます。 マーケットプレイスに、次のカテゴリのアプリが追加されました。 自分のネームスペースで アプリを作成 します。構築中、アプリはネームスペース内で非公開のままです。 Origin API を使って構築します。アプリはアプリ JWT とインストールアクセストークンで認証し、ウェブフックイベントを受信して、チェック実行、PR コメント、レビューを書き戻します。 アプリを公開に設定し、アプリのページからスラッグ、推奨タグ、デモ動画を添えて申請します。動画では、インストール、アンインストール、および製品の主要なフローを紹介してください。 申請内容を当社でレビューし、承認され次第アプリを掲載します。 Origin App Marketplaceの アプリを今すぐ試してみましょう 。 Origin アプリを構築したい場合は、まず 公開ガイド と Origin API リファレンス をご覧ください。 Origin Apps プラグイン を使えば、最新の Origin API ドキュメントをもとにご質問に回答したり、すでに運用中のアプリを Origin へ移行する計画を立てたりすることもできます。 Origin が、デプロイ、CI、コードレビュー、セキュリティ、監視、プロジェクト管理に対応する 20 以上のアプリと連携できるようになりました。Cloudflare、Linear、Sentry、Socket Security などのパートナーが提供するアプリを利用できます。",
-      "feedSnippet": "Origin integrates with over 20 apps for deployments, CI, code review, security, monitoring, and project management, and the marketplace is now open to public submissions.",
       "excerptOrigin": "article",
+      "feedSnippet": "Origin integrates with over 20 apps for deployments, CI, code review, security, monitoring, and project management, and the marketplace is now open to public submissions.",
       "bodyJa": "",
       "bodyEn": ""
     },
     {
-      "id": "73f986d3e9b463d0",
-      "source": "github-copilot",
+      "id": "aab87b57e449c025",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
       "title": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
@@ -4844,7 +4857,7 @@
       "summaryEn": "This GitHub Copilot app beginner installment covers four ways, including custom instructions, to store conventions and scripts in a repo so Copilot learns them automatically, saving developers repeated explanations.",
       "lang": "en",
       "publishedAt": "2026-10-12T17:43:59.000Z",
-      "collectedAt": "2026-11-27T19:21:30.639Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "copilot",
         "custom-instructions",
@@ -4857,12 +4870,12 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "Context matters when you’re working with AI. Every codebase has its own house rules: how components are structured, which scripts to run, and which conventions apply to different frameworks and file types. Copilot can help you make changes across a project, but it works best when it knows those rules, too. Much of that knowledge can live inside the repository, so Copilot can pick it up automatically instead of requiring you to explain the same standards, scripts, and workflows every time you start a new task. In this installment of our GitHub Copilot app for Beginners series, we’ll look at four ways to tailor how Copilot works with your project: Custom instructions communicate the conventions Copilot should follow. Agent skills package repeatable procedures. Custom agents bring specialized guidance to larger tasks.",
       "excerptOrigin": "article",
       "feedSnippet": "Learn how to add custom instructions and skills to your repository, use custom agents, and connect MCP servers like Playwright. The post GitHub Copilot app for Beginners: How to teach Copilot about your codebase appeared first on The GitHub Blog .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "1cb36d6b3d7aacfb",
@@ -4944,8 +4957,8 @@
       "evergreen": true
     },
     {
-      "id": "5cb4ed49cbdddf72",
-      "source": "github-copilot",
+      "id": "80955af470da00f0",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/",
       "title": "Secret protection must scale with software",
@@ -4955,7 +4968,7 @@
       "summaryEn": "AI agents now touch one-third of GitHub pull requests, up from under one-tenth last year. Automated secret protection can prevent leaks and cut manual response work for developers.",
       "lang": "en",
       "publishedAt": "2026-10-07T17:45:34.000Z",
-      "collectedAt": "2026-11-27T19:21:30.639Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-agents",
         "copilot",
@@ -4967,6 +4980,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "Today, one in three pull requests on GitHub involves an AI agent . A year ago, that number was fewer than one in 10. If that pace holds, within the next two years, most of the code pushed to GitHub could be written by an agent. Much of it may never be fully read by a human. If developers and agents move faster, we have a responsibility to ensure protection keeps up with the accelerated rate of code creation. That means preventing more leaks before they happen and making the response to exposures that remain less dependent on manual human effort. This is a pivotal point for leaked secrets. Developers aren’t becoming more careless; they’re being outpaced. The tools that let developers create more software should also take on more of the work of protecting it. In this essay, I share the nine quarters of data behind that claim.",
       "excerptOrigin": "article",
       "feedSnippet": "Developers aren’t becoming more careless; they’re being outpaced. The tools that let developers create more software should also take on more of the work of protecting it. The post Secret protection must scale with software appeared first on The GitHub Blog .",
@@ -4979,8 +4993,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "9113ed39fa04c200",
@@ -5070,7 +5083,7 @@
       "summaryEn": "Visual Studio Code 1.141 adds agent worktree cleanup, terminal sandboxing across Windows, macOS, and Linux, and session arrangement, helping developers manage agents safely and efficiently.",
       "lang": "en",
       "publishedAt": "2026-10-07T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "agent-sessions",
@@ -6495,7 +6508,7 @@
       "summaryEn": "Cursor Remote Control now lets the iOS app inspect and message local agents on an online computer. Enabled by default outside enterprise orgs, it supports oversight away from the desk.",
       "lang": "en",
       "publishedAt": "2026-10-06T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cursor",
@@ -6675,8 +6688,8 @@
       "knowledgeEligible": false
     },
     {
-      "id": "571c8c47df881aa3",
-      "source": "github-copilot",
+      "id": "ed744c789037c203",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
       "title": "ReviewBench: An open benchmark for AI code review",
@@ -6686,7 +6699,7 @@
       "summaryEn": "ReviewBench offers an open evaluation set based on GitHub pull requests, with multi-source labels, calibrated scoring, and production metrics for fair assessment of review agents.",
       "lang": "en",
       "publishedAt": "2026-10-05T15:59:40.000Z",
-      "collectedAt": "2026-11-27T19:21:30.639Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-code-review",
         "benchmark",
@@ -6698,6 +6711,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "We’re launching ReviewBench, a benchmark for code review agents built on representative GitHub pull requests, multi-source ground truth, calibrated evaluation, and production-aligned metrics. The post ReviewBench: An open benchmark for AI code review appeared first on The GitHub Blog .",
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
@@ -6709,8 +6723,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "e33a2620e79a8313",
@@ -7635,7 +7648,7 @@
       "summaryEn": "AI-assisted development shifts execution toward framing tasks, supplying context, and reviewing generated code. These skills help developers make sound shipping decisions.",
       "lang": "en",
       "publishedAt": "2026-10-02T15:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-assisted-development",
         "career-development",
@@ -7646,6 +7659,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "AI is changing how developers work and apply their skills. Writing code is still essential, but developers increasingly need to know how to direct AI, evaluate its output, communicate tradeoffs, and make sound technical decisions. The good news? You can start preparing today. Here’s where to focus: Tip #1: Learn to direct AI, not just use it. AI is changing what execution looks like. Increasingly, great execution means defining the problem clearly, providing the right context, evaluating AI-generated code, and deciding what’s ready to ship. As AI agents take on more of the implementation, these skills become even more valuable. For example, imagine you’re asked to add a new authentication flow. As AI tools become more capable and more deeply integrated into day-to-day workflows, those same skills can help you coordinate multiple AI agents.",
       "excerptOrigin": "article",
       "feedSnippet": "Learn to direct AI agents, critically review their output, and keep technical judgment at the center of your workflow. The post AI is changing developer work. Here are three skills to strengthen. appeared first on The GitHub Blog .",
@@ -7658,8 +7672,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "d76bc67b3882fa08",
@@ -9092,7 +9105,7 @@
       "summaryEn": "Visual Studio Code 1.140 adds experimental multi-folder agent sessions, with remote delegation, Copilot harness support, and HydraFusion for more flexible AI development.",
       "lang": "en",
       "publishedAt": "2026-09-30T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -11679,7 +11692,7 @@
       "summaryEn": "Visual Studio Code 1.139 enables agents in project Dev Containers across WSL, SSH, and Tunnel remotes; faster session lists and editor refinements streamline workflows.",
       "lang": "en",
       "publishedAt": "2026-09-23T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent-sessions",
         "dev-containers",
@@ -11949,7 +11962,7 @@
       "summaryEn": "Cursor adds Rollouts for per-environment deployment checks and Security Review for exploitable PR flaws to Teams and Enterprise plans, helping teams ship safely.",
       "lang": "en",
       "publishedAt": "2026-09-23T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cursor",
@@ -12897,7 +12910,7 @@
       "summaryEn": "Anthropic's Features page collects stories of Claude in action: health groups tackling a rare Ebola strain in the DRC, the origins of Claude Code, and help with NASA's Perseverance rover drive. It shows real-world AI uses.",
       "lang": "en",
       "publishedAt": "2026-09-21T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "anthropic",
         "case-study",
@@ -12911,8 +12924,8 @@
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "A rare Ebola strain is spreading in the DRC, with no confirmed vaccine. Global health organizations are using Claude to respond as fast as possible. A rare Ebola strain is spreading in the DRC, with no confirmed vaccine. Global health organizations are using Claude to respond as fast as possible. The inside story of how Claude Code went from an internal CLI to Anthropic's coding agent, told by researchers, engineers and early users who built it. The inside story of how Claude Code went from an internal CLI to Anthropic's coding agent, told by researchers, engineers and early users who built it. The first AI-assisted drive on another planet. Claude helped NASA's Perseverance rover travel four hundred meters on Mars. The first AI-assisted drive on another planet. Claude helped NASA's Perseverance rover travel four hundred meters on Mars.",
-      "feedSnippet": "The Situation Report",
       "excerptOrigin": "article",
+      "feedSnippet": "The Situation Report",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -14043,7 +14056,7 @@
       "summaryEn": "Visual Studio Code 1.138 adds agents in local Dev Containers and carries Codex sessions across apps with Copilot or ChatGPT subscriptions, enabling project-aware AI work.",
       "lang": "en",
       "publishedAt": "2026-09-16T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "chatgpt",
         "codex",
@@ -15339,7 +15352,7 @@
       "summaryEn": "Cursor Projects adds a coordinator that delegates long-running work to thousands of subagents. Shared context and cloud execution help developers sustain large projects.",
       "lang": "en",
       "publishedAt": "2026-09-10T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-agents",
         "changelog",
@@ -15608,7 +15621,7 @@
       "summaryEn": "Visual Studio Code 1.137 previews hourly, daily, or weekly agent Automations; voice agents and GitHub issue and PR tools in Agents streamline development.",
       "lang": "en",
       "publishedAt": "2026-09-09T17:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -17080,7 +17093,7 @@
       "summaryEn": "Cursor self-hosted machines add My Machines, autoscaling Team pools, hibernation, and Linux/Mac computer use, keeping code and secrets private for individuals and teams.",
       "lang": "en",
       "publishedAt": "2026-09-02T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cloud-agents",
@@ -18673,7 +18686,7 @@
       "summaryEn": "Cursor Cloud Agents can now run with no repository linked, with live previews and Vercel deployment, helping developers create and ship new projects faster.",
       "lang": "en",
       "publishedAt": "2026-08-27T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cloud-agents",
@@ -22333,7 +22346,7 @@
       "summaryEn": "Cursor continues to refine its cloud agents and harness infrastructure, enabling always-on agents to collaborate as a system and autonomously build and ship software without requiring manual intervention at each loop.",
       "lang": "en",
       "publishedAt": "2026-08-19T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-agents",
         "automation",
@@ -23923,7 +23936,7 @@
       "summaryEn": "Origin code hosting enters initial beta on all paid plans with repositories, PR and code browsing, and GitHub sync. Direct pushes make it the source of truth for agent-scale teams.",
       "lang": "en",
       "publishedAt": "2026-08-17T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "changelog",
@@ -26791,7 +26804,7 @@
       "summaryEn": "Cursor introduces Builds for Cloud Agents, pre-baking repo clones and dependency installs into ready-to-use snapshots so agents start roughly 3× faster than before.",
       "lang": "en",
       "publishedAt": "2026-08-13T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "builds",
         "changelog",
@@ -34528,7 +34541,7 @@
       "summaryEn": "Cursor now integrates with Google Workspace, enabling the AI to read, write, and take actions across Docs, Sheets, and other services. This significantly expands what Cursor agents can automate in day-to-day workflows.",
       "lang": "en",
       "publishedAt": "2026-08-03T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cursor",
@@ -40425,7 +40438,7 @@
       "summaryEn": "Cursor has expanded to iPad, making the AI coding assistant available on Apple's tablet for all paid plan subscribers.",
       "lang": "en",
       "publishedAt": "2026-07-29T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cursor",
@@ -41330,7 +41343,7 @@
       "summaryEn": "Cursor has launched Cursor Start, a ₹649/month plan aimed at developers in India, offering local pricing and UPI payment support to make agentic development more accessible.",
       "lang": "en",
       "publishedAt": "2026-07-28T12:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "changelog",
@@ -47404,7 +47417,7 @@
       "summaryEn": "Cursor introduced Router, a feature that automatically directs requests to the most suitable model based on task context, improving both response quality and cost efficiency.",
       "lang": "en",
       "publishedAt": "2026-07-22T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai",
         "changelog",
@@ -53470,7 +53483,7 @@
       "summaryEn": "Cursor's Slack integration received several enhancements, making it easier and more efficient for teams to collaborate with the AI assistant directly in Slack.",
       "lang": "en",
       "publishedAt": "2026-07-17T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cursor",
@@ -62602,7 +62615,7 @@
       "summaryEn": "Cursor introduces Side Chats and Conversation Search, enabling users to run multiple chat threads simultaneously and quickly retrieve past conversations, significantly improving multitasking and workflow continuity.",
       "lang": "en",
       "publishedAt": "2026-07-10T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cursor",
@@ -65355,7 +65368,7 @@
       "summaryEn": "Cursor's Team Marketplace now supports MCPs and organization-level management, enabling teams to centrally share and standardize AI tool configurations across their entire organization.",
       "lang": "en",
       "publishedAt": "2026-06-30T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cursor",
@@ -65726,7 +65739,7 @@
       "summaryEn": "Cursor has launched its first official iOS mobile app, bringing AI-powered code editing and review capabilities to iPhone users. This major platform expansion allows developers to continue coding work from anywhere, untethered from a desktop environment.",
       "lang": "en",
       "publishedAt": "2026-06-29T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cursor",
@@ -66588,7 +66601,7 @@
       "summaryEn": "Cursor's new Customize page consolidates plugins, skills, and MCP servers into a single hub, making it easier to tailor the editor to specific workflows without hunting through scattered settings.",
       "lang": "en",
       "publishedAt": "2026-06-22T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "changelog",
         "cursor",
@@ -67380,7 +67393,7 @@
       "summaryEn": "Cursor Automations gains the /automate skill, GitHub and Slack triggers, and computer-use support, making always-on agents significantly more capable for developers looking to eliminate repetitive workflows.",
       "lang": "en",
       "publishedAt": "2026-06-18T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "automation",
@@ -67929,7 +67942,7 @@
       "summaryEn": "Cursor's Agents Window now supports cloud environment setup and cloud subagents, expanding agent-based development workflows directly within the desktop app.",
       "lang": "en",
       "publishedAt": "2026-06-17T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "agents-window",
@@ -69176,7 +69189,7 @@
       "summaryEn": "Bugbot now runs over 3× faster and costs 22% less per review while catching 10% more bugs. A new /review command also lets developers trigger code reviews before pushing.",
       "lang": "en",
       "publishedAt": "2026-06-10T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "bugbot",
         "changelog",
@@ -69800,7 +69813,7 @@
       "summaryEn": "Cursor's browser Design Mode has been improved, letting users click, draw, or describe UI changes by voice so that AI agents can update the interface more accurately and intuitively.",
       "lang": "en",
       "publishedAt": "2026-06-05T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-agents",
         "browser",
@@ -70034,7 +70047,7 @@
       "summaryEn": "Cursor's Canvas gains a Design Mode enabling agents to build and share interactive artifacts such as dashboards and internal tools, alongside a new Context Usage Report for visibility into resource consumption.",
       "lang": "en",
       "publishedAt": "2026-06-04T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "artifacts",
@@ -70069,7 +70082,7 @@
       "summaryEn": "The Cursor SDK for TypeScript and Python gains custom stores, custom tools, auto-review, and nested subagents, alongside run correlation IDs and lighter imports — giving developers finer control over agent workflows and easier debugging.",
       "lang": "en",
       "publishedAt": "2026-06-04T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "auto-review",
@@ -70678,7 +70691,7 @@
       "summaryEn": "Cursor Enterprise has made Organizations generally available, letting customers manage multiple Cursor teams from one place with separate security, governance, budget, and feature controls per team.",
       "lang": "en",
       "publishedAt": "2026-06-03T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "access-control",
         "budget-management",
@@ -71095,7 +71108,7 @@
       "summaryEn": "Cursor introduces Auto-review Run Mode, a new execution mode that lets the agent handle extended tasks with reduced interruption from approval prompts while maintaining safer operation. Developers who rely on long autonomous workflows stand to benefit most.",
       "lang": "en",
       "publishedAt": "2026-05-29T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "agentic-ai",
@@ -71766,7 +71779,7 @@
       "summaryEn": "Cursor adds team-shareable canvases and a new /loop skill, enabling collaborative workflows directly within the editor.",
       "lang": "en",
       "publishedAt": "2026-05-20T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "canvas",
         "changelog",
@@ -71799,7 +71812,7 @@
       "summaryEn": "Cursor Automations now appear directly in the Agents Window and support configurations with multiple repos or no repo at all, giving developers far more flexibility in how they set up and manage recurring automated workflows.",
       "lang": "en",
       "publishedAt": "2026-05-20T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "ai-coding",
@@ -71906,7 +71919,7 @@
       "summaryEn": "Cursor, the AI-powered code editor, is now available inside Jira, enabling developers to access Cursor's capabilities directly within their project management workflow.",
       "lang": "en",
       "publishedAt": "2026-05-19T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-coding",
         "changelog",
@@ -72118,7 +72131,7 @@
       "summaryEn": "Composer 2.5 is now available in Cursor, marking a new version of the AI-powered coding assistant feature.",
       "lang": "en",
       "publishedAt": "2026-05-18T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-coding",
         "changelog",
@@ -72930,7 +72943,7 @@
       "summaryEn": "Cursor introduces development environments for cloud agents that replicate a local laptop setup with cloned repositories, installed dependencies, and credentials, enabling agents to complete engineering tasks end-to-end.",
       "lang": "en",
       "publishedAt": "2026-05-13T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-agents",
         "autonomous-coding",
@@ -72964,7 +72977,7 @@
       "summaryEn": "Cursor's Agents Window gains full-screen tab support and a compact chat layout, making it easier to switch between agents and scan conversation history at a glance.",
       "lang": "en",
       "publishedAt": "2026-05-13T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "agents-window",
@@ -73118,7 +73131,7 @@
       "summaryEn": "Cursor now integrates with Microsoft Teams, letting users assign coding tasks—such as code edits and PR creation—directly from channels and chats. This brings AI-assisted development into existing enterprise collaboration workflows alongside Slack and GitHub integrations.",
       "lang": "en",
       "publishedAt": "2026-05-11T23:59:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-coding-agent",
         "changelog",
@@ -73224,7 +73237,7 @@
       "summaryEn": "Bugbot now supports three configurable effort levels for PR reviews, giving Teams admins and Individual plan users control over how deeply code is analyzed, improving flexibility in CI/CD workflows.",
       "lang": "en",
       "publishedAt": "2026-05-11T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "ai-agents",
         "bugbot",
@@ -73483,7 +73496,7 @@
       "summaryEn": "Cursor now supports AI-assisted PR review, parallel agent execution for faster plan completion, and one-click PR splitting — together making agent-driven development workflows significantly more practical for everyday use.",
       "lang": "en",
       "publishedAt": "2026-05-07T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -73683,7 +73696,7 @@
       "summaryEn": "Cursor now surfaces a per-element breakdown of token consumption for AI agent sessions, giving developers clear visibility into how their context window is being used and making prompt optimization more straightforward.",
       "lang": "en",
       "publishedAt": "2026-05-06T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "changelog",
@@ -73897,7 +73910,7 @@
       "summaryEn": "Cursor adds Enterprise admin controls for available AI models, refreshed spend management, and deeper usage analytics, enabling tighter cost and governance oversight.",
       "lang": "en",
       "publishedAt": "2026-05-04T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "admin",
         "analytics",
@@ -74077,7 +74090,7 @@
       "summaryEn": "Cursor now lets admins build a team marketplace before linking a repository and manage first-party plugin availability and installation rules, simplifying team-wide tool governance.",
       "lang": "en",
       "publishedAt": "2026-05-01T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "admin-controls",
         "changelog",
@@ -74186,7 +74199,7 @@
       "summaryEn": "Cursor Security Review enters beta for Teams and Enterprise, providing two persistent agents—Security Reviewer and Vulnerability Scanner—to help developers find risks earlier.",
       "lang": "en",
       "publishedAt": "2026-04-30T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "beta",
         "bugbot",
@@ -74381,7 +74394,7 @@
       "summaryEn": "The Cursor SDK exposes Cursor's agent stack to TypeScript, letting developers launch and control agents in code for automated workflows and custom tools.",
       "lang": "en",
       "publishedAt": "2026-04-29T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "ai-agents",

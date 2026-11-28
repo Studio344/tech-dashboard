@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-27T18:00:59.321Z",
+  "generatedAt": "2026-11-28T00:31:02.668Z",
   "month": "2026-04",
   "count": 174,
   "entries": [
@@ -181,7 +181,7 @@
       "summaryEn": "Cursor Security Review enters beta for Teams and Enterprise, providing two persistent agents—Security Reviewer and Vulnerability Scanner—to help developers find risks earlier.",
       "lang": "en",
       "publishedAt": "2026-04-30T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "beta",
         "bugbot",
@@ -518,7 +518,7 @@
       "summaryEn": "The Cursor SDK exposes Cursor's agent stack to TypeScript, letting developers launch and control agents in code for automated workflows and custom tools.",
       "lang": "en",
       "publishedAt": "2026-04-29T00:00:00.000Z",
-      "collectedAt": "2026-11-27T18:00:39.400Z",
+      "collectedAt": "2026-11-28T00:30:44.270Z",
       "tags": [
         "agent",
         "ai-agents",

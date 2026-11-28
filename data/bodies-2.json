@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-27T23:30:58.434Z",
-  "count": 356,
+  "generatedAt": "2026-11-28T00:30:58.213Z",
+  "count": 362,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -11656,13 +11656,77 @@
       "bodyJa": "NVIDIAは、日本の産業エコシステムとの連携を一段と深め、製造や医療、インフラなど幅広い分野にフルスタックのAIとロボティクス技術を展開する取り組みを強化した。少子高齢化による労働力不足が深刻化する日本にとって、自動化と知能化を軸とした産業変革は喫緊の課題であり、今回の動きはその加速に向けた重要な布石となる可能性がある。\n\nここで言う「フルスタック」とは、GPUなどの半導体からサーバー、ソフトウェア基盤、開発ツール、そして産業向けアプリケーションまでを一貫して提供する考え方を指す。NVIDIAは近年、AIモデルの学習・推論を担うGPU群に加え、産業用ロボット開発向けの「Isaac」、デジタルツインを構築する「Omniverse」、自動運転や医療向けの専用プラットフォームなどを整備してきた。これらを組み合わせることで、工場ラインの最適化や設備の予知保全、ロボットの制御学習を仮想空間で事前に検証する用途が想定される。\n\n背景には、生成AIの普及を機に高まる「フィジカルAI」への期待がある。デジタル空間で完結してきたAIを、現実世界で動くロボットや装置へと拡張する流れであり、製造業に強みを持つ日本の産業構造との親和性が高いと見られる。NVIDIAはこれまでもソフトバンクなど国内勢との協業を進めており、自国内にAI計算基盤を持とうとする「ソブリンAI」の動きとも連動している。\n\nもっとも、こうした構想の実現には課題も残る。高性能GPUの安定調達や電力を含むデータセンター運用コスト、現場人材の育成、既存設備との統合などは、多くの企業にとって導入のハードルとなり得る。競合ではAMDやインテル、クラウド各社も産業向けAIに注力しており、主導権を巡る競争は今後さらに激しくなる可能性がある。日本の産業競争力の底上げに実際につながるかは、実証段階から本格導入への移行がどこまで進むかにかかっていると言えそうだ。",
       "bodyEn": "NVIDIA has expanded its collaboration with Japan's industrial ecosystem, positioning what it describes as full-stack artificial intelligence and robotics as tools for reshaping manufacturing, healthcare, infrastructure, and other sectors. The move matters because Japan faces acute demographic pressures, including a shrinking and aging workforce, that make automation and AI-driven productivity a strategic priority rather than an optional upgrade.\n\nAt the center of the effort is NVIDIA's \"full-stack\" positioning, a term the company uses to describe the combination of its processors, systems, networking, and software libraries sold as an integrated platform. Rather than supplying only graphics processing units, NVIDIA increasingly packages accelerated computing hardware with development frameworks, pretrained models, and simulation tools. For industrial customers, that integration is meant to shorten the path from experimentation to deployment, though the extent of adoption across individual Japanese firms will likely vary by sector and technical readiness.\n\nRobotics is a prominent theme. NVIDIA's Isaac platform, along with initiatives aimed at humanoid and general-purpose robots such as its Project GR00T foundation-model work, is designed to give developers a common software layer for perception, planning, and control. A key enabling concept is the digital twin, a virtual replica of a factory, warehouse, or piece of equipment built in NVIDIA's Omniverse environment. Companies can simulate and train robots or optimize production lines in software before committing to physical changes, an approach that appears well suited to Japan's precision manufacturing base in automotive, electronics, and industrial machinery.\n\nThe healthcare component builds on NVIDIA's Clara and related medical-computing tools, which target medical imaging, genomics, and increasingly the deployment of large language models for clinical and research workflows. In infrastructure, AI is being applied to areas such as predictive maintenance, energy grid management, and monitoring of transportation and public works. These use cases reflect a broader industry pattern often labeled \"industrial AI\" or \"physical AI,\" in which models are applied to real-world sensors, machines, and environments rather than purely digital tasks.\n\nThe announcement also fits within the wider concept of sovereign AI, the idea that nations should build and control domestic AI computing capacity, data, and models rather than relying entirely on infrastructure hosted abroad. Japan has moved in this direction through government-backed subsidies for domestic data centers and computing resources, and through partnerships involving major domestic players. SoftBank, for example, has publicly outlined ambitions to build large-scale AI infrastructure in Japan using NVIDIA hardware, while cloud and telecommunications providers have expanded GPU capacity to serve local enterprises. Trading houses, industrial conglomerates, and robotics specialists are among the organizations frequently cited as potential adopters.\n\nContext from the broader market helps explain the timing. Demand for accelerated computing has surged globally, and NVIDIA has pursued similar national and regional partnerships elsewhere, including in Europe, the Middle East, and other parts of Asia. Competitors and adjacent suppliers, from other chipmakers to cloud platforms offering their own custom accelerators, are also courting industrial customers, so Japan represents both a significant opportunity and a contested market. Japanese firms such as Fanuc, Yaskawa, and other established robotics and automation vendors already hold strong positions in factory automation, meaning NVIDIA's software and simulation layers may often complement, rather than replace, existing hardware ecosystems.\n\nSeveral practical considerations will shape how far these initiatives progress. Deploying AI and robotics at industrial scale requires reliable power and data-center capacity, skilled engineers, and integration with legacy systems that can be decades old. Energy consumption and the cost of high-end accelerators remain meaningful constraints, and returns on investment in complex manufacturing environments can take time to materialize. As with many vendor-led announcements, specific commitments, timelines, and measurable outcomes will be the clearer indicators of impact.\n\nTaken together, the expanded collaboration signals a continued convergence of AI software, robotics, and traditional industry in one of the world's largest manufacturing economies. Whether it delivers the productivity gains its backers anticipate will depend on execution across many companies and years, but it underscores how central accelerated computing has become to national industrial strategy and how actively suppliers are aligning their platforms with those goals.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:55:15.691Z"
+      "generatedAt": "2026-08-30T16:55:15.691Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ジェンスン・フアンさんが東京に着いて最初にしたのは、記者会見じゃなくて何だったの？",
+          "en": "What did Jensen Huang do first after landing in Tokyo? Not a press conference, right?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、builders、つまりつくり手たちが集まる部屋への突然の訪問だったそうです。場所は八芳園の中にあるStudio Kokuで、ロボットでいっぱいだったとあります。",
+          "en": "The article says it was a surprise visit to a room full of builders. It was at Studio Koku, inside the Happo-en garden, and the room was full of robots."
+        },
+        {
+          "s": "a",
+          "ja": "日本って、AIの中心のひとつなんだね。メーカーやロボットの人たちには、どう関係してくるのかな？",
+          "en": "So Japan is one of the world's AI centers. How does that connect to the manufacturers and robotics folks?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、メーカー、ロボットの先駆者、インフラの担い手、ゲーム会社が集まる国で、NVIDIAの技術を使ってフルスタックで開発していると書かれています。フルスタックは、土台から上の層までひと通りそろえる、くらいの意味です。",
+          "en": "The article describes Japan as home to manufacturers, robotics pioneers, infrastructure builders and gaming companies, all building across the full stack with NVIDIA tech. Full stack means covering everything from the base layers up."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、日本の現場でAIを作る人たちとNVIDIAが一緒に動いている、ってことだよね。",
+          "en": "So people building AI in Japan's industries are working together with NVIDIA. Is that right?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、今週はNVIDIAとパートナーがその最新の成果を見せていると書かれています。ただ、ここで詳しい中身までは分からないので、更新を待つのがよさそうです。",
+          "en": "Yes, the article says NVIDIA and its partners are showcasing the latest advances this week. It doesn't give the details here, so it's worth checking the updates it mentions."
+        }
+      ]
     },
     "56f3a73e308bce4b": {
       "bodyJa": "個人開発者がAIエージェントを「4人のチームメンバー」として扱い、VTuberを発掘・紹介するWebサイトをわずか58日で完成させた事例が、Zennのブログで紹介され注目を集めている。AIとの協働開発が個人プロジェクトの速度をどこまで引き上げられるかを示す、実践的な報告だ。\n\n記事によれば、開発者は複数のAIエージェントを並列で稼働させ、それぞれに役割を割り振ることで作業を分担させたという。従来、個人開発では設計・実装・テスト・ドキュメント作成といった工程を一人でこなす必要があり、時間的な制約が大きかった。これに対し、コード生成や修正提案を担うエージェントを同時に走らせることで、あたかも小規模なチームを率いるように開発を進めた点が特徴とされる。\n\n背景には、ここ数年で急速に進化したAIコーディング支援ツールの存在がある。GitHub Copilotは補完中心の機能から、指示に基づいて複数ファイルを横断的に編集する「エージェント」的な機能へと拡張が進んでいる。同種の潮流として、CursorやClaude Code、Devinなど、自律的にタスクを分解して実装まで担うツールも相次いで登場している。今回の事例は、こうしたツール群を組み合わせて個人開発に応用した一例と位置づけられる。\n\nもっとも、AIエージェントを複数動かす手法にも課題は残ると見られる。各エージェントの出力を人間が確認・統合する工程は依然として必要であり、指示の設計やコードレビューの負担が新たに生じる可能性がある。生成されたコードの品質や保守性をどう担保するかは、開発規模が大きくなるほど問われることになりそうだ。\n\nVTuberの発掘サイトという題材自体も、日本発のカルチャーとWeb開発を結びつけた点で興味深い。配信者やクリエイターの情報を整理・推薦するサービスは一定の需要が見込まれる一方、データ収集や更新の継続性が運営上の鍵となる。今回の報告は、AI活用によって個人でも短期間でサービスを立ち上げられる可能性を具体的に示しており、同様の手法を試みる開発者にとって参考になりそうだ。",
       "bodyEn": "A Japanese indie developer has documented how they built a VTuber discovery website in 58 days by organizing four AI coding agents into what they describe as a small team, publishing the account on the Zenn developer blog platform. The story is notable less for the finished product than for what it suggests about how solo builders are beginning to structure their workflows around multiple autonomous agents rather than a single assistant.\n\nVTubers, or virtual YouTubers who perform behind animated avatars, number in the tens of thousands, and finding new or niche creators can be difficult given how fragmented the space is across YouTube, Twitch, and regional platforms. A discovery site that aggregates, categorizes, and surfaces performers addresses a real gap, though similar directories already exist. The developer's emphasis, however, is on process: rather than writing most of the code themselves, they delegated distinct roles to AI agents and coordinated their output.\n\nThe central idea is treating AI agents as colleagues with defined responsibilities. In practice this appears to mean assigning agents to separate concerns, such as front-end work, back-end logic, data handling, and review or testing, so that tasks can proceed in parallel rather than sequentially. Running four agents at once is meant to compress the timeline, but it also introduces coordination overhead, since a human must still integrate the pieces, resolve conflicts, and maintain a coherent architecture. The 58-day figure reflects part-time indie development rather than a continuous sprint, and the account frames the approach as a set of practical techniques rather than a guaranteed formula.\n\nThe project sits within a fast-moving category of tools. GitHub Copilot, referenced in the article's tags, began as an inline code-completion assistant but has expanded toward agent capabilities that can take a described task, plan changes across multiple files, run commands, and open pull requests. Comparable products include Cursor, an AI-first code editor; Anthropic's Claude Code, a terminal-based agent; and Cognition's Devin, marketed as an autonomous software engineer. The common thread is a shift from AI that suggests lines to AI that executes multi-step work with some independence, which is what makes running several agents in parallel feasible for one person.\n\nSeveral prerequisites make this style of development practical. Clear task decomposition matters, because agents tend to perform better when given narrow, well-specified goals than sprawling instructions. Version control and automated testing act as guardrails, catching regressions that an agent might introduce without noticing. Frequent human review remains essential, since agents can produce plausible-looking code that is subtly wrong, duplicates existing logic, or drifts from the intended design, a pattern often summarized as needing a human in the loop.\n\nThere are limits worth keeping in mind. A single developer's timeline is not a controlled benchmark, and outcomes depend heavily on the project's complexity, the developer's own skill, and how much rework the AI output required. Costs can also add up, as running multiple capable agents consumes API credits or higher subscription tiers. The approach appears best suited to greenfield projects with well-understood requirements, and is likely harder to apply to large existing codebases that carry significant institutional context.\n\nStill, the account is a useful data point in an ongoing conversation about how individual creators can expand their output. It reflects a broader industry move toward agentic development, where the developer's role shifts toward specification, orchestration, and review rather than typing every line. For indie developers and hobbyists in particular, the promise is that ambitious side projects, such as a niche VTuber directory, become achievable in weeks rather than months, provided the builder invests in structuring the work and verifying the results. Whether the same gains transfer to more complex or collaborative software remains an open question, but experiments like this one help clarify what the emerging workflow looks like in practice.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:55:46.371Z"
+      "generatedAt": "2026-08-30T16:55:46.371Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "最初はChatGPTでPythonを書いて、YouTube APIを手で叩いていたの？そこからどう変わったんだろう？",
+          "en": "So it started with ChatGPT writing Python and hitting the YouTube API by hand? How did it change from there?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、5月24日ごろはデータをD1へ手作業で流し込んでいました。それでも感覚検索やタグ検索の原型は、その頃にもうできていたそうです。",
+          "en": "Yes. Around May 24 they were still loading data into D1 by hand. Even so, the early forms of the feeling-based and tag search already existed by then."
+        },
+        {
+          "s": "a",
+          "ja": "詳しくなくても作れたってこと？それって、一人で作る人には心強いよね。",
+          "en": "So you didn't need to be an expert to build it? That sounds encouraging for people working solo."
+        },
+        {
+          "s": "b",
+          "ja": "著者はCloudflare WorkersやD1、YouTube APIに詳しくなく、ChatGPTに聞きながら進めたそうです。個人開発の幅が広がる例、と読めますね。",
+          "en": "The author wasn't familiar with Cloudflare Workers, D1, or the YouTube API, and learned by asking ChatGPT. It reads as an example of solo development stretching further."
+        },
+        {
+          "s": "a",
+          "ja": "ChatGPTで始めて、Codexで修正が速くなって、制限が来たからCopilotでも補ったんだね。",
+          "en": "So: start with ChatGPT, get faster fixes with Codex, then add Copilot when the usage limits hit. Is that right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。ただ、サイトが大きくなると前提を説明する負担が増えた、とも書かれています。速さだけの話ではなさそうです。",
+          "en": "Right. But the article also says explaining context got heavier as the site grew. So it's not only a story about speed."
+        }
+      ]
     },
     "9abc66430164eaff": {
       "bodyJa": "大規模言語モデル（LLM）を土台にしたAIエージェントの実用化が進むなか、Amazon Bedrock AgentCoreが提供するWeb Search機能が注目を集めている。データを外部サービスに送信せずにリアルタイムのWeb情報をエージェントへ取り込めるとされ、最新性と企業のプライバシー要件を両立させる狙いがある。\n\n背景には、LLMが抱える「知識のカットオフ」という制約がある。学習時点以降に発生した出来事や更新された情報にはモデル単体では対応できず、回答が古くなったり、事実と異なる内容を生成したりする課題が知られている。これを補う代表的な手法が外部データを検索して回答に反映させる仕組みで、社内文書を対象とするRAG（検索拡張生成）や、リアルタイム性の高いWeb検索の組み込みが一般的なアプローチとして広がってきた。\n\nAmazon Bedrock AgentCoreは、こうしたエージェント開発・運用を支援するAWSの基盤で、ツール連携やメモリ管理などの機能群を備える。今回取り上げられているWeb Search機能は、エージェントが必要に応じてWeb上の最新情報を参照できるようにするもので、記事によれば処理過程でユーザーデータを外部に送り出さない設計が特徴とされる。機微な情報を扱う企業にとって、情報漏えいリスクを抑えながら鮮度の高いデータを活用できる点は実用上の利点になり得る。\n\n技術的な文脈として、タグにも含まれるMCP（Model Context Protocol）の存在がある。MCPはAnthropicが提唱した、AIモデルと外部ツールやデータソースをつなぐためのオープンな標準規格で、各ベンダーが対応を進めている。Web検索のような外部機能をMCPサーバーとして提供する構成は、エージェントに柔軟な拡張性をもたらすと見られ、AgentCoreのアプローチもこうした潮流に沿ったものと位置づけられる。\n\n同様の課題に対しては、他社も検索連携やエージェント基盤の整備を進めている。OpenAIやGoogle、Anthropicなどがそれぞれツール利用やWebアクセスをサポートするAPIやフレームワークを展開しており、エンタープライズ市場ではプライバシーとガバナンスを重視した設計が競争軸の一つになりつつある。AgentCoreのWeb Searchは、その中で「外部送信なし」という点を訴求するものだが、実際の適用にあたっては対象範囲や制約、コスト、精度などを個別に検証することが望ましいだろう。",
@@ -11993,6 +12057,138 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-27T21:41:34.824Z"
+    },
+    "ed744c789037c203": {
+      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
+      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
+          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
+          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
+        },
+        {
+          "s": "a",
+          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
+          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
+          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
+          "en": "I’d line up a few review agents and compare which one might suit me best."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
+          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T12:37:57.149Z"
+    },
+    "86f1cfd68d515956": {
+      "bodyJa": "langchain-core 1.8.5 が公開された。1.8.4 からの変更は、依存ライブラリ mistune のバージョン更新と、関連パッケージ 2 件のリリースにまとめられている。\n\n## 1.8.5 に含まれる変更\n\n1.8.4 以降の変更として挙げられているのは 4 件である。core 自体のリリース作業（#42103）、standard-tests 1.2.0 のリリース（#41996）、text-splitters 1.2.0 のリリース（#41998）、そして mistune の依存更新（#41968）だ。\n\ncore の番号は 1.8.4 から 1.8.5 への更新で、パッチ版にあたる。今回の更新の中心は、次に述べる依存ライブラリの引き上げである。\n\n## mistune を 3.3.4 へ更新\n\n依存関係の更新は「chore(deps)」として扱われており、/libs/core 配下で mistune を 3.3.3 から 3.3.4 に上げる内容だ。対象は core ディレクトリの依存定義である。\n\nこの更新に伴う新機能や API の変更は示されておらず、core 側の変更としては、依存するライブラリのバージョンを一つ進めたものと読める。\n\n## standard-tests と text-splitters\n\ncore と並んで、standard-tests と text-splitters がそれぞれ 1.2.0 としてリリースされた。いずれも core の 1.8.5 と同じ変更一覧に含まれている。\n\n両パッケージの 1.2.0 で具体的に何が変わったかは、今回の変更一覧からは分からない。分かるのは、core のパッチ更新と同じタイミングで、この 2 つのパッケージにも新しいバージョンが出たという点だ。LangChain の利用者にとっては、バージョンを最新に保つ際の更新対象になると説明されている。\n\n## 公開情報\n\nこのリリースは 2026 年 11 月 25 日に公開された。リリースページには、変更を含むコミットが GitHub.com 上で作成され、GitHub の検証済み署名が付いていることも表示されている。",
+      "bodyEn": "langchain-core 1.8.5 was published on 2025-11-25 as a new release of the LangChain core package. It is a small, maintenance-oriented update, and it ships alongside new versions of two companion packages. Anyone who tracks LangChain releases will want to know what changed.\n\n## Changes since langchain-core==1.8.4\n\nThe release notes list four items between 1.8.4 and 1.8.5. The first is the version release commit for core itself, \"release(core): 1.8.5\", tracked as #42103. The other three concern companion packages and a dependency. The release commit was created on GitHub.com and signed with GitHub's verified signature.\n\nThe summary describes 1.8.5 as a patch release. The only change listed that touches the core library's contents is a dependency update, so the notes describe no new feature work in core.\n\n## Bump mistune from 3.3.3 to 3.3.4\n\nThe dependency change is recorded as \"chore(deps): bump mistune from 3.3.3 to 3.3.4 in /libs/core\", tracked as #41968. The path /libs/core shows that the update applies to the core library's own directory. The move is from version 3.3.3 to 3.3.4 of mistune, a one-step increment.\n\nThe notes give no further detail about why the bump was made or what it changes in mistune. They list it as the substantive change in this release.\n\n## standard-tests 1.2.0 and text-splitters 1.2.0\n\nTwo other packages were released at the same time. The notes list \"release(standard-tests): 1.2.0\" as #41996 and \"release(text-splitters): 1.2.0\" as #41998. Both are shown as version 1.2.0.\n\nAccording to the summary, the three releases together help LangChain users keep their installations current. The notes do not list individual changes for standard-tests or text-splitters, so users who want specifics on those packages would need to consult each package's own release history.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、LangChainを使ってる人は普段の作業で何か変わるの？",
+          "en": "If I use LangChain day to day, does anything actually change for me?"
+        },
+        {
+          "s": "b",
+          "ja": "大きな機能追加ではなく、パッチ版です。依存ライブラリのmistuneが3.3.3から3.3.4に上がった、というのが中身ですね。",
+          "en": "Not a big feature drop. It's a patch release, and the main change is that the mistune dependency moves from 3.3.3 to 3.3.4."
+        },
+        {
+          "s": "a",
+          "ja": "前はmistuneが古いままだったってこと？ほかにも何か一緒に出たの？",
+          "en": "So mistune was just older before? Did anything else come out alongside it?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、直前の1.8.4では3.3.3だったと読めます。ほかにstandard-tests 1.2.0とtext-splitters 1.2.0も出ています。mistuneの更新理由は、この記事からは分かりません。",
+          "en": "Yes, 1.8.4 appears to have used 3.3.3. standard-tests 1.2.0 and text-splitters 1.2.0 also shipped. The reason for the mistune bump isn't stated in this post."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ今回は、コアの小さな更新に、関連パッケージの新バージョンが2つ並んだリリースなんだね。",
+          "en": "So this is a small core update, with two related packages getting new versions alongside it."
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。standard-testsとtext-splittersが1.2.0になった中身は書かれていないので、次はそちらの変更点を確認したいところです。",
+          "en": "Right. What changed in standard-tests and text-splitters 1.2.0 isn't described here, so their own release notes would be the next thing to check."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:38:06.785Z"
+    },
+    "70932e96e2d93a9e": {
+      "bodyJa": "langchain-huggingface 1.3.0 がリリースされました。1.2.3 以降の変更として、ツール選択を強制した際の挙動と、ストリーミング時のトークン数集計を正す修正が含まれています。\n\n## ツール選択とトークン数\n\n中心となる変更は「fix(huggingface): correct forced tool choice and streaming token counts」(#42043)です。強制ツール選択の挙動と、ストリーミング中のトークン数の扱いが修正されたと説明されています。Hugging Face連携でこれらの機能を使う場面に関わる修正です。\n\n## テストの見直し\n\n今回のリリースでは、テスト面の変更が目立ちます。\n\npipeline のストリーミング出力を累積して扱うテストが追加・変更されました(#42039)。標準的なチャットのテストでは、Together の GPT-OSS を使う形になっています(#42035)。チャット系テストには、Novita のライブルーティングが使われるようになりました(#42033)。あわせて standard-tests も 1.2.0 としてリリースされています(#41996)。\n\n## モデルプロファイルと依存\n\n1.3.0 のリリース作業そのものは #41999 で行われました。\n\n周辺の更新としては、model-profiles のデータ更新が 4 件含まれています(#42013、#41955、#41917、#41861)。また、langchain が langgraph 1.2.16 以降を必須とする変更(#41959)や、tornado を 6.6 から 6.6.1 へ引き上げる依存関係の更新も入っています。",
+      "bodyEn": "langchain-huggingface 1.3.0 has been released, published on 2026-11-23. The release notes list a bug fix for forced tool choice and streaming token counts, plus test and maintenance changes, which matters to developers who use the Hugging Face integration.\n\n## Forced tool choice and streaming\n\nThe central change is a fix titled \"correct forced tool choice and streaming token counts\" (#42043). According to the release notes, it addresses two behaviors in the Hugging Face integration: how a forced tool choice is handled, and how token counts are reported during streaming. The notes give no further detail on what was wrong before or how the new behavior differs.\n\n## Changes since 1.2.3\n\nThe notes are framed as changes since langchain-huggingface 1.2.3. The release entry itself is \"release(huggingface): 1.3.0\" (#41999). A companion entry, \"release(standard-tests): 1.2.0\" (#41996), shows that the standard-tests package was versioned in the same period.\n\nSeveral entries concern testing:\n\nPipeline streaming tests now accumulate the streaming output (#42039).\nStandard chat coverage now uses Together's GPT-OSS (#42035).\nChat tests now use live Novita routing (#42033).\n\n## Model profile data and dependencies\n\nThe remaining items are maintenance chores. Model profile data was refreshed four times (#42013, #41955, #41917 and #41861). Another chore makes the langchain package require langgraph 1.2.16 or newer (#41959). A dependency bump also appears, moving tornado from 6.6 to 6.6.1.\n\nTaken together, the release centers on one behavioral fix for tool choice and streaming token counts. The other listed work covers how chat and streaming are tested, refreshed model profile data, and dependency updates.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "1.2.3から1.3.0で、強制したツール選択とストリーミング時のトークン数が直ったんだね。これって大きいこと？",
+          "en": "So 1.3.0 fixes forced tool choice and token counts while streaming. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "ストリーミング中のトークン数が正しく数えられるようになったのは実用面で効きそう。ただ影響の大きさまでは書かれていないので、信頼性を上げる修正と見ておくのが無難です。",
+          "en": "Token counts being right during streaming sounds practical. The notes don't say how big the impact is, so I'd read it as a reliability fix."
+        },
+        {
+          "s": "a",
+          "ja": "「ツール選択を強制する」って、どういうこと？",
+          "en": "What does \"forced tool choice\" actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、モデルに「このツールを必ず使って」と指定することです。その時の動きが今回の修正で正された、と記事にあります。",
+          "en": "Generally, it means telling the model \"you must use this tool.\" The release says its behavior in that situation was corrected."
+        },
+        {
+          "s": "a",
+          "ja": "Hugging Face連携でチャットアプリを作るなら、ストリーミングの数え方が正確なのは助かりそう！",
+          "en": "If I built a chat app with Hugging Face, accurate streaming counts would really help!"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。ただ変更履歴にはlangraph 1.2.16以上を求める更新もあるから、使う前に環境は確認したいところ。テストの見直しも含まれているよ。",
+          "en": "Right. The changelog also lists a requirement for langgraph 1.2.16 or newer, so check your setup first. Chat tests were reworked too."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T23:39:00.757Z"
+    },
+    "58d863c35ac8dd06": {
+      "bodyJa": "大規模言語モデル（LLM）は、同じ質問でもプロンプトの書式をわずかに変えるだけで出力が揺らぐことが知られている。この「書式感度」を数値化する指標として提案されたのが「Format Sensitivity Index（FSI）」であり、ベンチマーク評価の信頼性を問い直す研究として注目される。\n\n論文の中心的な主張は、LLMの性能評価が、モデルの本質的な能力だけでなく、プロンプトを包む「ラッパー」の形式に強く依存しているという点だ。ここでいうラッパーとは、質問本体を囲むテンプレート、区切り記号、改行や空白、JSONやマークダウンといった出力形式の指定など、トークンレベルの体裁を指す。同じ設問でもこれらを変えるとモデルの回答が変化する場合があり、その変動幅を定量化するのがFSIである。\n\n背景には、LLMベンチマークの再現性への懸念がある。近年、MMLUやHELMのような評価基盤が広く使われる一方で、プロンプトの書き方一つでスコアが上下し、モデル間の比較が公平でなくなる可能性が指摘されてきた。FSIは、ある評価結果がモデルの実力を反映しているのか、それとも特定の書式に最適化された結果なのかを切り分ける手がかりを与えると見られる。\n\n特に企業利用の文脈では、この問題は実務的な意味を持つ。LLMを業務システムに組み込む際、出力が決まったスキーマ（データ構造）に従うことは前提条件となる。書式感度が高いモデルは、わずかな入力変更でスキーマ準拠が崩れ、後続処理でエラーを引き起こす恐れがある。FSIのような指標は、堅牢性を事前に見極める材料として役立つ可能性がある。\n\nこうした関心は本研究に限らない。構造化出力を保証する仕組みとしては、OpenAIのStructured OutputsやオープンソースのGuidance、Outlines、あるいは文法制約付きデコードといった手法が登場しており、書式の安定化は業界全体の課題となっている。FSIはこれらを補完し、モデルそのものの安定性を測る評価軸として位置づけられる。\n\nもっとも、単一の指標がすべての利用場面を代表できるわけではなく、タスクや言語、評価データの選び方によって結果は変わり得る。プロンプト設計と評価手法の標準化はなお発展途上であり、FSIはその議論を前進させる一つの提案と受け止められる。",
+      "bodyEn": "Large language models are increasingly evaluated and deployed on the assumption that a benchmark score reflects a stable underlying capability. A new paper posted to arXiv challenges that assumption by introducing the Format Sensitivity Index, or FSI, a metric designed to quantify how much a model's outputs shift when the surrounding prompt structure is altered without changing the substantive task. The work matters because if a model's answers swing depending on superficial formatting choices, the reliability of comparative benchmarks and the trustworthiness of production deployments both come into question.\n\nAt the center of the paper is the notion of a prompt wrapper: the scaffolding of instructions, delimiters, role tags, system messages, and formatting tokens that surround the actual question or task. In practice, two evaluators can pose the same logical query while wrapping it very differently, for example by using JSON braces versus XML tags, by changing whitespace and separators, or by reordering instruction blocks. The authors argue that these token-level variations are largely semantic no-ops for a human reader, yet they can meaningfully perturb model behavior. FSI is proposed as a way to put a number on that instability, allowing researchers to compare how robust different models are to the same set of wrapper perturbations.\n\nMethodologically, the index appears to work by holding the task content fixed while systematically applying a family of format transformations, then measuring the divergence in outputs across those variants. The paper emphasizes two related but distinct concerns. The first is answer stability, meaning whether the model reaches the same conclusion regardless of packaging. The second is schema compliance, meaning whether the model reliably returns output in the requested structure, such as valid JSON conforming to a specified schema. A model might remain correct on the underlying answer while still failing to honor the demanded format, or it might produce well-formed structure whose content drifts under reformatting. Separating these dimensions is useful because enterprise pipelines often depend as much on parseable, schema-valid output as on the answer itself.\n\nThe framing connects to a broader industry conversation about structured generation. Providers have introduced features such as JSON mode, function or tool calling, and constrained decoding to force outputs into predictable shapes, and open-source libraries built around grammar-constrained sampling pursue the same goal. Those mechanisms reduce format failures at generation time, but they do not necessarily address the deeper sensitivity the paper targets, namely that the model's reasoning or chosen answer can shift with the wrapper even when the output shape is guaranteed. FSI is positioned as a diagnostic that sits upstream of these tools, characterizing sensitivity rather than merely suppressing its visible symptoms.\n\nThe findings, as summarized, highlight reliability gaps in current benchmarking practices. If leaderboard rankings can be nudged by prompt formatting alone, then small differences between models may reflect evaluation artifacts rather than genuine capability. This echoes earlier research showing that few-shot example ordering, delimiter choices, and prompt phrasing can substantially move measured accuracy. The contribution here is less the discovery that sensitivity exists and more the attempt to standardize its measurement so that robustness can be reported alongside raw performance.\n\nFor enterprises, the practical implication is that a model performing well on a public benchmark may still behave inconsistently once integrated behind an application's specific prompt template. Teams building retrieval-augmented systems, agents, or automated data extraction increasingly rely on stable, schema-conformant responses, and an unstable model can introduce silent failures that are hard to detect without deliberate stress testing. A metric like FSI could, in principle, inform model selection, regression testing, and prompt hardening.\n\nAs with any single-paper proposal, several caveats are warranted. The value of the index depends on how representative its chosen perturbation set is, on the models and tasks evaluated, and on whether the community adopts consistent measurement conventions. It is also likely that some sensitivity is unavoidable given how models are trained on heterogeneous formatting. Independent replication and broader benchmarking across model families would help establish whether FSI becomes a durable evaluation standard or one of several competing robustness measures now emerging in the literature.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T17:23:12.178Z"
+    },
+    "c24c1813ff02815b": {
+      "bodyJa": "## 30日間の併用\n\n著者はClaude CodeとCursorを30日間、あらゆる開発タスクで併用した。結論は両方を使うことが最適で、タスクごとの起動判断によって生産性は2倍変わると説明している。\n\n## タスク別ベンチマーク\n\n比較では、タスク種別ごとに速度・精度・コストを計測し、両ツールの得意領域を整理した。さらに、状況に応じて選択するための判断フローチャートをまとめ、開発効率の最大化につなげる内容となっている。",
+      "bodyEn": "## Claude Code and Cursor\n\nA developer reports on 30 days of using Claude Code and Cursor side by side. The comparison matters because, according to the source, productivity can differ by a factor of two depending on which tool is used for a given task.\n\n## Task-specific benchmarks\n\nThe author ran a range of development tasks with both tools and measured speed, accuracy, and cost. The article presents task-specific benchmarks alongside a decision flowchart intended to help teams choose between Claude Code and Cursor for each situation. Its conclusion is that using both is the optimal approach, provided developers understand their respective strengths and decide which one to launch based on the task.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T20:48:30.591Z"
+    },
+    "1b5e38dba026d158": {
+      "bodyJa": "## DOM要素なし\n\nFlutter WebやcanvasでUIを描画するアプリでは、通常のHTMLページを対象とした要素ベースのAI操作が通用しない。本記事は、スクリーンショットと画面座標だけを使い、MCP経由でAIにこうしたUIを操作させる手順を扱っている。\n\n## canvas描画\n\n画面上にボタンやパネルが見えていても、それらはDOM要素ではなく、1枚のcanvas上に描かれたピクセルにすぎない。そのため、findで対象を探しても何も返らず、read_pageで取得するアクセシビリティツリーも実質的に空になる。\n\n## 座標で操作\n\n要素を特定できない環境では、スクリーンショットから操作対象の位置を読み取り、その座標情報を用いてAIエージェントにUIを操作させる。記事では、Flutter製のアニメーション制作ツールであるRiveエディタを対象に、この座標ベースの方法を具体化している。",
+      "bodyEn": "## Flutter and canvas-based apps\n\nFlutter Web and canvas-based applications expose no DOM elements, so conventional element-based AI automation does not work. This matters because controls that are visible on screen cannot be located or read through the methods used for ordinary HTML pages.\n\nButtons and panels in these interfaces are not represented as individual DOM elements. Instead, the interface is drawn as pixels on a single canvas. As a result, find returns nothing, while the accessibility tree exposed through read_page is effectively empty. The element-based approach described as the most reliable option for standard HTML pages is therefore fundamentally unavailable.\n\n## Screenshots and screen coordinates\n\nThe article explains a practical alternative that uses only screenshots and screen-coordinate information. Through MCP, an AI agent can operate the interface by interpreting what is visible in a screenshot and targeting controls according to their coordinates.\n\nThis coordinate-based procedure is presented for interfaces such as the Rive editor, an animation-production tool built with Flutter. It replaces DOM-based targeting with direct interaction at specific positions on the rendered interface.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T20:48:57.172Z"
     }
   }
 }

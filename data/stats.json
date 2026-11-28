@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-27T23:31:02.920Z",
+  "generatedAt": "2026-11-28T00:31:02.668Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
     "allTime": 8340,
-    "last30d": 111,
+    "last30d": 110,
     "last7d": 44,
     "last24h": 4
   },
@@ -1241,7 +1241,7 @@
     {
       "source": "huggingface-blog",
       "total": 435,
-      "last30d": 1
+      "last30d": 0
     },
     {
       "source": "github-changelog",
@@ -1409,11 +1409,6 @@
       "last30d": 3
     },
     {
-      "source": "github-copilot",
-      "total": 44,
-      "last30d": 3
-    },
-    {
       "source": "aws-news",
       "total": 41,
       "last30d": 2
@@ -1422,6 +1417,11 @@
       "source": "vscode-updates",
       "total": 40,
       "last30d": 4
+    },
+    {
+      "source": "github-copilot",
+      "total": 36,
+      "last30d": 0
     },
     {
       "source": "meta-newsroom",
@@ -1454,6 +1454,11 @@
       "last30d": 2
     },
     {
+      "source": "github-blog-ai",
+      "total": 27,
+      "last30d": 3
+    },
+    {
       "source": "youtube-anthropic",
       "total": 26,
       "last30d": 2
@@ -1467,11 +1472,6 @@
       "source": "mcp-servers-releases",
       "total": 24,
       "last30d": 4
-    },
-    {
-      "source": "github-blog-ai",
-      "total": 19,
-      "last30d": 0
     },
     {
       "source": "microsoft-research",
@@ -1516,7 +1516,7 @@
   ],
   "byImportance": {
     "1": 4628,
-    "2": 3346,
-    "3": 366
+    "2": 3345,
+    "3": 367
   }
 }

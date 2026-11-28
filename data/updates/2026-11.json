@@ -461,6 +461,37 @@
       ],
       "category": "mcp",
       "importance": 3
+    },
+    {
+      "sequence": 31,
+      "observedAt": "2026-11-28T00:31:02.668Z",
+      "sourceKey": "github.com/modelcontextprotocol/servers/releases/tag/v2.6.0",
+      "topicKey": null,
+      "siteUrl": "https://techdb.studio344.net/e/f4f9b282db67ac6e/",
+      "id": "f4f9b282db67ac6e",
+      "publicationHold": true,
+      "source": "mcp-servers-releases",
+      "sourceType": "release",
+      "url": "https://github.com/modelcontextprotocol/servers/releases/tag/v2.6.0",
+      "title": "MCP Servers Releases v2.6.0",
+      "titleJa": "MCP Servers リリース v2.6.0",
+      "titleEn": "MCP Servers Releases v2.6.0",
+      "summaryJa": "MCP Servers v2.6.0 は3つのサーバーで8件の脆弱性を修正し、v2.5.0で不完全だった2件の対応も完了させました。git、memory、fetch の各サーバーと Windows 版 filesystem の利用者は、早めの更新が必要です。",
+      "summaryEn": "MCP Servers v2.6.0 patches eight vulnerabilities across three servers and finishes two fixes left incomplete in v2.5.0. Users of the git, memory, fetch and Windows filesystem servers should upgrade promptly.",
+      "lang": "en",
+      "publishedAt": "2026-11-27T09:58:10.000Z",
+      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "tags": [
+        "git-lfs",
+        "mcp",
+        "mcp-server",
+        "release",
+        "security-fix",
+        "vulnerability",
+        "windows"
+      ],
+      "category": "mcp",
+      "importance": 3
     }
   ]
 }

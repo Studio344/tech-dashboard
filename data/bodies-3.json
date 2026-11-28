@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T11:23:39.273Z",
-  "count": 427,
+  "generatedAt": "2026-11-28T12:30:48.855Z",
+  "count": 429,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -12680,7 +12680,39 @@
       "bodyJa": "MCP（Model Context Protocol）は、AIエージェントが外部ツールやデータソースへ標準化された方法で接続するための仕組みとして急速に広がっている。しかし普及に伴ってMCPサーバーの数が増え、エージェントに「どのサーバーの、どのツールを使うべきか」を把握させるコストが無視できなくなってきた。今回取り上げる記事は、この課題に対して必要なツールを動的に発見する「Agentic Resource Discovery（ARD）」という仕組みを解説している。\n\n従来の構成では、利用可能なMCPサーバーとツール定義をあらかじめすべてエージェントに読み込ませることが多い。ツールが数個であれば問題ないが、数十から数百に膨らむと、ツール定義がコンテキストウィンドウを圧迫し、選択の精度が下がるという弊害が生じやすい。似た名前や機能のツールが並ぶと、エージェントが誤ったツールを呼び出す可能性も高まる。\n\nARDの発想はシンプルで、すべてのツールを常時ロードするのではなく、タスクに応じて「今必要なツールを探しに行く」段階を挟む点にある。エージェントはまず要求内容を解釈し、レジストリやインデックスに対して関連するMCPサーバーやツールを検索し、絞り込んだうえで実際に呼び出す。検索そのものをエージェント的な判断で行うため、Agenticという語が冠されている。\n\n実装面では、各ツールのメタデータ（説明文、入出力、用途など）を検索可能な形で登録しておき、意味的な近さで候補を返す仕組みが軸になる。記事ではこうしたディスカバリ層を設ける具体的な方法と、設定の手間を減らしつつツールの発見性を高められるといった導入メリットが示されている。\n\nこの方向性はMCP単体の話にとどまらない。ツールが増えすぎる問題は、関数呼び出しやプラグインを扱う多くのエージェント基盤に共通しており、ツールのルーティングや動的選択を担うライブラリ、レジストリ的なサービスの整備も各所で進みつつある。ARDはそうした流れの一つと位置づけられ、今後MCPエコシステムが拡大するほど有用性が増すと見られる。一方で、検索層の精度やレイテンシ、登録メタデータの品質管理といった新たな運用課題も生まれるため、規模や用途に応じた設計判断が求められる。",
       "bodyEn": "As AI agents increasingly rely on the Model Context Protocol (MCP) to reach external tools and data, the number of MCP servers a single agent can connect to is growing quickly. Agentic Resource Discovery (ARD) is a mechanism designed to address a problem that emerges from that growth: how an agent can find and use the right tools among a sprawling collection of servers without loading everything up front. The idea matters because unchecked server proliferation tends to increase configuration overhead, inflate token usage, and make agents less reliable at choosing the correct tool.\n\nMCP, introduced by Anthropic and now supported across a range of clients including GitHub Copilot, standardizes how AI applications connect to tools, files, and services. Each MCP server exposes a set of capabilities, and a client typically registers those tools so the model can call them. This works well when an agent talks to a handful of servers. As teams add servers for code search, issue tracking, databases, documentation, cloud APIs, and more, the traditional approach of statically declaring every tool starts to break down.\n\nThe core issue is that most current setups preload all tool definitions into the model's context. When there are dozens or hundreds of tools, this consumes a large share of the context window before any real work begins, raises cost, and can degrade decision quality because the model must reason over many similar or overlapping options. In practice this often shows up as the agent selecting the wrong tool, or as maintainers manually curating which servers are enabled per project to keep the list manageable.\n\nARD reframes discovery as a dynamic step rather than a static registration. Instead of exposing every tool at all times, the agent queries a discovery layer at runtime to locate resources relevant to the current task. Conceptually, the agent describes what it needs, the discovery mechanism returns a shortlist of candidate servers or tools, and only those are brought into context for the immediate operation. This keeps the working set small and focused, and it allows new servers to be added to the pool without every agent having to be reconfigured.\n\nOn the implementation side, the article describes wiring an agent to a catalog or index of available MCP servers and their capabilities, then having the agent perform a lookup before acting. This lookup can be based on descriptions, metadata, or semantic matching between the task and each server's advertised functions. Because MCP already defines a way for servers to describe their tools, ARD can build on that metadata rather than requiring a new protocol. The pattern appears intended to sit alongside existing MCP infrastructure rather than replace it, acting as a routing or retrieval step in front of tool invocation.\n\nThe stated benefits are reduced configuration overhead and improved tool discoverability. By not hardcoding every server into each agent, teams can maintain a shared registry and let agents pull in what they need. Smaller active tool sets are likely to lower token consumption and may improve the accuracy of tool selection, since the model reasons over fewer, more relevant options at any moment. This also makes scaling more graceful: adding a new capability becomes a matter of registering another server rather than editing many client configurations.\n\nIt is worth placing ARD in a broader context. The pattern resembles retrieval-augmented generation applied to tools instead of documents, and it echoes techniques such as dynamic tool selection and tool retrieval that several agent frameworks have begun exploring. Related industry efforts include MCP server registries and marketplaces, gateway or proxy layers that aggregate multiple servers, and permissioning systems that gate which tools an agent may call. These adjacent moves suggest the ecosystem is converging on the view that static tool lists do not scale.\n\nReaders should treat ARD as an emerging design pattern rather than a finalized standard. Details such as how discovery is indexed, how relevance is scored, and how security and access control are enforced will likely vary by implementation, and trade-offs around latency and reliability remain to be validated as adoption grows.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:57:57.841Z"
+      "generatedAt": "2026-08-30T16:57:57.841Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ARDって、ツールを探してくれる仕組みなんだよね？でも別の問い合わせだと見つからないこともあるの？",
+          "en": "So ARD helps find tools, right? But sometimes a different query won't turn anything up?"
+        },
+        {
+          "s": "b",
+          "ja": "そうなんだ。この記事では、結果は検索するRegistry、その収録内容、各ツールが公開するメタデータで変わると書かれているよ。",
+          "en": "Right. The article says results depend on which Registry you search, what it holds, and what metadata each tool publishes."
+        },
+        {
+          "s": "a",
+          "ja": "ツールが何十、何百って増えたとき、全部の説明をLLMに渡して選ばせるのが大変になる、ってことかな？",
+          "en": "So when tools grow to dozens or hundreds, handing every description to the LLM to pick from gets hard?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、説明だけでコンテキストを使ってしまうとあるよ。ARDは接続前に候補を検索して返す層で、接続や実行の方法は決めないんだ。",
+          "en": "The article says descriptions alone eat up context. ARD is a layer that searches and returns candidates before connecting; it doesn't define how to connect or run."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、ARDは探すところだけ担当して、つなぐのはMCPみたいに別の仕組みなんだね。魔法じゃないんだ。",
+          "en": "So ARD only handles the finding, and connecting is left to something like MCP. Not magic, then."
+        },
+        {
+          "s": "b",
+          "ja": "その通り。何が見つかるかは、どのRegistryを検索するかと、そこに載っているメタデータ次第という点は覚えておきたいね。",
+          "en": "Exactly. What you find depends on which Registry you search and the metadata listed there. Worth keeping in mind."
+        }
+      ]
     },
     "21f5bd52f96ef902": {
       "bodyJa": "## 1.42.0公開\n\nMicrosoftのAIオーケストレーションライブラリ「Semantic Kernel」のPython版1.42.0が、2026年5月14日に公開された。READMEへの案内追加、複数の依存関係の更新、各種バグ修正を含む定常リリースとされている。\n\n## README更新\n\nドキュメント面では、READMEにMicrosoft Agent Frameworkを後継として案内する記述が追加された。変更一覧では、この対応はEvan Mattson氏によるものとして示されている。今回の更新内容として確認できるのは後継への案内追加であり、移行方法などの詳細は抜粋には記載されていない。\n\n## 依存関係更新\n\n依存関係では、authlibが1.6.9から1.6.11へ、onnxruntimeが1.22.1から1.24.3へ更新された。nbconvertは7.17.0から7.17.1、python-multipartは0.0.22から0.0.26、google-cloud-aiplatformは1.114.0から1.133.0へ引き上げられている。これらはDependabotによる変更として掲載された。\n\n## boto3要件\n\nboto3の要件範囲も変更された。従来の1.36.4以上1.41.0未満から、1.36.4以上1.43.0未満へと上限が広げられている。この変更もDependabotによるものとされる。1.42.0全体としては、こうしたPython側の依存更新に加え、各種バグ修正を含むリリースとしてまとめられている。",
@@ -13886,158 +13918,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T05:38:58.374Z"
     },
-    "b2937bbd676220f2": {
-      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
-      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
-          "en": "If my team wants to modernize an app, how does the usual way of working change?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
-          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
-        },
-        {
-          "s": "a",
-          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
-          "en": "So people used to start by picking a framework? And what is that evidence for?"
-        },
-        {
-          "s": "b",
-          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
-          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
-          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
-        },
-        {
-          "s": "b",
-          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
-          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-27T21:40:18.238Z"
-    },
-    "9bf242a7c3461006": {
-      "bodyJa": "GitHub Copilotのブログは、エージェントスキルを「繰り返し作業の手順を再利用可能にする仕組み」として紹介している。同じ説明をエージェントに何度もする手間や、特定の人の頭の中にだけあるノウハウを残す手段として位置づけられている。\n\n## 同じ説明の繰り返し\n\nブログはまず、今週同じタスクをエージェントに何度説明し直したか、組織の事情に詳しい同僚に特定の問題の解き方を何度尋ねたか、と問いかける。こうした文脈はチャットの中に埋もれたり、一人の頭の中に閉じ込められたりするべきではない、というのが出発点だ。\n\nエージェントスキルは、繰り返し行う作業の指示を記録しておき、自分もエージェントも再利用できるようにするものと説明されている。\n\n## SKILL.mdを軸にした構造\n\nエージェントスキルの実体は、SKILL.mdというファイルを中心に置いた、バージョン管理されるディレクトリである。SKILL.mdには、繰り返し行う作業を「いつ」「どのように」行うのかが記述される。\n\n指示そのものはファイルとして書き残されるため、複数のエージェント間で共有できる。ディレクトリ単位でバージョンを管理できる点も、手順を資産として扱ううえでの特徴だ。\n\n## 権限は付与されない\n\n共有できるのは指示だけで、実行に必要なものは別に用意しなければならない。ブログによれば、ツール、認証情報、権限は実行環境が提供する必要がある。\n\n例として挙げられているのがデータベースだ。スキルにはデータベースへのクエリの方法を記述できるが、そのデータベースへのアクセス権を与えるわけではない。スキルは手順書であり、手順を実行する力は環境側にある、という切り分けである。\n\n## 個人からチームへ\n\nブログは、今夜自分のために書いたスキルが、後にチームのパイプラインの一部になりうると述べている。個人の工夫として始めた手順を、同じ形式のまま共有の資産へ広げられるという見方だ。\n\n個人の経験則をチームで使える形にしたい開発者にとって、スキルは手順を残して共有するための出発点になる。ただし、共有先のエージェントが実際に動くかどうかは、そこで使えるツールや認証、権限が整っているかにも左右される。",
-      "bodyEn": "Agent skills are the subject of a GitHub Copilot blog guide, which argues that developers should not keep re-explaining the same task to an agent. The guide's framing is that this context should not be lost in a chat or locked in one person's head.\n\n## Repeatable instructions, captured\n\nThe guide begins with two questions. How many times this week did you re-explain the same task to an agent? How many times did you ask a colleague with deep institutional knowledge how to solve a specific problem? According to the source, agent skills let you capture repeatable instructions so that you and your agents can reuse them.\n\nThe source also describes a path from personal use to shared use. A skill you write for yourself tonight can later become part of a team's pipeline.\n\n## A directory built around SKILL.md\n\nThe guide defines an agent skill as a versioned directory centered on a SKILL.md file. That file describes when and how to do a repeatable task. Because the skill is a versioned directory, the instructions have a defined, trackable form rather than living only in conversation history.\n\nThe guide says these instructions can be shared across agents. This matches the promise in its title: build a skill once, and it works with any agent.\n\n## Tools, credentials, and permissions\n\nThe guide also states a limit. Sharing instructions across agents does not mean the agents can carry them out on their own. The environment still has to provide the tools, credentials, and permissions needed to do the work.\n\nThe source gives a concrete example. A skill can describe how to query a database, but it does not grant access to that database. The skill covers the when and how of a task, and access remains a matter for the environment in which the agent runs.\n\n## Turning know-how into team assets\n\nThe guide is aimed at developers who want to turn personal know-how into something a team can reuse. The skill is the vehicle for that: written down once, kept in a versioned directory, and usable by more than one agent, provided the runtime supplies the access the task requires.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "同じ作業を何度もエージェントに説明し直すって、この記事の最初の問いかけにドキッとしたよ。スキルがあると、それが減るの？",
-          "en": "That opening question about re-explaining the same task to an agent hit home. Do skills actually cut that down?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、繰り返す作業の手順を残して、自分もエージェントも再利用できるようにするのがスキルの狙いだよ。チャットや個人の頭の中に埋もれさせないんだ。",
-          "en": "That's the idea in this piece: capture the steps of a repeatable task so you and your agents can reuse them, instead of losing them in a chat or one person's head."
-        },
-        {
-          "s": "a",
-          "ja": "SKILL.mdを軸にしたバージョン管理できるディレクトリって、どういうこと？",
-          "en": "What does \"a versioned directory centered on SKILL.md\" mean?"
-        },
-        {
-          "s": "b",
-          "ja": "SKILL.mdに「いつ、どうやるか」を書いて、そのフォルダごと履歴を管理する感じかな。バージョン管理は、変更の記録を残せる仕組みくらいの意味だよ。",
-          "en": "Roughly, SKILL.md says when and how to do a task, and the whole folder is tracked over time. Versioning just means changes get recorded."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあデータベースの調べ方をスキルに書けば、エージェントがそのまま調べてくれる？",
-          "en": "So if I write down how to query our database in a skill, will the agent just go and do it?"
-        },
-        {
-          "s": "b",
-          "ja": "そこは注意で、記事だとスキルは手順を説明するだけで、アクセス権までは与えないよ。ツールや認証、権限は実行環境側で用意する必要があるんだ。",
-          "en": "Careful there. This article says a skill describes the steps but doesn't grant access. The environment still has to supply the tools, credentials, and permissions."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T05:38:07.424Z"
-    },
-    "df55124286315754": {
-      "bodyJa": "## 1週間で12億コミット\n\nGitHub Copilotのブログは、コード生成の先にあるエージェント型エンジニアリングを取り上げ、実装が速くなった後の開発者の仕事をどう進めるかを論じている。\n\n同ブログによると、この10月にGitHubでは1週間で12億件を超えるコミットが記録された。1年前と比べて400%超の増加で、2025年の1年間に受け取ったコミット数より多いという。\n\n## 生産性は400%上がったか\n\nコードを生成する量は、1年前より増えている可能性が高い。ただし著者は、自分が400%生産的になったと感じるかどうかを読者に問いかける。ソフトウェア開発は優れたプロンプトだけで成り立つものではない、という立場である。\n\n## レビュー時間441%増\n\nAIが実装を加速させる一方で、負荷は別の場所にかかっている。Faros AIの調査では、AIの導入度合いが低い状態から高い状態に移ったチームで、プルリクエストがレビューに費やす時間が441%長くなったと紹介されている。\n\n## 4つの工程\n\n開発者の仕事は、要件を集めて実装の舵を取ること、変更をレビューしてテスト結果を評価すること、そして本番環境で起きていることを調べることに及ぶ。エージェントは、こうした一連の作業をPlan、Build、Verify、Observeの4つの段階で効率化する助けになるとされている。",
-      "bodyEn": "## Beyond Code Generation\n\nGitHub Copilot's guide to agentic engineering starts from a question about productivity. It matters because faster code generation does not by itself make software development proportionally faster. According to the source, GitHub saw more than 1.2 billion commits in a single week this October, over 400% more than a year earlier. The source adds that this is more commits than GitHub received in all of 2025.\n\n## Pressure Moves Downstream\n\nThe source asks whether developers feel 400% more productive than last year. Its answer is that building software takes more than a good prompt. As AI speeds up implementation, the source says, developers feel more pressure in other places. It cites a Faros AI study finding that pull requests spent 441% longer in review when teams went from low to high AI adoption.\n\nThis is the central tension the guide addresses. More code is being produced, but review time grew sharply as teams adopted AI more heavily. The work that surrounds implementation has not shrunk to match.\n\n## Plan, Build, Verify, Observe\n\nThe source describes a developer's job as broader than writing code. Developers gather requirements and steer implementation, review changes and evaluate test results, and then investigate what happens in production. The guide's argument is that agents can help across all of these stages, which it names Plan, Build, Verify, and Observe.\n\nMapped onto that description, the stages line up roughly as follows. Plan and Build cover gathering requirements and steering implementation. Verify covers reviewing changes and evaluating test results. Observe covers investigating what happens in production. The framing treats code generation as one part of a larger cycle rather than the whole of the work.\n\n## What This Means for Developers\n\nThe guide is positioned as an introduction to agentic engineering for developers, aimed at managing work beyond code generation. Its premise is that the areas feeling the strain, such as review, are where agents can also be applied, not only at the point where code is written. The material provided here covers this framing and the figures behind it. It does not detail specific workflows, features, or instructions for each stage.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIでコードをたくさん書けるようになったら、普段の仕事って何が変わるの？",
-          "en": "If AI helps us write so much more code, what actually changes in everyday work?"
-        },
-        {
-          "s": "b",
-          "ja": "書く速さが上がる分、レビューなど他の工程に負担が寄るみたい。この記事はPlan・Build・Verify・Observeの4段階で考えているよ。",
-          "en": "Writing gets faster, but the pressure seems to shift to other stages like review. This article frames it as four stages: Plan, Build, Verify, and Observe."
-        },
-        {
-          "s": "a",
-          "ja": "前は、コード生成だけで困らなかったのかな？比べて何が違うの？",
-          "en": "Was code generation alone fine before? What's different now?"
-        },
-        {
-          "s": "b",
-          "ja": "以前どうだったかまでは書かれていないんだ。ただ、AI導入が低から高になるとレビュー時間が441%長くなった調査が紹介されているよ。",
-          "en": "The article doesn't say how things were before. It does cite a study where review time rose 441% when teams moved from low to high AI adoption."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ収穫は、コードが増えても、同じだけ楽になるとは限らないってことだね。",
-          "en": "So my takeaway: more code doesn't automatically mean the same jump in productivity, right?"
-        },
-        {
-          "s": "b",
-          "ja": "記事もそこを問いかけているね。次は、検証や本番の観察でエージェントがどう助けになるか、に注目したいな。",
-          "en": "The article raises that very question. Next, I'd watch how agents can help with verification and with observing what happens in production."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T01:41:04.647Z"
-    },
-    "5cb4ed49cbdddf72": {
-      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
-      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
-          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
-        },
-        {
-          "s": "b",
-          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
-          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
-        },
-        {
-          "s": "a",
-          "ja": "シークレットって、秘密のコードってこと？",
-          "en": "Does “secret” mean secret code?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
-          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
-          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
-          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T20:07:43.460Z"
-    },
     "275e1e2cffee0970": {
       "bodyJa": "Model Context Protocol(MCP)が公開から2年を迎え、GitHubには延べ2,500人を超えるコントリビューターが参加した。開発チームはこの節目に、MCPの構築に関わった人々と、MCPを使って開発している人々を称える記事を公開している。\n\n## 2周年を迎えたMCP\n\nMCPが公開されたのは2024年11月で、今週で2年になる。開発チームは自らを「小さなオープンソースプロジェクト」と呼び、この機会に、MCPの形づくりを手伝った人々と、MCPを使って開発しているすべての人々を祝いたいとしている。\n\n公開当初は、コミュニティがこれほど創造的で野心的になることも、これほど多くの人が参加して今の姿に育ててくれることも想像していなかったと振り返っている。\n\n## 初日から集まった開発者\n\n開発者は、プロジェクトがGitHubに公開された最初の日から参加し始めたという。それ以来、ユニークなコントリビューターは2,500人を超えたと説明されている。この数字は、公開初日から続いてきた参加の積み重ねとして示されている。\n\n記事の最初の節は「Open from the start(最初からオープン)」という見出しで始まっている。\n\n## 3年目に向けた振り返り\n\n記事は、3年目に入るにあたり、2024年11月以降のハイライトを振り返る価値があるとして話を進めている。\n\n冒頭には「2024年11月から2026年11月までのMCPのマイルストーンと仕様リリース」と題した図が置かれている。2年間の歩みを、コミュニティの貢献とあわせてたどるための資料として位置づけられている。",
       "bodyEn": "The Model Context Protocol (MCP), an open-source project, turns two years old this week, according to the project's own blog. The anniversary matters because the post uses it to credit the people who helped build MCP and everyone building with it.\n\n## Two years old\n\nThe post calls MCP \"our little open-source project\" and presents the birthday as a chance to celebrate its community. The authors say they could not have imagined how creative and ambitious that community would become when MCP first launched. They also say they did not foresee how many people would jump in to help make the project what it is today.\n\n## Open from the start\n\nAccording to the post, developers have been showing up since the very first day the project landed on GitHub. It reports that more than 2,500 unique contributors have taken part since then. The post places the launch in November 2024, which it calls a \"fateful\" month, and treats that early and continuous participation as central to how MCP has developed.\n\n## Milestones and spec releases\n\nThe post frames itself as a look back at highlights since that November of 2024. It includes a graphic titled \"MCP milestones and spec releases from November 2024 to November 2026,\" which indicates the retrospective covers the full two-year span and includes releases of the specification alongside other community milestones.\n\n## Heading into year three\n\nAs the project moves into its third year, the authors say it is worth pausing to review the path so far. The recap is written as a thank-you to contributors and to the wider group of developers building with MCP. For readers following the project, the main figures it offers are its two-year age and the more than 2,500 unique contributors who have worked on it through GitHub.",
@@ -14787,6 +14667,202 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T10:31:44.883Z"
+    },
+    "e781aae55ec024a5": {
+      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
+      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
+          "en": "If my team wants to modernize an app, how does the usual way of working change?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
+          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
+        },
+        {
+          "s": "a",
+          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
+          "en": "So people used to start by picking a framework? And what is that evidence for?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
+          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
+          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
+          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:40:18.238Z"
+    },
+    "d8fd57a6144d1d56": {
+      "bodyJa": "## 課金基準改定の影響\n\nAIエージェントの利用量が急増するなか、著者の現場ではGitHub Copilotの課金基準改定が大きな影響を与えたという。従来は重いタスクや大量の情報を投げても1リクエストの料金が変わらなかったが、改定後はトークン量、つまりAIへの入力と出力の情報量に応じた課金に変わった。\n\nこの変更に対応するには、AIに余計な情報を渡さないことが重要だと著者は述べている。送る情報が増えるほど費用がかかるためだ。\n\n## 約5万トークンの削減\n\n著者は自身が関わるプロジェクトでこの観点に沿った改善を行い、1回のリクエストあたり約5万トークン（日本語の概算で5.3万文字）を削減できたと報告している。タスクによってはクレジットの消費量が半減したとされる。\n\n改善の要となったのは、MCPサーバーとスキル(SKILL)の構成の見直しだ。不要なツールを整理する棚卸しによって、トークン消費を抑えられることが示されている。\n\n## AIはステートレス\n\n記事はまず前提として、AIがステートレス、つまり記憶を持たない点を押さえている。人間は経験を蓄積し続けるが、AIは毎回きれいに忘れるという説明だ。\n\nそれでも会話が成立したり、特定の人格を演じたり、個人に合わせた返答ができたりするのは、毎回の入力に補足情報が付け加えられているからだと説明されている。記事の例では、「太郎は散歩が好き」「あなたは太郎の友達の涼子20歳です」といった設定や、それまでのやり取りが、発言のたびに添えられている。この補足情報によって、AIはあたかも会話内容や個人情報を覚えているかのように振る舞えるという。\n\n## MCPサーバーとの関係\n\n続いて記事は、AIと外部システムを連携させる際にMCPサーバーが使われることがある、という話に進む。補足情報が毎回の入力に加わり、それが課金の対象になるという流れを踏まえると、MCPやスキルの構成が入力量に関わる点が見直しの焦点になるとわかる。\n\n具体的な棚卸しの手順や詳細は、この続きで解説される構成になっている。",
+      "bodyEn": "## Rising AI usage and billing\n\nThe author describes a sharp recent rise in AI usage, and says the biggest impact in their workplace came from a change to GitHub Copilot's billing criteria. Previously, a request cost the same no matter how heavy the task or how much information was sent. According to the post, that was apparently not sustainable, and billing moved to a scheme based on token volume, meaning the amount of input sent to the AI and the output it returns.\n\nBecause cost now grows with every token sent, the author argues that the key to coping is not sending unnecessary information to the AI.\n\n## Roughly 50,000 tokens saved\n\nIn a project the author is involved in, they carried out improvements built on that idea. The reported result is a reduction of about 50,000 tokens per request, which the author estimates at about 53,000 Japanese characters. They say the effect is large: for some tasks, credit consumption has been cut in half. The author names MCP and SKILL as the main points of the effort, and the article is meant to explain the details.\n\n## The AI is stateless\n\nThe post starts from a basic premise: AI is stateless and has no memory. Where a human accumulates experience, the AI forgets everything each time. The author explains that conversation, persona emulation, and personalized replies work because supplementary information is attached to each message.\n\nAs an illustration, the author shows a dialogue between Taro and an AI playing Ryoko, a 20-year-old friend. Each message carries added context, such as the fact that Taro likes walking, the earlier exchange, and the instruction about who the AI is. With this attached information, the AI can behave as if it remembered the conversation and personal details. The author points to another Zenn article for reference.\n\n## MCP servers as a link to external systems\n\nThe author then turns to MCP servers, which are sometimes used when connecting AI with external systems. The material establishes this as the starting point for the audit of MCP and skill configurations, aimed at lowering the amount of information sent with each request and therefore the cost. The key takeaway offered is that reviewing and pruning unneeded tools can reduce token consumption.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "1リクエストで約5万トークンも減ったんだって。これって大きいこと？",
+          "en": "They cut about 50,000 tokens per request. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "日本語で約5.3万文字ぶんだよ。今は量に応じた課金だから、タスクによってはクレジット消費が半減したと書かれてるね。",
+          "en": "That's roughly 53,000 Japanese characters. Billing now follows token volume, so for some tasks the credit use reportedly dropped by half."
+        },
+        {
+          "s": "a",
+          "ja": "ステートレスって何？記憶がないのに、なんで会話が続くの？",
+          "en": "What does stateless mean? If the AI has no memory, how does a conversation keep going?"
+        },
+        {
+          "s": "b",
+          "ja": "AIは毎回まっさらで、会話の流れや設定を補足情報として一緒に送ってるんだ。だから覚えているように見えるんだよ。",
+          "en": "The AI starts fresh every time, so the chat history and settings are sent along as extra info. That's why it seems to remember."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ私なら、使ってないMCPやスキルを見直して、送る情報を減らすかな？",
+          "en": "So if it were me, I'd check which MCP servers and skills I don't use and send less. Does that fit?"
+        },
+        {
+          "s": "b",
+          "ja": "いい方向だと思うよ。この記事でも余計な情報を投げないのが要で、ポイントはMCPとSKILLとされてるね。ただ、数字はこのプロジェクトでの結果だよ。",
+          "en": "That fits. The post says not sending extra info is key, with MCP and SKILL as the focus. Just remember the numbers come from that one project."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:25:18.959Z"
+    },
+    "e0c8199b532e6c49": {
+      "bodyJa": "Ollamaでモデルごとの同時実行数を制限していても、複数のモデルを並行して使う構成では返信が止まることがある。この記事は、その状況と、アプリケーション側に共有の上限を加えた対策を紹介している。\n\n## 返信が止まった構成\n\n複数のAIエージェントやバックグラウンドワーカーから、用途別のローカルモデルを同じOllamaへ送る構成で、返信が突然止まったという。各モデルへ2件ずつ許可すると、アプリケーションは最大6件を同時に送信できる。モデルごとの上限を守っていても、全体の同時送信数は大きくなりうる。\n\n## 待機列とアンロード\n\n新しいモデルの読み込みに必要なメモリが不足すると、Ollamaはリクエストを待機列へ入れる。既存モデルがアイドルになったあと、必要に応じたアンロードが始まる。メモリが足りない状況では、要求がこの待機列に滞留する流れになる。\n\n## 共有リソースの追加\n\n対策として、ローカルLLM向けのリクエストに共有リソースが追加された。リソースは、モデルごとの上限を持つ「model:」キー、呼び出し元ごとの上限を持つ「consumer:」キー、そしてプロバイダーがlocalのときだけ加わるバックエンド全体の上限である。最後の上限にはLOCAL_LLM_MAX_CONCURRENTが使われるが、これはOllamaの設定ではなくアプリケーション独自の設定だ。ローカルバックエンド以外の処理には、この共有上限は適用されない。\n\n各リクエストは、必要な全リソースを取得できた場合だけ実行される。判定には、すべての状態が eligible であるかを調べる every が使われている。このため、モデル枠に空きがあってもバックエンド全体の上限に達していれば待機する。\n\n## 接続数制限との違い\n\nOLLAMA_MAX_QUEUEで決められるのは、Ollamaが保持する待機件数である。リバースプロキシで接続数を制限しても、アプリケーション内部の論理リソースは扱えない。記事は、単一の接続カウンターではこの all-or-nothing 条件を表現できないと説明している。",
+      "bodyEn": "## Replies suddenly stopped\n\nA setup that sends purpose-specific local models to a single Ollama instance, driven by multiple AI agents and background workers, saw replies halt without warning. The article explains why limiting concurrency per model was not enough to prevent the overload, which matters for anyone running several local models behind one backend.\n\nThe arithmetic is simple. If each model is allowed two concurrent requests, the application can still send up to six at the same time. Per-model limits therefore do not cap the total load placed on the backend. According to the article, when memory needed to load a new model is insufficient, Ollama places the request in a waiting queue. Unloading of an existing model begins only after that model goes idle, and only as needed.\n\n## A shared resource for local requests\n\nThe article's fix was to add a shared resource to requests bound for the local LLM. Alongside the existing keys, which are a per-model key with its own limit and a per-consumer key with its own limit, a further limit applies when the provider is local. That limit comes from LOCAL_LLM_MAX_CONCURRENT, which the article describes as an application-specific setting rather than an Ollama one. Work that does not use the local backend is not subject to this shared cap.\n\n## All-or-nothing acquisition\n\nEach request runs only if it can acquire every resource it needs. The article shows this as a check that every state is eligible. As a result, a request waits even when its model slot is free if the backend-wide limit has already been reached.\n\n## Why other controls fall short\n\nThe article draws a distinction between what existing controls govern. OLLAMA_MAX_QUEUE determines how many waiting requests Ollama itself holds, which is separate from limiting what the application sends. A reverse proxy that limits connection counts also cannot handle the application's internal logical resources. The article adds that a single connection counter cannot express this all-or-nothing condition, since a request must satisfy several limits at once.\n\nIn short, the source argues that overload from multiple models in use together calls for management of overall resources, not only per-model settings.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "モデルごとに2件ずつ許可したのに、最大6件が同時に飛ぶって…。これって大きいこと？",
+          "en": "Wait, 2 per model still means up to 6 at once? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、その合計が重なって新モデルの読み込みメモリが足りなくなり、Ollamaが待機列に入れたと説明しています。返信が突然止まったのはその場面です。",
+          "en": "In this piece, those totals stacked up and memory ran short for loading a new model, so Ollama queued requests. That's where replies suddenly stopped."
+        },
+        {
+          "s": "a",
+          "ja": "記事に出てくる「all-or-nothing条件」って、どういう意味？",
+          "en": "What does the \"all-or-nothing condition\" in the article mean?"
+        },
+        {
+          "s": "b",
+          "ja": "必要な枠を全部取れたときだけ実行する、という意味です。モデル枠が空いていても、バックエンド全体の上限に達していれば待ちます。",
+          "en": "A request runs only if it gets every slot it needs. Even if the model's slot is free, it waits when the whole backend's limit has been reached."
+        },
+        {
+          "s": "a",
+          "ja": "自分でエージェントを何個も動かすなら、全体の上限も決めておけばいいのかな？",
+          "en": "If I ran lots of agents myself, should I set an overall limit too?"
+        },
+        {
+          "s": "b",
+          "ja": "記事ではモデル別・利用元別・ローカル全体の上限を重ねています。ただ LOCAL_LLM_MAX_CONCURRENT はアプリ独自の設定で、OLLAMA_MAX_QUEUE は待機件数用です。",
+          "en": "The article stacks model, consumer, and local-wide limits. But LOCAL_LLM_MAX_CONCURRENT is an app-specific setting, and OLLAMA_MAX_QUEUE only covers queue length."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:25:46.544Z"
+    },
+    "385a02589ce084f5": {
+      "bodyJa": "Cursorに、新しい実行モード「Auto-review Run Mode(自動レビュー)」が加わった。承認を求める回数を減らしつつ、より安全に実行できるようにすることで、Cursorがより長時間作業できるようにするモードだと説明されている。\n\n## 自動レビューの対象\n\n自動レビューが適用されるのは、Shell、MCP、Fetch のツール呼び出しである。これらの呼び出しは、内容に応じて扱いが分かれる。許可リストに登録済みの呼び出しはすぐに実行され、サンドボックス化できる呼び出しはサンドボックス内で実行される。\n\nあらかじめ許可されているものや、隔離された環境で動かせるものについては、そのつど承認を待たずに処理が進む仕組みである。\n\n## 分類サブエージェント\n\n許可リストにもサンドボックスにも当てはまらない、その他のエージェントのアクションは、すべて分類サブエージェントに送られる。この分類サブエージェントが、呼び出しを許可するか、別のアプローチを試すか、あるいは承認を求めるかを判断する。\n\nすべてを人の承認に回すのではなく、判断の一部をこのサブエージェントが担う。承認を求める場面が減るのは、こうした振り分けがあるためだと考えられる。\n\n## 承認と実行の設定\n\n実行モードは Settings > Cursor Settings > Agents > 承認と実行 から設定する。あわせて、カスタムの指示を与えることで、分類エージェントの動作を調整することもできる。\n\nエージェントに長時間の作業を任せたい開発者にとって、承認の回数を抑えながら安全面にも配慮した選択肢が加わった形だ。",
+      "bodyEn": "## Auto-review Run Mode\n\nCursor has introduced Auto-review Run Mode, a new execution mode. According to the changelog, it is designed to let Cursor work for longer stretches by reducing how often it asks for approval while still allowing safer execution. That matters for anyone running extended agent tasks that would otherwise be interrupted by repeated prompts.\n\n## Which Tool Calls Are Covered\n\nThe changelog says auto-review applies to Shell, MCP, and Fetch tool calls. Rather than treating every call the same way, it sorts them by how they can be handled.\n\nCalls that are on the allowlist run immediately. Calls that can be sandboxed run inside the sandbox. According to the source, these two paths cover the cases that do not need further judgment.\n\n## The Classifier Subagent\n\nAll other agent actions go to a classifier subagent. The announcement says this subagent decides among three outcomes: allow the call, try a different approach, or ask for approval. Approval is therefore still part of the flow, but it is only one possible result of the classification step. That is how the mode aims to cut the number of approval requests without removing them altogether.\n\n## Where to Configure It\n\nThe run mode is set under Settings > Cursor Settings > Agents, in the section labeled approvals and execution (承認と実行). The changelog also notes that users can supply custom instructions to adjust how the classifier agent behaves. This gives some control over the classifier's decisions, though the source does not describe what such instructions might look like.\n\nThe source frames the feature around autonomous, longer-running work: fewer approval interruptions, with allowlisting, sandboxing, and classifier review as the mechanisms that keep execution safer. Beyond the tool types, routing paths, and settings location described above, the changelog entry gives no further specifics.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "承認を求める回数が減るって、どうやって決めてるの？全部ゆるくなるだけじゃないよね？",
+          "en": "It asks for approval less often, but how does it decide? It's not just loosening everything, right?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、許可リスト登録済みの呼び出しはすぐ実行、サンドボックス化できるものはその中で実行です。それ以外は分類サブエージェントが判断します。",
+          "en": "Per the post, allowlisted calls run right away, and ones that can be sandboxed run inside a sandbox. Everything else goes to a classifier subagent to decide."
+        },
+        {
+          "s": "a",
+          "ja": "分類サブエージェントは、何を決めてくれるの？長い作業をする人には助かりそう？",
+          "en": "What does the classifier subagent decide? Would that help people running long tasks?"
+        },
+        {
+          "s": "b",
+          "ja": "許可する、別のやり方を試す、承認を求める、の三択です。中断が減るので、長時間の自律的な作業に向いたモードだと書かれています。",
+          "en": "It picks one: allow the call, try another approach, or ask for approval. Fewer interruptions, so the article frames it as suited to longer autonomous work."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、手がかからない作業は任せて、あやしいときだけ聞いてくれるんだね。設定も自分でできるの？",
+          "en": "So it handles routine stuff and only asks when something's off. Can I adjust it myself?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、Settings の「承認と実行」で実行モードを選べます。カスタム指示で分類エージェントの動きも調整できますが、対象はShell、MCP、Fetchの呼び出しです。",
+          "en": "Yes, pick the run mode under Approvals & Run in Settings, and tune the classifier with custom instructions. Just note it applies to Shell, MCP, and Fetch calls."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:26:41.264Z"
+    },
+    "6b26acda64a14adb": {
+      "bodyJa": "Hugging Faceのブログが、AIエージェントの分野で混同されがちな「ハーネス」「スキャフォールド」といった用語を整理する記事を公開した(2026年5月25日付)。エージェントシステムを作る開発者が、共通の語彙で正確に意思疎通できるようにすることが主眼とされる。\n\n## 言葉が理解を追い越す\n\n記事は、変化の速い分野では語彙の進化が共通理解の形成よりも速くなりがちだという指摘から始まる。用語の意味は曖昧になり、異なる文脈で使い回され、十分に説明されないまま考えの略称として流通するようになる、と述べられている。\n\nAIエージェントの分野でも同じことが起きているという。概念が混ざり合い、名前が付け替えられるものがある一方、数か月だけ広く使われて静かに姿を消すものもあるとされる。\n\n## 初学者にも実務者にも負担\n\nこうした状況は、分野に入ったばかりの人にとって圧倒されるものになり得る。記事はさらに、最新の動向を追い続けている実務者にとっても同じように負担になると説明している。用語が不安定であることの影響は、経験の浅い人だけにとどまらないという整理である。\n\n## ICLR 2026後の問い\n\n記事は具体例として、著者の一人である @ariG23498 がICLR 2026の後に投稿した質問を紹介している。内容は「エージェントの文脈で『ハーネス』『スキャフォールド』という言葉は何を意味しているのか」というもので、この混乱をよく表した問いだと位置づけられている。\n\n## 共通語彙という目的\n\n記事全体の趣旨は、混同されやすい用語を整えたうえで、エージェントシステムを構築する開発者が互いに正確に伝え合える共通の語彙を示すことにある。「ハーネス」と「スキャフォールド」はその代表的な例として取り上げられており、用語の意味をそろえること自体が、開発現場での議論を明確にするための土台になるという考え方が示されている。",
+      "bodyEn": "The Hugging Face blog post \"ハーネス、スキャフォールド――AIエージェント用語を正しく理解する\" (understanding AI agent terminology correctly), published on 25 May 2026, addresses the confusing vocabulary around AI agents. Two of the terms it focuses on are \"harness\" and \"scaffold.\" The topic matters because, as the post describes it, the language of a fast-moving field can drift away from the understanding people share about it.\n\n## Vocabulary Outpaces Understanding\n\nThe post opens with a general observation: when a field evolves quickly, its vocabulary often evolves faster than its shared understanding. Terms start to blur, get reused in different contexts, or become shorthand for ideas that are never fully explained.\n\nAccording to the authors, this is happening now in the field of AI agents. Concepts are getting mixed together, some are renamed, and others are widely used for a few months before quietly disappearing. The post says this can be overwhelming for newcomers, and even for practitioners who are trying to keep up with the latest developments.\n\n## Harness and Scaffold\n\nThe post anchors the problem in a specific moment. After ICLR 2026, one of its authors, @ariG23498, posted a question that the authors say captured the confusion well: \"What do you mean by the terms 'harness' and 'scaffold' in the context of agents?\"\n\nThe question shows that even commonly used terms can be hard to pin down when people use them in different ways. The two words are the central examples of that ambiguity in the piece.\n\n## Toward a Shared Vocabulary\n\nThe stated aim of the article is to clarify commonly confused agent terminology, including \"harness\" and \"scaffold.\" It does this by offering a shared vocabulary. The practical benefit it points to is that developers building agent systems can communicate more precisely with one another.\n\nFor readers who feel lost in the shifting language of agents, the post is meant as a way to sort out which terms mean what, so that discussions about building agents rest on common definitions.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:28:28.524Z"
+    },
+    "588e1cfad324cee5": {
+      "bodyJa": "Allen AIは、地球観測モデルのファミリー「OlmoEarth v1.1」を公開した。前バージョンより推論効率を高めたオープンモデルとして位置づけられており、衛星画像の解析や環境モニタリングを低コストで実用化しやすくする点が特徴とされる。\n\n## v1の活用事例\n\nOlmoEarthのv1は2025年11月に公開された。それ以降、パートナーはさまざまなタスクに応用してきたと説明されている。具体例として、マングローブの変化の追跡、森林減少の要因の分類、国規模の作物種別マップを数日で作成する取り組みが挙げられている。展開の範囲も、国、大陸、全球といった広い地域へと拡大しているという。\n\n## 効率が左右するもの\n\nOlmoEarthが衛星画像を処理し、数万から数十万平方キロメートルにわたる地域で予測を行う場面では、効率が実現できることの幅を左右すると説明されている。v1.1は、この効率の改善を前面に出したモデルファミリーである。\n\n開発元は、リリースのたびに、人々と地球を守る活動に取り組む組織やコミュニティへ最先端のAIを届けるという使命に近づくと位置づけている。\n\n## 公開されている資料\n\nモデルはHugging Faceのコレクション(allenai/olmoearth)にまとめられている。あわせて技術レポートが公開され、コードはGitHubのallenai/olmoearth_pretrainリポジトリで参照できる。",
+      "bodyEn": "## OlmoEarth v1.1 Released\n\nAllen AI has released OlmoEarth v1.1, described as a more efficient family of Earth observation models. The release matters because, according to the announcement, efficiency determines what is possible when the models process satellite imagery to make predictions across tens to hundreds of thousands of square kilometers.\n\nThe models, a tech report and the code are all published. The models are collected on Hugging Face, the tech report is hosted by Allen AI, and the code lives in the allenai/olmoearth_pretrain repository on GitHub.\n\n## A Wide Range of Tasks\n\nThe first version, OlmoEarth (v1), was released in November 2025. The announcement says partners have since applied it across a wide range of tasks. Examples given include tracking mangrove change, classifying drivers of forest loss, and producing country-scale crop-type maps in days.\n\nDeployments, the announcement says, have scaled to national, continental, and global areas. Allen AI frames each release as a step toward its mission of bringing state-of-the-art AI to organizations and communities working to protect people and the planet.\n\n## Efficiency Shapes What's Possible\n\nThe central point of v1.1 is efficiency. When a model is run over very large areas of satellite imagery, the cost and speed of each prediction add up quickly, which is why the announcement singles out efficiency as the factor that shapes what can be done at that scale.\n\nThe summary of the release says v1.1 greatly improves inference efficiency compared with the previous version. It positions the family as an open set of models that can make satellite imagery analysis and environmental monitoring tasks cheaper to carry out.\n\nThe material available here does not describe the specific architectural or training changes behind the efficiency gains, nor does it give benchmark numbers or model sizes. Readers who want those details should consult the tech report, which is linked from the announcement, along with the model collection and the code repository.\n\n## Where to Find It\n\nThe release is organized around three resources: the OlmoEarth model collection on Hugging Face, the OlmoEarth v1.1 tech report on the Allen AI site, and the olmoearth_pretrain code on GitHub. Together they cover the models themselves, the written technical description, and the pretraining code.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "国全体の作物マップを「数日」で作った例があるんだね。これって大きいこと？",
+          "en": "A country-scale crop map in just days? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "大きいと思うよ。この記事では、数万〜数十万平方キロの衛星画像を処理するとき、効率が「できること」を左右すると書かれているんだ。",
+          "en": "It sounds like it. The post says that when you process satellite imagery across tens to hundreds of thousands of square kilometers, efficiency shapes what's possible."
+        },
+        {
+          "s": "a",
+          "ja": "「推論効率」って、そもそも何のこと？",
+          "en": "What does \"inference efficiency\" actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "学習済みのモデルが予測を出すときの手間やコストのことだよ。v1.1はそこを軽くして、低コストで使いやすくした、という位置づけだね。",
+          "en": "It's about how much effort and cost it takes a trained model to produce predictions. v1.1 is positioned as lighter there, so it's cheaper to use."
+        },
+        {
+          "s": "a",
+          "ja": "私なら、近くの森やマングローブの変化を見てみたいな。できるのかな？",
+          "en": "I'd love to check how nearby forests or mangroves are changing. Could I?"
+        },
+        {
+          "s": "b",
+          "ja": "マングローブの変化の追跡や森林減少の要因分類は、v1での活用例として挙がっているよ。v1.1で同じことがどこまでできるかは、記事だけでは分からないね。",
+          "en": "Tracking mangrove change and classifying drivers of forest loss are listed as v1 uses. How far v1.1 can take the same tasks isn't clear from the post alone."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:28:48.856Z"
     }
   }
 }

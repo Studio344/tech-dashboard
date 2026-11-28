@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T11:23:39.273Z",
-  "count": 417,
+  "generatedAt": "2026-11-28T12:30:48.855Z",
+  "count": 418,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -11766,7 +11766,39 @@
       "bodyJa": "AIエージェントを試作段階から本番運用へ移行させる企業が増えるなか、見落とされがちなのが継続的にかかる運用コストの構造だ。Google Cloudの調査を下敷きにした本記事は、そのコストを5つの視点から解剖し、実務で使える最適化戦略を整理している点で参考になる。\n\nエージェントのコストは単純なAPI利用料だけでは説明できない。第一にトークン消費がある。エージェントは対話履歴やツールの実行結果をコンテキストとして繰り返しモデルに渡すため、会話が長引くほど入力トークンが累積的に膨らみやすい。第二にツール呼び出しのコストだ。外部API検索やデータベース照会を含む一連の処理は、内部で複数回のLLM推論を誘発することがあり、想定より課金が増える一因になる。第三にインフラ費用として、ベクトルデータベースやオーケストレーション基盤、モニタリング環境の維持費が挙げられる。加えて、リトライやエラー処理といった信頼性確保のための冗長な実行、そして人手による評価や監視の運用コストも無視できない要素とされる。\n\nこうした構造を踏まえた削減策として、記事ではモデルの使い分けが有効だと示唆されている。すべての処理を高性能モデルに任せるのではなく、単純な分類や要約には軽量モデルを割り当て、複雑な推論のみを上位モデルに回す階層化が典型例だ。Anthropicが提供するClaudeでも、用途に応じて複数のモデル階層が用意されており、同様の考え方は各社の製品に共通して適用しやすい。プロンプトキャッシュの活用や、コンテキストの要約・圧縮によるトークン削減も現実的な手段となる。\n\n背景には、LLMOpsと呼ばれる運用管理の考え方が広がりつつある事情がある。従来のMLOpsがモデルの学習・デプロイを主眼としたのに対し、LLMOpsではトークン単位のコスト可視化や品質評価、レイテンシ監視が重視される。エージェントは自律的に判断を重ねるぶん挙動が読みにくく、コストの予測が難しい傾向がある。だからこそ、呼び出し単位でのトレースやコスト計測を早期に組み込むことが、本番運用の安定に寄与すると見られる。\n\nコスト最適化は単なる節約ではなく、応答速度やユーザー体験と表裏一体の設計課題でもある。5つの視点を手がかりに自社の構成を点検することは、スケール時の予期せぬ費用増を避けるうえで一定の意義を持つだろう。",
       "bodyEn": "Running AI agents in production is quickly becoming its own operational discipline, and cost is emerging as one of the hardest variables to control. A recent analysis inspired by Google Cloud research breaks agent economics into five distinct dimensions, arguing that teams cannot optimize what they do not first decompose. For organizations moving beyond prototypes into sustained deployment, this framing matters because agent costs tend to be non-linear: a system that looks affordable in a demo can become expensive at scale once repeated reasoning loops, tool invocations, and infrastructure overhead compound.\n\nThe first and most visible dimension is token consumption. Autonomous and semi-autonomous agents typically send far more tokens than a single chat completion, because each step in a reasoning loop re-sends system prompts, prior context, tool schemas, and accumulated history. The article notes that context growth is often the dominant driver of spend, since every additional turn carries the weight of everything that came before. Practical mitigations include trimming or summarizing conversation history, caching stable system prompts where the provider supports it, and being deliberate about how much context an agent actually needs to complete a task.\n\nThe second dimension is tool calls. Agents frequently interact with external APIs, databases, search endpoints, and code execution environments, and each call can carry both a direct fee and an indirect token cost when results are fed back into the model. Poorly designed agents may call the same tool redundantly or fan out into unnecessary sub-tasks. The analysis suggests constraining the tool set, validating arguments before execution, and using cheaper retrieval or deterministic logic in place of model reasoning where possible.\n\nInfrastructure forms the third dimension. Beyond the model API itself, production agents require orchestration layers, vector databases, message queues, memory stores, and monitoring systems that run continuously. These fixed and semi-fixed costs are easy to overlook because they do not appear on a per-request invoice, yet they can rival model spend for high-availability deployments. Serverless and autoscaling approaches are presented as ways to align infrastructure cost more closely with actual demand.\n\nThe fourth dimension concerns model selection and routing. Not every step in an agent workflow requires the most capable, most expensive model. The research points toward tiered strategies in which smaller or cheaper models handle routine classification, extraction, or routing decisions, while a stronger model such as one from the Claude or Gemini families is reserved for complex reasoning. This kind of model routing appears to be one of the highest-leverage optimizations available, though it adds engineering complexity and requires careful evaluation to avoid quality regressions.\n\nThe fifth dimension covers reliability overhead: retries, error handling, guardrails, and evaluation. Agents that fail silently or loop indefinitely can quietly multiply costs, so spending on validation, timeouts, and step limits is framed less as pure overhead and more as a cost-control mechanism. Observability is central here, because teams that cannot attribute spend to specific agents, tools, or users are unlikely to optimize effectively.\n\nTaken together, these five views reflect a broader shift often described as LLMOps, the operational practice of deploying, monitoring, and governing language-model systems the way MLOps did for earlier machine learning. The emphasis on cost attribution echoes moves across the industry: providers have introduced prompt caching, batch processing discounts, and smaller distilled models specifically to address production economics, while frameworks such as LangChain, LlamaIndex, and various agent orchestration tools increasingly expose token and latency instrumentation by default.\n\nIt is worth treating the specific numbers and rankings in any single study with caution, since agent costs depend heavily on workload, provider pricing, and architecture, all of which change frequently. The value of a five-dimension model is less in precise figures and more in giving teams a checklist for where to look. Readers evaluating their own systems would likely benefit from measuring each dimension independently before committing to optimizations, because the largest savings tend to come from whichever dimension is currently unmeasured. As agents move further into production, this kind of structured cost analysis is likely to become a standard part of designing, not just operating, agentic systems.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:53:30.343Z"
+      "generatedAt": "2026-08-30T16:53:30.343Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "1回のリクエストが数十回のLLM呼び出しになるって驚き！これって大きいことなの？",
+          "en": "One request can turn into dozens of LLM calls? Wow. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "RAGとマルチステップエージェントを組み合わせた場合の話だよ。ネットワーク転送やベクトルDBの費用も積み上がって、LLM推論と同等かそれ以上になることがあるそうだよ。",
+          "en": "That's for RAG combined with multi-step agents. Network transfer and vector DB costs pile up too, and the article says they can match or even exceed LLM inference costs."
+        },
+        {
+          "s": "a",
+          "ja": "コスト帰属タグって何？ 名前からだとよく想像できなくて。",
+          "en": "What are cost allocation tags? I can't really picture it from the name."
+        },
+        {
+          "s": "b",
+          "ja": "リソースにラベルを付けて、何にいくら払っているかを分けて見られるようにするもの、くらいの意味だよ。この記事ではAWS、GCP、Azureが対応していると書かれているよ。",
+          "en": "Roughly, labels you put on resources so you can see what you're paying for. The article notes AWS, GCP, and Azure all support resource tags for cost classification."
+        },
+        {
+          "s": "a",
+          "ja": "自分で作るなら、まずどのパスがトークンを一番使っているか見たいな。どうすればいいの？",
+          "en": "If I built an agent, I'd want to see which path eats the most tokens first. How would I do that?"
+        },
+        {
+          "s": "b",
+          "ja": "記事ではOpenTelemetryでinput_tokensとoutput_tokensをspanに記録して、Grafanaなどで可視化する例が出ているよ。LLM関連の属性は追加されてきている、という書き方だね。",
+          "en": "The article shows recording input and output tokens in spans with OpenTelemetry, then visualizing them in tools like Grafana. It describes the LLM-related attributes as still being added."
+        }
+      ]
     },
     "e72ede698c418edc": {
       "bodyJa": "NVIDIAは、日本の産業エコシステムとの連携を一段と深め、製造や医療、インフラなど幅広い分野にフルスタックのAIとロボティクス技術を展開する取り組みを強化した。少子高齢化による労働力不足が深刻化する日本にとって、自動化と知能化を軸とした産業変革は喫緊の課題であり、今回の動きはその加速に向けた重要な布石となる可能性がある。\n\nここで言う「フルスタック」とは、GPUなどの半導体からサーバー、ソフトウェア基盤、開発ツール、そして産業向けアプリケーションまでを一貫して提供する考え方を指す。NVIDIAは近年、AIモデルの学習・推論を担うGPU群に加え、産業用ロボット開発向けの「Isaac」、デジタルツインを構築する「Omniverse」、自動運転や医療向けの専用プラットフォームなどを整備してきた。これらを組み合わせることで、工場ラインの最適化や設備の予知保全、ロボットの制御学習を仮想空間で事前に検証する用途が想定される。\n\n背景には、生成AIの普及を機に高まる「フィジカルAI」への期待がある。デジタル空間で完結してきたAIを、現実世界で動くロボットや装置へと拡張する流れであり、製造業に強みを持つ日本の産業構造との親和性が高いと見られる。NVIDIAはこれまでもソフトバンクなど国内勢との協業を進めており、自国内にAI計算基盤を持とうとする「ソブリンAI」の動きとも連動している。\n\nもっとも、こうした構想の実現には課題も残る。高性能GPUの安定調達や電力を含むデータセンター運用コスト、現場人材の育成、既存設備との統合などは、多くの企業にとって導入のハードルとなり得る。競合ではAMDやインテル、クラウド各社も産業向けAIに注力しており、主導権を巡る競争は今後さらに激しくなる可能性がある。日本の産業競争力の底上げに実際につながるかは、実証段階から本格導入への移行がどこまで進むかにかかっていると言えそうだ。",
@@ -11848,7 +11880,39 @@
       "bodyJa": "大規模言語モデル（LLM）を土台にしたAIエージェントの実用化が進むなか、Amazon Bedrock AgentCoreが提供するWeb Search機能が注目を集めている。データを外部サービスに送信せずにリアルタイムのWeb情報をエージェントへ取り込めるとされ、最新性と企業のプライバシー要件を両立させる狙いがある。\n\n背景には、LLMが抱える「知識のカットオフ」という制約がある。学習時点以降に発生した出来事や更新された情報にはモデル単体では対応できず、回答が古くなったり、事実と異なる内容を生成したりする課題が知られている。これを補う代表的な手法が外部データを検索して回答に反映させる仕組みで、社内文書を対象とするRAG（検索拡張生成）や、リアルタイム性の高いWeb検索の組み込みが一般的なアプローチとして広がってきた。\n\nAmazon Bedrock AgentCoreは、こうしたエージェント開発・運用を支援するAWSの基盤で、ツール連携やメモリ管理などの機能群を備える。今回取り上げられているWeb Search機能は、エージェントが必要に応じてWeb上の最新情報を参照できるようにするもので、記事によれば処理過程でユーザーデータを外部に送り出さない設計が特徴とされる。機微な情報を扱う企業にとって、情報漏えいリスクを抑えながら鮮度の高いデータを活用できる点は実用上の利点になり得る。\n\n技術的な文脈として、タグにも含まれるMCP（Model Context Protocol）の存在がある。MCPはAnthropicが提唱した、AIモデルと外部ツールやデータソースをつなぐためのオープンな標準規格で、各ベンダーが対応を進めている。Web検索のような外部機能をMCPサーバーとして提供する構成は、エージェントに柔軟な拡張性をもたらすと見られ、AgentCoreのアプローチもこうした潮流に沿ったものと位置づけられる。\n\n同様の課題に対しては、他社も検索連携やエージェント基盤の整備を進めている。OpenAIやGoogle、Anthropicなどがそれぞれツール利用やWebアクセスをサポートするAPIやフレームワークを展開しており、エンタープライズ市場ではプライバシーとガバナンスを重視した設計が競争軸の一つになりつつある。AgentCoreのWeb Searchは、その中で「外部送信なし」という点を訴求するものだが、実際の適用にあたっては対象範囲や制約、コスト、精度などを個別に検証することが望ましいだろう。",
       "bodyEn": "Amazon Bedrock AgentCore now offers a Web Search capability that lets AI agents retrieve current information from the public web while keeping enterprise data inside controlled boundaries. For organizations that want agents to reason over live, up-to-date content rather than only the static knowledge baked into a foundation model, this addresses a recurring tension between usefulness and data governance.\n\nThe underlying problem is familiar. Large language models are trained on data with a cutoff date, so they cannot reliably answer questions about recent events, changing prices, or newly published documentation without an external source. The common fix is to connect a model to a search tool, but many integrations route user queries and surrounding context through third-party services, which raises concerns in regulated industries where prompts may contain sensitive material. AgentCore's Web Search is positioned to provide real-time retrieval while limiting that exposure, keeping the flow within the AWS environment.\n\nAgentCore is AWS's framework for building and running agents at production scale, sitting alongside Amazon Bedrock's model access. It groups several building blocks — components for runtime execution, memory, identity, tool gateways, a browser tool, a code interpreter, and observability — that developers can combine rather than assemble from scratch. Web Search fits into this toolset as a managed way for an agent to issue queries and receive results it can then fold into its reasoning.\n\nA notable aspect is the alignment with the Model Context Protocol (MCP), the open standard originally introduced by Anthropic for connecting models to external tools and data. MCP defines a consistent way for an agent to discover and call tools exposed by an MCP server. By offering Web Search through an MCP-compatible interface, AgentCore lets developers wire the capability into agents using the same protocol they might use for databases, internal APIs, or other services. This appears to reduce lock-in relative to proprietary tool formats and makes it easier to swap components as an architecture evolves.\n\nThe privacy claim deserves careful reading. \"Without sending data to external services\" most likely means that the agent's prompts, context, and retrieved content are brokered through AWS-managed infrastructure rather than passed directly to a consumer search engine under the developer's own account. Web search inherently requires reaching out to public sources, so the guarantee is best understood as governance over how queries and results are handled, not as an absence of any outbound network activity. Teams evaluating the feature will want to confirm the specifics in AWS documentation, including what is logged, where data is processed, and how it interacts with existing compliance controls.\n\nThe launch reflects a broader industry pattern in which cloud providers are building agent platforms rather than standalone chat interfaces. Google, Microsoft, and OpenAI have each shipped frameworks and tool-calling features that let agents fetch fresh information, and retrieval-augmented generation (RAG) remains the dominant technique for grounding responses in external data. Web search complements RAG rather than replacing it: where RAG typically draws on a curated internal knowledge base, live search covers the open web, and many production systems combine both to balance authoritative internal content with current external facts.\n\nFor developers, the practical appeal is faster integration and consistency. Because AgentCore handles the search plumbing, teams can avoid managing API keys for a separate provider, wrestling with rate limits, and parsing raw results. The trade-offs common to any web-grounded agent still apply. Results can include inaccurate or outdated pages, so agents may need guardrails to weigh source credibility and to cite what they used. Prompt injection through retrieved web content is a recognized risk, since malicious pages can attempt to hijack an agent's instructions; developers should treat fetched text as untrusted input and constrain what the agent is allowed to do with it.\n\nAs with any managed capability, cost, regional availability, and quota limits will shape how and where it is adopted, and those details are worth checking before committing to a design. The significance of this addition is less about a single new tool and more about its packaging: real-time web access delivered through an open protocol, inside an enterprise-oriented platform that emphasizes data control. For organizations already invested in Bedrock, it lowers the barrier to giving agents current knowledge without building and securing that pipeline themselves.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:57:31.388Z"
+      "generatedAt": "2026-08-30T16:57:31.388Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "検索クエリをAWSの外にある検索APIに送らなくていいって書いてあったね。これって大きいこと？",
+          "en": "It says search queries don't get sent to outside search API providers. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、金融や公共のようにデータガバナンスが厳しい分野では、そこが課題になりがちだそうです。プロンプトを外に出さずに検索できる点が大きなポイントとされています。",
+          "en": "The article says tight-governance fields like finance and the public sector struggle with this. Searching without sending prompts outside AWS is called the key point."
+        },
+        {
+          "s": "a",
+          "ja": "MCPツールとして呼び出す、ってどういうこと？",
+          "en": "What does it mean to call it as an MCP tool?"
+        },
+        {
+          "s": "b",
+          "ja": "AgentCore GatewayにWeb Search Toolを追加すると、エージェントがMCPのツールとして検索を呼べるようになる、という流れです。MCPは、エージェントが外部のツールとつながるための共通の決まり、くらいの意味ですね。",
+          "en": "Add the Web Search Tool to AgentCore Gateway, and the agent can call search as an MCP tool. MCP is roughly a shared standard for agents to connect with outside tools."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ私なら、最新のAWSアップデートを調べてもらう係に使いたいな。",
+          "en": "Then I'd use it to have an agent look up the latest AWS updates for me."
+        },
+        {
+          "s": "b",
+          "ja": "いい使い方ですね。記事でも最新アップデートやドキュメントの更新が例に挙がっています。ただ、実際に最新情報が取れるかは記事の中で試して確かめる段階なので、自分の環境でも確認したいところです。",
+          "en": "Good fit. The article lists AWS updates and doc changes as examples. But it tests whether the latest info really comes back, so you'd want to verify it in your own setup too."
+        }
+      ]
     },
     "25a17c19b8e10567": {
       "bodyJa": "専門知識を持たない書き手がクラウドAIとの対話だけを頼りにローカルAI環境を構築していく連載の第3巻が公開された。今回は環境を「作る」段階から「運用する」段階へと軸足を移し、セキュリティ強化、バックアップ体制の整備、そして使用するローカルLLMの再選定という、実運用に不可欠な三つの改善を扱っている。\n\nこの連載の特徴は、コマンドやコードの意味を熟知していない利用者が、ChatGPTやClaudeといったクラウドAIに逐一質問しながら作業を進める点にある。実行するコマンドの説明、エラーの原因、次に取るべき手順までを対話で引き出し、手を動かして検証する。生成AIが「作業の伴走者」として機能することで、従来は専門家の領域とされてきたセルフホスト環境の構築が、一般の利用者にも手が届きつつある状況を映し出していると言える。\n\n第3巻で扱うテーマは、いずれもローカルAIを継続的に使ううえで避けて通れない論点だ。セキュリティ強化では、外部からの不正アクセスを防ぐための設定や通信経路の見直しが焦点になると見られる。ローカルで動かす利点はデータが手元にとどまることだが、設定を誤れば意図せず外部に露出する可能性があり、初期構築時には後回しにされやすい部分でもある。バックアップ体制の整備は、モデルや設定、対話履歴といった資産を失わないための備えであり、運用を長く続けるほど重要度が増していく。\n\nローカルLLMの再選定も実務的なテーマだ。ローカルLLMの実行基盤としては、導入の手軽さからOllamaが広く使われており、Llama系やGemma、Qwenなど多様なオープンモデルを差し替えながら試せる。同じ環境でもモデルによって応答の質や処理速度、必要なメモリ量は大きく異なるため、実際に使い込んだうえで用途に合うモデルへ見直す作業には一定の意義がある。\n\n背景には、機密情報を外部に送りたくない需要や、API利用料を抑えたいというコスト面の動機から、手元の端末で完結するAI活用への関心が高まっている事情がある。一方で、性能は依然としてクラウド上の大規模モデルに及ばない場面も多く、用途に応じた使い分けが現実的な選択となりそうだ。専門知識の有無にかかわらずローカルAIを運用に乗せられるかを、実践を通じて検証する試みとして読める内容だ。",
@@ -13768,44 +13832,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T08:39:06.661Z"
     },
-    "7cf69f7ae5c77b67": {
-      "bodyJa": "AIコーディングツールはコードを素早く生成できますが、速度だけではソフトウェアエンジニアリングの最も難しい課題は解決しません。GitHub Copilotを実務でどう使いこなすかについて、3人のJava Championが具体例と実践を語っています。\n\n## 速度だけでは足りない\n\n記事は、AIが生成したコードをそのまま使えば済むわけではないという前提から始まります。開発者には、AIに文脈を与えること、出てきた結果を検証すること、保守性を守ることが引き続き求められます。さらに、最終的に出荷されるものへの責任も開発者自身に残るとされています。\n\n## 3人のJava Champion\n\n話を聞いたのは、いずれもJavaを10年以上使ってきた3人のJava Championです。経験豊富な開発者がこのバランスをどう取っているかを探るのが狙いで、本番開発とオープンソースの両方でGitHub Copilotを使った具体例が紹介されています。あわせて、AIが生成した出力を信頼できるソフトウェアへ仕上げるために各人が実践している方法も共有されています。\n\n## Hypersistenceでの活用\n\n「最近GitHub Copilotはどのように役立ったか」という問いに対する回答の一つとして、Hypersistence UtilsとHypersistence Optimizerの両方で使っているという例が挙がっています。用途は、さまざまな機能の分析、設計、実装です。コードを書く工程だけでなく、その前段にあたる分析や設計にも使われている点が読み取れます。\n\n## 文脈・検証・保守性\n\nこの記事で繰り返し示されているのは、文脈を渡し、結果を確かめ、保守しやすい状態を保つという姿勢です。Copilotの生成速度を活かしつつ、品質と説明責任は人間が引き受ける、という考え方といえます。AI支援で書いたコードを信頼できるものにしたい開発者にとって、経験者がどんな習慣を持っているかを知る手がかりになります。",
-      "bodyEn": "## Speed alone is not enough\n\nAI coding tools can generate code quickly, but the source argues that speed does not solve the hardest software engineering problems. Developers still need to provide context, validate results, protect maintainability, and remain accountable for what ships. That is the frame for a set of conversations with experienced Java developers about how they use GitHub Copilot.\n\n## Three Java Champions\n\nThe article draws on interviews with three Java Champions, each with more than a decade of experience using Java. According to the source, they shared concrete examples of using GitHub Copilot in both production work and open source. They also described the practices they follow to turn AI-generated output into reliable software. The piece is organized around tips collected from these conversations, which is useful for developers who want AI-assisted code they can trust.\n\n## How has Copilot helped you recently?\n\nThe article poses this question to its interviewees. The one answer the source presents in full comes from a developer who says they have been using GitHub Copilot to analyze, design, and implement various features in two projects, Hypersistence Utils and Hypersistence Optimizer. That description covers more than code generation. It spans analysis and design as well as implementation, which fits the article's point that the tool is used within a broader engineering workflow rather than only to produce code faster.\n\n## What readers can take from it\n\nThe central message is that the value of AI coding tools depends on the habits around them. The article names three of these: giving the tool context, checking its results, and keeping the code maintainable. It also stresses that developers stay responsible for what they release. Readers who want practical, experience-based examples of how to apply these ideas with GitHub Copilot, in both commercial and open source settings, are the audience the piece is written for.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "Java Championが3人も出てくるんだね。どの人も10年以上のJava経験ってあるけど、これって大きいこと？",
-          "en": "Three Java Champions, each with over ten years of Java experience. Is that a big deal?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、経験豊富な人がAIとどう付き合うかを知るために3人に話を聞いています。速さだけでは難しい問題は解けない、という前提なんです。",
-          "en": "The article talked to them to see how seasoned developers balance AI use. Its starting point is that speed alone doesn't solve the hardest engineering problems."
-        },
-        {
-          "s": "a",
-          "ja": "「文脈を渡す」ってどういうこと？Copilotに何を渡すのかな。",
-          "en": "What does \"provide context\" mean? What are we handing to Copilot?"
-        },
-        {
-          "s": "b",
-          "ja": "記事に細かい手順はないけど、一般的には、何を作りたいかや周りの状況を伝えることかな。そうすると的外れな答えが減るかもね。",
-          "en": "The article doesn't spell out steps. Generally it means telling the tool what you're building and the surrounding situation, which might cut down off-target answers."
-        },
-        {
-          "s": "a",
-          "ja": "私なら、新しい機能の分析や設計から相談してみたいな。でも最後まで任せていいの？",
-          "en": "I'd try it for analyzing and designing a new feature. But can I leave it to finish the job?"
-        },
-        {
-          "s": "b",
-          "ja": "記事は、結果の検証や保守性の確保、出荷するものへの責任は開発者に残ると言っています。分析や設計、実装に使う例はありますが、任せきりではないんです。",
-          "en": "The article says developers still validate results, protect maintainability, and stay accountable for what ships. It mentions analysis, design and implementation, but not hands-off use."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T08:39:14.739Z"
-    },
     "18ea178a7f4055ec": {
       "bodyJa": "## 20以上のアプリと連携\n\nOrigin App Marketplace が登場し、Origin はデプロイ、CI、コードレビュー、セキュリティ、監視、プロジェクト管理に対応する 20 以上のアプリと連携できるようになった。あわせて一般からのアプリ申請も始まり、利用する側だけでなく作る側にも門戸が開かれた。\n\n利用できるのは、Cloudflare、Linear、Sentry、Socket Security などのパートナーが提供するアプリだ。開発者向けツールを構築しているチームであれば、どのチームでも Origin 向けのアプリを公開できるとされている。\n\n## Origin API での構築\n\nアプリはまず自分のネームスペースで作成する。構築中のアプリは、ネームスペース内で非公開のままとなる。\n\n構築には Origin API を使う。アプリはアプリ JWT とインストールアクセストークンで認証し、ウェブフックイベントを受信する。そのうえで、チェック実行、PR コメント、レビューを Origin に書き戻す仕組みだ。\n\n## 申請とレビューの流れ\n\n公開するには、アプリを公開に設定したうえで、アプリのページから申請する。申請にはスラッグ、推奨タグ、デモ動画を添える。動画では、インストール、アンインストール、そして製品の主要なフローを紹介するよう求められている。\n\n申請内容は運営側でレビューされ、承認され次第、マーケットプレイスに掲載される。\n\n## 公開ガイドとプラグイン\n\nアプリの構築を始めるときは、公開ガイドと Origin API リファレンスを参照するよう案内されている。\n\nあわせて Origin Apps プラグインも用意されている。このプラグインを使うと、最新の Origin API ドキュメントをもとにした質問への回答が得られる。すでに運用中のアプリを Origin へ移行する計画を立てる際にも使える。",
       "bodyEn": "## Origin App Marketplace launches\n\nOrigin now integrates with more than 20 apps covering deployment, CI, code review, security, monitoring, and project management. For teams that rely on these tools, the marketplace brings them into one place. The announcement names Cloudflare, Linear, Sentry, and Socket Security among the partners providing apps.\n\n## Open to public submissions\n\nAlongside the launch, the marketplace began accepting app submissions from the public. According to the announcement, any team building developer tools can publish an app for Origin. The marketplace has also added apps across the categories listed above.\n\n## How to build and submit\n\nThe announcement lays out a sequence for publishing. First, you create an app in your own namespace, where it stays private while you build it. Next, you build with the Origin API. Apps authenticate with an app JWT and an installation access token, receive webhook events, and write results back as check runs, PR comments, and reviews.\n\nWhen the app is ready, you set it to public and submit it from the app's page. The submission includes a slug, recommended tags, and a demo video. The video should show installation, uninstallation, and the product's main flows. The announcement says the Origin team reviews each submission and lists the app once it is approved.\n\n## Resources for developers\n\nAnyone who wants to build an Origin app is pointed first to the publishing guide and the Origin API reference. The announcement also mentions an Origin Apps plugin. It can answer questions using the latest Origin API documentation, and it can help plan the migration of an app that is already in production over to Origin.\n\nThe apps in the marketplace are available to try now through the Origin App Marketplace.",
@@ -13843,44 +13869,6 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T08:39:58.799Z"
-    },
-    "73f986d3e9b463d0": {
-      "bodyJa": "GitHub Copilot app 入門シリーズの最新回は、Copilot にプロジェクト固有のルールを把握させる方法を扱っている。AI との作業では文脈が重要であり、規約やスクリプトをリポジトリ内に置いておけば、毎回同じ説明を繰り返さずに済むと説明されている。\n\n## コードベースごとの流儀\n\nどのコードベースにも、その場所ならではのハウスルールがある。コンポーネントをどう構成するか、どのスクリプトを実行するか、フレームワークやファイルの種類ごとにどの規約が適用されるか、といったことだ。Copilot はプロジェクト全体にわたる変更を手伝えるが、こうしたルールを知っているときのほうがよく機能するとされる。\n\nその知識の多くはリポジトリの中に置いておける。そうすれば Copilot が自動的に拾い上げるため、新しいタスクを始めるたびに同じ標準、スクリプト、ワークフローを人が説明し直す必要がなくなる。\n\n## 4つの調整方法\n\n今回の記事では、Copilot がプロジェクトに合わせて動く仕組みを整える方法として、4つの手法が紹介されている。そのうち、カスタム指示、エージェントスキル、カスタムエージェントの3つについて、役割の違いが次のように示されている。\n\n## 指示・スキル・エージェント\n\nカスタム指示は、Copilot が従うべき規約を伝えるためのものである。いわば、そのプロジェクトで守ってほしいルールを書き添えておく手段にあたる。\n\nエージェントスキルは、繰り返し行う手順をひとまとめにするためのものとされる。毎回同じ流れで進めたい作業を、再利用できる形で用意しておく発想だ。\n\nカスタムエージェントは、より大きなタスクに対して専門的なガイダンスをもたらす。規約を伝える、手順をまとめる、専門的な助言を加えるという形で、それぞれ異なる角度から Copilot の振る舞いを方向づけるものと整理できる。",
-      "bodyEn": "## Context matters with AI\n\nThis installment of the GitHub Copilot app for Beginners series looks at how to help Copilot understand a codebase. The source frames the problem simply: every project has its own house rules, and Copilot works best when it knows them.\n\nAccording to the source, those rules include how components are structured, which scripts to run, and which conventions apply to different frameworks and file types. Copilot can help make changes across a project, but it is more effective when it has this knowledge in hand.\n\n## Rules that live in the repository\n\nThe central idea is that much of this knowledge can be stored inside the repository itself. Copilot can then pick it up automatically, rather than a developer having to explain the same standards, scripts, and workflows each time a new task begins. For anyone who finds themselves repeating the same background to Copilot, this is the practical benefit the article highlights.\n\n## Four ways to tailor Copilot\n\nThe article says it will cover four ways to tailor how Copilot works with a project. The source text describes three of them:\n\nCustom instructions communicate the conventions Copilot should follow. In other words, they are the place to state a project's expected practices.\n\nAgent skills package repeatable procedures. They suit work that follows the same steps more than once.\n\nCustom agents bring specialized guidance to larger tasks. They are positioned for bigger pieces of work where focused direction helps.\n\nThe fourth method is not named in the material available here, so this explainer does not describe it.\n\n## What to take from it\n\nThe summary of the installment is that conventions and scripts can be kept in the repo so Copilot learns them without repeated prompting. The article is aimed at beginners using the GitHub Copilot app and is part of an ongoing series. Beyond the descriptions above, the source does not provide setup steps, file names, or examples, so the specifics of how each method is configured are left to the full installment.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "毎回同じ説明をしなくていいって書いてあったね。Copilotはどうやってルールを知るの？",
-          "en": "It says we don't have to repeat the same explanations every time. How does Copilot learn the rules?"
-        },
-        {
-          "s": "b",
-          "ja": "規約やスクリプトをリポジトリの中に置いておくと、Copilotが自動で拾ってくれる、という考え方だよ。",
-          "en": "The idea is to keep conventions and scripts inside the repository, so Copilot can pick them up automatically."
-        },
-        {
-          "s": "a",
-          "ja": "チームの決まりごとを置いておけば、新しい作業のたびに説明し直さなくていいってこと？ 手順も置けるのかな？",
-          "en": "So if we store our team's rules there, we skip re-explaining on each new task? Can procedures go in too?"
-        },
-        {
-          "s": "b",
-          "ja": "カスタム指示は守ってほしい規約を伝える役で、エージェントスキルは繰り返す手順をまとめる役だよ。",
-          "en": "Custom instructions communicate the conventions to follow, and agent skills package repeatable procedures."
-        },
-        {
-          "s": "a",
-          "ja": "つまりプロジェクトの「家のルール」を先に置いておくと、Copilotが合わせやすくなるんだね。",
-          "en": "So we put our project's house rules in place first, and Copilot can work with them more easily."
-        },
-        {
-          "s": "b",
-          "ja": "そうだね。ただ記事は「知識の多く」を置けると言っていて、全部とは言っていないよ。大きな作業にはカスタムエージェントも挙がってるね。",
-          "en": "Right. But the article says \"much of\" that knowledge can live in the repo, not all of it. Custom agents are mentioned for larger tasks."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T08:40:12.714Z"
     },
     "dfd231f6d2cdbbdb": {
       "bodyJa": "Ai2は、海洋の状況把握に使うAIエージェント「Shippy」の設計と、開発から得た教訓を公開した。誤った答えが現実に影響する分野で、エージェントをどう信頼できるものにするかが中心テーマだ。\n\n## 誤答が許されない領域\n\nShippyは、Skylightチームが開発した、リアルタイムの海洋状況把握(maritime domain awareness)のためのAIである。重大な判断に使われることを前提に作られており、間違った答えが実害につながる場面を想定している。\n\n海洋保護のような運用領域では、信頼性が何より重要になると説明されている。たとえば海洋アナリストが誤った回答を受け取ると、巡視船が見当違いの方向へ数マイルも進みかねない。すでに余裕のない資源を無駄にし、人員を危険にさらす可能性もあるという。\n\n## 根拠を添えるShippyの回答\n\n公開された例では、Shippyはガーナの排他的経済水域(EEZ)に関するライブの問い合わせに答えている。回答には、境界データの出典、データの締め日時、問い合わせ時刻が示される。さらにSkylightの地図へのディープリンクが付き、アナリストはすべての数値を自分で確認できる。\n\n回答の過程を見せ、検証できる形にしている点が、この事例の特徴である。\n\n## モデルだけではない課題\n\nSkylightチームは、Shippyの開発で本当に取り組むべき作業はモデルそのものではなかったとしている。その具体的な中身は、アーキテクチャの解説として示される。\n\nここで得られた教訓は、Ai2が手がける他の環境関連プラットフォームにも持ち込まれるという。エージェントの設計上の課題やアーキテクチャ上の判断を、信頼できるエージェントを作る開発者が参照できる形でまとめた内容である。",
@@ -14247,6 +14235,120 @@
       "bodyEn": "Performance optimization is one of the least glamorous but most consequential parts of building machine learning systems, and it becomes especially important as developers increasingly run large language models on local hardware. A new tutorial from the Hugging Face blog introduces torch.profiler, PyTorch's built-in profiling utility, as a practical starting point for finding out where time and memory actually go during training and inference. Framed as the first installment in a series, the guide targets beginners who suspect their models are slower than they should be but lack a systematic way to confirm why.\n\nThe central argument is that intuition is a poor guide to performance. Developers often assume a particular layer or operation is the bottleneck, only to discover that data loading, synchronization overhead, or memory transfers between CPU and GPU are the real culprits. torch.profiler addresses this by instrumenting a model run and recording detailed timing and resource data across both host and device. Rather than guessing, a developer can measure, and the tutorial positions this measurement step as the necessary foundation before any code is rewritten in the name of speed.\n\nTechnically, torch.profiler is used as a context manager that wraps the code being analyzed. The tutorial walks through configuring the profiler to capture activity from the CPU and CUDA, the two most common execution targets, and to record additional information such as tensor shapes, memory allocation, and stack traces. A scheduling mechanism lets users skip an initial warm-up period, then profile a defined number of steps, which matters because the first iterations of a model often include one-time setup costs that would otherwise distort the results. Once a run completes, the collected events can be summarized into tables sorted by metrics like total CUDA time or self CPU time, making it straightforward to see which operators dominate.\n\nReading that output is where the guide spends much of its effort, since raw numbers are only useful if a developer understands the distinction between categories. The difference between total time and self time, for example, separates the cost of an operation including its child calls from the cost of the operation alone. The tutorial also appears to emphasize the gap between CPU and GPU timelines, a common source of confusion for newcomers. Because CUDA operations execute asynchronously, the CPU may appear idle while the GPU works, or the GPU may stall waiting for the CPU to dispatch the next kernel. Recognizing these patterns is what turns a profile from a wall of statistics into an actionable diagnosis.\n\nBeyond the console summaries, the profiler can export a trace that is viewable in tools such as TensorBoard or the Chrome trace viewer, giving a visual timeline of kernel launches and gaps. This visualization is often the fastest way to spot problems like poor overlap between computation and data movement, or a dataloader that cannot keep the accelerator fed. The tutorial reportedly introduces these outputs at a level appropriate for readers who have not profiled before, deferring deeper optimization techniques to later parts of the series.\n\nIt is worth placing torch.profiler in a broader landscape of tooling. PyTorch previously offered the older torch.autograd.profiler, which the newer API supersedes with better GPU support and a more flexible design. For lower-level investigation, developers frequently turn to NVIDIA's Nsight Systems and Nsight Compute, which expose hardware counters and kernel behavior that a framework-level profiler cannot see. Sampling profilers such as py-spy address Python-side overhead, while memory-specific tooling helps trace allocations. torch.profiler occupies a useful middle ground, tied closely enough to PyTorch to label operations meaningfully while still surfacing device-level timing.\n\nThe choice to publish this on the Hugging Face blog reflects the platform's continued push toward efficient, self-hosted model deployment. As open models proliferate and more practitioners run inference and fine-tuning outside large cloud environments, the ability to squeeze better utilization out of a single GPU has real cost and latency implications. Profiling connects naturally to optimization methods that Hugging Face and the wider community promote, including quantization, mixed-precision training, kernel fusion, and improved attention implementations, since each of those benefits from knowing the baseline first.\n\nAs a first part, the guide is deliberately foundational, and readers looking for specific tuning recipes will likely need to wait for subsequent entries. Still, it establishes a disciplined, measurement-driven mindset that is broadly applicable regardless of model architecture or hardware.",
       "model": "claude-opus-4.8",
       "generatedAt": "2026-07-11T06:29:59.193Z"
+    },
+    "cb4f638784301c3b": {
+      "bodyJa": "## Copilot アプリから VS Code へ\n\nGitHub Copilot アプリのセッションを Visual Studio Code で直接開き、そのまま作業を続けられると説明されている。エージェントが変更の大部分を終えたあと、細部の確認や手作業での修正、ローカルでの実行といった工程を、同じ流れの中で進められる点が要点だ。\n\n## 作業が分断される場面\n\n想定されているのは、エージェントが変更の大半を完了した段階だ。開発者はここで、ある実装の細部を確認し、数行を手で直し、出荷前にプロジェクトをローカルで動かしたいと考える。ところが作業は Copilot アプリの中にあり、差分のレビューやデバッグ、最終調整を行う場所はエディターである。\n\nこの状況で、アプリのセッションに留まるか、VS Code で最初からやり直すかの二択を迫られるように見える。それに対して、そのような選択は不要だというのが今回の説明だ。\n\n## 引き継がれるもの\n\nCopilot アプリのセッションを VS Code で開くと、会話、コードの変更、作業の文脈がそのまま保たれるとされる。新しく始め直すのではなく、同じセッションの続きとして扱える。\n\nこれにより、反復的な作業や時間のかかる作業は Copilot に任せ、その後の制御を開発者の手に戻すという進め方ができると説明されている。\n\n## 手順の流れ\n\n紹介されている流れは次の四つだ。まず Copilot アプリのセッションを VS Code で開く。次にエージェントによる変更を一行ずつ確認する。続いて同じ会話をエディターから継続する。最後にコードを修正し、ローカルでテストする。\n\n会話の継続とコードの手動編集が同じ場所で行えるため、エージェントへの追加の指示と自分での修正を行き来しやすくなる。具体的な操作手順や画面上のボタン名、対応する環境の条件などは示されていない。",
+      "bodyEn": "The GitHub Copilot app's agent can complete much of a code change, but developers often still want to inspect, adjust, and run the result in their editor. According to the GitHub Copilot blog, a Copilot app session can be opened directly in Visual Studio Code, so moving to the editor does not mean starting over.\n\n## The Agent Has Finished the Bulk\n\nThe post begins with a familiar situation. The agent has done most of your change, and you now want to inspect one implementation detail, adjust a few lines by hand, and run the project locally before shipping. The work is sitting in the GitHub Copilot app, while the editor is where you review diffs, debug code, and make final adjustments.\n\nThe post frames this as an apparent choice between staying in the session and starting over in VS Code. Its answer is that you don't have to choose.\n\n## Continue With Context Intact\n\nThe post says you can open the Copilot app session directly in VS Code and continue with its conversation, code changes, and working context intact. In other words, the chat, the code edits, and the surrounding context carry over rather than being left behind in the app.\n\nThe post describes this as a division of labor. Copilot handles the repetitive or time-consuming work, then hands control back to you for closer review, hands-on editing, and local testing.\n\n## Review, Edit, and Test Locally\n\nThe post summarizes the workflow in four steps. First, open a Copilot app session in VS Code. Second, review the agent's changes line by line. Third, continue the same conversation from your editor. Fourth, modify and test the code locally.\n\nThis matters most for developers who want the agent to do the heavy lifting but still want to check diffs, make manual corrections, and run the code themselves before finalizing. Because the same conversation continues in the editor, the session you started with the agent remains the thread you work from, rather than a separate starting point.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "エージェントが作業を終えたあとで、細かい部分は自分で直したいとき、どうすればいいの？",
+          "en": "When the agent finishes most of the work and I want to tweak the details myself, what do I do?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、Copilot アプリのセッションを VS Code で直接開けるんだ。会話や코ード変更、作業の文脈もそのまま続けられるよ。",
+          "en": "The article says you can open the Copilot app session directly in VS Code. The conversation, code changes, and working context all carry over."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、最初からやり直さなくていいんだね。それって、どんな人に役立つの？",
+          "en": "So I don't have to start over. Who does that help most?"
+        },
+        {
+          "s": "b",
+          "ja": "エージェントの作業後に、差分の確認や手での修正、ローカルでのテストをしたい開発者だね。時間のかかる作業は Copilot に任せて、最後は自分で見られるよ。",
+          "en": "Developers who want to review diffs, edit by hand, and test locally after the agent's work. Copilot handles the time-consuming parts, then hands control back to you."
+        },
+        {
+          "s": "a",
+          "ja": "つまり、任せたあとにエディタで細かく確かめて、同じ会話の続きもできるんだね。",
+          "en": "So I let it do the heavy lifting, check things closely in my editor, and keep the same conversation going."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。流れは、セッションを開く、変更を一行ずつ見直す、会話を続ける、直してテストする、の順だよ。",
+          "en": "Right. The flow is: open the session, review changes line by line, continue the conversation, then modify and test the code."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T09:37:25.801Z"
+    },
+    "ed744c789037c203": {
+      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
+      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
+          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
+          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
+        },
+        {
+          "s": "a",
+          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
+          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
+          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
+          "en": "I’d line up a few review agents and compare which one might suit me best."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
+          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T12:37:57.149Z"
+    },
+    "4dae9f9c4e7447ab": {
+      "bodyJa": "Cline v3.86.0が2026年5月28日付で公開された。Claude Opus 4.8とMoonshot Kimi K2.6のモデルサポートが加わり、Qwen 3.7 Maxの表示やVS Code拡張のプロジェクト構成にも変更が入っている。\n\n## Opus 4.8の追加\n\n中心となる変更は、Claude Opus 4.8のプロバイダーサポートの追加である。この対応には、1Mコンテキストのバリアントも含まれるとされている。ただし対象は「利用できる場合」に限られており、提供状況に応じた対応という位置づけだ。\n\n## Kimi K2.6の対応\n\nMoonshot Kimi K2.6のモデルサポートも今回のリリースで追加された。Claude Opus 4.8と並び、選択できるモデルの幅を広げる更新の一つである。\n\n## Qwen 3.7 Max\n\nClineプロバイダーにおいて、Qwen 3.7 Maxがプロンプトキャッシュに対応していることが表示されるようになった。変更内容は、Clineプロバイダー上でのキャッシュ対応の見え方に関するものと説明されている。\n\n## apps/vscode\n\n開発まわりでは二つの変更がある。一つはVS Codeのnightly版を公開するワークフローについて、起動時のパーミッションに関する不具合を修正したことだ。もう一つは、VS Code拡張のプロジェクトをapps/vscodeディレクトリへ移動したことである。\n\n変更履歴の全体は、cli-v3.0.14からv3.86.0までの差分として公開されている。個々の変更をコミット単位で確認したい場合は、その比較を参照するとよい。",
+      "bodyEn": "Cline v3.86.0 was published on 2026-05-28 as a release on the project's GitHub releases feed. It widens the set of models and providers the tool supports and includes two maintenance changes to the repository and its publishing workflow.\n\n## Claude Opus 4.8 Provider Support\n\nThe release notes list support for Claude Opus 4.8 as a provider addition. The entry specifies that this includes 1M-context variants \"where available,\" so the larger-context options apply only to the variants that offer them. The notes give no further detail on how these variants are selected or configured.\n\n## Moonshot Kimi K2.6 and Qwen 3.7 Max\n\nA second model addition is Moonshot Kimi K2.6, which the release describes as new model support.\n\nThe notes also say Cline will now show prompt-cache support for Qwen 3.7 Max in the Cline provider. This is framed as a change in what is displayed for that model under the Cline provider. The notes do not describe any other change to how Qwen 3.7 Max behaves.\n\n## Workflow and Project Layout Changes\n\nTwo changes concern the repository rather than model support. The first fixes the startup permissions of the VS Code nightly publish workflow. The notes give no further explanation of what was failing.\n\nThe second moves the VS Code extension project into the apps/vscode directory. The notes present this as a structural change and do not describe any effect on how the extension behaves.\n\n## Release Reference\n\nThe release points to a full changelog comparing cli-v3.0.14 with v3.86.0, which is the place to look for the complete list of changes between those two tags. The release page also notes that the commit was created on GitHub.com and signed with GitHub's verified signature.\n\nIn summary, v3.86.0 centers on provider and model coverage: Claude Opus 4.8 with 1M-context variants where available, Moonshot Kimi K2.6, and the prompt-cache indication for Qwen 3.7 Max. It is accompanied by a publish-workflow permissions fix and the relocation of the VS Code extension project to apps/vscode.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Clineを使っている人だと、今回は何が変わるの？",
+          "en": "If I'm already using Cline, what actually changes for me this time?"
+        },
+        {
+          "s": "b",
+          "ja": "選べるモデルが増えるよ。Claude Opus 4.8のプロバイダー対応と、Moonshot Kimi K2.6のモデル対応が入ったんだ。",
+          "en": "You get more models to pick from. Claude Opus 4.8 provider support and Moonshot Kimi K2.6 model support were both added."
+        },
+        {
+          "s": "a",
+          "ja": "Opus 4.8は前から使えたの？ 1Mコンテキストっていうのも気になる。",
+          "en": "Could I use Opus 4.8 before? And what's that 1M-context thing?"
+        },
+        {
+          "s": "b",
+          "ja": "以前どうだったかは、この記事だと分からないんだ。書かれているのは、使える場合は1Mコンテキスト版も含めて対応する、というところまでだよ。",
+          "en": "This release note doesn't say how it was before. It only says support now includes 1M-context variants where they're available."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、新しいモデルが選べて、Qwen 3.7 Maxのキャッシュ対応も表示されるってことかな。",
+          "en": "So the big win is new models to choose from, plus Qwen 3.7 Max's prompt-cache support showing up. Did I get that right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。次は、1Mコンテキストが「使える場合」というのがどのモデルなのかに注目だね。VS Code拡張がapps/vscodeに移ったのも裏側の変更だよ。",
+          "en": "Yes. Next, watch which models get those 1M-context variants, since the note says only where available. The VS Code extension also moved into apps/vscode behind the scenes."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:27:19.904Z"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T11:23:39.273Z",
-  "count": 404,
+  "generatedAt": "2026-11-28T12:30:48.855Z",
+  "count": 411,
   "bodies": {
     "7b752c9b3e3af2c6": {
       "bodyJa": "AIエージェントが高度化するにつれ、誤動作や悪用が発生した際の影響範囲（ブラスト半径）も拡大する。本記事はAnthropicのエンジニアリングブログに掲載され、その上限をどう設計するかという実践的な問いに答えている。\n\n対象製品はclaude.ai・Claude Code・Coworkの3つ。それぞれ異なるユースケースと権限モデルを持つ中で、共通の封じ込め原則をどう適用したかが論点と推察される。具体的な実装詳細は原文で確認することを推奨する。\n\nエージェントの安全設計に携わる開発者や、Claudeを自社プロダクトに組み込む実務者にとって参考になる内容と見られる。",
@@ -12078,7 +12078,39 @@
       "bodyJa": "生成AIの活用が広がるなか、1つのアプリケーションで複数の大規模言語モデル（LLM）を使い分けるケースが増えている。こうした状況で注目されるのが、単一のAPIキーで複数モデルへのリクエストを振り分ける「LLM API Gateway」だ。今回取り上げる記事は、その設計手法をコスト管理やアクセス制御の観点から実践的に解説している。\n\n背景には、LLMを取り巻くエコシステムの多様化がある。OpenAIのGPTシリーズ、AnthropicのClaude、GoogleのGeminiに加え、ローカルで動かせるオープンモデルまで選択肢は幅広い。しかし各社のAPIはキーの管理方法もリクエスト形式も料金体系も異なるため、素朴に実装するとアプリケーション側のコードが分岐だらけになり、モデルの切り替えやコスト把握が煩雑になりやすい。\n\nGatewayはこの課題を、クライアントとモデル群の間に立つ中継層として整理する。クライアントはGatewayが提供する統一エンドポイントに対して単一のキーでリクエストを送り、Gateway側がモデル名やルーティングルールに応じて適切なプロバイダーへ転送する。これにより、モデルの追加や差し替えをアプリ本体のコードに触れずに行える可能性がある。\n\nこうしたレイヤーには、利用量やコストの集計、レート制限、キャッシュ、フェイルオーバーといった機能を集約できる利点もある。あるモデルが応答しない場合に別モデルへ切り替えるフォールバックや、用途に応じて安価なモデルと高性能なモデルを使い分けるルーティングも、Gatewayに実装しやすいとされる。\n\n同種の発想はすでに周辺ツールにも見られる。オープンソースのLiteLLMは多数のプロバイダーをOpenAI互換の形式で扱えるようにし、OpenRouterは複数モデルへの統一的なアクセスをサービスとして提供している。記事で紹介される自作Gatewayは、こうした既存の仕組みを理解したうえで、自組織の要件に合わせて制御を内製する選択肢として位置づけられる。\n\n導入にあたっては、Gateway自体が単一障害点になり得る点や、遅延の増加、認証情報の集中管理に伴うセキュリティ設計といった検討事項もある。とはいえ、LLMOpsの一環として運用を標準化したい組織にとって、API Gatewayは有力なアーキテクチャの一つと言えるだろう。",
       "bodyEn": "As teams adopt more than one large language model, the operational overhead of juggling separate API keys, endpoint URLs, request formats, and billing dashboards grows quickly. An LLM API Gateway addresses this by placing a single, unified layer in front of multiple model providers, so that applications authenticate once and let the gateway decide which backend actually serves each request. The pattern matters because it decouples application code from the specifics of any one vendor, making it easier to switch models, control cost, and enforce policy from a central point.\n\nAt its core, an LLM API Gateway is a specialized reverse proxy. A client sends a request using one consistent schema, and the gateway translates it into whatever the target provider expects, forwards it, and normalizes the response on the way back. In practice, most gateways standardize on the OpenAI Chat Completions format, which has become a de facto interface that many providers and self-hosted servers already emulate. This convergence is what makes single-key, multi-model access feasible: the gateway can expose one contract while quietly mapping fields, authentication headers, and error codes for OpenAI, Anthropic, Google, or a locally hosted model.\n\nRouting is the component that gives the gateway its value. A simple design maps a model name in the incoming request to a specific backend, but more capable setups add fallback chains, so that if one provider returns an error or times out, the request is retried against an alternative. Load balancing across multiple keys or regions helps spread traffic and avoid rate limits, while rules based on request attributes can send, for example, short classification tasks to a smaller cheaper model and complex reasoning to a larger one. Because model selection lives in the gateway rather than the application, changing this behavior does not require redeploying client code.\n\nCost management and observability are closely related benefits. Since every request flows through one place, the gateway can count tokens, attribute spend to teams or projects through virtual keys, and enforce budgets or quotas before a request ever reaches a paid endpoint. Logging prompts, latencies, and error rates in a central location supports debugging and capacity planning, though it also raises data-handling considerations, since prompts and completions may contain sensitive information. Caching identical or semantically similar requests can further reduce cost and latency, but it needs careful invalidation to avoid serving stale or inappropriate responses.\n\nSeveral technical details deserve attention during implementation. Streaming responses, delivered as server-sent events, must be proxied without buffering the whole payload, which means the gateway has to pass chunks through while still tracking token usage. Timeouts and retries should be tuned so that fallbacks do not multiply latency unacceptably, and idempotency matters when retrying non-deterministic generation. Access control typically relies on issuing internal keys that the gateway maps to real provider credentials, keeping upstream secrets out of client applications entirely. Rate limiting per key protects both the budget and the upstream providers from accidental overload.\n\nThis design space is well populated by existing tools, which is useful context for anyone building or buying. Open-source projects such as LiteLLM provide a proxy that normalizes many providers behind an OpenAI-compatible endpoint, while hosted services like OpenRouter, Portkey, Helicone, and the AI gateways from Cloudflare and Kong offer routing, analytics, and caching as managed products. For local deployments, servers such as Ollama, vLLM, and LM Studio commonly expose OpenAI-style endpoints, which means a gateway can treat a self-hosted model as just another backend and blend on-premise and cloud inference behind the same interface. This flexibility is often cited as a hedge against vendor lock-in and pricing changes.\n\nThe gateway pattern fits within the broader LLMOps trend of treating model access as managed infrastructure rather than ad hoc integration. It is not a universal solution: adding a proxy introduces an extra network hop, a potential single point of failure, and its own operational burden, so high-availability designs and monitoring appear necessary for production use. Even so, for organizations running multiple models, centralizing routing, cost, and control behind one key is a pragmatic architecture that is likely to remain relevant as the number of available models continues to grow.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:57:02.937Z"
+      "generatedAt": "2026-08-30T16:57:02.937Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "最初は1つのAPI keyで足りるのに、実運用に近づくと問題が出てくるの？それって大きな変化なの？",
+          "en": "Wait, one API key is enough at first, but trouble starts as you get closer to real use? Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、そこで効くのが薄いレイヤーのLLM API Gatewayだと説明しています。ユーザーには1つのkeyを渡し、裏側で各providerのkeyを管理するんです。",
+          "en": "The article says a thin layer called an LLM API Gateway helps there. Users get one key, and the provider keys are managed behind the scenes."
+        },
+        {
+          "s": "a",
+          "ja": "OpenAI互換のendpointって何？SDKやツールをそのまま使えるってこと？",
+          "en": "What's an OpenAI-compatible endpoint? Does it mean I can keep using my SDK and tools as they are?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、OpenAIと同じ形で呼び出せる窓口のことです。この記事だと、多くの場合はbase_urlとapi_keyを差し替えるだけで接続できるとされています。",
+          "en": "Generally, it's an entry point you can call the same way as OpenAI's. The article says you can often connect just by swapping base_url and api_key."
+        },
+        {
+          "s": "a",
+          "ja": "もし私がチームで使うなら、個人のkeyがバラバラにならなくて済むのかな？",
+          "en": "If I used this with a team, would we avoid everyone juggling their own keys?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、個人keyの乱立を防ぎやすくなるとしています。ただ、fallbackや用途別のalias、コストの上限や見通しは、自分で設計する必要がありますね。",
+          "en": "The article says it makes it easier to prevent scattered personal keys. But fallbacks, aliases, and cost limits or forecasts still need to be designed."
+        }
+      ]
     },
     "2413843f80fd5497": {
       "bodyJa": "強化学習では、エージェントが受け取る報酬信号だけを手がかりに、背後にある環境の「隠れた状態」をどこまで復元できるのか——。arXivで公開された本研究は、この根源的な問いに対し、報酬だけから潜在状態を識別できるための理論的条件を定式化し、その鍵が「群言語の境界」にあることを示した。\n\n強化学習の標準的な定式化はマルコフ決定過程(MDP)を前提とするが、現実の環境では観測に現れない内部状態が報酬の出方を左右することが多い。こうした状況は部分観測マルコフ決定過程(POMDP)として扱われ、近年は報酬の時間的構造を有限オートマトンで表現する「報酬機械(reward machine)」の研究も活発だ。ただし観測できるのはあくまで報酬の系列であり、それが実際にどの内部状態から生じたのかを一意に決められるかどうかは自明ではない。\n\n本論文はこの問題を、計量経済学などで用いられる「操作変数(instrumental variable)」の発想とオートマトン理論を組み合わせた枠組みでとらえる。隠れたオートマトンの遷移を操作変数のように扱うことで、報酬信号と潜在状態の対応づけがいつ一意に定まるか、すなわち識別可能性を代数的に分析している。\n\n分析の核心は、オートマトンが受理する言語の代数的分類にある。遷移が可逆な置換として振る舞う「群言語」と、そうでない言語(リセットのような非可逆な遷移を含むもの)の境界が、識別可能性の分かれ目になると論じられている。直感的には、群構造をもつ対称的な遷移は状態を区別する情報を打ち消し合いやすく、報酬だけからの復元を難しくする可能性がある。こうした視点は、オートマトンを代数的に分類するクローン＝ローズ理論などの前提知識とも接続する。\n\nこの結果は、報酬設計やマルコフ性の仮定が崩れる状況でエージェントが原理的に何を学べるのか、その限界を形式言語理論の言葉で明確にする点に意義がある。理論研究が中心であり実応用での検証はこれからと見られるが、報酬機械や逆強化学習、因果推論を橋渡しする視点として、今後の展開が注目される。",
@@ -13322,44 +13354,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T05:40:48.608Z"
     },
-    "571c8c47df881aa3": {
-      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
-      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
-          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
-          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
-        },
-        {
-          "s": "a",
-          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
-          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
-          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
-          "en": "I’d line up a few review agents and compare which one might suit me best."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
-          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T12:37:57.149Z"
-    },
     "15257e030f2117a4": {
       "bodyJa": "## 合意は正解の証拠か\n\nKaihua Ding による論文「When LLMs Agree, Are They Right?」は、複数のLLMの判定が一致すること、あるいは単一モデルの複数回の出力が一致することを、正しさの目安として使ってよいのかを検証した研究である。企業の評価パイプラインでLLMによる判定が広がるなか、その前提を問い直す内容だ。\n\n## LLM-as-judgeの前提\n\n論文によれば、LLM-as-judge(Zheng et al., 2023)は、AIシステムを評価する際の既定の手法になりつつある。さらに、複数の判定モデルを組み合わせたアンサンブル(Verga et al., 2024)や、「mixture-of-experts」(Shazeer et al., 2017)型の審査員パネルへ拡張されることも多いと説明されている。\n\nこうした仕組みには共通の仮定がある。判定者同士が合意している、またはモデル自身の複数のサンプルが一致していれば、それは正しさを示しているという考え方だ。論文はこの仮定そのものを検証の対象にしている。\n\n## 一致の裏にある要因\n\n著者は、この仮定は信頼できないと示している。合意と正確さは別物であり、モデルが自分自身と一致する場合も、異なるモデル同士が一致する場合も、真実とは別の理由で起こりうるという。\n\n論文が挙げる理由は三つある。第一に、モデルが共有しているバイアス。第二に、記憶された経験則(ヒューリスティック)。第三に、選択肢の位置に対する事前の偏りである。いずれの場合も、答えが揃っていても、それは内容の正しさを確認した結果ではない可能性がある。\n\n## 信頼度シグナルとしての限界\n\nこの研究は、単一モデル内の自己一貫性と複数モデル間の合意が、事実としての正しさを確かに示すのかを実証的に監査したものと位置づけられている。合意を信頼度の代理指標として使うことには、単純ではない限界があるというのが、論文の示す方向性だ。\n\nしたがって、判定が揃っていることだけを根拠に出力の信頼度を判断する運用には、慎重さが求められる。合意が得られても、それが共有バイアスや記憶された経験則、選択肢の位置の偏りに由来していないかは、別に確かめる必要があると論文は指摘している。",
       "bodyEn": "## Agreement Is Not Accuracy\n\nA new arXiv paper by Kaihua Ding asks a question that matters for anyone relying on automated evaluation: when LLMs agree with each other, or with themselves, are they actually right? The work audits self-consistency and cross-model agreement as confidence signals, and it frames its central finding bluntly: the common assumption that consistency indicates correctness is unreliable.\n\n## The Assumption Under Test\n\nAccording to the abstract, LLM-as-judge has become increasingly the default way to evaluate AI systems in enterprise pipelines. These setups are often scaled up to ensembles of judges, or to \"mixture-of-experts\" panels. The abstract cites Zheng et al. (2023) for LLM-as-judge, Verga et al. (2024) for ensembles, and Shazeer et al. (2017) for mixture-of-experts.\n\nThe paper says all of these systems share one key assumption: that consistency, whether agreement among judges or agreement among a single model's own samples, signals correctness. The research examines whether that assumption holds in practice.\n\n## Why Agreement Can Mislead\n\nThe abstract states that agreement is not the same thing as accuracy. A model can agree with itself, and different models can agree with one another, for reasons unrelated to truth. The paper names three possible causes: shared bias, a memorized heuristic, or an option-position prior. In each case, the apparent consensus reflects a systematic tendency rather than a correct answer.\n\nThis distinction bears directly on how consensus is used as a confidence proxy. If several judges converge because they share the same bias or lean toward the same option position, the convergence adds little evidence that the answer is correct, even though it may look like strong confidence.\n\n## What the Audit Covers\n\nThe paper is described as an empirical audit of two signals: self-consistency within a single LLM and agreement across multiple LLMs. Its stated aim is to determine whether either reliably indicates factual correctness. The summary of the work characterizes the results as showing nuanced limits to using consensus as a confidence proxy, rather than a blanket rejection of the idea.\n\nThe material available describes the framing, the assumption being challenged, and the mechanisms through which agreement can diverge from accuracy. It does not give the specific models, datasets, or quantitative results, so those details are left to the full paper.",
@@ -14073,6 +14067,278 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T10:30:14.274Z"
+    },
+    "80955af470da00f0": {
+      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
+      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
+          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
+          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
+        },
+        {
+          "s": "a",
+          "ja": "シークレットって、秘密のコードってこと？",
+          "en": "Does “secret” mean secret code?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
+          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
+          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
+          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T20:07:43.460Z"
+    },
+    "706347545f4dbf63": {
+      "bodyJa": "Ollama がリリース候補版「v0.40.20-rc0」を GitHub 上で公開した。正式版に先立って提供される試験版で、導入前に動作を確かめたい利用者にとっての確認用の位置づけとなる。\n\n## rc0 という表記\n\n今回公開されたのは Ollama の v0.40.20-rc0 である。バージョン名の末尾に付く「rc0」は、これが正式版ではなくリリース候補版であることを示している。公開日時は 2026年11月27日 21時06分(UTC)と記録されている。分類上はローカル LLM 関連のリリース情報で、Ollama のリリースページを出どころとして掲載されたものである。\n\n## 動作確認向けの版\n\nこの版は、正式版が出る前に動作を確認したい利用者に向けた試験版とされる。正式版に切り替える前に、手元の環境でどのように動くかを試したい場合に手に取る版、という位置づけである。つまり今回のリリースは、正式版の代わりに常用する版というより、事前に挙動を見るための版として公開されたものと整理できる。\n\n個々の変更内容を把握したい場合は、GitHub 上のリリースページで直接確認するのが確実だ。\n\n## GitHub 上のコミット\n\nこのリリースに関連するページでは、GitHub.com 上で作成され、GitHub の verified signature で署名されたコミットが表示されている。署名付きのコミットとして、GitHub 上で確認できる形になっている。",
+      "bodyEn": "Ollama has published release candidate v0.40.20-rc0 on GitHub. It matters mainly to people running local LLMs with Ollama who want to see what is coming before the stable release.\n\n## Release Candidate v0.40.20-rc0\n\nThe release appeared in Ollama's GitHub releases feed on 2026-11-27 at 21:06:59 UTC. The version string, v0.40.20-rc0, marks it as a pre-release build rather than a final version. The announcement does not describe specific feature changes, fixes, or other contents, so nothing more can be said about what this build alters.\n\n## Verified Signature on GitHub\n\nThe release page notes that the associated commit was created on GitHub.com and signed with GitHub's verified signature. This describes how the commit was recorded on the platform. It is not a statement about the build's functionality.\n\n## Testing Ahead of Stable\n\nAccording to the source, this build suits users who want to check behavior before the official release. Those who prefer to wait for the stable version have no need to act on this candidate.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "v0.40.20-rc0って、ずいぶん細かい番号だね。これって大きな更新なの？",
+          "en": "v0.40.20-rc0 is a pretty detailed version number. Is this a big update?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、具体的な変更点までは確認できないんだ。分かるのは、正式版の前に試せる候補版が公開されたことだね。",
+          "en": "The article doesn't confirm any specific changes. What we can say is that a release candidate, a pre-stable test build, is now out."
+        },
+        {
+          "s": "a",
+          "ja": "その「rc」って何のこと？ 名前の最後についてるやつだよね。",
+          "en": "What does that \"rc\" at the end stand for?"
+        },
+        {
+          "s": "b",
+          "ja": "リリース候補、という意味だよ。正式版にする前の最終チェック用、くらいに思えばいいかな。",
+          "en": "It means release candidate. Think of it as a final check build before the stable version."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ私なら、正式版の前にちょっと試してみたいな。変わったところを自分で探す感じかも。",
+          "en": "Then I'd want to try it before the stable release and hunt for what changed myself. Does that work?"
+        },
+        {
+          "s": "b",
+          "ja": "試験版向けだから、その使い方は合ってるよ。ただ変更点は確認できないから、普段使いなら正式版を待つのもありかもね。",
+          "en": "Yes, it's meant for testers. But no changes are confirmed, so for everyday use, waiting for the stable release might be the safer choice."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:24:42.743Z"
+    },
+    "3ec7d051e8ef2633": {
+      "bodyJa": "言語モデルが示す繰り返しの行動パターン「ペルソナ」を、性格特性の空間における位置として捉え、重み空間に地図として描こうとする研究「Persona Cartography」が公開された。ペルソナは汎化や安全性を左右するとされ、その分解・測定・制御のための信頼できる道具が不足しているという問題意識に立っている。\n\n## 繰り返す行動パターン\n\n論文は、大規模言語モデルが繰り返し現れる行動パターン、すなわちペルソナを示すと述べている。こうしたパターンは、モデルがどう汎化するか、どれだけ安全かといった点を形作るという。\n\n一方で、ペルソナを分解し、測定し、制御するための信頼できるツールはまだ整っていない。研究はこの空白を埋めることを出発点としている。\n\n## OCEANで描く性格\n\n中心的な着想は、ペルソナを「行動特性の空間における位置」として扱うことである。その記述にはOCEANの枠組みを用いる。これは開放性(Openness)、誠実性(Conscientiousness)、外向性(Extraversion)、協調性(Agreeableness)、神経症傾向(Neuroticism)の5つの特性を指す。\n\nつまり、個々のモデルのペルソナを、この5つの特性の観点から位置づけて述べられる対象にしようという考え方だ。\n\n## 重み空間の地図\n\nタイトルにあるとおり、この研究は性格特性をモデルの重み空間上に描くことを目指している。性格特性が重み空間の中でどのように符号化され、分布し、構造化されているかを体系的に調べる研究と位置づけられている。\n\nあわせて、モデルの振る舞いを地図のように把握し理解するための新たな方法を提示し、アラインメントと制御の改善につなげるものと説明されている。ペルソナを位置として測る発想が、AIの行動制御や安全性に新たな知見をもたらすとされる。",
+      "bodyEn": "Persona Cartography is a research paper from Luke Baines and six co-authors, posted to arXiv's cs.AI category. It addresses how language models' behavioural tendencies can be described and studied, a question the authors link to generalisation and safety.\n\n## Recurring Behavioural Patterns\n\nAccording to the abstract, large language models exhibit recurring behavioural patterns, which the authors call personas. The paper says these patterns shape how models generalise and bear on safety. The authors also state that there are no reliable tools for decomposing, measuring, or controlling personas. That gap is the problem the work sets out to address.\n\n## Positions in a Space\n\nThe authors describe their central insight as treating personas as positions in a space of behavioural traits. Under this framing, a model persona is not a single label. It is a location that can be described by its values along several trait dimensions.\n\nTo define those dimensions, the paper uses the OCEAN framework. It describes model personas in terms of five traits: Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. Each persona can then be characterised by where it falls on these five traits.\n\n## Charting Weight Space\n\nThe title says the paper charts language model personality traits in weight space. A summary of the work describes it as an investigation of how personality traits are encoded in a model's weights. The same summary says it offers new methods to map and understand model behaviour, with the aim of better alignment and control.\n\nThis connects to the problem set out in the abstract. If personas can be located as positions in a trait space, and those traits can be tied to the weight space of a model, the result would be a way to decompose, measure, and control personas. The abstract frames that combination as the missing toolset.\n\n## What the Paper Establishes\n\nThe available description of the paper covers its framing and goals: personas as positions in a trait space, OCEAN as the descriptive framework, and weight space as the setting for the mapping. The abstract as given does not say how the traits are measured or what the experiments show. It also gives no results, so this explainer does not report any. Readers who want the methods and findings will need the full PDF.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「ペルソナ」って、モデルの性格みたいなものなの？この研究では何をしてるのかな。",
+          "en": "So a \"persona\" is like a model's personality? What does this research actually do with it?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、モデルに繰り返し現れる行動パターンをペルソナと呼んでいます。それを性格特性の空間上の「位置」として捉えるのが中心の発想です。",
+          "en": "In this paper, personas are recurring behavioural patterns in a model. The core idea is to treat each one as a position in a space of personality traits."
+        },
+        {
+          "s": "a",
+          "ja": "位置で表すって、地図みたいだね。その特性は何を使って表すの？",
+          "en": "A position, like on a map! What do they use to describe the traits?"
+        },
+        {
+          "s": "b",
+          "ja": "OCEANという枠組みです。開放性、誠実性、外向性、協調性、神経症傾向の5つで、モデルのペルソナを説明します。",
+          "en": "They use the OCEAN framework: Openness, Conscientiousness, Extraversion, Agreeableness, and Neuroticism. Those five describe a model's persona."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、ペルソナを分けたり測ったり、コントロールしたりする道具があると助かるってこと？",
+          "en": "So having tools to break down, measure, and control personas would help. Is that the point?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。ペルソナは汎化や安全性に影響するのに、信頼できる道具が足りないと書かれています。その点が課題です。",
+          "en": "Right. The paper says personas shape generalisation and safety, yet reliable tools for handling them are lacking. That's the gap it points to."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:25:47.307Z"
+    },
+    "72b96b7cea4b2c03": {
+      "bodyJa": "論文「Agentic Neural Architecture Search」(Seokhoon Jeong ほか2名)は、ニューラルアーキテクチャ探索(NAS)に大規模言語モデル(LLM)を組み合わせ、探索空間を人手で設計する負担を減らす仕組みを提案している。LLMによる設計とNASによる探索をどう分担するかという、未検討とされる問題に取り組む点が特徴だ。\n\n## 手作業の探索空間\n\nNAS手法は効率が高まってきた一方で、人手で設計された探索空間に縛られているとされる。この探索空間の構築には相当なドメイン知識が必要で、新しいタスクごとに作り直さなければならない。\n\n一方、LLMはオープンエンドな空間でアーキテクチャを生成できる。しかし、LLM主導の設計とNAS主導の探索のあいだで、作業をどう最適に分担すべきかはまだ探られていないと位置づけられている。\n\n## スロット化アーキテクチャ\n\n提案は、この二つのパラダイムをつなぐ仕組みである。まずLLMが質の高い「シードアーキテクチャ」を生成する。次に、それを「スロット化アーキテクチャ」へ分解する。これは、名前が付き、互いに交換可能なモジュール用のスロットを備えた骨組みを指す。\n\n## 有界な探索空間\n\nスロットの構成により、タスクに特化した範囲の限られた探索空間が自動的に定義される。従来型のNASはその空間を探索すればよく、探索空間を手作業で作り込む必要はないと説明されている。\n\nつまりLLMが出発点となる設計を担い、従来型のNASが決められた範囲の中を探索するという分担である。新しいタスクのたびに探索空間を設計し直すという課題に対し、その工程を自動化することで応えようとしている。\n\n要点としては、LLMを使ったエージェント的な手法で人手の設計工数を減らしながら、高性能なモデル構造の発見を目指す点が注目されている。",
+      "bodyEn": "## Manually Engineered Search Spaces\n\nAgentic Neural Architecture Search is a paper by Seokhoon Jeong and two other authors that takes on a limitation of neural architecture search (NAS). The abstract says NAS methods have become increasingly efficient but remain bounded by manually engineered search spaces. Those spaces require substantial domain expertise and must be rebuilt for every new task, so removing that manual step matters for how widely NAS can be applied.\n\n## Dividing Labor Between LLMs and NAS\n\nThe authors point to large language models (LLMs) as a possible alternative. According to the abstract, LLMs can generate architectures in an open-ended space. The paper states that how to optimally divide the labor between LLM-driven design and NAS-driven search remains unexplored. Its contribution is a mechanism meant to bridge the two paradigms rather than to choose one over the other.\n\n## The Slotted Architecture\n\nThe proposed process has two steps. First, an LLM produces a high-quality seed architecture. Second, that seed is decomposed into what the authors call a \"slotted architecture.\" This is described as a scaffold with named, interchangeable module slots.\n\nThe slots do the work of defining the search space. According to the abstract, the scaffold automatically defines a bounded, task-specific search space that conventional NAS can then explore. The abstract stresses that this happens without manual engineering. In this arrangement, the LLM handles the open-ended design of the starting point, and conventional NAS searches within the limited space that the slots define.\n\n## What the Paper Claims\n\nThe paper frames the approach as using LLM-driven agents to carry out neural architecture search autonomously. The stated aim is to reduce manual design effort while discovering high-performing network structures across tasks. The material available here covers the problem statement and the proposed mechanism. It does not give experimental results, benchmark comparisons, or implementation details, so the performance of the approach cannot be assessed from this description alone.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "新しいタスクでモデルを作るとき、普段の作業の何が変わるの？",
+          "en": "When I build a model for a new task, what actually changes in my day-to-day work?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、探索の範囲を専門知識で人が作る部分を、LLMが自動で用意する提案だよ。手作業の設計が減る方向だね。",
+          "en": "Here, the part where people hand-build the search range using expert knowledge gets handled by an LLM automatically. So less manual design work."
+        },
+        {
+          "s": "a",
+          "ja": "前はできなかったの？ 自動探索のNASだけじゃだめだったのかな。",
+          "en": "Couldn't that be done before? Wasn't NAS on its own enough?"
+        },
+        {
+          "s": "b",
+          "ja": "NASは効率的になっても、探索範囲は人手で作り、タスクごとに作り直しだったと書かれているよ。LLMとの分担は未検討だったそうだよ。",
+          "en": "NAS got more efficient, but its search space was still hand-built and redone for every task. How to split work with LLMs was also unexplored, it says."
+        },
+        {
+          "s": "a",
+          "ja": "LLMが下書きを作って、NASが中身を選ぶ分業なんだね。そこが一番の収穫かな。",
+          "en": "So the LLM drafts the design and NAS picks the parts. That feels like the big takeaway for me."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。LLMが元の設計を「スロット」に分けて、それが探索範囲になる仕組みだよ。次は実際の性能がどう示されるかに注目だね。",
+          "en": "Right. The LLM splits its seed design into slots, and those define the search space. Next, I'd look at how the actual performance gets shown."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:26:17.549Z"
+    },
+    "a2f63817e1330682": {
+      "bodyJa": "GoogleはAIエージェントを開発・実行するためのオープンソースフレームワーク「Agent Development Kit(ADK)」のKotlin版と、Android向けの特化ライブラリ「ADK for Android」を発表した。ADK for Kotlinはバージョン0.1.0として公開され、エージェント開発の対象がバックエンドからモバイルまで広がる。\n\n## Kotlin版ADK 0.1.0\n\nADKは、AIエージェントを開発し実行するための柔軟なオープンソースのフレームワークと説明されている。今回、新たにKotlinでも利用できるようになった。ADK for Kotlinは、バックエンドのプロジェクトにエージェント的なワークフローを持ち込むものとされる。\n\n直近ではADK for JavaとGoが1.0.0に到達し、ADK for Python 2.0もベータ版が公開されている。今回のKotlin版は、これらに続く発表である。\n\n## ADK for Androidの特徴\n\nADK for Androidは、Kotlin版とは別に用意された特化ライブラリで、オンデバイス向けの最適化を提供すると説明されている。Kotlin版が主にバックエンドを対象とするのに対し、Android版はアプリ内での動作に焦点を当てている。端末上のローカルLLMを使い、アプリの中で直接動作するAIエージェントを作成できる。\n\n## ローカルとクラウドの橋渡し\n\n端末上のローカルLLMを使うことは、プライバシーの向上につながるとされる。一方で、クラウドベースのモデルとの間を橋渡しする柔軟性も備えており、オンデバイスだけに閉じず、クラウド側のモデルともつなげられる点が特徴だ。\n\nバックエンド向けのKotlin版と、アプリ内で動作するAndroid版という二つの選択肢がそろった形である。",
+      "bodyEn": "## ADK for Kotlin 0.1.0\n\nGoogle has announced version 0.1.0 of Agent Development Kit (ADK) for Kotlin, extending its agent framework to Kotlin developers. According to the announcement, it brings agentic workflows to backend projects, which widens the range of environments where AI agents can be built with ADK.\n\nThe announcement describes ADK as a flexible, open-source framework for developing and running AI agents. Kotlin is now one of the languages in which it is available.\n\n## Following Earlier ADK Releases\n\nThe Kotlin launch comes after other recent ADK milestones. The announcement notes the 1.0.0 releases of ADK for Java and Go, as well as the beta of ADK for Python 2.0. Kotlin's 0.1.0 version number marks it as an early release by comparison with the 1.0.0 versions of the Java and Go editions.\n\n## ADK for Android\n\nAlongside the Kotlin library, Google is launching a second, specialized library called ADK for Android. The announcement says it provides specialized on-device optimizations. With it, developers can create AI agents that operate on-device directly within their apps, using local on-device large language models.\n\nThe announcement presents privacy as a benefit of this on-device approach. It also says developers retain the flexibility to bridge the gap with cloud-based models, so an agent is not limited to local models alone.\n\n## What the Release Covers\n\nIn summary, the announcement covers two launches at version 0.1.0. ADK for Kotlin targets backend projects, and ADK for Android targets native Android applications. Together they extend agentic AI workflows from the backend to mobile, as the announcement frames it.\n\nThe source gives no further detail on the 0.1.0 releases beyond this description. Readers who want specifics on APIs, supported models or setup should consult the original announcement from Google's developer blog.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ADK for KotlinとADK for Androidって、何がちがうの？どっちも0.1.0で出たんだよね？",
+          "en": "What's the difference between ADK for Kotlin and ADK for Android? Both launched as 0.1.0, right?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、Kotlin版はバックエンドのプロジェクト向けで、Android版はオンデバイス向けの最適化を備えた別ライブラリとされています。",
+          "en": "The post says Kotlin is for backend projects, while Android is a separate, specialized library with on-device optimizations."
+        },
+        {
+          "s": "a",
+          "ja": "オンデバイスって、スマホの中でAIが動くってこと？それだと誰が助かるの？",
+          "en": "On-device means the AI runs inside the phone? Who does that help?"
+        },
+        {
+          "s": "b",
+          "ja": "そうです。アプリ内でローカルのLLMを使ってエージェントを動かせて、プライバシーの強化につながると書かれています。Androidアプリを作る開発者向けですね。",
+          "en": "Right. Agents can run inside the app using local LLMs, which the post says enhances privacy. So it's aimed at Android app developers."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、バックエンドはKotlin版、アプリはAndroid版で、必要ならクラウドのモデルともつなげるんだね。",
+          "en": "So Kotlin for backend, Android for apps, and you can still connect to cloud models when needed?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、クラウドのモデルとつなぐ柔軟さもあるそうです。ただ、どちらもまだバージョン0.1.0という点は覚えておきたいですね。",
+          "en": "Yes, the post mentions that flexibility. Just keep in mind both are still at version 0.1.0."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:28:18.861Z"
+    },
+    "16643d0d9d98ffdb": {
+      "bodyJa": "AIコードエディタのCursorが、Jira上から直接利用できるようになった。Jiraの作業項目を起点にクラウドエージェントを呼び出せるのが特徴だ。\n\n## @Cursorで起動\n\nエージェントを起動する方法は2つある。1つは作業項目をCursorに割り当てること、もう1つはコメント欄で@Cursorにメンションすることだ。どちらの場合も起動するのはクラウドエージェントである。開発者はプロジェクト管理のワークフローから離れずに、Cursorの機能へアクセスできるとされる。\n\n## スコープの決め方\n\nCursorは、作業項目のタイトル、説明、コメント、そしてチームのリポジトリ設定をもとに、タスクのスコープを決定する。チケットに記載された内容について、バグ修正、機能追加、テストの更新、調査のいずれかを依頼できる。チケットの記載内容とリポジトリ設定が、エージェントの作業範囲を決める材料になる。\n\n## 完了通知とPR\n\nエージェントの作業が完了すると、Jiraに完了状況の更新が表示される。この更新にはPRへのリンクも含まれるため、作業結果のPRへはJira上の表示からたどれる。\n\n## 導入に必要なもの\n\n統合はCursor integrationsからインストールできる。利用にはCursorの管理者アクセスと、Rovoが有効になっているJira Commercial Cloudが必要だ。Cursorの管理者権限とJiraの対応環境の両方がそろっていることが前提となる。詳しい手順や設定は、ドキュメントで案内されている。",
+      "bodyEn": "## Cursor Now Available in Jira\n\nCursor has been made available in Jira, letting teams hand work items to Cursor without leaving their project management workflow. According to the changelog entry, this lets a ticket in Jira become the starting point for work done by a cloud agent.\n\n## Assign or Mention @Cursor\n\nA cloud agent can be launched in two ways: by assigning a work item to Cursor, or by mentioning @Cursor in a comment. Once started, Cursor determines the scope of the task from the work item's title, description, and comments, along with the team's repository settings.\n\nThe changelog says that, based on what is written in the ticket, Cursor can be asked to fix a bug, add a feature, update tests, or carry out an investigation. This means the ticket's own content, rather than a separate prompt, shapes what the agent takes on.\n\n## Status Updates and PR Links\n\nWhen the agent finishes its work, a completion status update appears in Jira. According to the announcement, that update includes a link to the pull request, so the result of the work can be reached from the same ticket that triggered it.\n\n## Installation Requirements\n\nThe integration can be installed from Cursor integrations. Two requirements are stated: administrator access in Cursor, and Jira Commercial Cloud with Rovo enabled. Teams that lack either of these conditions would not meet the stated prerequisites for setting up the integration.\n\nThe changelog points readers to the documentation for further details. The entry is dated May 19, 2026, and describes the capability as available now, rather than announcing a future rollout.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Jiraのチケットから、どうやってCursorを動かすの？",
+          "en": "How do you actually get Cursor going from a Jira ticket?"
+        },
+        {
+          "s": "b",
+          "ja": "作業項目をCursorに割り当てるか、コメントで@Cursorにメンションすると、クラウドエージェントが起動します。タイトルや説明、コメントを見てスコープを決めるそうです。",
+          "en": "Assign the work item to Cursor, or mention @Cursor in a comment, and a cloud agent starts. It scopes the task from the title, description, and comments."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあJiraで書いた内容を、そのままCursorに頼めるってこと？どんな作業？",
+          "en": "So whatever's written in the ticket can go straight to Cursor? What kind of work?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、チケットの内容にそって、バグ修正、機能追加、テストの更新、調査を頼めます。終わるとJiraに完了状況が出て、PRへのリンクも付きます。",
+          "en": "Yes. Based on the ticket, you can ask for bug fixes, new features, test updates, or investigation. When it's done, Jira shows the status with a link to the PR."
+        },
+        {
+          "s": "a",
+          "ja": "チケットを書くだけで、PRまでの流れがつながるんだね。使うのに何かいるの？",
+          "en": "So the ticket connects all the way to a PR. Do I need anything to use it?"
+        },
+        {
+          "s": "b",
+          "ja": "Cursorの管理者アクセスと、Rovoが有効なJira Commercial Cloudが必要です。Cursor integrationsからインストールするので、まず条件を確認したいですね。",
+          "en": "You need Cursor admin access and Jira Commercial Cloud with Rovo enabled. It's installed from Cursor integrations, so check those requirements first."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:28:53.171Z"
+    },
+    "8a3d6ef11723b1aa": {
+      "bodyJa": "## Composer 2.5\n\nCursor で Composer 2.5 が利用可能になりました。Composer 2 と比べて、知能面と挙動が大幅に向上していると説明されています。\n\n提供開始に合わせて、作業の続けやすさ、指示への従いやすさ、共同作業の快適さという三つの点が改善点として挙げられています。\n\n## 長時間タスクの継続\n\n改善点の一つは、長時間にわたるタスクでも継続して作業しやすくなったことです。作業が長引く場面でも、途切れにくく進められることが意図されていると読み取れます。\n\nもう一つは、複雑な指示にもより確実に従えるようになったことです。指示が込み入っていても、意図に沿った結果を得やすくなるとされています。あわせて、より快適に共同作業できるようになったとも説明されています。\n\n## Fastがデフォルト\n\n料金は二つのプランが示されています。Standard は入力が 0.50/M、出力が 2.50/M トークンです。Fast は入力が 3.00/M、出力が 15.00/M トークンで、こちらがデフォルトとして設定されています。\n\nFast は Standard よりも入力、出力ともに単価が高い設定です。ただし両者の違いが何に由来するのかは、ここでは示されていません。デフォルトが Fast である点は、利用時にあらかじめ把握しておきたいところです。\n\n## 最初の1週間は2倍\n\nComposer 2.5 では、最初の1週間、使用量が2倍になります。提供開始直後の期間に限った措置です。\n\nこの措置の細かな条件や、各プランでの扱いについては、モデルのドキュメントで確認するよう案内されています。",
+      "bodyEn": "Composer 2.5 is now available in Cursor, according to the changelog entry dated May 18, 2026. The release matters to Cursor users because it replaces Composer 2 as the newer version, and the entry attaches specific pricing and a short-term usage offer.\n\n## Composer 2.5 Is Now Available\n\nThe announcement presents Composer 2.5 as a new version of the Composer model inside Cursor. It says the model can be used in Cursor now. The entry points readers to the model documentation for further details.\n\n## Gains Over Composer 2\n\nThe announcement says that, compared with Composer 2, Composer 2.5 is substantially improved in both intelligence and behavior. It names three practical effects. The model is easier to keep working with on long-running tasks. It follows complex instructions more reliably. It is also described as more comfortable to collaborate with. These are the source's own characterizations, and the entry gives no benchmark figures to quantify them.\n\n## Standard and Fast Pricing\n\nTwo pricing tiers are listed, with rates quoted per million tokens (M).\n\nThe Standard tier costs 0.50 per M input tokens and 2.50 per M output tokens.\n\nThe Fast tier costs 3.00 per M input tokens and 15.00 per M output tokens. The announcement marks Fast as the default, so it applies unless a different option is chosen.\n\nThe entry does not name a currency alongside these figures.\n\n## Doubled Usage in Week One\n\nThe announcement states that usage for Composer 2.5 is doubled during the first week. It does not explain how the doubling is applied. It directs readers to the model documentation for the specifics of this offer.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "最初の1週間は使用量が2倍になるって書いてあったね。これって大きいこと？",
+          "en": "It says usage is doubled for the first week. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "お試しにはうれしい話だね。ただ、2倍になるのは最初の1週間だけ。詳しくはモデルのドキュメントを見てほしい、とあるよ。",
+          "en": "Nice for trying it out. But it's only the first week, and the article points to the model documentation for details."
+        },
+        {
+          "s": "a",
+          "ja": "価格に出てくる「トークン」って何？入力と出力で値段も違うんだね。",
+          "en": "What's a \"token\"? And the price differs for input and output, right?"
+        },
+        {
+          "s": "b",
+          "ja": "トークンは、AIが読み書きする文章の小さな区切り、くらいの意味だよ。この記事では入力と出力に別々の価格が書かれているね。",
+          "en": "A token is roughly a small chunk of text the AI reads or writes. The article lists separate prices for input and output."
+        },
+        {
+          "s": "a",
+          "ja": "長い作業を任せてみたいな。Fastがデフォルトらしいけど、そのままでいいのかな？",
+          "en": "I'd love to hand it a long task. Fast is the default, but should I just stick with it?"
+        },
+        {
+          "s": "b",
+          "ja": "Fastは入力3.00・出力15.00、Standardは入力0.50・出力2.50で、Fastのほうが高い設定だよ。使い分けの目安までは書かれていないね。",
+          "en": "Fast is 3.00 input and 15.00 output; Standard is 0.50 and 2.50, so Fast costs more. The article doesn't say how to choose between them."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T11:29:19.471Z"
+    },
+    "5c4f24fd6d91db2b": {
+      "bodyJa": "エンタープライズ領域のJavaアプリケーションは、長い運用期間を経るうちにフレームワークが古くなり、新しいバージョンや別のフレームワークへの移行を迫られることが多い。IBM Researchが公開した「ScarfBench」は、こうしたフレームワーク移行タスクをAIエージェントがどれだけ自律的にこなせるかを測るためのベンチマークだ。実務に近い課題を通じて、大規模言語モデルやコード生成エージェントの実力を標準化した形で評価できる点に特徴がある。\n\nレガシーシステムの近代化は、多くの企業にとって負担の大きい作業だ。単なる構文の置き換えではなく、依存関係の解決、設定ファイルの書き換え、API差異への対応、テストの通過など、複数の工程を横断的に理解する必要がある。ScarfBenchは、こうした現実的な移行作業を題材にすることで、従来の単発的なコード生成ベンチマークでは捉えきれなかった、複雑で文脈依存の強いタスクへの対応力を測ろうとしていると見られる。\n\n近年、コード生成分野ではHumanEvalやSWE-benchといったベンチマークが広く使われてきたが、これらは比較的短いタスクや単一リポジトリ内のバグ修正に焦点を当てるものが多い。これに対しScarfBenchは、エンタープライズ特有のフレームワーク移行という、より規模が大きく実務的な課題を対象とする点で位置づけが異なる。エージェントが自律的に複数ファイルを横断し、変更を積み重ねながらゴールへ到達できるかを問う設計は、実際の開発現場での活用可能性を見極める材料になり得る。\n\nコード移行やモダナイゼーションの自動化は、各社が注力する領域でもある。IBM自身も生成AI基盤「watsonx」でコード関連の支援機能を提供しており、他社でもレガシー資産の変換を支援するツールやサービスが登場している。ScarfBenchのような標準化された評価基盤が整うことで、モデルやエージェントごとの得意・不得意を客観的に比較しやすくなり、実務導入の判断材料としても役立つ可能性がある。\n\nタグにopen-modelが含まれることから、オープンなモデルを含めた幅広い評価が想定されているとみられる。移行作業の自動化が進めば、開発者がより創造的な業務に集中できるようになるとの期待もある一方、生成された変更の正確性や安全性の検証は引き続き重要な課題として残るだろう。",
+      "bodyEn": "Enterprise software modernization remains one of the most expensive and error-prone tasks in corporate IT, and a new benchmark from IBM Research aims to measure how well AI agents can shoulder part of that burden. ScarfBench, published through Hugging Face, evaluates how effectively AI agents can carry out real-world enterprise Java framework migration tasks, offering a standardized way to gauge a problem that has historically resisted reliable automation.\n\nFramework migration is a specific and demanding category of software maintenance. Rather than writing new features from scratch, developers must move an existing application from one framework or framework version to another. Typical examples include upgrading across major Spring Boot releases, migrating from Java EE to Jakarta EE, or replacing a deprecated library with a supported alternative. Such changes ripple across a codebase: import statements, configuration files, build descriptors such as Maven or Gradle files, annotations, and API calls may all require coordinated edits. A single overlooked dependency can break compilation or introduce subtle runtime failures, which is why migrations frequently consume months of skilled engineering effort.\n\nScarfBench appears designed to capture this complexity in a form that AI systems can be tested against consistently. Benchmarks of this kind generally present an agent with a source repository and a defined migration goal, then let the model plan and execute the multi-step changes needed to reach a target state. Success is typically verified through objective signals such as whether the project still compiles and whether its existing test suite passes, rather than through subjective judgments about code style. This grounding in executable outcomes is important, because it distinguishes genuine functional migration from plausible-looking edits that do not actually work.\n\nThe focus on enterprise Java is significant. Java underpins a large share of the world's banking, insurance, government, and telecommunications systems, and many of those applications are years or decades old. Modernizing them is a recurring cost, and organizations are keen to understand whether AI agents can accelerate the work without introducing regressions. By narrowing the scope to a well-defined, high-value domain, ScarfBench targets a task where measurable improvements would translate directly into business value, in contrast to broader, more general coding benchmarks.\n\nScarfBench sits within a growing ecosystem of tools for evaluating AI coding agents. The best-known example is SWE-bench, which draws tasks from real GitHub issues and pull requests to test whether models can resolve bugs and implement changes across full repositories. ScarfBench can be seen as a more specialized counterpart, concentrating on migration and legacy modernization rather than general issue resolution. The two reflect a wider shift in how the field measures progress: away from isolated function-completion puzzles and toward agentic workflows in which a model must navigate an entire project, reason about dependencies, and make coordinated multi-file changes.\n\nThe involvement of IBM Research is consistent with the company's broader investment in enterprise code modernization. IBM has developed its Granite family of open models and offers watsonx Code Assistant products aimed at application modernization, including tooling focused on Java and mainframe workloads. A benchmark oriented toward open models, as ScarfBench's tags suggest, also aligns with interest in running capable systems locally or within controlled environments, which matters to enterprises that cannot send proprietary source code to external services for regulatory or security reasons. In that setting, a benchmark that helps compare open and self-hostable models on realistic migration tasks is likely to be practically useful.\n\nFor teams evaluating whether to adopt AI agents in their modernization pipelines, a benchmark like this provides a shared reference point rather than relying on vendor claims or one-off demonstrations. It is worth noting, however, that benchmark performance does not guarantee production readiness. Real migrations often involve undocumented business logic, incomplete test coverage, and integration constraints that a curated benchmark may not fully represent, so strong scores should be read as an indicator of capability rather than a promise of turnkey automation.\n\nAs AI agents move from experimental assistants toward tools entrusted with substantive engineering work, standardized and executable evaluations like ScarfBench help clarify where current models genuinely help and where human oversight remains essential. Its long-term impact will depend on how widely it is adopted, how representative its task set proves to be, and how the results hold up as models and agent frameworks continue to evolve.",
+      "model": "claude-opus-4.8",
+      "generatedAt": "2026-07-12T01:03:35.679Z"
     }
   }
 }

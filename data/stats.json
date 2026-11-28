@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T11:23:43.430Z",
+  "generatedAt": "2026-11-28T12:30:53.171Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
     "allTime": 8354,
@@ -1422,11 +1422,6 @@
       "last30d": 3
     },
     {
-      "source": "github-copilot",
-      "total": 44,
-      "last30d": 3
-    },
-    {
       "source": "aws-news",
       "total": 41,
       "last30d": 2
@@ -1435,6 +1430,11 @@
       "source": "vscode-updates",
       "total": 40,
       "last30d": 4
+    },
+    {
+      "source": "github-copilot",
+      "total": 36,
+      "last30d": 0
     },
     {
       "source": "meta-newsroom",
@@ -1472,6 +1472,11 @@
       "last30d": 2
     },
     {
+      "source": "github-blog-ai",
+      "total": 27,
+      "last30d": 3
+    },
+    {
       "source": "youtube-anthropic",
       "total": 26,
       "last30d": 2
@@ -1485,11 +1490,6 @@
       "source": "apple-newsroom",
       "total": 19,
       "last30d": 1
-    },
-    {
-      "source": "github-blog-ai",
-      "total": 19,
-      "last30d": 0
     },
     {
       "source": "microsoft-research",

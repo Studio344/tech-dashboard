@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T04:30:54.935Z",
-  "count": 392,
+  "generatedAt": "2026-11-28T05:30:53.225Z",
+  "count": 396,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -12376,7 +12376,39 @@
       "bodyJa": "Googleは、スペック駆動開発を支援するツール「Conductor」が、エージェント開発プラットフォーム「Antigravity」に対応したと明らかにした。仕様を起点とする体系的な開発手法を、Geminiを活用したAIエージェントの構築にまで広げる動きとして注目される。\n\nスペック駆動開発（spec-driven development）は、いきなりコードを書き始めるのではなく、まず要件や振る舞いを明確な仕様として定義し、その仕様をもとに実装やテストを進めていく手法を指す。生成AIによるコーディング支援が普及するなかで、AIに曖昧な指示を与えるのではなく構造化された仕様を渡すことで、出力の一貫性や再現性を高められる点が評価されている。\n\nConductorは、こうした仕様ファーストのワークフローを整理・管理するためのツールと位置づけられる。今回のAntigravityサポートにより、仕様の作成から、Geminiを基盤とするエージェントによる実装、検証までを一貫した流れで扱いやすくなると見られる。Antigravityはエージェントが自律的にタスクを進めることを前提とした開発環境であり、明確な仕様はエージェントの意図しない挙動を抑える指針としても機能する可能性がある。\n\n背景には、AIエージェントが単なる補完を超えて、複数ステップの作業を自律実行する段階へと進んでいる状況がある。エージェントの自由度が上がるほど、何を作るべきかを人間側が正確に伝える重要性は増す。仕様を中間成果物として残す方式は、レビューや監査、チーム内での認識共有にも寄与するとされる。\n\n同種の考え方は業界全体で広がりつつある。AmazonのKiroやGitHubのSpec Kitなど、仕様を軸に据えた開発ツールが相次いで登場しており、Googleの取り組みもこの潮流に沿うものと言える。各社が競うことで、仕様の記述形式やツール間の連携が今後の焦点になりそうだ。\n\n開発者にとっては、プロンプトの職人芸に頼りすぎず、検証可能な仕様を軸に開発を進める選択肢が広がる。一方で、仕様の粒度や記述にかかる手間、既存ワークフローとの統合といった課題も残る。実運用でどこまで生産性向上につながるかは、今後の事例の蓄積を通じて見極められていくとみられる。",
       "bodyEn": "Google's Conductor now supports Antigravity, a change that extends spec-driven development workflows to AI agents built on the Gemini model family. The update matters because it moves agentic coding further away from ad hoc prompting and toward a more structured, specification-first process, where a written spec becomes the shared source of truth that both humans and agents work from.\n\nSpec-driven development is the central idea here. Rather than typing a loosely worded instruction and hoping an AI produces the right code, developers first author a structured specification that captures requirements, intended behavior, constraints, and often a breakdown of implementation tasks. That document then drives the actual work. The approach aims to reduce ambiguity, make agent output more predictable, and give teams an artifact they can review, version, and reason about before any code is generated. It also creates a cleaner audit trail, since the reasoning behind a change is written down instead of buried in a transient chat history.\n\nConductor, in this context, appears to act as an orchestration layer that coordinates how agents execute against those specifications. By adding support for Antigravity, it lets developers route spec-driven tasks into Google's agent-oriented development environment. Antigravity is Google's agent-first platform for software development, designed so that AI agents can plan, write, and iterate on code with a degree of autonomy rather than functioning purely as inline autocomplete. Pairing an orchestration tool with that environment is likely intended to make multi-step, multi-agent work more manageable, so that a single specification can be decomposed into tasks and carried out with clearer boundaries.\n\nThe Gemini foundation is what powers the reasoning underneath. Because the agents are built on Gemini, the integration benefits from the model's capabilities in code understanding, long-context reading, and tool use. In a spec-driven flow, long context is particularly relevant: the model needs to hold the specification, the relevant portions of the codebase, and the current task in view at once to produce changes that stay faithful to the stated intent. Keeping the spec as an explicit input, rather than relying on the model to infer requirements, tends to improve consistency across a series of related edits.\n\nIt helps to place this within the broader industry direction. Spec-driven development has gained momentum across the tooling landscape, with efforts such as GitHub's Spec Kit and Amazon's Kiro promoting similar ideas: define specifications and plans first, then let agents implement against them. The common thread is a recognition that fully autonomous coding agents can drift or hallucinate requirements when given only vague prompts, and that a formalized specification acts as a guardrail. Google's move to connect Conductor with Antigravity fits this pattern and signals continued investment in structured agent workflows rather than one-shot generation.\n\nFor teams considering the approach, a few prerequisite concepts are worth understanding. Effective spec-driven work assumes some discipline in writing specifications that are precise enough to be actionable but not so rigid that they prevent iteration. It also assumes a workflow where agents can be observed and corrected, since even well-specified tasks may require human review at checkpoints. Familiarity with agent orchestration, where multiple steps or multiple agents are sequenced and coordinated, becomes increasingly important as projects grow beyond a single file or function.\n\nThe practical impact of this integration is likely to be felt most by developers already experimenting with agentic tooling who want more repeatable results. By combining a specification-first methodology, an orchestration tool, and an agent-native environment running on Gemini, the setup aims to make structured development more powerful without abandoning the flexibility that made AI coding assistants appealing in the first place.\n\nAs with any fast-moving area, the real test will be adoption and reliability in day-to-day use. Structured workflows can add overhead, and their value depends on whether the resulting agent output is accurate enough to justify writing detailed specs up front. Still, the direction is clear: the ecosystem appears to be converging on specifications as the connective tissue between human intent and autonomous agents, and this update is another step along that path.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:42:14.567Z"
+      "generatedAt": "2026-08-30T16:42:14.567Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Conductorが「Geminiの拡張機能」から「プラグイン」になるって、何が変わるの？",
+          "en": "Conductor is going from a Gemini CLI extension to a plugin? What actually changes?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、スキル、ルール、MCPサーバー、フックを1つのパッケージにまとめられる形になった、とあります。おかげでAntigravity CLIなどとも使えるそうです。",
+          "en": "The article says a plugin can bundle skills, rules, MCP servers, and hooks in one package. That also makes Conductor compatible with tools like Antigravity CLI."
+        },
+        {
+          "s": "a",
+          "ja": "スペック駆動開発って、作る前に計画を書いておくこと？ それがチャットじゃなくファイルに残るのかな。",
+          "en": "So spec-driven development means planning before building? And the plan lives in files instead of chat?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めます。記事だと、計画はチャットログではなく、バージョン管理できるMarkdownファイルに残すとあり、開発者が作る前に設計を考える助けになるそうです。",
+          "en": "That's how I read it. The article says project context moves out of chat logs into version-controlled markdown files, helping developers plan their architecture before building."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、決まった順番のコマンドに縛られず、会話しながら進めやすくなるってことかな？",
+          "en": "So you can work more conversationally, without being locked into a strict command order?"
+        },
+        {
+          "s": "b",
+          "ja": "記事ではその摩擦を減らすと書かれています。ただ、進め方の厳密さは保つとも述べているので、ゆるくなるという意味ではなさそうです。",
+          "en": "The article says it removes that friction. It also says the procedural rigor of SDD stays, so it doesn't sound like things get looser."
+        }
+      ]
     },
     "c5ade03828734a33": {
       "bodyJa": "Anthropic の CLI 型コーディング支援ツール「Claude Code」の v2.1.210 がリリースされ、Write(path) 形式の権限ルールが設定されている場合に、起動時へ警告を表示する変更が加えられた。権限設定のミスを早い段階で利用者に気づかせ、意図しないファイル操作を未然に防ぐことを狙った改善と見られる。\n\nClaude Code は、ファイルの読み書きやシェルコマンドの実行といったツール操作を、権限ルールによって制御する仕組みを備えている。設定は settings.json などのファイルに記述し、許可 (allow)、拒否 (deny)、確認 (ask) といったカテゴリごとにルールを並べる形が基本だ。このうちファイル書き込みを司る Write ツールに対しては、対象とするパスのパターンを指定できるようになっている。\n\n今回追加された警告は、こうした Write 権限のルールが検出された際に起動時のメッセージとして提示される。想定される背景の一つは、パス指定の記法を誤ったまま設定してしまい、本来意図した範囲と異なるファイルが書き込み対象になってしまうケースだ。エージェントがファイルを生成・上書きする前の段階で注意を促すことで、こうした取り違えに起因する事故を減らす効果が期待できる。\n\nAI コーディングエージェントでは、モデルが自律的にファイルを編集したりコマンドを実行したりする場面が増えており、権限管理の重要性は年々高まっている。Cursor や Aider、GitHub Copilot の各種エージェント機能など、競合するツール群でも操作前の確認や実行範囲の制限といった安全策が組み込まれてきた。今回の変更は派手な新機能ではないものの、設定の見落としという実務上ありがちなリスクに正面から対処するものと言える。\n\n本アップデートは changelog に記録された一連の更新の一部であり、細かくバージョンが刻まれる Claude Code の開発ペースを示す例でもある。権限まわりの設定を活用している利用者は、アップデート後に表示される警告の内容を確認し、自身のルールが意図通りに機能しているかを点検しておくとよいだろう。",
@@ -12388,7 +12420,39 @@
       "bodyJa": "OpenAIは、同社のAIコーディングツール「Codex」向けに設計された230ドルの専用キーボードを発売した。ソフトウェアを中心に事業を展開してきた同社がハードウェア周辺機器へ踏み込む象徴的な動きだが、折しも別のハードウェアを巡る法的紛争を抱えるさなかでの発表となり、その戦略的な狙いが問われている。\n\nCodexは、自然言語による指示からコードの生成や補完を行うOpenAIの開発支援ツールだ。今回のキーボードは、こうしたAIコーディング体験に最適化された入力デバイスと位置づけられているとみられる。近年、開発者向けの高級メカニカルキーボード市場は拡大しており、専用ショートカットやAI機能への即時アクセスを備えた製品には一定の需要が見込まれる。230ドルという価格は一般的な量産品より高いものの、こだわりのある開発者を対象とした高付加価値製品としては珍しくない水準といえる。\n\nこの発表が注目されるのは、OpenAIがハードウェア領域で法的な争いを抱えるタイミングと重なるためだ。同社は著名デザイナーのジョニー・アイブ氏が関わるハードウェア構想を進めており、名称や商標をめぐる他社との係争が報じられてきた。こうした状況下でのキーボード投入は、物理デバイスへ事業を広げる意欲を示す一方、法務上のリスクとどう折り合いをつけるのかという疑問も生む。\n\n競合環境も見逃せない。コーディング支援の分野では、マイクロソフト傘下のGitHub CopilotやAnthropicのClaudeなどが激しく競っており、各社は開発者の作業環境そのものを囲い込もうとしている。専用ハードウェアはブランド体験を強化し、ツールへの定着を促す手段になり得る。ただし周辺機器事業はソフトウェアとは異なる製造・供給網や品質管理を要するため、AI企業にとって参入障壁は決して低くない。\n\n今回の製品が単発の実験なのか、より広範なハードウェア戦略の一歩なのかは現時点で明確ではない。訴訟の行方とあわせて、OpenAIがハードウェア分野にどこまで本腰を入れるのかが、今後の焦点となりそうだ。",
       "bodyEn": "OpenAI has released a $230 keyboard built for use with Codex, its AI coding assistant, signaling a deeper move into physical hardware at a moment when the company is also defending itself in a hardware-related legal dispute. The launch is notable because OpenAI has been known primarily as a software and model company, and a branded peripheral aimed at developers represents a different kind of product bet than the chatbots and APIs that have defined its business.\n\nThe keyboard appears positioned as a premium accessory for programmers who rely on Codex, OpenAI's coding-focused tool that can generate, edit, and explain code. At $230, the device sits in the upper tier of the mechanical keyboard market, where enthusiast boards from established brands frequently command similar prices. OpenAI has framed the product as tightly integrated with Codex, and it is likely to include dedicated keys or shortcuts for invoking the assistant, though the extent of the hardware's software hooks will matter more to buyers than the specifications alone.\n\nCodex itself has become a central piece of OpenAI's developer strategy. The name dates back to the model that originally powered GitHub Copilot, and OpenAI has since revived it as an agentic coding tool that can carry out multi-step programming tasks. That places it in direct competition with a crowded field that includes GitHub Copilot, Anthropic's Claude Code, Cursor, and a growing number of AI-assisted editors. Bundling a physical keyboard with the software is an unusual approach in that market, where rivals compete mainly on model quality, integration, and subscription pricing rather than on hardware.\n\nThe timing draws attention because OpenAI is simultaneously entangled in litigation tied to its hardware ambitions. The company has been building toward consumer devices, most visibly through its acquisition of io, the hardware startup co-founded by former Apple design chief Jony Ive. That effort has already produced legal friction, including a trademark dispute with a similarly named company, and it underscores how quickly OpenAI's expansion beyond software has generated legal exposure. Launching a keyboard while a separate hardware matter remains unresolved invites questions about how the company is sequencing its hardware plans and managing the associated risks.\n\nIt is worth separating the two initiatives. A keyboard is a comparatively low-stakes peripheral, easier to design, manufacture, and ship than an ambient AI device intended to reach a broad consumer audience. The keyboard may therefore serve as a lower-risk entry point into hardware, giving OpenAI experience with supply chains, retail, and product support without the complexity of an entirely new device category. Whether the two efforts are strategically linked or simply proceeding in parallel is not clear from the announcement, and OpenAI has not detailed how the peripheral fits into its longer-term hardware roadmap.\n\nFor developers, the practical value will depend on whether the keyboard meaningfully improves the experience of working with Codex or functions mainly as a branded accessory. Dedicated hardware for AI tools is still a nascent idea, and the industry has seen mixed results from AI-first devices, with products such as the Humane AI Pin and Rabbit R1 struggling to justify their premiums. A keyboard is a more familiar and utilitarian object, which may lower the barrier to adoption, but the $230 price point sets a high bar relative to conventional keyboards that already support custom macros and shortcuts.\n\nThe broader context is an industry racing to attach AI capabilities to as many surfaces as possible, from laptops with dedicated AI keys to phones and wearables. OpenAI's keyboard fits that pattern, extending its brand into the physical workspace of its most engaged users. How it performs commercially, and whether it foreshadows a wider line of OpenAI-branded hardware, will likely become clearer as the company's other device projects and its legal disputes progress. For now, the release stands as a concrete, if modest, step into hardware from a company still best known for its software.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:44:36.787Z"
+      "generatedAt": "2026-08-30T16:44:36.787Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "キーボードにダイヤルとジョイスティックまで付いてるんだね。これって何をするための道具なの？",
+          "en": "A keyboard with a dial and a joystick too? What's it actually for?"
+        },
+        {
+          "s": "b",
+          "ja": "Codexで動くAIコーディングエージェントを管理するための道具だよ。状態が光るAgent Keysや、よく使う操作のショートカットになるCommand Keysがあるんだ。",
+          "en": "It's for managing AI coding agents running in Codex. There are light-up Agent Keys that show agent status, plus Command Keys that work as shortcuts for common actions."
+        },
+        {
+          "s": "a",
+          "ja": "エージェントをたくさん動かす人が、光で状態を見ながら操作できるってことかな。ダイヤルは何をするの？",
+          "en": "So someone running lots of agents could check their status by the lights and control them from here? What does the dial do?"
+        },
+        {
+          "s": "b",
+          "ja": "ダイヤルは、エージェントが作業にかける「推論」の量を調整するものだよ。推論は、時間と計算力をどれだけ使うかという意味合いで、この記事ではそう説明されているよ。",
+          "en": "The dial adjusts how much \"reasoning\" an agent uses on a task. The article describes that as roughly how much time and computing power it spends."
+        },
+        {
+          "s": "a",
+          "ja": "ChatGPTユーザー向けに、230ドルの光るキーボードでエージェント管理をしやすくするんだね。訴訟の話もあったよね？",
+          "en": "So it's a $230 light-up keyboard to make managing agents easier for ChatGPT users. Wasn't there a lawsuit angle too?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。ただ、この記事では別のハードウェア訴訟を抱えていると触れているだけで、詳しい中身までは分からないよ。そこは決めつけずに見ておきたいね。",
+          "en": "Yes, but the article only says OpenAI faces a separate hardware-related legal dispute. We don't know the details, so it's best not to jump to conclusions."
+        }
+      ]
     },
     "5054f2fd107f2895": {
       "bodyJa": "## SkillOpt\n\nSkillOptは、AIエージェントの指示である「スキル」を訓練可能なパラメータとして扱い、自動的に最適化する手法だ。モデルの重みを変更せず、エージェントの挙動をより信頼できるものにする点が重要となる。\n\n## 最適化ループ\n\n従来の手動によるスキル編集では、変更が改善につながる保証がない。SkillOptは、場当たり的に指示を書き換える代わりに、スキル編集そのものを訓練プロセスへ変える。\n\n体系的な最適化ループを通じて指示を自動的に洗練し、エージェントの信頼性を高めると説明されている。対象はスキルの指示であり、モデルの重みを更新する方法ではない。",
@@ -13521,6 +13585,126 @@
       "bodyEn": "The Cursor SDK for TypeScript and Python has received several new features, according to the Cursor changelog. The update is aimed at making local and cloud SDK agents easier to run in production scripts, CI, and custom integrations.\n\n## Custom tools through local.customTools\n\nLocal agents can now have their own tools. Developers pass function definitions through local.customTools, either in Agent.create() or with each send() call. The SDK exposes those functions to the agent through a built-in MCP server called custom-user-tools. As a result, the model calls your code along the same path, and through the same permission gates, as any other MCP tool.\n\nPreviously, exposing custom functionality meant standing up your own stdio or remote HTTP MCP server and connecting it to the agent. The announcement says function definitions alone are now enough. Custom tools are also visible to every subagent of the parent agent, so a tool defined once is available across the whole run.\n\n## Routing calls through auto-review\n\nBy default, local SDK agents execute tool calls without asking for approval, because headless runs have no human in the loop. Setting local.autoReview sends those calls through auto-review instead. Rather than bypassing review entirely, a classifier decides which calls run automatically and which are held back.\n\nThe classifier can be tuned with natural-language instructions in permissions.json.\n\n## Custom stores and nested subagents\n\nDevelopers can now choose how agents and run metadata are stored. Subagents can also be nested to any depth. The release summary additionally lists run correlation IDs and lighter imports, and describes the overall result as finer control over agent workflows and easier debugging.\n\n## Reliability and platform fixes\n\nThe release also bundles a set of fixes covering reliability, performance, and platform issues. According to the changelog, these fixes make it simpler to run both local and cloud SDK agents in production scripts, CI, and custom integrations.",
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T03:42:07.769Z"
+    },
+    "3c70dc9317b0bdb0": {
+      "bodyJa": "技術の進歩があまりに速く、私たちがどんな明日を目指しているのかを定義することさえ難しくなっています。Microsoft Researchのポッドキャスト「The Shape of Things to Come」の今回のエピソードは、その状況を背景に「AIは医療の未来をどう変えうるのか」という問いを扱います。\n\n## 速い進歩の中で未来を描く\n\nこの番組では、Microsoft ResearchのリーダーであるDoug Burgerが各分野の専門家とともに、技術者、政策担当者、事業判断者などの関係者が現在直面している、AIをめぐる難しい課題を掘り下げます。\n\n番組の目標は、AIへの移行が全体として好ましい結果になる未来を築くために必要な共通理解を広げることだと説明されています。個々の技術の紹介にとどまらず、立場の異なる関係者が同じ問題意識を持つことに重きを置いた構成といえます。\n\n## 医療を語る4人の顔ぶれ\n\n今回、Burgerとともに議論するのは3人です。Microsoftのプリンシパル・リサーチ・マネージャーであるAva Amini、同社のチーフ・サイエンティフィック・オフィサーであるEric Horvitz、そしてScripps Researchの医師・研究者で、MicrosoftのAIヘルスアドバイザーも務めるEric Topolです。\n\n## 「何が先に必要か」という問い\n\nエピソードの中心にあるのは、AIが実現する医療の未来はどのようなものか、そしてそこに至る前に何が起きなければならないのか、という問いです。この問いは地球上のすべての人に関わる影響を持つと位置づけられています。\n\n英語の要約では、技術者や政策担当者が利点とリスクを見極める助けになる内容とされています。議論の具体的な結論や個別の論点は、ここで紹介できる範囲では示されていません。医療とAIの関係を、技術の可能性だけでなく、実現に向けた前提条件も含めて考えるための入り口となるエピソードです。",
+      "bodyEn": "## The Shape of Things to Come\n\nMicrosoft Research has published an episode of its podcast series The Shape of Things to Come that asks whether AI can help build a healthier future. The question matters because, in the source's words, it carries ramifications for every individual on the planet.\n\nThe series is led by Microsoft Research leader Doug Burger. According to the announcement, he is joined by experts from across disciplines to work through what it calls the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders. The stated goal is to amplify the shared understanding needed to build a future in which the AI transition is a net positive.\n\n## Defining the Tomorrow We're Working Toward\n\nThe source begins from the observation that technical advancement is moving so quickly that it can be hard to define the tomorrow people are working toward. The series is presented as a response to that difficulty, bringing together voices from different fields rather than a single viewpoint.\n\n## Guests on Health and Medicine\n\nFor this episode, Burger is joined by three guests. Ava Amini is a Principal Research Manager at Microsoft. Eric Horvitz is Microsoft's Chief Scientific Officer. Eric Topol is a physician-scientist at Scripps Research and a Microsoft AI health advisor.\n\nThe conversation takes on a two-part question: what the future of medicine might look like with AI, and what needs to happen first. The framing points to both the potential of AI in health and the groundwork that the source suggests must come before that potential is realized.\n\n## Who the Discussion Is For\n\nThe summary of the episode says it is meant to help technologists and policymakers weigh benefits and risks of AI in health. Business decisionmakers are also named among the stakeholders the series addresses. The material does not spell out specific medical applications, findings, or recommendations from the conversation, so the episode itself is the place to find how the guests answer the question of what needs to happen first.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、ふだんの暮らしや仕事だと何が変わる話なの？",
+          "en": "So what does this change in everyday life or work? Is it that kind of story?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事は具体的な新機能の紹介ではなく、医療とAIの未来を議論する対談です。技術者や政策担当者、事業判断者が共通認識を築くのが狙いだそうです。",
+          "en": "This one isn't a new feature announcement. It's a conversation about AI and the future of medicine, meant to build shared understanding among technologists, policymakers and business decision-makers."
+        },
+        {
+          "s": "a",
+          "ja": "前は、こういう話し合いってなかったのかな？",
+          "en": "Did people not have conversations like this before?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは記事からは分からないんです。ただ、技術の進みが速く、目指す明日を描きにくいことがこの番組の出発点だと書かれています。",
+          "en": "The article doesn't say, so I can't tell. It does say tech is moving so fast that defining the tomorrow we're aiming for is hard, and that's the starting point of the series."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、医療にAIを使う前に「何が先に必要か」を考えること、ってことかな？",
+          "en": "So the big takeaway is thinking about what needs to happen first before using AI in medicine?"
+        },
+        {
+          "s": "b",
+          "ja": "いい読み取りですね。記事も「何が先に必要か」を問いにしています。答えは対談の中身を聞いて確かめたいところです。",
+          "en": "Nice reading. The article frames it as a question too: what needs to happen first? The answers are something to check in the conversation itself."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T04:38:37.413Z"
+    },
+    "1546774d7315b0b0": {
+      "bodyJa": "LLMが生成したコードは、コンパイルが通り、テストにも合格し、一見正しく見えるのに、デプロイ後に壊れることがある。Viraaji MothukuriとReza M. Parizi の論文は、この原因がしばしば論理ではなく構造にあるとして、「パッチワーク問題」と名付けている。\n\n## 動くのに壊れる\n\n論文が問題にするのは、ロジックの誤りではなく構造的な不整合である。生成コードはビルドもテストも通過するため、正しいものとして受け取られやすい。しかしデプロイ後になって初めて失敗が表面化する、と説明されている。\n\n## 挙げられた失敗例\n\n具体例として三つが示されている。一つ目は、生成されたエンドポイントが、プロジェクト内で一度も宣言されていない設定キーを参照するケースである。二つ目は、どのレジストリにも存在しないパッケージをimportするケースである。三つ目は、新しく追加されたルートが、兄弟にあたるすべてのエンドポイントに適用されている認証ガードを欠いているケースである。\n\nいずれも、コードの一行ごとの文法や処理内容に問題があるわけではない。プロジェクト全体との整合が取れていない点が共通している。\n\n## 局所的には妥当\n\n論文は、こうした個々のパッチは局所的には妥当でも、全体としては一貫性を欠く(globally incoherent)と述べている。この性質が「パッチワーク問題」という呼び名の中心にある。\n\n## CIで見つかりにくい\n\n標準的なCIツールチェーンは、この種の失敗をほとんど検出できないとされる。LLMを用いたコーディングツールの普及が進むなかで、この盲点はソフトウェア品質に対する増大するリスクになると論文は位置づけている。",
+      "bodyEn": "LLM-generated code can look correct and still fail in production. A paper by Viraaji Mothukuri and Reza M. Parizi names this failure mode the \"patchwork problem\" and argues it is a blind spot for software quality as LLM-powered coding tools spread.\n\n## Compiles, passes tests, breaks\n\nAccording to the abstract, LLM-generated code often compiles, passes tests, and appears correct, yet breaks once deployed. Nothing in the usual signals of correctness flags these cases. The authors say the root cause is frequently structural rather than logical. The code's reasoning may be fine, but it does not fit the project it was added to.\n\n## Locally valid, globally incoherent\n\nThe abstract gives three concrete examples of this structural mismatch:\n\nAn endpoint references configuration keys that were never declared in the project.\n\nAn import targets a package that does not exist in any registry.\n\nA new route omits the authentication guard applied to every sibling endpoint.\n\nIn each case, the authors describe the patch as locally valid but globally incoherent. The added code looks acceptable on its own, but it conflicts with the conventions and declarations of the surrounding codebase. The missing authentication guard is the clearest case. The new route works, but it breaks a pattern that every comparable route follows.\n\n## Why standard CI misses it\n\nThe abstract states that standard CI toolchains rarely surface these failures. This helps explain why such code can pass checks and still cause problems after deployment. The paper's framing is that existing pipelines are not set up to catch inconsistencies of this kind.\n\n## A growing risk\n\nThe authors link the issue to adoption. As LLM-powered coding tools become more widely used, they say, this blind spot poses a growing risk to software quality. A summary of the work adds that the findings matter for how AI coding tools are evaluated and improved, and that the outputs tend toward inconsistency and poor maintainability. The abstract itself centers on the observation that correctness at the level of a single patch does not guarantee coherence across the whole project.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIにコードを書いてもらうとき、普段の何が変わるの？テストが通れば安心、じゃないのかな？",
+          "en": "When I let AI write code, what changes for me day to day? If the tests pass, isn't that enough?"
+        },
+        {
+          "s": "b",
+          "ja": "この論文だと、コンパイルもテストも通って正しそうに見えるのに、デプロイ後に壊れることがあるそうです。原因はロジックより構造にある、と指摘しています。",
+          "en": "This paper says AI code can compile, pass tests, and look right, then still break once deployed. It points to structure, not logic, as the frequent root cause."
+        },
+        {
+          "s": "a",
+          "ja": "構造の問題って、たとえばどんなこと？前のAIコードは、そこまで問題にならなかったの？",
+          "en": "What kind of structural problem? And was this not a problem with earlier AI code?"
+        },
+        {
+          "s": "b",
+          "ja": "例は、宣言されていない設定キーの参照、存在しないパッケージのimport、他のエンドポイントにある認証ガードの抜けなどです。従来との違いは、この記事からは分かりません。",
+          "en": "Examples: undeclared config keys, imports of packages that don't exist, or a route missing the auth guard its siblings have. The paper doesn't say how this compares with before."
+        },
+        {
+          "s": "a",
+          "ja": "一つ一つは正しそうなのに、全体で噛み合わないのが「パッチワーク問題」なんだね。しかもCIでも見つかりにくいんだ。",
+          "en": "So each piece looks fine, but the whole doesn't fit together. That's the patchwork problem, and CI rarely catches it."
+        },
+        {
+          "s": "b",
+          "ja": "そのとおりです。AIコーディングツールが広まるほど、この盲点のリスクが大きくなると書かれています。次は、この種の失敗をどう見つけるかが気になりますね。",
+          "en": "Exactly. The paper says this blind spot becomes a bigger risk as AI coding tools spread. What to watch next is how these failures get detected."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T04:39:29.964Z"
+    },
+    "8752022ba068df63": {
+      "bodyJa": "## 怠惰な生成という壁\n\nコーディングエージェントによるテスト自動生成を、人手の監督なしで実用的にすることを狙った研究「SCATE」が、2026年7月13日に公開された。著者はSijia Guら3名。エージェントの計算コストを抑えつつカバレッジの質を保つために、監督の役割そのものを自動化する枠組みである。\n\n自律型のコーディングエージェントはテスト生成を大きく前進させた。一方で論文は、「lazy generation(怠惰な生成)」と呼ぶ根本的な限界があると指摘する。これはエージェントがタスクを早々に打ち切り、複雑なプログラムのロジックを体系的に避けてしまう現象である。その結果、コードカバレッジが不十分になるという。\n\n## 人手監督のボトルネック\n\nこの早期終了を緩和するには、現状では人間が継続的に関与して監督する必要があるとされる。人の直感に強く依存するこのやり方がボトルネックとなり、自動生成で得られるはずの効率向上を打ち消してしまうと論文は述べている。\n\nつまり、テスト生成そのものは自動化されても、それを見守る作業が人手に残っていることが問題視されている。\n\n## SCATEの監督者モデル\n\nSCATEは、テスト生成中の人間による介入を置き換える、適応的で自動化された監督の枠組みとして提案されている。LLMベースのコーディングエージェントを導く監督者モデルを学習させ、その監督者がエージェントの行動を動的に評価しながら制御する仕組みと説明されている。人間が担っていた役割を監督者モデルに置き換える点が特徴である。\n\n狙いは、計算コストを減らしながらカバレッジの品質を維持することにある。これによって、エージェント主導のソフトウェアテストが実運用でより現実的なものになると位置づけられている。",
+      "bodyEn": "## Lazy Generation Problem\n\nAutomated test generation has advanced with autonomous coding agents, but the SCATE paper points to a persistent weakness it calls lazy generation. According to the abstract, agents prematurely terminate tasks and systematically avoid complex programmatic logic, which leaves code coverage inadequate. This matters because coverage is the outcome that test generation is meant to deliver.\n\n## Human Supervision Bottleneck\n\nThe paper says that mitigating premature termination currently requires continuous human-in-the-loop supervision. The authors argue that this reliance on human intuition creates a bottleneck that negates the efficiency gains of automated generation. In other words, the time saved by letting an agent write tests is offset by the effort of watching over it and pushing it to continue.\n\n## Adaptive Automated Supervision\n\nSCATE is proposed as a framework for adaptive, automated supervision of coding agents. Its stated purpose is to replace human intervention during test generation. The paper's title describes the approach as learning to supervise, and the summary of the work says a supervisor model is trained to guide LLM-based coding agents while they generate tests.\n\nAccording to the summary, the supervisor evaluates the agent's actions dynamically. The aim is to keep computational cost down while maintaining coverage quality, so the supervision is framed as cost-effective rather than only effective. The work is presented as a way to make agent-driven software testing more practical for real-world use.\n\nThe paper is by Sijia Gu and two other authors and appears in the software engineering category of arXiv, dated July 13, 2026. Only the abstract-level description is summarized here, so details such as the supervisor's training method, the agents it was tested with, and any measured results are not covered in this explainer.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「怠けた生成」って何のこと？エージェントがサボっちゃうってこと？",
+          "en": "What's \"lazy generation\"? Do the agents actually slack off?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、エージェントが途中で作業をやめてしまい、複雑なロジックを避けがちになる現象のことです。その結果、コードカバレッジが足りなくなるとされています。",
+          "en": "Here it means agents quit tasks too early and tend to avoid complex logic. The article says that leaves code coverage inadequate."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあSCATEは、その見張り役を人間の代わりにやってくれるのかな？",
+          "en": "So SCATE takes over the watching job that humans do now?"
+        },
+        {
+          "s": "b",
+          "ja": "そうです。今は途中終了を防ぐのに人が付きっきりで監督する必要があり、それが効率のボトルネックだと記事は指摘しています。SCATEはその人の介入を置き換える枠組みです。",
+          "en": "Yes. The article says stopping early currently needs continuous human supervision, which becomes a bottleneck. SCATE is a framework meant to replace that human intervention."
+        },
+        {
+          "s": "a",
+          "ja": "人の勘に頼らなくていいなら、テスト生成を自動化した意味がちゃんと出るね。",
+          "en": "If it doesn't rely on human intuition, test automation finally pays off, right?"
+        },
+        {
+          "s": "b",
+          "ja": "その方向だと思います。ただ、実際にどれだけ効果があるかの結果は、ここに書かれている範囲では確認できません。",
+          "en": "That's the direction. But the article's text doesn't show how well it actually works, so results can't be confirmed from it."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T04:39:38.770Z"
+    },
+    "b59306c36ef61328": {
+      "bodyJa": "## 社会規範の学習\n\n本研究は、AIエージェントが社会規範を学習することで、初対面の人間パートナーと取り組む動的な協調タスクで、適応性と互換性が向上することを示した。人間とAIの協働設計に、新たな指針を提供する研究とされる。\n\n## 暗黙の期待\n\n人間は動的なやり取りの中で、他者との調整を継続している。その際、明示されず定量化しにくい社会規範が、やり取りする主体の間で共有される暗黙の期待として働くと説明されている。\n\n## 初対面との協調\n\n研究の焦点は、AIが初対面の人間と協調する際の互換性にある。社会規範を学ぶよう訓練されたAIエージェントは、未知の人間パートナーとの動的な協調タスクで、より高い互換性を達成したと報告されている。",
+      "bodyEn": "## Dynamic coordination\n\nThis research examines whether learning social norms can improve cooperation between humans and AI. The question matters because people continuously coordinate with others in changing interactions, including with partners they have not encountered before.\n\n## Social norms\n\nThe paper describes social norms as implicit, difficult-to-quantify expectations shared tacitly among interacting agents. It studies AI agents trained to learn these norms and evaluates them in dynamic coordination tasks with unfamiliar human partners.\n\nAccording to the summary, agents that learn social norms demonstrate greater adaptability and better compatibility with those partners. The work includes AI agents such as large language models and focuses on coordination rather than a fixed interaction with a familiar person.\n\n## Human-AI teaming\n\nThe reported result is that social-norm learning can make AI agents more compatible with humans during dynamic collaboration. The research presents this finding as a source of new design principles for human-AI teaming, specifically where an AI must coordinate with an unfamiliar human partner.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-09-05T13:10:37.390Z"
     }
   }
 }

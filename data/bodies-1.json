@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T04:30:54.935Z",
-  "count": 377,
+  "generatedAt": "2026-11-28T05:30:53.225Z",
+  "count": 381,
   "bodies": {
     "7b752c9b3e3af2c6": {
       "bodyJa": "AIエージェントが高度化するにつれ、誤動作や悪用が発生した際の影響範囲（ブラスト半径）も拡大する。本記事はAnthropicのエンジニアリングブログに掲載され、その上限をどう設計するかという実践的な問いに答えている。\n\n対象製品はclaude.ai・Claude Code・Coworkの3つ。それぞれ異なるユースケースと権限モデルを持つ中で、共通の封じ込め原則をどう適用したかが論点と推察される。具体的な実装詳細は原文で確認することを推奨する。\n\nエージェントの安全設計に携わる開発者や、Claudeを自社プロダクトに組み込む実務者にとって参考になる内容と見られる。",
@@ -11964,7 +11964,39 @@
       "bodyJa": "Googleは、AIエージェントを大規模に構築・運用するための設計手法として「モジュール型プロンプトトランスパイル」を提唱した。プロンプトを再利用可能な部品へと分割し、それらを組み合わせて最終的な指示文へ変換(トランスパイル)することで、複雑化しがちなエージェントの保守性と拡張性を高めるアプローチである。\n\n背景には、LLMを中核に据えたエージェント開発の急速な普及がある。単一のタスクをこなすだけなら一つのプロンプトで済むが、外部ツールの呼び出し、複数ステップの推論、役割の異なるサブエージェントの連携といった要素が絡み合うと、プロンプトは長大かつ複雑になり、修正や再利用が困難になる。文字列を直接書き連ねる従来の手法では、共通部分の重複や、一箇所の変更が全体へ波及する副作用が課題とされてきた。\n\nモジュール型プロンプトトランスパイルは、こうした課題をソフトウェア工学の発想で解こうとするものだ。プログラミングでソースコードを別の形式へ変換する「トランスパイル」になぞらえ、抽象度の高いモジュール定義を最終的なプロンプト文字列へと機械的に組み立てる。役割設定、出力形式の指定、ツール利用のルールといった要素を独立した部品として管理すれば、共通コンポーネントを複数のエージェント間で使い回せるほか、変更の影響範囲を局所化しやすくなると見られる。\n\n同様の問題意識は業界全体で共有されており、周辺のツールも増えている。プロンプトをコードのように扱うフレームワークとしてはLangChainやDSPyなどが知られ、後者はプロンプトの自動最適化を志向する。Googleはこれらと並ぶ選択肢として、Geminiを含む自社モデルでの実践知を反映した設計指針を示した形だ。\n\nもっとも、モジュール化には抽象化のための学習コストや、部品の粒度設計の難しさといったトレードオフを伴う可能性がある。エージェント開発が試行錯誤の段階にある中、こうした構造化の手法がどこまで標準的な実践として定着するかは、今後の事例の蓄積によって明らかになっていくだろう。",
       "bodyEn": "Google's developer organization has outlined a modular prompt transpilation approach for building scalable AI agents, a technique aimed at teams that struggle to maintain the sprawling instructions behind complex agent systems. The topic matters because as AI agents move from demonstrations into production, the prompts driving them often balloon into large, brittle blocks of text that are hard to test, reuse, or reason about. The proposal treats prompt construction more like software engineering, introducing composable parts and a compilation step rather than a single hand-written string.\n\nThe central premise is that a prompt should not be one monolithic instruction. Instead, it is decomposed into smaller, reusable modules, each responsible for a discrete concern such as role definition, tool descriptions, output formatting, safety constraints, or few-shot examples. Because each module addresses a single responsibility, it can be authored, versioned, and validated on its own, then assembled into the final instruction the model receives at runtime. This mirrors long-standing practices in traditional programming, where separation of concerns and modularity reduce the cost of change.\n\nThe term \"transpilation\" is borrowed from software development, where a transpiler converts source code from one representation into another. In this context, a higher-level, structured definition of an agent's behavior is transformed into the concrete prompt text that a model such as Gemini ultimately consumes. This intermediate layer appears to give developers a place to enforce consistency, inject shared components, and adapt output for different models or contexts without rewriting everything by hand. It also creates a clearer boundary between what an agent is supposed to do and how that intent is expressed to a particular language model.\n\nThe practical benefits center on maintainability and flexibility. When prompt logic lives in reusable modules, a change to a shared safety policy or output schema can be made in one place and propagated everywhere it is used, rather than edited across dozens of copy-pasted prompts. Modules can be unit tested in isolation, which is difficult with a single large prompt, and teams can compose different combinations to support multiple agents or workflows. This is particularly relevant when orchestrating multi-step agents that call tools, chain reasoning across stages, or hand off tasks to sub-agents, since each stage may require its own tailored instructions.\n\nThe approach fits within a broader industry shift toward treating prompts as engineered artifacts. Frameworks such as DSPy have popularized a declarative style in which prompts are compiled and optimized rather than written by hand, while templating tools and libraries like LangChain and LlamaIndex offer structured ways to assemble prompts from parts. Google has been expanding its own agent tooling, including the Agent Development Kit and support for agent workflows on Vertex AI, alongside interoperability efforts such as the Model Context Protocol and agent-to-agent communication patterns. Modular prompt transpilation is likely intended to complement these tools by standardizing how the instruction layer itself is built.\n\nUnderstanding the value requires some background on how modern agents work. An LLM-based agent typically combines a system prompt, a description of available tools or functions, memory or context from previous steps, and formatting rules for structured output. Function calling lets the model request external actions, and the surrounding prompt must reliably describe those capabilities. As the number of tools and behaviors grows, the prompt becomes a critical and fragile piece of infrastructure, which is precisely the fragility this modular method seeks to reduce.\n\nThere are trade-offs worth noting. Introducing a transpilation layer adds a level of abstraction and tooling that smaller projects may not need, and debugging can become harder when the final prompt is generated rather than directly written. Teams also still depend on model behavior, which can shift between versions, so modular structure does not eliminate the need for evaluation and testing. As with any prompt-engineering methodology, results appear to depend heavily on disciplined design and ongoing measurement.\n\nFor developers building agents that must scale across many use cases, the concept offers a structured alternative to ad hoc prompt writing. Whether it becomes a common pattern will likely depend on tooling maturity, documentation, and how well it integrates with existing agent frameworks and evaluation pipelines.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:42:38.210Z"
+      "generatedAt": "2026-08-30T16:42:38.210Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIエージェントを仕事で本格的に使うとき、プロンプトまわりで何が困りやすいの？",
+          "en": "If a team uses an AI agent for real work, what starts to get tricky with the prompt?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、安全ポリシーや分野ごとのルール、書式の要件などを一つの指示ファイルに積み重ねて、全体が見通せなくなるのが問題だと言っています。",
+          "en": "This piece says teams keep piling safety policies, domain rules, and formatting needs into one instruction file, until nobody can reason about the whole thing."
+        },
+        {
+          "s": "a",
+          "ja": "最初は一つのファイルで平気だったんだよね？ 前はそれでできてたの？",
+          "en": "But one file was fine at first, right? So it worked before?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、作り始めの頃は指示が少ないので一つで十分とあります。ただ運用規模になると、共同作業やテストが大変になり、一か所の変更が別の流れを壊すこともあるそうです。",
+          "en": "Yes, early on a single prompt is fine because there are few instructions. At production scale, collaboration and testing get harder, and one change can quietly break another workflow."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ大事なのは、プロンプトを分けて扱えるようにして、直しても他が壊れにくくすることかな？",
+          "en": "So the big takeaway is splitting the prompt into parts, so a fix doesn't break something else?"
+        },
+        {
+          "s": "b",
+          "ja": "その方向だと思います。この記事は、プロンプトの保守しやすさがエージェントの信頼性に直結すると言っています。次はモジュール分割とトランスパイルの具体的な中身ですね。",
+          "en": "That's the direction, yes. The article says prompt maintainability becomes agent reliability. Next, look at how the modular split and transpilation actually work."
+        }
+      ]
     },
     "e06c7bd7cc878c39": {
       "bodyJa": "Thinking Machinesが、同社として初となるオープンモデル「Inkling」を公開した。あらゆる用途を一つの巨大モデルでこなす「画一的なAI」ではなく、目的ごとに最適化した専用モデルこそ優位だとする同社の設計思想を、具体的な形で示した一手といえる。\n\n生成AIの分野では、OpenAIのGPTシリーズやGoogleのGemini、AnthropicのClaudeに代表される汎用大規模言語モデル(LLM)が主流を占めてきた。これらは幅広いタスクを高い水準でこなす一方、規模が大きくなるほど学習・運用コストがかさみ、特定用途では過剰な性能や無駄な計算を伴うという指摘もある。Thinking Machinesが掲げる目的特化型(purpose-built)のアプローチは、こうした汎用一辺倒の流れへの対抗軸と位置づけられる。\n\nInklingを「オープンモデル」として公開した点も注目される。モデルの重みや関連情報を外部に開放することで、開発者が自らの用途に合わせて検証・改良・再学習しやすくなる。近年はMetaのLlamaやMistral、中国のDeepSeekなどがオープンな重み公開で存在感を高めており、クローズドな商用APIとオープンモデルの二極化が進んでいる。Thinking Machinesの参入は、この潮流をさらに後押しする可能性がある。\n\n同社はOpenAIの元最高技術責任者(CTO)ミラ・ムラティ氏が立ち上げた企業として知られ、著名な研究者を集めている点でも注目を集めてきた。今回のInklingは、その技術的方向性を製品として初めて外部に示すものとなる。\n\nもっとも、目的特化型のアプローチが汎用モデルの優位を実際に覆せるかは未知数だ。専用モデルは特定タスクで効率が高い半面、対応範囲が狭く、複数のモデルを組み合わせて運用する複雑さが生じうるとの見方もある。Inklingがどの程度の性能や使い勝手を備え、開発者コミュニティに受け入れられるかは、今後の実利用や第三者による評価を通じて明らかになっていくとみられる。",
@@ -13079,6 +13111,62 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T03:40:01.514Z"
+    },
+    "f700ec0a7df3f16a": {
+      "bodyJa": "VS Code 1.147では、エージェントへの依頼を「今すぐ送らない」形で扱える機能と、エージェントが既定ブラウザーを操作できる機能が加わりました。あわせて、Local harnessが2027年2月に削除される予定であることも告知されています。\n\n## 依頼の下書きと予約送信\n\nやりたいことは決まっているものの、まだ送る段階ではない。そうした場面に向けて、今週のリリースでは依頼を下書きとして保存したり、後で実行するよう予約したりできるようになりました。\n\nDraft requests(試験的)は、未送信の依頼を複数、コンテキストと設定ごとAgentsウィンドウに保持できる機能です。準備ができた時点で送信できます。\n\nSend later(試験的)は、ローカルエージェントへの依頼やフォローアップを、Agentsウィンドウから後の時点に実行するよう予約する機能です。どちらも試験的な位置づけです。\n\n## ブラウザー連携\n\nBrowser integration(プレビュー)では、エージェントが既定のブラウザーを操作できるようになります。リモートにあるHTMLファイルを手元のマシンへコピーせずにプレビューできる点も特徴とされています。\n\n## モデルルーターと図の依頼\n\n準備が整った依頼については、モデルルーターがタスクに応じて好みのモデルへ振り分けると説明されています。また、結果を言葉で説明するより見せたほうが早い場合には、チャートやモックアップを依頼することもできます。\n\n## 2027年2月の廃止\n\n今回のリリースノートでは、Local harnessが非推奨となり、2027年2月に削除される予定だと明記されています。移行先はCopilot harnessで、利用中の環境では移行の計画が必要です。\n\nこのほか、Microsoft Igniteで行われたVS Codeのセッション録画も公開されています。",
+      "bodyEn": "## Visual Studio Code 1.147 Highlights\n\nVisual Studio Code 1.147 focuses on how agent requests are prepared and sent, and it also carries a deprecation notice that affects anyone relying on the current harness. The release notes frame the update around tasks a user has in mind but is not yet ready to send.\n\n## Save, Schedule, and Send Later\n\nAccording to the release notes, requests can now be saved as drafts or scheduled for later this week. Two experimental features support this. Draft requests lets users keep multiple unsent requests in the Agents window, with their context and configuration preserved, so each is ready to send when the user chooses. Send later lets users schedule local agent requests and follow-ups for a later time, also in the Agents window.\n\nOnce a request is ready, the notes say a model router can match the task to the user's preferred model. They also say that when a result is easier to show than explain, users can ask for a chart or mockup.\n\n## Browser Integration (Preview)\n\nThe release adds a preview of browser integration. It lets agents control the user's default browser. It also lets users preview remote HTML files without copying them to their own machine. The notes label this feature as Preview, while the draft and scheduling features are marked Experimental.\n\n## Local Harness Deprecation\n\nThe release notes carry a warning that the Local harness is deprecated and will be removed in February 2027. They point readers to information about the move to the Copilot harness. For teams that depend on the Local harness, the stated February 2027 removal date is the point to plan around.\n\nThe notes also list download formats for the release: .deb, .rpm, .tar.gz, Arm instructions, and Snap. They additionally point to session recordings from Microsoft Ignite featuring VS Code.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "予約送信って、どういう機能なの？ローカルエージェントの依頼を後で送れるってこと？",
+          "en": "What's scheduled sending? Can I really set a local agent request to go out later?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。Agentsウィンドウで、ローカルエージェントへの依頼や追加の指示を後の時間に送れるよ。今は試験的な機能だって。",
+          "en": "Yep. In the Agents window you can schedule local agent requests and follow-ups for later. It's labeled experimental for now."
+        },
+        {
+          "s": "a",
+          "ja": "下書きの依頼と合わせると、まだ送る準備ができてない作業を置いておける感じ？",
+          "en": "So with draft requests too, I can park a task I'm not ready to send yet?"
+        },
+        {
+          "s": "b",
+          "ja": "その通り。下書きは、未送信の依頼を文脈や設定ごと複数残せるんだ。送る準備ができたら、そこから送れるよ。",
+          "en": "Right. Drafts keep several unsent requests with their context and settings, so you can send them when you're ready."
+        },
+        {
+          "s": "a",
+          "ja": "ブラウザー連携もあるんだよね。エージェントが既定ブラウザーを操作できて、HTMLも見られる、で合ってる？",
+          "en": "There's browser integration too. Agents can drive my default browser and preview HTML, right?"
+        },
+        {
+          "s": "b",
+          "ja": "合ってるよ。ただプレビュー段階だよ。それと、Local harnessは2027年2月に廃止予定なので、Copilot harnessへの移行は考えておこう。",
+          "en": "Right, but it's still in preview. Also, Local harness is slated for removal in February 2027, so plan your move to the Copilot harness."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T04:37:15.194Z"
+    },
+    "6db26b5dee5572e9": {
+      "bodyJa": "Metaが、モデル設計を標準化する「テンプレート駆動」の手法を構築したことを紹介している。本番モデルが膨大な数に達したML環境では、課題が新しい技術の発明から、展開の確実さと効率へ移っているという問題意識に立った取り組みである。\n\n## 断片化したモデル空間\n\nMLのエコシステムが成長して本番モデルの数が非常に多くなると、ボトルネックはモデルを改善する新しい技術を生み出すことではなくなる、と説明されている。代わりに問題になるのは、断片化したモデル空間の全体にわたって、モデルを確実かつ効率的に届けることだとされる。\n\nこの状況を表すために、「上げ潮はすべての船を持ち上げる」という比喩が使われている。個別のモデルの改善ではなく、展開という共通の土台を整えることの重要性を示した表現である。\n\n## テンプレート駆動の手法\n\nMetaが構築したのは、モデルの設計のあり方そのものを標準化するテンプレート駆動のアプローチである。設計を標準化することで、断片化した多数の本番モデルを確実に展開するという課題に取り組むものと位置づけられている。\n\n## 一度の設計で大規模展開\n\nタイトルにある「一度の設計で大規模展開」は、この手法の中心的な考え方を示す言葉である。大規模なML運用を担うチームがモデルをより速く展開できるよう助けるものだと説明されている。\n\nなお、テンプレートの具体的な構成や運用の仕組みについては、ここで取り上げた範囲では述べられていない。",
+      "bodyEn": "As machine learning ecosystems grow to a large number of production models, the main difficulty is shifting. According to Meta's engineering post, the bottleneck is no longer inventing new techniques to improve models. It is shipping them reliably and efficiently.\n\n## A Fragmented Model Space\n\nThe post describes the problem as one of scale and fragmentation. When an organization runs a very large number of production models, the models spread across a fragmented space, and delivering each one dependably becomes the harder task. The post frames progress here as \"a rising tide that lifts all the boats,\" suggesting that improvements to the shared way of working benefit every model rather than a single one.\n\n## Design Once, Deploy at Scale\n\nMeta's response, as titled in the post, is a template-driven approach. The company says it built this approach to standardize model design. The title expresses the central idea: a design is created once and then deployed at scale, instead of each model being handled as a separate effort.\n\n## Who Benefits\n\nAccording to the summary of the announcement, the approach is aimed at the challenge of shipping many fragmented production models reliably. It is presented as a way to help large ML teams deploy faster. The post appears on Engineering at Meta, and this article covers only its opening framing: the shift from inventing techniques to dependable delivery, and standardized, template-driven model design as Meta's answer.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T04:37:46.705Z"
+    },
+    "0cf29ae0708000be": {
+      "bodyJa": "複数のLLMエージェントが連携する環境で、安全制約が回避される脆弱性を分析した研究である。タスクの表現や承認の扱いを通じて、エージェント間の信頼が伝播する危険性を示す点が重要となる。\n\n## 操作的リフレーミング\n\n敵対的なプロンプトによってタスクの表現を巧みに書き換え、本来の安全制約を回避する手法が分析されている。直接的な依頼とは異なる形に見せかけることで、複数エージェントの処理過程に影響を与える脆弱性として扱われる。\n\n## 承認フレーム委譲\n\n委譲された行為を承認済みであるかのように偽装し、安全制約をすり抜ける問題も取り上げられている。研究では、直接プロンプトとプランナー・実行者のパイプラインを比較し、その差を単一の「パイプライン効果」として報告する評価は解釈が難しいと論じている。",
+      "bodyEn": "## Multi-agent LLM safety\n\nThis paper examines how adversarial prompts can bypass safety constraints when multiple LLM agents work together. It matters because the analysis identifies trust-propagation risks within agentic pipelines rather than treating safety behavior as a single, undifferentiated outcome.\n\n## Pipeline effect\n\nSafety evaluations often compare a direct prompt with a planner-executor pipeline, then report the difference as one “pipeline effect.” The paper argues that this aggregate result is difficult to interpret.\n\nIts analysis instead focuses on two ways safety constraints may be bypassed. One involves reframing a task so that it is presented differently within the multi-agent process. The other involves falsely presenting delegated actions as already approved, creating an approval frame that can be passed through the pipeline.\n\n## Trust-propagation risks\n\nThese patterns show how the handling of task descriptions and approval status can affect safety in multi-agent designs. According to the summary, the vulnerability arises when agents rely on reframed requests or apparent pre-approval, allowing adversarial prompts to exploit trust propagated between parts of the system.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-09-05T13:11:09.227Z"
+    },
+    "a02db72f421fa686": {
+      "bodyJa": "## LiteRT.js\n\nGoogleは、Web向けの高性能AI推論ライブラリ「LiteRT.js」を発表した。機械学習モデルをWebブラウザ内で直接実行し、高速なオンデバイスAI推論をWebアプリへ容易に統合できる点が注目される。\n\n## WebGPU\n\nLiteRT.jsはWebGPUなどを活用し、モデルをブラウザ上で実行する。GoogleのクロスプラットフォームなエッジAIランタイムをWebへ拡張する位置付けで、LiteRTファミリーの新たなライブラリとして紹介されている。\n\n## JavaScript\n\nJavaScript開発者向けに構築された強力なソリューションと説明されている。Webアプリ内で機械学習モデルを直接動かし、オンデバイスでAI推論を行うための機能を提供する。",
+      "bodyEn": "## LiteRT.js\n\nGoogle announced LiteRT.js, a high-performance AI inference library for the web. It matters because it enables machine learning models to run directly in the browser, bringing on-device AI inference into web applications.\n\nLiteRT.js is the newest member of the LiteRT family and extends Google’s cross-platform edge AI runtime to the web. Built for JavaScript developers, it is intended to make browser-based model execution easier to integrate into web applications.\n\n## On-device AI with WebGPU\n\nLiteRT.js uses technologies including WebGPU to support fast, on-device model execution in browsers. This approach allows AI inference to take place directly within the browser rather than requiring model execution outside that environment.\n\nThe announcement presents LiteRT.js as a powerful solution for web AI inference. Its core technical focus is combining browser-based execution, WebGPU, and the LiteRT runtime so JavaScript developers can add on-device AI capabilities to web applications.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-09-05T13:12:11.257Z"
     }
   }
 }

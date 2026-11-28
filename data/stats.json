@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T04:30:58.375Z",
+  "generatedAt": "2026-11-28T05:30:57.470Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
     "allTime": 8352,
@@ -47,8 +47,8 @@
         "tech-news": 8,
         "cline": 5,
         "agent-fw": 2,
-        "cursor": 2,
         "gemini": 3,
+        "cursor": 2,
         "claude": 3,
         "copilot": 2,
         "vscode": 1,
@@ -286,8 +286,8 @@
       "byCategory": {
         "tech-news": 4,
         "local-llm": 2,
-        "cursor": 1,
         "gemini": 1,
+        "cursor": 1,
         "agent-fw": 2,
         "cline": 1,
         "copilot": 5,
@@ -450,8 +450,8 @@
         "claude": 1,
         "local-llm": 2,
         "opencode": 1,
-        "cursor": 1,
         "gemini": 3,
+        "cursor": 1,
         "copilot": 2
       }
     },
@@ -465,8 +465,8 @@
         "copilot": 1,
         "tech-news": 4,
         "local-llm": 5,
-        "gemini": 1,
         "claude": 1,
+        "gemini": 1,
         "agent-fw": 2,
         "research": 1
       }
@@ -699,11 +699,10 @@
     },
     {
       "date": "2026-11-18",
-      "count": 4,
+      "count": 3,
       "byCategory": {
         "claude": 1,
-        "tech-news": 2,
-        "research": 1
+        "tech-news": 2
       }
     },
     {
@@ -719,11 +718,11 @@
     },
     {
       "date": "2026-11-20",
-      "count": 10,
+      "count": 11,
       "byCategory": {
-        "tech-news": 2,
-        "gemini": 2,
+        "tech-news": 3,
         "claude": 4,
+        "gemini": 2,
         "local-llm": 1,
         "copilot": 1
       }
@@ -1108,8 +1107,8 @@
       "count": 2633,
       "byCategory": {
         "tech-news": 306,
-        "local-llm": 105,
         "cursor": 136,
+        "local-llm": 105,
         "cline": 28,
         "vscode": 29,
         "agent-fw": 25,
@@ -1128,8 +1127,8 @@
       "byCategory": {
         "local-llm": 170,
         "codex": 23,
-        "cursor": 154,
         "claude": 194,
+        "cursor": 154,
         "tech-news": 277,
         "mcp": 441,
         "opencode": 7,
@@ -1229,10 +1228,10 @@
         "agent-fw": 13,
         "cursor": 10,
         "opencode": 10,
-        "tech-news": 23,
+        "tech-news": 24,
         "gemini": 5,
         "claude": 5,
-        "research": 4
+        "research": 3
       }
     }
   ],
@@ -1373,13 +1372,13 @@
       "last30d": 0
     },
     {
-      "source": "nvidia-blog",
+      "source": "microsoft-source",
       "total": 111,
-      "last30d": 0
+      "last30d": 1
     },
     {
-      "source": "microsoft-source",
-      "total": 110,
+      "source": "nvidia-blog",
+      "total": 111,
       "last30d": 0
     },
     {
@@ -1494,8 +1493,8 @@
     },
     {
       "source": "microsoft-research",
-      "total": 16,
-      "last30d": 5
+      "total": 15,
+      "last30d": 4
     },
     {
       "source": "continue-releases",
@@ -1529,8 +1528,8 @@
     }
   ],
   "byImportance": {
-    "1": 4630,
-    "2": 3355,
+    "1": 4622,
+    "2": 3363,
     "3": 367
   }
 }

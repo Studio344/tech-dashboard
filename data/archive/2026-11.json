@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T04:30:58.375Z",
+  "generatedAt": "2026-11-28T05:30:57.470Z",
   "month": "2026-11",
   "count": 117,
   "entries": [
@@ -10,12 +10,15 @@
       "url": "https://qiita.com/siruku6/items/01c6fa4baae045ba3375",
       "title": "[VSCode / SSH] リモートサーバに接続しようとした時に got bad result from install script と表示されてアクセスできない",
       "titleJa": "[VSCode / SSH] リモートサーバに接続しようとした時に got bad result from install script と表示されてアクセスできない",
-      "titleEn": "",
+      "titleEn": "[VSCode / SSH] Cannot Connect to Remote Server: \"got bad result from install script\" Error",
       "lang": "ja",
       "publishedAt": "2026-11-28T01:44:27.000Z",
       "collectedAt": "2026-11-28T04:30:40.901Z",
       "tags": [
+        "macos",
         "qiita",
+        "remote-ssh",
+        "troubleshooting",
         "vscode"
       ],
       "category": "vscode",
@@ -40,12 +43,15 @@
       "url": "https://qiita.com/kk01298/items/32db0b8c2f36980f590a",
       "title": "VScodeの拡張機能で自前 SSL 証明書を信頼する方法",
       "titleJa": "VScodeの拡張機能で自前 SSL 証明書を信頼する方法",
-      "titleEn": "",
+      "titleEn": "How to Make VS Code Extensions Trust a Self-Signed SSL Certificate",
       "lang": "ja",
       "publishedAt": "2026-11-27T23:13:06.000Z",
       "collectedAt": "2026-11-28T04:30:40.901Z",
       "tags": [
+        "node-extra-ca-certs",
         "qiita",
+        "self-signed-certificate",
+        "ssl",
         "vscode"
       ],
       "category": "vscode",
@@ -54,7 +60,15 @@
       "archiveTier": "hot",
       "contentSnippet": "export NODE_EXTRA_CA_CERTS ={ オレオレ証明書 ( .crt ) のパス } export NODE_EXTRA_CA_CERTS={オレオレ証明書(.crt)のパス} ※実行するたびに追記されるため、間違った場合は ~/.bashrc ファイルを直接編集すること HOME_URL = \"https://www.debian.org/\" SUPPORT_URL = \"https://www.debian.org/support\" BUG_REPORT_URL = \"https://bugs.debian.org/\"",
       "feedSnippet": "課題 VSCode の AI コードアシスタント(Cline)で自宅の LLM サーバーに https 接続出来ない (接続設定について) 解決方法 NodeJS が追加で信頼する crt ファイルを指定する その後 VSCode を再起動する export ...",
-      "excerptOrigin": "article"
+      "excerptOrigin": "article",
+      "image": {
+        "src": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NTI3NjAxJTJGYzAwOGQ1YTZjYzg1YjEwYzg2NTkyMGFlMmJmNTVjM2Y1YzQ3NDA4MiUyRmxhcmdlLnBuZyUzRjE3OTQxMDMzNjc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPThlNDNjN2QzNmNkYTczMTU4Mjc4YjdkYjUzMjI4Yjdl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da55d56adb06331faff8d4b1a0a07cd6e?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9VlNjb2RlJUUzJTgxJUFFJUU2JThCJUExJUU1JUJDJUI1JUU2JUE5JTlGJUU4JTgzJUJEJUUzJTgxJUE3JUU4JTg3JUFBJUU1JTg5JThEJTIwU1NMJTIwJUU4JUE4JUJDJUU2JTk4JThFJUU2JTlCJUI4JUUzJTgyJTkyJUU0JUJGJUExJUU5JUEwJUJDJUUzJTgxJTk5JUUzJTgyJThCJUU2JTk2JUI5JUU2JUIzJTk1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NTcyODdkOWVhY2U3NmI5NDVkOTM3NGM4ZmFkMDM1MzQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrazAxMjk4JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDRkODE1MWVjZGRlMjQ3M2ZlMGExY2QyMDk5NWZkYmQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=045e4f35bf0f5a93b88a708cb57613b6",
+        "origSrc": "https://qiita-user-contents.imgix.net/https%3A%2F%2Fqiita-user-contents.imgix.net%2Fhttps%253A%252F%252Fcdn.qiita.com%252Fassets%252Fpublic%252Farticle-ogp-background-afbab5eb44e0b055cce1258705637a91.png%3Fixlib%3Drb-4.1.1%26w%3D1200%26blend64%3DaHR0cHM6Ly9xaWl0YS11c2VyLXByb2ZpbGUtaW1hZ2VzLmltZ2l4Lm5ldC9odHRwcyUzQSUyRiUyRnMzLWFwLW5vcnRoZWFzdC0xLmFtYXpvbmF3cy5jb20lMkZxaWl0YS1pbWFnZS1zdG9yZSUyRjAlMkY0NTI3NjAxJTJGYzAwOGQ1YTZjYzg1YjEwYzg2NTkyMGFlMmJmNTVjM2Y1YzQ3NDA4MiUyRmxhcmdlLnBuZyUzRjE3OTQxMDMzNjc_aXhsaWI9cmItNC4xLjEmYXI9MSUzQTEmZml0PWNyb3AmbWFzaz1lbGxpcHNlJmJnPUZGRkZGRiZmbT1wbmczMiZzPThlNDNjN2QzNmNkYTczMTU4Mjc4YjdkYjUzMjI4Yjdl%26blend-x%3D120%26blend-y%3D467%26blend-w%3D82%26blend-h%3D82%26blend-mode%3Dnormal%26s%3Da55d56adb06331faff8d4b1a0a07cd6e?ixlib=rb-4.1.1&w=1200&fm=jpg&mark64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTk2MCZoPTMyNCZ0eHQ9VlNjb2RlJUUzJTgxJUFFJUU2JThCJUExJUU1JUJDJUI1JUU2JUE5JTlGJUU4JTgzJUJEJUUzJTgxJUE3JUU4JTg3JUFBJUU1JTg5JThEJTIwU1NMJTIwJUU4JUE4JUJDJUU2JTk4JThFJUU2JTlCJUI4JUUzJTgyJTkyJUU0JUJGJUExJUU5JUEwJUJDJUUzJTgxJTk5JUUzJTgyJThCJUU2JTk2JUI5JUU2JUIzJTk1JnR4dC1hbGlnbj1sZWZ0JTJDdG9wJnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9NTYmdHh0LXBhZD0wJnM9NTcyODdkOWVhY2U3NmI5NDVkOTM3NGM4ZmFkMDM1MzQ&mark-x=120&mark-y=112&blend64=aHR0cHM6Ly9xaWl0YS11c2VyLWNvbnRlbnRzLmltZ2l4Lm5ldC9-dGV4dD9peGxpYj1yYi00LjEuMSZ3PTgzOCZoPTU4JnR4dD0lNDBrazAxMjk4JnR4dC1jb2xvcj0lMjMxRTIxMjEmdHh0LWZvbnQ9SGlyYWdpbm8lMjBTYW5zJTIwVzYmdHh0LXNpemU9MzYmdHh0LXBhZD0wJnM9NDRkODE1MWVjZGRlMjQ3M2ZlMGExY2QyMDk5NWZkYmQ&blend-x=242&blend-y=480&blend-w=838&blend-h=46&blend-fit=crop&blend-crop=left%2Cbottom&blend-mode=normal&s=045e4f35bf0f5a93b88a708cb57613b6",
+        "alt": "VScodeの拡張機能で自前 SSL 証明書を信頼する方法",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "3afd307d15f302ce",
@@ -100,7 +114,7 @@
       "titleEn": "MCP Servers Releases v2.5.0",
       "lang": "en",
       "publishedAt": "2026-11-27T21:07:33.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -135,7 +149,7 @@
       "titleEn": "MCP Servers Releases v2.6.0",
       "lang": "en",
       "publishedAt": "2026-11-27T09:58:10.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "git-lfs",
         "mcp",
@@ -662,7 +676,7 @@
       "titleEn": "OpenHands Releases v1.46.0",
       "lang": "en",
       "publishedAt": "2026-11-25T14:19:07.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "automation",
         "openhands",
@@ -767,17 +781,21 @@
       "sourceType": "blog",
       "url": "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity/",
       "title": "From spectrum to structure: Identifying molecules with Mass Spec Skills for Google Antigravity",
-      "titleJa": "",
+      "titleJa": "スペクトルから構造へ:Google Antigravity向けMass Spec Skillsで分子を同定する",
       "titleEn": "From spectrum to structure: Identifying molecules with Mass Spec Skills for Google Antigravity",
       "lang": "en",
       "publishedAt": "2026-11-24T13:07:53.000Z",
       "collectedAt": "2026-11-28T04:30:40.901Z",
       "tags": [
+        "agent-skills",
+        "antigravity",
         "deepmind",
-        "google"
+        "google",
+        "mass-spectrometry",
+        "scientific-ai"
       ],
       "category": "gemini",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "From spectrum to structure: Identifying molecules with Mass Spec Skills for Google Antigravity Robert Brunck, Stefan Ganscha, Swaroop Guntupalli, Dariusz Lasecki, Gabriella Marfani, Jack Mason, Hussain Masoom, Rose Mirshafian, Eliseo Papa and Zoi Tsangalidou Built in collaboration with analytical chemists and using community-developed tools, Mass Spec Skills empowers scientists using Google Antigravity to interpret tandem mass spectra, lay out chemical evidence, and match frontier-level retrieval accuracy even with a lightweight model. Every sample of blood, soil or plant tissue contains a vast array of small molecules, such as nutrients, hormones, drugs and their breakdown products, pollutants, or bioactive compounds with therapeutic potential.",
@@ -802,7 +820,7 @@
       "titleEn": "OpenHands Releases v1.45.0",
       "lang": "en",
       "publishedAt": "2026-11-24T09:25:38.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "agent",
         "canvas",
@@ -832,17 +850,20 @@
       "sourceType": "blog",
       "url": "https://blog.modelcontextprotocol.io/posts/mcp-turns-two/",
       "title": "Two Years of MCP Builders",
-      "titleJa": "",
+      "titleJa": "MCPビルダーたちの2年間",
       "titleEn": "Two Years of MCP Builders",
       "lang": "en",
       "publishedAt": "2026-11-24T09:00:00.000Z",
       "collectedAt": "2026-11-28T04:30:40.901Z",
       "tags": [
+        "anniversary",
+        "community",
         "mcp",
-        "mcp-server"
+        "mcp-server",
+        "open-source"
       ],
       "category": "mcp",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "This week, our little open-source project, the Model Context Protocol (MCP), turns two years old . And what better way to mark this occasion than by celebrating the people who helped us build it and everyone building with it. When MCP first launched, we could not have imagined how creative and ambitious the community would get with it, or how many people would jump in to help make it become what it is today. Developers have been showing up since the very first day the project landed on GitHub, and we&rsquo;ve had more than 2,500 unique contributors since then. As we&rsquo;re heading into our third year, it&rsquo;s worth looking back at some of the highlights since that fateful November of 2024. MCP milestones and spec releases from November 2024 to November 2026 Open from the start # MCP b",
@@ -970,7 +991,7 @@
       "titleEn": "From Files to Cited Answers in One API Call: Managed Ingestion and SearchDocuments in Agent Retrieval",
       "lang": "en",
       "publishedAt": "2026-11-24T00:00:00.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "agent",
         "agent-retrieval",
@@ -1416,7 +1437,7 @@
       "titleEn": "OpenHands Releases v1.44.0",
       "lang": "en",
       "publishedAt": "2026-11-23T15:39:58.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "automations",
         "chat",
@@ -1518,7 +1539,7 @@
       "titleEn": "Did the user ask for this? Securing AI agents against intent hijacking with Semantic governance policies",
       "lang": "en",
       "publishedAt": "2026-11-23T00:00:00.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "agent",
         "agent-gateway",
@@ -1746,26 +1767,31 @@
       "sourceType": "blog",
       "url": "https://aws.amazon.com/blogs/machine-learning/announcing-amazon-textract-insights-verifiable-generative-ai-for-documents/",
       "title": "Announcing Amazon Textract Insights: Verifiable generative AI for documents",
-      "titleJa": "",
+      "titleJa": "Amazon Textract Insights を発表:ドキュメント向けの検証可能な生成AI",
       "titleEn": "Announcing Amazon Textract Insights: Verifiable generative AI for documents",
-      "summaryJa": "このエントリは aws-ml-blog から収集した agent-fw 領域の最新アップデートです。原題:「Announcing Amazon Textract Insights: Verifiable generative AI for documents」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Announcing Amazon Textract Insights: Verifiable generative AI for documents",
+      "summaryJa": "Amazon Textract Insights が一般提供開始。欲しい項目を自然言語で指定するだけで、単一文書や混在した書類束から構造化データを抽出でき、各値に信頼度スコアとページ単位の根拠が付き、モデル学習も不要です。書類処理の自動化で結果を検証したい開発者に役立ちます。",
+      "summaryEn": "Amazon Textract Insights is now generally available, letting you name the fields you want in plain language and extract structured data from single documents or mixed packets, with per-value confidence scores and page-level grounding, no training needed. It helps teams automate document workflows while keeping results auditable.",
       "lang": "en",
       "publishedAt": "2026-11-20T20:22:00.000Z",
       "collectedAt": "2026-11-28T04:30:40.901Z",
       "tags": [
+        "agent",
+        "amazon-textract",
         "aws",
         "bedrock",
+        "document-processing",
+        "generative-ai",
+        "intelligent-document-processing",
         "ml"
       ],
       "category": "agent-fw",
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "knowledgeEligible": false,
       "contentSnippet": "Announcing the general availability of Amazon Textract Insights, a new generative AI feature of Amazon Textract. Describe the fields you need in natural language, submit a document or a mixed packet, and receive structured results with a confidence score and page-level grounding for each value, with no model training required.",
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true,
+      "knowledgeEligible": false
     },
     {
       "id": "2a489a3739513030",
@@ -1777,7 +1803,7 @@
       "titleEn": "OpenHands Releases v1.43.0",
       "lang": "en",
       "publishedAt": "2026-11-20T19:03:08.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "automations",
         "chat-ui",
@@ -2037,7 +2063,7 @@
       "titleEn": "Check what your AI agents do before they do it, with Semantic governance policies",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -2065,7 +2091,7 @@
       "titleEn": "How to securely connect internal Cloud Run MCP servers to Gemini Enterprise",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "cloud-run",
         "enterprise",
@@ -2167,6 +2193,34 @@
       },
       "excerptOrigin": "article",
       "feedSnippet": "mlxrunner: adapt saved history to memory pressure Retain Metal prefix history using observed memory headroom and execution workspace rather than a fixed 8 GiB allowance. Release unused buffers and cold history when system compression grows, preserving reusable paths and active requests. Cover pressure reclamation, snapshot ownership, memory observation, and cacheless request isolation. address comments address comments"
+    },
+    {
+      "id": "3c70dc9317b0bdb0",
+      "source": "microsoft-source",
+      "sourceType": "blog",
+      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
+      "title": "The future of medicine: Could AI help predict and prevent disease?",
+      "titleJa": "AIはより健康な未来づくりに役立つのか",
+      "titleEn": "The future of medicine: Could AI help predict and prevent disease?",
+      "lang": "en",
+      "publishedAt": "2026-11-19T22:14:18.000Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "tags": [
+        "ai-health",
+        "healthcare",
+        "microsoft",
+        "microsoft-research",
+        "news",
+        "podcast",
+        "research"
+      ],
+      "category": "tech-news",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
+      "excerptOrigin": "article",
+      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research ."
     },
     {
       "id": "d15916ebb27fea0f",
@@ -2584,7 +2638,7 @@
       "summaryEn": "Meta explains how agents built on its Ranking Engineer Agent (REA) carry architecture upgrades and training optimizations across a diverse range of ads ranking models, cutting manual porting work for each team.",
       "lang": "en",
       "publishedAt": "2026-11-18T17:00:00.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "ads-ranking",
         "agent",
@@ -2598,8 +2652,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "Our previous post in this series introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning (ML) techniques on ads ranking models. Now, we’re sharing how we propagate ranking model improvements like architectural advancements and training optimizations efficiently across a large and diverse fleet of ads [...] Read More... The post How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "Our previous post in this series introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning (ML) techniques on ads ranking models. Now, we’re sharing how we propagate ranking model improvements like architectural advancements and training optimizations efficiently across a large and diverse fleet of ads [...] Read More... The post How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models appeared first on Engineering at Meta ."
     },
     {
       "id": "f700ec0a7df3f16a",
@@ -2648,7 +2702,7 @@
       "summaryEn": "Meta built a template-driven approach that standardizes how ML models are designed, tackling the challenge of shipping many fragmented production models reliably. It helps large ML teams deploy faster.",
       "lang": "en",
       "publishedAt": "2026-11-18T16:59:38.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "engineering",
         "machine-learning",
@@ -2661,8 +2715,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "As ML ecosystems grow to a large number of production models, the bottleneck is no longer inventing new techniques to improve these models, but rather shipping them reliably and efficiently across a fragmented model space, creating a rising tide that lifts all the boats. At Meta, we built a template-driven approach that standardizes model design [...] Read More... The post Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "As ML ecosystems grow to a large number of production models, the bottleneck is no longer inventing new techniques to improve these models, but rather shipping them reliably and efficiently across a fragmented model space, creating a rising tide that lifts all the boats. At Meta, we built a template-driven approach that standardizes model design [...] Read More... The post Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem appeared first on Engineering at Meta ."
     },
     {
       "id": "0c31d85b1964e019",
@@ -2674,7 +2728,7 @@
       "titleEn": "OpenHands Releases v1.42.0",
       "lang": "en",
       "publishedAt": "2026-11-18T16:46:40.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "bug-fix",
         "cloud",
@@ -2781,34 +2835,6 @@
       "evergreen": true
     },
     {
-      "id": "255f21e05c50335e",
-      "source": "microsoft-research",
-      "sourceType": "blog",
-      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
-      "title": "Can AI help build a healthier future?",
-      "titleJa": "AIはより健康な未来づくりに役立つのか",
-      "titleEn": "Can AI help build a healthier future?",
-      "lang": "en",
-      "publishedAt": "2026-11-17T16:52:17.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
-      "tags": [
-        "ai-health",
-        "healthcare",
-        "microsoft",
-        "microsoft-research",
-        "news",
-        "podcast",
-        "research"
-      ],
-      "category": "research",
-      "importance": 2,
-      "halfLife": "architecture",
-      "archiveTier": "hot",
-      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
-      "excerptOrigin": "article",
-      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research ."
-    },
-    {
       "id": "37e0b176c97615e8",
       "source": "openhands-releases",
       "sourceType": "release",
@@ -2818,7 +2844,7 @@
       "titleEn": "OpenHands Releases v1.41.0",
       "lang": "en",
       "publishedAt": "2026-11-16T20:55:32.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "acp",
         "agent",
@@ -2908,17 +2934,21 @@
       "sourceType": "blog",
       "url": "https://www.apple.com/newsroom/2026/11/apple-launches-research-study-to-explore-the-use-of-ai-for-health/",
       "title": "Apple launches research study to explore the use of AI for health",
-      "titleJa": "",
+      "titleJa": "Apple、ヘルスケア分野でのAI活用を探る研究調査を開始",
       "titleEn": "Apple launches research study to explore the use of AI for health",
       "lang": "en",
       "publishedAt": "2026-11-16T01:18:33.934Z",
       "collectedAt": "2026-11-28T04:30:40.901Z",
       "tags": [
         "apple",
-        "news"
+        "apple-health",
+        "health-ai",
+        "news",
+        "openevidence",
+        "research-study"
       ],
       "category": "tech-news",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "The Apple Health AI Usage Study, conducted in collaboration with OpenEvidence, will evaluate trust, comprehension, and real-world health AI engagement Apple today announced the launch of the Apple Health AI Usage Study in the United States, a virtual research study and associated app designed to advance the understanding of how people interact with conversational health AI tools. 1 By examining what drives user trust, the quality of responses, comprehension, and everyday health actions, the study aims to inform the responsible design of health AI experiences for Apple and the industry. “At Apple, we believe responsible innovation starts with scientific rigor and clinical grounding.",
@@ -2937,7 +2967,7 @@
       "summaryEn": "Meta's Reality Labs ported Cuttlefish and its QEMU backend to macOS on Apple silicon. Developers of AI glasses and other non-phone Android devices can test with higher fidelity and rely less on scarce hardware.",
       "lang": "en",
       "publishedAt": "2026-11-13T17:00:39.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "android",
         "apple-silicon",
@@ -2951,10 +2981,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. Meta’s Reality Labs builds products such as AI glasses . Emulators provide us with a way to scale development and testing without relying on scarce physical hardware. Testing software for non-phone Android devices depends on how closely a virtual device reproduces the software behavior of the physical product. While a lightweight emulator like Goldfish gets you part of the way, differences from the real device can hide bugs until later in development. This lack of fidelity also erodes trust in device emulation, increasing reliance on scarce physical hardware. Cuttlefish is the Android Open Source Project’s (AOSP’s) virtual-device framework for testing Android software against virtual hardware.",
       "excerptOrigin": "article",
-      "feedSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. [...] Read More... The post Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple Silicon appeared first on Engineering at Meta .",
-      "evergreen": true
+      "feedSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. [...] Read More... The post Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple Silicon appeared first on Engineering at Meta ."
     },
     {
       "id": "9bf242a7c3461006",
@@ -3000,7 +3030,7 @@
       "summaryEn": "OpenHands v1.40.0 improves Codex subscription sign-in guidance and fixes chat history paging, draft handling, and default-branch detection in Git. Self-hosted and Indonesian-language users benefit most.",
       "lang": "en",
       "publishedAt": "2026-11-12T14:32:59.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "chat",
         "codex",
@@ -3066,7 +3096,7 @@
       "summaryEn": "OpenHands v1.39.0 lets users filter the automations dashboard by owner, including service accounts, and hides Stop hook feedback from chat. It also fixes UTC timestamp handling, improving usability.",
       "lang": "en",
       "publishedAt": "2026-11-11T17:27:23.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "automations",
         "chat-ui",
@@ -3100,7 +3130,7 @@
       "summaryEn": "Meta built Intelligent Delivery, an ML system that decides where to spend scarce compute across the ad serving stack, since returns differ by request, model, and chip. It adds roughly 10% ranking gain beyond earlier improvements, helping advertisers and users as models scale.",
       "lang": "en",
       "publishedAt": "2026-11-11T17:00:38.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "ads-ranking",
         "compute-allocation",
@@ -3114,10 +3144,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "By Zhaojun Zhang , Qinwei Zhu , Gang Li , Jianwei Xiao , Yanan Wang , Hongmei Li , Deepak Vijaywargi , Ke Pan , Li Yu Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built Intelligent Delivery, an ML-driven system that allocates resources across the serving stack toward the system-wide optimum. It has delivered ~10% incremental ranking performance on top of model and system advancements since 2017.",
       "excerptOrigin": "article",
-      "feedSnippet": "Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built [...] Read More... The post Intelligent Delivery: Making Every Unit of Compute Serve Better Ads appeared first on Engineering at Meta .",
-      "evergreen": true
+      "feedSnippet": "Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built [...] Read More... The post Intelligent Delivery: Making Every Unit of Compute Serve Better Ads appeared first on Engineering at Meta ."
     },
     {
       "id": "daeb565598eece93",
@@ -3162,18 +3192,22 @@
       "sourceType": "blog",
       "url": "https://blog.modelcontextprotocol.io/posts/mcp-release-cycle/",
       "title": "A More Predictable Release Cycle for MCP",
-      "titleJa": "",
+      "titleJa": "MCPのリリースサイクルをより予測しやすくする取り組み",
       "titleEn": "A More Predictable Release Cycle for MCP",
       "lang": "en",
       "publishedAt": "2026-11-11T09:00:00.000Z",
       "collectedAt": "2026-11-28T04:30:40.901Z",
       "tags": [
+        "governance",
         "mcp",
         "mcp-server",
-        "release"
+        "release",
+        "release-cycle",
+        "sdk",
+        "specification"
       ],
       "category": "mcp",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "We&rsquo;ve spent a lot of time over the past two years talking about ways to improve MCP, add new features and capabilities, and get on a more predictable release cadence. Clearly, there has been no shortage of ideas both from the maintainer and broader developer community. Getting those ideas reviewed, implemented, tested, and into a release is a whole other part of the job, and we want to make that specific part easier to follow for our community. For folks working on proposals, that means knowing when reviews will happen and how much time there is to make adjustments. SDK maintainers also need to know when the spec will stop changing - both client and server developers use our developer toolchain as a starting point to try new MCP capabilities out and share feedback. To make this proce",
@@ -3198,7 +3232,7 @@
       "summaryEn": "MCP Servers v2.4.0 patches six vulnerabilities across three servers, with fixes in filesystem 2.3.0 and git and fetch 2026.11.11, so anyone running those servers should upgrade promptly.",
       "lang": "en",
       "publishedAt": "2026-11-11T07:37:43.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "fetch",
         "filesystem",
@@ -3296,7 +3330,7 @@
       "summaryEn": "Meta's Your algorithm gives Facebook users one editable view of the interests behind Feed and Reels, with LLMs turning plain-language preferences into recommendations, so people can steer what they see.",
       "lang": "en",
       "publishedAt": "2026-11-10T17:00:49.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "engineering",
         "facebook",
@@ -3310,8 +3344,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "Your algorithm is a suite of AI-powered tools that makes Facebook recommendations more transparent and steerable, with a single editable view of the interests that shape Feed and Reels. We’re sharing how Your algorithm turns people’s natural language preferences into responsive recommendations, and how LLMs are tailored to specific tasks within the system. Traditionally, the [...] Read More... The post Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "Your algorithm is a suite of AI-powered tools that makes Facebook recommendations more transparent and steerable, with a single editable view of the interests that shape Feed and Reels. We’re sharing how Your algorithm turns people’s natural language preferences into responsive recommendations, and how LLMs are tailored to specific tasks within the system. Traditionally, the [...] Read More... The post Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations appeared first on Engineering at Meta ."
     },
     {
       "id": "3517424a62574db3",
@@ -3325,7 +3359,7 @@
       "summaryEn": "Meta presents TLX, a Triton extension adding explicit warp-group and cluster-level control, so engineers can exploit new GPU features while keeping Triton's productivity; it improved RecSys and LLM pretraining workloads.",
       "lang": "en",
       "publishedAt": "2026-11-10T16:59:31.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "engineering",
         "gpu-compiler",
@@ -3339,8 +3373,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "Triton Low-Level Extensions (TLX), is an extension to Triton that helps engineers optimize GPU performance while preserving Triton’s productive programming model. TLX introduces explicit warp-group and cluster-level orchestration, letting developers adopt new hardware capabilities without sacrificing velocity. TLX has demonstrated performance improvements in RecSys training, RecSys inference, and large-scale LLM pretraining. Modern GPU architectures increasingly [...] Read More... The post How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "Triton Low-Level Extensions (TLX), is an extension to Triton that helps engineers optimize GPU performance while preserving Triton’s productive programming model. TLX introduces explicit warp-group and cluster-level orchestration, letting developers adopt new hardware capabilities without sacrificing velocity. TLX has demonstrated performance improvements in RecSys training, RecSys inference, and large-scale LLM pretraining. Modern GPU architectures increasingly [...] Read More... The post How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale appeared first on Engineering at Meta ."
     },
     {
       "id": "75a9f02f59a5e1ff",
@@ -3348,17 +3382,20 @@
       "sourceType": "blog",
       "url": "https://blog.modelcontextprotocol.io/posts/exploring-file-uploads-and-downloads-in-mcp/",
       "title": "Exploring File Uploads and Downloads in MCP",
-      "titleJa": "",
+      "titleJa": "MCPにおけるファイルのアップロードとダウンロードを探る",
       "titleEn": "Exploring File Uploads and Downloads in MCP",
       "lang": "en",
       "publishedAt": "2026-11-10T09:00:00.000Z",
       "collectedAt": "2026-11-28T04:30:40.901Z",
       "tags": [
+        "agent",
+        "file-transfer",
         "mcp",
-        "mcp-server"
+        "mcp-server",
+        "protocol-design"
       ],
       "category": "mcp",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
       "contentSnippet": "The Model Context Protocol (MCP) started out as a simple way to connect models to tools, and that principle is still very much at its heart. Over the past two years, the things people build with the protocol have become more ambitious. Much more ambitious. Many of those MCP server projects now need to work with files - often driven by increasing agent capabilities and autonomy. Saving a PDF from a conversation to cloud storage and pulling a CSV into a sandbox have become very common requests from developers adopting MCP. Today, implementing these scenarios would require a bunch of bespoke tool conventions and transfer mechanisms - not something we&rsquo;d want folks doing over and over. Because this request kept coming up in customer discussions, we bootstapped the File Uploads Working Gro",
@@ -3383,7 +3420,7 @@
       "summaryEn": "OpenHands v1.38.0 adds editable plugin configuration for automations, semantic budget meters for conversations, and a Paper theme for Agent Canvas, improving usability for developers.",
       "lang": "en",
       "publishedAt": "2026-11-10T05:10:01.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "agent",
         "agent-canvas",
@@ -3548,7 +3585,7 @@
       "summaryEn": "OpenHands v1.37.0 adds Mermaid diagrams that illustrate each automation, fixes chat session ordering, title display and home page loading, and trims repeated history scans for faster live chat updates.",
       "lang": "en",
       "publishedAt": "2026-11-06T13:06:00.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "automations",
         "chat-performance",
@@ -3733,7 +3770,7 @@
       "summaryEn": "MCP Servers v2.3.0 ships npm updates such as everything 2.2.1, filesystem 2.2.0 and memory 2.1.0, plus PyPI fetch, git and time builds, with new annotation tests for everything. Developers can track which servers to upgrade.",
       "lang": "en",
       "publishedAt": "2026-11-04T21:28:41.000Z",
-      "collectedAt": "2026-11-27T23:30:39.995Z",
+      "collectedAt": "2026-11-28T05:30:37.729Z",
       "tags": [
         "mcp",
         "mcp-server",

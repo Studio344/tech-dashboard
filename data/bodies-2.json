@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T04:30:54.935Z",
-  "count": 382,
+  "generatedAt": "2026-11-28T05:30:53.225Z",
+  "count": 386,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -11648,7 +11648,39 @@
       "bodyJa": "Google は、企業向けのエージェント開発基盤「Gemini Enterprise Agent Platform」に、複数のウェブソースを同時に検索して照合する「並列ウェブ検索によるグラウンディング」機能を追加した。これにより、AIエージェントはより正確で最新の情報に基づいて応答できるようになると見られる。\n\nグラウンディング（grounding）とは、大規模言語モデル（LLM）が生成する回答を、外部の信頼できる情報源に結びつける技術を指す。LLM は学習時点の知識に依存するため最新の出来事に弱く、事実と異なる内容をもっともらしく生成する「ハルシネーション」の課題を抱える。グラウンディングは回答生成の際に外部データを参照させることで、こうした誤りを抑制し、根拠となる出典を提示できるようにする狙いがある。\n\n今回の特徴は「並列（parallel）」である点だ。従来のように単一の検索を逐次実行するのではなく、複数のウェブ検索を同時に走らせ、得られた結果を相互に照合する。これにより単一ソースへの依存を減らし、情報の正確性や網羅性を高められる可能性がある。処理を並列化することで、応答までの遅延（レイテンシ）を抑える効果も期待される。\n\n背景には、企業が AI エージェントを実務に導入する際の信頼性への要求がある。カスタマーサポートや社内ナレッジ検索、市場調査といった用途では、古い情報や誤った回答が業務リスクに直結しかねない。Google は同機能を Vertex AI を軸としたエンタープライズ基盤の一部として提供しており、企業は自社データと外部のウェブ情報を組み合わせたエージェントを構築しやすくなると考えられる。\n\nグラウンディング機能の強化は、業界全体の潮流でもある。OpenAI や Anthropic もウェブ検索や外部ツール連携を進めており、Microsoft も Copilot 関連サービスで検索連携を拡充している。各社が「いかに最新かつ正確な情報を根拠として提示できるか」を競う構図が鮮明になりつつある。\n\nGoogle にとって、検索という中核的な強みをエージェント基盤に統合できる点は差別化要因となり得る。一方で企業導入においては、出典提示による説明可能性や、機密データの扱いといった運用面が今後の評価軸になるだろう。",
       "bodyEn": "Google has added parallel web search grounding to its Gemini Enterprise Agent Platform, a capability aimed at helping AI agents produce answers that are more accurate and more current. The move matters because grounding, the process of tying a model's output to verifiable external data, is one of the most important levers for making large language models reliable enough to deploy in business workflows where incorrect or outdated information carries real cost.\n\nGrounding addresses a well-documented weakness of generative models: their tendency to produce fluent but unsupported statements, often called hallucinations. Rather than relying solely on the knowledge encoded during training, a grounded agent retrieves relevant information from an authoritative source at query time and uses that material to shape its response. Google already offers grounding against enterprise data stores and against Google Search, so extending the approach to a parallel web search mechanism is an incremental but meaningful expansion of the options available to developers building on the platform.\n\nThe distinguishing feature described here is parallelism. Instead of issuing a single query and working from one set of results, an agent can dispatch multiple web searches simultaneously, gather results from several real-time sources, and cross-reference them before composing an answer. In principle this offers two benefits. It broadens the pool of evidence, which can reduce the chance that a response depends on a single unreliable page, and it can improve latency, since concurrent retrieval avoids the sequential delays that accumulate when searches run one after another. For time-sensitive queries, such as current pricing, recent events, or fast-changing technical documentation, drawing on multiple live sources is likely to produce fresher output than a model working from static training data alone.\n\nThe feature sits within Google's broader agent tooling, which is closely tied to Vertex AI, the company's managed platform for building and deploying machine learning and generative AI applications. Vertex AI provides the surrounding infrastructure that enterprises typically require, including access controls, model management, and integration with other Google Cloud services. Grounding features like this one are generally exposed to developers through configuration and API options, allowing an agent to be pointed at web search, an organization's own indexed content, or a combination, depending on the task. Enterprises often prefer to combine these approaches, using internal data for proprietary knowledge and web search for public, real-time facts.\n\nIt helps to place this in the context of retrieval-augmented generation, or RAG, the general pattern in which a model's prompt is enriched with retrieved documents before it generates a response. Parallel web search grounding can be understood as a web-facing variant of that pattern, with the retrieval step distributed across several queries. The idea of cross-referencing multiple sources also echoes techniques used elsewhere in the industry to improve factual reliability, where agreement among independent sources is treated as a signal of confidence, though the precise ranking and reconciliation logic Google applies is not fully detailed in the announcement.\n\nThe competitive backdrop is relevant. Several vendors have moved to strengthen the connection between conversational AI and live information. OpenAI has added browsing and search capabilities to its models, Anthropic has expanded Claude with web and tool use, and companies such as Perplexity have built products centered on cited, search-driven answers. Google's advantage in this area is often assumed to be its search infrastructure, and features that surface web grounding through the enterprise agent platform appear designed to bring that strength into governed, production settings rather than consumer-facing chat alone.\n\nOrganizations evaluating the capability will still need to weigh practical considerations. Web-sourced content varies in quality, and cross-referencing reduces but does not eliminate the risk of propagating errors present across multiple pages. Latency, cost per query, and data governance, including what leaves an enterprise boundary during a search, remain factors teams should assess against their specific requirements. Citations and source transparency, where provided, help reviewers verify claims, which is particularly important in regulated industries.\n\nOverall, the addition broadens the set of grounding strategies developers can apply on the Gemini Enterprise Agent Platform. For teams already invested in Vertex AI, it offers another configurable path toward agents that stay aligned with current, externally verifiable information, while leaving the ultimate reliability of any given deployment dependent on how carefully it is designed and tested.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:41:43.776Z"
+      "generatedAt": "2026-08-30T16:41:43.776Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Parallel Web Systems が、Gemini のウェブ検索の提供元として標準で組み込まれたんだね。これって大きいこと？",
+          "en": "Parallel Web Systems is now built in as a web grounding provider for Gemini, right? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "選択肢が増えたのがポイントです。この記事では、開発者がGeminiを最新情報に結びつける方法の柔軟性が上がる、と説明しています。",
+          "en": "The key point is more choice. The post says developers get more flexibility in how they connect Gemini to verifiable, real-time information."
+        },
+        {
+          "s": "a",
+          "ja": "「グラウンディング」って、なに？ なんでそれが必要なのかな。",
+          "en": "What does \"grounding\" mean? And why would an agent need it?"
+        },
+        {
+          "s": "b",
+          "ja": "AIの答えを確かな情報源に結びつけること、くらいの意味です。記事では、リアルタイムのウェブ結果に基づき、元の出典も引用で示すとあります。",
+          "en": "Roughly, it means tying an AI's answers to reliable sources. Here, that means real-time web results, with exact citations pointing back to the originals."
+        },
+        {
+          "s": "a",
+          "ja": "取引先のチェックやニュース調べに使えたら便利かも。出典が見えるなら安心だね。",
+          "en": "I could see using it to check on a business partner or follow the news. Seeing the sources would feel reassuring."
+        },
+        {
+          "s": "b",
+          "ja": "記事の例にも本人確認(KYC)や企業調査が挙がっています。ただ想定は開発者がエージェントを作る場面なので、引用元を確かめながら使う形になりそうです。",
+          "en": "The post does list KYC checks and corporate due diligence. But it's aimed at developers building agents, so you'd likely still verify the cited sources."
+        }
+      ]
     },
     "8db6e7dd9debc4aa": {
       "bodyJa": "NVIDIAは、創薬や生物学研究向けのAI基盤「BioNeMo」のエージェント機能「Agent Toolkit」を、Anthropicの科学研究向けサービス「Claude Science」と統合したと発表した。これにより、ライフサイエンス分野の研究者は対話型AIから加速計算ツールへ直接アクセスできるようになる。\n\nBioNeMoは、タンパク質の立体構造予測や分子生成、ゲノム解析などを担う専用AIモデル群と、GPU向けの最適化を提供するNVIDIAのプラットフォームである。今回統合されるAgent Toolkitは、こうしたモデルや外部ツールを組み合わせ、自然言語の指示に応じて一連の解析タスクを自動で実行するエージェント基盤と位置づけられる。\n\n一方のClaude Scienceは、Anthropicの大規模言語モデル「Claude」を科学研究の文脈に特化させた枠組みとされる。両者を接続することで、研究者は使い慣れた対話インターフェース上で、仮説の検討からモデルの実行、結果の解釈までを一つのワークフローとして進めやすくなる可能性がある。\n\n創薬の初期段階では、膨大な候補分子の絞り込みや、標的タンパク質との結合予測に長い時間と計算資源を要する。AIエージェントがこうした反復作業を仲介すれば、専門的なプログラミング知識を持たない研究者でも高度な計算を扱いやすくなり、試行錯誤のサイクルを短縮できると見込まれる。\n\n生成AIをライフサイエンスに応用する動きは各社で加速している。Google DeepMindはタンパク質構造予測のAlphaFoldを公開し、関連ツールや製薬・バイオ企業との提携を広げてきた。NVIDIA自身も医療・創薬分野向けのソフトウェアやパートナーシップを拡充しており、今回の統合は汎用的な言語モデルと専門特化型AIを橋渡しする流れの一例と見ることができる。\n\nもっとも、研究ワークフローのAI化がどこまで実際の成果につながるかは、モデルの精度検証や再現性の確保、規制対応といった課題にも左右される。とはいえ、対話AIと専門ツールを組み合わせる設計は、今後の研究支援環境の標準的な形の一つになっていく可能性がある。",
@@ -12949,6 +12981,126 @@
       "bodyEn": "## Memory MCP server for Claude\n\nA hands-on test found that reinstalling the Memory MCP server through npm erased its stored knowledge graph data. The result matters because the server is intended to give an AI “memory” across conversations, while an AI such as Claude Code does not retain previous exchanges after a conversation ends.\n\n## Model Context Protocol\n\nThe server is distributed as an official sample of MCP, or Model Context Protocol, a mechanism for adding external capabilities to an AI. The test examined the server directly, without going through the AI itself, to check its behavior.\n\nThe test also found that registering memory again under the same name did not overwrite or merge the existing entry. Instead, the new content was ignored in full.\n\n## Data persistence\n\nUnder the default configuration, the memory was not stored in the project folder. Its storage location was created by npm install, and running npm install again caused the knowledge graph memory data to disappear.\n\nAccording to the existing summary, using the server where persistent memory is required therefore needs a separate data-persistence measure.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T20:53:28.266Z"
+    },
+    "43807172154fa89a": {
+      "bodyJa": "Metaは、パーソナルAIエージェント「Muse」をオーストラリアで本日から提供開始した。質問に答えるだけでなく、実際に作業を進めるエージェントとして打ち出されており、タイトルでは「すべての人のための世界初のパーソナルAIエージェント」と紹介されている。\n\n## 質問に答えるだけではない\n\nMuseは、単に問いへ回答するのではなく、実際に仕事をこなすことを特徴とするとされる。利用者が物事を把握し続けられるよう手助けし、タスクやプロジェクトを肩代わりしてくれると説明されている。\n\nさらに、長期的な目標を行動計画に落とし込む役割も担う。目標を掲げるだけで終わらせず、実行できる形に変えていく点が、このエージェントの位置づけの中心にある。\n\n## 現地向けコネクターが順次登場\n\nオーストラリアでは本日から利用でき、現地向けのコネクター体験が順次展開される。対象分野は、創作、買い物、不動産、フィットネス、エンタメの5つだ。\n\n展開は段階的に進むため、これらがすべて一度に出そろうわけではない。Metaは、コネクターがMuseにさまざまなことができる大きな理由のひとつだと説明している。今回の提供開始は、Museのグローバル発表に続くものだ。\n\n## 利用者が握るアクセス権限\n\nMetaはMuseを、安全で、セキュアで、プライベートで、広く利用できるパーソナルAIエージェントとして、ゼロから作り上げたと述べている。\n\n利用者はそれぞれ自分のMuseを自分でコントロールできる。Museにどこまでアクセスを許すかは、本人が決める仕組みだ。作業を任せる存在だからこそ、この権限管理が設計上の柱のひとつに据えられていることがうかがえる。\n\n日常のタスクや長期的な目標を任せたい人にとって、現地向けコネクターがどのように広がっていくかが、今後の利用体験を左右する要素になりそうだ。",
+      "bodyEn": "## Muse Now in Australia\n\nMeta's personal AI agent Muse became available in Australia on the day of the announcement. The launch matters because the company positions Muse as an agent that carries out work rather than only answering questions, and it is now open to people in a new market.\n\nFollowing Meta's global announcement of Muse, the company says it is \"excited to share\" that the service has arrived in Australia. A promotional video accompanies the post, though the text does not describe its contents.\n\n## Does the Work, Not Just Answers\n\nAccording to the announcement, Muse is a personal AI agent that \"doesn't just answer questions, it actually does the work.\" The source describes several things it is meant to do: help people stay on top of things, take tasks and projects off their plate, and turn long-term goals into action plans.\n\nThe framing is practical. Rather than acting as a question-and-answer tool, Muse is presented as something a person can hand responsibilities to, from everyday tasks to larger, longer-running objectives.\n\n## Local Connector Experiences\n\nThe announcement points to connectors as \"a big reason Muse can do so much.\" For Australia, local connector experiences are rolling out progressively across five areas: creativity, shopping, property, fitness and entertainment.\n\nThe word \"progressively\" matters here. Muse itself is available from today, but the local connector experiences are not all described as live at launch. They are being introduced over time, and the source does not give a schedule for when each category will arrive.\n\n## Safety, Privacy and Control\n\nMeta says it built Muse from the ground up to be safe, secure, private and widely available. The announcement also emphasizes user control: each person stays in control of their own Muse and decides how much access it gets.\n\nThat access setting is the main control the source describes. The announcement does not detail the specific privacy or security mechanisms behind these claims, so the statements should be read as Meta's own description of its design goals. What the source does establish is the combination of an agent that takes action on a person's behalf and a user-determined level of access.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Museは「質問に答えるだけじゃなくて、実際に作業をする」って書いてあったよね。それってどういうこと？",
+          "en": "It says Muse doesn't just answer questions, it actually does the work. What does that mean?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、タスクやプロジェクトを引き受けて、長期目標を行動計画に落とし込むところまで担うと説明されているよ。",
+          "en": "The article says it takes tasks and projects off your plate and turns long-term goals into action plans."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、毎日の用事が多くて手が回らない人には助けになるのかな。オーストラリアの人向けの機能もあるの？",
+          "en": "So it could help people with too much on their plate? And is there anything made for Australia?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。オーストラリアでは今日から使えて、創作、買い物、不動産、フィットネス、エンタメ向けの現地連携が順次広がる予定だよ。",
+          "en": "Yes. It's available in Australia from today, with local connectors for creativity, shopping, property, fitness and entertainment rolling out progressively."
+        },
+        {
+          "s": "a",
+          "ja": "なるほど。作業を任せられて、どこまで使わせるかは自分で決められるってことだね。",
+          "en": "I see. It can handle work for me, and I decide how much access it gets."
+        },
+        {
+          "s": "b",
+          "ja": "その通りだよ。ただ連携機能は順次展開なので、最初からすべて使えるとは限らない点には気をつけてね。",
+          "en": "Right. Just keep in mind the connectors are rolling out progressively, so not everything may be available from day one."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T04:38:16.552Z"
+    },
+    "8767731ab96e7ef5": {
+      "bodyJa": "プログラマーはLLMが生成したアサーションの正しさを正確に判断できず、しかも自分の判断を過信しがちだとする研究が報告された。AIによるコード生成が広がるなか、人間によるレビューにどこまで頼れるのかを問う結果である。\n\n## コードレビューの重要性\n\nコードの理解とコードレビューは、ソフトウェアエンジニアリングにおいてすでに極めて重要な作業とされる。AIコード生成ツールの利用が増えるにつれ、その重要性はさらに高まっていると論文は述べている。\n\n生成AIには、こうした作業を支援する可能性がある。例として、コードにアサーションを加えたり、コードの振る舞いを説明する自然言語の解説を付けたりする方法が挙げられている。ただし、そうした支援がどの程度有効なのかについては、これまでほとんど分かっていなかった。\n\n## 過大評価とミスの見落とし\n\n研究では、プログラマーがLLMの生成したテストアサーションの正しさを系統的に過大評価し、重大な誤りを見落とすことが示されたと説明されている。タイトルが示すとおり、評価の精度が低いだけでなく、その評価に対する自信が過剰である点が特徴だ。\n\n## 品質保証への懸念\n\nこの結果は、AIが生成したテストの品質ゲートとして人間のレビューに頼ることへの懸念を生じさせる。自動テスト生成の品質保証には、人間による確認だけでは不十分な可能性があると示唆されている。\n\n論文はZhanna Kaufman氏ら計4名の著者によるもので、ソフトウェア工学分野の研究論文としてarXivに公開された。",
+      "bodyEn": "## Programmers Are Poor Judges\n\nA paper on arXiv, by Zhanna Kaufman and three other authors, examines how well programmers can evaluate assertions that a large language model has generated. Its title states the central finding: programmers are poor and overconfident judges of LLM-generated assertions. The question matters because code review and code comprehension are already critically important software engineering tasks, and the abstract says the growing use of AI code generation tools is only increasing that importance.\n\n## Code Comprehension and Review\n\nAccording to the abstract, generative AI could support these activities. One example it gives is augmenting code with assertions and natural-language explanations that describe how the code behaves. The idea is that such additions might help a person understand and review code more effectively.\n\nThe abstract then raises a caution: little is known about how effective this kind of support actually is. The study is framed around that gap, asking how well people can use and judge LLM-produced assertions rather than assuming the assistance is reliable.\n\n## Overconfident Evaluation\n\nThe summary of the work reports that programmers systematically overestimate the correctness of LLM-generated test assertions. In the same experiments, participants missed significant errors in those assertions. In other words, the people reviewing the output tended to believe it was more accurate than it was, and they did not reliably catch the mistakes it contained.\n\nThis overconfidence is part of the paper's headline claim, not a side observation. The finding is that the difficulty is not only a matter of missing errors but also of misjudging how well one is doing at spotting them.\n\n## Implications for Human Review\n\nThe summary notes that the results raise concerns about relying on human review as a quality gate for AI-generated tests. If programmers overrate the correctness of generated assertions and overlook real errors, a review step performed by a person may not be enough, on its own, to ensure the quality of automatically generated tests.\n\nThe source presents this as a possibility the experiments suggest rather than a settled conclusion. Beyond the findings described above, the available material does not give details such as the number of participants, the models used, or the specific tasks, so the scope of the results should be read in line with the paper's own framing.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "プログラマーはLLMが作ったアサーションを評価するのが苦手、ってどういうこと？",
+          "en": "Programmers are bad at judging LLM-made assertions? What does that mean?"
+        },
+        {
+          "s": "b",
+          "ja": "実験で、人がLLM生成のアサーションの正しさを実際より高く見積もり、ミスを見落としやすいと示されたんだ。しかも本人たちは自信を持ちがち、という話だよ。",
+          "en": "The study found people rate those assertions as more correct than they are and miss real errors. They also tend to feel overconfident about it."
+        },
+        {
+          "s": "a",
+          "ja": "アサーションって、コードの動きを確かめる条件みたいなものかな？それが間違ってると困るよね。",
+          "en": "So an assertion is like a check on what the code should do? Wrong ones sound like trouble."
+        },
+        {
+          "s": "b",
+          "ja": "そのくらいの意味でいいよ。この記事では、AIが書いたテストの品質を人のレビューだけで守れるのか、という懸念につながっているんだ。",
+          "en": "That's about right. The article ties this to a worry: can human review alone be the quality gate for AI-generated tests?"
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、AIが書いたものを人が見れば安心、とは言い切れないんだね。",
+          "en": "So having a person look over AI output doesn't automatically make it safe."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。人のレビューだけでは足りない可能性が示された、という範囲で受け取るのがいいかな。",
+          "en": "Right. The safe reading is that human review alone may not be enough, which is what the study suggests."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T04:39:04.957Z"
+    },
+    "27dd432376fa92be": {
+      "bodyJa": "フロンティア級LLMのエージェントを小型言語モデル(SLM)に置き換え、ハーネスを自動で適応させることで、定型的な業務タスクを90%低いコストで同等の性能にできるとする研究が公開された。著者はChenyang Yangら4名である。\n\n## 推論コストの壁\n\n論文は、フロンティアLLMのエージェントが多くの業務タスクの自動化を進めている現状から出発する。一方で、推論コストが高いために大規模な展開は持続可能ではないと指摘している。\n\nこの課題に対する安価な選択肢として挙げられているのが、小型言語モデル(SLM)である。\n\n## 置き換えだけでは足りない\n\nただし論文によれば、SLMはフロンティアLLM向けに設計されたハーネスへそのまま差し替えると、通常は性能が及ばない。モデルを小さくするだけでは、コスト削減と性能の維持は両立しにくいということになる。\n\nそこで論文は、モデルの大きさだけでなく、組み合わせるハーネスの側にも目を向ける。SLMに合わせて適応させたハーネスを用いることが、議論の中心にある。\n\n## メタエージェントが発見\n\n論文が示すのは、多くの定型的な業務タスクでは、SLMエージェントが適応済みのハーネスと組み合わさることで、LLMと同等の性能を90%低いコストで実現できるという点である。この適応済みハーネスは、メタエージェントによって自動的に発見できるものとされている。\n\n主張の対象は「多くの定型的な業務タスク」と限定されている。あらゆるタスクで同じ結果が得られるとは述べられておらず、その点は読む際に押さえておきたい。",
+      "bodyEn": "## Better Harnesses, Smaller Models\n\nA new research paper, \"Better Harnesses, Smaller Models: Building 90% Cheaper Agents via Automated Harness Adaptation,\" addresses the cost of running LLM-based agents. It is by Chenyang Yang and three other authors. The paper claims that small language models can do routine business work at a fraction of the usual expense if the surrounding harness is adapted to them.\n\n## High Inference Cost\n\nAccording to the abstract, frontier LLM agents are already automating many business tasks. The problem it identifies is that their high inference cost makes large-scale deployment unsustainable. That cost is the motivation for looking at cheaper options.\n\nThe obvious option is the small language model, or SLM. The authors note, however, that SLMs typically fall short when they are swapped into a harness that was designed for a frontier LLM. In other words, simply replacing the large model with a small one in an unchanged setup does not produce comparable results.\n\n## Adapted Harness, Meta Agent\n\nThe paper's answer is to change the harness rather than only the model. The authors say an adapted harness can be discovered automatically by a meta agent, so the adaptation does not have to be done by hand. The title calls this approach automated harness adaptation.\n\nThe abstract does not describe how the meta agent searches for or builds the adapted harness. It also does not say which tasks or which models were evaluated, so those details are not covered here.\n\n## 90% Lower Cost\n\nThe central result is stated in the abstract. For many routine business tasks, the authors show that SLM agents can match LLM performance at 90% lower cost when paired with an adapted harness found by a meta agent.\n\nThe wording is qualified. The claim applies to many routine business tasks, not to every task, and it is tied to the pairing of a small model with an adapted harness. The paper was published on arXiv in the software engineering category.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "90%も安くなるって数字にびっくり。これって大きいこと？",
+          "en": "Ninety percent cheaper? That number surprised me. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "大きいと思うよ。この記事では、大型モデルは推論コストが高くて大規模導入が難しいと指摘し、小型モデルでも同等の性能を90%低コストで出せると示しているんだ。",
+          "en": "It looks big. The paper says frontier models cost too much to deploy at scale, yet small models can match their performance at 90% lower cost."
+        },
+        {
+          "s": "a",
+          "ja": "ハーネスって何？モデルとは別のものなの？",
+          "en": "What's a harness? Is it separate from the model?"
+        },
+        {
+          "s": "b",
+          "ja": "モデルを動かす周りの仕組み、くらいの意味だよ。記事だと、大型モデル用のハーネスに小型モデルをそのまま入れると、たいてい力が出ないと書かれているよ。",
+          "en": "Roughly, it's the setup around the model that makes it work. The paper says small models usually fall short when dropped into a harness built for a big one."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ自分の定型作業も、小さいモデルで安くできるかも？",
+          "en": "So maybe my routine tasks could run on a small model for less?"
+        },
+        {
+          "s": "b",
+          "ja": "可能性はあるね。ただ記事が示すのは「多くの定型的な業務タスク」で、メタエージェントが自動で見つけた調整済みハーネスを使った場合の話。どんな作業でも同じとは言えないよ。",
+          "en": "Possibly. But the paper covers many routine business tasks, using an adapted harness found automatically by a meta agent. It doesn't say every task works the same way."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T04:39:13.336Z"
+    },
+    "c6389827905fb571": {
+      "bodyJa": "オープンソースのAIコーディングエージェント「OpenHands」の最新版1.10.0が公開された。今回のリリースは大きな新機能の追加というより、既存機能の改善と細かなバグ修正を積み重ねた内容とされ、自動化されたコーディングワークフローをより安定して利用できるようにすることを主眼としている。\n\nOpenHandsは、かつて「OpenDevin」の名称で知られたプロジェクトで、自然言語による指示を受けて、コードの記述や編集、コマンドの実行、ブラウザ操作などを自律的に進めるエージェント基盤である。開発者がタスクを言葉で伝えるだけで、エージェントがファイルを横断的に読み書きし、テストの実行やエラー修正までを一連の流れとしてこなす点が特徴で、入力補完を中心とした従来のツールとは異なる位置づけにある。\n\nこうしたエージェント型のツールは、実運用に耐える信頼性の確保が課題となりやすい。長い作業手順の途中で状態を見失ったり、意図しないファイル変更を行ったりするケースが指摘されてきた。1.10.0のような継続的なマイナー更新は、細部の挙動を地道に改善し、想定外の失敗を減らす役割を担うと見られる。派手さはないものの、日常的に利用する開発者の体験にとっては重要な積み重ねと言える。\n\nAIコーディング分野では、GitHub CopilotやCursor、Anthropicの「Claude Code」、Cognitionの「Devin」など、商用・オープンソースを問わず競争が激化している。その中でOpenHandsは、コードが公開され自己ホストや拡張が可能な点、特定のモデルに縛られず複数のLLMを選んで利用できる柔軟性を強みとしてきた。エージェントの実力を測る指標として広く参照される「SWE-bench」などのベンチマークでも、オープンソース勢の代表格として言及されることが多い。\n\n今回の更新で具体的にどの不具合が解消されたかは、公式のリリースノートで確認することが望ましい。エージェント型の開発支援ツールはまだ発展途上の領域であり、こまめなバージョンアップを通じて完成度を高めていく段階にある。OpenHandsの継続的な改善は、コミュニティ主導でこの分野を前進させる取り組みの一つとして注目される。",
+      "bodyEn": "OpenHands, the open-source AI coding agent platform maintained by All Hands AI, has reached version 1.10.0, a release that focuses on incremental feature improvements and bug fixes rather than a sweeping overhaul. While point releases rarely generate the same attention as major launches, they matter because agentic coding tools depend heavily on reliability: an autonomous agent that edits files, runs shell commands, and iterates on code needs consistent behavior to be trusted in real development workflows.\n\nOpenHands, formerly known as OpenDevin, is designed to let large language models operate as software engineers rather than passive assistants. Instead of only suggesting code snippets, the platform gives an agent a sandboxed environment where it can read a repository, plan a series of steps, write and modify files, execute commands, run tests, and inspect the results before continuing. This loop of acting and observing is the defining characteristic of agentic systems, and it is also where small inconsistencies can compound into failed tasks. Releases like 1.10.0 typically target that reliability layer, tightening how the agent handles edge cases, recovers from errors, and interacts with underlying models and tools.\n\nUnder semantic versioning conventions, a minor version increment such as this one usually signals backward-compatible additions alongside fixes, though the exact composition depends on the maintainers' changelog. Users following the project can expect the release to refine existing capabilities, address reported issues, and possibly extend integrations or configuration options. Because OpenHands is model-agnostic, it works with a range of backends, including proprietary APIs from providers such as Anthropic and OpenAI as well as open-weight models served locally or through hosting platforms. Improvements to prompt handling, execution stability, or tool orchestration in a release like this tend to benefit users regardless of which model they connect.\n\nThe broader context is a rapidly maturing market for AI coding agents. OpenHands is frequently positioned as an open-source alternative to commercial autonomous coding products, most notably Cognition Labs' Devin, which helped popularize the idea of an AI \"software engineer\" that can complete tickets end to end. It also sits alongside a growing set of adjacent tools, including terminal-based assistants like Aider and Anthropic's Claude Code, editor-integrated systems such as Cursor and GitHub Copilot, and other agent frameworks. What distinguishes OpenHands is its permissive open-source model and its emphasis on a full agent runtime rather than autocomplete-style suggestions, which appeals to developers who want transparency, self-hosting, and the ability to customize the agent's behavior.\n\nBenchmarks have become an important reference point in this space, and SWE-bench, a suite that measures whether an agent can resolve real GitHub issues from open-source projects, is among the most cited. OpenHands has historically reported competitive results on such evaluations, and each iterative release is likely aimed, at least in part, at maintaining or improving task success rates. However, benchmark performance does not always translate directly into day-to-day usefulness, so practical improvements to error handling and stability can be just as significant for users as headline scores.\n\nFor teams evaluating whether to adopt agentic coding tools, a few prerequisite concepts are worth understanding. These agents generally require a containerized or sandboxed workspace to run code safely, appropriate API credentials or a local model server, and clear guardrails around what actions they can take, since an agent with shell access can modify or delete files. The reliability gains that accompany routine releases directly affect how comfortable organizations feel granting that level of autonomy.\n\nAs with any active open-source project, the most accurate picture of what changed comes from the official release notes and repository, which document specific fixes, dependencies, and any breaking changes. Developers already using OpenHands are typically advised to review those notes before upgrading, particularly if they rely on custom configurations or integrations. Overall, version 1.10.0 appears consistent with the project's steady release cadence, reflecting the incremental, quality-focused work that gradually makes autonomous coding agents more dependable and, in turn, more viable for everyday software development.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-09-05T01:15:23.065Z"
     }
   }
 }

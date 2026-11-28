@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T07:30:53.875Z",
+  "generatedAt": "2026-11-28T08:30:59.162Z",
   "count": 398,
   "bodies": {
     "d9b0da9f34ed444d": {
@@ -12794,82 +12794,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T02:31:58.814Z"
     },
-    "d4fcae9550ab0099": {
-      "bodyJa": "OpenAIはGPT-Liveを発表した。人とAIの自然なやり取りを目指した新世代の音声モデルで、現在はChatGPT Voiceを支えているという。\n\n## 新世代の音声モデル\n\nGPT-Liveは、リアルタイムで対話できるインタラクティブなAI体験を実現するものと位置づけられている。ユーザーはGPTモデルと、より自然でライブ感のある形でやり取りできるようになるとされる。\n\n## ChatGPT Voiceでの採用\n\nGPT-Liveは、ChatGPT Voiceを動かすモデルとして使われている。対話型AIをより身近なものにする上で重要な一歩になる、と説明されている。",
-      "bodyEn": "## GPT-Live announced\n\nOpenAI has introduced GPT-Live, described as a new generation of voice models built for natural human-AI interaction. The announcement says these models now power ChatGPT Voice, which matters because it changes how users talk with GPT.\n\n## Natural, real-time interaction\n\nAccording to the source, GPT-Live offers a real-time interactive AI experience. It is meant to let people engage with GPT models in a more natural, live way than before. The announcement frames this as a significant step for the accessibility of conversational AI.\n\nThe material does not give details on pricing, regional availability, supported platforms, or technical specifications.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "GPT-Liveって、何が新しいの？声のモデルって書いてあったよね。",
-          "en": "What's new with GPT-Live? It said something about voice models, right?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事だと、人とAIの自然なやりとりに向けた新世代の音声モデルだよ。ChatGPT Voiceを動かしているんだって。",
-          "en": "The post calls it a new generation of voice models for natural human-AI interaction. It's now powering ChatGPT Voice."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあChatGPT Voiceを使う人が、もっと自然に話せるようになるのかな？",
-          "en": "So people using ChatGPT Voice could talk to it more naturally?"
-        },
-        {
-          "s": "b",
-          "ja": "そう読めるね。リアルタイムでライブに近い対話ができる体験として紹介されているよ。",
-          "en": "That's how it reads. It's presented as a real-time, live-style conversation experience with GPT models."
-        },
-        {
-          "s": "a",
-          "ja": "GPT-Liveは、声でAIとリアルタイムに話すための新しいモデルで、ChatGPT Voiceに使われてるんだね。",
-          "en": "So GPT-Live is a new voice model for talking with AI in real time, and ChatGPT Voice uses it."
-        },
-        {
-          "s": "b",
-          "ja": "うん、その通り。どこまで自然になったかは、実際に試して確かめたいところだね。",
-          "en": "Right. How natural it really feels is something you'd want to try for yourself."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T02:32:19.093Z"
-    },
-    "dc34ba0c581f0720": {
-      "bodyJa": "## MUFGとOpenAIの提携\n\n三菱UFJフィナンシャル・グループ(MUFG)がOpenAIと提携し、業務全体にAIを深く組み込む「AIネイティブな銀行」への転換を目指す。大手金融機関によるAI基盤の全社導入として注目されている。\n\n## ChatGPT Enterpriseの活用\n\nMUFGはChatGPT Enterpriseを用いて、AIネイティブな組織づくり、ワークフローの改善、AIを活用した新たな金融サービスの大規模な提供を進めるとされる。\n\nAIを一部の業務に限らず組織全体に組み込む取り組みであり、グローバルな金融機関がAI主導の業務運営に踏み出す動きと位置づけられている。",
-      "bodyEn": "## MUFG's AI-native ambition\n\nMUFG, the Mitsubishi UFJ Financial Group, has partnered with OpenAI to pursue a transformation into an AI-native bank. The announcement presents the move as a major commitment by a global financial institution to AI-driven operations.\n\n## ChatGPT Enterprise at scale\n\nAccording to the source, MUFG uses ChatGPT Enterprise to build an AI-native organization, improve workflows, and deliver new AI-powered financial services at scale. The stated aim is to embed AI across the entire organization rather than limit it to isolated tasks. The source describes this as a company-wide rollout of an AI platform at a major financial institution.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "全社でAIを入れるって、これって大きいことなの？",
-          "en": "They're bringing AI into the whole company? Is that a big deal?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、MUFGがChatGPT Enterpriseで組織全体をAIネイティブにしていく方針が示されているよ。一部の部署だけでなく全体、という点が大きいね。",
-          "en": "The article says MUFG is using ChatGPT Enterprise to make its whole organization AI-native. Going company-wide, not just one team, is what makes it notable."
-        },
-        {
-          "s": "a",
-          "ja": "AIネイティブって、どういう意味なの？",
-          "en": "What does \"AI-native\" actually mean?"
-        },
-        {
-          "s": "b",
-          "ja": "記事に細かい定義はないけど、一般的には最初からAIを前提に仕事や組織を作る、くらいの意味だよ。",
-          "en": "The article doesn't define it, but generally it means building work and organizations with AI as the starting point."
-        },
-        {
-          "s": "a",
-          "ja": "もし私が行員なら、毎日の仕事の流れをラクにするのに使いたいな。",
-          "en": "If I worked at the bank, I'd want to use it to make my daily workflow easier."
-        },
-        {
-          "s": "b",
-          "ja": "記事でも業務改善と、新しいAI金融サービスを大規模に届けることが狙いとされているよ。使い方の詳細は、続報を待ちたいね。",
-          "en": "The article does name workflow improvement and delivering new AI-powered financial services at scale as goals. For specifics on how it's used, we'd want to wait for more details."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T02:32:32.241Z"
-    },
     "1593347ecc453f19": {
       "bodyJa": "Google DeepMindは、ヨーロッパを拠点とするロボティクスの研究開発を強化する取り組みを発表した。AIを中核に据えたロボット分野への投資を拡大し、地域の産業革新と人材育成を後押しする狙いがあると見られる。\n\n近年のロボティクスは、大規模言語モデルや視覚言語モデルの進展を取り込み、大きく様相を変えつつある。DeepMindはこれまでにも、視覚・言語・行動を統合的に扱う「RT-2」や、複数の研究機関のデータを持ち寄った「RT-X」、さらに「Gemini」を基盤に据えたロボット制御モデルなどを公開してきた。こうした基盤モデルは、タスクごとに個別のプログラムを書く従来手法と異なり、自然言語の指示から未知の物体操作へと汎化できる可能性がある点で注目されている。\n\n今回の欧州での取り組みは、こうした研究の受け皿を広げるものと位置づけられる。ヨーロッパは産業用ロボットや精密機械の分野で長い蓄積を持ち、ドイツやスイス、北欧を中心に有力なメーカーや研究機関が集積している。AIソフトウェアとハードウェアの製造力を結び付けることで、製造や物流、医療などへの応用が加速する可能性がある。\n\n一方で、競合の動きも活発だ。米国ではTeslaやFigure、Boston Dynamicsなどがヒューマノイド開発を進め、NVIDIAはロボット向けの基盤モデルやシミュレーション基盤を提供している。OpenAIも関連スタートアップへの関与を強めており、AIとロボティクスの融合は世界的な競争領域となっている。\n\n課題も残る。実世界で動くロボットは、学習データの収集コストや安全性の確保、予測不能な環境への対応など、ソフトウェア単体とは異なる難しさを抱える。欧州ではAI規制(AI Act)をはじめとするルール整備も進んでおり、技術開発と制度対応の両立が問われることになりそうだ。DeepMindの取り組みが、地域のエコシステム全体をどこまで押し上げるかが今後の焦点となる。",
       "bodyEn": "Google DeepMind has announced a set of initiatives intended to strengthen robotics research and development across Europe, framing the effort as part of a broader push to translate advances in artificial intelligence into machines that can perceive, reason about and act in the physical world. The move matters because robotics has become one of the most closely watched frontiers for large AI labs, and where that research is concentrated has implications for talent, investment and industrial competitiveness on the continent.\n\nAccording to the company, the effort centers on expanding research capacity and deepening collaboration with academic institutions, startups and industrial partners in Europe. The stated aim is to accelerate the pace at which laboratory breakthroughs reach practical applications, from manufacturing and logistics to research automation. While the announcement emphasizes investment and ambition, the concrete scale of funding and headcount is described in broad terms, so the near-term impact is likely to become clearer as specific projects and partnerships are detailed.\n\nThe initiative appears to build on Google DeepMind's ongoing work applying its Gemini family of models to embodied systems. In recent years the lab has published a series of robotics projects, including its Robotics Transformer models and, more recently, Gemini Robotics and a variant focused on embodied reasoning. These systems belong to a category increasingly known as vision-language-action models, which extend the multimodal capabilities of large language models so that a robot can take a natural-language instruction, interpret what it sees through cameras, and generate the low-level motions needed to complete a task. The central technical bet is that the general reasoning and generalization abilities of foundation models can help robots handle novel objects and situations rather than being narrowly programmed for a single, repetitive job.\n\nRobotics has long lagged behind text and image AI because physical data is expensive and slow to collect, and because errors in the real world carry real consequences. To address this, researchers across the field have leaned on techniques such as learning from demonstration, simulation and transfer learning, and on shared datasets that pool robot experience across many machines and laboratories. Google DeepMind previously contributed to a cross-institutional data-sharing effort along these lines, reflecting an industry recognition that no single lab can gather enough real-world interaction data on its own. A European expansion could, in principle, widen the pool of environments and use cases from which such systems learn, though the benefits will depend on how openly data and results are shared.\n\nThe announcement also sits within a busy competitive landscape. Startups such as Physical Intelligence, Figure AI and Skild AI have raised significant sums to build general-purpose robot control software, while chipmaker Nvidia has promoted its own platforms and foundation models for humanoid robots. Established manufacturers and automakers, including efforts around humanoid systems, are pursuing parallel goals. Within Europe specifically, there is a substantial base of industrial robotics and automation expertise, alongside universities and research groups with strong records in control theory, computer vision and machine learning. Positioning research on the continent may help DeepMind recruit from that talent pool and engage with manufacturers that already deploy robots at scale.\n\nBroader policy context is relevant as well. European institutions have moved to regulate artificial intelligence through the EU AI Act and have signaled interest in supporting domestic AI capacity, so investment decisions by major labs are watched partly for what they suggest about the region's role in a field dominated by companies based in the United States and China. Robotics that combines physical hardware with advanced AI also raises safety and reliability questions that regulators and researchers are still working through.\n\nFor now, the practical significance of the announcement remains to be demonstrated. Statements of intent to expand research and investment are common across the sector, and outcomes will hinge on execution, the willingness of partners to collaborate, and whether the underlying models prove robust enough for real deployment. Even so, the emphasis on Europe signals that Google DeepMind sees the region as a meaningful base for embodied AI work, and it adds to a growing consensus that the next phase of the field will be defined by getting capable, general-purpose robots to work reliably outside the laboratory.",
@@ -13164,7 +13088,39 @@
       "bodyJa": "オープンソースのAIコーディングエージェント「OpenHands」の最新版1.10.0が公開された。今回のリリースは大きな新機能の追加というより、既存機能の改善と細かなバグ修正を積み重ねた内容とされ、自動化されたコーディングワークフローをより安定して利用できるようにすることを主眼としている。\n\nOpenHandsは、かつて「OpenDevin」の名称で知られたプロジェクトで、自然言語による指示を受けて、コードの記述や編集、コマンドの実行、ブラウザ操作などを自律的に進めるエージェント基盤である。開発者がタスクを言葉で伝えるだけで、エージェントがファイルを横断的に読み書きし、テストの実行やエラー修正までを一連の流れとしてこなす点が特徴で、入力補完を中心とした従来のツールとは異なる位置づけにある。\n\nこうしたエージェント型のツールは、実運用に耐える信頼性の確保が課題となりやすい。長い作業手順の途中で状態を見失ったり、意図しないファイル変更を行ったりするケースが指摘されてきた。1.10.0のような継続的なマイナー更新は、細部の挙動を地道に改善し、想定外の失敗を減らす役割を担うと見られる。派手さはないものの、日常的に利用する開発者の体験にとっては重要な積み重ねと言える。\n\nAIコーディング分野では、GitHub CopilotやCursor、Anthropicの「Claude Code」、Cognitionの「Devin」など、商用・オープンソースを問わず競争が激化している。その中でOpenHandsは、コードが公開され自己ホストや拡張が可能な点、特定のモデルに縛られず複数のLLMを選んで利用できる柔軟性を強みとしてきた。エージェントの実力を測る指標として広く参照される「SWE-bench」などのベンチマークでも、オープンソース勢の代表格として言及されることが多い。\n\n今回の更新で具体的にどの不具合が解消されたかは、公式のリリースノートで確認することが望ましい。エージェント型の開発支援ツールはまだ発展途上の領域であり、こまめなバージョンアップを通じて完成度を高めていく段階にある。OpenHandsの継続的な改善は、コミュニティ主導でこの分野を前進させる取り組みの一つとして注目される。",
       "bodyEn": "OpenHands, the open-source AI coding agent platform maintained by All Hands AI, has reached version 1.10.0, a release that focuses on incremental feature improvements and bug fixes rather than a sweeping overhaul. While point releases rarely generate the same attention as major launches, they matter because agentic coding tools depend heavily on reliability: an autonomous agent that edits files, runs shell commands, and iterates on code needs consistent behavior to be trusted in real development workflows.\n\nOpenHands, formerly known as OpenDevin, is designed to let large language models operate as software engineers rather than passive assistants. Instead of only suggesting code snippets, the platform gives an agent a sandboxed environment where it can read a repository, plan a series of steps, write and modify files, execute commands, run tests, and inspect the results before continuing. This loop of acting and observing is the defining characteristic of agentic systems, and it is also where small inconsistencies can compound into failed tasks. Releases like 1.10.0 typically target that reliability layer, tightening how the agent handles edge cases, recovers from errors, and interacts with underlying models and tools.\n\nUnder semantic versioning conventions, a minor version increment such as this one usually signals backward-compatible additions alongside fixes, though the exact composition depends on the maintainers' changelog. Users following the project can expect the release to refine existing capabilities, address reported issues, and possibly extend integrations or configuration options. Because OpenHands is model-agnostic, it works with a range of backends, including proprietary APIs from providers such as Anthropic and OpenAI as well as open-weight models served locally or through hosting platforms. Improvements to prompt handling, execution stability, or tool orchestration in a release like this tend to benefit users regardless of which model they connect.\n\nThe broader context is a rapidly maturing market for AI coding agents. OpenHands is frequently positioned as an open-source alternative to commercial autonomous coding products, most notably Cognition Labs' Devin, which helped popularize the idea of an AI \"software engineer\" that can complete tickets end to end. It also sits alongside a growing set of adjacent tools, including terminal-based assistants like Aider and Anthropic's Claude Code, editor-integrated systems such as Cursor and GitHub Copilot, and other agent frameworks. What distinguishes OpenHands is its permissive open-source model and its emphasis on a full agent runtime rather than autocomplete-style suggestions, which appeals to developers who want transparency, self-hosting, and the ability to customize the agent's behavior.\n\nBenchmarks have become an important reference point in this space, and SWE-bench, a suite that measures whether an agent can resolve real GitHub issues from open-source projects, is among the most cited. OpenHands has historically reported competitive results on such evaluations, and each iterative release is likely aimed, at least in part, at maintaining or improving task success rates. However, benchmark performance does not always translate directly into day-to-day usefulness, so practical improvements to error handling and stability can be just as significant for users as headline scores.\n\nFor teams evaluating whether to adopt agentic coding tools, a few prerequisite concepts are worth understanding. These agents generally require a containerized or sandboxed workspace to run code safely, appropriate API credentials or a local model server, and clear guardrails around what actions they can take, since an agent with shell access can modify or delete files. The reliability gains that accompany routine releases directly affect how comfortable organizations feel granting that level of autonomy.\n\nAs with any active open-source project, the most accurate picture of what changed comes from the official release notes and repository, which document specific fixes, dependencies, and any breaking changes. Developers already using OpenHands are typically advised to review those notes before upgrading, particularly if they rely on custom configurations or integrations. Overall, version 1.10.0 appears consistent with the project's steady release cadence, reflecting the incremental, quality-focused work that gradually makes autonomous coding agents more dependable and, in turn, more viable for everyday software development.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-09-05T01:15:23.065Z"
+      "generatedAt": "2026-09-05T01:15:23.065Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Release Pleaseで作られたって書いてあるけど、それってなに？",
+          "en": "It says this was generated with Release Please. What's that?"
+        },
+        {
+          "s": "b",
+          "ja": "リリースの準備を自動で進めてくれる道具、くらいの意味だよ。この記事では1.9.3から1.10.0への変更履歴もたどれるんだ。",
+          "en": "Roughly, a tool that helps automate release prep. This page also links the full changelog from 1.9.3 to 1.10.0."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ今回のリリースは、AIにコードを書かせて使う開発者さん向けってこと？",
+          "en": "So is this release for developers who use the AI to write code?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。AIコーディングエージェントの機能改善とバグ修正で、自動化した作業をより安定して進めやすくする方向だよ。",
+          "en": "Yes. It brings improvements and bug fixes to the AI coding agent, aiming to make automated coding workflows more reliable."
+        },
+        {
+          "s": "a",
+          "ja": "大きな変化というより、少しずつ良くなる更新なんだね。",
+          "en": "So it's less a big leap and more a step-by-step improvement?"
+        },
+        {
+          "s": "b",
+          "ja": "記事の内容はそんな感じだね。細かい変更点は変更履歴で確かめると安心だよ。",
+          "en": "That's how the article reads. For the exact changes, the changelog is the safest place to check."
+        }
+      ]
     },
     "453c0b2179fa70a6": {
       "bodyJa": "## 毎回ゼロから始まる作業\n\nTokenEconomizerは、AIコーディングエージェントが同じリポジトリでの過去のセッションから学び、将来のセッションでの無駄を減らすオープンソースのプラグインです。277件の実際のバグ修正タスクで、費用を18.4〜30.9%削減したと報告されています。\n\n開発者は同じコードベースで毎日のようにAIコーディングエージェントを使いますが、エージェントはセッションのたびにゼロから始まることが多いとされます。すでに分かっているはずの事実を再び調べ直し、使わないツールを読み込み、うまくいかなかった方法を繰り返す、といった無駄が生じます。\n\n## トークン消費の仕組み\n\nAIコーディングエージェントは、バグ修正や機能開発を多くの場面で自力で進めるようになっています。ただし、モデルとのやり取りのたびにトークンが消費されます。各セッションでは、エージェントが指示、ツールの説明、セッション履歴をモデルに送ります。\n\n## 過去の経験を使う方法\n\nTokenEconomizerは、リポジトリ内でのエージェントの過去セッションを手がかりに学習します。その結果を将来のセッションに生かして無駄を減らす仕組みで、エージェント自体も、その基盤となるモデルも変更しません。\n\n## 277件での検証結果\n\n複数のAIコーディングエージェントを対象にした277件の実際のバグ修正タスクで、費用は18.4〜30.9%低下しました。費用の低下はテストしたすべてのリポジトリで見られ、タスクの成功率も概ね安定していたとされます。\n\n削減が一部のリポジトリに偏らず、テストした範囲では一貫して現れた点が特徴です。",
@@ -13279,12 +13235,6 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T05:39:55.721Z"
-    },
-    "9fcf2d5751e209ad": {
-      "bodyJa": "## ChatGPT Workとは\n\nOpenAIはChatGPTを、単なる質問応答ツールから、複雑で大規模な仕事を共同で進められるパートナーへと位置づけ直した。プロフェッショナルな業務での活用範囲が広がるとされる。\n\nこの文脈で紹介されているのが「ChatGPT Work」だ。\n\n## アプリやファイルをまたぐ動き\n\nChatGPT Workは、ユーザーのアプリやファイルをまたいで行動できるエージェントと説明されている。必要であれば数時間にわたってプロジェクトに付き添い、与えられた目標を完成した成果物へ仕上げることを担う。\n\n質問に答えるだけでなく、仕事そのものを前へ進める役割を担う点が特徴とされる。",
-      "bodyEn": "## ChatGPT Work as an agent\n\nOpenAI has repositioned ChatGPT from a simple question-answering tool into a collaborator for complex, high-stakes work. According to the announcement, this widens its role in professional settings and makes it a partner for ambitious projects.\n\n## Action across apps and files\n\nThe source describes ChatGPT Work as an agent that can take action across a user's apps and files. It can reportedly stay with a project for hours if needed, and its stated purpose is to turn a goal into finished work.\n\nThe announcement frames this as a shift beyond Q&A toward sustained, hands-on involvement in larger tasks.",
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T05:40:30.507Z"
     },
     "255f21e05c50335e": {
       "bodyJa": "技術の進歩があまりに速く、私たちがどんな明日を目指しているのかを定義することさえ難しくなっています。Microsoft Researchのポッドキャスト「The Shape of Things to Come」の今回のエピソードは、その状況を背景に「AIは医療の未来をどう変えうるのか」という問いを扱います。\n\n## 速い進歩の中で未来を描く\n\nこの番組では、Microsoft ResearchのリーダーであるDoug Burgerが各分野の専門家とともに、技術者、政策担当者、事業判断者などの関係者が現在直面している、AIをめぐる難しい課題を掘り下げます。\n\n番組の目標は、AIへの移行が全体として好ましい結果になる未来を築くために必要な共通理解を広げることだと説明されています。個々の技術の紹介にとどまらず、立場の異なる関係者が同じ問題意識を持つことに重きを置いた構成といえます。\n\n## 医療を語る4人の顔ぶれ\n\n今回、Burgerとともに議論するのは3人です。Microsoftのプリンシパル・リサーチ・マネージャーであるAva Amini、同社のチーフ・サイエンティフィック・オフィサーであるEric Horvitz、そしてScripps Researchの医師・研究者で、MicrosoftのAIヘルスアドバイザーも務めるEric Topolです。\n\n## 「何が先に必要か」という問い\n\nエピソードの中心にあるのは、AIが実現する医療の未来はどのようなものか、そしてそこに至る前に何が起きなければならないのか、という問いです。この問いは地球上のすべての人に関わる影響を持つと位置づけられています。\n\n英語の要約では、技術者や政策担当者が利点とリスクを見極める助けになる内容とされています。議論の具体的な結論や個別の論点は、ここで紹介できる範囲では示されていません。医療とAIの関係を、技術の可能性だけでなく、実現に向けた前提条件も含めて考えるための入り口となるエピソードです。",
@@ -13525,6 +13475,88 @@
       "bodyEn": "Microsoft has published the release notes for Visual Studio Code 1.128, the July 2026 update in the editor's long-running monthly cadence. Because VS Code remains one of the most widely used code editors across professional and hobbyist development, even incremental releases tend to shape day-to-day workflows for millions of developers, and this version continues that pattern with a mix of editor refinements, deeper GitHub Copilot integration, and expanded extension APIs.\n\nThe headline themes center on editor usability. VS Code releases typically bundle a range of small quality-of-life adjustments—improvements to search, navigation, diff views, terminal handling, and settings management—that individually seem minor but collectively reduce friction. According to the summary accompanying this release, 1.128 focuses on refining these interaction points rather than introducing sweeping structural changes. Users upgrading from recent versions should expect a familiar interface with targeted polish rather than a redesign, which is consistent with how the VS Code team has historically approached its stable channel.\n\nA significant portion of the update appears to concern GitHub Copilot integration. Over the past several release cycles, Microsoft has steadily moved AI-assisted features from optional add-ons toward core, first-class capabilities within the editor. This has included inline code completion, a conversational chat panel, and increasingly agent-oriented workflows that can read across files, run tasks, and propose multi-step edits. The 1.128 notes indicate continued enhancement in this area, which is likely to mean tighter coupling between the AI features and existing editor surfaces such as the command palette, source control view, and inline suggestions. Developers who rely on Copilot should review the notes closely, as changes to defaults, keybindings, or model behavior can affect established habits.\n\nThe expansion of extension APIs is the third pillar. VS Code's extensibility model is central to its ecosystem, and each release commonly adds or stabilizes APIs that let third-party developers build richer integrations. New APIs may cover areas such as language server interactions, notebook support, testing, authentication, or the interfaces that allow extensions to participate in AI-driven features. When new APIs are introduced, they often begin as proposed APIs available only in the Insiders build before graduating to the stable release, so extension authors typically watch these notes to plan compatibility and adopt new capabilities. Broader API surface tends to benefit the wider marketplace, since it enables tools like linters, debuggers, and framework-specific extensions to integrate more seamlessly.\n\nFor context, VS Code operates on a predictable monthly release schedule, with a preview Insiders build updated more frequently and a stable build shipping roughly once a month. The editor is built on the open-source Code – OSS project, though the Microsoft-branded distribution adds proprietary components and telemetry. It sits within a competitive landscape that includes JetBrains IDEs, the Zed editor, and newer AI-centric forks and tools that have emerged as coding assistants became mainstream. Microsoft's ownership of both VS Code and GitHub gives it a strategic advantage in tightening the loop between editor, repository hosting, and AI assistance, a direction reflected across recent releases.\n\nPractically, users can update through the editor's built-in update mechanism, which prompts when a new stable version is available, or by downloading the release directly. As with any update, teams that depend on specific extensions may want to verify compatibility, particularly where API changes are involved, and organizations with managed deployments often stage rollouts to catch regressions. The release notes themselves generally include a detailed changelog, contributor acknowledgments, and notes on any deprecations or breaking changes that maintainers should heed.\n\nBecause the specific technical details of 1.128 depend on the full published notes, developers seeking precise information—exact new settings, API signatures, or Copilot behavior changes—should consult the official documentation directly. The broad thrust, however, aligns with VS Code's established strategy: steady, incremental improvement of the core editing experience, continued investment in AI-assisted development, and an open extensibility platform. For most users, the upgrade is low-risk and worth adopting to stay current with security fixes and performance improvements that accompany each monthly cycle.",
       "model": "claude-opus-4.8",
       "generatedAt": "2026-07-08T22:01:40.769Z"
+    },
+    "5d64d830c63fbcd8": {
+      "bodyJa": "## ChatGPT Workとは\n\nOpenAIはChatGPTを、単なる質問応答ツールから、複雑で大規模な仕事を共同で進められるパートナーへと位置づけ直した。プロフェッショナルな業務での活用範囲が広がるとされる。\n\nこの文脈で紹介されているのが「ChatGPT Work」だ。\n\n## アプリやファイルをまたぐ動き\n\nChatGPT Workは、ユーザーのアプリやファイルをまたいで行動できるエージェントと説明されている。必要であれば数時間にわたってプロジェクトに付き添い、与えられた目標を完成した成果物へ仕上げることを担う。\n\n質問に答えるだけでなく、仕事そのものを前へ進める役割を担う点が特徴とされる。",
+      "bodyEn": "## ChatGPT Work as an agent\n\nOpenAI has repositioned ChatGPT from a simple question-answering tool into a collaborator for complex, high-stakes work. According to the announcement, this widens its role in professional settings and makes it a partner for ambitious projects.\n\n## Action across apps and files\n\nThe source describes ChatGPT Work as an agent that can take action across a user's apps and files. It can reportedly stay with a project for hours if needed, and its stated purpose is to turn a goal into finished work.\n\nThe announcement frames this as a shift beyond Q&A toward sustained, hands-on involvement in larger tasks.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:40:30.507Z"
+    },
+    "a3866d39f20be1e6": {
+      "bodyJa": "Visual Studio Code 1.145では、リモートエージェントのセッションが「少しローカルに近い感覚になる」と説明されている。アプリのプレビューやキャンバスの利用、cronによる自動実行の細かなスケジュール指定、チャットのノイズ軽減が加わった。あわせて、Local harnessが廃止予定であることも告知されている。\n\n## Agentsウィンドウ\n\nリモートエージェントの機能として、リモートのエージェントセッションからアプリをプレビューしたり、インタラクティブなキャンバスを使ったりできるようになった。これらはAgentsウィンドウを離れずに操作できるとされる。リモートで動くエージェントの作業を、VS Codeの画面の中で確認しながら進められるようにする変更と言える。\n\n## cronスケジュール\n\nAutomationsでは、定期的に実行するエージェントタスクについて、組み込みのプリセットにとどまらず、cronを使って任意のスケジュールで動かせるようになった。プリセットでは足りない実行タイミングを、cron式で細かく指定できる。\n\nこのほか、チャットのノイズを抑える改善も含まれている。息抜き用にBlobbyも用意されているという。\n\n## harness廃止予定\n\nLocal harnessは非推奨となり、2027年2月に削除される予定だ。移行先としてCopilot harnessへの移行が案内されている。2027年2月までに、Copilot harnessへ移る計画を立てておく必要がある。\n\n## 1.145.3の更新\n\n1.145には修正更新として1.145.1、1.145.2、1.145.3が公開されている。1.145.1と1.145.2は一般的な問題への対応で、1.145.3はセキュリティ上の問題に対処する更新と位置づけられている。\n\nまた、Microsoft IgniteでのVS Codeのセッション録画も公開されている。",
+      "bodyEn": "## Remote agent sessions feel more local\n\nVisual Studio Code 1.145 focuses on making remote agent sessions behave more like local ones, according to the release notes. The announcement says users can now preview apps and use interactive canvases from a remote agent session without leaving the Agents window. For anyone running agent work remotely, this keeps those tasks inside a single window.\n\nThe release notes also say the update turns down the noise in chat, though they give no further detail on how that works. They add a lighthearted note that when you need a break, Blobby is ready to play.\n\n## Automations with cron\n\nThe Automations feature gains more flexible scheduling. Per the release notes, recurring agent tasks can now run on custom schedules using cron, going beyond the built-in presets. The announcement describes this as a way to fine-tune automation schedules.\n\n## Local harness deprecation\n\nThe release carries a warning: the Local harness is deprecated and will be removed in February 2027. The notes point readers to information about the move to the Copilot harness. Anyone still relying on the Local harness has a stated deadline to plan around, and the source directs them to the migration guidance it links.\n\n## Point updates and downloads\n\nThree follow-up updates to 1.145 are listed. Update 1.145.1 and Update 1.145.2 each address issues, and Update 1.145.3 addresses security issues. The release notes link to the specific fixes for each one.\n\nThe release page also lists download and installation formats, including .deb, .rpm, .tar.gz, Arm instructions, and Snap. The notes additionally mention that recordings of VS Code sessions from Microsoft Ignite are available to watch.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Local harnessが2027年2月に廃止予定って書いてあったけど、これって大きいことなの？",
+          "en": "The Local harness is going away in February 2027, right? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと「廃止予定で、Copilot harnessへの移行を計画してね」という呼びかけです。使っている人には要チェックだけど、時間の余裕はありそうです。",
+          "en": "The notes say it's deprecated and to plan your move to the Copilot harness. If you use it, worth checking, but there seems to be time."
+        },
+        {
+          "s": "a",
+          "ja": "cronっていうのも出てきたよ。それってなに？",
+          "en": "There's also something called cron. What's that?"
+        },
+        {
+          "s": "b",
+          "ja": "cronは「毎日この時間に」といった実行予定を書く、一般的な書き方のことです。この記事では、決まったプリセット以外にも自分好みの間隔でエージェントの定期タスクを回せる、と書かれています。",
+          "en": "Cron is a common way to write schedules like 'run at this time every day.' Here, it lets you set custom schedules for recurring agent tasks beyond the built-in presets."
+        },
+        {
+          "s": "a",
+          "ja": "リモートでもアプリをプレビューできるなら、離れた環境の作業もラクになりそう。ほんと？",
+          "en": "If I can preview apps in remote sessions, working remotely might get easier. Is that right?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、Agentsウィンドウを離れずにプレビューやキャンバスが使えるとあります。ラクになるかは使い方次第かもね。Local harnessを使っているなら、移行の準備も忘れずに。",
+          "en": "The notes say you can preview and use canvases without leaving the Agents window. How much easier depends on your workflow. If you use Local harness, plan the migration too."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T07:37:56.164Z"
+    },
+    "b164e47cd8eeb9bf": {
+      "bodyJa": "Claude Codeに自律作業を任せたループが回らない原因は、プロンプトの書き方ではなく完了条件の設計にあった。ログを検証した筆者はそう結論づけている。問題の核心は、完了条件を決定論的か非決定論的かで分類できていなかったことだと説明されている。\n\n## 2分間に6回の差し戻し\n\n筆者がログを見返すと、ターン終了をブロックするhookが、2分間に同じフィードバックを6回続けて返していた。Claude Codeは毎回「修正しました」と答え、hookは毎回同じ理由で差し戻す。それでもリポジトリの状態は1バイトも変わっておらず、完全な無限ループだったという。\n\n筆者は当初、指示の書き方が甘いのだろうと考え、プロンプトを何度も書き直していた。しかし実測してみると、結論は違っていた。\n\n## 完了条件の必須化\n\n筆者はClaude Codeのサブエージェント委任に、検証可能な完了条件を必須としている。完了条件のない委任には、「できたように見える」以外の合否信号がないためだ。\n\n仕組みは単純で、PreToolUseフックでAgentツールの呼び出しを検査する。委任プロンプトに <success_criteria> ブロックがなければdenyする。プロンプトの取り出しにはjq、タグの有無の確認にはgrepを使う。denyの理由文には「完了条件がありません。success_criteria ブロックに検証可能な合否条件とエビデンス要求を書いてください。」と書かれている。この文面がそのままClaude Codeへのフィードバックになり、次の呼び出しでは完了条件付きのプロンプトが来る。\n\n## 順調に見えていた\n\nここまでは順調に見えていた。しかしhookを入れてしばらくして委任ログを読み返した筆者は、自分が勘違いしていたことに気づく。タグは確かに毎回書かれていた。\n\n筆者は、この気づきに至るまでに事件を2つ踏んだと述べている。その記録と、たどり着いた完了条件の分類をメモとして残している。完了条件を明確に定義すれば、ループは安定して機能するようになるという整理だ。",
+      "bodyEn": "Autonomous work in Claude Code can stall in ways that rewriting prompts does not fix. According to the author, the cause of a failed loop was how the completion condition was defined, not how the instructions were worded.\n\n## An infinite loop in the logs\n\nThe author handed autonomous work to Claude Code and later found a hook that blocks turn ending sending the same feedback six times in two minutes. Each time, Claude Code reported \"fixed,\" and the hook rejected it for the same reason. The repository state had not changed by a single byte. The author calls it a complete infinite loop.\n\nAt first the author assumed the instructions were too loose and rewrote the prompt several times. Measuring the behavior led to a different conclusion: the loop failed because completion conditions had not been classified as deterministic or non-deterministic. The author says it took two incidents to reach this, and the write-up records both the incidents and the resulting classification.\n\n## Verifiable completion conditions\n\nThe author requires a \"verifiable completion condition\" for every subagent delegation in Claude Code. The reasoning is that a delegation without one has no pass/fail signal other than \"it looks done.\"\n\n## The success_criteria hook\n\nThe mechanism is a PreToolUse hook that inspects Agent tool calls. It reads the delegation prompt and checks for a success_criteria block. If the block is missing, the hook denies the call. The deny reason says there are no completion conditions and asks for verifiable pass/fail conditions and evidence requirements to be written in that block.\n\nBecause the deny reason text goes straight back to Claude Code as feedback, the next call arrives with a prompt that includes completion conditions. The author says this worked smoothly, or appeared to.\n\n## Where the tag check fell short\n\nAfter running the hook for a while, the author reread the delegation logs and realized something had been misunderstood. The tag was in fact written every time. Even so, the logs showed the loop still failing, which points to the content of the completion condition rather than its presence.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "同じフィードバックが2分間に6回って、いったい何が起きてたの？",
+          "en": "The same feedback six times in two minutes? What was actually going on?"
+        },
+        {
+          "s": "b",
+          "ja": "hookがターン終了を差し戻し続けたのに、Claude Codeは毎回「修正しました」と言うだけ。リポジトリは1バイトも変わっていなかったそうです。",
+          "en": "A hook kept blocking the turn from ending, and Claude Code just said \"fixed\" every time. The repository didn't change by a single byte."
+        },
+        {
+          "s": "a",
+          "ja": "プロンプトを書き直しても効かなくて、完了条件の分け方が問題だったってこと？",
+          "en": "So rewriting the prompt didn't help, and the real issue was how the completion conditions were sorted?"
+        },
+        {
+          "s": "b",
+          "ja": "筆者の結論はそうです。完了条件を決定論的か非決定論的かで分類できていなかった、と。だから委任には検証可能な完了条件を必須にしているんですね。",
+          "en": "That's the author's conclusion: they hadn't classified conditions as deterministic or not. That's why delegation now requires a verifiable completion condition."
+        },
+        {
+          "s": "a",
+          "ja": "「できたように見える」だけじゃなくて、ちゃんと合否が分かる条件が要るんだね。",
+          "en": "So \"it looks done\" isn't enough. We need a condition that clearly says pass or fail."
+        },
+        {
+          "s": "b",
+          "ja": "はい。ただ、このhookが見ているのはタグの有無です。タグが毎回書かれていても勘違いがあった、と筆者は気づいています。形だけで安心はできないかもね。",
+          "en": "Right. But the hook only checks whether the tag exists, and the author found a misunderstanding even with the tag always present. Form alone may not be reassuring."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T07:40:20.814Z"
     }
   }
 }

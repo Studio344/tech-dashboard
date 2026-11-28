@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T07:30:53.875Z",
-  "count": 407,
+  "generatedAt": "2026-11-28T08:30:59.162Z",
+  "count": 412,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -12508,7 +12508,39 @@
       "bodyJa": "Flutter製の家計シミュレーションアプリにClaudeを用いたAIコメント機能を、必須ではなく「オプション」として組み込んだ事例が、Zennの技術ブログで公開された。AI機能を主役ではなく補助的な要素として扱い、その有無にかかわらずアプリが動作し続ける設計思想が、実装上の具体的な工夫とともに紹介されている。\n\nこの事例で注目されるのは、AIコメント機能をアプリの中核機能から切り離した点だ。家計シミュレーション自体は、収支や資産推移の計算といったローカルなロジックで完結する。そのうえで、シミュレーション結果に対してClaudeが自然言語で助言や気づきを添える機能を、あくまで付加価値として重ねる構成をとっている。こうすることで、APIキーが未設定の場合やネットワークが利用できない状況、あるいはAPI呼び出しが失敗したケースでも、アプリの基本体験が損なわれないようにしていると見られる。\n\nこうした「任意設計(オプショナルデザイン)」の背景には、外部AIサービスへの依存がもたらすリスクがある。生成AIのAPIは利用料が発生し、レスポンスに時間がかかることもあれば、仕様変更や障害の影響を受ける可能性もある。AI機能を前提としてアプリを構築すると、これらの不確実性がそのままユーザー体験の不安定さに直結しかねない。機能をオプション化しておけば、フォールバック(代替動作)を用意しやすく、コスト管理やプライバシー配慮の面でもユーザーに選択の余地を残せる利点がある。\n\nFlutterはクロスプラットフォーム開発フレームワークとして、モバイルからデスクトップまで単一コードベースで対応できる点が広く支持されている。近年はこうしたアプリにClaudeやGPT系モデルなどの大規模言語モデルを組み合わせる動きが増えており、個人開発者による実験的な統合事例も目立つ。一方で、AIをどの程度アプリの根幹に据えるかは設計上の重要な判断となる。\n\n今回のアプローチは、AIを万能の中心に置くのではなく、機能低下時にも壊れない構造を優先する現実的な選択と言える。生成AIの導入を検討する開発者にとって、依存度をコントロールしながら付加価値を提供する一つの参考例となりそうだ。",
       "bodyEn": "A developer writing on Zenn has documented how they added a Claude-powered AI commentary feature to a Flutter household budget simulation app while treating it as an optional layer rather than a core dependency. The case matters because many teams are now bolting large language model features onto existing products, and the design choice of whether those features are mandatory or optional has significant consequences for reliability, cost, and user experience.\n\nThe app in question is a personal finance simulation tool built with Flutter, Google's cross-platform framework for compiling a single Dart codebase to iOS, Android, web, and desktop targets. Its primary job is deterministic: it lets users model income, spending, and savings over time and see projected outcomes. The AI addition, powered by Anthropic's Claude, generates natural-language commentary on those simulated numbers, offering interpretations or observations that a purely numerical view would not surface. The key design principle the author describes is that this commentary is supplementary. The core simulation must remain fully usable whether or not the AI is available.\n\nThat framing drives the architecture. When an AI feature is treated as optional, the application logic cannot assume a successful model response will always arrive. Network calls to a hosted model can fail, time out, hit rate limits, or return errors, and the model itself may be temporarily unavailable or disabled for a given user. Designing for these conditions typically means isolating the AI call behind a clear boundary, so the rest of the app depends on stable local data structures rather than on the remote response. The commentary appears to be layered on top of already-computed results, meaning the simulation produces its output first and the AI narrates it afterward, rather than the AI sitting on the critical path.\n\nPractically, this \"optional design\" tends to involve several patterns that the article reflects. The user interface needs states for when commentary is loading, when it succeeds, and when it is absent or has failed, and the absent case should degrade gracefully instead of blocking the screen. The feature can be gated behind a toggle or a setting, letting users opt in, which also helps control the cost and latency that come with calling a paid API. Separating the AI integration into its own service or module keeps the dependency contained, so the app can be built, tested, and shipped even if the AI provider changes or the feature is switched off entirely. This separation also makes it easier to swap providers or models later without rewriting the core application.\n\nThere are concrete reasons this approach is gaining traction across the industry. Calls to hosted models like Claude, OpenAI's GPT family, or Google's Gemini introduce external dependencies with variable latency and per-token pricing, which is a different reliability profile than local computation. Treating generated text as an enhancement rather than a requirement limits the blast radius when something goes wrong. It also sidesteps a common pitfall in consumer apps, where a feature that always waits on a model response can leave users staring at a spinner. For a finance tool in particular, keeping the deterministic calculations authoritative and clearly separated from AI-generated prose is prudent, since model output can be inconsistent and should not be mistaken for the underlying numbers.\n\nThe broader context includes the tooling that makes this kind of integration approachable. Flutter developers commonly reach for the http or dio packages to call REST endpoints, and Anthropic offers official SDKs and a documented messages API for Claude. Some teams route requests through a backend proxy rather than calling the model directly from the client, which helps protect API keys and centralize prompt handling, though the article's emphasis is on the client-side architecture and the optionality principle rather than a specific transport choice. Similar patterns are visible in how other products frame AI as an assistive layer, from coding assistants to writing helpers, where the base functionality stands on its own.\n\nFor developers weighing whether to make an AI feature central or peripheral, this write-up serves as a practical reference. Its main takeaway is that decoupling the model dependency and planning for its absence produces an app that remains functional and predictable, with AI commentary acting as a genuine enhancement rather than a single point of failure.",
       "model": "claude-opus-4.8",
-      "generatedAt": "2026-07-11T14:01:35.281Z"
+      "generatedAt": "2026-07-11T14:01:35.281Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "実際に使うと、AIコメントってどんな場面で出てくるの？グラフを見るだけじゃないんだね？",
+          "en": "When I actually use this app, where does the AI comment show up? Is it more than just looking at a graph?"
+        },
+        {
+          "s": "b",
+          "ja": "収入・支出・貯蓄を入れると将来のキャッシュフローがグラフで出て、AIはそこに総評を添える役だよ。しかも任意で、免責つきの設計なんだ。",
+          "en": "You enter income, spending and savings, and get a cash flow graph. The AI adds an overall comment on top. It's optional, and a disclaimer is required."
+        },
+        {
+          "s": "a",
+          "ja": "AIを足す前と比べて、前はできなかったことが増えたの？",
+          "en": "Compared to before the AI was added, can it do things it couldn't do before?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、以前のアプリの状態までは分からないんだ。書かれているのは、計算とAI連携をレイヤー分離したことと、Claude APIは既存アプリの構成を流用したことだね。",
+          "en": "The article doesn't say what the app was like before, so I can't compare. It does say calculation and AI integration are separate layers, and the Claude API setup was reused from an existing app."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ収穫は、AIがなくても計算は動くように分けて、助言の線引きも最初から考えたことかな？",
+          "en": "So the takeaway is keeping the AI separate so calculations work without it, and thinking about where advice crosses a line from the start?"
+        },
+        {
+          "s": "b",
+          "ja": "いい整理だね。APIキーを平文のsqfliteに置かず別に保管した点も書かれてるよ。将来人に見せる場合を考えた設計、という流れにも注目したいな。",
+          "en": "Nicely put. The article also notes the API key is stored separately, not in plaintext sqflite. I'd also watch the thread of designing ahead for showing it to others later."
+        }
+      ]
     },
     "cb7a18ba66fee7b0": {
       "bodyJa": "複数のLLMエージェントを協調させる「マルチエージェント」構成は、複雑なタスクを分担して処理できる一方で、トークン使用量が読みにくくコストが膨らみやすいという課題を抱える。この点について、あるZennの記事が、構成内の「意思決定ポイント（決断の数）」を412から38へ大幅に削減したところ、トークン消費の約15倍もの差の大部分を説明できたと報告している。\n\nマルチエージェントでは、各エージェントが「次にどの行動を取るか」「どのツールを呼ぶか」「タスクを完了とみなすか」といった判断を繰り返す。こうした判断のたびに、モデルはそれまでの文脈（コンテキスト）を読み込み直し、推論のための出力を生成する。つまり決断が一つ増えるごとに、入力・出力の両面でトークンが積み上がっていく。著者の観察は、トークン増加の主因がタスクそのものの規模ではなく、この「決断の回数」にあった可能性を示唆している。\n\nこの視点は、近年広がるエージェント開発の実務と重なる。CursorやClaude Code、あるいはLangGraphやAutoGen、CrewAIといったフレームワークでは、エージェントの自律性を高めるほど反復的な判断が増え、結果として長いコンテキストを何度も往復させる構造になりやすい。自律性と効率は、しばしばトレードオフの関係にあるといえる。\n\nしたがって効率化の鍵は、単純にモデルを軽量なものへ置き換えることだけではなく、そもそも「決断の数を減らす」設計にある、というのが今回の示唆だ。判断を要しない定型処理はコード側で固定する、エージェントの分岐を統合する、不要な問い合わせを省くといった工夫が、トークン削減に直結する可能性がある。\n\nただし、決断を減らしすぎれば、マルチエージェント本来の柔軟性や精度が損なわれる恐れもある。今回の412→38という数値は特定の構成における一例であり、あらゆるケースに当てはまるとは限らない点には注意が必要だ。それでも、コスト管理の指標として「決断の数」に着目する発想は、エージェント設計を見直す実践的な切り口として参考になるだろう。",
@@ -13694,12 +13726,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T05:38:58.374Z"
     },
-    "054a7a7121d7d525": {
-      "bodyJa": "## GPT-5.6 が標準モデルに\n\nOpenAI の GPT-5.6 が、Microsoft 365 Copilot を支える標準モデルに位置づけられた。何百万人もが使う業務向けの生産性ツールに、最新の機能が届くとされる。\n\n両社の連携は、ビジネスユーザーの生産性向上に向けて一層深まったと説明されている。\n\n## Word から Cowork まで\n\nGPT-5.6 は、Word、Excel、PowerPoint、Chat、Cowork にわたって、より強力な AI 機能を提供すると説明されている。目的は、仕事をより速く、より高品質に進められるようにすることだ。",
-      "bodyEn": "## GPT-5.6 Powers Microsoft 365 Copilot\n\nOpenAI's GPT-5.6 has been designated the default model behind Microsoft 365 Copilot, according to the announcement. This matters because Copilot sits inside productivity tools that the source describes as used by millions of people in enterprises.\n\nThe announcement says the model brings stronger AI capabilities to Word, Excel, PowerPoint, Chat, and Cowork.\n\n## Faster, Higher-Quality Work\n\nThe stated aim is faster, higher-quality work for business users. The source frames the move as a deeper collaboration between OpenAI and Microsoft on productivity.\n\nThe material does not give benchmarks, rollout timing, or pricing, so the practical size of the improvement is not specified here.",
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T05:40:16.061Z"
-    },
     "b2937bbd676220f2": {
       "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
       "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
@@ -14091,6 +14117,170 @@
       "bodyEn": "Zed Editor has reached version 1.10.0, the latest step in the ongoing development of a code editor that positions itself around raw performance and real-time collaboration. For developers weighing their daily tools, releases like this matter because Zed represents one of the more credible attempts to challenge the dominance of established editors, and each update signals how quickly the project is maturing.\n\nZed is an open-source editor written in Rust and created by several of the people behind Atom and the Tree-sitter parsing library. Its central pitch has long been speed: the editor uses GPU acceleration to render its interface, aiming to keep typing, scrolling, and search responsive even in large files and projects. That focus on latency sets it apart from Electron-based editors, which prioritize cross-platform convenience and a vast extension ecosystem but can carry a heavier resource footprint. Alongside performance, Zed ships built-in multiplayer editing, allowing several developers to work in the same buffer, share a project, and collaborate without a separate screen-sharing tool.\n\nThe v1.10.0 label follows the project's move to a more conventional versioning scheme after years of date-based and rapid incremental builds. As a point release, it is likely to bundle a mix of bug fixes, editor refinements, and incremental feature work rather than a single headline change. Zed's team typically publishes detailed release notes covering language support updates, changes to the extension system, adjustments to keybindings and settings, and fixes reported by the community. Readers who depend on a specific language server, theme, or workflow should consult the official changelog before upgrading, since behavior around configuration and defaults can shift between versions.\n\nA recurring theme across recent Zed development has been the integration of AI-assisted coding. The editor has added an assistant panel, inline completions, and support for connecting to various model providers, reflecting the broader industry shift toward embedding language models directly into the writing and editing experience. It is reasonable to expect that this release continues to refine those capabilities, though the exact scope depends on the published notes. This direction places Zed in direct conversation with tools such as Cursor, a VS Code fork built around AI pair programming, and GitHub Copilot, which operates as an extension across many editors. The category framing of this release around \"cursor\" underscores how tightly the AI-editor space and Zed's roadmap now overlap.\n\nContext helps explain why these updates draw attention. The editor market is unusually competitive right now. Microsoft's Visual Studio Code remains the default choice for a large share of developers, supported by an enormous marketplace of extensions and deep integration with the wider Microsoft toolchain. JetBrains continues to serve users who want heavier, language-specific IDEs with advanced refactoring. Neovim and other terminal-first editors retain a devoted following built on extensibility and keyboard-driven workflows. Zed attempts to occupy a middle ground, offering a modern graphical experience with the responsiveness that performance-conscious users associate with lighter tools. Its open-source licensing also appeals to developers wary of proprietary lock-in, though the project has at times balanced open code with paid collaboration and hosting services.\n\nFor teams evaluating whether to adopt Zed, several prerequisites are worth understanding. The editor relies on the Language Server Protocol to provide autocompletion, diagnostics, and navigation, meaning language support quality varies with the maturity of each server and Zed's own integration. Its extension ecosystem, while growing, is smaller than that of VS Code, so users migrating from other editors should verify that essential tooling is available. Platform coverage has also expanded over time, with the project extending beyond its initial macOS focus toward Linux and, more recently, Windows, so version notes often include platform-specific fixes.\n\nAs with any point release, the practical advice is measured rather than urgent. Upgrading to v1.10.0 is likely to bring stability improvements and incremental features that benefit regular users, but the value depends on which fixes and additions the changelog actually contains. Developers who rely on Zed in production settings may prefer to review the release notes, check for any breaking configuration changes, and confirm compatibility with their language servers before updating. For those already invested in the editor, staying current generally keeps them aligned with the project's fast-moving development and its evolving take on collaborative, AI-assisted coding.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T17:50:09.577Z"
+    },
+    "e33edd69f7816887": {
+      "bodyJa": "## 支援から実行へ\n\nOpenAIの調査は、企業のAI活用が単純な支援から自律的な実行へ移りつつあることを示した。ChatGPTとCodexを通じ、AIをアシスタントとして使う段階から、実行エージェントとして活用する動きが明らかになった。\n\n## 先進企業の先行\n\n調査では、企業間の採用状況にも差があるとされる。特に先進企業は、AIを自律的な実行エージェントへ移行させる採用で他の企業より大きく先行しており、支援中心の利用との違いが示されている。",
+      "bodyEn": "## From simple assistance\n\nOpenAI research examines how enterprises are adopting agentic AI through ChatGPT and Codex. The shift matters because the research describes companies moving beyond simple assistance toward AI that can perform autonomous execution.\n\n## Frontier adopters pulling ahead\n\nAccording to the research, this transition is taking place through the use of ChatGPT and Codex, with AI moving from an assistant role to an execution agent. The findings also indicate a gap in adoption: frontier firms are pulling significantly ahead of their peers as enterprises put agentic AI into use.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIが「支援」から「実行」に移るって、ChatGPTやCodexが何をするようになるの？",
+          "en": "When AI shifts from “assistance” to “execution,” what do ChatGPT and Codex actually start doing?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、人を支えるだけでなく、仕事を自律的に実行するエージェントとして使う流れを示しているよ。",
+          "en": "The research describes companies using them not just to assist people, but as agents that execute work autonomously."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ企業は、AIに助けてもらうだけじゃなく、仕事の実行も任せ始めているんだね？",
+          "en": "So companies are starting to let AI carry out work, rather than only asking it for help?"
+        },
+        {
+          "s": "b",
+          "ja": "うん。ChatGPTやCodexを支援の道具から実行を担う仕組みへ広げ、先進企業ほど採用で先行しているんだ。",
+          "en": "Yes. They’re expanding ChatGPT and Codex from support tools into execution systems, with frontier firms further ahead in adoption."
+        },
+        {
+          "s": "a",
+          "ja": "AI活用が、相談相手を置く段階から、実際に動いてもらう段階へ進んでいるんだね。",
+          "en": "Got it—AI use is moving from having a helper to having something that actually carries out the work."
+        },
+        {
+          "s": "b",
+          "ja": "ただ、先進企業とほかの企業には採用の差があるから、すべての企業が同じ段階とは限らないよ。",
+          "en": "One caution: adoption differs between frontier firms and their peers, so not every company is at the same stage."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T18:10:07.705Z"
+    },
+    "e308cad69399bfa1": {
+      "bodyJa": "## AI時代のスコアカード\n\nOpenAIは、AI時代の社会・経済・安全面における進捗を評価するスコアカードの枠組みを公開した。AIの影響を可視化し、継続的に追跡する基準を設けることで、説明責任と透明性の向上を目指す取り組みだ。\n\n## ROIの測定基準\n\nOpenAIのCFOであるSarah Friarは、実用的なAIスコアカードを紹介した。ROIは、有用な仕事、成功したタスク当たりのコスト、信頼性、コンピュートに対するリターンという観点から測定する。AIの成果を単一の指標ではなく、実際の仕事や費用、安定性を含めて捉える枠組みとなっている。",
+      "bodyEn": "## Practical AI scorecard\n\nOpenAI introduced a framework for measuring and tracking AI progress across social, economic, and safety dimensions. The scorecard matters because it is intended to improve accountability and transparency around how AI development affects the world.\n\n## Measuring useful work\n\nSarah Friar, OpenAI’s CFO, presents the scorecard as a practical way to measure return on investment. Its measures include useful work, the cost per successful task, dependability, and return on compute.\n\nBy establishing criteria for tracking these areas, the framework is designed to make AI’s effects more visible and support evaluation of social, economic, and safety progress.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ROIを4つの項目で測るんだね。これって大きい変化なの？",
+          "en": "They’re measuring ROI across four areas. Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、AIの成果を複数の軸で追い、社会・経済・安全への影響と説明責任を見えやすくする試みなんだ。",
+          "en": "Here, the idea is to track AI outcomes across several dimensions, making its social, economic, and safety impact—and accountability—more visible."
+        },
+        {
+          "s": "a",
+          "ja": "「リターン・オン・コンピュート」って、どういう意味？",
+          "en": "What does “return on compute” mean?"
+        },
+        {
+          "s": "b",
+          "ja": "計算資源を使った分に対して、どれだけ役立つ成果が得られたかを見る考え方だよ。",
+          "en": "It means looking at how much useful output you get for the computing resources you use."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくなら、よくする作業で、成功した回数や費用を記録してみたいな。",
+          "en": "I’d try tracking successful runs and costs for a task I do often."
+        },
+        {
+          "s": "b",
+          "ja": "いいね。成功したタスク当たりの費用だけでなく、役立つ仕事か、安定して動くかも一緒に見る枠組みだよ。",
+          "en": "That fits. The framework also considers whether the work is useful and dependable, not just the cost per successful task."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T20:10:32.501Z"
+    },
+    "994629e453e69916": {
+      "bodyJa": "## GPT-5.6 が標準モデルに\n\nOpenAI の GPT-5.6 が、Microsoft 365 Copilot を支える標準モデルに位置づけられた。何百万人もが使う業務向けの生産性ツールに、最新の機能が届くとされる。\n\n両社の連携は、ビジネスユーザーの生産性向上に向けて一層深まったと説明されている。\n\n## Word から Cowork まで\n\nGPT-5.6 は、Word、Excel、PowerPoint、Chat、Cowork にわたって、より強力な AI 機能を提供すると説明されている。目的は、仕事をより速く、より高品質に進められるようにすることだ。",
+      "bodyEn": "## GPT-5.6 Powers Microsoft 365 Copilot\n\nOpenAI's GPT-5.6 has been designated the default model behind Microsoft 365 Copilot, according to the announcement. This matters because Copilot sits inside productivity tools that the source describes as used by millions of people in enterprises.\n\nThe announcement says the model brings stronger AI capabilities to Word, Excel, PowerPoint, Chat, and Cowork.\n\n## Faster, Higher-Quality Work\n\nThe stated aim is faster, higher-quality work for business users. The source frames the move as a deeper collaboration between OpenAI and Microsoft on productivity.\n\nThe material does not give benchmarks, rollout timing, or pricing, so the practical size of the improvement is not specified here.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:40:16.061Z"
+    },
+    "75a9f02f59a5e1ff": {
+      "bodyJa": "MCP(Model Context Protocol)でファイルのアップロードとダウンロードをどう扱うかについて、検討の取り組みが紹介されている。モデルとツールをつなぐ単純な仕組みとして始まったMCPで、ファイルを扱う需要が目立ってきたことが背景にある。\n\n## 野心的になった用途\n\nMCPは、モデルをツールに接続する簡単な方法として出発した。その原則は今もプロトコルの中心にあると説明されている。一方で、この2年ほどのあいだに、MCPを使って作られるものは大きく野心的になったという。\n\nその結果、多くのMCPサーバーのプロジェクトがファイルを扱う必要に迫られている。要因として挙げられているのは、エージェントの能力と自律性が高まっていることだ。\n\n## PDFとCSVの例\n\n開発者から寄せられる要望として、具体的に二つの場面が示されている。一つは、会話の中にあるPDFをクラウドストレージに保存すること。もう一つは、CSVファイルをサンドボックスに取り込むことである。MCPを採用する開発者のあいだで、どちらもすでに非常によくある要望になっているという。\n\n## 個別実装という課題\n\n現状では、こうした場面を実現するには、ツールごとの独自の規約や転送の仕組みをいくつも用意する必要があると述べられている。これを開発者が何度も繰り返す状況は望ましくない、というのが書き手の見方だ。\n\n同じ要望が顧客との議論で繰り返し出てきたことから、ファイルのアップロードを扱うワーキンググループが立ち上げられた。ファイルのやり取りを標準的な形で扱えるようにすることで、サーバー開発者が個別の転送方法を作り込まずに済むようにすることが狙いとみられる。",
+      "bodyEn": "The Model Context Protocol (MCP) is now being looked at for a common need: moving files between models and servers. According to the MCP blog, file handling has become a frequent request, and the post explores how uploads and downloads could be supported in a standard way.\n\n## Connecting Models to Tools\n\nThe post describes MCP as having started out as a simple way to connect models to tools, and says that principle remains at its heart. It adds that over the past two years the things people build with the protocol have become much more ambitious.\n\n## Files and Agent Autonomy\n\nMany MCP server projects now need to work with files, the post says, often driven by increasing agent capabilities and autonomy. It gives two examples that developers adopting MCP ask for regularly: saving a PDF from a conversation to cloud storage, and pulling a CSV into a sandbox. Both involve moving file content in or out of a conversation, which is the scenario the post sets out to address.\n\n## Bespoke Tool Conventions\n\nAs the post describes it, implementing these scenarios today requires a bunch of bespoke tool conventions and transfer mechanisms. The authors say this is not something they want developers doing over and over. The implication is that each server project currently has to devise its own way to handle file transfer, and the effort is aimed at replacing that repeated work with a shared approach.\n\n## A File Uploads Working Group\n\nThe post says the request kept coming up in customer discussions. In response, the authors bootstrapped a File Uploads Working Group. The group's creation shows the topic is being treated as a dedicated line of work rather than something left to individual server authors.\n\nThe material available describes the problem and the motivation, not a finished design. No specific mechanism for uploading or downloading files is spelled out here, so readers looking for protocol details should consult the full post. What is clear is the goal: a standard way to handle file uploads and downloads so that server developers can skip custom transfer conventions.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "MCPでファイルを扱うって、普段だとどんな場面の話なの？",
+          "en": "When we say MCP handles files, what does that look like in everyday use?"
+        },
+        {
+          "s": "b",
+          "ja": "会話で出てきたPDFをクラウドストレージに保存したり、CSVをサンドボックスに取り込んだりする場面が、よくある要望として挙がっているよ。",
+          "en": "The article mentions saving a PDF from a conversation to cloud storage, or pulling a CSV into a sandbox. Those are very common requests from developers."
+        },
+        {
+          "s": "a",
+          "ja": "それって、前はできなかったの？",
+          "en": "So was that just not possible before?"
+        },
+        {
+          "s": "b",
+          "ja": "今は、独自のツール規約や転送の仕組みをいくつも用意する必要がある、と書かれているよ。細かい従来比までは、この記事だけでは分からないな。",
+          "en": "The article says today it takes a bunch of bespoke tool conventions and transfer mechanisms. Beyond that, it doesn't give details for comparing with before, so I can't say more."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、同じ作業を毎回バラバラに作らなくて済む形を探してる、ってことかな。",
+          "en": "So the big takeaway is that they're looking for a way to stop rebuilding the same thing over and over?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。要望が何度も出たことでワーキンググループが動き出したので、そこからどんな仕組みが形になるか注目したいね。",
+          "en": "Yes. The requests kept coming up, which led to a working group. I'd watch what kind of mechanism actually takes shape from it."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T07:37:25.808Z"
+    },
+    "5eaa0889b3ff2853": {
+      "bodyJa": "Visual Studio Code 1.144のリリースノートは、Local harnessの非推奨化を告知している。Local harnessは2027年2月に削除される予定で、Copilot harnessへの移行が案内されている。\n\n## 2027年2月に削除\n\nLocal harnessは非推奨となり、2027年2月に削除される予定とされる。リリースノートの冒頭には警告として明記され、Copilot harnessへの移行について説明したページへの案内も添えられている。削除の時期が具体的に示されている点が、この告知の要点である。\n\n同じ冒頭では、Microsoft IgniteでのVS Codeのセッション録画が視聴できることも案内されている。また、GitHub Universe(オンラインでも参加可能)に向けた道のりは多くのプルリクエストで舗装されている、という書き出しで、最近出荷した内容を振り返る構成になっている。\n\n## Agent Hostの仕組み\n\n振り返りの一つとして挙げられているのがAgent Hostである。以前は、クライアントを閉じるとエージェントのセッションもそこで止まっていた。Agent Hostは、エージェントを動かし続ける独立したプロセスとして説明されており、ローカルマシン上でもリモートでも動作させられる。クライアントの終了とエージェントの実行が切り離されたことになる。\n\n## AHPとセッション継続\n\nAgent Host Protocol(AHP)は、言語サーバーを念頭に設計されたプロトコルで、任意のクライアントがエージェントセッションとやり取りできるようにするものと説明されている。\n\nその結果、VS Code、Copilot CLI、GitHub Copilot App、github.comのあいだでセッションの継続性が得られ、中断したところから作業を再開できるとされる。",
+      "bodyEn": "VS Code 1.144 carries a deprecation notice for the Local harness and a recap of recent agent work. For anyone relying on the Local harness, the notice sets a removal date and points to a replacement.\n\n## Local harness deprecated\n\nAccording to the release notes, the Local harness is deprecated and will be removed in February 2027. The notes direct users to learn about the move to the Copilot harness. No further migration steps are given in the opening section of the notes, so the practical guidance is simply that the change is coming and that the Copilot harness is the destination.\n\nThe notes also point readers to session recordings from Microsoft Ignite that cover VS Code.\n\n## The road to GitHub Universe\n\nThe release notes frame this update as a step back before GitHub Universe, which they invite readers to join virtually. They describe the road to the event as \"paved with lots of pull requests,\" and use the moment to look at what has shipped recently rather than listing only new changes.\n\n## Agent Host and AHP\n\nThe recap centers on a problem the notes describe plainly: agent sessions used to stop as soon as a client was closed. The answer was the Agent Host, a separate process that keeps agents running. The notes say it can run on a local machine or remotely.\n\nThe notes add that the Agent Host Protocol (AHP) was designed with language servers in mind. Its purpose is to let any client interact with agent sessions, so a session is no longer tied to the client that started it.\n\n## Pick up where you left off\n\nThe practical result, as the notes describe it, is session continuity across VS Code, Copilot CLI, the GitHub Copilot App, and github.com. A user can pick up right where they left off, moving between those clients without losing the session.\n\nTaken together, the notes pair a forward-looking warning about the Local harness with a reminder of how agent sessions now persist beyond any single client.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Local harnessが非推奨になって、2027年2月に削除されるってあるよね。これって、今すぐ使えなくなるの？",
+          "en": "The Local harness is deprecated and will be removed in February 2027, right? Does that mean it stops working right now?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、今は「非推奨」で、削除は2027年2月の予定です。移行先としてCopilot harnessへの移行が案内されています。",
+          "en": "This post says it's deprecated for now, with removal planned for February 2027. It points people toward moving to the Copilot harness."
+        },
+        {
+          "s": "a",
+          "ja": "もうひとつのAgent Hostは、閉じてもエージェントが動き続ける仕組みなんだね。使う人はどう助かるのかな？",
+          "en": "And the Agent Host keeps agents running even after you close the client. How does that help people who use it?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、ローカルでもリモートでも動き続け、VS CodeやCopilot CLI、github.comなどで続きから再開できるとされています。",
+          "en": "Here, agents keep running locally or remotely, and you can pick up where you left off across VS Code, Copilot CLI, github.com, and more."
+        },
+        {
+          "s": "a",
+          "ja": "つまり、Local harnessは移行の準備が必要で、Agent Hostは途中で止まらず続きから使える仕組みってことだね。",
+          "en": "So Local harness needs a migration plan, and Agent Host lets agents keep going so you can resume later. Did I get that right?"
+        },
+        {
+          "s": "b",
+          "ja": "その整理で合っています。ただ、Copilot harnessへの具体的な移行手順は、このリリースノートの本文だけでは詳しく分かりません。",
+          "en": "That's right. Just note that the detailed steps for moving to the Copilot harness aren't spelled out in this release note's text."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T07:39:06.440Z"
+    },
+    "51048f5bdd794dad": {
+      "bodyJa": "## AIネイティブな通信事業者\n\nDeutsche TelekomはOpenAIと提携し、AIネイティブな通信事業者への転換を進めている。通信業界における大規模なAI導入の先進事例として注目されている。\n\n## 刷新される四つの領域\n\n取り組みの対象とされているのは、顧客サポート、従業員のワークフロー、ネットワーク運用、そして音声(ボイス)の将来である。\n\nとくに顧客サポートとネットワーク運用は、AIによる刷新の例として挙げられている。いずれも通信事業者の日常業務に直結する領域であり、AIを軸に見直す対象になっている。",
+      "bodyEn": "## Becoming an AI-native telco\n\nDeutsche Telekom is working with OpenAI to become what the source calls an \"AI-native telco.\" The partnership is presented as a significant enterprise deployment of AI in the telecom sector.\n\nAccording to the source, the effort covers four areas: customer service, employee workflows, network operations, and the future of voice.\n\n## Customer service and networks\n\nThe announcement says AI is being used to transform customer service and network operations, two areas the summary highlights specifically. Employee workflows and the future of voice are also named as parts of the transformation.\n\nThe source gives no figures, timelines, or technical specifics about how these changes are implemented, so the scope is best understood as the broad direction described above.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T07:39:54.437Z"
     }
   }
 }

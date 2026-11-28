@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T08:31:03.587Z",
+  "generatedAt": "2026-11-28T09:30:59.934Z",
   "month": "2026-09",
   "count": 367,
   "entries": [
@@ -3591,7 +3591,7 @@
       "summaryEn": "Anthropic offers an inside look at its molecular biology lab, giving researchers and developers a clearer view of the AI company's work in biology.",
       "lang": "en",
       "publishedAt": "2026-09-23T18:01:32.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "anthropic",
         "life-sciences",
@@ -11189,7 +11189,7 @@
       "summaryEn": "Semantic Kernel .NET 1.80.1 updates the SDK to 10.0.303 and refreshes OpenAPI dependencies, CI configuration, and tests, improving reliability for .NET developers.",
       "lang": "en",
       "publishedAt": "2026-09-03T18:41:24.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "agent",
         "ci",
@@ -12647,7 +12647,7 @@
       "summaryEn": "Claude Fable 5.1 is introduced as a new model version. While capabilities and availability are not detailed, viewers can quickly identify the Claude lineup update.",
       "lang": "en",
       "publishedAt": "2026-09-01T19:21:24.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "anthropic",
         "claude-fable-5-1",
@@ -12672,7 +12672,7 @@
       "summaryEn": "Claude Fable 5.1 is introduced as a new version in an Anthropic YouTube video, helping Claude users and developers track the latest model update.",
       "lang": "en",
       "publishedAt": "2026-09-01T18:02:31.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "anthropic",
         "claude-fable",

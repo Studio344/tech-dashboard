@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T08:30:59.162Z",
-  "count": 394,
+  "generatedAt": "2026-11-28T09:30:55.546Z",
+  "count": 397,
   "bodies": {
     "17f496c665a12174": {
       "bodyJa": "Metaは、AIネイティブ時代に向けたプライバシー対応インフラの中核として、社内の膨大なデータアセットを正確に分類する取り組みをエンジニアリングブログで公開した。データ保持期間やアクセス制御、利用目的の制限、第三者への共有可否、匿名化といったプライバシー制御は、対象となるデータの性質を正しく把握して初めて機能するためだ。\n\n同社の出発点はシンプルである。あらゆるプライバシーコントロールは「どこに、どのようなデータが存在するか」という信頼できる理解を前提とする。たとえば特定の個人情報を一定期間で削除する保持ポリシーを適用するには、まずそのデータがどのテーブルやログ、ストレージのどこに含まれているかを機械的に判別できなければならない。分類が曖昧なままでは、制御そのものが空回りしてしまう。\n\nしかし、この前提を大規模に満たすことは容易ではない。Meta規模のサービスでは、データは無数のシステムを横断して生成・変換・複製され、形式やスキーマも多様だ。さらに生成AIや機械学習パイプラインの普及により、学習用データセットや派生データが増え、データの流れはいっそう複雑になっている。こうした環境で分類の精度と網羅性を保つには、自動化された分類基盤と継続的な検証の仕組みが欠かせない。\n\nこの課題は業界共通のものでもある。EUのGDPRや米カリフォルニア州のCCPAをはじめとする各国の規制は、データの利用目的や保持に厳格な要件を課しており、データガバナンスの基盤整備は大手テック各社にとって避けて通れない。GoogleやMicrosoftなども独自のデータ分類・カタログ化の仕組みを整えてきたとされ、Metaの今回の公開はその一つの実装例と位置づけられる。\n\nAIの普及はデータ活用の幅を広げる一方で、プライバシー保護の難度を押し上げている。データを正確に「知る」ための分類基盤は、派手さこそないが、信頼できるAIサービスを支える土台になると見られる。Metaの事例は、プライバシーを後付けではなく設計段階から組み込む「プライバシー・バイ・デザイン」の実践として参考になりそうだ。",
@@ -11404,7 +11404,39 @@
       "bodyJa": "## PRレビュー\n\nCursorはGitHub連携を強化し、AIによるPRレビュー支援を導入した。エージェントベースの開発ワークフローを実務で使いやすくする重要な更新とされる。新しいPRレビュー体験により、レビュー作業を支援する。\n\n## 並列プラン実行\n\nプランの実行では、複数のエージェントを並列に動かし、完了までの処理を高速化する。さらに、一般的なワークフロー向けのクイックアクションが追加され、大きなPRをワンクリックで小分けにできる。",
       "bodyEn": "## New PR review experience\n\nCursor has added a new PR review experience, parallel plan execution, and PR splitting. These changes make agent-driven development workflows more practical for everyday use.\n\nThe release strengthens GitHub integration with AI-assisted PR review. It also introduces quick-action pills for common workflows, including a one-click action for splitting a large PR into smaller parts.\n\n## Parallel agents\n\nPlans can now be executed through multiple agents in parallel. According to the source, using parallel agents enables faster execution and plan completion, complementing the new review experience and PR-splitting action.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-09-05T01:22:39.606Z"
+      "generatedAt": "2026-09-05T01:22:39.606Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "PRの作成からマージまで、全部1か所でできるようになったんだね。これって大きいこと？",
+          "en": "You can go from creating a PR to merging it all in one place now? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、Reviewsタブでレビューのやり取り、Commitsタブで履歴、Changesタブで変更を見られます。画面を行き来する手間が減るかもね。",
+          "en": "The post describes a Reviews tab for threads, a Commits tab for history, and a Changes tab for diffs. That could mean less jumping between screens."
+        },
+        {
+          "s": "a",
+          "ja": "「Build in Parallel」の非同期サブエージェントって、どういうこと？",
+          "en": "What does \"async subagents\" mean in Build in Parallel?"
+        },
+        {
+          "s": "b",
+          "ja": "プランの中の独立した部分を、待たずに別々のエージェントへ同時に任せる、くらいの意味だよ。依存関係のあるステップは順番どおりに進むんだ。",
+          "en": "Roughly: independent parts of a plan go to separate agents at the same time, without waiting on each other. Steps with dependencies still run in order."
+        },
+        {
+          "s": "a",
+          "ja": "大きなPRを分けたいとき、私なら使いそう。でも勝手に分けられちゃうの？",
+          "en": "I'd probably use it to split a big PR. But does it just split things on its own?"
+        },
+        {
+          "s": "b",
+          "ja": "いきなりではなく、バックアップのスナップショットを作って、承認用の分割プランを提案する流れだよ。基本は独立したPRで、依存が必要なときは例外だね。",
+          "en": "Not blindly. It makes a backup snapshot and proposes a split plan for your approval. PRs are independent by default, unless a dependency is needed."
+        }
+      ]
     },
     "4f3dbe1cbf3e0a1a": {
       "bodyJa": "## リポジトリ接続\n\nCursorは、管理者向けのチームマーケットプレイス管理機能を強化した。リポジトリを先に接続しなくても作成でき、組織内ツールの配布と統制を進めやすくなると説明されている。\n\n## 公式プラグイン\n\nチームマーケットプレイスの設定画面から、公式プラグインを直接追加・削除できる。さらに、インストール時の動作も指定でき、チーム内で利用するプラグインと導入方法を管理者がまとめて管理できる。",
@@ -11562,7 +11594,39 @@
       "bodyJa": "## 1.26.0公開\n\nOpenHandsの商用版であるOpenHands Cloudは、バージョン1.26.0をリリースした。2026年5月3日17時48分03秒に、GitHubのリリースタグとして公開された更新で、SaaS向けルートに関する修正が明示されている。\n\n## SaaS経路の修正\n\n具体的な項目は「Fix SaaS routes shadowed by frontend mount」で、番号は#14279。フロントエンドのマウントによってSaaSのルートが覆い隠される状態を修正する内容と説明されている。1.26.0では、SaaSのルートとフロントエンドのマウントとの関係が修正対象になった。\n\n## 更新の中心\n\n今回の版は、定例の機能改善やバグ修正が中心と見られる。その中で個別の内容として確認できるのが、#14279のルート修正だ。新機能を大きく打ち出す更新というより、SaaS向けルートがフロントエンドのマウントに隠される問題への対処が、技術的な焦点として示されている。\n\n## 検証済み署名\n\nリリースに関連するコミットはGitHub.comで作成され、GitHubの検証済み署名で署名されたものとして表示されている。OpenHands Cloud 1.26.0はGitHub上のタグとして公開され、明示された修正項目とコミットの署名情報を確認できる形になっている。",
       "bodyEn": "## OpenHands Cloud 1.26.0\n\nOpenHands Cloud, the commercial edition of OpenHands, has released version 1.26.0. The release matters because it identifies a correction involving SaaS route handling, although the available release notes provide little additional detail about the update.\n\nThe version was published as a GitHub release tag. Its single stated technical point is: “Fix SaaS routes shadowed by frontend mount,” associated with issue or pull request #14279.\n\n## Fix SaaS Routes\n\nThe release identifies SaaS routes as the affected area. Specifically, the wording says those routes were being shadowed by the frontend mount and that version 1.26.0 fixes that behavior.\n\nNo further technical description accompanies the stated fix. The available information does not specify which SaaS routes were affected, how the shadowing presented itself, or what implementation change resolved it. It also does not provide reproduction steps, configuration details, or examples of behavior before and after the correction.\n\n## Frontend Mount\n\nThe frontend mount is named as the element that shadowed the SaaS routes. Beyond that relationship, the release does not describe the mount, its configuration, or the conditions under which the route conflict occurred.\n\nThe limited notes also do not identify additional features or individual bug fixes. The Japanese summary characterizes the release as appearing to center on routine feature improvements and bug fixes, but the SaaS route correction is the only specific change stated in the English key point.\n\n## GitHub Release Tag\n\nThe release was made available through GitHub as a release tag. The associated page states that the commit was created on GitHub.com and signed with GitHub’s verified signature.\n\nParts of the page also displayed loading and session-related messages, including prompts to reload after signing in, signing out, or switching accounts in another tab or window. As presented, OpenHands Cloud 1.26.0 is therefore a narrowly documented release whose clearest disclosed change is the fix for SaaS routes shadowed by the frontend mount.",
       "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T21:40:09.943Z"
+      "generatedAt": "2026-10-07T21:40:09.943Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "OpenHands Cloud を使っている人は、今回のアップデートで普段の何が変わるの？",
+          "en": "If I use OpenHands Cloud day to day, what actually changes with this update?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事で確かめられるのは、フロントエンドのマウントに SaaS のルートが隠されていた問題の修正（#14279）です。ほかの説明は少なめだね。",
+          "en": "This article only confirms one fix: SaaS routes were being shadowed by the frontend mount (#14279). There's very little detail beyond that."
+        },
+        {
+          "s": "a",
+          "ja": "前はうまく動いてなかったの？「隠される」ってどういうこと？",
+          "en": "So it wasn't working properly before? And what does \"shadowed\" mean here?"
+        },
+        {
+          "s": "b",
+          "ja": "「修正」とあるので、以前は不具合があったと読めるよ。隠されるは、別のものが先に道をふさいで届かない、くらいの意味。ただ実際の影響は書かれていないから分からないな。",
+          "en": "\"Fix\" suggests there was a problem before. Shadowed roughly means something else got in the way first, so the route wasn't reached. But the actual impact isn't described, so we can't tell."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ今回の収穫は、新機能じゃなくて、見えにくい道の不具合が直ったってことだね。",
+          "en": "So the takeaway is less a new feature, more a hidden routing problem getting fixed. Right?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めるね。次は #14279 の中身や、次のリリースノートで、どんな影響があったのかが詳しく分かるかに注目かな。",
+          "en": "That's a fair reading. Next, I'd watch whether #14279 or later release notes explain what impact the problem actually had."
+        }
+      ]
     },
     "021e91d7c48ce9b8": {
       "bodyJa": "## OpenHands 1.7.0\n\nオープンソースのAI開発エージェント「OpenHands」1.7.0が、2026年5月1日に公開された。今回の更新では、会話画面におけるLLMモデルの表示と、サンドボックスコンテナでKVMを利用するための設定が追加され、UIと実行環境の両面が改善されている。\n\n## LLMモデル表示\n\nUIでは、会話カードとヘッダーにLLMモデルが表示されるようになった。モデル情報を会話カード内だけでなく、画面上部のヘッダーにも配置する変更であり、会話表示にモデルを明示する構成となっている。\n\n## KVM対応\n\n実行環境には、環境変数「SANDBOX_KVM_ENABLED」が追加された。この変数は、サンドボックスコンテナへ「/dev/kvm」を渡すための設定として用意されている。有効にすると、サンドボックス内で、より低速なエミュレーションを使う代わりに、KVMで高速化された仮想マシンを実行できると説明されている。\n\n## 更新範囲\n\n今回示されているフルチェンジログの比較範囲は、1.6.0から1.7.0までとなる。OpenHands 1.7.0は、会話カードとヘッダーへのモデル表示を加えるとともに、サンドボックスでKVMを利用可能にする設定を導入したリリースである。",
@@ -13448,196 +13512,6 @@
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-05T01:11:31.319Z"
     },
-    "289a3dd4fa86a3f9": {
-      "bodyJa": "## 中小企業向け\n\nOpenAIは、中小企業向けの「ChatGPT for small business」プログラムを開始した。AIツールを業務へ取り入れやすくし、生産性の向上と競争力の強化を後押しする取り組みだ。\n\n## ChatGPT活用支援\n\n小規模な組織によるAIツールの導入に向けて、リソースと支援を提供する。起業家がAIスキルを身につけ、ChatGPT Workで業務を自動化し、成長につなげることを支援すると説明されている。",
-      "bodyEn": "## ChatGPT for Small Businesses\n\nOpenAI has launched a dedicated ChatGPT program for small businesses. It is intended to make AI tools easier for smaller organizations to adopt, supporting improved productivity, operational efficiency, and competitiveness.\n\n## Resources and support\n\nThe ChatGPT for Small Businesses program offers resources and support to help entrepreneurs and smaller organizations build AI skills. According to the announcement, participants can use ChatGPT Work to automate work and support growth. The program focuses on helping small businesses integrate AI tools into their operations rather than leaving them to navigate adoption without dedicated assistance.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "中小企業向けのプログラムって、ChatGPTの使い方を教えてくれるの？",
-          "en": "Is this small-business program meant to teach teams how to use ChatGPT?"
-        },
-        {
-          "s": "b",
-          "ja": "OpenAIが、AIスキルの習得や仕事の自動化を支えるリソースとサポートを提供するプログラムだよ。",
-          "en": "OpenAI describes it as a program offering resources and support to build AI skills and automate work."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ、AIを仕事に取り入れたい中小企業や起業家が、業務を進めやすくするための支援なんだね？",
-          "en": "So it supports small businesses and entrepreneurs that want to bring AI into their everyday work?"
-        },
-        {
-          "s": "b",
-          "ja": "うん。業務効率や生産性を高め、事業の成長や競争力の強化を後押しする狙いがあるよ。",
-          "en": "Yes. The goal is to improve efficiency and productivity while supporting business growth and competitiveness."
-        },
-        {
-          "s": "a",
-          "ja": "ChatGPTを渡すだけじゃなくて、使う力と仕事の自動化まで支えるプログラムなんだ。",
-          "en": "So it’s not just access to ChatGPT—it also helps businesses build skills and automate work."
-        },
-        {
-          "s": "b",
-          "ja": "そうだね。対象は中小企業で、ChatGPT Workを使った成長支援として紹介されている点は押さえておこう。",
-          "en": "Right. Keep in mind that it’s presented specifically for small businesses, with support centered on growing through ChatGPT Work."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T18:10:06.831Z"
-    },
-    "be0a087202162317": {
-      "bodyJa": "## GPT-5.6の位置づけ\n\nOpenAIがフロンティアモデル「GPT-5.6」を発表した。さまざまなユースケースに合わせて知能をスケールさせることを狙ったモデルとされ、開発者や企業が複雑なタスクを効率よく処理できる点が注目される。\n\n## 示された3つの訴求点\n\n発表では、「トークンごとにより多くの知能」「ドル当たりの性能の向上」「最も難しい作業に向けた、必要なときに使える能力の拡充」が掲げられている。\n\n推論能力とタスク処理能力が強化されたと説明されている。一方、具体的な性能値や価格、提供方法などは示されていない。",
-      "bodyEn": "## GPT-5.6 Frontier Intelligence\n\nOpenAI has announced GPT-5.6, described as a new frontier model. It matters because it is positioned to bring advanced reasoning to developers and enterprises handling complex tasks more efficiently.\n\n## More Intelligence Per Token\n\nAccording to the announcement, the model delivers \"more intelligence from every token, stronger performance per dollar, and more capability on demand for your hardest work.\" OpenAI says it is designed to scale intelligence across diverse use cases, with enhanced reasoning and task-handling capabilities.\n\nThe announcement was published on July 9, 2026, under the title \"GPT-5.6: Frontier Intelligence for Your Ambitions\" in its Japanese rendering. Further details on pricing, availability, or benchmarks are not given here.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "これって、普段の仕事だと何が変わるの？",
-          "en": "What would this actually change in my everyday work?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事だと、トークンあたりの知能が増えて、ドルあたりの性能も上がると言っているよ。難しい仕事には必要な時に力を出せる、という方向だね。",
-          "en": "The post says you get more intelligence per token and better performance per dollar, plus more capability on demand for your hardest work."
-        },
-        {
-          "s": "a",
-          "ja": "前のモデルだと、それはできなかったの？",
-          "en": "So couldn't the earlier models do that?"
-        },
-        {
-          "s": "b",
-          "ja": "前のモデルとの細かい比較は、この記事からは分からないんだ。ただ、コスパと必要な時の能力を前面に出している点が特徴だね。",
-          "en": "The post doesn't give a detailed comparison, so I can't say. What it does stress is value for money and capability when you need it."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ、同じお金でもっと賢く使えるようになるのが一番の収穫かな？",
-          "en": "So the big takeaway is getting more smarts for the same money, maybe?"
-        },
-        {
-          "s": "b",
-          "ja": "そう読めるね。トークンは文字のかたまりくらいの意味だよ。次は、そのコスパの良さがどう示されるかに注目したいな。",
-          "en": "That's a fair reading. A token is roughly a chunk of text. Next, I'd watch how the post shows that better value in practice."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T05:40:23.716Z"
-    },
-    "46df7ecd1742f56a": {
-      "bodyJa": "OpenAIはGPT-Liveを発表した。人とAIの自然なやり取りを目指した新世代の音声モデルで、現在はChatGPT Voiceを支えているという。\n\n## 新世代の音声モデル\n\nGPT-Liveは、リアルタイムで対話できるインタラクティブなAI体験を実現するものと位置づけられている。ユーザーはGPTモデルと、より自然でライブ感のある形でやり取りできるようになるとされる。\n\n## ChatGPT Voiceでの採用\n\nGPT-Liveは、ChatGPT Voiceを動かすモデルとして使われている。対話型AIをより身近なものにする上で重要な一歩になる、と説明されている。",
-      "bodyEn": "## GPT-Live announced\n\nOpenAI has introduced GPT-Live, described as a new generation of voice models built for natural human-AI interaction. The announcement says these models now power ChatGPT Voice, which matters because it changes how users talk with GPT.\n\n## Natural, real-time interaction\n\nAccording to the source, GPT-Live offers a real-time interactive AI experience. It is meant to let people engage with GPT models in a more natural, live way than before. The announcement frames this as a significant step for the accessibility of conversational AI.\n\nThe material does not give details on pricing, regional availability, supported platforms, or technical specifications.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "GPT-Liveって、何が新しいの？声のモデルって書いてあったよね。",
-          "en": "What's new with GPT-Live? It said something about voice models, right?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事だと、人とAIの自然なやりとりに向けた新世代の音声モデルだよ。ChatGPT Voiceを動かしているんだって。",
-          "en": "The post calls it a new generation of voice models for natural human-AI interaction. It's now powering ChatGPT Voice."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあChatGPT Voiceを使う人が、もっと自然に話せるようになるのかな？",
-          "en": "So people using ChatGPT Voice could talk to it more naturally?"
-        },
-        {
-          "s": "b",
-          "ja": "そう読めるね。リアルタイムでライブに近い対話ができる体験として紹介されているよ。",
-          "en": "That's how it reads. It's presented as a real-time, live-style conversation experience with GPT models."
-        },
-        {
-          "s": "a",
-          "ja": "GPT-Liveは、声でAIとリアルタイムに話すための新しいモデルで、ChatGPT Voiceに使われてるんだね。",
-          "en": "So GPT-Live is a new voice model for talking with AI in real time, and ChatGPT Voice uses it."
-        },
-        {
-          "s": "b",
-          "ja": "うん、その通り。どこまで自然になったかは、実際に試して確かめたいところだね。",
-          "en": "Right. How natural it really feels is something you'd want to try for yourself."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T02:32:19.093Z"
-    },
-    "e58509442c873b0d": {
-      "bodyJa": "## MUFGとOpenAIの提携\n\n三菱UFJフィナンシャル・グループ(MUFG)がOpenAIと提携し、業務全体にAIを深く組み込む「AIネイティブな銀行」への転換を目指す。大手金融機関によるAI基盤の全社導入として注目されている。\n\n## ChatGPT Enterpriseの活用\n\nMUFGはChatGPT Enterpriseを用いて、AIネイティブな組織づくり、ワークフローの改善、AIを活用した新たな金融サービスの大規模な提供を進めるとされる。\n\nAIを一部の業務に限らず組織全体に組み込む取り組みであり、グローバルな金融機関がAI主導の業務運営に踏み出す動きと位置づけられている。",
-      "bodyEn": "## MUFG's AI-native ambition\n\nMUFG, the Mitsubishi UFJ Financial Group, has partnered with OpenAI to pursue a transformation into an AI-native bank. The announcement presents the move as a major commitment by a global financial institution to AI-driven operations.\n\n## ChatGPT Enterprise at scale\n\nAccording to the source, MUFG uses ChatGPT Enterprise to build an AI-native organization, improve workflows, and deliver new AI-powered financial services at scale. The stated aim is to embed AI across the entire organization rather than limit it to isolated tasks. The source describes this as a company-wide rollout of an AI platform at a major financial institution.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "全社でAIを入れるって、これって大きいことなの？",
-          "en": "They're bringing AI into the whole company? Is that a big deal?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、MUFGがChatGPT Enterpriseで組織全体をAIネイティブにしていく方針が示されているよ。一部の部署だけでなく全体、という点が大きいね。",
-          "en": "The article says MUFG is using ChatGPT Enterprise to make its whole organization AI-native. Going company-wide, not just one team, is what makes it notable."
-        },
-        {
-          "s": "a",
-          "ja": "AIネイティブって、どういう意味なの？",
-          "en": "What does \"AI-native\" actually mean?"
-        },
-        {
-          "s": "b",
-          "ja": "記事に細かい定義はないけど、一般的には最初からAIを前提に仕事や組織を作る、くらいの意味だよ。",
-          "en": "The article doesn't define it, but generally it means building work and organizations with AI as the starting point."
-        },
-        {
-          "s": "a",
-          "ja": "もし私が行員なら、毎日の仕事の流れをラクにするのに使いたいな。",
-          "en": "If I worked at the bank, I'd want to use it to make my daily workflow easier."
-        },
-        {
-          "s": "b",
-          "ja": "記事でも業務改善と、新しいAI金融サービスを大規模に届けることが狙いとされているよ。使い方の詳細は、続報を待ちたいね。",
-          "en": "The article does name workflow improvement and delivering new AI-powered financial services at scale as goals. For specifics on how it's used, we'd want to wait for more details."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T02:32:32.241Z"
-    },
-    "6acb5e76885ca2ed": {
-      "bodyJa": "## AP+のChatGPTとCodex活用\n\nオーストラリアの決済インフラ企業Australian Payments Plus(AP+)が、ChatGPT EnterpriseとCodexを使い、決済の複雑さに対応しながら開発を進めている事例が紹介されている。金融インフラという重要な分野で、AIツールが実用的な成果を出していることを示す内容だ。\n\n## 時間短縮と品質、人の判断\n\nAP+はこれらのツールにより、時間の節約と品質の向上を実現したと説明されている。開発の速度や業務の効率化にも成果があったとされる。\n\n一方で、人間の判断は引き続き中心に置かれているという。AIは作業を加速させる役割を担い、最終的な判断は人が行う形で運用されていると読み取れる。",
-      "bodyEn": "## AP+ Moves Faster\n\nAustralian Payments Plus (AP+), an Australian payments infrastructure company, is using ChatGPT Enterprise and Codex to work through the complexity of payments, according to the OpenAI post. The case study matters because it shows AI tools being applied in critical financial infrastructure.\n\n## Human Judgment Stays Central\n\nThe source says AP+ saves time and improves quality with these tools. It also states that human judgment remains central to how the company works. The summary describes the adoption as accelerating software development and streamlining operations, and presents it as a practical example of AI gains in this sector.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "決済の会社がChatGPTとCodexを使うと、現場の仕事って何が変わるの？",
-          "en": "When a payments company uses ChatGPT and Codex, what actually changes in day-to-day work?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、決済の複雑さの中でも速く進めやすくなり、時間の節約や品質の向上につながったと紹介されているよ。",
-          "en": "This piece says AP+ can move faster through payments complexity, saving time and improving quality."
-        },
-        {
-          "s": "a",
-          "ja": "前はそれができなかったの？AIなしだと遅かったってこと？",
-          "en": "Couldn't they do that before? Was it just slower without AI?"
-        },
-        {
-          "s": "b",
-          "ja": "従来との細かい比較は、この記事の範囲では分からないんだ。ただ、時間と品質の両方に効果があったと書かれているよ。",
-          "en": "The article doesn't say how it compared with before, so I can't tell. It does say the gains covered both time and quality."
-        },
-        {
-          "s": "a",
-          "ja": "一番の収穫は、AIを使っても人の判断が真ん中にあるってことかな。",
-          "en": "So the big takeaway is that human judgment stays at the center, even with AI. Is that right?"
-        },
-        {
-          "s": "b",
-          "ja": "そうだね、記事でも人の判断を中心に置くと触れているよ。次は、金融インフラという重要な現場でその役割分担がどう形になるかに注目だね。",
-          "en": "Yes, the article stresses that. Next, I'd watch how that split between people and AI takes shape in critical financial infrastructure."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T02:32:33.664Z"
-    },
     "91282f609e645db4": {
       "bodyJa": "MCP Servers が v2.3.0 としてリリースされ、npm と PyPI の両レジストリで複数のサーバーパッケージが公開された。サーバー実装を利用する開発者にとっては、どのパッケージがどのバージョンで出たのかを確認するための基準となるリリースだ。\n\n## npm 版の更新\n\nnpm では、@modelcontextprotocol 配下の4パッケージが公開されている。server-everything は 2.2.1、server-filesystem は 2.2.0、server-memory は 2.1.0、server-sequential-thinking は 2.1.1 である。\n\nパッケージごとにバージョン番号が異なる点が特徴だ。リリース全体は v2.3.0 と名付けられているが、個々のパッケージの番号がそのまま 2.3.0 になっているわけではない。利用側は、自分が使っているパッケージの番号を個別に確認する必要がある。\n\n## PyPI 版の3サーバー\n\nPyPI では mcp-server-fetch、mcp-server-git、mcp-server-time の3つが公開された。いずれもバージョンは 2026.11.4 で、日付に由来するとみられる形式の番号が付いている。npm 側の 2.x 系の番号とは体系が異なる。\n\nリリースの記録には「v2/chore/5425-release-v2.3.0」というラベルが付いており、今回の公開作業がこの名前で管理されたことがうかがえる。\n\n## everything の変更点\n\n変更内容が具体的に示されているのは server-everything 2.2.1 で、次の項目が挙げられている。\n\n一つ目は、登録されているすべてのツールが4種類の注釈ヒントをすべて備えているかを確認するテストの追加である。@cliffhall による #5347 で、テストの追加という位置づけだ。\n\n二つ目は、resource-prompt が受け付ける引数の値に名前を付ける修正である。こちらも @cliffhall による #5350 で、fix として扱われている。\n\n三つ目は、Docker イメージをワークスペースのロックファイルからビルドするようにする変更である。\n\n他のパッケージについては、バージョン番号が公開された事実以外の変更内容は示されていない。更新の中身を詳しく知りたい場合は、各パッケージの個別の記録を確認することになる。",
       "bodyEn": "MCP Servers v2.3.0 is a coordinated release that publishes seven server packages across two registries. For developers who depend on these server implementations, it gives a single place to see which packages moved and to which versions.\n\n## In This Release\n\nFour packages were published to npm. @modelcontextprotocol/server-everything is at 2.2.1, @modelcontextprotocol/server-filesystem at 2.2.0, @modelcontextprotocol/server-memory at 2.1.0, and @modelcontextprotocol/server-sequential-thinking at 2.1.1.\n\nThree more were published to PyPI, all with the version 2026.11.4: mcp-server-fetch, mcp-server-git, and mcp-server-time. The npm packages therefore follow a 2.x numbering, while the PyPI packages carry a date-style version.\n\n## Release Ledger\n\nThe release is tracked under the branch name v2/chore/5425-release-v2.3.0. This label ties the individual package publications to the v2.3.0 release as a whole, even though each package has its own version number.\n\n## What's Changed\n\nThe detailed change notes provided cover @modelcontextprotocol/server-everything 2.2.1. Three entries are listed.\n\nThe first is a test change, credited to @cliffhall in #5347. It checks that every registered tool carries all four annotation hints. In practice, this means the everything server now has a test that verifies each tool it registers includes the full set of annotations.\n\nThe second is a fix, also by @cliffhall, in #5350. It names the allowed argument values for resource-prompt, so the accepted values for that argument are spelled out explicitly.\n\nThe third concerns packaging. The everything server's Docker image is now built from the workspace lockfile.\n\nReaders who use the other packages in this release will find the version numbers above, but no further change descriptions are given here for them. Anyone deciding whether to upgrade filesystem, memory, sequential-thinking, fetch, git, or time should consult those packages' own release entries.",
@@ -13789,6 +13663,246 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T07:39:28.737Z"
+    },
+    "7944fc8cac623dff": {
+      "bodyJa": "## 中小企業向け\n\nOpenAIは、中小企業向けの「ChatGPT for small business」プログラムを開始した。AIツールを業務へ取り入れやすくし、生産性の向上と競争力の強化を後押しする取り組みだ。\n\n## ChatGPT活用支援\n\n小規模な組織によるAIツールの導入に向けて、リソースと支援を提供する。起業家がAIスキルを身につけ、ChatGPT Workで業務を自動化し、成長につなげることを支援すると説明されている。",
+      "bodyEn": "## ChatGPT for Small Businesses\n\nOpenAI has launched a dedicated ChatGPT program for small businesses. It is intended to make AI tools easier for smaller organizations to adopt, supporting improved productivity, operational efficiency, and competitiveness.\n\n## Resources and support\n\nThe ChatGPT for Small Businesses program offers resources and support to help entrepreneurs and smaller organizations build AI skills. According to the announcement, participants can use ChatGPT Work to automate work and support growth. The program focuses on helping small businesses integrate AI tools into their operations rather than leaving them to navigate adoption without dedicated assistance.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "中小企業向けのプログラムって、ChatGPTの使い方を教えてくれるの？",
+          "en": "Is this small-business program meant to teach teams how to use ChatGPT?"
+        },
+        {
+          "s": "b",
+          "ja": "OpenAIが、AIスキルの習得や仕事の自動化を支えるリソースとサポートを提供するプログラムだよ。",
+          "en": "OpenAI describes it as a program offering resources and support to build AI skills and automate work."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、AIを仕事に取り入れたい中小企業や起業家が、業務を進めやすくするための支援なんだね？",
+          "en": "So it supports small businesses and entrepreneurs that want to bring AI into their everyday work?"
+        },
+        {
+          "s": "b",
+          "ja": "うん。業務効率や生産性を高め、事業の成長や競争力の強化を後押しする狙いがあるよ。",
+          "en": "Yes. The goal is to improve efficiency and productivity while supporting business growth and competitiveness."
+        },
+        {
+          "s": "a",
+          "ja": "ChatGPTを渡すだけじゃなくて、使う力と仕事の自動化まで支えるプログラムなんだ。",
+          "en": "So it’s not just access to ChatGPT—it also helps businesses build skills and automate work."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。対象は中小企業で、ChatGPT Workを使った成長支援として紹介されている点は押さえておこう。",
+          "en": "Right. Keep in mind that it’s presented specifically for small businesses, with support centered on growing through ChatGPT Work."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T18:10:06.831Z"
+    },
+    "de3535ae2f8767a5": {
+      "bodyJa": "## AIネイティブな通信事業者\n\nDeutsche TelekomはOpenAIと提携し、AIネイティブな通信事業者への転換を進めている。通信業界における大規模なAI導入の先進事例として注目されている。\n\n## 刷新される四つの領域\n\n取り組みの対象とされているのは、顧客サポート、従業員のワークフロー、ネットワーク運用、そして音声(ボイス)の将来である。\n\nとくに顧客サポートとネットワーク運用は、AIによる刷新の例として挙げられている。いずれも通信事業者の日常業務に直結する領域であり、AIを軸に見直す対象になっている。",
+      "bodyEn": "## Becoming an AI-native telco\n\nDeutsche Telekom is working with OpenAI to become what the source calls an \"AI-native telco.\" The partnership is presented as a significant enterprise deployment of AI in the telecom sector.\n\nAccording to the source, the effort covers four areas: customer service, employee workflows, network operations, and the future of voice.\n\n## Customer service and networks\n\nThe announcement says AI is being used to transform customer service and network operations, two areas the summary highlights specifically. Employee workflows and the future of voice are also named as parts of the transformation.\n\nThe source gives no figures, timelines, or technical specifics about how these changes are implemented, so the scope is best understood as the broad direction described above.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T07:39:54.437Z"
+    },
+    "3b5f099ed4c45dd8": {
+      "bodyJa": "## K-12教育者向けAI Skills Jam\n\nOpenAI AcademyとWalton Family Foundationは、K-12の教育者が授業で使える実践的なAIスキルを身につけられるよう、ハンズオン形式の「AI Skills Jams」を提供する。\n\n## 教室で使える実践的スキル\n\nこのプログラムは、教師が教室でAIを効果的に取り入れるために必要な実用的なツールと知識を得られるよう支援するものと説明されている。対象は授業や業務でAIを活用したいK-12の教育者である。\n\n内容は実際に手を動かして学ぶ形式で、教育現場でのAI活用に必要なスキルの習得を目的とする。開催の時期や場所、参加方法などの詳細は示されていない。",
+      "bodyEn": "## Hands-On AI Skills Jams\n\nOpenAI Academy and the Walton Family Foundation are bringing hands-on AI Skills Jams to K–12 educators. The goal, according to the announcement, is to help teachers build practical AI skills for the classroom.\n\nThe effort matters because it targets the people who would put AI to use in schools, rather than just the tools themselves.\n\n## Practical Skills for Classrooms\n\nAccording to the source, OpenAI launched the initiative to help K–12 educators develop hands-on AI skills. The program is described as equipping teachers with practical tools and knowledge so they can integrate AI effectively into their classrooms.\n\nThe Japanese summary adds that the program also supports using AI in everyday work and lessons. The announcement focuses on hands-on learning through the Skills Jams format.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「AI Skills Jams」ってなに？ジャムって、音楽のセッションみたいな感じなのかな？",
+          "en": "What's an \"AI Skills Jam\"? Is a jam like a music session, where everyone just plays together?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、OpenAI AcademyとWalton Family Foundationが、K–12の先生向けに実践型のAI Skills Jamsを届けると紹介されています。「hands-on」なので、手を動かして学ぶ場のようですね。",
+          "en": "The article says OpenAI Academy and the Walton Family Foundation are bringing hands-on AI Skills Jams to K–12 educators. \"Hands-on\" suggests teachers learn by actually trying things."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、先生が授業で使えるAIのコツを、実際に試しながら学べるってこと？",
+          "en": "So teachers get to try AI themselves and pick up tips they can use in class?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めますね。狙いは、教室で使える実践的なAIスキルを身につけてもらうこと。授業や業務での活用を後押しする取り組みという位置づけです。",
+          "en": "That's how it reads. The goal is practical AI skills for the classroom, supporting teachers in using AI in lessons and day-to-day work."
+        },
+        {
+          "s": "a",
+          "ja": "K–12って、幼稚園から高校までの先生のことだよね。幅広い先生が手を動かして学べる場なんだ。",
+          "en": "K–12 means teachers from kindergarten through high school, right? So it's a hands-on place for a wide range of teachers."
+        },
+        {
+          "s": "b",
+          "ja": "うん、K–12は幼稚園から高校卒業までの学年を指す言い方だよ。ただ、授業が実際にどう変わるかは、取り組みが進んでからの話かもね。",
+          "en": "Yes, K–12 covers kindergarten through high school. But how classes actually change might only become clear once the program is underway."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T02:32:15.116Z"
+    },
+    "6f439ef95a874d8d": {
+      "bodyJa": "## AP+のChatGPTとCodex活用\n\nオーストラリアの決済インフラ企業Australian Payments Plus(AP+)が、ChatGPT EnterpriseとCodexを使い、決済の複雑さに対応しながら開発を進めている事例が紹介されている。金融インフラという重要な分野で、AIツールが実用的な成果を出していることを示す内容だ。\n\n## 時間短縮と品質、人の判断\n\nAP+はこれらのツールにより、時間の節約と品質の向上を実現したと説明されている。開発の速度や業務の効率化にも成果があったとされる。\n\n一方で、人間の判断は引き続き中心に置かれているという。AIは作業を加速させる役割を担い、最終的な判断は人が行う形で運用されていると読み取れる。",
+      "bodyEn": "## AP+ Moves Faster\n\nAustralian Payments Plus (AP+), an Australian payments infrastructure company, is using ChatGPT Enterprise and Codex to work through the complexity of payments, according to the OpenAI post. The case study matters because it shows AI tools being applied in critical financial infrastructure.\n\n## Human Judgment Stays Central\n\nThe source says AP+ saves time and improves quality with these tools. It also states that human judgment remains central to how the company works. The summary describes the adoption as accelerating software development and streamlining operations, and presents it as a practical example of AI gains in this sector.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "決済の会社がChatGPTとCodexを使うと、現場の仕事って何が変わるの？",
+          "en": "When a payments company uses ChatGPT and Codex, what actually changes in day-to-day work?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、決済の複雑さの中でも速く進めやすくなり、時間の節約や品質の向上につながったと紹介されているよ。",
+          "en": "This piece says AP+ can move faster through payments complexity, saving time and improving quality."
+        },
+        {
+          "s": "a",
+          "ja": "前はそれができなかったの？AIなしだと遅かったってこと？",
+          "en": "Couldn't they do that before? Was it just slower without AI?"
+        },
+        {
+          "s": "b",
+          "ja": "従来との細かい比較は、この記事の範囲では分からないんだ。ただ、時間と品質の両方に効果があったと書かれているよ。",
+          "en": "The article doesn't say how it compared with before, so I can't tell. It does say the gains covered both time and quality."
+        },
+        {
+          "s": "a",
+          "ja": "一番の収穫は、AIを使っても人の判断が真ん中にあるってことかな。",
+          "en": "So the big takeaway is that human judgment stays at the center, even with AI. Is that right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね、記事でも人の判断を中心に置くと触れているよ。次は、金融インフラという重要な現場でその役割分担がどう形になるかに注目だね。",
+          "en": "Yes, the article stresses that. Next, I'd watch how that split between people and AI takes shape in critical financial infrastructure."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T02:32:33.664Z"
+    },
+    "ec2b5dc833750aa5": {
+      "bodyJa": "Cursorが Agent SDK の提供を本日から開始した。エージェントをコードのフォルダとして定義し、評価でテストしたうえで、Cursor または自社のインフラストラクチャにデプロイできる。\n\n## ローカルで起動する\n\n開発は npx @cursor/agent-sdk init ./my-bot でプロジェクトを作るところから始まる。続けて agent-sdk dev を実行すると、プレイグラウンド付きでボットをローカルで起動できる。\n\n--template を指定すれば、テンプレートから始めることもできる。用意されているのは、セキュリティレビュアー、オーナーポリシーに基づく承認ボット、PR 自動修正ツール、Linear または Jira のトリアージボットである。\n\n## フォルダ構成\n\nエージェントは 1 つのプロジェクトとして構成される。instructions.md がプロンプトにあたる。tools/ 内の各ファイルは、モデルが呼び出せる型付きアクション 1 つに対応する。\n\nskills/ にはモデルが必要に応じて読み込む手順を格納する。mcp-connections/ では MCP サーバーのツールを追加でき、channels/ ではボットがメッセージを受信・応答する場所を定義する。\n\nagent-sdk validate でプロジェクトを検証でき、agent-sdk info で検出された内容を出力できる。\n\n## agent-sdk deploy\n\n実運用の準備が整ったら、プロジェクトディレクトリで agent-sdk deploy を実行する。このコマンドはエージェントをビルドして URL を割り当て、Cursor のインフラストラクチャ上で起動する。\n\nシークレットや連携はダッシュボードから管理できる。ローカルで使っているログ、評価、プレイグラウンドも、デプロイ後にそのまま利用できる。\n\n## 起動のトリガー\n\nエージェントは複数のイベントをきっかけに起動する。対象は、GitHub、GitLab、Bitbucket の PR、コメント、CI イベント、Slack でのメンションや DM である。任意のプロバイダーからのウェブフックと、cron スケジュールも使える。",
+      "bodyEn": "## Agent SDK Launches Today\n\nCursor has begun offering its Agent SDK, which lets teams define an agent as a folder of code, test it with evals, and then deploy it either to Cursor or to their own infrastructure. For teams that want to take a bot from development through to production, the announcement presents this as a single path.\n\n## Defining an Agent as a Project\n\nAccording to the announcement, an agent is organized as one project. The file instructions.md serves as the prompt. Each file inside tools/ corresponds to one typed action that the model can call. The skills/ directory holds procedures the model loads when it needs them. The mcp-connections/ directory is where tools from MCP servers are added, and channels/ defines where the bot receives and responds to messages.\n\nTwo commands help check the result: agent-sdk validate verifies the project, and agent-sdk info prints what was detected.\n\n## Running Locally with a Playground\n\nTo start, run npx @cursor/agent-sdk init ./my-bot, then agent-sdk dev. This launches the bot locally with a playground. Adding the --template option lets you begin from a template instead of a blank project. The listed templates are a security reviewer, an approval bot based on owner policies, a PR auto-fix tool, and a triage bot for Linear or Jira.\n\n## Deploying with agent-sdk deploy\n\nWhen an agent is ready for real use, running agent-sdk deploy in the project directory deploys it to Cursor. The announcement says the command builds the agent, assigns it a URL, and starts it on Cursor's infrastructure. Secrets and integrations are managed from a dashboard, and the logs, evals, and playground used locally remain available after deployment.\n\nThe source lists the events that can trigger a deployed agent: pull requests, comments, and CI events on GitHub, GitLab, and Bitbucket; mentions and direct messages in Slack; webhooks from any provider; and cron schedules.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、普段の開発だと何が変わるの？ボットを作る場面で想像しにくくて。",
+          "en": "What changes in day-to-day work with this? I can't quite picture building a bot."
+        },
+        {
+          "s": "b",
+          "ja": "エージェントをコードのフォルダとして作り、評価でテストして、agent-sdk deploy で Cursor に出せます。テンプレートから始めることもできますよ。",
+          "en": "You define an agent as a code folder, test it with evals, and ship it with agent-sdk deploy to Cursor. You can also start from a template."
+        },
+        {
+          "s": "a",
+          "ja": "前は、そういうのってできなかったの？今回が初めてなのかな。",
+          "en": "Couldn't you do this before? Is this the first time?"
+        },
+        {
+          "s": "b",
+          "ja": "従来との違いは、この記事からは分かりません。ただ今回は、作る・検証する・公開するが一つの流れで書かれています。公開先は自社のインフラも選べるそうです。",
+          "en": "The article doesn't say how it differs from before. But it lays out build, verify and ship as one flow, and you can deploy to your own infrastructure too."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、フォルダにまとめて評価してから、deploy一発で公開できることかな？",
+          "en": "So the big win is putting it all in a folder, running evals, then going live with one deploy command?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。次は、デプロイ後もログや評価、プレイグラウンドを同じように使える点に注目です。運用での使い心地が分かりそうです。",
+          "en": "Right. Next, watch that logs, evals and the playground keep working after deploy. That should show how it feels to run in production."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:39:24.880Z"
+    },
+    "3946c53a352c1713": {
+      "bodyJa": "GitHub Copilotの課金体系が2026年6月1日、トークン従量制（GitHub AI Credits）へ移行した。この変更はCopilot単体の話ではなく、主要なAIコーディングツール全体で定額の使い放題が前提ではなくなりつつある流れの一部だと、筆者は見ている。\n\n## Copilotの移行\n\n移行後も、コード補完とNext Edit Suggestionsは無料のままとされる。課金対象になるのは、チャット、エージェント、CLIなどである。また、利用上限に達したときに低コストのモデルへ切り替わるフォールバックは廃止された、とGitHub公式ブログで説明されている。筆者はCopilotを、従量制へ移った「最後の大物」と位置づけている。\n\n## Kiroのクレジット制\n\nKiroは2025年10月の有料化当初からクレジット制で、定額使い放題の時代を経ていない。クレジットはプロンプトの複雑さに応じて0.01刻みで消費され、簡単な編集なら1クレジット未満で済む。超過分は1クレジットあたり$0.04で、AWS公式ブログとKiroの公式Pricingがこれを示している。筆者は、2025年に生まれたツールが最初から従量前提で設計されている点に注目している。\n\n## CursorとClaudeの上限\n\nCursorは回数制から使用量ベースの料金モデルへ移行済みで、プランごとに利用枠があり、超過時はオンデマンドの従量課金を選べる。なお「Autoモードは利用枠を消費しない」とする解説が複数あるものの、筆者は一次情報では確認できていない。契約前に公式ドキュメントで確かめることを勧めている。\n\nClaudeは月額定額だが使い放題ではない。5時間ごとのセッション上限に加えて週次の使用量上限があり、上限を超えるとExtra Usage（従量）かAPI課金で継続する形になる。これはAnthropic公式ヘルプに基づく。\n\n## 選定時に見る点\n\n各ツールの細部は異なるが、使った分だけ負担が増える方向は共通している。筆者は、新規参入者にとって定額使い放題はもう選択肢ですらなくなっているように見える、と述べる。ツールを選ぶ開発者には、機能だけでなくコスト構造まで見極めることが求められる。",
+      "bodyEn": "## Copilot Moves to Usage Pricing\n\nGitHub Copilot's billing changed to a usage-based model on June 1, 2026, and the source argues that reading this as a Copilot-only story misses the point. Lining up the major AI coding tools in chronological order, it says, shows an industry-wide pattern that matters for anyone choosing a tool.\n\nAccording to the source, Copilot moved to token-based billing called GitHub AI Credits. Code completion and Next Edit Suggestions remain free, while chat, agents, the CLI and similar features are billable. The fallback to a lower-cost model when a usage cap is reached has been discontinued, as stated in GitHub's official blog.\n\n## Kiro Built on Credits\n\nThe author singles out Kiro as the most notable latecomer. Its paid plans began in October 2025 with a credit system from the start, without a flat-rate unlimited phase. Credits are consumed in 0.01 increments depending on prompt complexity, so a simple edit costs less than one credit. Overage is priced at $0.04 per credit, citing an AWS official blog and Kiro's official pricing page.\n\nThe author reads this as a tool born in 2025 and designed around metered usage from day one, and suggests flat-rate unlimited use no longer looks like an option even for new entrants.\n\n## Cursor and Claude Limits\n\nCursor has moved from a request-count model to usage-based pricing, according to its official pricing page. Usage allowances are tied to the plan, and customers can choose on-demand metered billing when they exceed it. Several explainers say Auto mode does not consume the allowance, but the author could not confirm this in primary sources and recommends checking official documentation before signing up.\n\nClaude is described as monthly flat-rate but not unlimited. It has a session cap every five hours plus a weekly usage cap. When a limit is exceeded, users continue through Extra Usage (metered) or API billing, per Anthropic's help documentation.\n\n## A Shared Structure\n\nThe author calls Copilot the last major tool to make the move, not the first. Details differ from tool to tool, but the author says all of them share one common structure. The overall conclusion is that the era of unlimited use is fading, and developers now need to look at cost structure when selecting a tool.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:40:29.777Z"
+    },
+    "5597bce5e6a17714": {
+      "bodyJa": "Claudeに「800兆円の被害額が出る」と言わせた、8.3問題を扱うQiita記事です。AIが生成したレポートをそのまま載せている点が特徴です。\n\n## 800兆円という被害額\n\n筆者は、レポートの作成が面倒だったためClaudeに生成させたと明かしています。内容には「本当にそうなのか」と疑わしく思う部分があるものの、手を加えずに掲載したとのことです。\n\n## 8.3短縮ファイル名\n\nレポートの題は「Windows 8.3短縮ファイル名がもたらす広範な脆弱性」で、30年放置されたOS設計欠陥を体系的に分析するという体裁です。注釈では、問題ないという検証結果ばかりである点にも触れられています。",
+      "bodyEn": "## 800 trillion yen damage claim\n\nA Qiita post examines how Claude can be made to state that the \"8.3 problem\" would cause about 800 trillion yen in damage. According to the summary, the figure comes from a specific math scenario, and the piece uses it to discuss the limits of reliability in LLM numerical reasoning.\n\n## Generated report, posted as is\n\nThe post carries a report titled as a systematic analysis of widespread vulnerabilities from Windows 8.3 short filenames, described as an OS design flaw left unaddressed for 30 years. The author says Claude generated the report because writing it by hand was tedious, and admits some parts seem doubtful. The author published it unchanged anyway.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "800兆円の被害額って、Claudeが本当にそう言ったの？どうしてそんな数字になったんだろう？",
+          "en": "Claude really said 800 trillion yen in damages? How did it end up with a number like that?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事は、8.3短縮ファイル名の問題でClaudeに現実離れした被害額を出させた事例を検証しているよ。理由の細部は本文で確かめてね。",
+          "en": "The article tests a case where Claude gave an unrealistic damage figure about the 8.3 short filename issue. For the details of why, check the full text."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、AIにレポートを書かせる人にとって役立つ話なのかな？",
+          "en": "So is this useful for people who have AI write reports for them?"
+        },
+        {
+          "s": "b",
+          "ja": "そうかもね。筆者はめんどうでClaudeに生成させ、「ほんまかそれ?」と思う部分もそのまま載せたと書いているよ。",
+          "en": "Could be. The author says they were too lazy to write it themselves, had Claude generate it, and posted it as is, even the parts that made them think \"is that for real?\""
+        },
+        {
+          "s": "a",
+          "ja": "AIが出した大きな数字は、そのまま信じずに確かめるのが大事ってことだね。",
+          "en": "So when AI gives a huge number, don't just trust it. Check it first."
+        },
+        {
+          "s": "b",
+          "ja": "うん、記事も数値推論の信頼性の限界を考えているよ。ただ、どこまで確かなのかは本文の検証を見て判断しようね。",
+          "en": "Right, the piece looks at the limits of LLM numerical reasoning. But how solid each claim is depends on the checks in the full text, so read those yourself."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:40:39.198Z"
+    },
+    "c376d1436e9255c9": {
+      "bodyJa": "## GPT-Redとは\n\nOpenAIは、自動化されたレッドチーミングシステム「GPT-Red」を発表した。自己対戦(セルフプレイ)を用いてAIの安全性やアラインメント、プロンプトインジェクションへのロバスト性を高める取り組みとされ、信頼性向上に向けた研究成果として位置づけられている。\n\n## 自己改善によるロバスト性\n\nGPT-Redは、モデルが自己改善の手法を活用してロバスト性を高めるものだと説明されている。レッドチーミングを自動化し、セルフプレイを通じて改善を進める点が特徴である。より信頼性が高く、耐性のあるAIシステムの構築に向けた一歩とされる。",
+      "bodyEn": "## GPT-Red: automated red teaming\n\nOpenAI has introduced GPT-Red, an automated red teaming system. According to the announcement, it uses self-play to improve AI safety, alignment, and prompt injection robustness. The topic matters because it concerns how AI systems can be made more reliable and resilient.\n\n## Self-improvement for robustness\n\nThe source describes GPT-Red as a model that leverages self-improvement techniques to enhance robustness. OpenAI presents this as a significant step toward building more dependable AI systems.\n\nThe announcement names three areas the system targets: safety, alignment, and prompt injection robustness. It identifies self-play as the mechanism behind the approach. Further technical specifics are not given here, so the scope of the method and its measured results remain unstated.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "GPT-Redって、AIが自分で強くなる仕組みなんだよね？これって大きいこと？",
+          "en": "So GPT-Red is about an AI getting stronger by itself, right? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、OpenAIの自動レッドチーミングのシステムとして紹介されてるよ。安全性やアラインメント、プロンプトインジェクションへの強さを高める研究、という位置づけだね。",
+          "en": "Here it's presented as OpenAI's automated red teaming system, aimed at improving safety, alignment, and prompt injection robustness. So it's framed as a meaningful safety-focused step."
+        },
+        {
+          "s": "a",
+          "ja": "レッドチーミングって、なんだろう？赤いチームがいるの？",
+          "en": "What's red teaming? Is there an actual red team?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、わざと攻撃する側の目線でAIの弱点を探すテストのことだよ。GPT-Redは、それを自動でやる仕組みってことだね。",
+          "en": "Generally, it means testing by playing the attacker to find an AI's weak spots. GPT-Red automates that process."
+        },
+        {
+          "s": "a",
+          "ja": "AIが外の文章を読むときに、変な指示にだまされにくくなるなら安心かも！",
+          "en": "If AI gets harder to fool with sneaky instructions in text it reads, that'd feel safer!"
+        },
+        {
+          "s": "b",
+          "ja": "狙いは、まさにプロンプトインジェクションへの強さだね。ただ、実際どこまで守れるかは使う場面ごとに確かめたいところかもね。",
+          "en": "Prompt injection robustness is exactly one of the goals. Still, how well it protects in practice might depend on the situation, so it's worth checking case by case."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:41:46.736Z"
     }
   }
 }

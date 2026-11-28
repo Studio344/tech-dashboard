@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-28T08:31:03.587Z",
+  "generatedAt": "2026-11-28T09:30:59.934Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
-    "allTime": 8352,
-    "last30d": 119,
-    "last7d": 46,
-    "last24h": 5
+    "allTime": 8353,
+    "last30d": 120,
+    "last7d": 47,
+    "last24h": 6
   },
   "byDay": [
     {
@@ -800,10 +800,10 @@
     },
     {
       "date": "2026-11-28",
-      "count": 4,
+      "count": 5,
       "byCategory": {
         "vscode": 2,
-        "local-llm": 1,
+        "local-llm": 2,
         "mcp": 1
       }
     }
@@ -1219,10 +1219,10 @@
     },
     {
       "month": "2026-11",
-      "count": 117,
+      "count": 118,
       "byCategory": {
         "vscode": 6,
-        "local-llm": 12,
+        "local-llm": 13,
         "mcp": 9,
         "cline": 5,
         "copilot": 15,
@@ -1239,7 +1239,7 @@
   "bySource": [
     {
       "source": "openai-news",
-      "total": 639,
+      "total": 602,
       "last30d": 0
     },
     {
@@ -1339,8 +1339,8 @@
     },
     {
       "source": "ollama-releases",
-      "total": 157,
-      "last30d": 11
+      "total": 158,
+      "last30d": 12
     },
     {
       "source": "langchain-releases",
@@ -1408,6 +1408,11 @@
       "last30d": 10
     },
     {
+      "source": "openai-blog",
+      "total": 64,
+      "last30d": 0
+    },
+    {
       "source": "zenn-ai",
       "total": 52,
       "last30d": 0
@@ -1468,11 +1473,6 @@
       "last30d": 2
     },
     {
-      "source": "openai-blog",
-      "total": 27,
-      "last30d": 0
-    },
-    {
       "source": "youtube-anthropic",
       "total": 26,
       "last30d": 2
@@ -1529,7 +1529,7 @@
     }
   ],
   "byImportance": {
-    "1": 4622,
+    "1": 4623,
     "2": 3363,
     "3": 367
   }

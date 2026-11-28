@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T08:30:59.162Z",
-  "count": 398,
+  "generatedAt": "2026-11-28T09:30:55.546Z",
+  "count": 407,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -11932,7 +11932,39 @@
       "bodyJa": "## 1.76.0公開\n\nMicrosoftは2026年5月11日、.NET向けSemantic Kernel 1.76.0を公開した。CloudDrivePluginやOpenAPIプラグインを対象とした検証の強化、脆弱性への対処、バグ修正を含む定例更新で、セキュリティと安定性の向上が重要な変更点となる。\n\n## パス検証\n\nCloudDrivePluginでは、既定値の堅牢化とパス検証が追加された。AllowedUploadDirectoriesにはdeny-by-defaultの設定が導入され、許可対象として指定されたディレクトリを基準にアップロード先を扱う構成となった。DocumentPluginについては、パス検証を実行する順序の不具合が修正されている。\n\n## OpenAPI検証\n\nOpenAPIプラグインでは入力検証が改善されたほか、gRPCプラグインではアドレスの取り扱いが堅牢化された。また、コネクターの変更として、ツールや関数の結果でImageContentを扱う機能が追加されている。関数結果のログ記録に関する修正も変更一覧に含まれる。\n\n## 脆弱性修正\n\n依存パッケージにも更新が入り、KiotaパッケージはNU1903脆弱性を修正するために更新された。Snappierは1.3.1へ引き上げられ、NU1903の高深刻度脆弱性への対処が行われた。対象の脆弱性はGHSA-pggp-6c3x-2xmxとして示されている。",
       "bodyEn": "## Semantic Kernel .NET 1.76.0\n\nMicrosoft released Semantic Kernel 1.76.0 for .NET on May 11, 2026. The routine minor update focuses on stronger plugin validation, security-related dependency updates, and bug fixes intended to improve security and stability.\n\nThe release also includes the .NET version bump to 1.76.0.\n\n## CloudDrivePlugin path validation\n\nSeveral changes affect CloudDrivePlugin. Its defaults have been hardened, and path validation has been added. The update also introduces AllowedUploadDirectories with deny-by-default behavior.\n\nA related DocumentPlugin fix corrects the order of path validation. Together, these changes address both default behavior and the handling sequence used when validating paths.\n\n## OpenAPI and gRPC plugins\n\nInput validation in the OpenAPI plugin has been improved. The gRPC plugin also receives hardened address handling, extending the release’s validation work to another plugin interface.\n\nIn addition, connectors now support ImageContent in tool and function results. The listed changes also include a logging fix that falls back to ToString() when logging function results.\n\n## NU1903 vulnerability fixes\n\nThe release updates Kiota packages to fix an NU1903 vulnerability. Snappier is bumped to version 1.3.1 to address an NU1903 high-severity vulnerability identified as GHSA-pggp-6c3x-2xmx.\n\nThese dependency changes accompany the plugin-focused hardening and validation fixes in the .NET release. Overall, Semantic Kernel 1.76.0 combines stricter CloudDrivePlugin defaults, improved OpenAPI input checks, hardened gRPC address handling, path-validation corrections, support for ImageContent in results, and package updates addressing reported vulnerabilities.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-09-05T01:22:05.105Z"
+      "generatedAt": "2026-09-05T01:22:05.105Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "CloudDrivePluginが「既定値の堅牢化」ってあるけど、具体的には何が変わったの？",
+          "en": "CloudDrivePlugin has \"hardened defaults,\" right? What actually changed there?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、パス検証の追加と、AllowedUploadDirectoriesという許可リストが「既定では拒否」で加わった点が挙がっています。",
+          "en": "This release adds path validation and a deny-by-default AllowedUploadDirectories setting to CloudDrivePlugin."
+        },
+        {
+          "s": "a",
+          "ja": "deny-by-defaultって、最初は全部ダメにしておく感じ？それなら、プラグインを使う開発者が安心できるのかな？",
+          "en": "Deny-by-default means everything's blocked unless allowed, right? So developers using the plugin would feel safer?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的にはそういう意味です。許可したフォルダだけ使えるなら、意図しない場所へのアップロードを抑えやすいかもしれません。OpenAPIやgRPCの検証改善も入っています。",
+          "en": "That's the usual meaning. Allowing only chosen folders could help limit unintended uploads. OpenAPI and gRPC plugins also got validation and address-handling hardening."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ今回は、プラグインの入口チェックを固めて、脆弱性の出ていた依存パッケージも更新した定例アップデートなんだね。",
+          "en": "So this one tightens plugin checks and updates vulnerable dependencies, as a routine release. Did I get that right?"
+        },
+        {
+          "s": "b",
+          "ja": "はい。ただ記事の一覧は途中までなので、全体の影響までは言えません。既定値が変わる部分もあるので、更新時は自分の環境での動作確認が大切です。",
+          "en": "Yes. But the change list here is cut off, so the full impact isn't clear. Some defaults change, so it's wise to test it in your own setup when updating."
+        }
+      ]
     },
     "300348006b38c191": {
       "bodyJa": "## 文脈内探索の分析\n\n本論文は、LLMが推論中に解答案の生成、批評、修正を反復する「文脈内探索」を、サンプリング複雑性の観点から理論的に分析する。自己反省と再探索を伴う推論が、どのような条件で性能改善につながるかを形式的に特徴づける研究である。\n\n## 反復の有効条件\n\n拡張推論によって可能になった文脈内探索では、一度の生成で終えず、解答案を見直しながら更新していく。本論文は、この反復型の処理をリフレクション駆動推論として捉え、その恩恵と計算コストの関係を解析する。どのような問題設定なら、追加のサンプリングを伴う自己反省が計算コストに見合うのかを明らかにすると説明されている。",
@@ -13476,12 +13508,6 @@
       "model": "claude-opus-4.8",
       "generatedAt": "2026-07-08T22:01:40.769Z"
     },
-    "5d64d830c63fbcd8": {
-      "bodyJa": "## ChatGPT Workとは\n\nOpenAIはChatGPTを、単なる質問応答ツールから、複雑で大規模な仕事を共同で進められるパートナーへと位置づけ直した。プロフェッショナルな業務での活用範囲が広がるとされる。\n\nこの文脈で紹介されているのが「ChatGPT Work」だ。\n\n## アプリやファイルをまたぐ動き\n\nChatGPT Workは、ユーザーのアプリやファイルをまたいで行動できるエージェントと説明されている。必要であれば数時間にわたってプロジェクトに付き添い、与えられた目標を完成した成果物へ仕上げることを担う。\n\n質問に答えるだけでなく、仕事そのものを前へ進める役割を担う点が特徴とされる。",
-      "bodyEn": "## ChatGPT Work as an agent\n\nOpenAI has repositioned ChatGPT from a simple question-answering tool into a collaborator for complex, high-stakes work. According to the announcement, this widens its role in professional settings and makes it a partner for ambitious projects.\n\n## Action across apps and files\n\nThe source describes ChatGPT Work as an agent that can take action across a user's apps and files. It can reportedly stay with a project for hours if needed, and its stated purpose is to turn a goal into finished work.\n\nThe announcement frames this as a shift beyond Q&A toward sustained, hands-on involvement in larger tasks.",
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T05:40:30.507Z"
-    },
     "a3866d39f20be1e6": {
       "bodyJa": "Visual Studio Code 1.145では、リモートエージェントのセッションが「少しローカルに近い感覚になる」と説明されている。アプリのプレビューやキャンバスの利用、cronによる自動実行の細かなスケジュール指定、チャットのノイズ軽減が加わった。あわせて、Local harnessが廃止予定であることも告知されている。\n\n## Agentsウィンドウ\n\nリモートエージェントの機能として、リモートのエージェントセッションからアプリをプレビューしたり、インタラクティブなキャンバスを使ったりできるようになった。これらはAgentsウィンドウを離れずに操作できるとされる。リモートで動くエージェントの作業を、VS Codeの画面の中で確認しながら進められるようにする変更と言える。\n\n## cronスケジュール\n\nAutomationsでは、定期的に実行するエージェントタスクについて、組み込みのプリセットにとどまらず、cronを使って任意のスケジュールで動かせるようになった。プリセットでは足りない実行タイミングを、cron式で細かく指定できる。\n\nこのほか、チャットのノイズを抑える改善も含まれている。息抜き用にBlobbyも用意されているという。\n\n## harness廃止予定\n\nLocal harnessは非推奨となり、2027年2月に削除される予定だ。移行先としてCopilot harnessへの移行が案内されている。2027年2月までに、Copilot harnessへ移る計画を立てておく必要がある。\n\n## 1.145.3の更新\n\n1.145には修正更新として1.145.1、1.145.2、1.145.3が公開されている。1.145.1と1.145.2は一般的な問題への対応で、1.145.3はセキュリティ上の問題に対処する更新と位置づけられている。\n\nまた、Microsoft IgniteでのVS Codeのセッション録画も公開されている。",
       "bodyEn": "## Remote agent sessions feel more local\n\nVisual Studio Code 1.145 focuses on making remote agent sessions behave more like local ones, according to the release notes. The announcement says users can now preview apps and use interactive canvases from a remote agent session without leaving the Agents window. For anyone running agent work remotely, this keeps those tasks inside a single window.\n\nThe release notes also say the update turns down the noise in chat, though they give no further detail on how that works. They add a lighthearted note that when you need a break, Blobby is ready to play.\n\n## Automations with cron\n\nThe Automations feature gains more flexible scheduling. Per the release notes, recurring agent tasks can now run on custom schedules using cron, going beyond the built-in presets. The announcement describes this as a way to fine-tune automation schedules.\n\n## Local harness deprecation\n\nThe release carries a warning: the Local harness is deprecated and will be removed in February 2027. The notes point readers to information about the move to the Copilot harness. Anyone still relying on the Local harness has a stated deadline to plan around, and the source directs them to the migration guidance it links.\n\n## Point updates and downloads\n\nThree follow-up updates to 1.145 are listed. Update 1.145.1 and Update 1.145.2 each address issues, and Update 1.145.3 addresses security issues. The release notes link to the specific fixes for each one.\n\nThe release page also lists download and installation formats, including .deb, .rpm, .tar.gz, Arm instructions, and Snap. The notes additionally mention that recordings of VS Code sessions from Microsoft Ignite are available to watch.",
@@ -13557,6 +13583,322 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T07:40:20.814Z"
+    },
+    "9fcf2d5751e209ad": {
+      "bodyJa": "## ChatGPT Workとは\n\nOpenAIはChatGPTを、単なる質問応答ツールから、複雑で大規模な仕事を共同で進められるパートナーへと位置づけ直した。プロフェッショナルな業務での活用範囲が広がるとされる。\n\nこの文脈で紹介されているのが「ChatGPT Work」だ。\n\n## アプリやファイルをまたぐ動き\n\nChatGPT Workは、ユーザーのアプリやファイルをまたいで行動できるエージェントと説明されている。必要であれば数時間にわたってプロジェクトに付き添い、与えられた目標を完成した成果物へ仕上げることを担う。\n\n質問に答えるだけでなく、仕事そのものを前へ進める役割を担う点が特徴とされる。",
+      "bodyEn": "## ChatGPT Work as an agent\n\nOpenAI has repositioned ChatGPT from a simple question-answering tool into a collaborator for complex, high-stakes work. According to the announcement, this widens its role in professional settings and makes it a partner for ambitious projects.\n\n## Action across apps and files\n\nThe source describes ChatGPT Work as an agent that can take action across a user's apps and files. It can reportedly stay with a project for hours if needed, and its stated purpose is to turn a goal into finished work.\n\nThe announcement frames this as a shift beyond Q&A toward sustained, hands-on involvement in larger tasks.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:40:30.507Z"
+    },
+    "d4fcae9550ab0099": {
+      "bodyJa": "OpenAIはGPT-Liveを発表した。人とAIの自然なやり取りを目指した新世代の音声モデルで、現在はChatGPT Voiceを支えているという。\n\n## 新世代の音声モデル\n\nGPT-Liveは、リアルタイムで対話できるインタラクティブなAI体験を実現するものと位置づけられている。ユーザーはGPTモデルと、より自然でライブ感のある形でやり取りできるようになるとされる。\n\n## ChatGPT Voiceでの採用\n\nGPT-Liveは、ChatGPT Voiceを動かすモデルとして使われている。対話型AIをより身近なものにする上で重要な一歩になる、と説明されている。",
+      "bodyEn": "## GPT-Live announced\n\nOpenAI has introduced GPT-Live, described as a new generation of voice models built for natural human-AI interaction. The announcement says these models now power ChatGPT Voice, which matters because it changes how users talk with GPT.\n\n## Natural, real-time interaction\n\nAccording to the source, GPT-Live offers a real-time interactive AI experience. It is meant to let people engage with GPT models in a more natural, live way than before. The announcement frames this as a significant step for the accessibility of conversational AI.\n\nThe material does not give details on pricing, regional availability, supported platforms, or technical specifications.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "GPT-Liveって、何が新しいの？声のモデルって書いてあったよね。",
+          "en": "What's new with GPT-Live? It said something about voice models, right?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、人とAIの自然なやりとりに向けた新世代の音声モデルだよ。ChatGPT Voiceを動かしているんだって。",
+          "en": "The post calls it a new generation of voice models for natural human-AI interaction. It's now powering ChatGPT Voice."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあChatGPT Voiceを使う人が、もっと自然に話せるようになるのかな？",
+          "en": "So people using ChatGPT Voice could talk to it more naturally?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めるね。リアルタイムでライブに近い対話ができる体験として紹介されているよ。",
+          "en": "That's how it reads. It's presented as a real-time, live-style conversation experience with GPT models."
+        },
+        {
+          "s": "a",
+          "ja": "GPT-Liveは、声でAIとリアルタイムに話すための新しいモデルで、ChatGPT Voiceに使われてるんだね。",
+          "en": "So GPT-Live is a new voice model for talking with AI in real time, and ChatGPT Voice uses it."
+        },
+        {
+          "s": "b",
+          "ja": "うん、その通り。どこまで自然になったかは、実際に試して確かめたいところだね。",
+          "en": "Right. How natural it really feels is something you'd want to try for yourself."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T02:32:19.093Z"
+    },
+    "dc34ba0c581f0720": {
+      "bodyJa": "## MUFGとOpenAIの提携\n\n三菱UFJフィナンシャル・グループ(MUFG)がOpenAIと提携し、業務全体にAIを深く組み込む「AIネイティブな銀行」への転換を目指す。大手金融機関によるAI基盤の全社導入として注目されている。\n\n## ChatGPT Enterpriseの活用\n\nMUFGはChatGPT Enterpriseを用いて、AIネイティブな組織づくり、ワークフローの改善、AIを活用した新たな金融サービスの大規模な提供を進めるとされる。\n\nAIを一部の業務に限らず組織全体に組み込む取り組みであり、グローバルな金融機関がAI主導の業務運営に踏み出す動きと位置づけられている。",
+      "bodyEn": "## MUFG's AI-native ambition\n\nMUFG, the Mitsubishi UFJ Financial Group, has partnered with OpenAI to pursue a transformation into an AI-native bank. The announcement presents the move as a major commitment by a global financial institution to AI-driven operations.\n\n## ChatGPT Enterprise at scale\n\nAccording to the source, MUFG uses ChatGPT Enterprise to build an AI-native organization, improve workflows, and deliver new AI-powered financial services at scale. The stated aim is to embed AI across the entire organization rather than limit it to isolated tasks. The source describes this as a company-wide rollout of an AI platform at a major financial institution.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "全社でAIを入れるって、これって大きいことなの？",
+          "en": "They're bringing AI into the whole company? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、MUFGがChatGPT Enterpriseで組織全体をAIネイティブにしていく方針が示されているよ。一部の部署だけでなく全体、という点が大きいね。",
+          "en": "The article says MUFG is using ChatGPT Enterprise to make its whole organization AI-native. Going company-wide, not just one team, is what makes it notable."
+        },
+        {
+          "s": "a",
+          "ja": "AIネイティブって、どういう意味なの？",
+          "en": "What does \"AI-native\" actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "記事に細かい定義はないけど、一般的には最初からAIを前提に仕事や組織を作る、くらいの意味だよ。",
+          "en": "The article doesn't define it, but generally it means building work and organizations with AI as the starting point."
+        },
+        {
+          "s": "a",
+          "ja": "もし私が行員なら、毎日の仕事の流れをラクにするのに使いたいな。",
+          "en": "If I worked at the bank, I'd want to use it to make my daily workflow easier."
+        },
+        {
+          "s": "b",
+          "ja": "記事でも業務改善と、新しいAI金融サービスを大規模に届けることが狙いとされているよ。使い方の詳細は、続報を待ちたいね。",
+          "en": "The article does name workflow improvement and delivering new AI-powered financial services at scale as goals. For specifics on how it's used, we'd want to wait for more details."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T02:32:32.241Z"
+    },
+    "c6d7d327b3177bde": {
+      "bodyJa": "Visual Studio Code 1.143では、Copilot SDKを土台にしたCopilot harnessが新規セッションの既定になりました。従来のLocal harnessは非推奨となり、2027年2月に削除される予定です。\n\n## 新規セッションの既定\n\n今回のリリースで、新しいセッションはCopilot harnessで始まります。Copilot harnessはCopilot SDKの上に構築されており、エディターとAgentsウィンドウを切り替えながら使えるとされています。\n\nリリースノートの冒頭では、Microsoft IgniteでのVS Codeのセッション録画も紹介されています。\n\n## 2027年2月に廃止\n\nLocal harnessは非推奨となり、2027年2月に削除される予定です。リリースノートはCopilot harnessへの移行について解説するページへの案内を掲げ、利用者に移行を促しています。現在Local harnessを使っている場合は、削除時期までに移行を済ませておく必要があります。\n\n## モデルを比較する\n\n新機能のひとつが、プレビュー版として提供される「Compare models」です。Agentsウィンドウで同じタスクを複数のモデルに実行させ、それぞれの解決策を比較したうえで組み合わせられると説明されています。\n\nこのほか1.143では、ストレージを回収するツール、モデルをローカルで実行する機能、ファイル変更をたどるためのナビゲーションも加わりました。それぞれの詳しい動作は、本文では個別に説明されていません。\n\n## 1.143.1の更新\n\n1.143には更新版の1.143.1も公開されており、いくつかの問題に対処しています。すでにインストール済みの場合は、VS Codeの「Check for Updates」で更新できます。今後登場する機能を先に試したい場合は、Insidersビルドを利用する方法が案内されています。",
+      "bodyEn": "## Copilot harness by default\n\nVisual Studio Code 1.143 changes how new Copilot sessions start, and it sets a removal date for the older approach. According to the release notes, the Copilot harness is now the default for new sessions. It is built on the Copilot SDK and lets users switch between the editor and the Agents window.\n\n## Local harness deprecation\n\nThe notes carry a warning that the Local harness is deprecated and will be removed in February 2027. They point readers to information about moving to the Copilot harness. Anyone still relying on the Local harness has a stated deadline for making that move.\n\n## Compare models (Preview)\n\nOne new capability is labeled Preview. Compare models lets users run the same task with multiple models in the Agents window. They can then compare the resulting solutions and combine them. The release notes describe this as one of several tools added in this version.\n\n## What else the release adds\n\nThe summary of the release says it adds tools to compare models, reclaim storage, run models locally, and navigate file changes. The notes give the full description only for the Copilot harness default and for model comparison, so the other three items are named but not elaborated here.\n\nThe release also has a point update. Version 1.143.1 addresses a set of issues, which the notes link to separately. For users who already have VS Code installed, the notes say to use Check for Updates. Those who want to try upcoming features can use the Insiders build. The notes list download formats including .deb, .rpm, .tar.gz, Arm instructions, and Snap.\n\nThe notes also mention session recordings from Microsoft Ignite, which readers can watch for VS Code sessions.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Local harnessが2027年2月に廃止予定って書いてあったよ。これって大きいこと？",
+          "en": "It says the Local harness will be removed in February 2027. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、Copilot SDKベースのCopilot harnessが新規セッションの既定になったとあります。旧Local harnessは非推奨で、移行の案内も出ています。",
+          "en": "The article says the Copilot SDK-based Copilot harness is now the default for new sessions. The Local harness is deprecated, and there's a guide for moving over."
+        },
+        {
+          "s": "a",
+          "ja": "ところで「harness」ってなに？ モデルを動かす土台みたいなもの？",
+          "en": "What's a \"harness\" anyway? Something like a base that runs the models?"
+        },
+        {
+          "s": "b",
+          "ja": "記事に細かい定義はないけど、一般には「AIを動かす枠組み」くらいの意味かな。この記事ではエディタとAgentsウィンドウを切り替えられる、と書かれています。",
+          "en": "The article doesn't define it, but generally it means a framework that runs the AI. Here, it lets you switch between the editor and the Agents window."
+        },
+        {
+          "s": "a",
+          "ja": "モデル比較って、同じ作業を複数のモデルにやらせるの？ 私なら迷ったとき使いたいな。",
+          "en": "Model comparison runs the same task on several models? I'd use it when I can't decide which one to pick."
+        },
+        {
+          "s": "b",
+          "ja": "そうです。Agentsウィンドウで同じ作業を複数モデルに任せ、解決策を比べたり組み合わせたりできます。ただしPreview段階なので、そこは注意ですね。",
+          "en": "Right. In the Agents window you can run one task on multiple models, then compare and combine their solutions. It's still in Preview, though, so keep that in mind."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:38:53.276Z"
+    },
+    "090e9651ee5e3090": {
+      "bodyJa": "Amazon ECS Gatewayは、コンテナ化されたワークロードのイングレスネットワーキングを簡素化する新しいリソースです。ECSサービス向けのフルマネージドなイングレス基盤として紹介されています。\n\n## アカウント単位のリソース\n\nECS Gatewayはアカウント単位の新リソースとして位置づけられています。必要なインフラを利用者に代わって動的にプロビジョニングし、その管理も担うと説明されています。\n\n## 作成先は自分のアカウント\n\nこのリソースが作るものは、すべて利用者自身のアカウント内に直接作成されるとされています。構築と管理は任せつつ、リソースそのものは自分のアカウントに置かれる点が特徴です。\n\nその結果、ECSを利用するチームにとって、ネットワークの設計と運用にかかる負担が軽くなると説明されています。",
+      "bodyEn": "## Amazon ECS Gateway\n\nAmazon ECS Gateway is a new offering aimed at simplifying ingress networking for containerized workloads running on Amazon ECS. It matters because ingress setup and operation are part of the networking work that ECS users otherwise handle themselves.\n\n## Account-level resource\n\nAccording to the announcement, ECS Gateway is an account-level resource. Rather than requiring users to assemble the pieces themselves, it dynamically provisions and manages the infrastructure needed for ingress on the user's behalf.\n\nThe source stresses that all of the resources it creates are placed directly in the user's own account. This means the underlying infrastructure remains within the customer's account instead of sitting elsewhere.\n\n## Intended benefit\n\nThe stated goal is to reduce the burden of network design and day-to-day operations for ECS users. The announcement frames the service as fully managed ingress for ECS services, with automatic provisioning and ongoing management handled by the gateway.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ECSでサービスを公開するとき、普段の作業って何が楽になるの？",
+          "en": "When I put a service on ECS, what actually gets easier day to day?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、外からの通信の入口(イングレス)に必要なインフラを、Gatewayが代わりに用意して管理してくれるそうだよ。ネットワーク設計と運用の負担が軽くなる、という話だね。",
+          "en": "The post says Gateway provisions and manages the infrastructure for ingress, meaning traffic coming in from outside, on your behalf. So networking setup and day-to-day operations get lighter."
+        },
+        {
+          "s": "a",
+          "ja": "前は自分で入口まわりを作ってたのかな？今までと何が違うんだろう？",
+          "en": "So did people build that entry point themselves before? What's different now?"
+        },
+        {
+          "s": "b",
+          "ja": "従来との細かい比較は、この記事では書かれていないから違いは分からないんだ。書かれているのは、必要に応じて自動で構築されることと、作られるものが全部自分のアカウント内にあることだよ。",
+          "en": "The post doesn't compare it with the old way, so I can't say. What it does say is that setup is automatic and everything is created inside your own account."
+        },
+        {
+          "s": "a",
+          "ja": "面倒な入口づくりを任せられて、しかも中身は自分のアカウントにある。そこが一番の収穫かも！",
+          "en": "So the big win is handing off the tedious entry-point work, while everything still lives in my own account. Right?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めるね。アカウント単位の新しいリソースという位置づけなので、実際にどう使い始めるのかは、次にあわせて確認したいところだよ。",
+          "en": "That's how I read it. It's a new account-level resource, so the next thing to check is how you actually get started with it."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:39:06.661Z"
+    },
+    "7cf69f7ae5c77b67": {
+      "bodyJa": "AIコーディングツールはコードを素早く生成できますが、速度だけではソフトウェアエンジニアリングの最も難しい課題は解決しません。GitHub Copilotを実務でどう使いこなすかについて、3人のJava Championが具体例と実践を語っています。\n\n## 速度だけでは足りない\n\n記事は、AIが生成したコードをそのまま使えば済むわけではないという前提から始まります。開発者には、AIに文脈を与えること、出てきた結果を検証すること、保守性を守ることが引き続き求められます。さらに、最終的に出荷されるものへの責任も開発者自身に残るとされています。\n\n## 3人のJava Champion\n\n話を聞いたのは、いずれもJavaを10年以上使ってきた3人のJava Championです。経験豊富な開発者がこのバランスをどう取っているかを探るのが狙いで、本番開発とオープンソースの両方でGitHub Copilotを使った具体例が紹介されています。あわせて、AIが生成した出力を信頼できるソフトウェアへ仕上げるために各人が実践している方法も共有されています。\n\n## Hypersistenceでの活用\n\n「最近GitHub Copilotはどのように役立ったか」という問いに対する回答の一つとして、Hypersistence UtilsとHypersistence Optimizerの両方で使っているという例が挙がっています。用途は、さまざまな機能の分析、設計、実装です。コードを書く工程だけでなく、その前段にあたる分析や設計にも使われている点が読み取れます。\n\n## 文脈・検証・保守性\n\nこの記事で繰り返し示されているのは、文脈を渡し、結果を確かめ、保守しやすい状態を保つという姿勢です。Copilotの生成速度を活かしつつ、品質と説明責任は人間が引き受ける、という考え方といえます。AI支援で書いたコードを信頼できるものにしたい開発者にとって、経験者がどんな習慣を持っているかを知る手がかりになります。",
+      "bodyEn": "## Speed alone is not enough\n\nAI coding tools can generate code quickly, but the source argues that speed does not solve the hardest software engineering problems. Developers still need to provide context, validate results, protect maintainability, and remain accountable for what ships. That is the frame for a set of conversations with experienced Java developers about how they use GitHub Copilot.\n\n## Three Java Champions\n\nThe article draws on interviews with three Java Champions, each with more than a decade of experience using Java. According to the source, they shared concrete examples of using GitHub Copilot in both production work and open source. They also described the practices they follow to turn AI-generated output into reliable software. The piece is organized around tips collected from these conversations, which is useful for developers who want AI-assisted code they can trust.\n\n## How has Copilot helped you recently?\n\nThe article poses this question to its interviewees. The one answer the source presents in full comes from a developer who says they have been using GitHub Copilot to analyze, design, and implement various features in two projects, Hypersistence Utils and Hypersistence Optimizer. That description covers more than code generation. It spans analysis and design as well as implementation, which fits the article's point that the tool is used within a broader engineering workflow rather than only to produce code faster.\n\n## What readers can take from it\n\nThe central message is that the value of AI coding tools depends on the habits around them. The article names three of these: giving the tool context, checking its results, and keeping the code maintainable. It also stresses that developers stay responsible for what they release. Readers who want practical, experience-based examples of how to apply these ideas with GitHub Copilot, in both commercial and open source settings, are the audience the piece is written for.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Java Championが3人も出てくるんだね。どの人も10年以上のJava経験ってあるけど、これって大きいこと？",
+          "en": "Three Java Champions, each with over ten years of Java experience. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、経験豊富な人がAIとどう付き合うかを知るために3人に話を聞いています。速さだけでは難しい問題は解けない、という前提なんです。",
+          "en": "The article talked to them to see how seasoned developers balance AI use. Its starting point is that speed alone doesn't solve the hardest engineering problems."
+        },
+        {
+          "s": "a",
+          "ja": "「文脈を渡す」ってどういうこと？Copilotに何を渡すのかな。",
+          "en": "What does \"provide context\" mean? What are we handing to Copilot?"
+        },
+        {
+          "s": "b",
+          "ja": "記事に細かい手順はないけど、一般的には、何を作りたいかや周りの状況を伝えることかな。そうすると的外れな答えが減るかもね。",
+          "en": "The article doesn't spell out steps. Generally it means telling the tool what you're building and the surrounding situation, which might cut down off-target answers."
+        },
+        {
+          "s": "a",
+          "ja": "私なら、新しい機能の分析や設計から相談してみたいな。でも最後まで任せていいの？",
+          "en": "I'd try it for analyzing and designing a new feature. But can I leave it to finish the job?"
+        },
+        {
+          "s": "b",
+          "ja": "記事は、結果の検証や保守性の確保、出荷するものへの責任は開発者に残ると言っています。分析や設計、実装に使う例はありますが、任せきりではないんです。",
+          "en": "The article says developers still validate results, protect maintainability, and stay accountable for what ships. It mentions analysis, design and implementation, but not hands-off use."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:39:14.739Z"
+    },
+    "18ea178a7f4055ec": {
+      "bodyJa": "## 20以上のアプリと連携\n\nOrigin App Marketplace が登場し、Origin はデプロイ、CI、コードレビュー、セキュリティ、監視、プロジェクト管理に対応する 20 以上のアプリと連携できるようになった。あわせて一般からのアプリ申請も始まり、利用する側だけでなく作る側にも門戸が開かれた。\n\n利用できるのは、Cloudflare、Linear、Sentry、Socket Security などのパートナーが提供するアプリだ。開発者向けツールを構築しているチームであれば、どのチームでも Origin 向けのアプリを公開できるとされている。\n\n## Origin API での構築\n\nアプリはまず自分のネームスペースで作成する。構築中のアプリは、ネームスペース内で非公開のままとなる。\n\n構築には Origin API を使う。アプリはアプリ JWT とインストールアクセストークンで認証し、ウェブフックイベントを受信する。そのうえで、チェック実行、PR コメント、レビューを Origin に書き戻す仕組みだ。\n\n## 申請とレビューの流れ\n\n公開するには、アプリを公開に設定したうえで、アプリのページから申請する。申請にはスラッグ、推奨タグ、デモ動画を添える。動画では、インストール、アンインストール、そして製品の主要なフローを紹介するよう求められている。\n\n申請内容は運営側でレビューされ、承認され次第、マーケットプレイスに掲載される。\n\n## 公開ガイドとプラグイン\n\nアプリの構築を始めるときは、公開ガイドと Origin API リファレンスを参照するよう案内されている。\n\nあわせて Origin Apps プラグインも用意されている。このプラグインを使うと、最新の Origin API ドキュメントをもとにした質問への回答が得られる。すでに運用中のアプリを Origin へ移行する計画を立てる際にも使える。",
+      "bodyEn": "## Origin App Marketplace launches\n\nOrigin now integrates with more than 20 apps covering deployment, CI, code review, security, monitoring, and project management. For teams that rely on these tools, the marketplace brings them into one place. The announcement names Cloudflare, Linear, Sentry, and Socket Security among the partners providing apps.\n\n## Open to public submissions\n\nAlongside the launch, the marketplace began accepting app submissions from the public. According to the announcement, any team building developer tools can publish an app for Origin. The marketplace has also added apps across the categories listed above.\n\n## How to build and submit\n\nThe announcement lays out a sequence for publishing. First, you create an app in your own namespace, where it stays private while you build it. Next, you build with the Origin API. Apps authenticate with an app JWT and an installation access token, receive webhook events, and write results back as check runs, PR comments, and reviews.\n\nWhen the app is ready, you set it to public and submit it from the app's page. The submission includes a slug, recommended tags, and a demo video. The video should show installation, uninstallation, and the product's main flows. The announcement says the Origin team reviews each submission and lists the app once it is approved.\n\n## Resources for developers\n\nAnyone who wants to build an Origin app is pointed first to the publishing guide and the Origin API reference. The announcement also mentions an Origin Apps plugin. It can answer questions using the latest Origin API documentation, and it can help plan the migration of an app that is already in production over to Origin.\n\nThe apps in the marketplace are available to try now through the Origin App Marketplace.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "20以上のアプリと連携できるって書いてあったけど、どんな分野のアプリなの？",
+          "en": "It says there are 20+ integrations. What kinds of apps are they?"
+        },
+        {
+          "s": "b",
+          "ja": "デプロイ、CI、コードレビュー、セキュリティ、監視、プロジェクト管理の分野だね。Cloudflare、Linear、Sentry、Socket Securityなどのパートナーのアプリがあるよ。",
+          "en": "They cover deployment, CI, code review, security, monitoring and project management. Partners include Cloudflare, Linear, Sentry and Socket Security."
+        },
+        {
+          "s": "a",
+          "ja": "申請の受け付けも始まったんだよね。開発ツールを作ってる人なら、自分のアプリも載せられるってこと？",
+          "en": "Submissions are open too, right? So if I build developer tools, I could list my own app?"
+        },
+        {
+          "s": "b",
+          "ja": "そう、開発者向けツールを作るチームならどなたでも対象だよ。Origin APIで作ったアプリを、申請して承認されれば掲載できるんだ。",
+          "en": "Yes, any team building developer tools can apply. If you build on the Origin API and your submission is approved, the app gets listed."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、ネームスペースで非公開のまま作って、公開に設定して、動画を付けて申請する流れだね。",
+          "en": "So: build privately in my namespace, set it to public, then submit with a demo video. Is that the flow?"
+        },
+        {
+          "s": "b",
+          "ja": "流れはその通り。動画ではインストール、アンインストール、主要なフローを見せる必要があるよ。掲載は、Origin側のレビューで承認されてからだね。",
+          "en": "That's the flow. The video should show install, uninstall and the main product flow, and listing happens only after Origin reviews and approves it."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:39:58.799Z"
+    },
+    "73f986d3e9b463d0": {
+      "bodyJa": "GitHub Copilot app 入門シリーズの最新回は、Copilot にプロジェクト固有のルールを把握させる方法を扱っている。AI との作業では文脈が重要であり、規約やスクリプトをリポジトリ内に置いておけば、毎回同じ説明を繰り返さずに済むと説明されている。\n\n## コードベースごとの流儀\n\nどのコードベースにも、その場所ならではのハウスルールがある。コンポーネントをどう構成するか、どのスクリプトを実行するか、フレームワークやファイルの種類ごとにどの規約が適用されるか、といったことだ。Copilot はプロジェクト全体にわたる変更を手伝えるが、こうしたルールを知っているときのほうがよく機能するとされる。\n\nその知識の多くはリポジトリの中に置いておける。そうすれば Copilot が自動的に拾い上げるため、新しいタスクを始めるたびに同じ標準、スクリプト、ワークフローを人が説明し直す必要がなくなる。\n\n## 4つの調整方法\n\n今回の記事では、Copilot がプロジェクトに合わせて動く仕組みを整える方法として、4つの手法が紹介されている。そのうち、カスタム指示、エージェントスキル、カスタムエージェントの3つについて、役割の違いが次のように示されている。\n\n## 指示・スキル・エージェント\n\nカスタム指示は、Copilot が従うべき規約を伝えるためのものである。いわば、そのプロジェクトで守ってほしいルールを書き添えておく手段にあたる。\n\nエージェントスキルは、繰り返し行う手順をひとまとめにするためのものとされる。毎回同じ流れで進めたい作業を、再利用できる形で用意しておく発想だ。\n\nカスタムエージェントは、より大きなタスクに対して専門的なガイダンスをもたらす。規約を伝える、手順をまとめる、専門的な助言を加えるという形で、それぞれ異なる角度から Copilot の振る舞いを方向づけるものと整理できる。",
+      "bodyEn": "## Context matters with AI\n\nThis installment of the GitHub Copilot app for Beginners series looks at how to help Copilot understand a codebase. The source frames the problem simply: every project has its own house rules, and Copilot works best when it knows them.\n\nAccording to the source, those rules include how components are structured, which scripts to run, and which conventions apply to different frameworks and file types. Copilot can help make changes across a project, but it is more effective when it has this knowledge in hand.\n\n## Rules that live in the repository\n\nThe central idea is that much of this knowledge can be stored inside the repository itself. Copilot can then pick it up automatically, rather than a developer having to explain the same standards, scripts, and workflows each time a new task begins. For anyone who finds themselves repeating the same background to Copilot, this is the practical benefit the article highlights.\n\n## Four ways to tailor Copilot\n\nThe article says it will cover four ways to tailor how Copilot works with a project. The source text describes three of them:\n\nCustom instructions communicate the conventions Copilot should follow. In other words, they are the place to state a project's expected practices.\n\nAgent skills package repeatable procedures. They suit work that follows the same steps more than once.\n\nCustom agents bring specialized guidance to larger tasks. They are positioned for bigger pieces of work where focused direction helps.\n\nThe fourth method is not named in the material available here, so this explainer does not describe it.\n\n## What to take from it\n\nThe summary of the installment is that conventions and scripts can be kept in the repo so Copilot learns them without repeated prompting. The article is aimed at beginners using the GitHub Copilot app and is part of an ongoing series. Beyond the descriptions above, the source does not provide setup steps, file names, or examples, so the specifics of how each method is configured are left to the full installment.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "毎回同じ説明をしなくていいって書いてあったね。Copilotはどうやってルールを知るの？",
+          "en": "It says we don't have to repeat the same explanations every time. How does Copilot learn the rules?"
+        },
+        {
+          "s": "b",
+          "ja": "規約やスクリプトをリポジトリの中に置いておくと、Copilotが自動で拾ってくれる、という考え方だよ。",
+          "en": "The idea is to keep conventions and scripts inside the repository, so Copilot can pick them up automatically."
+        },
+        {
+          "s": "a",
+          "ja": "チームの決まりごとを置いておけば、新しい作業のたびに説明し直さなくていいってこと？ 手順も置けるのかな？",
+          "en": "So if we store our team's rules there, we skip re-explaining on each new task? Can procedures go in too?"
+        },
+        {
+          "s": "b",
+          "ja": "カスタム指示は守ってほしい規約を伝える役で、エージェントスキルは繰り返す手順をまとめる役だよ。",
+          "en": "Custom instructions communicate the conventions to follow, and agent skills package repeatable procedures."
+        },
+        {
+          "s": "a",
+          "ja": "つまりプロジェクトの「家のルール」を先に置いておくと、Copilotが合わせやすくなるんだね。",
+          "en": "So we put our project's house rules in place first, and Copilot can work with them more easily."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。ただ記事は「知識の多く」を置けると言っていて、全部とは言っていないよ。大きな作業にはカスタムエージェントも挙がってるね。",
+          "en": "Right. But the article says \"much of\" that knowledge can live in the repo, not all of it. Custom agents are mentioned for larger tasks."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:40:12.714Z"
+    },
+    "dfd231f6d2cdbbdb": {
+      "bodyJa": "Ai2は、海洋の状況把握に使うAIエージェント「Shippy」の設計と、開発から得た教訓を公開した。誤った答えが現実に影響する分野で、エージェントをどう信頼できるものにするかが中心テーマだ。\n\n## 誤答が許されない領域\n\nShippyは、Skylightチームが開発した、リアルタイムの海洋状況把握(maritime domain awareness)のためのAIである。重大な判断に使われることを前提に作られており、間違った答えが実害につながる場面を想定している。\n\n海洋保護のような運用領域では、信頼性が何より重要になると説明されている。たとえば海洋アナリストが誤った回答を受け取ると、巡視船が見当違いの方向へ数マイルも進みかねない。すでに余裕のない資源を無駄にし、人員を危険にさらす可能性もあるという。\n\n## 根拠を添えるShippyの回答\n\n公開された例では、Shippyはガーナの排他的経済水域(EEZ)に関するライブの問い合わせに答えている。回答には、境界データの出典、データの締め日時、問い合わせ時刻が示される。さらにSkylightの地図へのディープリンクが付き、アナリストはすべての数値を自分で確認できる。\n\n回答の過程を見せ、検証できる形にしている点が、この事例の特徴である。\n\n## モデルだけではない課題\n\nSkylightチームは、Shippyの開発で本当に取り組むべき作業はモデルそのものではなかったとしている。その具体的な中身は、アーキテクチャの解説として示される。\n\nここで得られた教訓は、Ai2が手がける他の環境関連プラットフォームにも持ち込まれるという。エージェントの設計上の課題やアーキテクチャ上の判断を、信頼できるエージェントを作る開発者が参照できる形でまとめた内容である。",
+      "bodyEn": "## Shippy and high-stakes decisions\n\nShippy is a maritime AI agent built for decisions where a wrong answer has real consequences. According to the source, the Skylight team created it as an AI for real-time maritime domain awareness, and the lessons from its architecture are being carried into Ai2's other environmental platforms. The article, published by AllenAI on the Hugging Face blog, frames the project as a case study in building agents that people can depend on.\n\n## Reliability is the real problem\n\nThe source argues that building an AI agent for an operational domain such as protecting the ocean is, above all, a problem of reliability. It gives a concrete example of why: for a maritime analyst, a wrong answer could send a patrol vessel miles in the wrong direction. That would cost significant resources that are already stretched thin and could potentially put personnel in harm's way. In the authors' words, when the Skylight team set out to build Shippy, the real work was not the model.\n\n## Showing its work\n\nThe article illustrates this approach with a live query about Ghana's exclusive economic zone (EEZ). In that example, Shippy's response shows its work. It surfaces the boundary source, the data cutoff, and the query timestamp. It also includes a deep link back to the Skylight map, so the analyst can verify every number the agent reports.\n\nThis design choice reflects the article's stated priority. Rather than asking users to trust an answer, the response gives them the provenance details and a direct path to the underlying map for checking it.\n\n## What the article covers\n\nAccording to the summary of the piece, AllenAI shares practical lessons from building Shippy, including key design challenges and architectural decisions relevant to anyone developing reliable agents. The source describes the material as the architecture behind Shippy and the lessons the team is applying elsewhere within Ai2's environmental platforms. The portion of the article available here focuses on the motivation, which is reliability in a high-stakes setting, and on the example of a verifiable, source-cited answer.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Shippyって、どんなエージェントなの？なんで「信頼性」がそんなに大事なんだろう？",
+          "en": "What kind of agent is Shippy? And why is reliability such a big deal here?"
+        },
+        {
+          "s": "b",
+          "ja": "海の上の状況を扱うAIで、間違った答えが現実に響く場面向けなんだ。巡視船が違う方向へ向かうかもしれないからね。",
+          "en": "It's a maritime AI agent for high-stakes decisions, where a wrong answer has real impact. A patrol vessel could be sent the wrong way, for example."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、答えに根拠が付いてると、アナリストさんが確かめやすいってこと？",
+          "en": "So when answers come with their sources, an analyst can check them more easily?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。ガーナのEEZの例では、境界の出典、データの期限、問い合わせ時刻、Skylightの地図へのリンクが示されていたよ。",
+          "en": "Right. In the Ghana EEZ example, it showed the boundary source, data cutoff, query timestamp, and a deep link to the Skylight map."
+        },
+        {
+          "s": "a",
+          "ja": "モデルがすごいだけじゃなくて、確かめられる作りが本番の仕事なんだね。",
+          "en": "So the real work isn't just a smart model. It's building something you can verify."
+        },
+        {
+          "s": "b",
+          "ja": "うん、記事でも本当の作業はモデルではないと言っているよ。ただ、この抜粋だけでは設計の細部までは分からないんだ。",
+          "en": "Yes, the post says the real work wasn't the model. Still, this part doesn't show the finer design details."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:40:50.287Z"
+    },
+    "30026603616ef245": {
+      "bodyJa": "Hugging Faceが、AWSのエージェント開発フレームワーク「Strands Agents」とロボット学習ライブラリ「LeRobot」を組み合わせ、Hugging Face Hub上の学習済みロボットモデルを実機ハードウェアへ展開するパイプラインを公開した。AIエージェントと実世界のロボティクスをつなぐ橋渡しとして、これまで専門知識を要したロボット制御の実装を大幅に平易化する試みだ。\n\nLeRobotは、Hugging Faceが主導するオープンソースのロボティクス向けライブラリで、模倣学習や強化学習に基づくポリシー(制御モデル)、データセット、シミュレーション環境を提供する。ACTやDiffusion Policyといった近年注目される手法を実装しており、比較的安価な自作ロボットアーム「SO-100」などと組み合わせて、収集した実演データから動作を学習させられる点が特徴とされる。学習済みモデルはHub上で共有でき、他者の成果を再利用しやすい。\n\n一方のStrands Agentsは、AWSが公開したエージェント構築用のSDKで、大規模言語モデル(LLM)を中核に据え、ツール呼び出しや推論を通じてタスクを自律的に遂行させる設計思想を持つ。今回の連携では、このエージェントが自然言語の指示を解釈し、LeRobotのポリシーを「ツール」として呼び出すことで、モデル推論から実機の動作までを一連の流れとして扱えるようになると見られる。\n\n背景には、生成AIの進展を物理世界へ拡張しようとする潮流がある。Google DeepMindのRT-2やスタートアップのPhysical Intelligenceなど、視覚・言語・行動を統合するVLA(Vision-Language-Action)モデルの研究が活発化しており、ロボティクスはLLMエコシステムの次の実装先として注目を集めている。\n\nソフトウェアとハードウェアの間に残る実装上の壁を下げることで、研究者だけでなく一般の開発者や愛好家も実機ロボットへ踏み出しやすくなる可能性がある。もっとも、実世界での動作には安全性の確保や環境差への対応など固有の課題も残っており、本格的な実用化にはさらなる検証が求められそうだ。",
+      "bodyEn": "A new Hugging Face blog post outlines a workflow that connects Strands Agents, an open-source agent framework backed by AWS, with LeRobot, Hugging Face's robotics library, to move machine learning models from the Hugging Face Hub onto physical robot hardware. The topic matters because the step between a trained policy sitting in a model repository and a robot arm that actually moves has traditionally required substantial glue code and domain expertise, and this pipeline aims to reduce that friction for developers experimenting with embodied AI.\n\nAt the center of the approach are two distinct projects. Strands Agents is a model-driven SDK for building AI agents, emphasizing a loop in which a language or reasoning model plans actions and calls tools to accomplish tasks. It is designed to be model-agnostic and to integrate with a range of providers, and it has been positioned as a lightweight way to give large language models the ability to invoke external functions. LeRobot, maintained by Hugging Face, provides datasets, pretrained models, and simulation and hardware interfaces for real-world robotics, including support for affordable, accessible robot designs such as the SO-100 and SO-101 arms. By treating robot control as a set of callable tools, the post shows how an agent can reason about a goal and then delegate the physical execution to LeRobot.\n\nThe described pipeline appears to work by exposing LeRobot capabilities as tools that a Strands agent can call. In practice this means a developer can pull a pretrained robot policy, often a vision-language-action or imitation-learning model, directly from the Hub, load it through LeRobot, and let the agent orchestrate when and how it runs. The agent handles higher-level reasoning, such as interpreting a natural-language instruction, while the underlying model produces the low-level motor commands that drive the hardware. This separation of concerns is a common pattern in current robotics research, where a foundation model provides semantic understanding and a specialized policy handles fine-grained control.\n\nSeveral technical prerequisites underpin this kind of setup. Robot learning models on the Hub are frequently distributed alongside standardized dataset formats and configuration files so they can be reproduced across machines. LeRobot's abstractions for cameras, motors, and teleoperation matter here, because a policy trained on one physical configuration typically needs matching observation and action spaces to run correctly on another. The blog is likely to stress calibration, safety, and the gap between simulation and reality, since policies that perform well in benchmarks can behave unpredictably on real hardware. Readers should treat any demonstration as an early-stage illustration rather than a production-grade guarantee.\n\nThe broader context helps explain why both Hugging Face and AWS are investing in this area. Over the past few years, robotics has increasingly borrowed techniques from the large language model boom, with growing interest in generalist policies trained on large, diverse datasets. Projects such as Google DeepMind's RT-2 and the Open X-Embodiment collaboration popularized the idea of vision-language-action models, and Hugging Face has pushed to make similar capabilities openly available through LeRobot, including its own pi0-style and ACT-based policies. Hugging Face's acquisition of the startup behind the Pollen Robotics reachy platform signaled a deeper commitment to open hardware, complementing the software libraries.\n\nStrands Agents fits into a crowded field of agent frameworks that includes LangChain, LlamaIndex, and Microsoft's AutoGen, among others. What the integration adds is a concrete bridge between the agentic reasoning layer and the embodied action layer, an area that many text-focused agent tools do not address directly. For AWS, supporting robotics workloads aligns with its cloud services for model training and deployment, and using open models from the Hub keeps the workflow accessible to individual developers rather than limiting it to proprietary stacks.\n\nFor practitioners, the practical takeaway is that assembling a working robot demonstration now involves fewer bespoke components: a model from the Hub, LeRobot for the hardware interface, and Strands Agents for orchestration. The approach still depends on having compatible physical hardware and careful testing, and real-world reliability remains the hardest part of any robotics project. Even so, lowering the barrier to connecting open models with inexpensive robots could widen participation in embodied AI research, and the post serves as a reference implementation that others can adapt to their own setups.",
+      "model": "claude-opus-4.8",
+      "generatedAt": "2026-07-12T00:52:29.130Z"
     }
   }
 }

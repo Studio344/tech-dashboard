@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T08:30:59.162Z",
-  "count": 412,
+  "generatedAt": "2026-11-28T09:30:55.546Z",
+  "count": 414,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -14118,88 +14118,6 @@
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T17:50:09.577Z"
     },
-    "e33edd69f7816887": {
-      "bodyJa": "## 支援から実行へ\n\nOpenAIの調査は、企業のAI活用が単純な支援から自律的な実行へ移りつつあることを示した。ChatGPTとCodexを通じ、AIをアシスタントとして使う段階から、実行エージェントとして活用する動きが明らかになった。\n\n## 先進企業の先行\n\n調査では、企業間の採用状況にも差があるとされる。特に先進企業は、AIを自律的な実行エージェントへ移行させる採用で他の企業より大きく先行しており、支援中心の利用との違いが示されている。",
-      "bodyEn": "## From simple assistance\n\nOpenAI research examines how enterprises are adopting agentic AI through ChatGPT and Codex. The shift matters because the research describes companies moving beyond simple assistance toward AI that can perform autonomous execution.\n\n## Frontier adopters pulling ahead\n\nAccording to the research, this transition is taking place through the use of ChatGPT and Codex, with AI moving from an assistant role to an execution agent. The findings also indicate a gap in adoption: frontier firms are pulling significantly ahead of their peers as enterprises put agentic AI into use.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIが「支援」から「実行」に移るって、ChatGPTやCodexが何をするようになるの？",
-          "en": "When AI shifts from “assistance” to “execution,” what do ChatGPT and Codex actually start doing?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、人を支えるだけでなく、仕事を自律的に実行するエージェントとして使う流れを示しているよ。",
-          "en": "The research describes companies using them not just to assist people, but as agents that execute work autonomously."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ企業は、AIに助けてもらうだけじゃなく、仕事の実行も任せ始めているんだね？",
-          "en": "So companies are starting to let AI carry out work, rather than only asking it for help?"
-        },
-        {
-          "s": "b",
-          "ja": "うん。ChatGPTやCodexを支援の道具から実行を担う仕組みへ広げ、先進企業ほど採用で先行しているんだ。",
-          "en": "Yes. They’re expanding ChatGPT and Codex from support tools into execution systems, with frontier firms further ahead in adoption."
-        },
-        {
-          "s": "a",
-          "ja": "AI活用が、相談相手を置く段階から、実際に動いてもらう段階へ進んでいるんだね。",
-          "en": "Got it—AI use is moving from having a helper to having something that actually carries out the work."
-        },
-        {
-          "s": "b",
-          "ja": "ただ、先進企業とほかの企業には採用の差があるから、すべての企業が同じ段階とは限らないよ。",
-          "en": "One caution: adoption differs between frontier firms and their peers, so not every company is at the same stage."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T18:10:07.705Z"
-    },
-    "e308cad69399bfa1": {
-      "bodyJa": "## AI時代のスコアカード\n\nOpenAIは、AI時代の社会・経済・安全面における進捗を評価するスコアカードの枠組みを公開した。AIの影響を可視化し、継続的に追跡する基準を設けることで、説明責任と透明性の向上を目指す取り組みだ。\n\n## ROIの測定基準\n\nOpenAIのCFOであるSarah Friarは、実用的なAIスコアカードを紹介した。ROIは、有用な仕事、成功したタスク当たりのコスト、信頼性、コンピュートに対するリターンという観点から測定する。AIの成果を単一の指標ではなく、実際の仕事や費用、安定性を含めて捉える枠組みとなっている。",
-      "bodyEn": "## Practical AI scorecard\n\nOpenAI introduced a framework for measuring and tracking AI progress across social, economic, and safety dimensions. The scorecard matters because it is intended to improve accountability and transparency around how AI development affects the world.\n\n## Measuring useful work\n\nSarah Friar, OpenAI’s CFO, presents the scorecard as a practical way to measure return on investment. Its measures include useful work, the cost per successful task, dependability, and return on compute.\n\nBy establishing criteria for tracking these areas, the framework is designed to make AI’s effects more visible and support evaluation of social, economic, and safety progress.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "ROIを4つの項目で測るんだね。これって大きい変化なの？",
-          "en": "They’re measuring ROI across four areas. Is that a big shift?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、AIの成果を複数の軸で追い、社会・経済・安全への影響と説明責任を見えやすくする試みなんだ。",
-          "en": "Here, the idea is to track AI outcomes across several dimensions, making its social, economic, and safety impact—and accountability—more visible."
-        },
-        {
-          "s": "a",
-          "ja": "「リターン・オン・コンピュート」って、どういう意味？",
-          "en": "What does “return on compute” mean?"
-        },
-        {
-          "s": "b",
-          "ja": "計算資源を使った分に対して、どれだけ役立つ成果が得られたかを見る考え方だよ。",
-          "en": "It means looking at how much useful output you get for the computing resources you use."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、よくする作業で、成功した回数や費用を記録してみたいな。",
-          "en": "I’d try tracking successful runs and costs for a task I do often."
-        },
-        {
-          "s": "b",
-          "ja": "いいね。成功したタスク当たりの費用だけでなく、役立つ仕事か、安定して動くかも一緒に見る枠組みだよ。",
-          "en": "That fits. The framework also considers whether the work is useful and dependable, not just the cost per successful task."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T20:10:32.501Z"
-    },
-    "994629e453e69916": {
-      "bodyJa": "## GPT-5.6 が標準モデルに\n\nOpenAI の GPT-5.6 が、Microsoft 365 Copilot を支える標準モデルに位置づけられた。何百万人もが使う業務向けの生産性ツールに、最新の機能が届くとされる。\n\n両社の連携は、ビジネスユーザーの生産性向上に向けて一層深まったと説明されている。\n\n## Word から Cowork まで\n\nGPT-5.6 は、Word、Excel、PowerPoint、Chat、Cowork にわたって、より強力な AI 機能を提供すると説明されている。目的は、仕事をより速く、より高品質に進められるようにすることだ。",
-      "bodyEn": "## GPT-5.6 Powers Microsoft 365 Copilot\n\nOpenAI's GPT-5.6 has been designated the default model behind Microsoft 365 Copilot, according to the announcement. This matters because Copilot sits inside productivity tools that the source describes as used by millions of people in enterprises.\n\nThe announcement says the model brings stronger AI capabilities to Word, Excel, PowerPoint, Chat, and Cowork.\n\n## Faster, Higher-Quality Work\n\nThe stated aim is faster, higher-quality work for business users. The source frames the move as a deeper collaboration between OpenAI and Microsoft on productivity.\n\nThe material does not give benchmarks, rollout timing, or pricing, so the practical size of the improvement is not specified here.",
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T05:40:16.061Z"
-    },
     "75a9f02f59a5e1ff": {
       "bodyJa": "MCP(Model Context Protocol)でファイルのアップロードとダウンロードをどう扱うかについて、検討の取り組みが紹介されている。モデルとツールをつなぐ単純な仕組みとして始まったMCPで、ファイルを扱う需要が目立ってきたことが背景にある。\n\n## 野心的になった用途\n\nMCPは、モデルをツールに接続する簡単な方法として出発した。その原則は今もプロトコルの中心にあると説明されている。一方で、この2年ほどのあいだに、MCPを使って作られるものは大きく野心的になったという。\n\nその結果、多くのMCPサーバーのプロジェクトがファイルを扱う必要に迫られている。要因として挙げられているのは、エージェントの能力と自律性が高まっていることだ。\n\n## PDFとCSVの例\n\n開発者から寄せられる要望として、具体的に二つの場面が示されている。一つは、会話の中にあるPDFをクラウドストレージに保存すること。もう一つは、CSVファイルをサンドボックスに取り込むことである。MCPを採用する開発者のあいだで、どちらもすでに非常によくある要望になっているという。\n\n## 個別実装という課題\n\n現状では、こうした場面を実現するには、ツールごとの独自の規約や転送の仕組みをいくつも用意する必要があると述べられている。これを開発者が何度も繰り返す状況は望ましくない、というのが書き手の見方だ。\n\n同じ要望が顧客との議論で繰り返し出てきたことから、ファイルのアップロードを扱うワーキンググループが立ち上げられた。ファイルのやり取りを標準的な形で扱えるようにすることで、サーバー開発者が個別の転送方法を作り込まずに済むようにすることが狙いとみられる。",
       "bodyEn": "The Model Context Protocol (MCP) is now being looked at for a common need: moving files between models and servers. According to the MCP blog, file handling has become a frequent request, and the post explores how uploads and downloads could be supported in a standard way.\n\n## Connecting Models to Tools\n\nThe post describes MCP as having started out as a simple way to connect models to tools, and says that principle remains at its heart. It adds that over the past two years the things people build with the protocol have become much more ambitious.\n\n## Files and Agent Autonomy\n\nMany MCP server projects now need to work with files, the post says, often driven by increasing agent capabilities and autonomy. It gives two examples that developers adopting MCP ask for regularly: saving a PDF from a conversation to cloud storage, and pulling a CSV into a sandbox. Both involve moving file content in or out of a conversation, which is the scenario the post sets out to address.\n\n## Bespoke Tool Conventions\n\nAs the post describes it, implementing these scenarios today requires a bunch of bespoke tool conventions and transfer mechanisms. The authors say this is not something they want developers doing over and over. The implication is that each server project currently has to devise its own way to handle file transfer, and the effort is aimed at replacing that repeated work with a shared approach.\n\n## A File Uploads Working Group\n\nThe post says the request kept coming up in customer discussions. In response, the authors bootstrapped a File Uploads Working Group. The group's creation shows the topic is being treated as a dedicated line of work rather than something left to individual server authors.\n\nThe material available describes the problem and the motivation, not a finished design. No specific mechanism for uploading or downloading files is spelled out here, so readers looking for protocol details should consult the full post. What is clear is the goal: a standard way to handle file uploads and downloads so that server developers can skip custom transfer conventions.",
@@ -14276,11 +14194,201 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T07:39:06.440Z"
     },
-    "51048f5bdd794dad": {
-      "bodyJa": "## AIネイティブな通信事業者\n\nDeutsche TelekomはOpenAIと提携し、AIネイティブな通信事業者への転換を進めている。通信業界における大規模なAI導入の先進事例として注目されている。\n\n## 刷新される四つの領域\n\n取り組みの対象とされているのは、顧客サポート、従業員のワークフロー、ネットワーク運用、そして音声(ボイス)の将来である。\n\nとくに顧客サポートとネットワーク運用は、AIによる刷新の例として挙げられている。いずれも通信事業者の日常業務に直結する領域であり、AIを軸に見直す対象になっている。",
-      "bodyEn": "## Becoming an AI-native telco\n\nDeutsche Telekom is working with OpenAI to become what the source calls an \"AI-native telco.\" The partnership is presented as a significant enterprise deployment of AI in the telecom sector.\n\nAccording to the source, the effort covers four areas: customer service, employee workflows, network operations, and the future of voice.\n\n## Customer service and networks\n\nThe announcement says AI is being used to transform customer service and network operations, two areas the summary highlights specifically. Employee workflows and the future of voice are also named as parts of the transformation.\n\nThe source gives no figures, timelines, or technical specifics about how these changes are implemented, so the scope is best understood as the broad direction described above.",
+    "054a7a7121d7d525": {
+      "bodyJa": "## GPT-5.6 が標準モデルに\n\nOpenAI の GPT-5.6 が、Microsoft 365 Copilot を支える標準モデルに位置づけられた。何百万人もが使う業務向けの生産性ツールに、最新の機能が届くとされる。\n\n両社の連携は、ビジネスユーザーの生産性向上に向けて一層深まったと説明されている。\n\n## Word から Cowork まで\n\nGPT-5.6 は、Word、Excel、PowerPoint、Chat、Cowork にわたって、より強力な AI 機能を提供すると説明されている。目的は、仕事をより速く、より高品質に進められるようにすることだ。",
+      "bodyEn": "## GPT-5.6 Powers Microsoft 365 Copilot\n\nOpenAI's GPT-5.6 has been designated the default model behind Microsoft 365 Copilot, according to the announcement. This matters because Copilot sits inside productivity tools that the source describes as used by millions of people in enterprises.\n\nThe announcement says the model brings stronger AI capabilities to Word, Excel, PowerPoint, Chat, and Cowork.\n\n## Faster, Higher-Quality Work\n\nThe stated aim is faster, higher-quality work for business users. The source frames the move as a deeper collaboration between OpenAI and Microsoft on productivity.\n\nThe material does not give benchmarks, rollout timing, or pricing, so the practical size of the improvement is not specified here.",
       "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T07:39:54.437Z"
+      "generatedAt": "2026-11-28T05:40:16.061Z"
+    },
+    "b16604bccef4572d": {
+      "bodyJa": "MCP Serversがv2.0.0としてリリースされた。すべてのサーバーがmodern era仕様に対応するようリファクタリングされ、legacy eraのクライアントにも従来どおり応答すると説明されている。\n\n## 全サーバーをmodern eraへ\n\n今回のリリースの中心は、全サーバーの作り直しである。すべてのサーバーをmodern era仕様に対応させるリファクタリングが行われた。\n\n一方で、legacy eraのクライアントに対しても期待どおりに応答する状態が保たれるという。新しい仕様へ合わせつつ、従来のクライアントからの利用も引き続き想定した形だ。\n\n## 公開された7パッケージ\n\n今回公開されたパッケージは7つある。npmでは @modelcontextprotocol/server-everything、@modelcontextprotocol/server-filesystem、@modelcontextprotocol/server-memory、@modelcontextprotocol/server-sequential-thinking の4つが、いずれもバージョン2.0.0として公開された。\n\nPyPIでは mcp-server-fetch、mcp-server-git、mcp-server-time の3つが公開されている。こちらのバージョンは3つとも2026.10.19で、npm側の2.0.0とは番号の付け方が異なる。\n\n## TS SDK v2への移行\n\n変更内容として挙がっているのは、TypeScript製サーバーをTS SDK v2へ移行する作業である。codemodを使った移行で、@cliffhall による #5063 として記載されている。\n\nこのリリースの管理名(Release ledger)は v2/chore/5159-release-v2.0.0 とされている。",
+      "bodyEn": "## Servers refactored to modern era\n\nThe MCP Servers v2.0.0 release refactors all of the servers to support the modern era spec. This matters for anyone running these servers, because the release says it still answers legacy era clients as expected, so existing clients are not left behind.\n\n## Packages in this release\n\nThe release publishes seven packages across two registries. Four go to npm, each at version 2.0.0: @modelcontextprotocol/server-everything, @modelcontextprotocol/server-filesystem, @modelcontextprotocol/server-memory, and @modelcontextprotocol/server-sequential-thinking.\n\nThree go to PyPI under a date-based version, 2026.10.19: mcp-server-fetch, mcp-server-git, and mcp-server-time. The two registries therefore use different versioning schemes in this release. The npm packages carry the 2.0.0 number, while the PyPI packages carry the date-style number.\n\nThe release is tracked under the ledger entry v2/chore/5159-release-v2.0.0, and every package in the table is marked as published.\n\n## What's changed\n\nThe notes list the changes under the @modelcontextprotocol/server-everything 2.0.0 entry. One item is a chore to migrate the TypeScript servers to TS SDK v2 using a codemod, credited to @cliffhall in #5063. Another item refers to a v1.0.0 release audit, but the text is cut off after that point, so nothing further can be said about its contents.\n\nBased on what the release describes, the main points are the following:\n\nThe servers were refactored for the modern era spec.\n\nLegacy era clients continue to receive the responses they expect.\n\nThe TypeScript servers were moved to TS SDK v2 through a codemod.\n\nFour npm packages and three PyPI packages were published as part of this release.\n\nTaken together, the release is framed as a spec-alignment update for the full set of reference servers, with backward compatibility for older clients stated as part of the design.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "7つのパッケージが公開されたって書いてあったけど、npmとPyPIで分かれてるのはなんで？",
+          "en": "Seven packages were published, but some are on npm and some on PyPI. Why the split?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、everything・filesystem・memory・sequential-thinkingの4つがnpm、fetch・git・timeの3つがPyPIです。分かれている理由までは書かれていません。",
+          "en": "Here, everything, filesystem, memory, and sequential-thinking are on npm, while fetch, git, and time are on PyPI. The article doesn't say why they're split."
+        },
+        {
+          "s": "a",
+          "ja": "「モダン時代の仕様」に作り直したのに、古いクライアントも使えるの？",
+          "en": "They rebuilt it for the modern-era spec, but older clients still work?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、全サーバーを新しい仕様に対応させつつ、従来仕様のクライアントにも今まで通り応答すると書かれています。だから移行しやすい、という流れですね。",
+          "en": "Yes. All servers now support the modern spec while still answering legacy clients as expected. That's what makes moving over easier."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ今使ってる人は、すぐ慌てて切り替えなくてもよさそうってこと？",
+          "en": "So people using them now don't have to rush to switch, right?"
+        },
+        {
+          "s": "b",
+          "ja": "古いクライアントも引き続き動くと書かれているので、その点は安心材料かもね。ただ、個別の環境でどうなるかまでは記事からは分かりません。",
+          "en": "Since older clients keep working, that's reassuring. But the article doesn't tell us how it plays out in any specific setup."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:38:13.052Z"
+    },
+    "26d1c78ff9f0ac95": {
+      "bodyJa": "VS Code 1.142 では、エージェントとの共同作業を広げるキャンバス機能がプレビューとして加わりました。チャットを文脈ごと別の作業場所へ移せるようになったほか、Markdown エディターの拡張や、エージェントの権限に対する管理者向け制御の強化も含まれます。\n\n## キャンバス(プレビュー)\n\n目玉は「Canvases」です。チャットだけにとどまらず、視覚的でインタラクティブなキャンバスを使ってエージェントと協力して作業できる機能と説明されています。リリースの紹介では、エージェントのワークフロー向けの共有キャンバスとして位置づけられています。\n\n現時点ではプレビュー段階にあたります。細かな操作方法や対応範囲については、ここで確認できる情報はありません。\n\n## チャットの移動\n\n「Move chats」では、進行中のチャットを別のフォルダー、または新しい Git worktree で続けられます。会話の履歴は失われないとされています。\n\n作業場所を切り替えるたびに、これまでのやり取りを最初から説明し直す必要がなくなります。\n\n## Markdownの強化\n\nMarkdown エディターには、Markdown ファイルをより効率よく扱うための機能が追加されました。挙げられているのは次のものです。\n\n画像の貼り付け、ファイルリンクの名前変更、パンくずナビゲーションです。\n\nあわせて、管理者がエージェントの権限をより細かく制御できるようになったと案内されています。具体的な設定項目までは示されていません。\n\n## harnessの廃止予定\n\n今回のリリースには注意点もあります。Local harness は非推奨となっており、2027 年 2 月に削除される予定です。移行先として Copilot harness が案内されており、移行の詳細は専用の案内で確認するよう促されています。\n\nまた、Microsoft Ignite のセッション録画も公開されています。まだ試していない新機能は、Insiders ビルドで先行して確認できます。すでに VS Code をインストール済みの場合は、「Check for Updates」から更新できます。",
+      "bodyEn": "## Canvases for agent workflows\n\nVisual Studio Code 1.142 focuses on how developers work with agents, and it adds tools for teams that manage those workflows. According to the release notes, the update brings shared canvases, a way to move chats, an expanded Markdown editor, and more administrator control over agent permissions.\n\nThe headline addition is Canvases, which is labeled Preview. The notes describe it as a way to collaborate with agents beyond chat by using visual and interactive canvases. This means agent work is no longer limited to a text conversation.\n\n## Move chats without losing context\n\nThe release also lets you continue a chat in another folder or in a new Git worktree without losing conversation history. The source presents this as a way to keep the context of an existing conversation while switching the location where work continues. No further mechanics of the feature are given.\n\n## Markdown editor improvements\n\nThe Markdown editor has been expanded so that Markdown files can be worked on more efficiently. The notes name three examples: pasting images, renaming file links, and breadcrumb navigation.\n\n## Admin controls and deprecation notice\n\nThe announcement says administrators get more control over agent permissions. The release notes do not describe which specific settings are involved.\n\nA warning at the top of the notes states that the Local harness is deprecated and will be removed in February 2027. It points readers to information about the move to the Copilot harness. Anyone relying on the Local harness has a stated removal date to plan around.\n\nThe notes also invite readers to watch the VS Code session recordings from Microsoft Ignite. Download options listed include .deb, .rpm, .tar.gz, Arm instructions, and Snap. Users who already have VS Code installed can use Check for Updates, and those who want to try upcoming features can use the Insiders build.\n\nTaken together, the notes describe version 1.142 as a release aimed at collaborative agent use, easier handling of ongoing chats, better Markdown editing, and tighter administrative oversight.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "キャンバス（プレビュー）って、チャットと何が違うの？エージェントとどう一緒に使うんだろう？",
+          "en": "What's a canvas (Preview) compared to chat? How do you use it with agents?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、チャットだけでなく視覚的でインタラクティブなキャンバスでエージェントと共同作業できる、とあります。細かい使い方までは書かれていません。",
+          "en": "The article says canvases are visual and interactive, so you can work with agents beyond chat. It doesn't go into exactly how you use them."
+        },
+        {
+          "s": "a",
+          "ja": "チャットを別フォルダーや新しいGit worktreeに移せるのは、どんな時に助かるのかな？",
+          "en": "Moving a chat to another folder or a new Git worktree... when would that help?"
+        },
+        {
+          "s": "b",
+          "ja": "会話の履歴を失わずに続きができる点です。作業場所を変えても、それまでの文脈を引き継げるのが助かりそうですね。",
+          "en": "You keep the conversation history and continue where you left off. So switching work locations doesn't mean losing context."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ今回は、エージェントとの作業が広がって、Markdownも書きやすくなって、管理者の権限も調整しやすくなったんだね。",
+          "en": "So agent work gets broader, Markdown editing gets easier, and admins get more permission control. Right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。ただキャンバスはプレビューです。それと、Localハーネスは非推奨で2027年2月に削除予定とも書かれています。",
+          "en": "Yes. Just note canvases are in preview. The article also says the Local harness is deprecated and will be removed in February 2027."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:39:37.489Z"
+    },
+    "74ffca4992b2bed0": {
+      "bodyJa": "## コンテキスト考慮の分類\n\nGitHubは、シークレット検出の品質を高めるため、コンテキストを考慮するシークレット分類モデルを導入した。ノイズを減らしながら、より多くのシークレットを見つけられる点が特徴とされる。\n\n## 採用率11.5%の向上\n\nGitHubによると、このモデルによって重み付き採用率は11.5%向上した。検出品質の改善が数値で示された形で、誤検知を抑えつつ検出精度を高められると説明されている。\n\n## 実行時間86%短縮\n\nスキャン実行時間の中央値は86%短縮されたという。検出精度の向上と処理時間の短縮が併せて示されており、開発者やセキュリティ担当者の負担軽減に役立つとされる。",
+      "bodyEn": "## Context-aware secret classifier\n\nGitHub has described a context-aware secret classifier for secret detection. The goal, as the post's title puts it, is to find more secrets with less noise, which matters to developers and security teams who need to catch leaks without sorting through false alarms.\n\nAccording to the announcement, the classifier improves detection quality. The post reports two measured results: a weighted acceptance rate that rises by 11.5%, and a median scan execution time that falls by 86%.\n\n## Fewer false alarms\n\nThe source frames these results as a way to reduce the burden on developers and security staff. Because the model takes context into account, it is meant to keep false positives down while detection accuracy goes up.\n\nThe post is published on the GitHub Blog and is categorized under Copilot. The material provided gives only these headline figures. It does not explain how the weighted acceptance metric is calculated, which scans were measured, or how the model works internally, so those points are best checked in the original post.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "重み付き採用率が11.5%上がって、スキャン時間の中央値が86%短くなったって、どういうこと？",
+          "en": "Weighted acceptance up 11.5% and median scan time down 86%... what does that mean?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、コンテキストを考慮するシークレット分類モデルの成果として紹介されています。検出の質が上がり、スキャンの実行も速くなった、という内容ですね。",
+          "en": "The post presents both as results of GitHub's context-aware secret classifier. Detection quality improves, and scans run faster too."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、開発者やセキュリティ担当の人は、誤検知にふりまわされにくくなるのかな？",
+          "en": "So developers and security teams might get fewer false alarms to deal with?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、誤検知を抑えながらより多くの漏えいを見つけられるので、両者の負担軽減に役立つとされています。ノイズが減るのがポイントですね。",
+          "en": "The post says it catches more leaks with fewer false alarms, which helps ease the load for both groups. Less noise is the key."
+        },
+        {
+          "s": "a",
+          "ja": "まとめると、文脈を見て判断するモデルで、見逃しも誤検知も減らして、しかも速くなったんだね。",
+          "en": "So the model reads context, finds more secrets, makes fewer false alarms, and runs faster. Got it?"
+        },
+        {
+          "s": "b",
+          "ja": "はい。ただ、数字は記事で示された改善率で、実際の効果は使う環境によって違うかもしれません。この記事では、その内訳まではわからないんです。",
+          "en": "Yes. Just note these are the improvement figures given; real results may vary by setup. This post doesn't break down the details."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:39:44.040Z"
+    },
+    "135b57e2f494a88d": {
+      "bodyJa": "モデルのルーティングをエージェントに組み込むのは手軽な改善に見えるが、実際にはシステム全体の最適化問題に近づく、とIBM Researchの解説は指摘している。\n\n## ルーティングの前提\n\n発想そのものは明快だ。単純なリクエストは安価なモデルへ回し、高価なモデルは難しいタスクのために取っておく。あるいは得意分野で振り分け、コードにはClaude、マルチモーダルにはGeminiといった使い分けをする。判断は分類器やヒューリスティクスが行い、コストは下がり、性能は保たれる、という筋書きである。\n\n## 分類問題では済まない\n\nしかし解説は、多くのルーティングシステムがモデル選択を分類問題だと想定していると述べる。著者らがエージェント型システムにルーティングを組み込んだ経験では、モデル選択の問題に見えたものがすぐにシステム最適化の問題へと変わったという。とりわけ難しかった側面として、三つの次元が挙げられている。\n\n## 価格表と実コスト\n\nその一つ目はコストで、モデルの価格だけでは決まらないとされる。著者らはGPT-4.1がClaude Sonnet 4.6より安いと予想していたが、結果はそうならなかったという。安価なモデルを選べば費用が下がるという前提が、そのまま成り立つとは限らない。\n\n## 精度・遅延・安全性\n\n解説の要点として、単純なコスト基準のアプローチでは不十分であることを示したうえで、精度、レイテンシ、安全性のトレードオフを踏まえて設計する手法を提案していると紹介されている。",
+      "bodyEn": "Model routing looks like an easy way to cut costs in an agent, but a post from IBM Research argues that it gets complicated quickly. The piece matters for anyone building routing into agentic systems, because it challenges the assumption that picking a model is a simple classification step.\n\n## Model Routing Is Simple\n\nThe pitch is straightforward. Send simple requests to cheaper models and reserve expensive ones for harder tasks. Alternatively, route by specialty, with Claude handling code and Gemini handling multimodal work, for example. A classifier or heuristic makes the call, costs go down, and performance stays up.\n\nThe authors' reaction to that picture is blunt: \"Except it's not.\" They say most routing systems treat model selection as a classification problem.\n\n## Until It Isn't\n\nBased on their experience building routing into agentic systems, the authors say what looks like a model-selection problem quickly becomes a systems optimization problem. They say three dimensions made this surprisingly hard. According to the source, the work looks past naive cost-based approaches and considers trade-offs among accuracy, latency, and safety.\n\n## Cost Is More Than Pricing\n\nThe first dimension the post names is cost, and its claim is that cost is more than model pricing. The authors give a concrete example from their own work. They expected GPT-4.1 to be cheaper than Claude Sonnet 4.6, and it was not.\n\nThat result shows why a router cannot simply rank models by their listed prices. The post presents the surprise as evidence that the expected cost ordering of models did not hold up in practice, which undermines routing rules built on that assumption.\n\nThe source material available here ends at this first example, so it does not spell out why the cheaper-looking model turned out costlier, or what the other two dimensions are. What it does establish is the post's central argument. Routing in an agent is a broader optimization across cost and other competing factors, and a classifier choosing the nominally cheapest or best-suited model captures only part of that.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "GPT-4.1のほうがClaude Sonnet 4.6より安いと思ってたのに、違ったんだね。これって大きいこと？",
+          "en": "They expected GPT-4.1 to be cheaper than Claude Sonnet 4.6, but it wasn't? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では「コストはモデルの価格だけじゃない」と言っているよ。価格表の印象どおりにならない例として挙げているんだ。",
+          "en": "The piece says cost is more than model pricing. This is its example of how a price list can mislead you."
+        },
+        {
+          "s": "a",
+          "ja": "「分類の問題」から「システム最適化の問題」になるって、何が変わるの？",
+          "en": "It goes from a \"classification problem\" to a \"systems optimization problem.\" What actually changes?"
+        },
+        {
+          "s": "b",
+          "ja": "分類は「どのモデル向き？」と一つ選ぶ話。最適化は、精度・レイテンシ・安全性などをまとめて釣り合わせる話、くらいの意味だよ。",
+          "en": "Classification means picking one model for a request. Optimization means balancing accuracy, latency, and safety together. That's roughly the idea."
+        },
+        {
+          "s": "a",
+          "ja": "自分のエージェントなら、コードはClaude、画像はGeminiって分けたいな。それなら簡単かな？",
+          "en": "For my own agent, I'd send code to Claude and images to Gemini. Would that be easy, then?"
+        },
+        {
+          "s": "b",
+          "ja": "その分け方は記事にも例として出てくるよ。ただ、安いはずが安くなかった例もあるから、単純な振り分けで済むとは限らないかもね。",
+          "en": "The article gives that split as an example. But since the cheaper model wasn't actually cheaper, a simple split may not be enough."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:41:17.195Z"
+    },
+    "b600595a83e8cb7d": {
+      "bodyJa": "OpenAIは、AIガバナンスに関する「reverse federalism」(逆連邦主義)というアプローチを示した。あわせて、米国の州と連邦政府によるAI安全政策が進展していると報告している。\n\n## 州法から国の枠組みへ\nこのアプローチでは、州の法律が、安全で民主的なAIのための国家的な枠組みづくりを後押しすると説明されている。州レベルの取り組みが出発点となり、全国的な枠組みの形成につながるという構図である。\n\n## 加速する規制整備\nOpenAIは、州と連邦それぞれの取り組みが、責任あるAI開発を支える規制の枠組みを形づくりつつあると述べている。この動きが勢いを増している点も強調している。",
+      "bodyEn": "## Reverse Federalism Approach\n\nOpenAI has published a post on AI governance in the United States, arguing that safety policy is gaining momentum at both the state and federal levels. According to the source, these efforts are shaping a regulatory framework meant to ensure responsible AI development.\n\nThe post describes a \"reverse federalism\" approach. Under it, state laws help build a national framework for safe, democratic AI, rather than a national framework being set first and applied downward.\n\n## State and Federal Momentum\n\nOpenAI says state and federal initiatives are advancing together and that work on the regulatory framework is accelerating. The announcement presents this as progress toward governance that supports responsible AI development.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「リバース・フェデラリズム」って何だろう？州の法律が、国の枠組みづくりにつながるってこと？",
+          "en": "What does \"reverse federalism\" mean? Is it that state laws help build the national framework?"
+        },
+        {
+          "s": "b",
+          "ja": "そのとおり。この記事では、州の法律が土台になって、安全で民主的なAIのための全国的な枠組みを築く考え方として説明されているよ。",
+          "en": "Exactly. The post describes it as state laws helping build a national framework for safe, democratic AI."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ州と国の両方が動くことで、AIを責任をもって作るためのルールが整っていくのかな？",
+          "en": "So when both states and the federal government act, rules for building AI responsibly start to take shape?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、州と連邦の取り組みが、責任あるAI開発を支える規制の枠組みを形づくっているとされているよ。細かい影響までは書かれていないね。",
+          "en": "The post says state and federal efforts are shaping a regulatory framework for responsible AI development. It doesn't go into detailed effects."
+        },
+        {
+          "s": "a",
+          "ja": "州の取り組みが積み重なって、国全体の安全なAIの土台になっていく、ってことだね。",
+          "en": "So state efforts add up and become the base for safe AI nationwide. Got it."
+        },
+        {
+          "s": "b",
+          "ja": "うん。ただ、これはOpenAIが示している見方だから、実際にどう進むかまでは断定できないよ。",
+          "en": "Yes. But this is OpenAI's own view, so we can't say for sure how it will actually play out."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T08:41:38.285Z"
     }
   }
 }

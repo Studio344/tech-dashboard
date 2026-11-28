@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-28T08:31:03.587Z",
+  "generatedAt": "2026-11-28T09:30:59.934Z",
   "month": "2026-11",
-  "count": 117,
+  "count": 118,
   "entries": [
     {
       "id": "acff2e94dd9223b7",
@@ -81,7 +81,7 @@
       "titleEn": "Ollama Releases v0.40.19",
       "lang": "en",
       "publishedAt": "2026-11-27T21:47:32.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "conversation-snapshots",
         "inkling2",
@@ -139,6 +139,37 @@
         "height": 0,
         "source": "media"
       }
+    },
+    {
+      "id": "706347545f4dbf63",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.20-rc0",
+      "title": "Ollama Releases v0.40.20-rc0",
+      "titleJa": "",
+      "titleEn": "Ollama Releases v0.40.20-rc0",
+      "lang": "en",
+      "publishedAt": "2026-11-27T21:06:59.000Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
+      "tags": [
+        "ollama",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. This commit was created on GitHub.com and signed with GitHub’s verified signature . There was an error while loading. Please reload this page . There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/u/75239?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/u/75239?s=60&v=4",
+        "alt": "Ollama Releases v0.40.20-rc0",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "feedSnippet": "bump llama-server ( #19953 )",
+      "excerptOrigin": "article"
     },
     {
       "id": "f4f9b282db67ac6e",
@@ -260,7 +291,7 @@
       "titleEn": "Cline Releases v4.1.28",
       "lang": "en",
       "publishedAt": "2026-11-26T09:57:51.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "cline",
         "model-catalog",
@@ -292,7 +323,7 @@
       "titleEn": "Cline Desktop v0.0.51",
       "lang": "en",
       "publishedAt": "2026-11-26T09:54:23.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "cline",
         "desktop",
@@ -325,7 +356,7 @@
       "titleEn": "Cline CLI v3.0.76",
       "lang": "en",
       "publishedAt": "2026-11-26T08:56:12.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "cli",
         "cline",
@@ -360,7 +391,7 @@
       "titleEn": "Cline SDK v0.2.2",
       "lang": "en",
       "publishedAt": "2026-11-26T08:40:10.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "breaking-change",
         "cline",
@@ -393,7 +424,7 @@
       "titleEn": "Ollama Releases v0.40.19-rc0",
       "lang": "en",
       "publishedAt": "2026-11-26T06:20:48.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "inkling2",
         "ollama",
@@ -762,8 +793,6 @@
       "importance": 3,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "knowledgeEligible": false,
       "contentSnippet": "At Ignite, we added a more direct path from a recurring problem in your agent’s traces to a fix you can test. New preview capabilities connect Insights to Agent Optimizer, learn reusable skills from real conversations, and find cheaper configurations that still meet your quality bar. You decide which changes go into the next version. Continuous improvement : Insights and multi-turn evaluation are GA. Human annotation, rubric evaluators, and new Agent Optimizer capabilities are in preview. Agents : Voice agents, external-agent registration, hosted-agent egress controls, and the A2A tool are GA. Browser Automation adds enterprise features and previews. Developer tools : The Foundry Dev Pack and Foundry CLI ( azd ai ) are GA. Models : Microsoft-Decision-1.1 and Managed Compute are GA. Model router Auto, MAI image models, MAI-Code-2-Flash, fal video models, and Baseten are in preview.",
       "excerptOrigin": "article",
       "feedSnippet": "Microsoft Foundry Ignite 2026 updates for agents, developer tools, models, training, enterprise context, and governance, with continuous improvement. The post What’s new in Microsoft Foundry | Ignite 2026 appeared first on Microsoft Foundry Blog .",
@@ -774,7 +803,9 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true,
+      "knowledgeEligible": false
     },
     {
       "id": "c6e981287832aa8c",
@@ -887,7 +918,7 @@
       "titleEn": "Ollama Releases v0.40.18",
       "lang": "en",
       "publishedAt": "2026-11-24T08:27:44.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "jetpack",
         "llama-cpp",
@@ -958,7 +989,7 @@
       "titleEn": "v0.40.18-rc0: inkling2: faster Metal decode, prefill and draft rounds (#19843)",
       "lang": "en",
       "publishedAt": "2026-11-24T01:35:09.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "apple-silicon",
         "inkling2",
@@ -1592,7 +1623,6 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Over the last few weeks I have worked with several teams moving hosted agents into their own virtual network. Different industries, same five questions. This post answers each one with the commands I use to check it. Picture a financial services team running claims agents in a locked-down network. Public access on the Foundry resource is off. The agent subnet sits in a spoke VNet. Azure Cosmos DB, Storage and Azure AI Search sit behind private endpoints, some of them in a hub VNet. All outbound traffic goes through a firewall that inspects TLS. The deployment succeeds. Then the Agents page spins and fails with a timeout. Nothing is wrong with the agent. The network around it is missing one piece. Here is how to find it.",
       "excerptOrigin": "article",
       "feedSnippet": "The five questions teams ask most when they run hosted agents in their own virtual network: which subnet is the agent subnet, why listing agents times out, why a TLS-inspecting firewall still breaks after you add your CA, how peered VNets and DNS fit, and why a subnet stays in use after you delete an account. The post Hosted agents in your own virtual network: five checks when the Agents page times out appeared first on Microsoft Foundry Blog .",
@@ -1603,7 +1633,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "cd23b3f138af1f15",
@@ -1615,7 +1646,7 @@
       "titleEn": "Cline Releases v4.1.27",
       "lang": "en",
       "publishedAt": "2026-11-21T06:05:06.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "cline",
         "lm-studio",
@@ -1648,7 +1679,7 @@
       "titleEn": "Ollama Releases v0.40.17",
       "lang": "en",
       "publishedAt": "2026-11-21T04:05:14.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "apple-silicon",
         "claude-code",
@@ -1682,7 +1713,7 @@
       "titleEn": "Ollama Releases v0.40.17-rc4",
       "lang": "en",
       "publishedAt": "2026-11-20T23:04:26.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "ollama",
         "ollama-release",
@@ -1807,8 +1838,6 @@
       "archiveTier": "hot",
       "contentSnippet": "Announcing the general availability of Amazon Textract Insights, a new generative AI feature of Amazon Textract. Describe the fields you need in natural language, submit a document or a mixed packet, and receive structured results with a confidence score and page-level grounding for each value, with no model training required.",
       "excerptOrigin": "article-unavailable",
-      "evergreen": true,
-      "knowledgeEligible": false,
       "image": {
         "src": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/11/18/ML-22308-featured-image.png",
         "origSrc": "https://d2908q01vomqb2.cloudfront.net/f1f836cb4ea6efb2a0b1b99f41ad8b103eff4b59/2026/11/18/ML-22308-featured-image.png",
@@ -1816,7 +1845,9 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true,
+      "knowledgeEligible": false
     },
     {
       "id": "2a489a3739513030",
@@ -1860,7 +1891,7 @@
       "titleEn": "Ollama Releases v0.40.17-rc3",
       "lang": "en",
       "publishedAt": "2026-11-20T18:37:07.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "github-releases",
         "ollama",
@@ -2019,10 +2050,18 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "We are excited to announce the general availability of Managed Compute in Microsoft Foundry. When we introduced Managed Compute in preview at Microsoft Build in June, we set out to make serving open models as approachable as calling a managed model API. You choose the model that fits your application; we provision the GPUs, maintain the containers, and operate the serving runtime. Since Build, we’ve scaled serving capacity, improved prompt reuse, and expanded GPU and deployment options, including US and EU Data Zones. Customer feedback helped us refine the experience and give teams a clearer view of how their deployments are running. We’ve also strengthened the software supply chain and added more open models to the catalog. The result is a managed platform for serving open models on dedicated GPUs in the Foundry experience you already use.",
       "excerptOrigin": "article",
-      "feedSnippet": "Managed Compute serves open models on dedicated GPUs in Microsoft Foundry, with Global and US or EU Data Zone deployments. The post Serve open models in production with Foundry Managed Compute appeared first on Microsoft Foundry Blog ."
+      "feedSnippet": "Managed Compute serves open models on dedicated GPUs in Microsoft Foundry, with Global and US or EU Data Zone deployments. The post Serve open models in production with Foundry Managed Compute appeared first on Microsoft Foundry Blog .",
+      "evergreen": true,
+      "image": {
+        "src": "https://devblogs.microsoft.com/foundry/wp-content/uploads/sites/89/2026/11/managed-compute-ga-banner.webp",
+        "origSrc": "https://devblogs.microsoft.com/foundry/wp-content/uploads/sites/89/2026/11/managed-compute-ga-banner.webp",
+        "alt": "Serve open models in production with Foundry Managed Compute",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "235f054b81912456",
@@ -2195,7 +2234,7 @@
       "titleEn": "v0.40.17-rc2: mlxrunner: adapt saved history to memory pressure (#19678)",
       "lang": "en",
       "publishedAt": "2026-11-19T23:41:42.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "memory-management",
         "mlx",
@@ -2229,7 +2268,7 @@
       "titleEn": "The making of Anthropic",
       "lang": "en",
       "publishedAt": "2026-11-19T21:03:23.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "anthropic",
         "claude",
@@ -2270,8 +2309,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "contentSnippet": "Enterprises are all-in on AI agents, but the ROI hasn’t followed. What’s holding those agents back isn’t capability. Today’s agents can do remarkable work on their own. They can solve math problems that stumped mathematicians for decades, build functional operating systems from scratch, and teach themselves a new skill by watching you do a task […] The post Build trusted autonomous agents for your team with Microsoft Foundry appeared first on Microsoft Foundry Blog ."
+      "contentSnippet": "Enterprises are all-in on AI agents, but the ROI hasn’t followed. What’s holding those agents back isn’t capability. Today’s agents can do remarkable work on their own. They can solve math problems that stumped mathematicians for decades, build functional operating systems from scratch, and teach themselves a new skill by watching you do a task […] The post Build trusted autonomous agents for your team with Microsoft Foundry appeared first on Microsoft Foundry Blog .",
+      "evergreen": true
     },
     {
       "id": "75ce1625dfb139b5",
@@ -2283,7 +2322,7 @@
       "titleEn": "What we make of this moment, will make this moment.",
       "lang": "en",
       "publishedAt": "2026-11-19T15:02:49.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "ai-vision",
         "anthropic",
@@ -2491,10 +2530,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Over the last few months I’ve worked with a lot of teams taking a hosted agent from pilot to production. A working demo is only the start. The questions that decide whether it ships come next: Will the subnet hold up when usage takes off? Can the agent call internal services that use our own certificates? Where exactly can it connect, and who decides? Can it run on the Azure Kubernetes Service (AKS) clusters we already operate? And what happens when a two-hour job gets interrupted? At Microsoft Ignite 2026, we’re announcing a solution to each of these challenges for hosted agents in Foundry Agent Service. Below you’ll find what’s new, what you can use today, and what’s still to come. The egress and private CA updates apply to managed hosted agents, the ones Foundry runs for you; BYO-AKS support will be documented separately.",
       "excerptOrigin": "article",
-      "feedSnippet": "What is new for hosted agents in Foundry Agent Service at Ignite 2026: shared subnet IPs, private CA trust, network egress controls, deployment to your own AKS clusters, resilient execution and memory snapshots. The post Hosted agents in Foundry Agent Service at Ignite 2026: from pilot to production inside your enterprise boundaries appeared first on Microsoft Foundry Blog ."
+      "feedSnippet": "What is new for hosted agents in Foundry Agent Service at Ignite 2026: shared subnet IPs, private CA trust, network egress controls, deployment to your own AKS clusters, resilient execution and memory snapshots. The post Hosted agents in Foundry Agent Service at Ignite 2026: from pilot to production inside your enterprise boundaries appeared first on Microsoft Foundry Blog .",
+      "evergreen": true
     },
     {
       "id": "5d58e6d7df384830",
@@ -2524,10 +2563,10 @@
       "importance": 3,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Much of the work that keeps a business running still happens in a browser: internal portals, vendor consoles and legacy apps with no API. The Browser Automation tool in Foundry Agent Service , powered by Azure Playwright Workspaces, is now generally available. It gives every Foundry agent secure, scalable browsers with isolated sessions, and includes the following capabilities: Human-in-the-loop: Live View and Take control for authentication and steering the agent (GA) This Ignite, the Browser automation tool is enabled with additional features for your agentic automation workloads Secure sign-in: Secret management (preview) and profile reuse (preview, coming soon) Our sample agent’s task is clear – Process 15 invoices, validate them against the rules, flag anomalies in Excel, and enter the validated invoices into the expense portal.",
       "excerptOrigin": "article",
-      "feedSnippet": "Enterprise-ready cloud browsers for every Foundry agent: MCP action batching, Live View and Take control, session recording, VNet injection, browser proxy, profile reuse, secret management, and CAPTCHA handling. The post Browser Automation Tool in Microsoft Foundry : Ignite’26 Announcements appeared first on Microsoft Foundry Blog ."
+      "feedSnippet": "Enterprise-ready cloud browsers for every Foundry agent: MCP action batching, Live View and Take control, session recording, VNet injection, browser proxy, profile reuse, secret management, and CAPTCHA handling. The post Browser Automation Tool in Microsoft Foundry : Ignite’26 Announcements appeared first on Microsoft Foundry Blog .",
+      "evergreen": true
     },
     {
       "id": "b5224437f0f7e864",
@@ -2556,9 +2595,9 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "contentSnippet": "Your next agent can start wherever you like to build: in your editor, at the terminal, or with your favorite coding agent. At Microsoft Ignite, we’re making that first step easier: the Foundry Dev Pack (aka.ms/foundrydevpack) is now generally available, bringing the Microsoft Foundry developer tools to your machine in a single install. Move from […] The post The Foundry Dev Pack is here: build Foundry agents your way appeared first on Microsoft Foundry Blog .",
       "evergreen": true,
-      "knowledgeEligible": false,
-      "contentSnippet": "Your next agent can start wherever you like to build: in your editor, at the terminal, or with your favorite coding agent. At Microsoft Ignite, we’re making that first step easier: the Foundry Dev Pack (aka.ms/foundrydevpack) is now generally available, bringing the Microsoft Foundry developer tools to your machine in a single install. Move from […] The post The Foundry Dev Pack is here: build Foundry agents your way appeared first on Microsoft Foundry Blog ."
+      "knowledgeEligible": false
     },
     {
       "id": "79ea65685ecb3048",
@@ -2588,11 +2627,11 @@
       "importance": 3,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "knowledgeEligible": false,
       "contentSnippet": "Your customers don’t judge agents by how well they demo. They judge them by whether the work gets done: the case resolved, the report delivered, the follow-up sent. That takes more than a model. It takes the right context and tools, a runtime that holds up under real demand, and a way to keep improving once real users put agents to work. At Ignite 2026 , Foundry Agent Service delivers new capabilities to get you there across the agent lifecycle: Build, Deploy, and Operate. Build more capable agents faster with the managed Microsoft Copilot harness, real-time voice, and richer tool connections. Deploy them at scale with enterprise controls, and bring them into Microsoft 365 where people already work. Operate them with confidence by turning production evidence into validated improvements. Here’s what’s new, and how each capability helps you move from idea to impact.",
       "excerptOrigin": "article",
-      "feedSnippet": "Your customers don’t judge agents by how well they demo. They judge them by whether the work gets done: the case resolved, the report delivered, the follow-up sent. That takes more than a model. It takes the right context and tools, a runtime that holds up under real demand, and a way to keep improving […] The post What’s new in Foundry Agent Service at Ignite 2026 appeared first on Microsoft Foundry Blog ."
+      "feedSnippet": "Your customers don’t judge agents by how well they demo. They judge them by whether the work gets done: the case resolved, the report delivered, the follow-up sent. That takes more than a model. It takes the right context and tools, a runtime that holds up under real demand, and a way to keep improving […] The post What’s new in Foundry Agent Service at Ignite 2026 appeared first on Microsoft Foundry Blog .",
+      "evergreen": true,
+      "knowledgeEligible": false
     },
     {
       "id": "fa6498cd23aab5d3",
@@ -2620,8 +2659,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "contentSnippet": "Connecting one tool to one agent is not hard. The challenge is managing a useful set of tools and agentic capabilities across a fleet of production agents at scale. Every new agent shouldn’t require you to build the same integrations, copy the same instructions, and troubleshoot the same dependencies. And adding a useful capability shouldn’t […] The post Build once, reuse across your agent fleet: Tools and Toolboxes in Foundry appeared first on Microsoft Foundry Blog ."
+      "contentSnippet": "Connecting one tool to one agent is not hard. The challenge is managing a useful set of tools and agentic capabilities across a fleet of production agents at scale. Every new agent shouldn’t require you to build the same integrations, copy the same instructions, and troubleshoot the same dependencies. And adding a useful capability shouldn’t […] The post Build once, reuse across your agent fleet: Tools and Toolboxes in Foundry appeared first on Microsoft Foundry Blog .",
+      "evergreen": true
     },
     {
       "id": "c4d861b1467d890d",
@@ -2930,7 +2969,7 @@
       "titleEn": "v0.40.17-rc1: mlxrunner: batch speculative verification (#19663)",
       "lang": "en",
       "publishedAt": "2026-11-16T16:43:54.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "concurrency",
         "mlx",
@@ -3106,8 +3145,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "contentSnippet": "Azure Content Understanding now supports the GPT-5.6, GPT-6, and GPT-6.1 model families, giving you more choices for document, text, speech, and video workflows. This adds to the existing set of supported models like the GPT-5 series. To help customers understand how to use this expanded set of options, we’re updating our model recommendations and sharing […] The post Content Understanding adds GPT-6.1, 6, and 5.6: Choose the right model for your workload appeared first on Microsoft Foundry Blog ."
+      "contentSnippet": "Azure Content Understanding now supports the GPT-5.6, GPT-6, and GPT-6.1 model families, giving you more choices for document, text, speech, and video workflows. This adds to the existing set of supported models like the GPT-5 series. To help customers understand how to use this expanded set of options, we’re updating our model recommendations and sharing […] The post Content Understanding adds GPT-6.1, 6, and 5.6: Choose the right model for your workload appeared first on Microsoft Foundry Blog .",
+      "evergreen": true
     },
     {
       "id": "baf18629dd764293",
@@ -3544,7 +3583,7 @@
       "summaryEn": "Semantic Kernel dotnet-1.82.0 tightens boundaries around structured data mutation and binds validated HTTP addresses to connections. It also covers Python 1.47.0 prep and an Oracle search fix, helping developers stay secure.",
       "lang": "en",
       "publishedAt": "2026-11-07T01:00:07.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "agent",
         "dotnet",
@@ -3699,7 +3738,7 @@
       "summaryEn": "Semantic Kernel python-1.47.0 drops Python 3.10 and now targets 3.11 through 3.14, with consolidated dependency updates and an OpenAPI URL path-case fix. Python users should check their runtime before upgrading.",
       "lang": "en",
       "publishedAt": "2026-11-05T10:19:56.000Z",
-      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "collectedAt": "2026-11-28T09:30:42.511Z",
       "tags": [
         "agent",
         "breaking-change",

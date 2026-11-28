@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T10:23:32.411Z",
+  "generatedAt": "2026-11-28T11:23:43.430Z",
   "month": "2026-10",
   "count": 136,
   "entries": [
@@ -104,7 +104,7 @@
       "summaryEn": "MCP Servers v2.2.0 documents its response to the eMudhra intermediate CA key exposure and the Node.js security releases. TypeScript servers rely on Node.js for certificate checks, so operators can quickly gauge their exposure.",
       "lang": "en",
       "publishedAt": "2026-10-28T20:57:13.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "ca-certificates",
         "emudhra",
@@ -357,7 +357,7 @@
       "summaryEn": "The MCP reference servers were rebuilt for the latest spec in v2.0.0, shipping four npm packages (everything, filesystem, memory, sequential-thinking) plus PyPI fetch, git, and time, while older clients keep working.",
       "lang": "en",
       "publishedAt": "2026-10-25T06:00:36.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "major-release",
         "mcp",
@@ -393,7 +393,7 @@
       "summaryEn": "MCP Servers v2.1.0 patches eight vulnerabilities across three servers, including a symlink swap race in filesystem writes. Users of filesystem, everything and fetch should upgrade promptly.",
       "lang": "en",
       "publishedAt": "2026-10-25T00:03:20.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -703,7 +703,7 @@
       "summaryEn": "MCP Servers v1.0.0 is the last legacy-era release, bringing npm packages everything, filesystem, memory and sequential-thinking to 1.0.0, plus fetch, git and time on PyPI at 2026.10.10, helping users plan migration.",
       "lang": "en",
       "publishedAt": "2026-10-19T04:17:24.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "legacy-servers",
         "mcp",

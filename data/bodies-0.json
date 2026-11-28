@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T10:23:29.211Z",
-  "count": 403,
+  "generatedAt": "2026-11-28T11:23:39.273Z",
+  "count": 408,
   "bodies": {
     "17f496c665a12174": {
       "bodyJa": "Metaは、AIネイティブ時代に向けたプライバシー対応インフラの中核として、社内の膨大なデータアセットを正確に分類する取り組みをエンジニアリングブログで公開した。データ保持期間やアクセス制御、利用目的の制限、第三者への共有可否、匿名化といったプライバシー制御は、対象となるデータの性質を正しく把握して初めて機能するためだ。\n\n同社の出発点はシンプルである。あらゆるプライバシーコントロールは「どこに、どのようなデータが存在するか」という信頼できる理解を前提とする。たとえば特定の個人情報を一定期間で削除する保持ポリシーを適用するには、まずそのデータがどのテーブルやログ、ストレージのどこに含まれているかを機械的に判別できなければならない。分類が曖昧なままでは、制御そのものが空回りしてしまう。\n\nしかし、この前提を大規模に満たすことは容易ではない。Meta規模のサービスでは、データは無数のシステムを横断して生成・変換・複製され、形式やスキーマも多様だ。さらに生成AIや機械学習パイプラインの普及により、学習用データセットや派生データが増え、データの流れはいっそう複雑になっている。こうした環境で分類の精度と網羅性を保つには、自動化された分類基盤と継続的な検証の仕組みが欠かせない。\n\nこの課題は業界共通のものでもある。EUのGDPRや米カリフォルニア州のCCPAをはじめとする各国の規制は、データの利用目的や保持に厳格な要件を課しており、データガバナンスの基盤整備は大手テック各社にとって避けて通れない。GoogleやMicrosoftなども独自のデータ分類・カタログ化の仕組みを整えてきたとされ、Metaの今回の公開はその一つの実装例と位置づけられる。\n\nAIの普及はデータ活用の幅を広げる一方で、プライバシー保護の難度を押し上げている。データを正確に「知る」ための分類基盤は、派手さこそないが、信頼できるAIサービスを支える土台になると見られる。Metaの事例は、プライバシーを後付けではなく設計段階から組み込む「プライバシー・バイ・デザイン」の実践として参考になりそうだ。",
@@ -14099,6 +14099,100 @@
       "bodyEn": "## Data science teams\n\nOpenAI published a guide showing how data science teams can use ChatGPT Work and Codex to streamline analytics and coding workflows. It matters because the guide focuses on practical patterns for adoption in real work rather than abstract examples.\n\n## Real work inputs\n\nAccording to the source, teams can use ChatGPT Work with real work inputs to create root-cause briefs, impact readouts, KPI memos, scoped analyses, and dashboard specifications. These examples outline concrete workflows for applying the tools across analysis and coding tasks.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T20:50:39.191Z"
+    },
+    "65e3a8e409da5821": {
+      "bodyJa": "OpenCut classic を fork し、Playwright と MCP サーバーを介して Claude Code から動画編集を操作できるようにした実装例が公開されています。実装は opencut-mcp v0.1.0 (MIT) としてまとめられ、書き進める中で「ドキュメントに無いだろう」と感じた罠が4つあったとして、順に取り上げられています。\n\n## archived な旧版\n\n63.8k stars を集める動画エディタ OpenCut は現在書き直し中です。rewrite 版はまだ hello world しか出せない段階で、動画編集の実体は archived な旧版 (classic) にだけ残っているとされています。著者はこの classic を土台に選び、fork したうえで MCP サーバーを組み合わせました。\n\n## window 露出パッチ\n\nopencut-mcp が動作対象とするのは、著者の kenimo49/opencut-classic という fork です。本家の opencut-app/opencut-classic は archived で、window 露出パッチを持っていないと説明されています。そのため本家のリポジトリに対しては、そのままでは使えない構成です。\n\n操作の様子は、scripts/demo.ts を実行した Playwright の screencast として示されています。ブラウザ上のエディタを Playwright で動かし、その入口を MCP サーバーとして Claude に見せる、という作りです。\n\n## opencut-mcp の起動\n\n手順は次のとおりです。まず fork した classic を起動します。docker と bun dev:web を使い、:3000 で立ち上がる想定です。次に kenimo49/opencut-classic と kenimo49/opencut-mcp の2つのリポジトリを clone し、opencut-mcp 側で bunx tsx src/index.ts を実行します。transport は stdio です。\n\n起動後は、Claude Code、Cline、あるいは任意の MCP クライアントの設定に opencut-mcp を登録します。これで Claude が opencut_insert_clip などのツールを直接呼べるようになるとされています。\n\n4つの罠それぞれの具体的な内容は、元記事の本文で順に解説されています。",
+      "bodyEn": "## Forking OpenCut classic\n\nThe author describes forking the archived classic version of OpenCut so that Claude Code can drive video editing through an MCP server. According to the source, OpenCut has gathered 63.8k stars but is currently being rewritten. The rewrite version still only produces a \"hello world,\" so the actual video-editing functionality remains only in the archived older version, called classic. That is why the work targets classic rather than the new codebase.\n\n## opencut-mcp v0.1.0\n\nThe implementation is called opencut-mcp v0.1.0, released under the MIT license on GitHub. It operates through Playwright and an MCP server, and it works against the author's fork, kenimo49/opencut-classic. The upstream opencut-app/opencut-classic is archived and, according to the author, lacks the window exposure patch that the fork carries. In other words, the tool is built to run against the fork, not the original repository.\n\nThe source shows the setup in outline. The fork of classic is started with docker and bun dev:web, which brings the editor up on port 3000. Both the classic fork and the opencut-mcp repository are cloned from GitHub, and the MCP server is launched with bunx tsx src/index.ts using a stdio transport. A Playwright screencast produced by scripts/demo.ts is included as a demonstration of the result.\n\n## Four pitfalls\n\nThe author says that while writing the integration, four pitfalls turned up that they did not expect to find in the documentation, and the article works through them one by one. The collected material does not spell out what the four pitfalls are, so this explainer does not describe them. The stated purpose is to give practical guidance to developers building AI-driven video editing workflows.\n\nOn the client side, the author notes that opencut-mcp can be registered in the MCP configuration of Claude Code, Cline, or any MCP client. Once registered, Claude can call tools such as opencut_insert_clip directly to operate the editor.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "なんで新しい版じゃなくて、旧版の classic を fork したの？",
+          "en": "Why fork the old classic version instead of the new one?"
+        },
+        {
+          "s": "b",
+          "ja": "書き直し中の新版はまだ hello world しか出ず、動画編集の実体は archived な旧版 classic にだけ残っているそうです。",
+          "en": "The rewrite only shows hello world so far, and the actual video editing lives only in the archived classic version."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ Playwright と MCP を通して、Claude が編集操作を代わりにやってくれるってこと？",
+          "en": "So Claude does the editing through Playwright and MCP, like operating the editor for us?"
+        },
+        {
+          "s": "b",
+          "ja": "そうです。MCP クライアントに opencut-mcp を登録すれば、Claude が opencut_insert_clip などを直接呼べると書かれています。",
+          "en": "Right. Once opencut-mcp is registered in an MCP client, Claude can call things like opencut_insert_clip directly."
+        },
+        {
+          "s": "a",
+          "ja": "本家じゃなくて、作者さんの fork に対して動かすんだね。",
+          "en": "And it runs against the author's fork, not the original, right?"
+        },
+        {
+          "s": "b",
+          "ja": "はい。本家は archived で window 露出パッチがないためです。v0.1.0 なので、まだ入口かもしれません。4つの罠の中身は本文で確認を。",
+          "en": "Yes, the original is archived and lacks the window exposure patch. It's v0.1.0, so maybe still early. Check the article for the four pitfalls."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T10:31:45.449Z"
+    },
+    "722cc9f7f6ac4f8f": {
+      "bodyJa": "Wazeが、走り方や好みに合わせて使い方を調整できる新機能と、Geminiに関する新たなアップデートを発表した。バイクでの移動や、音楽を聴きながら音声案内を減らしたい場面など、ドライバーの多様な状況に応えるものと説明されている。\n\n## 旅ごとに合わせる\n\nWazeは、利用者同士が助け合って渋滞を出し抜くコミュニティの力で動くアプリだとされている。同じ移動は二つとないため、移動をより自分好みにコントロールできる新しい方法を加えたという。\n\n例として挙げられているのは、バイクで走る場合と、音楽を聴いている間は音声による案内を減らしたい場合だ。道路上での柔軟性を高めることが、今回のアップデート全体の狙いとされている。\n\n## Geminiで「パートナー」へ\n\nあわせてWazeは、アプリを「役立つ道連れ」から「インテリジェントなパートナー」へ進化させると述べている。その手段として位置づけられているのが、新しいGeminiの機能だ。\n\n## バイクモードの狙い\n\n新機能のひとつがバイクモードである。バイクは車とは求められるルートが異なる。細い道にも入れる一方で、路面の状態に敏感だという事情がある。\n\nこのモードではAIを用いて、二輪ならではの近道や通行規制をルートに反映する。これにより、最適なルートを見つけやすくなり、到着予定時刻(ETA)も正確になるとされている。車向けの経路では捉えにくい二輪の条件を、ルート選びと到着時刻の両方に取り込む点が特徴といえる。",
+      "bodyEn": "## Waze's Latest Features\n\nWaze has announced new customization options and Gemini updates that, according to the announcement, give drivers more flexibility on the road. The update matters because it addresses different kinds of trips, from riding a motorcycle to driving with music playing.\n\nThe announcement describes Waze as powered by a passionate community of people who help each other outsmart traffic. Because no two trips are alike, the company says it is adding new ways to customize a ride so users have more control over their journey.\n\n## Evolving Into an Intelligent Partner\n\nThe announcement says Waze is also evolving from a helpful companion into an intelligent partner through new Gemini capabilities. The source frames this as a step beyond the app's existing role, but the material available here does not spell out each individual Gemini feature, so this explainer does not describe them.\n\nOne use case the announcement mentions is wanting fewer voice prompts while listening to music. It presents this as an example of the kind of flexibility the new customization options are meant to provide.\n\n## New Motorcycle Mode\n\nThe most specific feature described is a new motorcycle mode. According to the announcement, motorcycles need different routes than cars. They can access narrower streets and are more sensitive to road surfaces, so a route built for a car may not suit a rider.\n\nThe announcement says the motorcycle mode uses AI to incorporate two-wheeler shortcuts and restrictions. The stated goal is to help riders find the best route and get an accurate estimated time of arrival (ETA). In other words, the mode is meant to account for what two-wheelers can and cannot do on the road, rather than applying car-oriented assumptions.\n\n## What the Update Adds Up To\n\nTaken together, the announcement presents three threads: customization options that give drivers more control, expanded Gemini integration that Waze describes as moving the app toward an intelligent partner, and a dedicated motorcycle mode with AI-assisted routing for two-wheelers. A summary of the news describes the changes as broadening the navigation app's appeal to a wider range of users.\n\nThe announcement was published on the Google blog on July 13, 2026. It includes a note that the content is generated by Google AI and that generative AI is experimental.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "音楽を聴きながら運転するとき、Wazeの何が変わるの？",
+          "en": "When I'm driving with music on, what actually changes in Waze?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、音声案内を減らせるなど、走り方に合わせて調整できる新機能が紹介されています。バイクで走る人向けの機能もあります。",
+          "en": "The post says you can cut back on voice prompts, among other tweaks to fit how you drive. There's also a feature for motorcyclists."
+        },
+        {
+          "s": "a",
+          "ja": "バイクだと、前は車と同じ道案内だったの？",
+          "en": "So before this, did bikes just get the same directions as cars?"
+        },
+        {
+          "s": "b",
+          "ja": "従来の仕様までは書かれていないので、違いは分からないです。ただ、バイクは細い道に入れて路面にも敏感だから、専用モードを作ったと説明されています。",
+          "en": "The post doesn't say how it worked before, so I can't compare. It does explain that bikes can use narrower streets and are more sensitive to road surfaces."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、バイクの近道や制限をAIが考えて、到着時間も正確になるところだね。",
+          "en": "So the big win is that AI factors in bike shortcuts and restrictions, and the ETA gets more accurate. Right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。あとGeminiの新機能で、Wazeを便利な相棒から賢いパートナーへ進めると書かれています。具体的な中身は、続報で確かめたいところです。",
+          "en": "Right. The post also says new Gemini capabilities aim to turn Waze from a helpful companion into an intelligent partner. I'd watch for details on what those actually are."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T10:32:09.899Z"
+    },
+    "9c10535df74860e7": {
+      "bodyJa": "## 会話するオンチェーンFX\n\nSera Protocol APIとPrivyを組み合わせ、TelegramのチャットだけでステーブルコインFXを操作できるBotの実装解説だ。自然言語による会話UIからオンチェーンFX取引を扱い、ウォレット管理の安全性にも焦点を当てている。\n\n## REST API v2\n\n記事はBotの全体像からREST API v2の利用までを扱う。GraphQL APIやコントラクト操作、Reactフロントエンド、MCPサーバー、Agent Skillに続く連載の第8弾で、TypeScriptとWeb3の基礎を知る開発者が対象とされている。\n\n## Privyと安全な確認\n\n取引に必要なウォレットをPrivyで作成し、EIP-712署名を利用する構成が説明されている。安全な確認フローも含め、Sera Protocolを初めて知る読者がBotの全体像から各要素を追える内容とされる。",
+      "bodyEn": "## Telegram bot\n\nThis hands-on guide explains how to build a Telegram bot that executes on-chain FX trades through natural-language conversations. By combining Sera Protocol’s API with Privy, the implementation wraps complex Web3 transactions in a conversational interface while maintaining secure wallet management.\n\nThe bot enables users to operate stablecoin FX entirely through Telegram. The article is aimed at developers who already understand the basics of TypeScript and Web3, but it also presents the bot’s overall design for readers encountering Sera Protocol for the first time.\n\n## REST API v2\n\nThe implementation covers how the bot works with Sera Protocol’s REST API v2. It follows earlier material on the protocol’s GraphQL API, contract operations, React frontend, MCP server, and Agent Skill, and is presented as the eighth installment in that series.\n\n## Secure wallet management\n\nPrivy is used to create wallets for the bot’s users. The guide also covers EIP-712 signing and a safe confirmation flow, connecting wallet handling and transaction approval to the Telegram-based conversational experience.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T20:54:18.100Z"
+    },
+    "1b77548cfb989c0c": {
+      "bodyJa": "Microsoftリサーチが公開したFlintは、AIの時代を想定したオープンソースの可視化言語であり、チャート向けDSLとして位置付けられている。短く簡潔な仕様と、表現豊かなグラフ出力を両立させようとする点が中心だ。\n\n## コンパクトな仕様\n\n短いチャート仕様は書きやすい一方、得られる結果が魅力に乏しくなりがちだと説明されている。Flintはこの課題に対し、最小限の定義だけで済ませる方法と、洗練された出力を得る方法の間をつなぐ中間的なアプローチを採る。仕様はコンパクトで、人間が読んだり書き換えたりしやすい形とされる。\n\n## AIエージェント\n\nFlintでは、AIエージェントが簡潔な仕様をもとに、表現豊かなチャートを生成できる。つまり、AIによる生成の入力を短く保ちながら、その仕様を人間が確認・編集できることが特徴となる。公開形態はオープンソースで、Microsoftリサーチの研究ブログで紹介された。",
+      "bodyEn": "## Flint for the AI era\n\nMicrosoft Research has released Flint, an open-source visualization language and chart DSL designed for AI agents. It matters because it addresses a specific tension in chart creation: short specifications are easy to write, but they often produce uninspiring results.\n\nFlint aims to preserve the compactness of those definitions while enabling more expressive charts. Rather than choosing between minimal chart specifications and polished output, the language is presented as a middle path between them.\n\n## Compact, human-editable specifications\n\nFlint lets AI agents generate expressive charts from concise specifications. Those specifications are also human-readable and human-editable, emphasizing both use by AI agents and direct human access to the chart definition.\n\nThis combination is the core technical idea described in the announcement: an AI agent can work from a compact specification without making that specification difficult for a person to read or change. The approach therefore connects concise chart definitions with more expressive results, while retaining a format intended to remain accessible to humans.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-09-05T13:12:40.505Z"
+    },
+    "ac253edb6de4cbfb": {
+      "bodyJa": "## 最高精度\n\nNVIDIA Nemotron 3 UltraとLangChainのDeep Agentsハーネスの組み合わせが、エージェント系ベンチマークで高い性能を示した。LangChainが同モデル向けにハーネスを調整した結果、オープンモデルの中で最高精度を達成したと説明されている。\n\n## オープンスタック\n\nNemotron 3 Ultraは、最上位のクローズドモデルより低いコストで先導的な性能を提供するとされる。組み合わせるLangChainは、広く採用されている大規模なAIエージェント・オーケストレーション基盤と位置付けられている。今回の結果は、複雑な推論タスクを担うAIエージェントをオープンスタックで構築する実用性を示すものと説明されている。",
+      "bodyEn": "## NVIDIA Nemotron 3 Ultra\n\nNVIDIA Nemotron 3 Ultra paired with LangChain’s Deep Agents harness achieved leading scores on agentic benchmarks. The reported result matters because it demonstrates the practical power of an open-stack AI agent architecture for complex reasoning tasks.\n\nAccording to the NVIDIA blog, Nemotron 3 Ultra offers leading performance at a lower cost than top closed models when used with what the source describes as the largest and most widely adopted AI agent orchestration platform.\n\n## LangChain Deep Agents harness\n\nLangChain tuned its Deep Agents harness for NVIDIA Nemotron 3 Ultra. The announcement says this combination achieved the highest accuracy in the reported benchmark comparison, while the existing summary characterizes the result as top-class performance on agent-focused benchmarks.\n\nThe technical focus is the pairing of the Nemotron model with a tuned agent harness, rather than either component in isolation. The result indicates that the combined open stack can support advanced AI agent construction and complex reasoning workloads.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-09-05T13:13:27.097Z"
     }
   }
 }

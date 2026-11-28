@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T10:23:29.211Z",
-  "count": 413,
+  "generatedAt": "2026-11-28T11:23:39.273Z",
+  "count": 417,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -11480,7 +11480,39 @@
       "bodyJa": "AnthropicのフラッグシップモデルであるClaude Opus 4.7で、短期間に3件の障害が相次ぎ、APIのエラー率が一時的に上昇した。生成AIを組み込んだサービスが増えるなか、こうした障害は事業継続性に直結するリスクとして、開発者が無視できない存在になりつつある。\n\n報告された3件は、いずれもエラー率の上昇を伴うものだったとされる。大規模言語モデルの推論は膨大な計算資源を必要とするため、トラフィックの急増やインフラの一部不調が、応答遅延やタイムアウト、5xx系のステータス返却として表面化しやすい。特定の時間帯にリクエストが集中し、レート制限に近い挙動が観測されたケースもあった可能性がある。\n\n実践的な対応策として、記事では指数バックオフを伴うリトライ処理の実装が挙げられている。一定間隔で機械的に再送するのではなく、失敗のたびに待機時間を延ばすことで、障害中のサーバー負荷をさらに高めてしまう事態を避けられる。加えて、429や529といったステータスコードを適切に判別し、再試行すべきエラーと即座に失敗として扱うべきエラーを切り分けることが重要とされる。サーキットブレーカーを用いて連続失敗時に呼び出しを一時遮断する設計も、被害の連鎖を抑える手段になり得る。\n\n冗長化の観点では、複数モデルやプロバイダーへのフォールバックも有効な選択肢だ。OpenAIのGPT系やGoogleのGeminiを代替に用意する、あるいはAmazon BedrockやGoogle Vertex AI経由でClaudeを利用する構成にしておけば、単一エンドポイントの障害が全面停止に直結する事態を緩和できる可能性がある。\n\n背景として、Anthropicは公式のステータスページで障害情報を随時公開しており、開発者はこれを監視することで早期に異常を検知できる。生成AIをプロダクションへ組み込む際は、モデルの精度や速度だけでなく、可用性やエラーハンドリングの設計まで含めて評価する姿勢が、今後ますます求められそうだ。",
       "bodyEn": "Developers building on Anthropic's Claude Opus 4.7 recently encountered a stretch of reliability problems, as three separate service incidents produced elevated error rates on the model's API. For teams that route production traffic through a single large language model, even brief spikes in failed requests can cascade into degraded user experiences, stalled workflows, and downstream costs. Understanding what these incidents looked like, and how to build systems that tolerate them, is increasingly a core part of shipping AI features.\n\nIn practice, \"elevated error rates\" during an API outage usually manifests as a rise in HTTP 5xx server errors, 529 \"overloaded\" responses, request timeouts, or throttling via 429 status codes. From the client's perspective, these are hard to distinguish from ordinary network noise until the volume becomes obvious. Anthropic tends to publish acknowledgements of such events on its status page, typically describing the affected component, the time window, and a coarse indication of severity. The article appears to consolidate three of these incidents into a single reference so developers can see the pattern rather than tracking each disruption in isolation.\n\nWhile the precise root causes of the three incidents are not detailed here, disruptions of this kind are commonly linked to capacity constraints during demand surges, deployments or configuration changes, or issues in upstream infrastructure. Newer or heavily used model variants can be especially susceptible when traffic grows faster than provisioned capacity, which is why overload responses often appear before outright failures. It is worth noting that an elevated error rate is not necessarily a full outage; many incidents degrade a fraction of requests while the majority succeed, which is exactly what makes robust client-side handling valuable.\n\nThe mitigation strategies the article emphasizes are broadly consistent with established resilience engineering. The first line of defense is retrying failed requests with exponential backoff and jitter, so that clients do not synchronously hammer a recovering service and worsen congestion. Anthropic's SDKs include some automatic retry behavior, but teams generally benefit from tuning the number of attempts, respecting any Retry-After headers, and treating 429 and 529 responses differently from deterministic 400-level errors that will never succeed on retry. Setting sensible request timeouts prevents slow calls from tying up resources and threads.\n\nBeyond retries, a circuit breaker pattern can stop a system from repeatedly calling an endpoint that is clearly failing, giving it time to recover while returning fast, graceful errors to users. Many production teams also configure a fallback path, routing to an alternative model such as a smaller Claude variant, a cached response, or a different provider entirely when the primary model is unavailable. Idempotency keys help avoid duplicate side effects when retries overlap with delayed successes. On the observability side, tracking error rates, latency percentiles, and token throughput, and wiring alerts to the provider's status feed, lets teams detect and respond to incidents before customers report them.\n\nContext matters here because Claude Opus is one option among several access routes. In addition to Anthropic's direct API, Claude models are offered through Amazon Bedrock and Google Cloud's Vertex AI, and these managed platforms can provide separate capacity pools and regional endpoints that behave differently during a provider-side event. Routing and gateway tools such as LiteLLM, OpenRouter, or a custom proxy layer make multi-provider fallback easier to implement, though they add operational complexity and their own potential failure points. Teams weighing these options should also consider data residency, feature parity, and pricing, which can vary across channels.\n\nThe broader takeaway is that as organizations move generative AI from experiments into production, treating a hosted model like any other external dependency becomes essential. Providers including Anthropic, OpenAI, and Google have all experienced periodic degradations, so occasional incidents are best planned for rather than assumed away. A summary of the three Claude Opus 4.7 incidents is useful mainly as a prompt to audit one's own error handling: verifying retry logic, confirming timeouts and fallbacks are in place, and rehearsing what happens when the primary model is briefly unreachable. For readers seeking authoritative details on any specific event, Anthropic's official status page and API documentation remain the primary sources, and cross-checking against them is advisable before drawing firm conclusions about scope or cause.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:37:30.697Z"
+      "generatedAt": "2026-08-30T16:37:30.697Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "短い時間で障害が3件も出たんだね。これって大きいこと？",
+          "en": "Three incidents in such a short time? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "3件のうち2件は解決済みだけど、Opus 4.7のエラー率上昇は執筆時点でまだ調査中なんだ。本番でAPIを使う人には見過ごせない状況と書かれているよ。",
+          "en": "Two are resolved, but the Opus 4.7 error-rate rise was still under investigation when it was written. For anyone running the API in production, it's not something to ignore."
+        },
+        {
+          "s": "a",
+          "ja": "対応策に出てくる「フォールバック」って、どういうこと？",
+          "en": "What does \"fallback\" mean in the mitigation tips?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、うまくいかない時に代わりの方法へ切り替えることだよ。記事だと、もう一度送るリトライ設計と並べて、確認しておく価値があるとしているね。",
+          "en": "Generally, it means switching to a backup when something fails. The piece lists it alongside retry design, the \"send it again\" approach, as worth checking."
+        },
+        {
+          "s": "a",
+          "ja": "もし私がOpus 4.7ばかり使うアプリを作ってたら、どうなるのかな？",
+          "en": "If I built an app that leans mostly on Opus 4.7, what would happen?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、機能の破壊的変更ではなく一時的な可用性の問題としているよ。ただ、Opus 4.7にアクセスが集中していると、監視アラートが鳴る可能性があるそうだ。",
+          "en": "The article calls it a temporary availability issue, not a breaking change. But if traffic is concentrated on Opus 4.7, your monitoring alerts might fire."
+        }
+      ]
     },
     "8c29e154865c1fe4": {
       "bodyJa": "AIエージェントがWebページを読み込むとき、生のHTMLをそのまま大規模言語モデル(LLM)に渡すと、タグやスクリプト、スタイル定義といった「ノイズ」が大量のトークンを消費してしまう。この課題に着目したのが、Rustで実装されたCLIツール「WebFetch」だ。取得したHTMLをMarkdownへ変換し、さらに自動要約することで、curlをそのまま使う場合に比べてトークン消費を大幅に削減するとされる。\n\n背景には、エージェント型ワークフローの普及がある。Claudeをはじめとする対話型AIやコーディングエージェントは、外部情報を参照する際にコマンドを実行してWebページを取得することが多い。しかしcurlやwgetが返すのは整形前のHTMLであり、ナビゲーションメニューや広告、インラインスクリプトなど本文と無関係な要素まで丸ごとモデルに入力される。トークン課金制のAPIでは、これがそのままコスト増と処理速度の低下につながる。\n\nWebFetchはこの無駄を減らすため、まずHTMLから本文を抽出してMarkdownに整形し、必要に応じて要約を生成する。Markdownは見出しやリンク構造を保ちながら記述量が少ないため、モデルにとって読みやすく、かつトークン効率が高い形式とされる。実装言語にRustを選んでいる点は、起動の速さやメモリ効率の面でCLIツールとの相性がよいという狙いがあると見られる。\n\n同種の発想を持つツールは他にも存在する。ブラウザの「リーダーモード」に相当するMozillaのReadability、本文抽出ライブラリのtrafilatura、URLを渡すとLLM向けテキストを返すJina AIの「Reader」などが代表例だ。Anthropic自身もClaude向けにWebフェッチ機能を提供しており、Web取得と要約を組み合わせる流れは業界全体で一般化しつつある。WebFetchはこうした潮流を、ローカルで完結する軽量なCLIとして実装した点に特徴がある。\n\n一方で、自動要約には情報の欠落や解釈のずれが生じる可能性があり、正確さが求められる用途では元テキストの確認が欠かせない。要約の品質は対象ページの構造や抽出ロジックにも左右されるとみられる。とはいえ、コスト最適化とエージェントの実用性を両立させる試みとして、開発者にとって検討に値する選択肢と言えそうだ。",
@@ -13300,44 +13332,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T05:39:55.721Z"
     },
-    "255f21e05c50335e": {
-      "bodyJa": "技術の進歩があまりに速く、私たちがどんな明日を目指しているのかを定義することさえ難しくなっています。Microsoft Researchのポッドキャスト「The Shape of Things to Come」の今回のエピソードは、その状況を背景に「AIは医療の未来をどう変えうるのか」という問いを扱います。\n\n## 速い進歩の中で未来を描く\n\nこの番組では、Microsoft ResearchのリーダーであるDoug Burgerが各分野の専門家とともに、技術者、政策担当者、事業判断者などの関係者が現在直面している、AIをめぐる難しい課題を掘り下げます。\n\n番組の目標は、AIへの移行が全体として好ましい結果になる未来を築くために必要な共通理解を広げることだと説明されています。個々の技術の紹介にとどまらず、立場の異なる関係者が同じ問題意識を持つことに重きを置いた構成といえます。\n\n## 医療を語る4人の顔ぶれ\n\n今回、Burgerとともに議論するのは3人です。Microsoftのプリンシパル・リサーチ・マネージャーであるAva Amini、同社のチーフ・サイエンティフィック・オフィサーであるEric Horvitz、そしてScripps Researchの医師・研究者で、MicrosoftのAIヘルスアドバイザーも務めるEric Topolです。\n\n## 「何が先に必要か」という問い\n\nエピソードの中心にあるのは、AIが実現する医療の未来はどのようなものか、そしてそこに至る前に何が起きなければならないのか、という問いです。この問いは地球上のすべての人に関わる影響を持つと位置づけられています。\n\n英語の要約では、技術者や政策担当者が利点とリスクを見極める助けになる内容とされています。議論の具体的な結論や個別の論点は、ここで紹介できる範囲では示されていません。医療とAIの関係を、技術の可能性だけでなく、実現に向けた前提条件も含めて考えるための入り口となるエピソードです。",
-      "bodyEn": "## The Shape of Things to Come\n\nMicrosoft Research has published an episode of its podcast series The Shape of Things to Come that asks whether AI can help build a healthier future. The question matters because, in the source's words, it carries ramifications for every individual on the planet.\n\nThe series is led by Microsoft Research leader Doug Burger. According to the announcement, he is joined by experts from across disciplines to work through what it calls the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders. The stated goal is to amplify the shared understanding needed to build a future in which the AI transition is a net positive.\n\n## Defining the Tomorrow We're Working Toward\n\nThe source begins from the observation that technical advancement is moving so quickly that it can be hard to define the tomorrow people are working toward. The series is presented as a response to that difficulty, bringing together voices from different fields rather than a single viewpoint.\n\n## Guests on Health and Medicine\n\nFor this episode, Burger is joined by three guests. Ava Amini is a Principal Research Manager at Microsoft. Eric Horvitz is Microsoft's Chief Scientific Officer. Eric Topol is a physician-scientist at Scripps Research and a Microsoft AI health advisor.\n\nThe conversation takes on a two-part question: what the future of medicine might look like with AI, and what needs to happen first. The framing points to both the potential of AI in health and the groundwork that the source suggests must come before that potential is realized.\n\n## Who the Discussion Is For\n\nThe summary of the episode says it is meant to help technologists and policymakers weigh benefits and risks of AI in health. Business decisionmakers are also named among the stakeholders the series addresses. The material does not spell out specific medical applications, findings, or recommendations from the conversation, so the episode itself is the place to find how the guests answer the question of what needs to happen first.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "これって、ふだんの暮らしや仕事だと何が変わる話なの？",
-          "en": "So what does this change in everyday life or work? Is it that kind of story?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事は具体的な新機能の紹介ではなく、医療とAIの未来を議論する対談です。技術者や政策担当者、事業判断者が共通認識を築くのが狙いだそうです。",
-          "en": "This one isn't a new feature announcement. It's a conversation about AI and the future of medicine, meant to build shared understanding among technologists, policymakers and business decision-makers."
-        },
-        {
-          "s": "a",
-          "ja": "前は、こういう話し合いってなかったのかな？",
-          "en": "Did people not have conversations like this before?"
-        },
-        {
-          "s": "b",
-          "ja": "そこは記事からは分からないんです。ただ、技術の進みが速く、目指す明日を描きにくいことがこの番組の出発点だと書かれています。",
-          "en": "The article doesn't say, so I can't tell. It does say tech is moving so fast that defining the tomorrow we're aiming for is hard, and that's the starting point of the series."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ一番の収穫は、医療にAIを使う前に「何が先に必要か」を考えること、ってことかな？",
-          "en": "So the big takeaway is thinking about what needs to happen first before using AI in medicine?"
-        },
-        {
-          "s": "b",
-          "ja": "いい読み取りですね。記事も「何が先に必要か」を問いにしています。答えは対談の中身を聞いて確かめたいところです。",
-          "en": "Nice reading. The article frames it as a question too: what needs to happen first? The answers are something to check in the conversation itself."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T04:38:37.413Z"
-    },
     "acff2e94dd9223b7": {
       "bodyJa": "## 接続時のエラー\n\nmacOS上のVSCodeで拡張機能Remote SSHを使ってリモートサーバに接続しようとすると、「got bad result from install script」と表示されてアクセスできなくなる事象がある。この問題への対処法が紹介されている。\n\n## 対処の中心\n\n対処法の中心は、VSCodeのプロセスを一度停止することである。プロセスを止めたうえで、あらためて接続を試す手順が示されている。\n\n動作環境として挙げられているのは、OSがmacOSであること、接続方法がVSCode拡張のRemote SSH経由であることの2点である。同じ症状でサーバに入れず困っている場合に参照できる内容といえる。",
       "bodyEn": "## Error When Connecting\n\nA VSCode user on macOS who connects to a remote server through the Remote SSH extension may see the message \"got bad result from install script\" and be unable to get in. The article documents this problem and a fix, which matters to anyone locked out of a remote server by the same symptom.\n\n## Stopping VSCode Processes\n\nAccording to the article, the environment is macOS, with access made through the Remote SSH extension in VSCode. The remedy it describes centers on stopping the VSCode processes and then trying to connect again. The source presents this as a workaround for the error rather than a change to the server or to the extension itself.",
@@ -14095,6 +14089,164 @@
       "bodyEn": "A new paper posted to arXiv proposes a reference-based method for determining whether a large language model has been trained through knowledge distillation from another model. The question matters because distillation has become one of the most common and least transparent ways to build competitive models, raising concerns about intellectual property, licensing compliance, and the provenance of systems moving through the AI supply chain.\n\nKnowledge distillation is a training technique in which a smaller or newer model, often called the student, learns to imitate the behavior of a larger or more capable model, the teacher. Rather than learning only from raw labeled data, the student is trained on the teacher's outputs, which can include full probability distributions over tokens, generated text, or ranked preferences. The approach is valued because it can transfer much of a strong model's capability into a cheaper, faster system. It has also become contentious, because a developer can distill from a proprietary model, sometimes through its public API, and produce a derivative that captures significant capability without authorization. Several high-profile disputes over whether one model was trained on another's outputs have made distillation detection a practical, not merely academic, concern.\n\nThe method described in the paper is reference-based, meaning it relies on comparing a target model against one or more reference models rather than inspecting training records that are typically unavailable. In this framing, an auditor who suspects that a target model was distilled from a specific teacher can use that teacher, and possibly independently trained models, as references. The detector then looks for statistical signatures that a distilled model tends to share with its teacher. These signatures can appear in the fine-grained structure of output probabilities, in characteristic error patterns, or in how the model ranks alternative continuations, distinctions that are often invisible in ordinary benchmark scores. Because distillation encourages the student to match the teacher's distribution closely, the two models are likely to agree not only on correct answers but also on subtle, idiosyncratic behavior, and that shared idiosyncrasy is what a reference-based test aims to surface.\n\nAn advantage of this general design is that it can operate without access to the target model's weights or training data, which are rarely disclosed for commercial systems. Detection that works from model outputs alone is more broadly applicable, since many models are available only through APIs. The trade-off is that behavioral similarity is not proof of copying on its own. Two models trained on overlapping public corpora, or fine-tuned on similar instruction data, can converge on comparable behavior, so a robust detector needs reference models to establish a baseline for how much agreement is expected by chance. Readers should treat reported detection accuracy as dependent on the specific models, tasks, and thresholds evaluated, and independent replication across diverse model families is important before strong conclusions are drawn.\n\nThe work sits alongside a growing body of research on model attribution and provenance. Related directions include model watermarking, which embeds detectable signals during training or generation; membership inference, which tests whether particular data was used in training; and dataset or output fingerprinting. Industry interest in these tools has increased as regulators and enterprises push for clearer documentation of how models are built, echoing broader efforts around content provenance standards and model cards. Terms-of-service clauses from major providers now frequently prohibit using their outputs to train competing models, which makes reliable evidence of distillation commercially and legally relevant.\n\nIf the approach generalizes, it could give model owners a technical avenue to investigate suspected unauthorized distillation and give downstream adopters a way to assess a model's lineage before deployment. It may also inform emerging auditing and compliance practices, where transparency about a model's origins is increasingly expected. At the same time, detection and evasion tend to co-evolve, and developers seeking to hide distillation could adjust their training to reduce telltale similarities, so any method is likely to be one component of a larger verification toolkit rather than a definitive test. As with many arXiv preprints, the paper appears not to have completed peer review, and its practical reliability will become clearer as the community evaluates it against a wider range of models and adversarial conditions.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T17:21:25.261Z"
+    },
+    "2524908e466fa3d0": {
+      "bodyJa": "AuditWeaveは、AI支援の工程やデータ変換の工程に対して、改ざんを検知でき、監査者がたどりやすい証拠層を提案する研究である。AIが重大な判断に関わる規制領域で、判断の経緯を後から示す必要に応えるものと位置づけられている。\n\n## 規制分野で増えるAI支援\n\n監査、金融、医療といった規制の厳しい分野では、AIシステムが重大な判断を支援する場面が増えている。論文はこの状況が、組織にとって繰り返し生じる義務を生むと説明している。\n\n## 事後に求められる二つのこと\n\nその義務は二つの要素からなる。第一に、ある結論に対してどの証拠が判断材料になったのかを、後から再構成できること。第二に、その推論の記録が書き換えられていないことを示せることである。\n\nつまり問われるのは結論そのものだけではない。結論に至る根拠と、その根拠を記した記録が健全であることの両方を、組織は事後に示せなければならない。\n\n## 改ざん検知と監査者の追跡\n\nAuditWeaveは、この要請に応える証拠層として提案されている。題名にある「tamper-evident」は、記録が改変された場合にそれが明らかになる性質を指す。「auditor-navigable」は、監査者が記録をたどって確認できることを意味する。\n\n対象となるのは、AIが支援するワークフローと、データを変換するワークフローである。こうした工程で生じる証拠を、改ざん検知可能かつ追跡しやすい形で残すことで、監査・金融・医療などの組織が重大な判断を後から再構成する助けになると説明されている。\n\n著者はVimal Nakrani氏で、論文は2026年7月14日付でarXivのcs.LG分野に掲載された。",
+      "bodyEn": "## AI in regulated domains\n\nAuditWeave is a research proposal for a tamper-evident, auditor-navigable evidence layer that sits alongside AI-assisted and data-transformation workflows. It matters because, according to the paper's abstract, AI systems are increasingly being used to assist consequential decisions in regulated areas, and those uses carry obligations that organizations must be able to meet after the fact.\n\nThe paper is credited to Vimal Nakrani and was published on arXiv in the machine learning listing (cs.LG) on 14 July 2026.\n\n## A recurring obligation\n\nThe abstract names auditing, finance, and healthcare as examples of regulated domains where AI now supports consequential decisions. In these settings, it says, an organization faces a recurring obligation with two parts.\n\nThe first is reconstruction. After a decision has been made, the organization must be able to work out which evidence informed a given conclusion. The second is integrity. The organization must be able to show that the record of that reasoning was not altered.\n\nThese two requirements frame the problem AuditWeave addresses: it is not enough to keep a record of how a conclusion was reached, because the record itself must be demonstrably unchanged.\n\n## What the evidence layer offers\n\nBased on the title and the summary of the work, AuditWeave proposes records that are traceable and reveal tampering, covering both AI-supported processes and data-conversion processes. \"Tamper-evident\" in this context means that alterations to the record can be detected, rather than simply prevented. \"Auditor-navigable\" indicates that the evidence is meant to be followed and explored by the people who review it.\n\nThe stated benefit is for regulated teams, who could use such a layer to reconstruct consequential decisions at a later date. The framing covers both the AI-assisted step and the data transformations around it, so the evidence trail is intended to span the workflow rather than a single model call.\n\n## What is stated so far\n\nThe available description is limited to the abstract's opening. It sets out the motivation and the goal of the layer, but it does not describe the mechanisms used to detect tampering, how evidence is structured or navigated, or how the approach was evaluated. Readers who need those details would have to consult the full paper.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "監査や金融、医療の現場だと、これで普段の何が変わるの？",
+          "en": "In auditing, finance, or healthcare work, what actually changes day to day with this?"
+        },
+        {
+          "s": "b",
+          "ja": "AI支援の判断が出たあとで、どの証拠が結論に影響したかを組織が再構成できるようになる、という提案だよ。記録が改ざんされていないことも示せる形を目指しているんだ。",
+          "en": "The idea is that after an AI-assisted decision, an organization can reconstruct which evidence shaped the conclusion, and show the record wasn't altered."
+        },
+        {
+          "s": "a",
+          "ja": "前はそれができなかったの？記録を残すだけじゃだめだったのかな。",
+          "en": "Couldn't they do that before? Wasn't just keeping records enough?"
+        },
+        {
+          "s": "b",
+          "ja": "従来との違いは、この記事の範囲だと分からないな。ただ、結論に使った証拠をあとから辿れて、記録が変えられていないことも示す義務がある、とは書かれているよ。",
+          "en": "This article doesn't say how it differs from before, so I can't tell. It does say organizations must trace the evidence behind a conclusion and show the record wasn't changed."
+        },
+        {
+          "s": "a",
+          "ja": "なるほど。あとから「何を根拠にそう決めたか」を辿れて、書き換えられてないって示せるのが一番の収穫かな。",
+          "en": "I see. The big takeaway is being able to trace why a decision was made later, and show nobody rewrote the record."
+        },
+        {
+          "s": "b",
+          "ja": "そのとおり。AI支援だけでなくデータ変換の工程も対象だから、監査者が追跡しやすい形かどうかも注目したいところだね。",
+          "en": "Exactly. It covers data-conversion steps too, not just AI assistance, so it's worth watching how easily auditors can navigate the records."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T10:30:40.848Z"
+    },
+    "92f16f4ebfcac8d7": {
+      "bodyJa": "「AIツールを導入したら、かえって作業時間が増えた」という声に向けて、時代を超えて通用する自動化の5原則をPythonの実践コードとともに整理した記事です。AIを使うこと自体が目的化していないかを見直す視点を示しています。\n\n## 作業の付け替え\n\n筆者によれば、2025年以降こうした声をよく聞くようになったといいます。ChatGPTやCopilotに指示するたびにプロンプトを調整し、出力を目視で確認し、期待と違えば再実行する。この状態では「AIに仕事を頼む」こと自体が新しい作業になっており、自動化ではなく作業の付け替えにすぎないと指摘されています。\n\n筆者はPythonでの金融データ収集(J-Quants / FRED)、Discord bot運用、ローカルLLMを組み込んだパイプラインなどを日常的に作っています。その経験から、AI以前から通用してきた原則を無視するとAIを入れても効率は上がらない、という立場をとっています。\n\n## 自動化しない判断\n\n頻度が低い作業や毎回条件が変わる作業は、自動化のコストが上回ることがあるとされています。例として挙がっているのは、月1回・所要5分の作業をAIパイプライン化するのに数時間かけるケースで、これは本末転倒だと述べられています。\n\nまた、全自動化を目指さず、意思決定や最終確認は意図的に人間のステップとして残すことも原則の一つです。\n\n## 構造化出力と冪等性\n\nLLMに「よしなにやって」と丸投げすると出力が安定しません。そこで出力の形を決めておくことで、後工程を通常のプログラムで確実に処理できるようになると説明されています。これが構造化出力の考え方です。\n\nDiscord通知や外部API呼び出しでは、処理済みIDを記録し、再実行時にスキップする仕組みが有効とされます。二重投稿や二重課金を防げるというのが冪等性の狙いです。\n\nさらに、AIの出力が期待と違う形式だった場合は、そのまま次工程へ流さず、明示的に失敗させて人間に知らせます。これが失敗検知の原則です。\n\n## 最小構成のコード\n\n実践コードは、日次データを取得し、ローカルLLM(Ollama)で要約させ、Discordに通知するパイプラインの最小構成です。構造化出力、冪等性、失敗検知の3原則が反映されています。\n\nセットアップ部分では、シークレットを環境変数から読み込む形にし、ログ設定にはloggingのbasicConfigを使っています。",
+      "bodyEn": "## 作業時間が増えた\n\nSome developers report that adopting AI tools made their work take longer rather than shorter. The article, a Zenn post in the local-LLM category, takes up this complaint and offers five automation principles that it says hold regardless of era, along with Python code that puts them into practice.\n\nAccording to the author, the problem begins when delegating to AI becomes a task of its own. Tweaking prompts for ChatGPT or Copilot, checking every output by eye, and rerunning when results miss expectations amounts to what the author calls a swap of tasks rather than automation. The author says people have been voicing this experience more often since 2025.\n\n## 自動化の5原則\n\nThe author builds automation in Python day to day, including financial data collection from J-Quants and FRED, Discord bot operation, and pipelines that embed a local LLM. The central claim is that ignoring automation principles that predate AI means efficiency will not improve even after AI is introduced.\n\nThe principles the text describes include the following. Work that is infrequent or changes conditions each time may cost more to automate than it saves; spending hours building an AI pipeline for a five-minute monthly task is given as an example of misplaced effort. Handing an LLM a vague \"just handle it\" instruction produces unstable output, so the article advocates structured output that lets later stages be processed reliably by ordinary programs.\n\nIdempotency is another principle. For Discord notifications and external API calls, recording processed IDs and skipping them on rerun is said to prevent double posting and double billing. The article also says that when AI output arrives in an unexpected format, the system should fail explicitly and notify a human instead of passing the problem downstream. Finally, it recommends not aiming for full automation, keeping decisions and final checks as deliberate human steps.\n\n## 実践コード\n\nThe practical section presents a minimal pipeline that fetches daily data, has a local LLM (Ollama) summarize it, and posts the result to Discord. The author says it reflects principles 2 (structured output), 3 (idempotency), and 4 (failure detection). The walkthrough starts with setup, where secrets are read from environment variables, and then moves into logging configuration.\n\nThe article's takeaway is that understanding these fundamentals helps developers get real value from AI integration instead of adding overhead.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「月1回・5分」の作業にAIパイプラインで数時間かけるのは本末転倒、って書いてあったよ。そんなに差が出るの？",
+          "en": "The article says spending hours building an AI pipeline for a once-a-month, five-minute task is backwards. Is the gap really that big?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、頻度が低い作業は自動化のコストが上回ることがある、と述べています。AIに頼むこと自体が新しい作業になる、という指摘ですね。",
+          "en": "The piece says rarely done tasks can cost more to automate than they save. It also points out that asking the AI can itself become a new chore."
+        },
+        {
+          "s": "a",
+          "ja": "「冪等性」ってなに？ 難しそうだけど、何を防ぐの？",
+          "en": "What's \"idempotency\"? It sounds tricky. What does it actually prevent?"
+        },
+        {
+          "s": "b",
+          "ja": "同じ処理を何度やっても結果が同じ、くらいの意味です。記事では処理済みIDを記録して再実行時にスキップし、二重投稿や二重課金を防ぐと説明しています。",
+          "en": "Roughly, running the same step many times gives the same result. Here, you log processed IDs and skip them on rerun, which prevents double posts and double charges."
+        },
+        {
+          "s": "a",
+          "ja": "毎日のデータをローカルLLMで要約してDiscordに送る、みたいなの作れるかな？",
+          "en": "Could I make something that summarizes daily data with a local LLM and sends it to Discord?"
+        },
+        {
+          "s": "b",
+          "ja": "まさに記事の最小構成の例です。ただ全自動を目指さず、最終確認は人間に残し、形式が違う出力は明示的に失敗させて知らせるのが前提です。",
+          "en": "That's the article's minimal example. But it doesn't aim for full automation: final checks stay with a human, and badly formatted output should fail loudly so you're notified."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T10:30:55.693Z"
+    },
+    "bd009a557c1cfae9": {
+      "bodyJa": "## 防御側が使い始めた手法\n\nプロンプトインジェクションは、攻撃者がコンテンツに埋め込んだ悪意ある命令で大規模言語モデル(LLM)に従わせる手法で、AIプラットフォームを利用者に敵対させる定番の道具だった。いまはこの手法を防御側も使い始めている。\n\n## 攻撃側の使い方\n\nメールやカレンダーの招待状に巧みな文言の命令を紛れ込ませるだけで、LLMが機密データを外部へ流出させたり、ほかの有害な行動をとったりすることが多いとされる。防御側の動きは、この仕組みを逆手に取ったものだ。\n\n## Tracebitの報告\n\nTracebitの研究者は月曜日に、Amazon Web Services上に保管されたパスワードや暗号鍵などの秘密情報の近くにプロンプトインジェクションを置くだけで、AIハッキングエージェントによる攻撃を止められることが多いと発表した。\n\nここで置かれるプロンプトは、攻撃側のLLMに対し、ガードレールで禁じられている行動を実行するよう指示する内容だ。ガードレールとは、AI開発者が有害な行動を防ぐために設ける安全上の仕切りを指す。指示を受けたLLMは、これに応じて動作を停止するという。\n\n## 攻守の逆転\n\n防御側のプロンプトインジェクションは、攻撃用エージェントが秘密情報に近づいたときに作動する仕掛けとして働く。攻撃者の道具だった手法が、悪意ある指示を無力化する対策に転用された形だ。ただし、確認されているのは「多くの場合に」攻撃を止められたという範囲にとどまる。",
+      "bodyEn": "## Defenders Embrace Prompt Injection\n\nPrompt injection has long been an attacker's go-to tool for turning AI platforms against their users. According to the source, defenders are now adopting the same technique, which could change how AI-driven attacks are stopped.\n\n## Attackers' Go-To Tool\n\nPrompt injections are malicious commands that attackers embed into content to entice large language models to follow them. The source says a well-phrased command sneaked into an email or calendar invitation is often all it takes to make an LLM exfiltrate sensitive data or carry out other harmful actions. This is the offensive use that has defined the technique so far.\n\n## Defensive Prompt Injection Findings\n\nResearchers from Tracebit reported on Monday that they placed prompt injections alongside passwords, cryptographic keys, and other secrets stored on Amazon Web Services. According to the researchers, this was often all that was needed to shut down attacks from AI hacking agents.\n\nThe mechanism relies on the guardrails of the attacking model. Guardrails are the safety barriers AI developers build to prevent an LLM from taking harmful actions. The planted prompts direct the attacking LLM to perform an action that those guardrails forbid. The LLM responds by shutting down, which ends the attack.\n\nIn effect, the defensive approach turns the attacker's own tool against the AI agent. Rather than relying on the model to follow hidden instructions that benefit an attacker, the planted text triggers the model's built-in safety behavior. The researchers describe the result as often sufficient to stop the intrusion, though the source says \"often,\" not always.\n\n## What the Report Establishes\n\nThe reported finding is narrow and specific. Prompt injections placed next to secrets stored on Amazon Web Services were frequently enough to halt AI hacking agents. The source frames this as defenders embracing a technique previously associated with attackers, and the key points describe it as repurposing prompt injection to neutralize malicious instructions aimed at AI agents.\n\nBeyond these points, the source does not provide further specifics, so the scope of the technique and how consistently it works should be read as limited to what Tracebit's researchers reported.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "攻撃の道具だったプロンプトインジェクションを、守る側が使うって、どういうこと？",
+          "en": "Prompt injection was an attacker's tool, right? How are defenders using it?"
+        },
+        {
+          "s": "b",
+          "ja": "Tracebitの研究者は、AWS上のパスワードや暗号鍵などの秘密情報のそばに、プロンプトインジェクションを置いたそうです。攻撃するAIにガードレールが禁じる行動を指示して、止めさせる仕組みです。",
+          "en": "Tracebit researchers placed prompt injections next to secrets on AWS, like passwords and cryptographic keys. They tell an attacking AI to do something its guardrails forbid, so it shuts down."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、攻撃してくるAIハッキングエージェントを止めたい人に役立つってこと？",
+          "en": "So it helps people who want to stop AI hacking agents that come after their data?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。この記事では、秘密情報のそばに置くだけで攻撃を止められることが多かった、と説明されています。AWS上の情報を守る新しい手段になりそうです。",
+          "en": "Right. The article says that placing them near secrets was often enough to shut attacks down. It could be a new way to protect information stored on AWS."
+        },
+        {
+          "s": "a",
+          "ja": "ガードレールが禁じることをわざと頼んで、AIに自分で止まってもらうんだね。",
+          "en": "So you deliberately ask for something the guardrails forbid, and the AI stops itself. Got it."
+        },
+        {
+          "s": "b",
+          "ja": "はい。ただ記事で「多くの場合」と書かれているとおり、いつも止まるとは限りません。万能の守りと考えず、効果は慎重に見たいところです。",
+          "en": "Yes. But the article says \"often,\" so it won't always work. I'd treat it as a promising defense, not a guaranteed one."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T10:30:58.318Z"
+    },
+    "b00e54e01d20ac8c": {
+      "bodyJa": "AIと言えば大規模言語モデル(LLM)という状況が続いてきたが、高い期待と巨額の資金調達、研究や製品開発を集める分野はそれだけではなくなりつつある。注目されているのが「ワールドモデル」と呼ばれるカテゴリで、物理世界をシミュレートできるAIの土台づくりを目指している。\n\n## LLM一色からの変化\n\nここ数年、多くの人がAIについて短期間で学ぶことになったが、その中身はほぼLLMの集中講座だったと振り返られている。しかし過去1年ほどの間に、「ワールドモデル」という名で括られる分野で多数の新たな発表があった。今後数か月から数年のうちに、この分野ではさらに動きが出てくるだろうとされる。\n\n## 物理世界のシミュレート\n\nワールドモデルは、言語を扱う代わりに、あるいは言語に加えて、物理世界をシミュレートできるAIシステムの基盤を築くことを狙う。ただし目指す対象は現実世界そのものの再現ではなく、少なくともその有用な近似である。\n\nAIエージェントに物理的現実のシミュレーションを提供するものとして期待されており、現実世界を内部で模擬するという考え方から、ロボットや自動運転への活用が見込まれている。\n\n## 精度と汎化性能の壁\n\n一方で、現状のワールドモデルには精度と汎化性能の面で大きな限界があると指摘されている。そのため、あらゆる場面に通用する万能の解決策にはまだほど遠い存在だと説明されている。\n\n有望な分野であることと、現時点での到達点が限定的であることは、分けて捉える必要がある。",
+      "bodyEn": "## Beyond Large Language Models\n\nFor many people, artificial intelligence has meant mostly large language models over the past few years. According to the article, that is changing: LLMs are no longer the only category of AI drawing high expectations, massive funding rounds, and significant research and product development. The shift matters because attention and money are spreading to a second category, labeled \"world models.\"\n\nThe article notes that the past year brought a plethora of new announcements in this category. It expects more movement in the coming months and years.\n\n## Simulating the Physical World\n\nAs the article describes them, world models aim to lay the groundwork for AI systems that can simulate the physical world, or at least a useful approximation of it. They are pursued instead of, or in addition to, working with language. The phrase \"a useful approximation\" is important. The goal is not a perfect copy of reality but a model good enough to be of practical use.\n\nThe article adds that these models simulate reality internally and are expected to be applied to robots and autonomous driving. It frames them as promising to simulate physical reality for AI agents.\n\n## Accuracy and Generalization Limits\n\nThe article's title points to both the possibilities and the limits of the approach. Its central caution is that current limitations in accuracy and generalization mean world models remain far from a universal solution. In other words, the simulations they produce are not yet reliable enough, and do not carry over broadly enough, to be treated as a general answer.\n\n## What to Take Away\n\nThe article presents world models as a fast-growing category with real expectations behind it, but one that is still at an early stage. Interest is rising and announcements are accumulating. Potential uses such as robotics and driving are discussed, while accuracy and generalization remain the main constraints on how far the approach can go today.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ワールドモデルって、今までのAIと何が違うの？ LLMとは別物なのかな？",
+          "en": "What makes world models different from the AI we know? Are they separate from LLMs?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、言語を扱うのに代えて、あるいは加えて、物理世界を、少なくとも役に立つ近似としてシミュレートできるAIの土台を目指す分野だと説明しています。",
+          "en": "The article describes them as aiming to lay the groundwork for AI that can simulate the physical world, or a useful approximation of it, instead of or alongside language."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあロボットや自動運転みたいに、現実の世界で動くAIに役立ちそうってこと？",
+          "en": "So they could help AI that works in the real world, like robots or self-driving cars?"
+        },
+        {
+          "s": "b",
+          "ja": "要約ではその活用が期待されているとされています。現実を内部で再現できれば、動く前に試せるかもね、という期待の話です。",
+          "en": "The summary says those uses are anticipated. If an AI can recreate reality internally, it might be able to try things out first, though that's the hope rather than a given."
+        },
+        {
+          "s": "a",
+          "ja": "まだ大きな期待が集まっている段階で、精度や汎化にも限界があるんだね。",
+          "en": "So expectations are big, but accuracy and generalization still have limits, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうです。この記事では、現時点ではすべてを解決する万能な手段にはほど遠いと示しています。期待と限界を分けて見たいですね。",
+          "en": "Right. The article says that for now, it's far from a universal solution. It's worth keeping the hype and the limits separate."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T10:32:18.472Z"
+    },
+    "2c6e0e551d4ebc3f": {
+      "bodyJa": "Hugging Faceのブログが公開した「PyTorchでのプロファイリング（第1部）」は、PyTorchに標準搭載されるtorch.profilerを使い、モデルの性能上のボトルネックを特定・分析する手順を初心者向けにまとめたチュートリアルである。大規模言語モデル（LLM）の学習や推論にかかる計算コストが増す中、無駄を見つけて最適化に着手するための第一歩として、実用的な内容となっている。\n\ntorch.profilerは、モデルの実行時にCPUとGPUのそれぞれで各処理がどれだけの時間やメモリを消費したかを、演算子（オペレーター）単位で計測できる仕組みだ。プログラム全体を漠然と速くしようとするのではなく、実際に時間を食っている箇所を数値で可視化できる点が特徴とされる。記事では、プロファイリングの対象範囲をコンテキストマネージャで囲んで計測を有効化し、得られた結果を表形式で確認したり、Chromeのトレースビューアなどで時系列として眺めたりする基本的なワークフローが紹介されていると見られる。\n\nこうしたプロファイリングが重視される背景には、GPUの演算そのものよりも、データ転送やCPUとGPU間の同期、メモリ確保といった周辺処理がボトルネックになりやすいという事情がある。たとえば処理が細切れになってGPUの待ち時間が増える「カーネルローンチのオーバーヘッド」や、CPU側の前処理がGPUの計算に追いつかない状況は、コードを眺めるだけでは気づきにくい。プロファイラで実測することで、こうした見えにくい非効率を裏づけを持って把握できる。\n\ntorch.profilerの出力はTensorBoardと連携して視覚的に確認でき、より高度な分析にはMeta（旧Facebook）が公開するHolistic Trace Analysisなどのツールも存在する。NVIDIA環境では、Nsight SystemsやNsight Computeといったベンダー提供のプロファイラを併用する選択肢もあり、目的に応じて使い分けられる。\n\nタイトルが「第1部」とされていることから、今後は取得したトレースの読み解き方や、具体的な最適化手法へと踏み込む続編が予定されている可能性がある。まずは自分のモデルがどこで遅くなっているのかを測る習慣が、性能改善の土台になると言えるだろう。",
+      "bodyEn": "Performance optimization is one of the least glamorous but most consequential parts of building machine learning systems, and it becomes especially important as developers increasingly run large language models on local hardware. A new tutorial from the Hugging Face blog introduces torch.profiler, PyTorch's built-in profiling utility, as a practical starting point for finding out where time and memory actually go during training and inference. Framed as the first installment in a series, the guide targets beginners who suspect their models are slower than they should be but lack a systematic way to confirm why.\n\nThe central argument is that intuition is a poor guide to performance. Developers often assume a particular layer or operation is the bottleneck, only to discover that data loading, synchronization overhead, or memory transfers between CPU and GPU are the real culprits. torch.profiler addresses this by instrumenting a model run and recording detailed timing and resource data across both host and device. Rather than guessing, a developer can measure, and the tutorial positions this measurement step as the necessary foundation before any code is rewritten in the name of speed.\n\nTechnically, torch.profiler is used as a context manager that wraps the code being analyzed. The tutorial walks through configuring the profiler to capture activity from the CPU and CUDA, the two most common execution targets, and to record additional information such as tensor shapes, memory allocation, and stack traces. A scheduling mechanism lets users skip an initial warm-up period, then profile a defined number of steps, which matters because the first iterations of a model often include one-time setup costs that would otherwise distort the results. Once a run completes, the collected events can be summarized into tables sorted by metrics like total CUDA time or self CPU time, making it straightforward to see which operators dominate.\n\nReading that output is where the guide spends much of its effort, since raw numbers are only useful if a developer understands the distinction between categories. The difference between total time and self time, for example, separates the cost of an operation including its child calls from the cost of the operation alone. The tutorial also appears to emphasize the gap between CPU and GPU timelines, a common source of confusion for newcomers. Because CUDA operations execute asynchronously, the CPU may appear idle while the GPU works, or the GPU may stall waiting for the CPU to dispatch the next kernel. Recognizing these patterns is what turns a profile from a wall of statistics into an actionable diagnosis.\n\nBeyond the console summaries, the profiler can export a trace that is viewable in tools such as TensorBoard or the Chrome trace viewer, giving a visual timeline of kernel launches and gaps. This visualization is often the fastest way to spot problems like poor overlap between computation and data movement, or a dataloader that cannot keep the accelerator fed. The tutorial reportedly introduces these outputs at a level appropriate for readers who have not profiled before, deferring deeper optimization techniques to later parts of the series.\n\nIt is worth placing torch.profiler in a broader landscape of tooling. PyTorch previously offered the older torch.autograd.profiler, which the newer API supersedes with better GPU support and a more flexible design. For lower-level investigation, developers frequently turn to NVIDIA's Nsight Systems and Nsight Compute, which expose hardware counters and kernel behavior that a framework-level profiler cannot see. Sampling profilers such as py-spy address Python-side overhead, while memory-specific tooling helps trace allocations. torch.profiler occupies a useful middle ground, tied closely enough to PyTorch to label operations meaningfully while still surfacing device-level timing.\n\nThe choice to publish this on the Hugging Face blog reflects the platform's continued push toward efficient, self-hosted model deployment. As open models proliferate and more practitioners run inference and fine-tuning outside large cloud environments, the ability to squeeze better utilization out of a single GPU has real cost and latency implications. Profiling connects naturally to optimization methods that Hugging Face and the wider community promote, including quantization, mixed-precision training, kernel fusion, and improved attention implementations, since each of those benefits from knowing the baseline first.\n\nAs a first part, the guide is deliberately foundational, and readers looking for specific tuning recipes will likely need to wait for subsequent entries. Still, it establishes a disciplined, measurement-driven mindset that is broadly applicable regardless of model architecture or hardware.",
+      "model": "claude-opus-4.8",
+      "generatedAt": "2026-07-11T06:29:59.193Z"
     }
   }
 }

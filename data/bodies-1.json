@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T10:23:29.211Z",
-  "count": 403,
+  "generatedAt": "2026-11-28T11:23:39.273Z",
+  "count": 404,
   "bodies": {
     "7b752c9b3e3af2c6": {
       "bodyJa": "AIエージェントが高度化するにつれ、誤動作や悪用が発生した際の影響範囲（ブラスト半径）も拡大する。本記事はAnthropicのエンジニアリングブログに掲載され、その上限をどう設計するかという実践的な問いに答えている。\n\n対象製品はclaude.ai・Claude Code・Coworkの3つ。それぞれ異なるユースケースと権限モデルを持つ中で、共通の封じ込め原則をどう適用したかが論点と推察される。具体的な実装詳細は原文で確認することを推奨する。\n\nエージェントの安全設計に携わる開発者や、Claudeを自社プロダクトに組み込む実務者にとって参考になる内容と見られる。",
@@ -11902,7 +11902,39 @@
       "bodyJa": "スマートフォンだけで、通勤時間中に3つのアプリを完成させた——。そんな体験談が、Webブラウザから使えるClaude Codeの実践例として注目を集めている。PCを開かずに本格的な開発ができる可能性を示す事例だ。\n\nClaude Codeは、Anthropicが提供するAIコーディング支援ツールで、当初はターミナル上で動作するコマンドライン型のエージェントとして登場した。コードの生成や修正、ファイル操作、テストの実行までを対話的にこなせる点が特徴で、開発者の作業を効率化するとして支持を広げてきた。\n\n今回話題となっているのは、このClaude CodeをWebブラウザ経由で利用する形態だ。ブラウザからアクセスできれば、専用の開発環境をローカルに構築する必要がなく、スマートフォンのような限られた入力環境でも指示を出してアプリを組み上げられる。記事の筆者は、通勤という細切れの時間を使い、AIに要件を伝えながら3本のアプリを形にしたという。\n\n背景には、開発環境のクラウド化という流れがある。GitHub CodespacesやReplitなど、ブラウザだけでコーディングからデプロイまで完結させるサービスは以前から存在し、AIエージェントの普及がこの傾向を後押ししている。人間がコードを一行ずつ書くのではなく、自然言語で意図を伝えてAIに実装させるスタイルが広がれば、キーボードを多用しないスマホでの開発も現実味を帯びる。\n\n競合の動きも活発だ。OpenAIはコーディング支援の「Codex」系機能を、GoogleやMicrosoftもそれぞれのAIエージェントを強化しており、ブラウザやモバイルからの利用を見据えた展開が進むと見られる。\n\nもっとも、スマホ完結の開発がすべての用途に向くとは限らない。複雑なデバッグや大規模な設計では、従来の環境が優位な場面も残るだろう。生成されたコードの検証や品質担保が課題となる可能性もある。それでも、アイデアを思いついたその場で試作できる手軽さは、開発のハードルを下げる意味を持つ。移動中や外出先での「すきま開発」が一般化する可能性を示す一例と言えそうだ。",
       "bodyEn": "Anthropic's Claude Code began life as a terminal-based coding assistant, but it has increasingly moved toward the browser, and a recent first-person account illustrates what that shift makes possible. The developer describes building three small applications entirely on a smartphone while commuting, without ever opening a laptop. The story matters because it suggests that a meaningful slice of software development can now happen in short, mobile-friendly bursts rather than requiring a dedicated workstation.\n\nThe core enabler is Claude Code on the web, a hosted version of Anthropic's agentic coding tool that runs in a browser instead of a local command line. Rather than installing a runtime and cloning repositories onto a personal machine, the user connects a code repository, describes the task in natural language, and lets the agent plan, write, and run code inside a managed cloud environment. Because everything executes remotely, the client device mainly needs a browser and a network connection, which is why a phone becomes a viable control surface. The author frames this as the key unlock: the heavy lifting sits in the cloud, and the handset is reduced to a place for reviewing output and steering the next step.\n\nIn practice, a session like the one described appears to follow a loop familiar from other agentic tools. The developer issues a prompt, the agent proposes changes, executes them in an isolated sandbox, and reports back with results and diffs. The human then approves, corrects, or refines the direction. On a phone, this workflow leans heavily on reading and light typing rather than sustained coding, which fits the constraint of a small screen and an on-screen keyboard. The three apps produced this way are likely to be compact in scope, such as utilities or prototypes, since a commute imposes a natural time limit and mobile input remains slower than a full keyboard. The account is a single anecdote, so results will vary with project complexity and the quality of the prompts.\n\nIt helps to place this in the broader arc of Claude Code. The tool launched earlier as a CLI product aimed at developers who wanted an agent embedded in their existing terminal and editor setup, with access to files, shell commands, and version control. The web version extends that model into asynchronous, cloud-hosted sessions, and Anthropic has paired it with mobile access so tasks can be kicked off and monitored away from a desk. The underlying capability comes from Anthropic's Claude models, and the agent's usefulness depends on both the model's reasoning and the surrounding scaffolding that lets it read errors, run tests, and iterate.\n\nThis is part of a wider industry move toward what are often called asynchronous or background coding agents. Comparable offerings include OpenAI's cloud-based Codex agent, Google's Jules, GitHub's Copilot coding agent, and startup efforts such as Cognition's Devin, alongside editor-centric tools like Cursor. The common thread is delegating multi-step tasks to an agent that works in a sandbox and returns a reviewable result, sometimes several in parallel. Browser and mobile front ends are a logical next step for that pattern, because they decouple the work from any one machine.\n\nSeveral caveats are worth keeping in mind. Granting an agent access to a repository and an execution environment carries security and code-review responsibilities that do not disappear on mobile; generated code still needs scrutiny before it is merged or deployed. Longer or more architecturally demanding projects are harder to manage from a phone, where reading large diffs and debugging subtle failures is cumbersome. Costs, rate limits, and the reliability of cloud sandboxes also shape how far this approach scales. The experience described is best read as a demonstration of feasibility rather than proof that phones will replace development machines.\n\nEven with those qualifications, the account points to a genuine change in where and how coding can occur. If routine tasks, small tools, and early prototypes can be started and finished in fragmented time such as a commute, the practical definition of a development environment broadens considerably. Whether this becomes a mainstream habit will likely depend on how comfortable teams grow with reviewing agent output on the go and how much responsibility they are willing to hand to hosted agents.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:38:39.645Z"
+      "generatedAt": "2026-08-30T16:38:39.645Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "通勤中にスマホだけでアプリが3つもできたの？PCなしで、どうやってるんだろう？",
+          "en": "Three apps on a phone during a commute? How does that even work without a PC?"
+        },
+        {
+          "s": "b",
+          "ja": "ブラウザからClaude Codeを使うんだって。Claudeがクラウド上でコードを書いて、テストして、PRまで作ってくれるそうだよ。",
+          "en": "You use Claude Code in the browser. Claude writes the code, tests it, and even creates the PR in the cloud, the post says."
+        },
+        {
+          "s": "a",
+          "ja": "ローカル環境の準備がゼロって書いてあったよね。思いついた瞬間に始められるってこと？",
+          "en": "It said there's zero local setup, right? So you can start the moment an idea hits?"
+        },
+        {
+          "s": "b",
+          "ja": "そう、「あとでやる」が「いま投げとく」になったと書かれているよ。例は餃子の味記録アプリや、英文をその場で添削する英語日記アプリだね。",
+          "en": "Right, \"I'll do it later\" became \"I'll toss it over now.\" Examples are a dumpling taste log app and an English diary app that corrects your writing on the spot."
+        },
+        {
+          "s": "a",
+          "ja": "思いついたらすぐ任せられるから、3つもできたんだね。",
+          "en": "So being able to hand it off right away is why three apps got made."
+        },
+        {
+          "s": "b",
+          "ja": "著者も「たぶんそれだけの理由」と書いているよ。ただ、あくまで本人の体験談だから、誰でも同じ結果になるとは限らないかもね。",
+          "en": "The author says \"probably just that reason.\" It's one person's own experience, though, so results may vary for others."
+        }
+      ]
     },
     "3537c73defb12e6f": {
       "bodyJa": "## 共有キャンバス\n\nCursorに、キャンバスをチームで共有できる機能が追加された。複数メンバーによる協調作業を、エディター内で進めやすくする更新とされる。\n\n共有の対象はCursorのキャンバスで、チームに対して直接共有できる。共同作業にキャンバスを利用できる点が、この変更の中心となる。\n\n## /loopスキル\n\nあわせて、新しいスキル「/loop」も導入された。具体的な動作や利用方法は示されていないが、共有可能なキャンバスとともに、協調的なワークフローをエディター内で可能にする追加として説明されている。",
@@ -14003,6 +14035,44 @@
       "bodyEn": "## Qwen 3.5-397B on Ironwood\n\nGoogle published a systems engineering guide to optimizing the 397B-parameter Qwen 3.5 Mixture-of-Experts model on Ironwood, also identified as TPU v7. The guide matters for teams seeking practical techniques for serving large open-weight models efficiently on TPU infrastructure.\n\n## Modular JAX/Pallas stack\n\nTo serve the model on Ironwood TPUs, engineers developed a modular optimization stack using JAX and Pallas. According to the source excerpt, this stack achieved up to a 4.7x inference speedup for workloads dominated by prefill processing.\n\nThe result is specifically framed around inference optimization rather than a change to the model itself. The modular stack provides the technical basis for running Qwen 3.5-397B more efficiently on the stated TPU hardware.\n\n## Hardware sharding constraints\n\nThe source also says the team bypassed severe hardware sharding constraints while developing the serving approach. The published material presents these optimization methods as practical systems-engineering knowledge for operating a large open model in production on TPU infrastructure.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T20:50:13.086Z"
+    },
+    "2eba3bd38fed592a": {
+      "bodyJa": "検索APIが返すのは、順位付きのスニペットとURL、メタデータである。ツール利用エージェントはこれを手がかりに、答えるか、再検索するか、ページを取得するかを決める。本研究はこの返却内容を「意思決定面」として評価し、精度が近くても、エージェントが目にする証拠には差があることを示したと報告されている。\n\n## 検索APIの決定面\n\n検索APIは単なる情報の入口ではない。エージェントが次の行動を選ぶ際に見る材料そのものである。そのため、返されるスニペットやURL、メタデータの内容が、判断の方向に影響しうる。研究はこの点に着目し、最終的な正答率だけでなく、判断の根拠となる可視的な証拠の側を評価対象にしている。\n\n## 実験の設計\n\n評価には、SealQA-Hardサブセット254問から固定抽出した100問を用いた。エージェントは凍結したGPT-5.4を1つだけ使い、オーケストレーションのハーネスも固定している。ページ取得のバックエンドは共有とし、比較対象はBrave、Tavily、Firecrawlの3つの検索APIである。検索APIの違いだけが結果に反映されるよう、他の条件をそろえた構成といえる。\n\n可視のURL単位の証拠には、Kimi-K2.6をオラクルとしてラベルを付けた。回答の正誤は、これとは別の回答監査で確認している。\n\n## 正答数は25・25・26\n\n回答監査の結果、100問中の正答数は3つのAPIで25、25、26だった。観測された精度はほぼ並んでいる。\n\nただし著者らは、この数字が示すのは観測上の精度が近いことであり、APIが同等であることの証明にはならないと明記している。\n\n## 同等とは言えない\n\n研究の主張は、精度が近くても、APIが返す証拠の質や多様性には大きな差があり、エージェントの意思決定に目に見えにくい偏りを生みうるという点にある。正答数だけを比べると、この違いは見えにくい。検索APIを選ぶ際に精度の数字だけで判断すると、エージェントが実際に頼る証拠の違いを見落とす可能性がある、という含意が読み取れる。",
+      "bodyEn": "Search APIs are often judged by whether an agent ends up with the right answer. A new arXiv paper in the computation and language category, by Sriram Selvam and one other author, looks at them differently. It asks what the interface shows the agent along the way, and why that matters for the agent's decisions.\n\n## Search APIs as Decision Surfaces\n\nAccording to the abstract, a search API returns ranked snippets, URLs, and metadata. A tool-using agent relies on that material to decide whether to answer, search again, or fetch pages. The paper treats these interfaces as \"decision surfaces\", meaning the place where those choices are made, rather than only as a source of results.\n\n## Fixed Sample, Frozen Agent\n\nThe evaluation holds most variables constant. It uses a fixed sample of 100 questions drawn from the 254-question SealQA-Hard subset. A single frozen GPT-5.4 agent runs inside a fixed orchestration harness. All three providers share the same page-fetch backend. The providers compared are Brave, Tavily, and Firecrawl. Because everything else is held fixed, the search API is the component that varies.\n\nTo assess the evidence each API exposes, a Kimi-K2.6 oracle labels the visible URL-level evidence. A separate answer audit checks correctness.\n\n## Similar Accuracy, Unequal Evidence\n\nThe answer audit found 25, 25, and 26 correct answers out of 100 across the three APIs. The authors describe these counts as similar observed accuracy, and they state that the counts do not establish equivalence.\n\nThe paper's central claim, as summarized in its key points, is that APIs with similar accuracy can differ substantially in the quality and diversity of the evidence they return. The summary says this introduces hidden biases into how tool-using agents make decisions. In other words, matching accuracy numbers can conceal unequal evidence underneath. The abstract's own framing supports this: accuracy alone does not show how the interface shapes the agent's choices to answer, search again, or fetch.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "検索APIって、AIエージェントを使う普段の場面だと何に関わってくるの？",
+          "en": "When an AI agent does a task for me, where do search APIs come into it?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、検索APIが返すスニペットやURLなどを見て、エージェントが答えるか、再検索するか、ページを取得するかを決めています。",
+          "en": "In this paper, the agent reads the snippets, URLs, and metadata a search API returns. Then it decides whether to answer, search again, or fetch pages."
+        },
+        {
+          "s": "a",
+          "ja": "Brave、Tavily、Firecrawlで前と比べて何か違いが出たの？正解の数は違ったの？",
+          "en": "So did Brave, Tavily, and Firecrawl differ? Did they get different numbers of right answers?"
+        },
+        {
+          "s": "b",
+          "ja": "正解は100問中25、25、26でほぼ同じでした。ただ、同等だとは言い切れないとも書かれています。従来との比較は、この記事からは分かりません。",
+          "en": "They got 25, 25, and 26 out of 100, so similar. The paper says that doesn't prove equivalence. How this compares with earlier work isn't clear from the article."
+        },
+        {
+          "s": "a",
+          "ja": "正解数が同じでも、検索APIが返す証拠の質や多様性は違うんだね。そこが一番の収穫かも。",
+          "en": "So the big takeaway is that similar scores can hide different evidence quality and diversity. Right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。要約では、その差が見えない偏りになりうるとされています。次は、証拠の違いが判断にどう響くかに注目したいですね。",
+          "en": "Yes. The summary says those gaps can add hidden bias. Next, I'd watch how the evidence differences actually shape the agent's decisions."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T10:30:14.274Z"
     }
   }
 }

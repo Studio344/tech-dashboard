@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T10:23:29.211Z",
-  "count": 423,
+  "generatedAt": "2026-11-28T11:23:39.273Z",
+  "count": 427,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -12308,13 +12308,77 @@
       "bodyJa": "Googleは、欧州連合（EU）のデジタル市場法（DMA）の一部要件が、利用者のセキュリティとプライバシーを損なう恐れがあるとの見解を公式ブログで示した。市場の開放性と利用者保護をどう両立させるかという難しい論点が、改めて浮き彫りになっている。\n\nDMAは、検索やスマートフォンOS、アプリストアなどで大きな影響力を持つ巨大IT企業を「ゲートキーパー」に指定し、競争環境を是正することを目的とした規制だ。2024年から本格的に適用され、対象企業には自社サービスの優遇禁止や、外部の開発者・競合サービスとの相互運用性の確保、データポータビリティの実現などが義務付けられている。GoogleやAppleに加え、Meta、Amazon、Microsoftなども対象に含まれる。\n\nGoogleが懸念するのは、こうした要件の一部が、同社がこれまで築いてきた安全対策と衝突しうる点だ。たとえば外部事業者へのデータ共有や相互運用の拡大は、悪意ある第三者による不正アクセスやなりすまし、フィッシングなどのリスクを高める可能性があると同社は主張する。アプリの提供経路が広がることで、十分な審査を経ないソフトウェアが流通しやすくなるとの指摘もある。\n\n同様の懸念は他社からも上がっている。Appleは以前から、公式ストア以外からアプリを導入する「サイドローディング」の解禁が、マルウェアや詐欺の温床になりかねないと繰り返し表明してきた。一方で欧州委員会や一部の競争政策の専門家は、こうした主張が既存の支配的地位を守る口実になっている可能性もあるとして、慎重に見極める構えを見せている。\n\n規制側と事業者側のいずれの言い分にも一定の根拠があり、安全性を名目とした過度な囲い込みと、開放を優先するあまり生じる新たな脆弱性の双方を避ける設計が求められる。今後は、欧州委員会が技術的な安全対策をどこまで許容し、企業側がどのように相互運用性を実装していくかが焦点になりそうだ。利用者にとっては、選択肢の拡大と安全の確保をいかに両立させるかが問われることになる。",
       "bodyEn": "Google has publicly cautioned that some compliance obligations under the European Union's Digital Markets Act (DMA) could weaken the security and privacy safeguards that protect people in Europe. The argument matters because it highlights a growing tension at the heart of digital regulation: how to open dominant platforms to competition without inadvertently exposing users to new risks. Google's position, laid out in company blog commentary, is that regulators should pursue market fairness in ways that do not force users to accept trade-offs on safety.\n\nThe DMA is a landmark EU law designed to curb the power of large online platforms. It designates certain companies as \"gatekeepers,\" a category that includes Alphabet's Google, Apple, Meta, Amazon, Microsoft and ByteDance. Gatekeepers face a set of obligations meant to increase competition and user choice, such as allowing alternative app stores, permitting third-party access to certain services, refraining from self-preferencing their own products in search results, and enabling greater data portability and interoperability. The regulation began applying to designated companies in 2024 and complements the broader EU framework that also includes the General Data Protection Regulation (GDPR) and the Digital Services Act (DSA).\n\nGoogle's concerns appear to focus on several specific requirements. One is the pressure to share data with third parties, including rival services and business users, which the company suggests could increase the risk of sensitive information being exposed or misused if adequate safeguards are not in place. Another is the mandate to make search results and other features more open to competitors, which Google has argued may sometimes surface lower-quality or less trustworthy sources. The company has also raised questions about how interoperability and alternative distribution channels are implemented, warning that loosening controls over how apps and data flow could create openings for bad actors.\n\nThese arguments are not unique to Google. Apple has made broadly similar claims about the DMA's requirement to allow app sideloading and alternative app marketplaces on iPhones, contending that bypassing its own App Store review process could expose users to malware, fraud and privacy-invasive software. Critics of both companies counter that such warnings can also serve commercial interests, since the same security-centered gatekeeping helps preserve the platform control and revenue that the DMA is intended to loosen. Regulators and consumer advocates have argued that openness and security are not inherently in conflict, and that well-designed technical measures can achieve both.\n\nThe debate over messaging interoperability illustrates the underlying technical complexity. The DMA requires gatekeepers to make their messaging services interoperable with those of competitors upon request. Security researchers have noted that connecting end-to-end encrypted systems built on different protocols is difficult, because encryption guarantees can be hard to preserve when messages cross between platforms that handle keys and metadata differently. Implementing interoperability without weakening encryption is technically possible but demanding, and the outcome is likely to depend heavily on the standards and safeguards that companies and regulators agree on.\n\nFor the European Commission, the challenge is to enforce the DMA's pro-competition goals while responding to legitimate security considerations and distinguishing them from arguments that primarily protect incumbents. The Commission has the power to investigate non-compliance and levy substantial fines, and it has already opened proceedings and issued preliminary findings against several gatekeepers, signaling that it intends to enforce the rules assertively. It has generally maintained that companies remain responsible for protecting users and that compliance can be designed in privacy-preserving ways.\n\nThe broader context is a shift in how governments approach large technology firms. The EU has positioned itself as a global leader in digital regulation, and rules like the DMA are being watched closely by policymakers elsewhere considering similar measures. How the security-versus-openness question is resolved in Europe could therefore influence regulatory approaches well beyond the bloc. For now, Google's message is essentially a call for careful implementation: it says it supports the DMA's aims but wants the technical details worked out so that compliance does not come at the expense of the protections users rely on. Whether that framing reflects genuine risk, competitive self-interest, or both is likely to remain contested as enforcement continues.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:37:55.132Z"
+      "generatedAt": "2026-08-30T16:37:55.132Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Googleが「プライバシーとセキュリティの防御が弱まるかも」って言ってるけど、一番心配してるのはどこなの？",
+          "en": "Google says privacy and security guardrails could weaken. What worries them most?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では特に、ヨーロッパの人の私的な検索が、見慣れない企業に十分な匿名化もなく、本人の知らないところで渡る点を挙げています。",
+          "en": "The post singles out private searches. They'd reach unfamiliar companies without proper anonymisation, and without users knowing or consenting."
+        },
+        {
+          "s": "a",
+          "ja": "Androidの話もあったよね。外部のアプリに強い権限が渡るってこと？それで誰が困るのかな？",
+          "en": "There was an Android part too. Outside apps get powerful permissions? Who would that affect?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、Androidの判断で外部アプリに強力な端末権限が与えられ、安全確認の仕組みなしだと端末の安全が脅かされると主張しています。影響を受けるのは利用者です。",
+          "en": "The post says the Android ruling grants outside apps sensitive device permissions without safeguards, which threatens device security. Users would be the ones affected."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、AIアシスタントはもう安全に使えてて、スマホメーカーが確認する役をしてるんだね。",
+          "en": "So AI assistants already work safely, with phone makers vetting them. Is that right?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、Googleはそう述べています。ただ、これはGoogle自身の主張なので、規制側の見方は別に確認したいところです。",
+          "en": "Yes, that's Google's claim. But it's Google's own view, so you'd want to check the regulators' side separately."
+        }
+      ]
     },
     "7d01db02c3e40e2d": {
       "bodyJa": "Metaは、同社のAIアシスタント「Meta AI」との会話で10代のユーザーが精神的な苦痛の兆候を示した場合に、保護者へ通知する新機能を導入すると発表した。生成AIが日常的なコミュニケーション手段として急速に普及するなか、未成年の安全をどう守るかは業界全体の課題となっており、今回の取り組みはその一環と位置づけられる。\n\nMeta AIは、InstagramやMessenger、WhatsAppといった同社サービスに組み込まれた対話型AIで、ユーザーは文章での相談や質問を通じて幅広い話題をやり取りできる。新機能では、こうした会話のなかで自傷や強い落ち込みといった苦痛を示すサインが検出された際に、あらかじめ設定された保護者へアラートが送られる仕組みとみられる。従来Metaが提供してきた保護者向け管理機能(ペアレンタルコントロール)を、AIとの対話領域にまで広げるものと言える。\n\n背景には、AIチャットボットと若年層の関わりをめぐる懸念の高まりがある。感情的な悩みを人間ではなくAIに打ち明ける未成年が増えるなか、深刻な兆候が見過ごされたり、AIの応答が適切さを欠いたりするリスクが指摘されてきた。米国では関連する訴訟や規制当局の関心も報じられており、プラットフォーム各社は対応を迫られている状況だ。\n\nこうした動きはMetaに限らない。OpenAIやCharacter.AIなども未成年保護や危機的状況への対応強化を進めており、苦痛のサインを検知した場合に専門の相談窓口を案内するといった仕組みを取り入れている。年齢に応じた利用制限やコンテンツフィルタリングと組み合わせ、AIサービス全体で安全策を重層化する流れが強まっている。\n\n一方で、この種の検知機能には課題も残る。会話内容の分析はプライバシーとのバランスが問われるうえ、苦痛のサインを正確に判定できるかは技術的な精度に左右される。誤検知による過剰な通知や、逆に深刻な兆候の見逃しが起きる可能性も否定できない。10代ユーザーの信頼を損なわずに安全を確保できるか、通知の対象や範囲をどう設計するかといった運用面が、今後の実効性を左右するとみられる。",
       "bodyEn": "Meta has announced a feature that will notify parents when their teenage children display signs of emotional distress during conversations with Meta AI, the generative assistant the company has embedded across Facebook, Instagram, WhatsApp, and Messenger. The change addresses mounting concern over how adolescents interact with conversational AI and expands a set of parental controls Meta has been building out over the past two years. As AI chatbots become a routine part of daily communication for younger users, the question of how these systems respond to vulnerable teens has moved to the center of the industry's safety debate.\n\nAccording to Meta, the feature is designed to detect language or behavioral patterns that may suggest a teen is struggling, and to surface that signal to a linked parent or guardian. The company frames the goal as giving caregivers an opportunity to check in or seek help before a difficult situation worsens. Notifications of this kind typically depend on classifiers trained to recognize indicators such as expressions of hopelessness, references to self-harm, or acute distress, though the exact thresholds and the balance between alerting parents and preserving a teen's sense of privacy remain sensitive design choices that Meta appears to be calibrating.\n\nThe announcement fits within Meta's Teen Accounts framework, which the company introduced to place under-18 users into more restrictive default settings covering messaging, content exposure, and time management. Parental supervision tools already allow guardians to see who their teen is messaging and to set limits on app usage, and the new distress-notification capability layers AI interactions onto that existing structure. It is likely that the feature will work only when a parent and teen have an active supervision link, meaning its reach depends on families opting into Meta's broader controls rather than applying automatically to every young user.\n\nThe context for this move is a period of intense scrutiny over the effect of social platforms and AI companions on adolescent mental health. Meta has faced lawsuits and regulatory pressure in the United States and Europe alleging that its products can contribute to harm among young users, and it has responded with a steady stream of teen-focused safety changes. The AI dimension adds a newer layer of risk: conversational systems can feel personal and responsive, which may encourage teens to disclose feelings they would not share elsewhere. That intimacy is precisely what makes both the opportunity and the danger significant.\n\nOther companies working on conversational AI have confronted similar issues. Character.AI, which offers persona-based chatbots popular with younger audiences, has introduced separate models and safeguards for minors following reports and legal claims tied to teen safety. OpenAI has also outlined measures for how ChatGPT should handle sensitive topics and has discussed age-appropriate experiences and parental oversight. Against that backdrop, Meta's notification feature can be read as part of an emerging industry norm in which platforms attempt to route signs of crisis toward human support rather than leaving an automated system to manage them alone.\n\nTechnical and ethical challenges accompany the approach. Automated detection of distress is imperfect; systems can generate false positives that alarm parents unnecessarily or miss coded language that teens use to obscure their meaning. There is also the concern that awareness of monitoring could discourage some young people from speaking openly, potentially pushing sensitive conversations to platforms without any safeguards. Privacy advocates have long noted the tension between protective surveillance and a teenager's developmental need for autonomy, and how Meta discloses the feature's operation to both parents and teens will shape whether it is perceived as supportive or intrusive.\n\nMeta has indicated that its safety work in this area is ongoing, and details such as regional availability, language coverage, and the specifics of what parents will and will not see may evolve as the feature reaches more users. For now, the announcement signals that major AI providers are increasingly treating crisis detection and parental notification as core responsibilities rather than optional additions. Whether the feature meaningfully improves outcomes will depend on its accuracy, the guidance offered to families when an alert is triggered, and the availability of professional resources beyond the notification itself, which the company presents as a prompt for human intervention rather than a substitute for it.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:38:18.874Z"
+      "generatedAt": "2026-08-30T16:38:18.874Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「75人以上の臨床医のフィードバック」って書いてあったけど、これって大きいことなの？",
+          "en": "The article mentions feedback from over 75 clinicians. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、その意見をもとにMeta AIが自殺や自傷についての質問にどう答えるかを改善していくそうだよ。専門家の知見を取り入れる姿勢は読み取れるね。",
+          "en": "The article says that input is being used to improve how Meta AI answers teens' questions about suicide or self-harm. So it shows they're bringing in expert knowledge."
+        },
+        {
+          "s": "a",
+          "ja": "「Instagramの保護者向け管理ツール」って、どういうものなの？",
+          "en": "What are these Instagram supervision tools for parents, exactly?"
+        },
+        {
+          "s": "b",
+          "ja": "保護者が子どものアカウントを見守るための機能、くらいの意味だよ。この記事では、そこを通じて通知が届くと書かれているよ。",
+          "en": "Basically, tools that let parents keep an eye on their teen's account. This article says the alerts would come through those tools."
+        },
+        {
+          "s": "a",
+          "ja": "もし自分の子がAIに悩みを話したら、親に伝わるんだよね。ちょっと安心かも。",
+          "en": "So if my kid talked to the AI about something heavy, I'd hear about it. That feels reassuring."
+        },
+        {
+          "s": "b",
+          "ja": "ただ、通知されるのは自殺や自傷について話した場合で、保護者がそのツールを使っていることが前提だよ。専門家の資料も案内されて、緊急時に備えた連絡の仕組みは構築中とのことだね。",
+          "en": "One catch: alerts cover talk of suicide or self-harm, and parents need to be using the supervision tools. Expert resources are offered too, and the emergency alert system is still being built."
+        }
+      ]
     },
     "12b1ea165749a92f": {
       "bodyJa": "## Agents Window\n\nCursorのオートメーション機能が大幅に更新され、AutomationsがAgents Windowに直接表示されるようになった。反復的な自動ワークフローの設定と管理を、より柔軟に行える変更とされる。\n\n## 複数リポジトリ\n\nオートメーションには、複数のリポジトリを関連付けられるようになった。さらに、リポジトリを一つも付けない構成にも対応する。複数リポジトリを対象にする場合と、特定のリポジトリを必要としない場合を選択でき、開発者のワークフロー効率が高まると説明されている。",
@@ -12364,7 +12428,39 @@
       "bodyJa": "AIを活用した1人開発に対し、「属人化を招く」との批判が向けられる場面が増えている。この記事は、ソフトウェア工学の古典として知られる「人月の神話」を改めて読み返しながら、その批判が本当に妥当なのかを検証している。\n\n「人月の神話」は、IBMでOS/360の開発を率いたフレデリック・ブルックスが1975年に著した名著だ。人と月（工数）は交換可能ではなく、遅れているプロジェクトに人員を追加するとかえって遅延する、という「ブルックスの法則」で広く知られる。その根拠として挙げられるのが、チームの人数が増えるほど膨らむコミュニケーションコストである。人数をnとすると意思疎通の経路はおおむねn(n-1)/2で増えていくため、調整の手間が生産性を食いつぶすという指摘だ。\n\nこうした前提に立つと、1人にAIを組み合わせた開発は、コミュニケーション経路がほぼ存在せず、意思決定も一貫しやすい。記事は、これを単純な「属人化」と切り捨ててよいのかと問い直す。属人化が問題視されるのは、担当者が不在になったときに引き継ぎや保守が滞るからだが、AIが設計意図やコードの文脈を補助し、ドキュメント生成にも関与できるのであれば、従来型の属人化とは性質が異なる可能性がある、という論点を提示している。\n\n背景には、Claude CodeやGitHub Copilot、Cursorといった生成AIによるコーディング支援ツールの急速な普及がある。これらは仕様策定からコード生成、テスト、リファクタリングまでを1人の開発者が回せる範囲を押し広げつつあり、少人数開発の生産性を底上げしていると見られる。一方で、AIが生成したコードの品質をどう担保するか、担当者依存のリスクをどう分散するかは、依然として課題として残る。\n\n記事は、少人数×AI開発を頭ごなしに否定するのではなく、その本質的な価値を見極めたうえで、リスクとどう向き合うかを冷静に考えることを促している。「人月の神話」が指摘したチーム肥大化の逆説は、AI時代においてむしろ小規模開発の合理性を裏づける材料になり得る、という視点は、これからの開発体制を考えるうえで示唆に富む内容といえるだろう。",
       "bodyEn": "Software teams have long treated headcount as a proxy for capability, but the rise of capable AI coding assistants is prompting a re-examination of that assumption. A recent Japanese-language blog post revisits Fred Brooks's 1975 classic \"The Mythical Man-Month\" to ask a pointed question: when a single developer works alongside an AI model such as Claude, does the result really amount to problematic knowledge siloing, or 属人化, as critics often claim?\n\nThe essay's starting point is Brooks's central and still-cited argument. Drawing on his experience managing the development of IBM's System/360 operating system, Brooks observed that adding people to a late project tends to make it later, a principle now known as Brooks's Law. The reasoning is that communication overhead grows roughly with the square of team size, since the number of possible pairwise links between n people scales as n(n-1)/2. New members also need time to become productive, and they consume the attention of existing staff during onboarding. Brooks paired this with the idea of \"conceptual integrity,\" his claim that a coherent design flowing from one mind or a small, tightly aligned group produces better systems than a design assembled by committee.\n\nThe article's core move is to read those observations in light of solo-plus-AI workflows. If communication cost is the tax that large teams pay, then a single person directing an AI assistant appears to avoid much of it: there is no standup, no handoff, no divergence of mental models across contributors. In Brooks's terms, conceptual integrity is easy to preserve when one person holds the whole design in their head. The piece suggests that some of what critics label 属人化 may in fact be the conceptual integrity Brooks prized, rather than a defect to be corrected.\n\nAt the same time, the author does not dismiss the criticism outright. 属人化 usually refers to a specific operational risk: knowledge concentrated in one person, sometimes described through the \"bus factor,\" where a project stalls if that individual becomes unavailable. This is a real concern regardless of whether AI is involved, and the essay treats it as the legitimate kernel inside an otherwise reflexive critique. The interesting question is whether AI assistance changes the calculus. Tools like Claude, GitHub Copilot, and Cursor can generate documentation, explain unfamiliar code, and reconstruct context from a repository, which could lower the cost for a successor to pick up an unfamiliar codebase. Whether that materially reduces bus-factor risk in practice remains unproven and likely depends on how disciplined the original developer is about externalizing decisions.\n\nSome background helps frame why this debate is surfacing now. The economics that Brooks described assumed human labor as the only way to add capacity. AI coding assistants introduce a different kind of scaling, one that adds throughput without adding communication links, though it introduces new costs such as reviewing generated code, managing hallucinated APIs, and verifying correctness. The broader industry has been moving in this direction, with vendors positioning agentic coding tools that can plan, edit across files, and run tests. This has made the single-maintainer, high-output project a more common pattern, and with it the tension between productivity and long-term maintainability.\n\nIt is worth noting the limits of the analogy. Brooks wrote about large, multi-year systems programming efforts, and he was careful to distinguish essential complexity from accidental complexity in his later essay \"No Silver Bullet.\" Much of the essential difficulty of software, the hard thinking about what to build, is not obviously removed by either smaller teams or AI assistance. The article's contribution is less a definitive verdict than a reframing: it argues that the 属人化 label is often applied too broadly, conflating a genuine continuity risk with the ordinary and sometimes advantageous concentration of design authority.\n\nFor readers, the practical takeaway appears modest but useful. Whether one is skeptical or enthusiastic about AI-assisted solo work, separating conceptual integrity from operational bus-factor risk clarifies which criticisms deserve a response and which reflect habit. Revisiting a fifty-year-old text, the essay suggests, still yields a sharper vocabulary for arguments the industry is only beginning to have.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:39:06.106Z"
+      "generatedAt": "2026-08-30T16:39:06.106Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "人が増えると「繋がりは二乗で増える」って書いてあったけど、どういうこと？",
+          "en": "The article says connections grow by the square as people are added. What does that mean?"
+        },
+        {
+          "s": "b",
+          "ja": "人数をnとすると n(n-1)/2 本で、3人なら3本、10人で45本、50人だと1,225本。人は線形、繋がりは二乗で増えるんだ。",
+          "en": "With n people, you get n(n-1)/2 paths: 3 for three people, 45 for ten, 1,225 for fifty. Headcount grows linearly, but connections grow quadratically."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ人を足すと手より会議が増えるんだね。それって1人＋AI開発とどうつながるの？",
+          "en": "So adding people brings more meetings, not more hands. How does that connect to solo-plus-AI development?"
+        },
+        {
+          "s": "b",
+          "ja": "ブルックスは50年前に「設計する頭は1つにしろ」と書いたそうだよ。著者はそこを手がかりに、1人＋AI開発への「属人化」批判を問い直しているんだ。",
+          "en": "Brooks wrote 50 years ago to keep design in one head. The author uses that to re-examine the \"siloing\" criticism of solo-plus-AI development."
+        },
+        {
+          "s": "a",
+          "ja": "ブランコの絵も、人を通るたびに話が歪んでいくんだよね。繋がりが多いと情報が落ちるのかな。",
+          "en": "And in the swing cartoon, the request warps with every handoff. So more connections means more lost information?"
+        },
+        {
+          "s": "b",
+          "ja": "そう描かれているよ。ただ著者も、バス係数が1でコードを見てくれる同僚がいない点は認めているんだ。",
+          "en": "That's how it's drawn. But the author also admits the bus factor is 1 and there's no coworker to review the code."
+        }
+      ]
     },
     "0134665980d13880": {
       "bodyJa": "Google DeepMind は、生物学的リスクへの耐性（バイオレジリエンス）を高めるための取り組みを公開し、AIを感染症対策や生物脅威の検知・軽減に責任を持って活用する方針を示した。生命科学という機微な分野でAIの安全な利用の境界を定める指針として、今後の議論の土台になる可能性がある。\n\nバイオレジリエンスとは、パンデミックや意図的な生物攻撃といった脅威に対し、社会が被害を抑え、早期に回復する力を指す。近年のAIは、タンパク質構造を予測する AlphaFold や、ゲノム解析、創薬支援などで生命科学の進歩を加速してきた。一方で、こうした技術は原理的に有害な病原体の設計などに悪用され得る「デュアルユース（軍民両用）」の性質を抱えており、利便性とリスクの両立が課題となっていた。\n\n今回 DeepMind が示した枠組みは、AIによる恩恵を医療や公衆衛生に生かしつつ、悪用の余地を狭めることを狙う。具体的には、危険な用途につながり得るモデルの出力に制限を設けたり、専門家や政府、公衆衛生機関と連携して監視や評価の体制を整えたりする方向性が含まれると見られる。こうしたモデルの安全性評価は、同社が進める「レッドチーミング」など既存の取り組みとも通じるものだ。\n\n背景には、各国政府や業界団体がAIの生物学的リスクを重視し始めた流れがある。米英ではAI安全に関する研究機関が設立され、主要なAI企業も自主的な安全対策の枠組みを打ち出してきた。生物領域は、その中でもサイバーや化学と並んで特に警戒されている分野とされる。\n\nDeepMind の今回の発表は、こうした潮流の中で、開発企業自身が具体的な対策の方向性を示した点に意義がある。ただし、実効性は運用の透明性や外部検証の仕組みに左右されるとみられ、今後の具体化と実装が問われることになりそうだ。",
@@ -14539,6 +14635,158 @@
       "bodyEn": "## Practical Observability Architecture\n\nThis article presents a practical Observability architecture designed to protect PII while preserving AI-driven log searchability. The balance matters because production data flows through the observability stack, creating paths through which PII could enter unless those paths are blocked.\n\nThe design work covers four areas: applications, infrastructure, CI, and LLMs. Each is made observable in a different form suited to the nature of its questions. The source describes this as completing, for the moment, the writing side of the observability stack, while emphasizing that making systems observable is not the end of the task. Protecting PII remains an observability requirement independent of AI.\n\n## Automatic Remediation Powered by MCP\n\nBeyond privacy and searchability, the article addresses automatic remediation powered by MCP. According to the summary, it uses concrete MCP implementation examples to show how PII protection, AI-assisted log searching, and operational efficiency can coexist.\n\nThe practical focus is therefore not only on collecting observable data, but also on controlling sensitive information and using MCP to support remediation.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-04T23:25:08.837Z"
+    },
+    "3c70dc9317b0bdb0": {
+      "bodyJa": "技術の進歩があまりに速く、私たちがどんな明日を目指しているのかを定義することさえ難しくなっています。Microsoft Researchのポッドキャスト「The Shape of Things to Come」の今回のエピソードは、その状況を背景に「AIは医療の未来をどう変えうるのか」という問いを扱います。\n\n## 速い進歩の中で未来を描く\n\nこの番組では、Microsoft ResearchのリーダーであるDoug Burgerが各分野の専門家とともに、技術者、政策担当者、事業判断者などの関係者が現在直面している、AIをめぐる難しい課題を掘り下げます。\n\n番組の目標は、AIへの移行が全体として好ましい結果になる未来を築くために必要な共通理解を広げることだと説明されています。個々の技術の紹介にとどまらず、立場の異なる関係者が同じ問題意識を持つことに重きを置いた構成といえます。\n\n## 医療を語る4人の顔ぶれ\n\n今回、Burgerとともに議論するのは3人です。Microsoftのプリンシパル・リサーチ・マネージャーであるAva Amini、同社のチーフ・サイエンティフィック・オフィサーであるEric Horvitz、そしてScripps Researchの医師・研究者で、MicrosoftのAIヘルスアドバイザーも務めるEric Topolです。\n\n## 「何が先に必要か」という問い\n\nエピソードの中心にあるのは、AIが実現する医療の未来はどのようなものか、そしてそこに至る前に何が起きなければならないのか、という問いです。この問いは地球上のすべての人に関わる影響を持つと位置づけられています。\n\n英語の要約では、技術者や政策担当者が利点とリスクを見極める助けになる内容とされています。議論の具体的な結論や個別の論点は、ここで紹介できる範囲では示されていません。医療とAIの関係を、技術の可能性だけでなく、実現に向けた前提条件も含めて考えるための入り口となるエピソードです。",
+      "bodyEn": "## The Shape of Things to Come\n\nMicrosoft Research has published an episode of its podcast series The Shape of Things to Come that asks whether AI can help build a healthier future. The question matters because, in the source's words, it carries ramifications for every individual on the planet.\n\nThe series is led by Microsoft Research leader Doug Burger. According to the announcement, he is joined by experts from across disciplines to work through what it calls the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders. The stated goal is to amplify the shared understanding needed to build a future in which the AI transition is a net positive.\n\n## Defining the Tomorrow We're Working Toward\n\nThe source begins from the observation that technical advancement is moving so quickly that it can be hard to define the tomorrow people are working toward. The series is presented as a response to that difficulty, bringing together voices from different fields rather than a single viewpoint.\n\n## Guests on Health and Medicine\n\nFor this episode, Burger is joined by three guests. Ava Amini is a Principal Research Manager at Microsoft. Eric Horvitz is Microsoft's Chief Scientific Officer. Eric Topol is a physician-scientist at Scripps Research and a Microsoft AI health advisor.\n\nThe conversation takes on a two-part question: what the future of medicine might look like with AI, and what needs to happen first. The framing points to both the potential of AI in health and the groundwork that the source suggests must come before that potential is realized.\n\n## Who the Discussion Is For\n\nThe summary of the episode says it is meant to help technologists and policymakers weigh benefits and risks of AI in health. Business decisionmakers are also named among the stakeholders the series addresses. The material does not spell out specific medical applications, findings, or recommendations from the conversation, so the episode itself is the place to find how the guests answer the question of what needs to happen first.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、ふだんの暮らしや仕事だと何が変わる話なの？",
+          "en": "So what does this change in everyday life or work? Is it that kind of story?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事は具体的な新機能の紹介ではなく、医療とAIの未来を議論する対談です。技術者や政策担当者、事業判断者が共通認識を築くのが狙いだそうです。",
+          "en": "This one isn't a new feature announcement. It's a conversation about AI and the future of medicine, meant to build shared understanding among technologists, policymakers and business decision-makers."
+        },
+        {
+          "s": "a",
+          "ja": "前は、こういう話し合いってなかったのかな？",
+          "en": "Did people not have conversations like this before?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは記事からは分からないんです。ただ、技術の進みが速く、目指す明日を描きにくいことがこの番組の出発点だと書かれています。",
+          "en": "The article doesn't say, so I can't tell. It does say tech is moving so fast that defining the tomorrow we're aiming for is hard, and that's the starting point of the series."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、医療にAIを使う前に「何が先に必要か」を考えること、ってことかな？",
+          "en": "So the big takeaway is thinking about what needs to happen first before using AI in medicine?"
+        },
+        {
+          "s": "b",
+          "ja": "いい読み取りですね。記事も「何が先に必要か」を問いにしています。答えは対談の中身を聞いて確かめたいところです。",
+          "en": "Nice reading. The article frames it as a question too: what needs to happen first? The answers are something to check in the conversation itself."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T04:38:37.413Z"
+    },
+    "cf23135d6ba00615": {
+      "bodyJa": "## Grok 4.5の脚注が示したもの\n\n2026年7月8日、CursorとSpaceXAIが共同訓練したGrok 4.5が発表された。その脚注には、Grok 4.5はCursorBenchで有利になっているとの記載がある。Cursorコードベースの以前のスナップショットが誤って学習に含まれていたためで、正確な影響は不明だという。「ベンチマーク汚染」を一括りにせず、種類ごとに区別して評価結果を読むべきだというのが、この記事の主張である。\n\nCursorの発表は、重複による影響を正確に算定できないとして、Grok 4.5の評価結果からCursorBenchを除外した。該当データは将来のモデルの訓練対象から外し、並行してCursorBenchの大規模更新を進めるとしている。\n\n## FrontierCode 1.1の課題\n\nその前日、CognitionはFrontierCode 1.1を公開した。中心課題は、評価実行中のエージェントが公開Webやパッケージから既存の修正を見つける「不公平なインターネット利用」である。\n\nつまりFrontierCode 1.1が扱ったのは、評価実行時に公開済みの解答へ到達する経路を制御する問題だ。記事は、FrontierCode自体に学習時汚染が確認されたわけではないと明記している。\n\n## 発生段階の違い\n\n同じ週に表面化した2つの問題は、発生した段階が異なると整理されている。\n\nCursorBench/Grok 4.5は、訓練データと評価用コードベースの重複が確認された事例である。FrontierCode 1.1は、評価の実行中に解答へ到達できてしまう経路を制御した事例だ。前者は学習の段階、後者は評価の段階の問題といえる。記事によれば、この違いはこれからのコーディングベンチマークを読むうえで重要になる。\n\n## 評価の読み方\n\n記事は2つの事例を起点に、汚染耐性だけでなく、評価器の妥当性や運営体制まで含めて検討するとしている。検討は2026年7月13日時点で公開されている各運営元の一次資料に基づく。\n\n非公開の訓練コーパスとCursorBenchのタスク本体は外部から監査できない。そのため記事は、公開情報で確認できる範囲と、そこから導く分析を区別して記述する方針である。\n\nなお記事は、前提となる用語の整理としてベンチマークを「AIモデルの能力を測るための共通テスト」と定義するところから本題に入っている。",
+      "bodyEn": "## 2つの問題が同じ週に表面化\n\nThis article uses two cases from the same week to argue that \"benchmark contamination\" should not be treated as a single phenomenon. According to the source, the distinction matters for anyone reading coding-benchmark results.\n\nThe first case is the July 8, 2026 announcement of Grok 4.5, which Cursor and SpaceXAI trained jointly. A footnote in that announcement says Grok 4.5 has an advantage on CursorBench because an earlier snapshot of the Cursor codebase was included in training by mistake, and that the exact effect is unknown. The second case is FrontierCode 1.1, which Cognition released the day before.\n\n## 訓練データと評価コードベースの重複\n\nIn the CursorBench case, the overlap between training data and the evaluation codebase was confirmed. The Cursor announcement says it cannot calculate the exact effect of this overlap, so it excluded CursorBench from Grok 4.5's evaluation results. It also says the affected data will be removed from the training targets of future models, and that a large-scale update of CursorBench is under way in parallel.\n\n## 評価実行時の「不公平なインターネット利用」\n\nFrontierCode 1.1 addressed a different problem. According to the article, its central issue was \"unfair internet use\": agents running during an evaluation could find existing fixes on the public web or in packages. The article describes this as a case of controlling the routes by which an agent can reach already-published solutions at evaluation time. It states that contamination during training has not been confirmed for FrontierCode itself.\n\n## 評価の読み方\n\nThe author's point is that the two problems arise at different stages. One is an overlap between training data and the evaluation codebase. The other is access to published answers while the evaluation is running. The article says this difference is important when reading future coding benchmarks, and that it will consider not only contamination resistance but also the validity of the evaluator and how the benchmark is operated.\n\nThe assessment is based on primary materials published by each operator as of July 13, 2026. The article notes that the non-public training corpus and the CursorBench tasks themselves cannot be audited from outside. It therefore separates what public information can confirm from the analysis derived from it.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "同じ週に「汚染」の話が2つ出たみたいだけど、何が違うの？",
+          "en": "Two \"contamination\" stories came out the same week. What's actually different between them?"
+        },
+        {
+          "s": "b",
+          "ja": "CursorBenchは、以前のCursorコードベースのスナップショットが誤って学習に入っていた件です。FrontierCode 1.1は、評価中のエージェントが公開Webやパッケージで既存の修正を探せてしまう問題でした。",
+          "en": "CursorBench: an earlier snapshot of the Cursor codebase was accidentally included in training. FrontierCode 1.1: agents could find existing fixes on the public web or in packages while being evaluated."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ「汚染あり」とひとまとめにせず、どの段階の話か見分けるのが大事ってこと？",
+          "en": "So instead of lumping it all under \"contaminated,\" we should check which stage the problem happened at?"
+        },
+        {
+          "s": "b",
+          "ja": "記事でもそう提案しています。FrontierCodeは解答に届く経路の制御の話で、FrontierCode自体に学習時汚染が確認されたわけではない、と書かれています。",
+          "en": "That's the article's suggestion. FrontierCode was about controlling routes to published answers, and the article says contamination at training time wasn't confirmed for FrontierCode itself."
+        },
+        {
+          "s": "a",
+          "ja": "Cursorは影響が正確に分からないから、Grok 4.5の結果からCursorBenchを外したんだね。",
+          "en": "Cursor couldn't pin down the exact impact, so it dropped CursorBench from Grok 4.5's results. Did I get that right?"
+        },
+        {
+          "s": "b",
+          "ja": "はい。ただ、非公開の訓練データやCursorBenchのタスク本体は外から監査できません。公開情報で確認できる範囲と分析は分けて読みたいですね。",
+          "en": "Yes. But the private training data and CursorBench's tasks can't be audited from outside, so it's worth separating what's publicly confirmed from the article's analysis."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T10:31:18.334Z"
+    },
+    "2c20253c6c5a3afa": {
+      "bodyJa": "## ATL Saathiの位置づけ\n\nGoogleとDeepMindは、インドのAtal Tinkering Labs（ATL）と連携する学生向けプログラム「ATL Saathi」を発表した。AIを活用したメンタリングと学習リソースを、全国の若い学生イノベーターに届けることを目指す取り組みである。\n\n## 1.1 crore人の学生\n\nATLは、3Dプリンティング、IoT、ロボティクスといった新しい技術に触れる機会を、インド全土の1.1 crore人（約1,100万人）を超える学生に提供している。ATL Saathiは、この基盤の上でAIを使い、質の高いメンタリングを大規模に広げる取り組みと位置づけられている。\n\n## 設備から成果へ\n\nこの取り組みでは、重点が「物理的なラボ設備へのアクセス」から「意味のある成果の創出」へ移りつつあるとされる。成果として挙げられているのは、イノベーションの加速と、学習指標の向上である。設備を行き渡らせることに加え、そこで学ぶ生徒がどれだけ成長できるかを重視する方向だと読み取れる。\n\n## AI Impact Summitでの発表\n\n2026年2月のAI Impact Summitで、Google DeepMindは三つの支援内容を明らかにしたと説明されている。\n\n一つ目は、ロボティクスとコーディングを地域のカリキュラムに取り入れる支援である。二つ目は、教師の業務の流れにGeminiを慎重に組み込むことである。三つ目は、学生向けに安全面のガードレールを備えたAIアシスタントを構築することである。このアシスタントは国のカリキュラム基準に基づき、学習のパートナーとして機能するものとされる。",
+      "bodyEn": "## ATL Saathi and Young Innovators\n\nGoogle and DeepMind have announced ATL Saathi, a program built with India's Atal Tinkering Labs (ATL) to support the country's next generation of student innovators. It matters because ATL already reaches a very large student population, and the program aims to use AI to extend the quality of guidance those students receive.\n\n## Access to New Technology\n\nAccording to the source, Atal Tinkering Labs is bringing access to technologies such as 3D printing, IoT, and robotics to more than 1.1 crore students across India. The initiative is now using AI to scale high-quality mentorship. The stated shift is in emphasis: away from simply providing physical lab infrastructure, and toward driving meaningful outcomes such as accelerated innovation and enhanced learning metrics.\n\n## Announced at the AI Impact Summit\n\nThe announcement was made at the AI Impact Summit in February 2026. There, Google DeepMind said it will help with three things. First, it will help incorporate robotics and coding into local curricula. Second, it will integrate Gemini thoughtfully into teacher workflows. Third, it will build a safely guardrailed AI assistant for students, grounded in national curriculum standards, that can act as an educational partner.\n\n## What the Program Describes\n\nTaken together, the described elements cover both the educator side and the student side. Teachers are to see Gemini folded into the way they work, while students are to get an AI assistant designed with safety guardrails and tied to national curriculum standards. The curriculum work on robotics and coding is described as local, meaning it is meant to fit into existing educational contexts rather than stand apart from them.\n\nThe source frames ATL Saathi as a way to turn broad access to lab technology into measurable benefits for learners. It describes the intended results as accelerated innovation and enhanced learning metrics, but it does not give specific targets or figures for either. The focus remains on mentorship at scale, combining physical tools already present in the labs with AI-powered resources for students and teachers across the country.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ATLって、学生にどんな技術を届けてるの？1.1 croreって数字も気になるな。",
+          "en": "What does ATL actually give students? And that 1.1 crore number caught my eye."
+        },
+        {
+          "s": "b",
+          "ja": "3Dプリンティング、IoT、ロボティクスなどに触れる機会を、インド全土の1.1 crore超の学生に届けています。1 croreは1000万なので、1.1億人以上ではなく1100万人超ですね。",
+          "en": "3D printing, IoT, and robotics, for over 1.1 crore students across India. A crore is ten million, so that's over 11 million students."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあAIは、そこで誰にどう役立つの？",
+          "en": "So where does AI come in, and who does it help?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、質の高いメンターシップを広げるために使うとのことです。先生向けにはGeminiを授業の流れに組み込み、学生向けには国の学習基準に沿った安全策つきAIアシスタントを作るそうです。",
+          "en": "The article says it's for scaling quality mentorship. Gemini goes into teacher workflows, and students get a safely guardrailed AI assistant grounded in national curriculum standards."
+        },
+        {
+          "s": "a",
+          "ja": "ラボを作るだけじゃなくて、ちゃんと学びの成果につなげるのが狙いなんだね。",
+          "en": "So it's not just building labs, it's about real learning outcomes."
+        },
+        {
+          "s": "b",
+          "ja": "はい、焦点が設備へのアクセスから、イノベーションの加速や学習指標の向上へ移るとあります。ただ、発表の段階なので、実際の成果はこの記事からは分かりません。",
+          "en": "Right, the focus shifts from lab access to outcomes like faster innovation and better learning metrics. But this is an announcement, so actual results aren't shown here."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T10:31:18.909Z"
+    },
+    "f150dc52052a0a18": {
+      "bodyJa": "## 9意図に絞った30Mモデル\n\nアプリにLLMを組み込む際の既定路線は、汎用の巨大モデルをAPI越しに呼ぶことです。この記事は、タスクを「9意図の意図分類＋関数呼び出し」に絞ることで、38MB・30Mパラメータのモデルをゼロから学習し、意図分類正解率91.11%（ホールドアウト90件）に届いたという実測報告です。学習はMac 1台、43.75分で終わったとされています。\n\n数値はすべて社内で実施したPoC（概念実証）の実測値です。検証リポジトリは非公開のため、モデル構成・学習設定・評価セット・実行環境・量子化条件が本文中に記載されているといいます。\n\n## 完全一致率では17.78ポイント負け\n\n「小さいほうが常に勝つ」という話ではない、と筆者は明確に述べています。同じ評価セットで、この30Mモデルの完全一致率は74.44%でした。比較対象は、Qwen2.5-0.5B-InstructをLow-Rank Adaptation（LoRA）で特化させた版で、こちらは92.22%です。差は17.78ポイントで、30Mモデルが下回っています。\n\n## 勝ったのはサイズと速度\n\n比較条件は、タスクを「タスク／ノート管理アプリのアプリ内アシスタント」に絞ったものです。相手はQwen2.5-0.5B-Instruct＋LoRA・INT4（Q4_K_M）の構成です。from-scratchのtiny-30mは、この構成に対して次のように上回ったと報告されています。\n\n配布サイズは90.4%削減されました。Time To First Token（TTFT）は7.3〜7.8倍、トークン毎秒は約3.6倍です。筆者は、勝ったのはサイズと速度であって精度ではないと整理しています。\n\n## ボトルネックは学習データ\n\n筆者の中核の主張は、適切に特化すれば桁違いに小さくても勝てる領域がある、というものです。そのうえで、その領域でのボトルネックはモデル容量ではなく、学習データの意味的多様性だと述べています。\n\n記事は各セクションで結論を先に置き、根拠となるデータと導出は折りたたみにしてあります。そのため結論だけを追って読むこともできます。想定読者は、LLM機能をアプリに組み込んでいる、または検討しているエンジニアです。",
+      "bodyEn": "Embedding an LLM in an app usually means calling a large general-purpose model over an API. This write-up reports an in-house proof of concept that narrows the task and trains a very small model instead, and it is explicit about where that model wins and where it loses.\n\n## Narrowed to 9 Intents\n\nThe task was restricted to intent classification across nine intents plus function calling, for an in-app assistant in a task and note management app. Under that scope, the author trained a 30M-parameter, 38MB model from scratch. It reached 91.11% intent classification accuracy on a 90-case holdout set. Training ran on a single Mac and took 43.75 minutes.\n\nAccording to the author, all figures are measured values from an internal PoC. The verification repository is private, so the article documents the model configuration, training settings, evaluation set, execution environment, and quantization conditions in place of a URL. Each section states its conclusion first and folds the supporting data and derivations away.\n\n## Size and Speed Against Qwen2.5-0.5B\n\nThe comparison baseline is Qwen2.5-0.5B-Instruct specialized with Low-Rank Adaptation (LoRA) and quantized to INT4 (Q4_K_M). Against it, the from-scratch tiny-30m model cut distribution size by 90.4%. Time To First Token was 7.3 to 7.8 times faster, and tokens per second improved by about 3.6 times.\n\n## Exact Match Lags by 17.78 Points\n\nThe article stresses that this is not a story of smaller always winning. On the same evaluation set, the 30M model's exact match rate was 74.44%. The LoRA-specialized Qwen2.5-0.5B-Instruct scored 92.22%, so the small model trails by 17.78 percentage points. In the author's words, what the small model won was size and speed, not accuracy.\n\n## Semantic Diversity of Training Data\n\nThe author's central claim is that, with suitable specialization, there are domains where a model orders of magnitude smaller can still be competitive. In such a domain, the stated bottleneck is the semantic diversity of the training data rather than model capacity. The intended readers are engineers who are building or considering LLM features in their applications.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "アプリに入れるAIが38MBって、普段の何が変わるの？",
+          "en": "An AI that's only 38MB inside an app. What changes for everyday use?"
+        },
+        {
+          "s": "b",
+          "ja": "巨大モデルをAPIで呼ぶのが定番ですが、この記事は9意図の分類と関数呼び出しに絞り、30Mモデルで意図分類91.11%に届きました。",
+          "en": "Calling a huge model over an API is the usual route. Here the task was narrowed to 9 intents plus function calling, and a 30M model hit 91.11% intent accuracy."
+        },
+        {
+          "s": "a",
+          "ja": "前は、小さいモデルだと厳しかったの？ 何と比べているんだろう。",
+          "en": "Was it harder with small models before? What is it being compared with?"
+        },
+        {
+          "s": "b",
+          "ja": "従来との差は書かれていません。比較相手はQwen2.5-0.5BのLoRA版で、サイズは90.4%減、TTFTは7.3〜7.8倍速いけど、完全一致率は17.78ポイント負けです。",
+          "en": "Past comparisons aren't covered. Against the Qwen2.5-0.5B LoRA version, size is down 90.4% and TTFT is 7.3–7.8x faster, but exact match is 17.78 points lower."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、小さいほうが常に勝つんじゃなく、絞れば軽さと速さで勝てる場面があるってことだね。",
+          "en": "So the big takeaway isn't that small always wins. With a narrow task, it can win on size and speed."
+        },
+        {
+          "s": "b",
+          "ja": "そう読めます。次は、この記事がボトルネックと言う学習データの意味的多様性に注目です。モデル容量より、そちらだと述べています。",
+          "en": "That's how I read it. Next, watch the semantic diversity of the training data. The article names that, not model capacity, as the bottleneck."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T10:31:44.883Z"
     }
   }
 }

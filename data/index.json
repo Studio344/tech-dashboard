@@ -1,101 +1,110 @@
 {
-  "generatedAt": "2026-11-28T10:23:32.411Z",
+  "generatedAt": "2026-11-28T11:23:43.430Z",
   "count": 2000,
   "health": {
-    "lastRunAt": "2026-11-28T10:23:32.391Z",
-    "batchIndex": 5,
+    "lastRunAt": "2026-11-28T11:23:43.412Z",
+    "batchIndex": 6,
     "batchTotal": 6,
     "sourcesAttempted": 9,
     "sourcesOk": 9,
     "sourcesFailed": [],
     "summarized": 0,
     "summarizeErrors": 0,
-    "summaryFallbacks": 2,
+    "summaryFallbacks": 0,
     "bodyFallbacks": 0,
-    "fallbackTotal": 6,
+    "fallbackTotal": 5,
     "fallbackPercent": 0,
     "kvLookupCap": 35,
-    "kvLookupCount": 5,
+    "kvLookupCount": 4,
     "queueMode": "enabled",
     "queueCap": 35,
     "summaryQueueSnapshotStage": "final-entries",
-    "enqueueCandidates": 4,
-    "summaryQueueBacklog": 4,
-    "summaryQueueEnqueued": 4,
+    "enqueueCandidates": 3,
+    "summaryQueueBacklog": 3,
+    "summaryQueueEnqueued": 3,
     "summaryQueueDrainEstimateHours": 1,
     "summaryQueueStartIndex": 0,
     "summaryQueueCooldownCount": 1,
     "copilotOk": true,
     "copilotError": null,
-    "ogCached": 4563,
+    "ogCached": 4564,
     "ogNewHits": 1,
-    "excerptFetchCandidates": 1,
-    "excerptFetchAttempted": 1,
-    "excerptFetched": 1,
+    "excerptFetchCandidates": 0,
+    "excerptFetchAttempted": 0,
+    "excerptFetched": 0,
     "excerptFetchUnavailable": 0,
     "excerptFetchDeferred": 0,
     "excerptFetchPrioritized": 0,
     "excerptFetchUnlockable": 0,
     "excerptBodyBatchPinned": 25,
-    "excerptBodyBatchEnqueued": 10,
+    "excerptBodyBatchEnqueued": 19,
     "publisherContractFingerprint": "sha256:266dd4595d0557a506cda949689e0df1d122361294958d844533678bd71eba3f",
     "bodyQueueMode": "enabled",
-    "bodyEnqueueCap": 31,
-    "bodyEnqueueCandidates": 15,
-    "bodyEnqueued": 15,
-    "bodyBacklog": 96,
-    "bodyQueueDrainEstimateHours": 4,
+    "bodyEnqueueCap": 32,
+    "bodyEnqueueCandidates": 24,
+    "bodyEnqueued": 24,
+    "bodyBacklog": 83,
+    "bodyQueueDrainEstimateHours": 3,
     "bodyLookupCount": 35,
     "chatLookupCount": 120,
-    "chatCompatibilityRejected": 92,
+    "chatCompatibilityRejected": 83,
     "chatRepairBlocked": 0,
-    "chatRepairCandidates": 131,
+    "chatRepairCandidates": 119,
     "chatRepairEnqueued": 5,
     "chatRepairPendingIds": [
-      "c51dd1e4af1e1960",
-      "a8910827eadb238e",
-      "7d01db02c3e40e2d",
-      "448f3c7f65b2459d",
-      "3b062ba11c940deb"
+      "f0d11c41945733a2",
+      "9abc66430164eaff",
+      "c45590b0379be569",
+      "8767e530335953dd",
+      "63e951e83a4ef1d3"
     ],
     "bodyPendingLookupCount": 10,
     "bodyMergePendingIds": [
-      "2eba3bd38fed592a",
-      "2524908e466fa3d0",
-      "92f16f4ebfcac8d7",
-      "bd009a557c1cfae9",
-      "cf23135d6ba00615",
-      "2c20253c6c5a3afa",
-      "f150dc52052a0a18",
-      "65e3a8e409da5821",
-      "b00e54e01d20ac8c",
-      "722cc9f7f6ac4f8f"
+      "706347545f4dbf63",
+      "4393dca00b5de0ae",
+      "d8fd57a6144d1d56",
+      "e0c8199b532e6c49",
+      "3ec7d051e8ef2633",
+      "72b96b7cea4b2c03",
+      "974ffffa37305059",
+      "7c63530d36d4a59f",
+      "385a02589ce084f5",
+      "c60410b27bc48539",
+      "4dae9f9c4e7447ab",
+      "ba346a03fca2aa87",
+      "a16182ddd344a9e2",
+      "11873921a1c006fb",
+      "6b26acda64a14adb",
+      "a2f63817e1330682",
+      "588e1cfad324cee5",
+      "16643d0d9d98ffdb",
+      "8a3d6ef11723b1aa"
     ],
-    "bodyMerged": 30,
-    "bodyPruned": 1,
-    "bodiesTotal": 1642,
+    "bodyMerged": 19,
+    "bodyPruned": 0,
+    "bodiesTotal": 1656,
     "bodyRetentionDays": 30,
     "bodyRetentionEligible": 1786,
     "bodyBudgetTargetBytes": 18000000,
-    "bodyBudgetBytes": 12081081,
+    "bodyBudgetBytes": 12172713,
     "bodyShardBytes": [
-      2963913,
-      2935293,
-      3103918,
-      3077957
+      2983184,
+      2943948,
+      3134054,
+      3111527
     ],
     "bodyStorageMode": "shards-v1",
     "bodyBudgetPruned": 0,
     "bodyBudgetEvictedIds": [],
     "bodyShardDigests": [
-      "070403c0924cc52d1457dd6a4ef50e0787c4eba7074538df8ff16357a4ed969c",
-      "157651ce75bfd2c6175ed36278941449cbbe1ae84d6e7957c190ae762fd670f7",
-      "6f28fd92ded0144dcf1cfe5383f4e50c24d0ab470a1a0978f234ea5e2f3fd8d4",
-      "d50182723f42a533010c335c65d771a0188659073c96a5b3f6464509610da831"
+      "9454a75205158a34d9f8d70c6f3f658e6e2df7df3e2ef35140f14dd2da38c77a",
+      "f89794985a5373b2da9fc306e31b91c13993865b90f3fde5fe18acd1dc4e9377",
+      "0eac1096a827a34a43a1b44bf18854d99c491052b8ac8966ab3a0e9aebe6bff7",
+      "8b0e3a7790ced7cd8ea1e0b334eb564a4fd9349444cd458b290fac3864ba7d4d"
     ],
     "enrichmentEnqueueCap": 35,
-    "enrichmentEnqueued": 19,
-    "enrichmentRemaining": 16
+    "enrichmentEnqueued": 27,
+    "enrichmentRemaining": 8
   },
   "entries": [
     {
@@ -224,7 +233,7 @@
       "summaryEn": "MCP Servers v2.5.0 patches eight vulnerabilities across three servers, requiring mcp-server-git 2026.11.18, server-filesystem 2.4.0 and server-everything 2.3.1. Anyone running affected versions should upgrade promptly.",
       "lang": "en",
       "publishedAt": "2026-11-27T21:07:33.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -301,7 +310,7 @@
       "summaryEn": "MCP Servers v2.6.0 patches eight vulnerabilities across three servers and finishes two fixes left incomplete in v2.5.0. Users of the git, memory, fetch and Windows filesystem servers should upgrade promptly.",
       "lang": "en",
       "publishedAt": "2026-11-27T09:58:10.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "git-lfs",
         "mcp",
@@ -886,7 +895,7 @@
       "summaryEn": "OpenHands v1.46.0 lets users list and unshare conversations shared with a team org, adds a Feedback button, and gives automations a Git Sync switch. Teams get better control over sharing and settings.",
       "lang": "en",
       "publishedAt": "2026-11-25T14:19:07.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "automation",
         "openhands",
@@ -1044,7 +1053,7 @@
       "summaryEn": "OpenHands v1.45.0 adds experimental Projects in Canvas, with project chats in the sidebar and files and PRs beside them. Sub-agent threads now nest under parents, and factories gain worklogs and deletion, easing multi-agent work.",
       "lang": "en",
       "publishedAt": "2026-11-24T09:25:38.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "agent",
         "canvas",
@@ -1235,7 +1244,7 @@
       "summaryEn": "Agent Retrieval adds managed ingestion and SearchDocuments, so agents can search PDFs, Office files and videos without a custom pipeline, helping developers ship cited answers faster.",
       "lang": "en",
       "publishedAt": "2026-11-24T00:00:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "agent",
         "agent-retrieval",
@@ -1577,19 +1586,23 @@
       "sourceType": "blog",
       "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
       "title": "Finding faster quantum algorithms with agents and formal verification",
-      "titleJa": "",
+      "titleJa": "エージェントと形式検証でより高速な量子アルゴリズムを探索する",
       "titleEn": "Finding faster quantum algorithms with agents and formal verification",
-      "summaryJa": "このエントリは google-deepmind から収集した gemini 領域の最新アップデートです。原題:「Finding faster quantum algorithms with agents and formal verification」。AI による日本語要約は次回以降の Worker run で生成されます。",
-      "summaryEn": "Finding faster quantum algorithms with agents and formal verification",
+      "summaryJa": "Gemini 4 のエージェントチームが既存の量子アルゴリズムを改良し、効率の高い量子回路を生み出した。核融合や化学、酵素のシミュレーションに必要な資源を抑え、初期の量子ハードでの実用化に近づける成果である。",
+      "summaryEn": "Teams of Gemini 4 agents refined well-known quantum algorithms into leaner circuits, checked with formal verification. This could cut hardware demands for fusion, chemistry and enzyme simulations on early quantum machines.",
       "lang": "en",
       "publishedAt": "2026-11-23T16:59:40.000Z",
       "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
+        "ai-agents",
         "deepmind",
-        "google"
+        "formal-verification",
+        "gemini-4",
+        "google",
+        "quantum-computing"
       ],
       "category": "gemini",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "How using agent teams and formal verification can improve quantum algorithms for modelling fusion energy, chemistry and enzymes Quantum computers could soon solve problems beyond the reach of classical supercomputers. However, there is a catch: even when using the best quantum algorithms, some important applications still require more resources than early quantum hardware will be able to support. In a new paper , we used teams of Gemini 4 agents to improve well-known quantum algorithms, creating highly efficient quantum circuits. These optimized circuits, which are instructions for how a quantum computer should carry out an algorithm, could one day help us run simulations that solve complex scientific challenges, from fusion energy to drug design. To help the community build on this work, we are open-sourcing our Lean library , problem specifications, and verified solutions on GitHub.",
@@ -1768,7 +1781,7 @@
       "summaryEn": "OpenHands v1.44.0 adds flag-gated conversation mentions, visibility controls and key-value store editing for automations, and a Factories sidebar, making team automation easier to manage.",
       "lang": "en",
       "publishedAt": "2026-11-23T15:39:58.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "automations",
         "chat",
@@ -1882,7 +1895,7 @@
       "summaryEn": "Semantic governance policies, in preview via Agent Gateway on the Gemini platform, check each tool call against user intent before it runs. On AgentDojo they cut attack success from 48.7% to 0.9%, helping developers harden agents.",
       "lang": "en",
       "publishedAt": "2026-11-23T00:00:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "agent",
         "agent-gateway",
@@ -2171,8 +2184,6 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "knowledgeEligible": false,
       "contentSnippet": "Announcing the general availability of Amazon Textract Insights, a new generative AI feature of Amazon Textract. Describe the fields you need in natural language, submit a document or a mixed packet, and receive structured results with a confidence score and page-level grounding for each value, with no model training required.",
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
@@ -2184,7 +2195,9 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true,
+      "knowledgeEligible": false
     },
     {
       "id": "2a489a3739513030",
@@ -2198,7 +2211,7 @@
       "summaryEn": "OpenHands v1.43.0 lets users enable automations from the setup wizard and adds a settings page for experimental flags. Chat gains decision cards and edit views, helping users try new features.",
       "lang": "en",
       "publishedAt": "2026-11-20T19:03:08.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "automations",
         "chat-ui",
@@ -2490,7 +2503,15 @@
       "excerptOrigin": "article",
       "feedSnippet": "GitHub Desktop now lets you sign in with more than one account on the same host, including GitHub.com, GitHub Enterprise Server, and GHE.com. This has been one of the most… The post GitHub Desktop now supports multiple accounts per host appeared first on The GitHub Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "image": {
+        "src": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-improvements.jpg",
+        "origSrc": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-improvements.jpg",
+        "alt": "GitHub Desktop now supports multiple accounts per host",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "34349125c68361d0",
@@ -2562,7 +2583,7 @@
       "summaryEn": "Semantic governance policies, in Preview on the Gemini platform, vet every tool call an agent proposes against the user's request and plain-language rules before it runs, helping enterprises block risky actions that permissions alone miss.",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -2594,7 +2615,7 @@
       "summaryEn": "A tutorial on linking internal-only StreamableHTTP MCP servers on Cloud Run to Gemini Enterprise without public exposure, addressing production security and networking hurdles for enterprise teams.",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "cloud-run",
         "enterprise",
@@ -2650,6 +2671,38 @@
       },
       "excerptOrigin": "article",
       "feedSnippet": "mlxrunner: adapt saved history to memory pressure Retain Metal prefix history using observed memory headroom and execution workspace rather than a fixed 8 GiB allowance. Release unused buffers and cold history when system compression grows, preserving reusable paths and active requests. Cover pressure reclamation, snapshot ownership, memory observation, and cacheless request isolation. address comments address comments",
+      "bodyJa": "",
+      "bodyEn": ""
+    },
+    {
+      "id": "3c70dc9317b0bdb0",
+      "source": "microsoft-source",
+      "sourceType": "blog",
+      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
+      "title": "The future of medicine: Could AI help predict and prevent disease?",
+      "titleJa": "AIはより健康な未来づくりに役立つのか",
+      "titleEn": "The future of medicine: Could AI help predict and prevent disease?",
+      "summaryJa": "Microsoft Researchのポッドキャスト「The Shape of Things to Come」で、Doug BurgerがAva Amini、Eric Horvitz、Eric Topolと医療分野でのAIの可能性と課題を議論する。政策担当者や事業判断者が共通認識を築く助けになる。",
+      "summaryEn": "In a Microsoft Research podcast episode of The Shape of Things to Come, Doug Burger talks with Ava Amini, Eric Horvitz and Eric Topol about AI in health, helping technologists and policymakers weigh benefits and risks.",
+      "lang": "en",
+      "publishedAt": "2026-11-19T22:14:18.000Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
+      "tags": [
+        "ai-health",
+        "healthcare",
+        "microsoft",
+        "microsoft-research",
+        "news",
+        "podcast",
+        "research"
+      ],
+      "category": "tech-news",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
+      "excerptOrigin": "article",
+      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research .",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -3148,7 +3201,7 @@
       "summaryEn": "Meta explains how agents built on its Ranking Engineer Agent (REA) carry architecture upgrades and training optimizations across a diverse range of ads ranking models, cutting manual porting work for each team.",
       "lang": "en",
       "publishedAt": "2026-11-18T17:00:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "ads-ranking",
         "agent",
@@ -3162,10 +3215,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "Our previous post in this series introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning (ML) techniques on ads ranking models. Now, we’re sharing how we propagate ranking model improvements like architectural advancements and training optimizations efficiently across a large and diverse fleet of ads [...] Read More... The post How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "6db26b5dee5572e9",
@@ -3179,7 +3232,7 @@
       "summaryEn": "Meta built a template-driven approach that standardizes how ML models are designed, tackling the challenge of shipping many fragmented production models reliably. It helps large ML teams deploy faster.",
       "lang": "en",
       "publishedAt": "2026-11-18T16:59:38.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "engineering",
         "machine-learning",
@@ -3192,10 +3245,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "As ML ecosystems grow to a large number of production models, the bottleneck is no longer inventing new techniques to improve these models, but rather shipping them reliably and efficiently across a fragmented model space, creating a rising tide that lifts all the boats. At Meta, we built a template-driven approach that standardizes model design [...] Read More... The post Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "0c31d85b1964e019",
@@ -3209,7 +3262,7 @@
       "summaryEn": "OpenHands v1.42.0 lets the cloud edition choose the exact connected git provider per repository, and fixes Escape-to-close dropdowns, webhook validation, and clipboard fallback, smoothing daily use.",
       "lang": "en",
       "publishedAt": "2026-11-18T16:46:40.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "bug-fix",
         "cloud",
@@ -3328,38 +3381,6 @@
       "evergreen": true
     },
     {
-      "id": "255f21e05c50335e",
-      "source": "microsoft-research",
-      "sourceType": "blog",
-      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
-      "title": "Can AI help build a healthier future?",
-      "titleJa": "AIはより健康な未来づくりに役立つのか",
-      "titleEn": "Can AI help build a healthier future?",
-      "summaryJa": "Microsoft Researchのポッドキャスト「The Shape of Things to Come」で、Doug BurgerがAva Amini、Eric Horvitz、Eric Topolと医療分野でのAIの可能性と課題を議論する。政策担当者や事業判断者が共通認識を築く助けになる。",
-      "summaryEn": "In a Microsoft Research podcast episode of The Shape of Things to Come, Doug Burger talks with Ava Amini, Eric Horvitz and Eric Topol about AI in health, helping technologists and policymakers weigh benefits and risks.",
-      "lang": "en",
-      "publishedAt": "2026-11-17T16:52:17.000Z",
-      "collectedAt": "2026-11-28T07:30:41.693Z",
-      "tags": [
-        "ai-health",
-        "healthcare",
-        "microsoft",
-        "microsoft-research",
-        "news",
-        "podcast",
-        "research"
-      ],
-      "category": "research",
-      "importance": 2,
-      "halfLife": "architecture",
-      "archiveTier": "hot",
-      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
-      "excerptOrigin": "article",
-      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research .",
-      "bodyJa": "",
-      "bodyEn": ""
-    },
-    {
       "id": "37e0b176c97615e8",
       "source": "openhands-releases",
       "sourceType": "release",
@@ -3371,7 +3392,7 @@
       "summaryEn": "OpenHands v1.41.0 lets ACP users pick reasoning effort from options the agent reports, and groups the automations dashboard by tag. It helps teams managing automations and hooks.",
       "lang": "en",
       "publishedAt": "2026-11-16T20:55:32.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "acp",
         "agent",
@@ -3508,7 +3529,7 @@
       "summaryEn": "Meta's Reality Labs ported Cuttlefish and its QEMU backend to macOS on Apple silicon. Developers of AI glasses and other non-phone Android devices can test with higher fidelity and rely less on scarce hardware.",
       "lang": "en",
       "publishedAt": "2026-11-13T17:00:39.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "android",
         "apple-silicon",
@@ -3522,12 +3543,12 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. Meta’s Reality Labs builds products such as AI glasses . Emulators provide us with a way to scale development and testing without relying on scarce physical hardware. Testing software for non-phone Android devices depends on how closely a virtual device reproduces the software behavior of the physical product. While a lightweight emulator like Goldfish gets you part of the way, differences from the real device can hide bugs until later in development. This lack of fidelity also erodes trust in device emulation, increasing reliance on scarce physical hardware. Cuttlefish is the Android Open Source Project’s (AOSP’s) virtual-device framework for testing Android software against virtual hardware.",
       "excerptOrigin": "article",
       "feedSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. [...] Read More... The post Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple Silicon appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "9bf242a7c3461006",
@@ -3575,7 +3596,7 @@
       "summaryEn": "OpenHands v1.40.0 improves Codex subscription sign-in guidance and fixes chat history paging, draft handling, and default-branch detection in Git. Self-hosted and Indonesian-language users benefit most.",
       "lang": "en",
       "publishedAt": "2026-11-12T14:32:59.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "chat",
         "codex",
@@ -3645,7 +3666,7 @@
       "summaryEn": "OpenHands v1.39.0 lets users filter the automations dashboard by owner, including service accounts, and hides Stop hook feedback from chat. It also fixes UTC timestamp handling, improving usability.",
       "lang": "en",
       "publishedAt": "2026-11-11T17:27:23.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "automations",
         "chat-ui",
@@ -3681,7 +3702,7 @@
       "summaryEn": "Meta built Intelligent Delivery, an ML system that decides where to spend scarce compute across the ad serving stack, since returns differ by request, model, and chip. It adds roughly 10% ranking gain beyond earlier improvements, helping advertisers and users as models scale.",
       "lang": "en",
       "publishedAt": "2026-11-11T17:00:38.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "ads-ranking",
         "compute-allocation",
@@ -3695,12 +3716,12 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "By Zhaojun Zhang , Qinwei Zhu , Gang Li , Jianwei Xiao , Yanan Wang , Hongmei Li , Deepak Vijaywargi , Ke Pan , Li Yu Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built Intelligent Delivery, an ML-driven system that allocates resources across the serving stack toward the system-wide optimum. It has delivered ~10% incremental ranking performance on top of model and system advancements since 2017.",
       "excerptOrigin": "article",
       "feedSnippet": "Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built [...] Read More... The post Intelligent Delivery: Making Every Unit of Compute Serve Better Ads appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "daeb565598eece93",
@@ -3791,7 +3812,7 @@
       "summaryEn": "MCP Servers v2.4.0 patches six vulnerabilities across three servers, with fixes in filesystem 2.3.0 and git and fetch 2026.11.11, so anyone running those servers should upgrade promptly.",
       "lang": "en",
       "publishedAt": "2026-11-11T07:37:43.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "fetch",
         "filesystem",
@@ -3897,7 +3918,7 @@
       "summaryEn": "Meta's Your algorithm gives Facebook users one editable view of the interests behind Feed and Reels, with LLMs turning plain-language preferences into recommendations, so people can steer what they see.",
       "lang": "en",
       "publishedAt": "2026-11-10T17:00:49.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "engineering",
         "facebook",
@@ -3911,10 +3932,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "Your algorithm is a suite of AI-powered tools that makes Facebook recommendations more transparent and steerable, with a single editable view of the interests that shape Feed and Reels. We’re sharing how Your algorithm turns people’s natural language preferences into responsive recommendations, and how LLMs are tailored to specific tasks within the system. Traditionally, the [...] Read More... The post Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "3517424a62574db3",
@@ -3928,7 +3949,7 @@
       "summaryEn": "Meta presents TLX, a Triton extension adding explicit warp-group and cluster-level control, so engineers can exploit new GPU features while keeping Triton's productivity; it improved RecSys and LLM pretraining workloads.",
       "lang": "en",
       "publishedAt": "2026-11-10T16:59:31.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "engineering",
         "gpu-compiler",
@@ -3942,10 +3963,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "Triton Low-Level Extensions (TLX), is an extension to Triton that helps engineers optimize GPU performance while preserving Triton’s productive programming model. TLX introduces explicit warp-group and cluster-level orchestration, letting developers adopt new hardware capabilities without sacrificing velocity. TLX has demonstrated performance improvements in RecSys training, RecSys inference, and large-scale LLM pretraining. Modern GPU architectures increasingly [...] Read More... The post How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale appeared first on Engineering at Meta .",
       "bodyJa": "",
-      "bodyEn": "",
-      "evergreen": true
+      "bodyEn": ""
     },
     {
       "id": "75a9f02f59a5e1ff",
@@ -3995,7 +4016,7 @@
       "summaryEn": "OpenHands v1.38.0 adds editable plugin configuration for automations, semantic budget meters for conversations, and a Paper theme for Agent Canvas, improving usability for developers.",
       "lang": "en",
       "publishedAt": "2026-11-10T05:10:01.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "agent",
         "agent-canvas",
@@ -4170,7 +4191,7 @@
       "summaryEn": "OpenHands v1.37.0 adds Mermaid diagrams that illustrate each automation, fixes chat session ordering, title display and home page loading, and trims repeated history scans for faster live chat updates.",
       "lang": "en",
       "publishedAt": "2026-11-06T13:06:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "automations",
         "chat-performance",
@@ -4369,7 +4390,7 @@
       "summaryEn": "MCP Servers v2.3.0 ships npm updates such as everything 2.2.1, filesystem 2.2.0 and memory 2.1.0, plus PyPI fetch, git and time builds, with new annotation tests for everything. Developers can track which servers to upgrade.",
       "lang": "en",
       "publishedAt": "2026-11-04T21:28:41.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -4546,7 +4567,7 @@
       "summaryEn": "MCP Servers v2.2.0 documents its response to the eMudhra intermediate CA key exposure and the Node.js security releases. TypeScript servers rely on Node.js for certificate checks, so operators can quickly gauge their exposure.",
       "lang": "en",
       "publishedAt": "2026-10-28T20:57:13.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "ca-certificates",
         "emudhra",
@@ -4815,7 +4836,7 @@
       "summaryEn": "The MCP reference servers were rebuilt for the latest spec in v2.0.0, shipping four npm packages (everything, filesystem, memory, sequential-thinking) plus PyPI fetch, git, and time, while older clients keep working.",
       "lang": "en",
       "publishedAt": "2026-10-25T06:00:36.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "major-release",
         "mcp",
@@ -4853,7 +4874,7 @@
       "summaryEn": "MCP Servers v2.1.0 patches eight vulnerabilities across three servers, including a symlink swap race in filesystem writes. Users of filesystem, everything and fetch should upgrade promptly.",
       "lang": "en",
       "publishedAt": "2026-10-25T00:03:20.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -5183,7 +5204,7 @@
       "summaryEn": "MCP Servers v1.0.0 is the last legacy-era release, bringing npm packages everything, filesystem, memory and sequential-thinking to 1.0.0, plus fetch, git and time on PyPI at 2026.10.10, helping users plan migration.",
       "lang": "en",
       "publishedAt": "2026-10-19T04:17:24.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "legacy-servers",
         "mcp",
@@ -18206,7 +18227,7 @@
       "summaryEn": "MCP Servers v2026.8.31 updates the filesystem, memory, sequential-thinking, and everything packages to one version, helping users keep deployments aligned.",
       "lang": "en",
       "publishedAt": "2026-08-31T20:34:32.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -23028,7 +23049,7 @@
       "summaryEn": "Routine release 2026.8.18 updates core MCP server packages—server-everything, mcp-server-time, mcp-server-fetch, and mcp-server-git—to the same version.",
       "lang": "en",
       "publishedAt": "2026-08-18T16:16:12.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "mcp",
         "mcp-server",

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T10:23:32.411Z",
+  "generatedAt": "2026-11-28T11:23:43.430Z",
   "month": "2026-11",
   "count": 119,
   "entries": [
@@ -115,7 +115,7 @@
       "titleEn": "MCP Servers Releases v2.5.0",
       "lang": "en",
       "publishedAt": "2026-11-27T21:07:33.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "mcp",
         "mcp-server",
@@ -184,7 +184,7 @@
       "titleEn": "MCP Servers Releases v2.6.0",
       "lang": "en",
       "publishedAt": "2026-11-27T09:58:10.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "git-lfs",
         "mcp",
@@ -711,7 +711,7 @@
       "titleEn": "OpenHands Releases v1.46.0",
       "lang": "en",
       "publishedAt": "2026-11-25T14:19:07.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "automation",
         "openhands",
@@ -855,7 +855,7 @@
       "titleEn": "OpenHands Releases v1.45.0",
       "lang": "en",
       "publishedAt": "2026-11-24T09:25:38.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "agent",
         "canvas",
@@ -1026,7 +1026,7 @@
       "titleEn": "From Files to Cited Answers in One API Call: Managed Ingestion and SearchDocuments in Agent Retrieval",
       "lang": "en",
       "publishedAt": "2026-11-24T00:00:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "agent",
         "agent-retrieval",
@@ -1334,17 +1334,21 @@
       "sourceType": "blog",
       "url": "https://deepmind.google/blog/finding-faster-quantum-algorithms-with-agents-and-formal-verification/",
       "title": "Finding faster quantum algorithms with agents and formal verification",
-      "titleJa": "",
+      "titleJa": "エージェントと形式検証でより高速な量子アルゴリズムを探索する",
       "titleEn": "Finding faster quantum algorithms with agents and formal verification",
       "lang": "en",
       "publishedAt": "2026-11-23T16:59:40.000Z",
       "collectedAt": "2026-11-28T10:23:17.185Z",
       "tags": [
+        "ai-agents",
         "deepmind",
-        "google"
+        "formal-verification",
+        "gemini-4",
+        "google",
+        "quantum-computing"
       ],
       "category": "gemini",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "hot",
       "contentSnippet": "How using agent teams and formal verification can improve quantum algorithms for modelling fusion energy, chemistry and enzymes Quantum computers could soon solve problems beyond the reach of classical supercomputers. However, there is a catch: even when using the best quantum algorithms, some important applications still require more resources than early quantum hardware will be able to support. In a new paper , we used teams of Gemini 4 agents to improve well-known quantum algorithms, creating highly efficient quantum circuits. These optimized circuits, which are instructions for how a quantum computer should carry out an algorithm, could one day help us run simulations that solve complex scientific challenges, from fusion energy to drug design. To help the community build on this work, we are open-sourcing our Lean library , problem specifications, and verified solutions on GitHub.",
@@ -1503,7 +1507,7 @@
       "titleEn": "OpenHands Releases v1.44.0",
       "lang": "en",
       "publishedAt": "2026-11-23T15:39:58.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "automations",
         "chat",
@@ -1605,7 +1609,7 @@
       "titleEn": "Did the user ask for this? Securing AI agents against intent hijacking with Semantic governance policies",
       "lang": "en",
       "publishedAt": "2026-11-23T00:00:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "agent",
         "agent-gateway",
@@ -1870,8 +1874,6 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "knowledgeEligible": false,
       "contentSnippet": "Announcing the general availability of Amazon Textract Insights, a new generative AI feature of Amazon Textract. Describe the fields you need in natural language, submit a document or a mixed packet, and receive structured results with a confidence score and page-level grounding for each value, with no model training required.",
       "excerptOrigin": "article-unavailable",
       "image": {
@@ -1881,7 +1883,9 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true,
+      "knowledgeEligible": false
     },
     {
       "id": "2a489a3739513030",
@@ -1893,7 +1897,7 @@
       "titleEn": "OpenHands Releases v1.43.0",
       "lang": "en",
       "publishedAt": "2026-11-20T19:03:08.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "automations",
         "chat-ui",
@@ -2157,7 +2161,15 @@
       "archiveTier": "hot",
       "contentSnippet": "GitHub Desktop now lets you sign in with more than one account on the same host, including GitHub.com, GitHub Enterprise Server, and GHE.com. This has been one of the most requested features in the Desktop community. Add more than one account for a single host, with no fixed limit. Associate each repository with a specific account, so clone, publish, and Git operations use the right credentials automatically. Choose an account when adding or cloning a repository that multiple signed-in accounts can access, or let Desktop infer it when only one can. Change a repository’s account association at any time from repository settings or the repository list’s context menu. Existing repositories are migrated automatically to the account you were already using, so if you only have one account per host, nothing changes for you.",
       "excerptOrigin": "article",
-      "feedSnippet": "GitHub Desktop now lets you sign in with more than one account on the same host, including GitHub.com, GitHub Enterprise Server, and GHE.com. This has been one of the most… The post GitHub Desktop now supports multiple accounts per host appeared first on The GitHub Blog ."
+      "feedSnippet": "GitHub Desktop now lets you sign in with more than one account on the same host, including GitHub.com, GitHub Enterprise Server, and GHE.com. This has been one of the most… The post GitHub Desktop now supports multiple accounts per host appeared first on The GitHub Blog .",
+      "image": {
+        "src": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-improvements.jpg",
+        "origSrc": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-improvements.jpg",
+        "alt": "GitHub Desktop now supports multiple accounts per host",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "f033b8ce934dcf8a",
@@ -2169,7 +2181,7 @@
       "titleEn": "Check what your AI agents do before they do it, with Semantic governance policies",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -2197,7 +2209,7 @@
       "titleEn": "How to securely connect internal Cloud Run MCP servers to Gemini Enterprise",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "cloud-run",
         "enterprise",
@@ -2299,6 +2311,34 @@
       },
       "excerptOrigin": "article",
       "feedSnippet": "mlxrunner: adapt saved history to memory pressure Retain Metal prefix history using observed memory headroom and execution workspace rather than a fixed 8 GiB allowance. Release unused buffers and cold history when system compression grows, preserving reusable paths and active requests. Cover pressure reclamation, snapshot ownership, memory observation, and cacheless request isolation. address comments address comments"
+    },
+    {
+      "id": "3c70dc9317b0bdb0",
+      "source": "microsoft-source",
+      "sourceType": "blog",
+      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
+      "title": "The future of medicine: Could AI help predict and prevent disease?",
+      "titleJa": "AIはより健康な未来づくりに役立つのか",
+      "titleEn": "The future of medicine: Could AI help predict and prevent disease?",
+      "lang": "en",
+      "publishedAt": "2026-11-19T22:14:18.000Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
+      "tags": [
+        "ai-health",
+        "healthcare",
+        "microsoft",
+        "microsoft-research",
+        "news",
+        "podcast",
+        "research"
+      ],
+      "category": "tech-news",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
+      "excerptOrigin": "article",
+      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research ."
     },
     {
       "id": "d15916ebb27fea0f",
@@ -2716,7 +2756,7 @@
       "summaryEn": "Meta explains how agents built on its Ranking Engineer Agent (REA) carry architecture upgrades and training optimizations across a diverse range of ads ranking models, cutting manual porting work for each team.",
       "lang": "en",
       "publishedAt": "2026-11-18T17:00:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "ads-ranking",
         "agent",
@@ -2730,8 +2770,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "Our previous post in this series introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning (ML) techniques on ads ranking models. Now, we’re sharing how we propagate ranking model improvements like architectural advancements and training optimizations efficiently across a large and diverse fleet of ads [...] Read More... The post How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "Our previous post in this series introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning (ML) techniques on ads ranking models. Now, we’re sharing how we propagate ranking model improvements like architectural advancements and training optimizations efficiently across a large and diverse fleet of ads [...] Read More... The post How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models appeared first on Engineering at Meta ."
     },
     {
       "id": "f700ec0a7df3f16a",
@@ -2780,7 +2820,7 @@
       "summaryEn": "Meta built a template-driven approach that standardizes how ML models are designed, tackling the challenge of shipping many fragmented production models reliably. It helps large ML teams deploy faster.",
       "lang": "en",
       "publishedAt": "2026-11-18T16:59:38.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "engineering",
         "machine-learning",
@@ -2793,8 +2833,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "As ML ecosystems grow to a large number of production models, the bottleneck is no longer inventing new techniques to improve these models, but rather shipping them reliably and efficiently across a fragmented model space, creating a rising tide that lifts all the boats. At Meta, we built a template-driven approach that standardizes model design [...] Read More... The post Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "As ML ecosystems grow to a large number of production models, the bottleneck is no longer inventing new techniques to improve these models, but rather shipping them reliably and efficiently across a fragmented model space, creating a rising tide that lifts all the boats. At Meta, we built a template-driven approach that standardizes model design [...] Read More... The post Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem appeared first on Engineering at Meta ."
     },
     {
       "id": "0c31d85b1964e019",
@@ -2806,7 +2846,7 @@
       "titleEn": "OpenHands Releases v1.42.0",
       "lang": "en",
       "publishedAt": "2026-11-18T16:46:40.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "bug-fix",
         "cloud",
@@ -2913,34 +2953,6 @@
       "evergreen": true
     },
     {
-      "id": "255f21e05c50335e",
-      "source": "microsoft-research",
-      "sourceType": "blog",
-      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
-      "title": "Can AI help build a healthier future?",
-      "titleJa": "AIはより健康な未来づくりに役立つのか",
-      "titleEn": "Can AI help build a healthier future?",
-      "lang": "en",
-      "publishedAt": "2026-11-17T16:52:17.000Z",
-      "collectedAt": "2026-11-28T07:30:41.693Z",
-      "tags": [
-        "ai-health",
-        "healthcare",
-        "microsoft",
-        "microsoft-research",
-        "news",
-        "podcast",
-        "research"
-      ],
-      "category": "research",
-      "importance": 2,
-      "halfLife": "architecture",
-      "archiveTier": "hot",
-      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
-      "excerptOrigin": "article",
-      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research ."
-    },
-    {
       "id": "37e0b176c97615e8",
       "source": "openhands-releases",
       "sourceType": "release",
@@ -2950,7 +2962,7 @@
       "titleEn": "OpenHands Releases v1.41.0",
       "lang": "en",
       "publishedAt": "2026-11-16T20:55:32.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "acp",
         "agent",
@@ -3073,7 +3085,7 @@
       "summaryEn": "Meta's Reality Labs ported Cuttlefish and its QEMU backend to macOS on Apple silicon. Developers of AI glasses and other non-phone Android devices can test with higher fidelity and rely less on scarce hardware.",
       "lang": "en",
       "publishedAt": "2026-11-13T17:00:39.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "android",
         "apple-silicon",
@@ -3087,10 +3099,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. Meta’s Reality Labs builds products such as AI glasses . Emulators provide us with a way to scale development and testing without relying on scarce physical hardware. Testing software for non-phone Android devices depends on how closely a virtual device reproduces the software behavior of the physical product. While a lightweight emulator like Goldfish gets you part of the way, differences from the real device can hide bugs until later in development. This lack of fidelity also erodes trust in device emulation, increasing reliance on scarce physical hardware. Cuttlefish is the Android Open Source Project’s (AOSP’s) virtual-device framework for testing Android software against virtual hardware.",
       "excerptOrigin": "article",
-      "feedSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. [...] Read More... The post Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple Silicon appeared first on Engineering at Meta .",
-      "evergreen": true
+      "feedSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. [...] Read More... The post Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple Silicon appeared first on Engineering at Meta ."
     },
     {
       "id": "9bf242a7c3461006",
@@ -3136,7 +3148,7 @@
       "summaryEn": "OpenHands v1.40.0 improves Codex subscription sign-in guidance and fixes chat history paging, draft handling, and default-branch detection in Git. Self-hosted and Indonesian-language users benefit most.",
       "lang": "en",
       "publishedAt": "2026-11-12T14:32:59.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "chat",
         "codex",
@@ -3202,7 +3214,7 @@
       "summaryEn": "OpenHands v1.39.0 lets users filter the automations dashboard by owner, including service accounts, and hides Stop hook feedback from chat. It also fixes UTC timestamp handling, improving usability.",
       "lang": "en",
       "publishedAt": "2026-11-11T17:27:23.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "automations",
         "chat-ui",
@@ -3236,7 +3248,7 @@
       "summaryEn": "Meta built Intelligent Delivery, an ML system that decides where to spend scarce compute across the ad serving stack, since returns differ by request, model, and chip. It adds roughly 10% ranking gain beyond earlier improvements, helping advertisers and users as models scale.",
       "lang": "en",
       "publishedAt": "2026-11-11T17:00:38.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "ads-ranking",
         "compute-allocation",
@@ -3250,10 +3262,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "By Zhaojun Zhang , Qinwei Zhu , Gang Li , Jianwei Xiao , Yanan Wang , Hongmei Li , Deepak Vijaywargi , Ke Pan , Li Yu Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built Intelligent Delivery, an ML-driven system that allocates resources across the serving stack toward the system-wide optimum. It has delivered ~10% incremental ranking performance on top of model and system advancements since 2017.",
       "excerptOrigin": "article",
-      "feedSnippet": "Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built [...] Read More... The post Intelligent Delivery: Making Every Unit of Compute Serve Better Ads appeared first on Engineering at Meta .",
-      "evergreen": true
+      "feedSnippet": "Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built [...] Read More... The post Intelligent Delivery: Making Every Unit of Compute Serve Better Ads appeared first on Engineering at Meta ."
     },
     {
       "id": "daeb565598eece93",
@@ -3338,7 +3350,7 @@
       "summaryEn": "MCP Servers v2.4.0 patches six vulnerabilities across three servers, with fixes in filesystem 2.3.0 and git and fetch 2026.11.11, so anyone running those servers should upgrade promptly.",
       "lang": "en",
       "publishedAt": "2026-11-11T07:37:43.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "fetch",
         "filesystem",
@@ -3436,7 +3448,7 @@
       "summaryEn": "Meta's Your algorithm gives Facebook users one editable view of the interests behind Feed and Reels, with LLMs turning plain-language preferences into recommendations, so people can steer what they see.",
       "lang": "en",
       "publishedAt": "2026-11-10T17:00:49.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "engineering",
         "facebook",
@@ -3450,8 +3462,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "Your algorithm is a suite of AI-powered tools that makes Facebook recommendations more transparent and steerable, with a single editable view of the interests that shape Feed and Reels. We’re sharing how Your algorithm turns people’s natural language preferences into responsive recommendations, and how LLMs are tailored to specific tasks within the system. Traditionally, the [...] Read More... The post Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "Your algorithm is a suite of AI-powered tools that makes Facebook recommendations more transparent and steerable, with a single editable view of the interests that shape Feed and Reels. We’re sharing how Your algorithm turns people’s natural language preferences into responsive recommendations, and how LLMs are tailored to specific tasks within the system. Traditionally, the [...] Read More... The post Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations appeared first on Engineering at Meta ."
     },
     {
       "id": "3517424a62574db3",
@@ -3465,7 +3477,7 @@
       "summaryEn": "Meta presents TLX, a Triton extension adding explicit warp-group and cluster-level control, so engineers can exploit new GPU features while keeping Triton's productivity; it improved RecSys and LLM pretraining workloads.",
       "lang": "en",
       "publishedAt": "2026-11-10T16:59:31.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "engineering",
         "gpu-compiler",
@@ -3479,8 +3491,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "contentSnippet": "Triton Low-Level Extensions (TLX), is an extension to Triton that helps engineers optimize GPU performance while preserving Triton’s productive programming model. TLX introduces explicit warp-group and cluster-level orchestration, letting developers adopt new hardware capabilities without sacrificing velocity. TLX has demonstrated performance improvements in RecSys training, RecSys inference, and large-scale LLM pretraining. Modern GPU architectures increasingly [...] Read More... The post How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale appeared first on Engineering at Meta .",
-      "evergreen": true
+      "evergreen": true,
+      "contentSnippet": "Triton Low-Level Extensions (TLX), is an extension to Triton that helps engineers optimize GPU performance while preserving Triton’s productive programming model. TLX introduces explicit warp-group and cluster-level orchestration, letting developers adopt new hardware capabilities without sacrificing velocity. TLX has demonstrated performance improvements in RecSys training, RecSys inference, and large-scale LLM pretraining. Modern GPU architectures increasingly [...] Read More... The post How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale appeared first on Engineering at Meta ."
     },
     {
       "id": "75a9f02f59a5e1ff",
@@ -3526,7 +3538,7 @@
       "summaryEn": "OpenHands v1.38.0 adds editable plugin configuration for automations, semantic budget meters for conversations, and a Paper theme for Agent Canvas, improving usability for developers.",
       "lang": "en",
       "publishedAt": "2026-11-10T05:10:01.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "agent",
         "agent-canvas",
@@ -3691,7 +3703,7 @@
       "summaryEn": "OpenHands v1.37.0 adds Mermaid diagrams that illustrate each automation, fixes chat session ordering, title display and home page loading, and trims repeated history scans for faster live chat updates.",
       "lang": "en",
       "publishedAt": "2026-11-06T13:06:00.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "automations",
         "chat-performance",
@@ -3876,7 +3888,7 @@
       "summaryEn": "MCP Servers v2.3.0 ships npm updates such as everything 2.2.1, filesystem 2.2.0 and memory 2.1.0, plus PyPI fetch, git and time builds, with new annotation tests for everything. Developers can track which servers to upgrade.",
       "lang": "en",
       "publishedAt": "2026-11-04T21:28:41.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
+      "collectedAt": "2026-11-28T11:23:23.351Z",
       "tags": [
         "mcp",
         "mcp-server",

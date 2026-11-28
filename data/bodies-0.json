@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T01:30:56.672Z",
-  "count": 357,
+  "generatedAt": "2026-11-28T02:29:57.491Z",
+  "count": 363,
   "bodies": {
     "17f496c665a12174": {
       "bodyJa": "Metaは、AIネイティブ時代に向けたプライバシー対応インフラの中核として、社内の膨大なデータアセットを正確に分類する取り組みをエンジニアリングブログで公開した。データ保持期間やアクセス制御、利用目的の制限、第三者への共有可否、匿名化といったプライバシー制御は、対象となるデータの性質を正しく把握して初めて機能するためだ。\n\n同社の出発点はシンプルである。あらゆるプライバシーコントロールは「どこに、どのようなデータが存在するか」という信頼できる理解を前提とする。たとえば特定の個人情報を一定期間で削除する保持ポリシーを適用するには、まずそのデータがどのテーブルやログ、ストレージのどこに含まれているかを機械的に判別できなければならない。分類が曖昧なままでは、制御そのものが空回りしてしまう。\n\nしかし、この前提を大規模に満たすことは容易ではない。Meta規模のサービスでは、データは無数のシステムを横断して生成・変換・複製され、形式やスキーマも多様だ。さらに生成AIや機械学習パイプラインの普及により、学習用データセットや派生データが増え、データの流れはいっそう複雑になっている。こうした環境で分類の精度と網羅性を保つには、自動化された分類基盤と継続的な検証の仕組みが欠かせない。\n\nこの課題は業界共通のものでもある。EUのGDPRや米カリフォルニア州のCCPAをはじめとする各国の規制は、データの利用目的や保持に厳格な要件を課しており、データガバナンスの基盤整備は大手テック各社にとって避けて通れない。GoogleやMicrosoftなども独自のデータ分類・カタログ化の仕組みを整えてきたとされ、Metaの今回の公開はその一つの実装例と位置づけられる。\n\nAIの普及はデータ活用の幅を広げる一方で、プライバシー保護の難度を押し上げている。データを正確に「知る」ための分類基盤は、派手さこそないが、信頼できるAIサービスを支える土台になると見られる。Metaの事例は、プライバシーを後付けではなく設計段階から組み込む「プライバシー・バイ・デザイン」の実践として参考になりそうだ。",
@@ -11916,44 +11916,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-27T19:22:35.234Z"
     },
-    "7944fc8cac623dff": {
-      "bodyJa": "## 中小企業向け\n\nOpenAIは、中小企業向けの「ChatGPT for small business」プログラムを開始した。AIツールを業務へ取り入れやすくし、生産性の向上と競争力の強化を後押しする取り組みだ。\n\n## ChatGPT活用支援\n\n小規模な組織によるAIツールの導入に向けて、リソースと支援を提供する。起業家がAIスキルを身につけ、ChatGPT Workで業務を自動化し、成長につなげることを支援すると説明されている。",
-      "bodyEn": "## ChatGPT for Small Businesses\n\nOpenAI has launched a dedicated ChatGPT program for small businesses. It is intended to make AI tools easier for smaller organizations to adopt, supporting improved productivity, operational efficiency, and competitiveness.\n\n## Resources and support\n\nThe ChatGPT for Small Businesses program offers resources and support to help entrepreneurs and smaller organizations build AI skills. According to the announcement, participants can use ChatGPT Work to automate work and support growth. The program focuses on helping small businesses integrate AI tools into their operations rather than leaving them to navigate adoption without dedicated assistance.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "中小企業向けのプログラムって、ChatGPTの使い方を教えてくれるの？",
-          "en": "Is this small-business program meant to teach teams how to use ChatGPT?"
-        },
-        {
-          "s": "b",
-          "ja": "OpenAIが、AIスキルの習得や仕事の自動化を支えるリソースとサポートを提供するプログラムだよ。",
-          "en": "OpenAI describes it as a program offering resources and support to build AI skills and automate work."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ、AIを仕事に取り入れたい中小企業や起業家が、業務を進めやすくするための支援なんだね？",
-          "en": "So it supports small businesses and entrepreneurs that want to bring AI into their everyday work?"
-        },
-        {
-          "s": "b",
-          "ja": "うん。業務効率や生産性を高め、事業の成長や競争力の強化を後押しする狙いがあるよ。",
-          "en": "Yes. The goal is to improve efficiency and productivity while supporting business growth and competitiveness."
-        },
-        {
-          "s": "a",
-          "ja": "ChatGPTを渡すだけじゃなくて、使う力と仕事の自動化まで支えるプログラムなんだ。",
-          "en": "So it’s not just access to ChatGPT—it also helps businesses build skills and automate work."
-        },
-        {
-          "s": "b",
-          "ja": "そうだね。対象は中小企業で、ChatGPT Workを使った成長支援として紹介されている点は押さえておこう。",
-          "en": "Right. Keep in mind that it’s presented specifically for small businesses, with support centered on growing through ChatGPT Work."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T18:10:06.831Z"
-    },
     "724a424d08ce51b3": {
       "bodyJa": "大規模言語モデル(LLM)が事実と異なる情報をもっともらしく生成する「幻覚(hallucination)」は、実運用における最大級の障壁とされる。プレプリントサーバーarXivで公開された本研究は、幻覚を作り出す「生成器」と、それを見抜く「検出器」を自己対戦(セルフプレイ)的に競わせ、両者を反復的に強化するフレームワークを提案している。高価なラベル付きデータに頼らずに頑健な幻覚検出を実現できる点が特徴だ。\n\n仕組みの核心は、生成器と検出器が敵対的に互いを高め合う点にある。生成器はより巧妙で見破りにくい幻覚を生み出そうとし、検出器はそれを識別しようと学習する。強化学習を通じてこのループを回すことで、片方の進化がもう片方の学習信号となり、外部の正解ラベルなしで精度を底上げしていくと見られる。この発想は、囲碁AIのAlphaGo Zeroに代表される自己対戦学習や、生成器と識別器を競わせる敵対的生成ネットワーク(GAN)と通じるものがある。\n\n背景として、幻覚検出には従来、人手でラベル付けした大規模データセットや外部知識源との照合が必要で、コストと汎用性の両面で課題があった。近年はモデル自身の出力の一貫性を利用するSelfCheckGPTや、検索拡張生成(RAG)によって根拠文書を参照させる手法、人間やAIのフィードバックで整合性を高めるRLHF・RLAIFなど、多様なアプローチが並行して研究されている。本手法は、こうした流れの中でラベル依存を減らす方向性を示す一例と位置づけられる。\n\nもっとも、自己対戦系の学習では、生成器と検出器が特定のパターンに偏って共進化し、実世界の多様な幻覚に対する汎化が伴わない可能性も指摘されうる。論文が主張する精度が、ベンチマーク外の実運用でどこまで再現されるかは、今後の追試や外部評価を待つ必要がある。とはいえ、ラベル作成コストの削減はLLMの信頼性向上に直結するテーマであり、ファクトチェックや安全性研究の観点からも注目される取り組みと言える。",
       "bodyEn": "Large language models remain prone to hallucination, producing fluent text that is factually wrong or unsupported, and reliably detecting these errors has become one of the central obstacles to deploying the technology in settings where accuracy matters. A new paper posted to arXiv proposes a self-play framework in which a hallucination generator and a hallucination detector iteratively strengthen one another, with the stated goal of achieving robust detection without the expensive labeled datasets that current approaches typically require.\n\nThe setup pits two roles against each other. A generator is tasked with producing hallucinations, meaning plausible but false or unsupported statements that are hard to distinguish from accurate content, while a detector learns to flag them. As the detector improves, the generator faces pressure to craft more subtle and convincing errors; as the generator grows more adversarial, the detector must sharpen its discrimination. According to the summary, the two components improve through reinforcement learning, with each providing a training signal for the other, so the loop can proceed without human-annotated examples. In effect, the difficulty of the training data scales automatically with the current capability of the system rather than being fixed in advance.\n\nThis design appears to be motivated by a practical bottleneck. High-quality labels that mark which spans of a model's output are hallucinated are costly and slow to produce, and they tend to age quickly as underlying models and knowledge change. By generating challenging examples internally, the framework aims to sidestep this dependence, a property the authors describe as enabling detection that is both accurate and less reliant on annotation budgets. Whether the resulting detector transfers cleanly to hallucinations produced by other models and in real-world distributions, as opposed to those crafted by its paired generator, is the kind of question such work usually has to demonstrate empirically.\n\nThe method sits within a longer lineage of self-play and adversarial learning. The general strategy of two systems co-evolving through competition is familiar from game-playing agents such as AlphaGo and AlphaZero, and it echoes the generator-versus-discriminator dynamic of generative adversarial networks. More recently the idea has migrated into language modeling through techniques like self-play fine-tuning, sometimes abbreviated SPIN, and self-rewarding language models, both of which use a model's own outputs to bootstrap further training with limited external supervision. Framing hallucination detection as a self-play game is a natural extension of that trend, applying it to a verification problem rather than to general capability improvement.\n\nIt also connects to a crowded field of hallucination detection tools. Consistency-based methods such as SelfCheckGPT sample a model multiple times and look for contradictions, on the assumption that fabricated details vary across samples while grounded facts stay stable. Retrieval-augmented generation and fact-checking pipelines compare claims against external documents or knowledge bases, and natural-language-inference classifiers judge whether a statement is entailed by supporting evidence. Many of these rely on either external knowledge or labeled training data, so an approach that manufactures its own difficult training signal is positioned as a complementary or alternative route rather than a direct replacement.\n\nSeveral caveats are worth keeping in mind, and are common to methods of this type. Self-play loops can suffer from reward hacking, where one component exploits weaknesses in the other's scoring rather than genuinely improving, and from mode collapse, where the generator settles into a narrow band of easy-to-produce errors. The quality of the reward signal is critical, since a detector that grades the generator can propagate its own blind spots, and adversarial co-training can drift away from the kinds of hallucinations that actually occur in deployment. The paper's contribution is likely to hinge on how well it manages these failure modes and on the benchmarks used to validate the detector against independent, human-labeled test sets.\n\nIf the results hold up under external scrutiny, the broader significance is a step toward verification systems that scale with model capability instead of lagging behind it. That would be relevant to fact-checking, retrieval pipelines, and guardrail layers that increasingly wrap production language models. As with many arXiv preprints, the findings await peer review and independent replication before their practical reach can be judged.",
@@ -11996,7 +11958,39 @@
       "bodyJa": "AIコーディングエディタ「Cursor」が、複数のAI会話を並行して扱いやすくする「サイドチャット」と、過去のやり取りを探し出す「会話検索」機能を追加した。長時間の開発でチャット履歴が積み重なりがちな環境において、文脈を見失わずに作業を続けるための地味だが実用的な改善と位置づけられる。\n\nサイドチャットは、メインの編集画面や既存のチャットとは別に、副次的な対話パネルを開ける仕組みと見られる。たとえば、あるファイルの実装をAIと進めながら、別の疑問点やエラー調査を独立したスレッドで並行して尋ねる、といった使い方が想定される。従来は一つの会話に質問を混在させると文脈が絡み合い、AIの応答精度や見通しに影響しやすかった。会話を目的ごとに分離できれば、それぞれのスレッドが持つコンテキストを保ちやすくなり、後から特定のトピックだけを追いやすくなる利点がある。\n\n会話検索は、蓄積された過去のチャットをキーワードなどで横断的に探せる機能とされる。エディタ上でのAIとの対話は、コード生成の指示や設計判断の経緯、エラーの解決手順といった有用な情報を含むことが多い。しかし件数が増えると「以前どう解決したか」を思い出せなくなりがちで、検索によって過去の知見を再利用しやすくする狙いがあると考えられる。\n\nこうした会話管理やUIの改善は、Cursor固有の動きにとどまらない。GitHub Copilotをはじめとする競合や、ChatGPT、Claudeといったチャット型AIツールでも、会話の分岐・整理・検索といった機能は継続的に強化されてきた。対話が開発ワークフローの中心に組み込まれるほど、生成の質そのものだけでなく、履歴をいかに整理し再活用できるかという「情報管理」の側面が重要度を増している。今回の追加も、その流れに沿ったものといえる。\n\nCursorは頻繁なアップデートを重ねているエディタであり、機能の挙動や名称は今後変更される可能性がある。実際の使い勝手や検索の対象範囲などは、公式のchangelogやエディタ内の説明で確認することが推奨される。並行作業が多いユーザーほど、会話の分離と検索によって作業効率が高まる余地があると見られる。",
       "bodyEn": "Cursor has added two features aimed at making its AI assistant easier to work with over long sessions: side chats, which let developers open a secondary conversation alongside the main one, and conversation search, which allows users to locate past exchanges across their history. For anyone who relies on the editor's AI throughout the day, these changes address a practical pain point, namely that a single linear chat thread becomes hard to manage once it accumulates many unrelated questions, code edits, and debugging attempts.\n\nCursor is an AI-first code editor built as a fork of Visual Studio Code, and its chat interface is one of the primary ways users interact with large language models to write, refactor, and explain code. Until now, the workflow generally centered on one active conversation tied to the current context. That model works well for a focused task, but it can force awkward tradeoffs when a developer wants to ask a quick, tangential question without disrupting an ongoing session, or when they need to compare two approaches side by side. The side chat feature appears designed to reduce that friction by letting a second thread run in parallel, so a short lookup or an isolated experiment does not pollute the main thread's context.\n\nKeeping conversations separate has a technical dimension beyond mere tidiness. Language models operate within a finite context window, and every message, file reference, and prior response consumes part of that budget. When a single thread grows too long or mixes several distinct problems, the relevant signal can be diluted, which may degrade the quality of the model's answers. Splitting work into distinct chats is a reasonable way to keep each conversation's context tighter and more on-topic, which is likely part of the motivation behind offering side chats rather than expecting users to cram everything into one thread.\n\nConversation search complements this by tackling the opposite problem: retrieval. As users accumulate dozens or hundreds of past chats, remembering where a particular fix, snippet, or explanation lived becomes difficult. A search feature that spans conversation history lets developers treat their accumulated AI interactions as a reference resource rather than an ephemeral log. This mirrors a broader trend across AI chat products. ChatGPT, Claude, and similar assistants have all moved toward persistent history and search, reflecting a growing recognition that conversations with an AI often contain reusable knowledge worth preserving and finding again.\n\nThe additions also fit Cursor's ongoing effort to make its interface feel less like a single chatbot bolted onto an editor and more like a workspace for managing AI-assisted development. Features such as multiple tabs, background agents, and inline edits have gradually pushed the product in that direction. Side chats extend the metaphor of parallel work that developers already know from editor tabs and terminal panes, applying it to AI conversations. Whether the implementation supports fully independent context per side chat, or whether the panels share some state with the main session, will matter to power users, though the changelog framing emphasizes parallel management and easier reference rather than detailing the underlying context handling.\n\nFor context, these capabilities land in a competitive market. GitHub Copilot, Windsurf, and other AI coding tools are iterating rapidly on how developers organize and revisit their interactions with models, and conversation management has become a meaningful axis of differentiation alongside raw model quality. Improvements to how history is stored and searched are, in that sense, as much about workflow ergonomics as about the AI itself.\n\nPractically, users who adopt these features may want to consider how they organize work. Using a side chat for exploratory or throwaway questions can help preserve a clean primary thread, while search becomes more valuable the more deliberately conversations are kept distinct and coherent. As with most changelog entries, the real test will be how the features behave under sustained daily use, including how well search surfaces relevant results and how side chats interact with Cursor's context and indexing systems. The update is available in current builds, and its long-term impact will depend on how tightly these tools integrate with the rest of the editor's AI workflow.",
       "model": "claude-opus-4.8",
-      "generatedAt": "2026-07-11T01:09:24.586Z"
+      "generatedAt": "2026-07-11T01:09:24.586Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "サイドチャットって、メインのチャットとは何が違うの？ふつうに新しい会話を開くのとは別なのかな？",
+          "en": "What's a side chat, exactly? How is it different from just opening a new conversation?"
+        },
+        {
+          "s": "b",
+          "ja": "メインのチャットのコンテキストを引き継いだ、別の会話なんだ。メインのエージェントを止めずに質問や調べものができるよ。",
+          "en": "It's a separate chat that carries over the main chat's context. You can ask questions or explore while the main agent keeps running."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ作業しながら「ちょっと確認したい」ってときに、本筋を邪魔せず聞けるってこと？",
+          "en": "So when I just want to check something mid-task, I can ask without disturbing the main work?"
+        },
+        {
+          "s": "b",
+          "ja": "そう、記事だと代替案の調査や判断の確認にも使えるとあるよ。それに、@メンションでサイドの内容をメインに戻すこともできるんだ。",
+          "en": "Right. The article mentions checking alternatives or sanity-checking a decision. You can also @mention to bring side-chat context back to the main thread."
+        },
+        {
+          "s": "a",
+          "ja": "検索も増えたんだよね。名前だけじゃなくて、会話の中身まで探せるのが便利そう！",
+          "en": "Search got added too, right? Being able to search inside conversations, not just names, sounds handy!"
+        },
+        {
+          "s": "b",
+          "ja": "うん。Cmd+Kで履歴を、Cmd+Fで今の会話内を検索できるよ。ただ、Cmd+Kの検索はエージェントウィンドウでの話だね。",
+          "en": "Yes. Cmd+K searches history and Cmd+F searches the current conversation. Just note the Cmd+K search is described for the Agents Window."
+        }
+      ]
     },
     "7f48c4201422ef0a": {
       "bodyJa": "オープンソースのAIコーディングエージェント「OpenHands」の最新版となる1.11.0が公開された。ソフトウェア開発の一連の作業を自律的に代行するエージェント基盤として注目を集めるプロジェクトで、今回のアップデートでは新機能の追加と既存機能の改善を通じて、開発ワークフローの効率化を狙う。\n\nOpenHandsは、以前は「OpenDevin」の名称で知られていたプロジェクトで、自然言語の指示を受けてコードの記述や修正、ファイル操作、コマンド実行、ブラウザ操作などを自動で進めるAIエージェントを提供する。単なるコード補完にとどまらず、タスクの計画立案から実装、テスト実行までを一連の流れとして扱う点が特徴で、開発者は高レベルの要求を伝えるだけで作業の大部分をエージェントに委ねられる可能性がある。\n\n近年、この分野ではCognition社の「Devin」をはじめ、GitHub Copilotのエージェント機能やCursor、Anthropicの「Claude Code」など、商用・オープンソースを問わず多数のツールが登場している。その中でOpenHandsは、コミュニティ主導で開発が進むオープンソースである点や、複数の大規模言語モデル(LLM)を切り替えて利用できる柔軟性を強みとしてきた。特定のモデルやベンダーに縛られにくい構造は、コスト面や自社環境での運用を重視する利用者にとって有力な選択肢となりうる。\n\nバージョン1.11.0という番号からは、大規模な刷新というよりも、継続的な機能追加とバグ修正を積み重ねるマイナーアップデートと見られる。この種のリリースでは、エージェントの動作精度や安定性の向上、対応モデルの拡充、UIやAPIの改善などが含まれることが多い。実際の変更点の詳細については、公式のリリースノートで確認する必要がある。\n\nAIエージェントによる開発支援は、コード生成の枠を超えて、実際の開発タスクをどこまで任せられるかという段階に移りつつある。OpenHandsのようなオープンソースプロジェクトの継続的な更新は、技術の透明性を保ちながらこの領域の進化を後押しする動きとして、今後も注目される。",
@@ -12287,6 +12281,240 @@
       "bodyEn": "Ollama v0.40.19 has been published, and its listed change centers on inkling2. The release is relevant to people running language models locally, since the change is described as targeting responsiveness.\n\n## inkling2: faster short histories\n\nThe release entry describes a single change, titled \"inkling2: faster short histories, draft proposals and conv snapshots.\" It is credited to @dhiltgen and tracked as pull request #19881. The first item in that title is faster handling of short histories. Going by the wording, this applies to conversations whose history is still short, though the entry does not say how the speedup is achieved or how large it is.\n\n## Draft proposals and conv snapshots\n\nThe same change adds two further items: draft proposals and conversation snapshots. The title names them without elaboration. No mechanism, configuration option, or usage instructions are given for either one, so how they work internally or how a user would turn them on is not something the release entry establishes.\n\nThe accompanying summary says the combined effect is that local LLM users can expect snappier responses. That is a summary of intent rather than a measured result, and no benchmarks or timing figures accompany it.\n\n## Full Changelog: v0.40.18 to v0.40.19\n\nThe changelog link compares v0.40.18 with v0.40.19-rc0, so the comparison ends at a release-candidate tag rather than a final one. The entry was created on GitHub.com and signed with GitHub's verified signature. The release was published on November 27, 2026.\n\nBeyond the inkling2 work, the entry lists no other changes. It mentions no new models, platform support changes, pricing, or regional availability. Readers who want to know exactly what changed in the code can follow pull request #19881 and the full changelog comparison between the two versions.\n\nIn short, v0.40.19 is a focused update. It improves inkling2 in three named ways: faster short histories, draft proposals, and conversation snapshots. Further specifics are available only through the linked pull request.",
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T00:37:31.727Z"
+    },
+    "289a3dd4fa86a3f9": {
+      "bodyJa": "## 中小企業向け\n\nOpenAIは、中小企業向けの「ChatGPT for small business」プログラムを開始した。AIツールを業務へ取り入れやすくし、生産性の向上と競争力の強化を後押しする取り組みだ。\n\n## ChatGPT活用支援\n\n小規模な組織によるAIツールの導入に向けて、リソースと支援を提供する。起業家がAIスキルを身につけ、ChatGPT Workで業務を自動化し、成長につなげることを支援すると説明されている。",
+      "bodyEn": "## ChatGPT for Small Businesses\n\nOpenAI has launched a dedicated ChatGPT program for small businesses. It is intended to make AI tools easier for smaller organizations to adopt, supporting improved productivity, operational efficiency, and competitiveness.\n\n## Resources and support\n\nThe ChatGPT for Small Businesses program offers resources and support to help entrepreneurs and smaller organizations build AI skills. According to the announcement, participants can use ChatGPT Work to automate work and support growth. The program focuses on helping small businesses integrate AI tools into their operations rather than leaving them to navigate adoption without dedicated assistance.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "中小企業向けのプログラムって、ChatGPTの使い方を教えてくれるの？",
+          "en": "Is this small-business program meant to teach teams how to use ChatGPT?"
+        },
+        {
+          "s": "b",
+          "ja": "OpenAIが、AIスキルの習得や仕事の自動化を支えるリソースとサポートを提供するプログラムだよ。",
+          "en": "OpenAI describes it as a program offering resources and support to build AI skills and automate work."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、AIを仕事に取り入れたい中小企業や起業家が、業務を進めやすくするための支援なんだね？",
+          "en": "So it supports small businesses and entrepreneurs that want to bring AI into their everyday work?"
+        },
+        {
+          "s": "b",
+          "ja": "うん。業務効率や生産性を高め、事業の成長や競争力の強化を後押しする狙いがあるよ。",
+          "en": "Yes. The goal is to improve efficiency and productivity while supporting business growth and competitiveness."
+        },
+        {
+          "s": "a",
+          "ja": "ChatGPTを渡すだけじゃなくて、使う力と仕事の自動化まで支えるプログラムなんだ。",
+          "en": "So it’s not just access to ChatGPT—it also helps businesses build skills and automate work."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。対象は中小企業で、ChatGPT Workを使った成長支援として紹介されている点は押さえておこう。",
+          "en": "Right. Keep in mind that it’s presented specifically for small businesses, with support centered on growing through ChatGPT Work."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T18:10:06.831Z"
+    },
+    "f4f9b282db67ac6e": {
+      "bodyJa": "MCP Servers の v2.6.0 は、セキュリティ修正を中心としたリリースである。3つのサーバーで8件の脆弱性が修正され、v2.5.0 で未完了だった2件の修正も今回で完了したと説明されている。\n\n## 8件の脆弱性を修正\n\n今回の修正は3つのサーバーにまたがり、合計8件の脆弱性が対象となっている。v2.5.0 で対応が不完全のまま残っていた2件についても、この版で修正が完結したとされる。該当するパッケージを利用している場合は、早めの更新が求められる。\n\n## 更新対象と修正版\n\n更新が必要なのは次のパッケージである。mcp-server-git は 2026.11.18 までが影響を受け、修正版は 2026.11.27。@modelcontextprotocol/server-memory は 1.0.0 から 2.2.1 までが対象で、2.2.2 に更新する。mcp-server-fetch は 2026.10.10 から 2026.11.18 までが対象で、修正版は 2026.11.27 となる。\n\nWindows 環境では、@modelcontextprotocol/server-filesystem も更新の対象である。2.4.0 までが影響を受け、修正版は 2.4.1。この filesystem の項目は Windows で利用する場合に限った指定である。\n\n## Git LFS の挙動変更\n\nmcp-server-git 2026.11.27 では、Git LFS がリポジトリの設定で指定されたプログラムを実行しなくなった。Git LFS がインストールされている環境では、サーバーがユーザー自身の設定にある LFS フィルターを保持していたと説明されている。公式 Docker イメージは Git LFS をシステム全体にインストールしているため、この環境も対象に含まれる。",
+      "bodyEn": "MCP Servers v2.6.0 is a security-focused release. According to the release notes, it fixes eight vulnerabilities across three servers and completes two fixes that v2.5.0 left open, so anyone running the affected packages has a clear reason to check their versions.\n\n## Security fixes\n\nThe announcement says the eight vulnerabilities sit in three servers: mcp-server-git, @modelcontextprotocol/server-memory and mcp-server-fetch. It also lists a fourth package, @modelcontextprotocol/server-filesystem, as needing an update, but only on Windows. The source does not break the eight fixes down individually beyond the Git LFS item described below, and it does not say which two fixes are the ones carried over from v2.5.0.\n\n## Upgrade targets and affected versions\n\nThe release lists the following upgrades and the version ranges they replace.\n\nmcp-server-git is affected through 2026.11.18 and is fixed in 2026.11.27.\n\n@modelcontextprotocol/server-memory is affected from 1.0.0 through 2.2.1 and is fixed in 2.2.2.\n\nmcp-server-fetch is affected from 2026.10.10 through 2026.11.18 and is fixed in 2026.11.27.\n\n@modelcontextprotocol/server-filesystem is affected on Windows through 2.4.0 and is fixed in 2.4.1.\n\nUsers of the git, memory and fetch servers are told to move to the fixed versions, and Windows users of the filesystem server should also take 2.4.1.\n\n## Git LFS no longer runs programs\n\nThe one fix the source describes in detail is in mcp-server-git 2026.11.27. According to the notes, Git LFS no longer runs programs that a repository's configuration names. The notes tie this to setups where Git LFS is installed, and they point out that the official Docker image installs it system-wide. They also say the server kept the LFS filter from the user's own configuration, which is the behavior this fix addresses.\n\nFor deployments that use the official Docker image, the notes make clear that Git LFS is present by default, so this item applies to them.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "8件も直して、前回やり残した2件まで終わらせたの？これって大きいこと？",
+          "en": "Eight fixes, plus two left over from last time? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "3つのサーバーで8件の脆弱性を直し、v2.5.0で未完了だった2件も仕上げた、と書かれています。git、memory、fetch、Windows版filesystemの人は更新対象です。",
+          "en": "The release fixes eight vulnerabilities across three servers and finishes two fixes v2.5.0 left open. If you use git, memory, fetch, or filesystem on Windows, you should upgrade."
+        },
+        {
+          "s": "a",
+          "ja": "表に「Affected」と「Fixed in」があるけど、これってどう読むの？",
+          "en": "The table has \"Affected\" and \"Fixed in\" columns. How do I read those?"
+        },
+        {
+          "s": "b",
+          "ja": "「Affected」は影響を受ける版、「Fixed in」は直った版です。たとえばmemoryは1.0.0から2.2.1までが対象で、2.2.2で修正されています。",
+          "en": "\"Affected\" means the versions with the problem, and \"Fixed in\" is the version that corrects it. For memory, 1.0.0 through 2.2.1 are affected, and 2.2.2 is the fix."
+        },
+        {
+          "s": "a",
+          "ja": "もし自分がgitサーバーを使ってたら、まず版を見て更新すればいいのかな？",
+          "en": "If I were using the git server, would I just check my version and update?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。2026.11.18までが対象で、修正版は2026.11.27です。公式Dockerイメージは Git LFS を入れているので、LFSの修正にも関わってきます。",
+          "en": "Yes. Versions through 2026.11.18 are affected, and 2026.11.27 is the fix. The official Docker image installs Git LFS, so the LFS fix is relevant to it too."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:37:26.045Z"
+    },
+    "742fc090dcb6b5f6": {
+      "bodyJa": "セマンティック・ガバナンス・ポリシーは、AIエージェントを間接プロンプトインジェクションやインテントハイジャックから守る仕組みとして紹介されている。エージェントが実行しようとするツール呼び出しを、ユーザーの意図に照らして確認する点が特徴だ。\n\n## ユーザーはそれを頼んだのか\n\nこのポリシーの考え方は、タイトルの問いに集約されている。エージェントが提案するツール呼び出しは、実行に移される前に、ユーザーが本当にそれを求めたのかという観点で検証される。\n\n検証の基準は、ユーザーの意図と、自然言語で記述された制約である。提案されたツール呼び出しはすべてこの検証にかけられ、意図や制約に合致するかどうかを見たうえで実行される。\n\n## AgentDojoでの結果\n\n効果はAgentDojoベンチマークで示されている。Gemini 2.5 Flashを用いたエージェントで試したところ、攻撃成功率は48.7%から0.9%へ下がったと説明されている。\n\n防御を強めると、エージェントが本来の仕事までこなせなくなる懸念がある。この検証では、高いタスク有用性が保たれたとされている。攻撃成功率の低下と、正当なタスクの遂行の両立が示された点が要となる。\n\n## Agent Gatewayでプレビュー\n\n開発者は、Geminiプラットフォーム上のAgent Gatewayを通じて、このポリシーをプレビューとして利用できる。想定されている用途は、ツールを使うワークフローの保護である。\n\nエージェントがツールを呼び出す場面では、外部から紛れ込んだ指示によって本来の意図から外れた操作が提案される恐れがある。実行直前にユーザーの意図との整合を確かめる層を置くのが、このポリシーの役割だ。提供はプレビュー段階であり、エージェント開発者にとっては安全対策を強化する選択肢の一つとなる。",
+      "bodyEn": "## Did the User Ask for That?\n\nSemantic governance policies are a way to protect AI agents from indirect prompt injection and intent hijacking. The mechanism matters because it targets a specific risk: an agent carrying out tool calls that the user never actually asked for.\n\nThe source describes the approach as validating every proposed tool call against the user's intent and against natural language constraints before the call is executed. In other words, the check happens at the point where the agent is about to act, not after the action has taken place.\n\n## Checking Tool Calls Before Execution\n\nAccording to the source, the policies sit in front of tool use. Each tool call the agent proposes is compared with what the user wanted and with constraints written in natural language. A call that does not fit those expectations can be caught before it runs.\n\nThe two threats named are indirect prompt injection and intent hijacking. Both involve an agent being steered away from the user's goal, and the policy framing of \"Did the user ask for that?\" reflects the question being asked of each proposed action.\n\n## Results on AgentDojo\n\nThe source reports results from the AgentDojo benchmark, using an agent built on Gemini 2.5 Flash. In that demonstration, the mechanism reduced the attack success rate from 48.7% to 0.9%. The source also states that the approach maintained high task utility, meaning the agent remained useful for legitimate tasks while the attacks were blocked.\n\nThese figures come from the benchmark demonstration described by the source, and the summary offers no further breakdown of the test conditions.\n\n## Availability in Agent Gateway\n\nDevelopers can use semantic governance policies in preview within the Gemini platform through Agent Gateway. The announcement positions this as a way to secure tool-use workflows, giving agent developers a safeguard that works by comparing proposed actions with user intent before they are carried out.\n\nBecause the feature is in preview, the source presents it as an early-access option rather than a finished release.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「インテントハイジャック」って何？ エージェントが、頼んでいないことをやっちゃうってこと？",
+          "en": "What's \"intent hijacking\"? Does it mean the agent ends up doing things the user never asked for?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、間接的なプロンプトインジェクションと並べて守る対象になっています。ツール呼び出しを実行前にユーザーの意図と照合する仕組みです。",
+          "en": "The article puts it alongside indirect prompt injection as something to defend against. The fix checks each tool call against the user's intent before it runs."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、エージェントを作る開発者さんが、その確認を使えるようになるってこと？",
+          "en": "So developers building agents can use that check, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうです。Geminiプラットフォームの Agent Gateway 経由で、プレビューとして使えます。自然言語の制約も照合に使うと書かれています。",
+          "en": "Yes, it's in preview through Agent Gateway on the Gemini platform. The article says natural language constraints are used in the check too."
+        },
+        {
+          "s": "a",
+          "ja": "AgentDojoで攻撃成功率が48.7%から0.9%に下がったんだね。しかも使いやすさも保てたんだ。",
+          "en": "On AgentDojo, attack success dropped from 48.7% to 0.9%. And it still stayed useful for tasks?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、タスクの有用性は高いままと書かれています。ただ、この数字はGemini 2.5 Flashのエージェントでの結果で、まだプレビュー段階です。",
+          "en": "Right, the article says task utility stayed high. But that result comes from a Gemini 2.5 Flash agent, and the feature is still in preview."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:38:22.429Z"
+    },
+    "80dab020bafccfd3": {
+      "bodyJa": "Microsoft Foundryのホステッドエージェントを自社の仮想ネットワーク(VNet)に移すと、デプロイは成功するのにAgentsページがタイムアウトする場合がある。閉域構成を運用するチーム向けに、原因を切り分ける5つの確認事項をコマンド付きで解説した記事である。\n\n## 閉域構成の例\n\n筆者はここ数週間、複数のチームがホステッドエージェントを自分のVNetへ移すのを支援してきたという。業種はさまざまでも、寄せられる質問は同じ5つだったとされる。記事は、それぞれの質問に、筆者が確認に使うコマンドで答える形をとっている。\n\n例として挙げられるのは、金融サービス企業が請求(claims)を扱うエージェントを閉域ネットワークで動かすケースだ。Foundryリソースのパブリックアクセスは無効で、エージェント用サブネットはスポークVNetにある。Azure Cosmos DB、Storage、Azure AI Searchはプライベートエンドポイントの背後に置かれ、一部はハブVNet側にある。外向きの通信はすべて、TLSを検査するファイアウォールを経由する。\n\n## Agentsページが回り続ける\n\nこの環境ではデプロイ自体は成功する。ところがAgentsページは読み込み中のまま回り続け、最後にタイムアウトで失敗する。問題はエージェントそのものではなく、周囲のネットワークに欠けている要素が1つあることだと説明されている。\n\n## 欠けた1点を探す手順\n\n記事の目的は、その欠けた1点を見つける手順を示すことだ。パブリックアクセス無効、スポークとハブにまたがるプライベートエンドポイント、TLS検査つきファイアウォールという条件が重なる環境で、ネットワーク担当者が順に確かめられるよう、確認事項ごとにコマンドが添えられている。",
+      "bodyEn": "## Hosted agents in their own VNet\n\nMoving hosted agents into a private virtual network is a common request, and a specific failure keeps appearing: the deployment succeeds, yet the Agents page spins and then times out. This explainer follows a Microsoft Foundry blog post that walks through five checks, with commands, for locating the cause.\n\n## Same five questions\n\nThe author says they have worked with several teams over the past few weeks as those teams moved hosted agents into their own virtual network. The teams came from different industries but asked the same five questions. The post answers each one and pairs it with the commands the author uses to verify it.\n\n## A locked-down example\n\nTo illustrate, the post describes a financial services team running claims agents in a restricted network. In that setup:\n\nPublic access on the Foundry resource is turned off.\n\nThe agent subnet sits in a spoke VNet.\n\nAzure Cosmos DB, Storage and Azure AI Search are behind private endpoints, and some of those endpoints are in a hub VNet.\n\nAll outbound traffic passes through a firewall that inspects TLS.\n\n## Where the timeout comes from\n\nIn this scenario the deployment completes without error, but the Agents page fails with a timeout. According to the author, nothing is wrong with the agent itself. The network around it is missing one piece, and the five checks are meant to identify which piece that is.\n\nThe source frames the problem as one of network configuration rather than agent configuration. For teams running a closed-network design like the one above, that distinction affects where to look first: the path between the agent subnet, the private endpoints in the spoke and hub VNets, and the inspecting firewall, not the agent deployment that already succeeded.\n\nThe material available here does not list the five checks themselves or the commands used, so the specific diagnostic steps are in the original post. What the post establishes is the context: a private, spoke-and-hub layout with public access disabled, a successful deployment, and an Agents page that times out because of a gap in the surrounding network.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "閉じたネットワークでエージェントを動かすと、毎日の作業では何に困るの？",
+          "en": "If we run agents in a locked-down network, what actually goes wrong in day-to-day work?"
+        },
+        {
+          "s": "b",
+          "ja": "デプロイは成功するのに、Agentsページがタイムアウトして開けないんだ。エージェント自体は問題なくて、周りのネットワークに足りない部品があるそうだよ。",
+          "en": "The deployment succeeds, but the Agents page spins and times out. The agent itself is fine; the network around it is missing one piece."
+        },
+        {
+          "s": "a",
+          "ja": "前はこういうことって起きなかったの？ ふつうのネットワークとは違うのかな。",
+          "en": "Did this not happen before? Is it different from a normal network setup?"
+        },
+        {
+          "s": "b",
+          "ja": "従来との違いは、この記事では書かれていないから分からないな。書かれているのは、自社VNetに移したチームで同じ5つの疑問が出ている、という点だよ。",
+          "en": "The post doesn't compare it with before, so I can't say. What it does say is that teams moving into their own VNet keep asking the same five questions."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ収穫は、デプロイが成功しても安心せず、足りない部品を順に探せばいいってことだね！",
+          "en": "So my takeaway: a successful deploy isn't the end, and we can hunt for the missing piece step by step!"
+        },
+        {
+          "s": "b",
+          "ja": "うん。次は5つの確認項目とコマンドそのものに注目だね。ファイアウォールやプライベートエンドポイントの構成例も、自分の環境と見比べられそう。",
+          "en": "Right. Next, look at the five checks and their commands. The example setup, with its firewall and private endpoints, is also worth comparing against your own."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:38:55.889Z"
+    },
+    "bcc9c9389ff4c1bb": {
+      "bodyJa": "AIエージェントが生成するコードは、人間が1行ずつレビューするには多すぎる規模に達しうる。Microsoft ResearchのブログはPDD Kitを取り上げ、エージェントが書いたフルスタックWebアプリを形式検証し、コードが開発者の意図どおりに動くことを確かめる方法を紹介している。\n\n## 人が読み切れないコード量\n\n出発点にあるのは、AIエージェントが人間による行単位のレビューを難しくするほどの規模でコードを生成できる、という問題である。PDD Kitは、コードが開発者の意図どおりに動作しているかを確かめるために、形式仕様を作成し、その仕様に照らしてテストを行う仕組みと説明されている。\n\n## 意図をVerus仕様へ変換\n\nPDD Kitはまず、開発者の意図をVerus仕様へ変換する。この仕様が、AIが生成したコードに求める振る舞いの基準になる。そのうえで、AI生成コードがこの仕様をすべての入力に対して満たすことを証明するとされる。いくつかの入力例を試すだけでなく、全入力について成り立つことを示そうとする点が、ここでの要になる。\n\n## 証明が難しい箇所はテストで\n\nすべてを証明で扱えるわけではない。PDD Kitは、証明が現実的でない箇所についてテストを使って確認する。証明とテストを組み合わせることで、検証の対象を証明できる部分だけに限定しない構成になっている。\n\n## レビューするのは意図\n\nこの流れにより、開発者はコードを全行読む代わりに、意図を確認することに集中できると説明されている。レビューの対象がコードの一行一行から開発者の意図へ移る、というのがPDD Kitの打ち出す考え方である。",
+      "bodyEn": "PDD Kit, presented in a Microsoft Research blog post, addresses a practical problem with agent-written software. AI agents can generate code at a scale that is hard for humans to review line by line, and the tool is meant to help confirm that the code does what the developer intended. The post frames this around formally verifying full-stack web apps written by agents.\n\n## Code too large to review\n\nAccording to the post, the volume of code an AI agent can produce makes careful line-by-line reading difficult. PDD Kit's response is to create formal specifications and test the generated code against them. The check then centers on whether the code matches what the developer meant, rather than on whether a reviewer has read every line.\n\n## Intent into a Verus specification\n\nThe post says PDD Kit converts developer intent into a Verus specification. It then proves that the AI-generated code meets that specification for every input. The claim is about all inputs, not only a selection of examples, and the specification is the artifact that carries the developer's intent into the verification step.\n\n## Tests where proofs aren't practical\n\nThe post also states that PDD Kit uses tests where proofs aren't practical. The approach therefore combines two mechanisms: formal proof as the primary route, and testing for the parts where a proof is not a workable option. Both are run against the specification derived from the developer's intent.\n\n## Developers review intent\n\nThe stated payoff is a change in what people have to examine. In the post's words, developers review intent, not every line. Instead of auditing everything an agent writes, a developer's attention goes to whether the specification captures what they wanted, while the proofs and tests handle the question of whether the code satisfies it.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "全部の入力で仕様を満たすって証明するの？テストとは何が違うの？",
+          "en": "It proves the code meets the spec for every input? How's that different from testing?"
+        },
+        {
+          "s": "b",
+          "ja": "一般に、テストは選んだ例を確かめるもので、証明はあらゆる入力で成り立つことを示すものだよ。この記事では、その証明をVerus仕様に対して行うと書かれているよ。",
+          "en": "Generally, tests check chosen examples, while a proof covers all inputs. Here, the post says PDD Kit does that proving against a Verus specification."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあAIが書いたコードを、人が一行ずつ読まなくてもいいってこと？",
+          "en": "So people don't have to read AI-written code line by line anymore?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、開発者が見るのは意図のほうだよ。意図をVerus仕様に変えて、コードがそれを満たすか確かめる流れなんだ。",
+          "en": "The post says developers review intent instead. Their intent becomes a Verus spec, and the code gets checked against it."
+        },
+        {
+          "s": "a",
+          "ja": "証明が難しいところはテストで補うんだね。意図を確認して、証明とテストで支える感じかな？",
+          "en": "And where proofs are hard, tests fill in. So you confirm intent, and proofs plus tests back it up?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めるよ。ただ、仕様が意図とずれていないかは、人が見るところになりそうだね。",
+          "en": "That's how I read it. Though checking that the spec really matches your intent would probably still be a human job."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:41:55.817Z"
+    },
+    "3e85b6f77707bee6": {
+      "bodyJa": "## S3 Tablesへの移行機能\n\nAmazon S3 Tables が、Amazon S3 上にある既存の Apache Hive テーブルを、フルマネージドの Apache Iceberg テーブルへ移行できるようになった。データレイクの刷新にかかる負担を減らす機能とされる。\n\n## パイプライン不要の移行\n\n移行対象は、S3 に置かれた既存の Apache Hive データセットである。移行先は S3 Tables 上の Apache Iceberg テーブルで、Hive 形式から Iceberg 形式へ変換される。\n\nこの機能では、移行用のパイプラインを自分で構築する必要がない。移行処理のためにコンピュートを用意する必要もない。\n\nまた、移行中も本番ワークロードは動かし続けられると説明されている。稼働中のシステムを止めずに Iceberg へ移れる点が特徴である。",
+      "bodyEn": "## Managed migration to Iceberg\n\nAmazon S3 Tables now supports managed migration of existing Apache Hive datasets in Amazon S3 into Apache Iceberg tables. According to the announcement, this is meant to ease the burden of modernizing a data lake.\n\nThe source says users can move Hive data into fully managed Iceberg tables in Amazon S3 Tables without building pipelines or provisioning compute.\n\n## Production keeps running\n\nThe announcement states that production workloads continue to run during the migration. Teams therefore do not need to stop existing jobs to convert their Hive tables.\n\nIn short, the feature converts Hive tables already stored in S3 into Iceberg tables managed within S3 Tables. The source describes it as requiring no custom pipelines and no compute resources set up by the user. No further technical details are provided.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "S3にHiveのデータがある会社だと、普段の仕事は何が変わるの？",
+          "en": "If a company has Hive data in S3, what changes in their day-to-day work?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、既存のHiveデータをS3 TablesのIcebergテーブルへ移せるようになったと説明しています。パイプライン作りもコンピュートの用意も要らないそうです。",
+          "en": "This article says existing Hive datasets in S3 can now move into Iceberg tables in S3 Tables. You don't have to build pipelines or provision compute."
+        },
+        {
+          "s": "a",
+          "ja": "前は、移すときに自分で仕組みを作らなきゃいけなかったの？",
+          "en": "So before, did people have to build their own setup to move it?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと「作らなくていい」点が強調されています。ただ、従来の手順や手間の中身までは書かれていないので、違いの詳細は分かりません。",
+          "en": "The article stresses that you don't need to build anything. But it doesn't describe the old process in detail, so I can't say exactly how it differs."
+        },
+        {
+          "s": "a",
+          "ja": "一番うれしいのは、本番を止めずに移せるところかな。動かしたままでいいんだよね？",
+          "en": "The best part seems to be moving without stopping production. Things can keep running, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね、記事にも本番ワークロードが動き続けると書かれています。実際の移行の流れや条件は、公式の案内で確かめたいところです。",
+          "en": "Yes, the article says production workloads keep running. For how the migration actually works and any conditions, it'd be worth checking the official documentation."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:42:07.090Z"
+    },
+    "c96eaf30fad9ca28": {
+      "bodyJa": "## 米国製チップ\n\nAppleはBroadcomとの取引を拡大し、米国で数十億個の追加チップを生産すると発表した。米国内の半導体生産を大幅に広げる方針を明確にした点が重要だ。\n\n## 6年間の契約\n\n新たな取り組みは6年間の契約で、カスタムシリコン部品と最先端の無線接続技術を設計・生産する。生産数量の追加だけでなく、部品の設計と無線接続技術も契約の対象になると説明されている。",
+      "bodyEn": "## Apple and Broadcom\n\nApple has announced increased spending with Broadcom to manufacture billions of additional chips in the United States. The move represents a major expansion of domestic semiconductor production and, according to the existing summary, is expected to strengthen supply stability and reduce geopolitical risk.\n\n## Custom silicon components\n\nThe announcement describes a new six-year commitment with Broadcom to design and produce custom silicon components. It also covers cutting-edge wireless connectivity technologies.\n\nApple plans to expand chip production substantially within the United States, adding billions of chips through its broader commitment with Broadcom.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-09-05T13:13:56.936Z"
     }
   }
 }

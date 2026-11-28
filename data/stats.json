@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T01:31:01.349Z",
+  "generatedAt": "2026-11-28T02:30:01.965Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
     "allTime": 8340,
@@ -1226,7 +1226,7 @@
   "bySource": [
     {
       "source": "openai-news",
-      "total": 602,
+      "total": 639,
       "last30d": 0
     },
     {
@@ -1395,11 +1395,6 @@
       "last30d": 10
     },
     {
-      "source": "openai-blog",
-      "total": 64,
-      "last30d": 0
-    },
-    {
       "source": "zenn-ai",
       "total": 52,
       "last30d": 0
@@ -1453,6 +1448,11 @@
       "source": "semantic-kernel-releases",
       "total": 29,
       "last30d": 2
+    },
+    {
+      "source": "openai-blog",
+      "total": 27,
+      "last30d": 0
     },
     {
       "source": "youtube-anthropic",
@@ -1516,8 +1516,8 @@
     }
   ],
   "byImportance": {
-    "1": 4628,
-    "2": 3345,
+    "1": 4622,
+    "2": 3351,
     "3": 367
   }
 }

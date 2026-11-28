@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T01:30:56.672Z",
-  "count": 364,
+  "generatedAt": "2026-11-28T02:29:57.491Z",
+  "count": 372,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -11578,7 +11578,39 @@
       "bodyJa": "Google DeepMindは、細胞の老化を逆転させ得る遺伝的要因を高速に特定する研究成果を公表した。膨大な遺伝子の組み合わせから有望な候補を効率的に絞り込む手法で、老化に関連する疾患の治療法開発を加速する可能性がある。\n\n細胞老化とは、分裂能力を失った細胞が体内に蓄積し、周囲の組織に炎症性の物質を放出することで、加齢に伴うさまざまな機能低下や疾患の一因になるとされる現象を指す。こうした老化を巻き戻す鍵として近年注目されているのが、山中伸弥氏が発見した初期化因子(いわゆる山中因子)による「部分的リプログラミング」だ。細胞を完全に幼若化させず、若い状態の特徴だけを取り戻させる試みが世界中で進められている。\n\nただし、どの遺伝子をどの程度操作すれば安全に若返り効果が得られるのかを実験だけで探索するのは、組み合わせが天文学的で時間もコストも膨大になる。DeepMindが示したアプローチは、機械学習を用いて有望な遺伝子候補を事前に予測し、実験による検証の対象を大幅に絞り込む点に特徴があると見られる。同社はこれまでもタンパク質の立体構造を予測するAlphaFoldなどで生物学分野に大きな影響を与えており、今回の研究もその延長線上に位置づけられる。\n\n老化や長寿の研究には、Alphabet傘下のCalicoをはじめ、Altos LabsやRetro Biosciencesなど巨額の資金を集める企業が相次いで参入している。AIによる遺伝子スクリーニングの高速化は、こうした競争の中で創薬の初期段階を効率化する手段として期待される。\n\n一方で、細胞レベルや動物実験で得られた知見がそのままヒトの治療に結びつくとは限らず、安全性や倫理面の検証には相応の時間を要する。今回の成果は治療そのものではなく、あくまで探索を加速する基盤技術と捉えるのが妥当だろう。実用化までの道のりは長いものの、老化を「操作可能な生物学的プロセス」として理解しようとする研究の進展を示す一例といえる。",
       "bodyEn": "Google DeepMind has published research describing a computational approach to rapidly pinpoint the genetic factors that can reverse cellular aging, a step the company frames as a way to accelerate the discovery of treatments for age-related disease. The work sits at the intersection of machine learning and genomics, and it matters because cellular aging underlies a broad range of conditions, from neurodegeneration to cardiovascular decline, that grow more common as populations age.\n\nAt the center of the research is the challenge of scale. The human genome contains roughly 20,000 protein-coding genes, and the number of possible combinations of genetic interventions that might influence aging is effectively astronomical. Testing each candidate experimentally in the laboratory is slow and costly, so researchers can realistically explore only a small fraction of the search space. DeepMind's approach appears to use models that predict which genetic changes are most likely to shift cells from an aged state toward a more youthful one, allowing scientists to prioritize the most promising candidates for wet-lab validation rather than screening blindly.\n\nA key concept underpinning this line of work is cellular reprogramming. In 2006, the Japanese scientist Shinya Yamanaka showed that introducing a small set of transcription factors, now known as the Yamanaka factors, could convert mature cells back into a pluripotent, stem-cell-like state. Subsequent research demonstrated that partial reprogramming can reverse some markers of aging without erasing a cell's identity entirely. Identifying which genes to target, and how to modulate them safely, has remained a central bottleneck. Machine learning is increasingly being applied to narrow that search, learning patterns from large datasets of gene expression and cellular behavior to suggest interventions that a human researcher might not prioritize.\n\nThe reported method is likely to combine several data types, including transcriptomic profiles that capture which genes are active in young versus old cells, and models trained to recognize the molecular signatures associated with biological age. So-called aging clocks, which estimate a cell or tissue's biological age from epigenetic or expression data, provide one way to measure whether an intervention is moving cells in the desired direction. By pairing predictive models with these readouts, the system can, in principle, rank candidate genes and generate hypotheses far faster than traditional trial-and-error screening.\n\nThis research fits into a broader pattern of DeepMind applying its expertise to biology. The company's AlphaFold system, which predicts three-dimensional protein structures from amino acid sequences, reshaped structural biology and contributed to its founders receiving a share of the 2024 Nobel Prize in Chemistry. DeepMind has since extended that work through AlphaFold 3, which models interactions between proteins and other molecules, and through Isomorphic Labs, a sister company focused on AI-driven drug discovery. Aging research represents an adjacent frontier where the same combination of large datasets and predictive modeling could shorten discovery timelines.\n\nThe field also includes well-funded dedicated efforts. Altos Labs, backed by billions of dollars in investment, and Calico, an Alphabet-affiliated company launched in 2013, are both pursuing the biology of aging and cellular rejuvenation. Academic groups continue to study the hallmarks of aging, a framework describing the molecular and cellular processes, such as genomic instability and cellular senescence, thought to drive the aging phenotype. DeepMind's contribution appears aimed less at replacing this experimental science than at guiding it toward the interventions most worth testing.\n\nImportant caveats remain. Computational predictions must be confirmed in living cells and, eventually, in animal models before any therapeutic relevance can be established, and results in cultured cells do not always translate to whole organisms. Reprogramming approaches also carry safety concerns, including the risk of tumor formation if cells lose their identity or divide uncontrollably. Any path from a genetic hypothesis to an approved therapy would span many years of validation and clinical testing, and the current work is best understood as an early-stage research tool rather than a treatment.\n\nEven so, the announcement reflects a growing conviction that artificial intelligence can compress the exploratory phase of biological discovery. If the models reliably surface genuine reversers of cellular aging, they could help researchers focus limited laboratory resources on the highest-value experiments, a benefit that would extend well beyond longevity into any area where the space of possible interventions dwarfs the capacity to test them.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-09-05T15:28:39.979Z"
+      "generatedAt": "2026-09-05T15:28:39.979Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "老化の研究って、普段の研究室だと何が一番たいへんなの？",
+          "en": "What's the hardest part of aging research in a lab day to day?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、どの遺伝子の経路を試すか選ぶことと、実験で出る膨大なデータを読み解くことが二大ボトルネックだそうです。",
+          "en": "This piece names two big bottlenecks: choosing which genetic pathways to test, and making sense of the huge data the experiments produce."
+        },
+        {
+          "s": "a",
+          "ja": "それをCo-Scientistが手伝うんだね。前は人が全部やってたのかな？",
+          "en": "Co-Scientist helps with that, right? Did people do it all by hand before?"
+        },
+        {
+          "s": "b",
+          "ja": "従来のやり方の詳しい比較は書かれていません。ただ、数万本の論文を調べて仮説を検討し、20以上の新しい遺伝的候補を挙げたと書かれています。",
+          "en": "The article doesn't compare it with older methods. It does say the tool scanned tens of thousands of papers and proposed over 20 novel genetic candidates."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、試す候補を探す手間が減って、老化から若い状態へ戻す手がかりが見つかりやすくなることかな？",
+          "en": "So the big win is less effort finding candidates to test, and an easier path to clues for pushing cells back toward youth?"
+        },
+        {
+          "s": "b",
+          "ja": "その方向だと思います。ただ、挙がったのは「試す候補」の段階です。実験でどう結果が出るかは、この記事からは分かりません。",
+          "en": "That fits the article. But these are candidates to test, and the article doesn't say how the experiments turn out."
+        }
+      ]
     },
     "00bc0b53b5ce43aa": {
       "bodyJa": "「Claudeを2カ月使って10万行のコードを生成し、本来なら5000万円かかる開発を約3万円で実現した」——。こうした主張がSNSや技術ブログで広まるなか、Qiitaのある投稿者がその数字の妥当性と、見落とされがちなトレードオフを検証した記事が話題を呼んでいる。\n\n主張の骨子は、AnthropicのLLMであるClaudeをコード生成に活用することで、従来は複数のエンジニアが数カ月を費やしていた規模の実装を、わずかな利用料金と短期間でこなせるというものだ。10万行という行数と、5000万円が3万円になるという桁違いのコスト圧縮は、AIコーディングの費用対効果を象徴する数字として引用されやすい。\n\n一方で記事は、この試算にはいくつかの前提の飛躍があると指摘する。まず「5000万円相当」という基準額は、人月単価から逆算した理論値にすぎず、実際に同じ機能を外注した場合の見積もりと一致するとは限らない。また、生成されたコードの行数は生産性の直接的な指標にはなりにくく、冗長な自動生成コードが行数を押し上げている可能性もある。\n\nさらに見落とされがちなのが、品質や保守性の観点だ。AIが生成したコードはレビューやテスト、リファクタリングの工数を別途必要とし、セキュリティ上の欠陥や設計の一貫性の欠如が後工程でコストとして跳ね返る場合がある。プロンプトの調整や出力の検証に費やす人間側の時間も、単純な利用料金には含まれていない。\n\n背景には、GitHub CopilotやCursor、Google Gemini系のツールなど、AIコーディング支援が急速に普及している状況がある。Anthropicが提供するClaude Codeのようなエージェント型ツールも登場し、コード生成の自動化は一段と進みつつある。こうしたツールが開発コストを押し下げる効果自体は多くの現場で実感されつつあるものの、その効果を定量化する際には前提条件の明示が欠かせない。\n\n記事が投げかけるのは、誇張された数字を鵜呑みにするのではなく、自らの開発文脈に照らして効果を見極める姿勢の重要性だ。AIによる生産性向上は現実の潮流である一方、その恩恵を正しく測るには、コスト削減の内訳と品質面のリスクを併せて評価する必要があると言えそうだ。",
@@ -12265,6 +12297,310 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T00:39:34.328Z"
+    },
+    "cd23b3f138af1f15": {
+      "bodyJa": "Cline v4.1.27 では、LM Studio の設定に API キー欄が加わりました。MCP タブには読み取り専用ツールを示すバッジも表示されます。接続設定とモデル選択まわりの変更が中心のリリースです。\n\n## APIキー欄の追加\n\nLM Studio の設定に API キーを入力する欄が追加されました。対象は「Require Authentication」を有効にしているサーバーです。認証を必須にした LM Studio サーバーに接続する際の設定項目として使えます。\n\n## 読み取り専用バッジ\n\nMCP タブでは、サーバーが読み取り専用と宣言しているツールに「read-only」バッジが表示されます。表示の根拠はサーバー側の宣言である点がポイントです。\n\nAccount ビューには Privacy settings のリンクが加わり、Cline の Web アプリにあるデータ利用の設定へ移動できます。また、拡張機能のパッケージにはサードパーティのライセンス表示が含まれるようになりました。\n\n## 最初の無料モデル\n\nCline プロバイダは、保存されたモデルがない場合、従来の Claude Sonnet 5.5 ではなく最初の無料モデルで開始します。すでに保存されている選択には影響しないと説明されています。\n\n## Default項目\n\n推論エフォートのドロップダウンは、新しいタスクで実際に使われるエフォートを表示するようになりました。さらに Default という項目が加わり、保存済みの設定をクリアできます。\n\nプロバイダのモデル一覧は、API キーまたは base URL を保存したあとに更新されます。更新に失敗した場合、たとえばキーが拒否された場合は、モデルピッカーにエラーとして表示されます。",
+      "bodyEn": "Cline v4.1.27 adds several settings and display improvements and changes how some provider and model selections behave. According to the release notes, the changes cover authentication for LM Studio, how tools are labeled in the MCP tab, and how the model picker and reasoning effort controls behave.\n\n## LM Studio API key field\n\nLM Studio settings now include an API key field. The notes say it is intended for servers that have \"Require Authentication\" turned on, so users can enter a key when their server is configured that way.\n\n## Read-only badge in MCP tab\n\nThe MCP tab now shows a \"read-only\" badge on tools whose server declares them read-only. The badge depends on what the server itself declares, which gives users a quick visual cue when reviewing available tools.\n\nTwo smaller additions are listed alongside it. The Account view has a Privacy settings link that leads to the data-use preferences in the Cline web app. The extension package now also includes its third-party license notices.\n\n## Changed model defaults\n\nWith no saved model, the Cline provider now starts on the first free model instead of Claude Sonnet 5.5. The release notes state that saved selections are untouched, so anyone who has already chosen a model keeps that choice.\n\nThe reasoning effort dropdown now shows the effort a new task will actually use. It also has a Default entry that clears the saved setting, giving users a way to remove a stored preference.\n\n## Model list refresh behavior\n\nA provider's model list now refreshes after you save its API key or base URL. If the refresh fails, for example because a key is rejected, the failure appears as an error in the model picker rather than going unnoticed.\n\nTaken together, the release makes setup with authenticated LM Studio servers possible through the settings screen, makes model lists respond to credential and URL changes, and surfaces failed refreshes directly where users choose a model.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "LM Studioを使っている人は、今回のアップデートで何が変わるの？",
+          "en": "If I use LM Studio, what changes for me with this update?"
+        },
+        {
+          "s": "b",
+          "ja": "設定にAPIキー欄が加わりました。サーバー側で「Require Authentication」をオンにしていても、つなげるようになります。",
+          "en": "There's now an API key field in the settings. So you can connect even to a server that has \"Require Authentication\" turned on."
+        },
+        {
+          "s": "a",
+          "ja": "前は認証が必要なサーバーにはつなげなかったの？ MCPタブの「read-only」バッジも気になる。",
+          "en": "So it couldn't connect to authenticated servers before? And what's that \"read-only\" badge in the MCP tab?"
+        },
+        {
+          "s": "b",
+          "ja": "以前の挙動は、この記事では分からないんです。バッジは、サーバーが読み取り専用と宣言しているツールに表示されます。",
+          "en": "The article doesn't say how it behaved before, so I can't tell. The badge shows on tools whose server declares them read-only."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、認証つきサーバーにつなげて、読み取り専用のツールも見分けやすくなることだね。",
+          "en": "So the big win is connecting to authenticated servers and spotting read-only tools more easily. Right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。あわせて、APIキーやベースURLを保存するとモデル一覧が更新され、失敗するとエラーが出る点も注目です。",
+          "en": "Yes. Also worth watching: the model list refreshes after you save an API key or base URL, and a failed refresh shows as an error."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:38:46.963Z"
+    },
+    "314f4cfc7e495c0d": {
+      "bodyJa": "GitHubで、Organizationのオーナーがカスタムリポジトリロールを使い、リポジトリのセキュリティアドバイザリに関する作業を他のメンバーへ任せられるようになった。非公開の脆弱性報告(private vulnerability reports)への対応も対象で、この機能が一般提供として始まっている。\n\n## 管理者権限なしで任せる\n\nこれまでは、セキュリティアドバイザリを扱わせるには、対象者をリポジトリ管理者にするか、組織全体のセキュリティマネージャーロールを付与する必要があった。今回の変更により、そのどちらも与えずに作業を委任できる。カスタムリポジトリロールを作成または編集する際の「Security」の項目に、新しい権限が4つ加わった。\n\n## 閲覧と編集の権限\n\n1つ目は「View security advisories」で、ドラフト状態のセキュリティアドバイザリ、そのステータス、コメントを閲覧できる。\n\n2つ目は「Create, Edit, and Manage security advisories」で、Viewの内容をすべて含んだうえで、アドバイザリの作成と編集、コメントの投稿、コラボレーターの管理、一時的なプライベートフォークの作成ができる。閲覧だけを任せるか、編集や管理まで任せるかを、ロールごとに選べる構成だ。\n\n## 受付と公開の権限\n\n残る2つは、より踏み込んだ操作に関する権限である。\n\n「Accept private vulnerability reports and close or reopen security advisories」は、非公開の脆弱性報告の受け入れと、アドバイザリのクローズおよび再オープンを可能にする。\n\n「Publish security advisories and request CVEs」は、アドバイザリの公開とCVEの申請を可能にする。\n\nこの2つはどちらも単独では使えない。前提として、「View」または「Create, Edit, and Manage」のいずれかが必要になる。つまり、アドバイザリを見られない人に受け入れや公開だけを許可することはできない。\n\n## 運用上のポイント\n\n管理者権限やセキュリティマネージャーロールを付与せずに脆弱性報告の対応を任せられるため、組織の最小権限運用に役立つと説明されている。閲覧のみ、編集まで、受け入れやクローズまで、公開とCVE申請までといった具合に、担当者の役割に応じて権限を分けて設定できる。\n\n設定の入口は、カスタムリポジトリロールの作成画面または編集画面にある「Security」である。",
+      "bodyEn": "## Custom repository roles\n\nOrganization owners can now let people work on repository security advisories, including private vulnerability reports, through custom repository roles. The change matters because it removes the need to make those people repository administrators or to give them the organization-wide security manager role.\n\nThe announcement says the capability is now generally available. It is delivered as four new permissions that appear under Security when an owner creates or edits a custom repository role.\n\n## Four new Security permissions\n\nThe first permission, View security advisories, lets a role holder view draft security advisories, their status, and comments.\n\nThe second, Create, Edit, and Manage security advisories, includes everything in View. It adds the ability to create and edit advisories, comment, manage collaborators, and create a temporary private fork.\n\nThe third, Accept private vulnerability reports and close or reopen security advisories, requires either View or Create, Edit, and Manage. The fourth, Publish security advisories and request CVEs, has the same prerequisite: View or Create, Edit, and Manage.\n\n## How the permissions fit together\n\nAccording to the source, the permissions build on one another. The two broader advisory permissions, View and Create, Edit, and Manage, form the base. The two permissions for accepting reports, closing or reopening advisories, and publishing or requesting CVEs are add-ons that depend on one of those base permissions being present in the role.\n\nThis structure lets an owner assign work in narrower pieces. A role could be limited to viewing draft advisories, or it could include editing and collaborator management. It could also add the ability to accept private vulnerability reports or to publish advisories and request CVEs, as long as the required base permission is included.\n\n## Why it matters for access control\n\nBefore this change, the options described in the announcement for giving someone this access were repository administrator rights or the organization-wide security manager role. Custom repository roles now offer a way to hand off handling of vulnerability reports without either of those broader grants.\n\nThe summary of the announcement frames this as support for least-privilege administration, since people receive only the advisory-related permissions their role requires. Organization owners configure this in the same place they already define custom repository roles.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "カスタムロールに新しく4つの権限が増えたんだよね。具体的には何ができるようになったの？",
+          "en": "Custom roles got four new permissions, right? What can people actually do with them now?"
+        },
+        {
+          "s": "b",
+          "ja": "セキュリティの項目に、アドバイザリの閲覧、作成・編集・管理、非公開の脆弱性報告の受け付けや閉じる・再開、公開とCVE申請の4つが並びます。",
+          "en": "Under Security, you get: viewing advisories; creating, editing and managing them; accepting private vulnerability reports and closing or reopening; and publishing plus requesting CVEs."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、管理者にしなくても脆弱性報告の対応を任せられるってこと？",
+          "en": "So you can hand off vulnerability report handling without making someone an admin?"
+        },
+        {
+          "s": "b",
+          "ja": "そうです。リポジトリ管理者にも、組織全体のセキュリティマネージャーにもせずに任せられます。必要な分だけ権限を渡せるのがポイントですね。",
+          "en": "Right. No need for repository admin or the organization-wide security manager role. You can give just the access that's needed."
+        },
+        {
+          "s": "a",
+          "ja": "必要な分だけ渡せるのか。権限ごとに役割を分けられるんだね。",
+          "en": "Just what's needed, got it. So you can split duties permission by permission."
+        },
+        {
+          "s": "b",
+          "ja": "はい。ただ、受け付け・クローズ系と公開・CVE申請系は、閲覧か作成・編集・管理の権限が前提です。組み合わせには注意してくださいね。",
+          "en": "Yes. But accepting/closing and publishing/CVE requests both require View or Create, Edit, and Manage first. Watch how you combine them."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:39:24.722Z"
+    },
+    "02652ae32ee08f5f": {
+      "bodyJa": "## 3.23 の主な追加点\n\nGitHub Enterprise Server(GHES)3.23 のリリース候補が公開された。Projects のフィルター条件の表現力が上がったほか、GPU を使わずに動く AI シークレット検出がエアギャップ環境も含めて利用できるようになる。\n\n注目点として挙げられているのは、この2つの機能だ。\n\n## OR と括弧の条件指定\n\nGitHub Projects では、フィルターに論理 OR、明示的な AND、グループ化のための括弧を組み合わせられるようになる。これにより、より精密なプロジェクトビューを作成できると説明されている。\n\n例として示されているのが (status:Done OR status:Todo) is:issue という条件である。ステータスが Done か Todo のどちらかに当てはまる Issue が表示される。\n\n## AI シークレット検出\n\nGitHub Secret Protection を利用している企業は、GHES 上の AI シークレット検出を使って、構造を持たないシークレット(unstructured secrets)を社内ネットワークの中だけで検出できる。エアギャップ環境でも使えるとされる。\n\n## CPU だけで動くモデル\n\nこの検出には、アプライアンスの CPU 上で動作する、自己完結型でファインチューニング済みのモデルが使われる。GPU、ホスト型の LLM、外部への通信はいずれも必要ない。\n\nなお、この機能はパブリックプレビューの位置づけで、今後変更される可能性がある。導入を検討する場合は、この点に留意しておきたい。",
+      "bodyEn": "## GitHub Enterprise Server 3.23\n\nGitHub Enterprise Server (GHES) 3.23 has been announced as available, with the title describing it as a release candidate. According to the source, the release introduces new capabilities across the platform. Two highlights are named: more flexible filtering in GitHub Projects and AI-based secret detection that can run inside an enterprise's own network.\n\n## Combining filters with logical OR\n\nThe announcement says that when working in GitHub Projects, users can build more precise project views by combining filters with logical OR, explicit AND, and parentheses for grouping. The example given is (status:Done OR status:Todo) is:issue, which shows issues that have either status. The change lets a single view express conditions that combine several alternatives, rather than being limited to one status at a time.\n\n## AI secret detection on GHES\n\nThe second highlight applies to enterprises that use GitHub Secret Protection. According to the source, those enterprises can detect unstructured secrets entirely within their network using AI secret detection on GHES, including in air-gapped environments.\n\nThe announcement describes the mechanism as a self-contained, fine-tuned model that runs on the appliance's CPU. It states that this requires no GPU, no hosted LLM, and no outbound connection. Together, these points explain how the feature can operate in networks that are isolated from external services.\n\nThe source also notes that this feature is in public preview and subject to change, so its behavior and availability may differ as it develops.\n\n## What the announcement covers\n\nThe source presents only these two items as \"a few highlights\" of the 3.23 release, so it does not describe the full set of changes in the version. For Projects users, the notable point is the ability to group and combine filter conditions with OR, AND, and parentheses. For administrators of enterprises using GitHub Secret Protection, the notable point is that unstructured secret detection can be performed on the appliance itself, on CPU alone, without sending data outside the network.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Projectsのフィルターで、何ができるようになったの？ORとか括弧って書いてあったけど。",
+          "en": "What can the Projects filters do now? I saw OR and parentheses mentioned."
+        },
+        {
+          "s": "b",
+          "ja": "OR、明示的なAND、括弧によるグループ化を組み合わせられるよ。例だと (status:Done OR status:Todo) is:issue で、どちらかのステータスのIssueを表示できるって。",
+          "en": "You can combine OR, explicit AND, and parentheses for grouping. The example, (status:Done OR status:Todo) is:issue, shows issues with either status."
+        },
+        {
+          "s": "a",
+          "ja": "AIシークレット検出は、ネットにつながらない環境の管理者さんにも役立つのかな？",
+          "en": "So the AI secret detection could help admins whose networks aren't connected to the internet?"
+        },
+        {
+          "s": "b",
+          "ja": "うん、GitHub Secret Protectionを使う企業向けで、エアギャップ環境でも使えるとあるよ。モデルはアプライアンスのCPUで動いて、GPUも外部接続も要らないんだって。",
+          "en": "Yes, it's for enterprises using GitHub Secret Protection, and it works even in air-gapped setups. The model runs on the appliance's CPU, with no GPU or outbound connection needed."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、絞り込みが細かくなって、ネットなしでも秘密情報を探せるってことだね。",
+          "en": "So filtering gets more precise, and secrets can be found even without an internet connection. Did I get that right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。ただAI検出はパブリックプレビューで、変更される可能性があると書かれているから、そこは気をつけてね。",
+          "en": "Right. Just keep in mind the AI detection is in public preview, and the article says it may change."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:39:40.206Z"
+    },
+    "07d0d7dff6b65bd6": {
+      "bodyJa": "MetaはFacebookのおすすめをより透明で操作しやすくするAI搭載ツール群「Your algorithm」を紹介した。FeedとReelsの表示を形作る興味関心を、一つの編集可能な画面で確認できる点が中核とされる。\n\n## 一画面で見える興味関心\n\nYour algorithmは、Facebookのおすすめを利用者が把握しやすく、自分で方向づけやすいものにすることを目指したツールの集まりと説明されている。中心にあるのは、FeedとReelsに表示される内容を左右する興味関心を、単一の編集可能なビューにまとめた画面である。\n\n利用者はこの画面を通じて、自分のおすすめがどのような関心にもとづいているかを確認し、内容を自分で調整できる設計とされる。おすすめの仕組みを外から見える形にし、そのうえで手を加えられるようにする点が、このツール群の特徴である。\n\n## 自然言語の好みを反映\n\nMetaは、利用者が普段の言葉で示した好みを、反応の早いおすすめへ変える仕組みについて共有している。ブログの原題は「Giving People More Ways to Personalize Facebook Recommendations」で、Facebookのおすすめをパーソナライズする手段を増やすことが主題に置かれている。\n\n数ある設定項目から選ぶのではなく、自然言語で希望を伝えられることが、この仕組みの入口になっている。その希望がおすすめに反映されるまでの流れが、Metaの解説の対象である。\n\n## タスク別に調整するLLM\n\nこの仕組みでは、LLMがシステム内の特定のタスクに合わせて調整されているという。自然言語の好みをおすすめに結びつける過程で、LLMが個々の役割ごとに適合させられていることがうかがえる。\n\nMetaは、Your algorithmが利用者の自然言語による好みをどう応答的なおすすめにするのか、そしてLLMを各タスク向けにどう仕立てているのかを、Engineering at Metaのブログで紹介している。",
+      "bodyEn": "Meta has introduced \"Your algorithm,\" a feature for Facebook that aims to make recommendations more transparent and steerable. It matters because it changes how people relate to what appears in their feeds: the interests behind recommendations become something they can see and adjust.\n\n## What Your algorithm is\n\nAccording to Meta's engineering blog, Your algorithm is a suite of AI-powered tools. The post, published on November 10, 2026 on Engineering at Meta, presents it as a new way to give people more ways to personalize Facebook recommendations. The stated goals are transparency and steerability, meaning users can understand what shapes their recommendations and have a say in changing it.\n\n## A single editable view\n\nThe central element is one editable view of the interests that shape Feed and Reels. Rather than leaving those interests hidden, the feature gathers them in a single place where people can review and edit them. Meta says this is how people can steer what they see across those two parts of Facebook.\n\n## Natural language preferences\n\nThe post says Meta is sharing how Your algorithm turns people's natural language preferences into responsive recommendations. In practice, this means users can describe what they want in plain language, and the system is designed to reflect those statements in the recommendations they receive. The emphasis is on responsiveness: stated preferences are meant to feed into what the system shows.\n\n## LLMs for specific tasks\n\nMeta also says it explains how large language models are tailored to specific tasks within the system. The announcement frames LLMs as the mechanism that converts people's plain-language input into recommendation behavior, with each model adapted to a particular job rather than used generically.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "普段のFacebookで何が変わるの？おすすめを自分で変えられるようになるのかな？",
+          "en": "What changes in everyday Facebook use? Can I actually steer my recommendations now?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、FeedとReelsに影響する興味関心を、一つの画面で見て編集できるよ。自分で舵を取りやすくなるという話だね。",
+          "en": "This post says you get one editable view of the interests behind Feed and Reels. So it's about making it easier to steer what you see."
+        },
+        {
+          "s": "a",
+          "ja": "前は、そういうのは見られなかったの？",
+          "en": "Wait, couldn't we see or change that before?"
+        },
+        {
+          "s": "b",
+          "ja": "従来との違いは、この記事の範囲では詳しく分からないんだ。確かなのは、透明性と調整のしやすさを打ち出していること。",
+          "en": "Honestly, I can't tell how it differs from before from what's here. What's clear is the focus on transparency and being able to steer."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、普通の言葉で希望を伝えるとおすすめに反映されるところかな？",
+          "en": "So the big takeaway is that I can say what I want in plain words and it shapes my recommendations?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。しかもLLMはシステム内の特定のタスクに合わせて使われるとあるよ。そこがどう働くのかが、次に気になるところだね。",
+          "en": "Right. And the LLMs are tailored to specific tasks in the system, so how that part works is what I'd look at next."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:39:59.104Z"
+    },
+    "7ae1c927094d45b0": {
+      "bodyJa": "Ollama v0.40.16 がリリースされた。Ricursive Intelligence の 65B 密モデル「Ripple Preview」が加わったほか、Apple silicon 上での Qwen3.8 Flash Next のメモリ使用量が約 27 GiB 減るなど、モデル対応と挙動の修正が並ぶ。\n\n## Ripple Preview の追加\n\nRipple Preview は Ricursive Intelligence によるモデルで、65B の密(dense)構成、エージェント型のコーディング向けに作られたと説明されている。利用するコマンドは次のとおり。\n\nollama run ripple-preview\n\nリリースノートにはパラメータ規模と用途以外の仕様は記されていないため、ここではその範囲にとどめる。\n\n## メモリ使用量の削減\n\nQwen3.8 Flash Next は、Apple silicon で使用メモリが約 27 GiB 少なくなったとされる。削減前後の絶対値や、どの構成で測定したかは示されていない。大きなモデルを手元のマシンで動かす際に、メモリの余裕が増える変更といえる。\n\n## ollama launch の変更\n\nollama launch には 2 点の変更がある。まず ollama launch claude は、Claude Code を常に選択したモデルへ振り向けるようになった。次に、クラウドモデルが廃止された場合、その旨が説明されるようになった。\n\n## API 挙動の修正\n\nOpenAI 互換の API 側では 2 つの修正が入っている。\n\n/v1/responses は truncation の指定を尊重するようになり、デフォルトで黙って切り詰めることはなくなった。入力が長いときの扱いが、指定に沿った明示的なものになる。\n\n/v1/models は、インストール済みのモデルが 1 つもない場合に null ではなく空のリストを返す。戻り値が常にリスト形式になるため、受け取る側は null を別扱いする必要がなくなる。\n\n## プラットフォームと内部更新\n\nWindows on ARM では CUDA 13.5 に対応した。あわせて llama.cpp も更新されている。詳細な差分は、v0.40.15 から v0.40.16 までの Full Changelog で確認できる。",
+      "bodyEn": "## Ripple Preview arrives\n\nOllama v0.40.16 adds a new model, Ripple Preview, and includes a set of memory, launch, API, and platform changes. For people who run models locally, the release touches both what can be run and how the tooling behaves.\n\nAccording to the release notes, Ripple Preview comes from Ricursive Intelligence and is a 65B dense model built for agentic coding. It is started with the command \"ollama run ripple-preview\". The notes give no further detail on the model beyond that description.\n\n## Memory use on Apple silicon\n\nOne change in the \"What's Changed\" list concerns memory. The release says Qwen3.8 Flash Next uses about 27 GiB less memory on Apple silicon. The notes do not say what configuration the figure applies to, so it is best read as the approximate reduction the release reports for that model on that hardware.\n\n## Launch and API behavior\n\nTwo changes affect the \"ollama launch\" command. With \"ollama launch claude\", Claude Code is now always routed to the selected model. In addition, \"ollama launch\" now explains when a cloud model has been retired.\n\nTwo further changes affect the API. The /v1/responses endpoint now respects truncation and no longer silently truncates by default. The /v1/models endpoint returns an empty list instead of null when no models are installed. In practice, the second change means a client that checks the response gets a list in every case, though the notes themselves do not describe client impact.\n\n## Platform support and engine update\n\nThe release adds CUDA 13.5 support for Windows on ARM. It also includes an updated llama.cpp, though the notes do not say which changes that update brings.\n\nThe notes point to a full changelog comparing v0.40.15 with v0.40.16 for anyone who wants the complete list of differences between the two versions.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Ripple Preview って新しく入ったモデルだよね？どんなモデルなの？",
+          "en": "Ripple Preview is the new model here, right? What kind of model is it?"
+        },
+        {
+          "s": "b",
+          "ja": "Ricursive Intelligence の65B密モデルで、エージェント的なコーディング向けに作られたそうです。ollama run ripple-preview で動かせます。",
+          "en": "It's a 65B dense model from Ricursive Intelligence, built for agentic coding. You run it with ollama run ripple-preview."
+        },
+        {
+          "s": "a",
+          "ja": "もうひとつ、Apple siliconでメモリが約27 GiB減ったってあるよね。Macで使う人に嬉しいのかな？",
+          "en": "Also, memory dropped by about 27 GiB on Apple silicon. Is that good news for Mac users?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。Qwen3.8 Flash Nextを Apple silicon で動かす人は、メモリの負担がかなり軽くなるはずです。ほかにAPI挙動の修正もあります。",
+          "en": "Yes, people running Qwen3.8 Flash Next on Apple silicon should see a lighter memory load. There are also some API behavior fixes."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ新モデルが増えて、メモリも楽になって、細かい不具合も直ったってこと？",
+          "en": "So: a new model, less memory use, and some small fixes too?"
+        },
+        {
+          "s": "b",
+          "ja": "はい。ただ Ripple Preview は「Preview」とついているので、試す前提で見るのがよさそうです。軽くなる対象もQwen3.8 Flash Nextのmacです。",
+          "en": "Right. But Ripple Preview is labeled \"Preview,\" so treat it as something to try out. The memory cut applies to Qwen3.8 Flash Next on Mac."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:40:30.656Z"
+    },
+    "b87b449665c31797": {
+      "bodyJa": "Cursorに、エージェントとリアルタイムの音声通話で会話できる「ボイスチャット」が加わった。加えたい変更を声で伝えたり、エージェントが今何に取り組んでいるかを尋ねたりしながら、作業の進み具合を音声で聞ける。\n\n## 利用できる場所と始め方\n\nボイスチャットは、エージェントウィンドウ、IDE、ウェブ、Cursor for iOSで使える。エージェントがアイドル状態でチャット入力欄が空のときに、「Start ボイスチャット」というラベルの付いた波形ボタンをクリックすると始められる。このボタンは通常「送信」ボタンがある位置にあり、音声入力用のマイクボタンの隣に表示される。\n\niOSでは「Hey Siri, call Cursor」と話しかけて新しいエージェントとの通話を開始できる。ロック画面のライブアクティビティから、ミュートや通話終了を行うことも可能だ。\n\n## 引き渡しと進捗の音声報告\n\n音声エージェントはユーザーの話を聞いて応答し、コーディング作業をチャット内のエージェントに引き渡す。そのエージェントの実行中も会話は続けられる。diffで何が変更されたかを質問したり、実行の状況を確認したり、このエージェントとの過去のメッセージや通話を検索したりできる。ワーカーがあるProjectでは、ワーカーの切り替えも行える。\n\nコーディングエージェント自身も音声で伝える。作業中は短い進捗メモを、完了時には簡潔な回答を共有するため、通常はテキストの回答全文ではなく短い更新情報を聞くことになる。\n\n## Grok Voiceと声の選択\n\nボイスチャットはGrok Voiceで実行される。音声はVoice設定から、Ara、Eve、Leo、Rex、Salをはじめとする多数の中から選べる。Privacy Modeをオンにすると、ボイスチャットはデータ保持なしで実行される。\n\n## 音声入力とは別の機能\n\nボイスチャットは、以前のリリースでVoice Modeと呼ばれていた音声入力とは別の機能である。音声入力では引き続き、話した内容がテキストとしてチャット入力欄に入力される。IDEではCmd+Shift+Spaceでオン/オフを切り替えられる。",
+      "bodyEn": "Cursor has added Voice Chat, a real-time voice call with agents. According to the changelog, users can speak the changes they want and ask what an agent is working on, hearing progress by voice as the work goes on.\n\n## Voice Chat With Agents\n\nVoice Chat is available in the Agents Window, the IDE, the web, and Cursor for iOS. A voice agent listens and responds, then hands the coding work off to the agent in the chat. The conversation can continue while that agent runs.\n\nDuring a run, users can ask what changed in a diff, check the status of the run, and search earlier messages and calls with the same agent. In a Project that has workers, they can switch between workers.\n\nThe coding agent also reports by voice. It shares short progress notes while it works and a brief answer when it finishes, so users normally hear short updates rather than a full text reply.\n\n## Start Voice Chat\n\nTo begin, click the waveform button labeled \"Start Voice Chat\". It appears when the agent is idle and the chat input is empty. It sits where the Send button normally appears, next to the microphone button used for voice input.\n\nOn iOS, saying \"Hey Siri, call Cursor\" starts a call with a new agent. Mute and end-call controls are also available from the Live Activity on the lock screen.\n\n## Grok Voice and Privacy Mode\n\nVoice Chat runs on Grok Voice. Users choose a voice in the Voice settings from a large selection, including Ara, Eve, Leo, Rex, and Sal. With Privacy Mode turned on, Voice Chat runs with no data retention.\n\n## Separate From Voice Input\n\nThe changelog states that Voice Chat is a different feature from the voice input that earlier releases called Voice Mode. Voice input still types what the user says into the chat input as text. In the IDE, it can be switched on and off with Cmd+Shift+Space.\n\nIn short, Voice Chat is a conversational call with agents, while voice input is dictation into the text field. The two are separate, and voice input keeps working as before.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "波形ボタンを押すと、エージェントと電話みたいに話せるの？声で何ができるのかな？",
+          "en": "So I tap the waveform button and talk to the agent like a phone call? What can I actually do by voice?"
+        },
+        {
+          "s": "b",
+          "ja": "そうなんだ。変更したい内容を声で伝えたり、今何をしているか聞いたり、diffで何が変わったか質問したりできるよ。",
+          "en": "Right. You can say what change you want, ask what it's working on, or ask what changed in the diff."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、手が離せないときでも作業の進み具合が分かるってことだね。実行中も話せるの？",
+          "en": "So even when my hands are busy, I can keep up with progress. Can I still talk while it's running?"
+        },
+        {
+          "s": "b",
+          "ja": "うん、実行中も会話は続けられるよ。コーディングエージェントは作業中に短い進捗メモを話して、完了時に簡潔な答えを伝えるんだって。",
+          "en": "Yes, the conversation continues while it runs. The coding agent shares short progress notes, then a brief answer when it's done."
+        },
+        {
+          "s": "a",
+          "ja": "なるほど。エージェントウィンドウやIDE、ウェブ、iOSで使えて、声で指示も確認もできるんだね。前の音声入力と同じ？",
+          "en": "Got it. It works in the Agents Window, IDE, web and iOS, for both directing and checking. Is it the same as the old voice input?"
+        },
+        {
+          "s": "b",
+          "ja": "別の機能だよ。音声入力は話した内容をテキストとして入力欄に入れるもので、ボイスチャットはGrok Voiceで動く通話なんだ。",
+          "en": "No, it's separate. Voice input types what you say into the chat box, while Voice Chat is a call powered by Grok Voice."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:41:26.275Z"
+    },
+    "c4da587295f8e590": {
+      "bodyJa": "Semantic Kernel の Python 版 1.47.0 では、Python 3.10 のサポートが削除され、3.11 以上が必須になりました。Python 環境で利用している場合は、アップグレード前にランタイムのバージョンを確認する必要があります。\n\n## Python 3.10のサポート終了\n\nこのリリースは Python 3.11 以降を必要とし、3.10 のサポートは取り除かれました。サポートおよびテストの対象となるバージョンは 3.11 から 3.14 までと明記されています。\n\n3.10 以前の環境でそのまま更新すると、要件を満たさない構成になります。リリースノートによれば、あわせて Python の依存関係の更新が統合して取り込まれ、下記のバグ修正も含まれています。\n\n## OpenAPI許可URLの修正\n\nPython 側の変更として、変更一覧には OpenAPI に関する修正が2件あります。\n\n1件目は「OpenAPI の許可 URL でパスの大文字小文字を保持する」修正です(#14693)。許可 URL に含まれるパスの大小文字が、処理の過程で保たれるようになります。\n\n2件目は、OpenAPI の許可リストのパスを、プレフィックスに関わる処理の前に正規化する変更です。どちらも許可 URL のパスの扱いに関する修正で、OpenAPI 連携で許可 URL を設定している利用者が主な対象と考えられます。ただし、挙動の詳細はここに挙げた範囲を超えては示されていません。\n\n## 一覧にある.NETの変更\n\n同じ「What's Changed」には .NET 関連の項目も並んでいます。Python 版のリリースですが、一覧には次の変更が載っています。\n\n移行済みの .NET 用 Milvus コネクタを削除する変更(#14682)があります。Aspire.Azure.Search.Documents と Aspire.Hosting.Azure.CognitiveServices を、いずれも 13.4.6 から 13.5.4 へ引き上げる Dependabot による更新(#14499、#14501)も含まれます。\n\nさらに、「[BREAKING] Consolidate file access」と題された変更(#14679)が記載されています。破壊的変更と表示されていますが、具体的な内容は示されていません。\n\n## 更新時の確認点\n\nPython 利用者にとって最も影響が大きいのは、3.10 のサポート削除です。3.11〜3.14 の範囲で動作させているかを確認したうえで更新するのが基本になります。OpenAPI の許可 URL を使っている場合は、パスの大小文字の扱いと許可リストの正規化に関する修正が自分の構成に関わるかも確認するとよいでしょう。",
+      "bodyEn": "Semantic Kernel has published python-1.47.0, a release that changes which Python versions the package supports. Anyone running the Python package on an older interpreter will need to look at their runtime before moving to it.\n\n## Python compatibility\n\nAccording to the release notes, this version requires Python 3.11 or later. Python 3.10 support has been removed. The supported and tested Python versions are 3.11 through 3.14.\n\nThe release also includes consolidated Python dependency updates, along with the bug fixes listed in the change log. The notes do not name the individual dependencies that were updated.\n\n## What's Changed\n\nThe change list is mixed and includes entries labeled for both .NET and Python. The .NET entries are:\n\nRemoval of the migrated .NET Milvus connector, credited to Adam Sitnik in #14682.\n\nTwo Dependabot bumps, each moving a package from 13.4.6 to 13.5.4: Aspire.Azure.Search.Documents in #14499 and Aspire.Hosting.Azure.CognitiveServices in #14501.\n\nA change marked [BREAKING] that consolidates file access, credited to westey in #14679.\n\nBecause these items sit in the same release notes as the Python tag, readers who use only the Python package should look at the Python-labeled entries for changes that affect them.\n\n## OpenAPI allowed URLs\n\nTwo Python entries concern OpenAPI URL handling. The first, \"preserve path case in OpenAPI allowed URLs,\" is credited to Eduard van Valkenburg in #14693. As described, it keeps the letter case of URL paths intact in the allowed-URL configuration instead of altering it.\n\nThe second entry concerns normalizing OpenAPI allowlist paths, and it also appears in the Python section of the change list. The notes give the titles and pull request references rather than further explanation, so the precise behavior beyond those titles is not described here.\n\nFor Python users, the clearest action in this release is to confirm that their environment runs Python 3.11 or newer, ideally within the tested 3.11 through 3.14 range, before upgrading to 1.47.0.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Python 3.10のサポートが終わって、3.11〜3.14が対象になったんだね。これって大きい変更なの？",
+          "en": "Python 3.10 support is gone, and now it's 3.11 through 3.14. Is that a big change?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では3.11以降が必須と書かれているよ。3.10を使っている人は、そのままだと使えなくなるから影響は小さくないかもね。",
+          "en": "The article says 3.11 or later is now required. If you're on 3.10, it could matter quite a bit, since you'd need to move up."
+        },
+        {
+          "s": "a",
+          "ja": "OpenAPIの許可URLって、なんのこと？パスの大文字小文字を保持するってどういうことだろう。",
+          "en": "What's an OpenAPI allowed URL? And what does keeping the path case actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "許可URLは、アクセスしていい宛先を決めたリストくらいの意味だよ。記事だと、そのパスの大文字小文字を変えずに扱う修正が入ったんだ。",
+          "en": "Roughly, it's a list of destinations that are allowed. The article says a fix now keeps the path's upper and lower case as written."
+        },
+        {
+          "s": "a",
+          "ja": "もし私がPythonで使ってるなら、アップデート前に何を確認すればいいのかな？",
+          "en": "If I were using this in Python, what should I check before updating?"
+        },
+        {
+          "s": "b",
+          "ja": "まず自分のPythonのバージョンだね。記事では3.11〜3.14が対象でテスト済みとあるから、そこに入っているか確かめてから上げるのがよさそう。",
+          "en": "Start with your Python version. The article lists 3.11 through 3.14 as supported and tested, so confirm you're in that range before upgrading."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:41:53.855Z"
+    },
+    "771fdb1f1b3dfa77": {
+      "bodyJa": "## localhostの外へ\n\nエージェントの登場でコードを書くコストは下がりましたが、ユーザーが作るアプリやツールの多くは、いまだに localhost の外に出ていません。Cursor は今回、アプリをライブで構築し、リンクで共有できる機能を加えました。作りたいものを説明すれば、構築からデータベースのセットアップ、認証の設定、デプロイまで Cursor が引き受けるとされています。\n\nこれにより、組織内の誰もが自分の業務に役立つツールを作り、チームメンバーと共有できるようになったと説明されています。Cursor 社内でも、営業、オペレーション、法務、財務、エンジニアリングなどの部門のユーザーが社内アプリを構築しているそうです。\n\n## 構築から公開まで\n\n使い始めるには、クラウドエージェントを起動し、アプリを構築したいと明示的に伝えます。Cursor はウェブアプリの雛形を作成し、必要に応じて Postgres データベースを立ち上げ、Cursor SSO による認証を設定し、ホスティング環境を用意します。\n\nデータウェアハウスなど既存のシステムにアプリをつなぐ場合は、必要なシークレットの入力を Cursor が求めます。公開時には一意のドメインを選ぶだけで、すぐにアクセスできる公開リンクが発行されます。\n\n## 対応するリポジトリ\n\nデプロイできるのは、Cursor Origin と GitHub 上の新規または既存のリポジトリに置いたアプリです。GitLab など他の Git プロバイダーへの対応は、近日公開予定とされています。\n\n## 公開前のチェック\n\nアプリを公開する際、Cursor は決定論的なチェックとエージェント型のセキュリティチェックを実行します。アプリのファイルに書き込まれたシークレットや、露出した認証情報といったよくある Issue を検出するためのものです。\n\nチェックに失敗した場合は、何を修正すべきかをエージェントが知らせます。チェックに合格し、さらに明示的に公開操作を行うまで、アプリが公開されることはありません。",
+      "bodyEn": "## Building Live Apps in Cursor\n\nCursor now lets users build live apps directly in the editor and share them by link. The announcement frames this around a gap: agents have lowered the cost of writing code, but most apps and tools users create never leave localhost.\n\nAccording to the source, users describe what they want to build, and Cursor handles the app, database setup, authentication and deployment. The stated aim is that anyone in an organization can build tools useful to their own work and share them with teammates.\n\n## Cloud Agent Setup\n\nTo start, a user launches a cloud agent and explicitly says they want to build an app. Cursor then scaffolds a web app, spins up a Postgres database when needed, configures authentication through Cursor SSO, and prepares a hosting environment.\n\nIf the app must connect to an existing system such as a data warehouse, Cursor asks the user to supply the necessary secrets.\n\nTo publish, the user chooses a unique domain, and Cursor issues a public link that is immediately accessible.\n\n## Internal Use and Repositories\n\nInside Cursor, users in sales, operations, legal, finance and engineering have been building internal apps, according to the announcement.\n\nCursor can deploy apps from new or existing repositories on Cursor Origin and GitHub. Support for other Git providers, GitLab among them, is described as coming soon.\n\n## Checks Before Publishing\n\nWhen an app is published, Cursor runs deterministic checks as well as agent-based security checks. These look for common issues, such as secrets written into app files and exposed credentials. If a check fails, the agent tells the user what needs to be fixed.\n\nThe source states that an app is never made public until it passes the checks and the user explicitly performs the publish action. The announcement closes by encouraging users to update Cursor and try the feature.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、仕事だと何が変わるの？プログラマーじゃない人でも、自分用のツールを作れるってこと？",
+          "en": "So what changes at work? Can someone who isn't an engineer build their own tool now?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、組織の誰もが業務に役立つツールを作って、チームと共有できるとあります。作りたいものを説明すれば、DBや認証、公開まで Cursor が引き受けるそうです。",
+          "en": "This article says anyone in an organization can build a tool for their work and share it. You describe what you want, and Cursor handles the database, auth and publishing."
+        },
+        {
+          "s": "a",
+          "ja": "前は、作ってもパソコンの中だけだったの？公開までは自分でやってたのかな？",
+          "en": "Before this, did apps just stay on your own computer? Did people have to handle publishing themselves?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、作ったアプリの多くは localhost の外に出ないままだった、と書かれています。以前の細かい手順や、できなかった範囲までは分かりません。",
+          "en": "The article says most apps people built never left localhost. It doesn't say what the earlier steps were or exactly what wasn't possible, so I can't tell you that."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、説明するだけで作って、公開リンクで共有までできるところだね。勝手に公開されたりはしないの？",
+          "en": "So the big win is describing an app, building it, and sharing it by link. Does it ever go public by itself?"
+        },
+        {
+          "s": "b",
+          "ja": "しないと書かれています。公開時にセキュリティチェックがあり、合格して明示的に公開操作をするまで公開されません。GitLab対応が近日公開予定という点も気になりますね。",
+          "en": "No, the article says it won't. Security checks run first, and it only goes live after they pass and you explicitly publish. Upcoming GitLab support is also worth watching."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:42:12.688Z"
     }
   }
 }

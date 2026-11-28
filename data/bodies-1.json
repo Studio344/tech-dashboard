@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T01:30:56.672Z",
-  "count": 367,
+  "generatedAt": "2026-11-28T02:29:57.491Z",
+  "count": 370,
   "bodies": {
     "7b752c9b3e3af2c6": {
       "bodyJa": "AIエージェントが高度化するにつれ、誤動作や悪用が発生した際の影響範囲（ブラスト半径）も拡大する。本記事はAnthropicのエンジニアリングブログに掲載され、その上限をどう設計するかという実践的な問いに答えている。\n\n対象製品はclaude.ai・Claude Code・Coworkの3つ。それぞれ異なるユースケースと権限モデルを持つ中で、共通の封じ込め原則をどう適用したかが論点と推察される。具体的な実装詳細は原文で確認することを推奨する。\n\nエージェントの安全設計に携わる開発者や、Claudeを自社プロダクトに組み込む実務者にとって参考になる内容と見られる。",
@@ -11920,7 +11920,39 @@
       "bodyJa": "GoogleのAI研究部門であるDeepMindが手がける「Project Genie」が、Google Street Viewのデータと連携し、現実世界の場所をインタラクティブにシミュレートできるようになった。実在する街並みや建物をフォトリアルな仮想空間として再現し、その中でAIエージェントを訓練する用途が想定されている点が注目される。\n\nProject Genieは、いわゆる「ワールドモデル(世界モデル)」と呼ばれる技術の系譜に位置づけられる。ワールドモデルとは、環境の見た目だけでなく物理的な振る舞いや因果関係を内部に学習し、次に起こる状態を予測・生成できるAIを指す。DeepMindはこれまでにも、単一の画像やテキストから操作可能な2D・3D環境を生成するGenieシリーズを公開しており、今回のStreet View連携はその発想を現実世界の地理データへと拡張したものと位置づけられる。\n\n従来、AIエージェントの学習にはゲームエンジンや手作業で構築した仮想環境が使われることが多かった。しかしこうした環境は制作コストが高く、現実との差異(いわゆるシミュレーションと現実のギャップ)が課題とされてきた。Street Viewが蓄積してきた膨大な実写データを土台にすることで、より現実に近い状況でエージェントの行動やナビゲーション能力を試せる可能性がある。ロボティクスや自動運転、屋内外を移動するエージェントの研究などへの応用が期待される。\n\n同種の取り組みは業界全体で活発化している。NVIDIAは物理シミュレーション基盤「Omniverse」やロボット学習向けのプラットフォームを展開し、各社が生成AIとシミュレーション技術の融合を進めている。ワールドモデルは、単なる映像生成にとどまらず、エージェントが試行錯誤しながら学ぶ「訓練場」としての価値が高まっているとみられる。\n\n一方で、実世界を模した空間の生成には留意すべき点もある。生成結果が現実を完全に再現するとは限らず、プライバシーや肖像・建物の扱い、生成された環境の正確性をどう検証するかといった論点は残る。また、こうしたシステムがどこまで一般提供されるのか、研究用途に限定されるのかといった展開は現時点で明確ではない。今後、公開される技術詳細や利用範囲によって、その実用性と影響の輪郭がはっきりしていくと考えられる。",
       "bodyEn": "Google DeepMind has connected Project Genie, its family of generative world models, to Google Street View, allowing the system to turn real locations into interactive, navigable simulations. The move matters because it points toward a practical pipeline for training and testing AI agents in environments that resemble actual streets, buildings, and landmarks rather than purely synthetic or hand-built scenes.\n\nAt its core, Project Genie belongs to a research area known as world models: systems that learn to predict how an environment will change in response to actions. Instead of rendering a scene with a traditional game engine, a world model generates each successive frame based on what it has learned about physics, geometry, and appearance. When paired with Street View, the model appears to use panoramic imagery as a starting point and then extrapolates a continuous, controllable space that a user or an agent can move through. The result is described as a photorealistic, interactive representation of a real place, where turning, walking forward, or looking around produces plausible new views generated on the fly.\n\nThe significance for AI agents is the main draw. Reinforcement learning and other agent-training methods typically require large numbers of trials in an environment, which is expensive and slow to do in the physical world and often limited in simulation. A Street View-grounded world model could provide agents with a much wider variety of realistic settings than bespoke simulators, potentially helping with tasks such as navigation, spatial reasoning, and embodied decision-making. Because the environments are derived from imagery of genuine locations, they may capture visual and structural details that are hard to author by hand, from signage and road layouts to the clutter of everyday scenes.\n\nThis integration builds on a clear lineage of work. DeepMind introduced the original Genie in 2024 as a foundation model that could generate playable two-dimensional environments from a single image or text prompt. Later iterations, reported as Genie 2 and Genie 3, extended the concept toward richer, more consistent three-dimensional worlds and longer interactive sessions, with growing emphasis on maintaining coherence as a user explores. Linking such a model to Street View is a logical next step, moving from imagined or game-like environments toward grounding in real geography.\n\nIt also fits a broader industry pattern. Nvidia has promoted world models and simulation platforms such as Omniverse and Cosmos for training robots and autonomous systems, and several startups, including efforts associated with former DeepMind and OpenAI researchers, have pursued generative world models as a route to more capable agents. World models are increasingly framed as complementary to large language models: where language models reason over text, world models aim to represent and predict physical and spatial dynamics. Google's advantage here is data. Street View has accumulated imagery across many countries and years, giving DeepMind an unusually broad source of real-world scenes to draw on.\n\nSeveral caveats are worth keeping in mind. Generated environments are approximations, and current world models can still exhibit visual artifacts, drift, or physical inconsistencies over extended interaction, so the extent to which agents trained in them transfer to the real world remains an open research question. The fidelity of any given simulation is likely to depend on how much and how recent the underlying imagery is, meaning coverage may be uneven across locations. Using Street View data also raises familiar considerations around privacy and consent, areas where Google already applies measures such as blurring faces and license plates, and it is reasonable to expect similar safeguards to apply to derived simulations.\n\nFor now, the announcement is best read as a research direction rather than a finished consumer product, and DeepMind has historically released such capabilities gradually and with restrictions. Even so, the combination is notable. It suggests a future in which agents can rehearse in convincing digital replicas of real places before acting in the world, and in which the boundary between mapping data and interactive simulation continues to blur. Whether this translates into robust, deployable systems will depend on further work on consistency, evaluation, and safe transfer from simulation to reality.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-09-05T15:29:50.916Z"
+      "generatedAt": "2026-09-05T15:29:50.916Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Genieが Street Viewとつながったって、何が変わったの？ 現実の場所が出てくるってこと？",
+          "en": "Genie's now connected to Street View, right? What actually changes? Do real places show up in it?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、Genieの生成する力とStreet Viewの現実の画像を結びつけて、モデルが現実に根ざせるようになったと説明しています。",
+          "en": "The post says Genie's generative power is now linked with real Street View imagery, so the model can anchor itself in reality."
+        },
+        {
+          "s": "a",
+          "ja": "現実に根ざすと、誰が助かるの？ AIエージェントやロボットのためなのかな？",
+          "en": "So who does that help? Is it mainly for AI agents or robots?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、AIエージェントやロボットが現実世界の複雑さの中を動き回り、やり取りできる仮想環境として使えるとされています。Waymoの道路シミュレーションにも触れていますね。",
+          "en": "The post says it can be a virtual space where agents or robots navigate and interact with real-world complexity. It also mentions Waymo's road simulations."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、本物そっくりの場所でAIが練習できるようになるんだね。あと、Ultraの人は世界中で使えるの？",
+          "en": "So AI can practice in places that look like the real thing. And Ultra subscribers can use it worldwide?"
+        },
+        {
+          "s": "b",
+          "ja": "うん、Google AI Ultraの契約者に世界で提供を広げるとあります。ただ、生成AIは実験的な段階とも書かれているので、その点は頭に置いておきたいですね。",
+          "en": "Yes, access is expanding globally to Google AI Ultra subscribers. The post also notes generative AI is experimental, so that's worth keeping in mind."
+        }
+      ]
     },
     "489cb6f55088e384": {
       "bodyJa": "Googleは、英国のDIY・建材小売大手Screwfixと提携し、電気工事士や配管工、大工といった現場の職人向けにAIを活用した業務支援ツールを提供する取り組みを始めた。見積もりや請求書の作成といった事務作業を効率化し、職人が本来の技能や事業拡大に集中できるようにする狙いがあるとみられる。\n\n英国では、こうした職人は「トレードピープル（tradespeople）」と呼ばれ、その多くが一人親方や小規模事業者として働いている。彼らは日々の施工に加えて、顧客への見積もり提示、資材の発注、請求や入金管理、問い合わせ対応などの管理業務を自力でこなす必要があり、こうした間接業務が負担になりやすいとされる。今回の提携は、GoogleのAI技術と、職人にとって身近な資材調達先であるScrewfixの顧客基盤を組み合わせることで、この課題に応えようとするものだ。\n\n具体的な機能の詳細は公表情報に基づく範囲にとどまるが、GoogleはAIモデル「Gemini」を軸に、文章生成や要約、定型作業の自動化といった機能を各種サービスに広げてきた。見積もり文面の下書き作成や、顧客とのメールのやり取りの効率化、書類作成の補助などにAIが活用される可能性がある。専門知識を持ちながらも事務処理に時間を割かれてきた小規模事業者にとって、こうしたツールは実務的な効果をもたらすと期待される。\n\n背景には、GoogleがAIを中小企業（SMB）向けの成長支援策として位置づけている動きがある。大企業向けの高度なシステムだけでなく、限られた人員で運営される小規模事業者が手軽にAIを取り入れられる環境づくりは、各社が力を入れる領域だ。MicrosoftがCopilotを業務ツールに統合し、生成AIを手掛けるスタートアップも中小企業向けサービスを拡充するなど、競争は世界的に激しさを増している。特定業界や地域の事業者と組み、現場のニーズに即した形でAIを届ける手法は、今後さらに広がるとみられる。\n\n一方で、AIによる自動生成には誤りや不正確な情報が含まれる可能性があり、見積もりや請求といった金銭にかかわる業務では最終的な人間の確認が欠かせない。導入効果は職人の業務内容やデジタルへの習熟度によっても左右されると考えられる。それでも、日々の負担軽減とビジネス成長の両立を掲げる今回の取り組みは、AIが専門職の実務にどこまで浸透するかを占う一例として注目される。",
@@ -12018,93 +12050,43 @@
       "model": "claude-opus-4.8",
       "generatedAt": "2026-07-12T01:02:22.850Z"
     },
-    "7873e00dd904f32f": {
-      "bodyJa": "## 支援から実行へ\n\nOpenAIの調査は、企業のAI活用が単純な支援から自律的な実行へ移りつつあることを示した。ChatGPTとCodexを通じ、AIをアシスタントとして使う段階から、実行エージェントとして活用する動きが明らかになった。\n\n## 先進企業の先行\n\n調査では、企業間の採用状況にも差があるとされる。特に先進企業は、AIを自律的な実行エージェントへ移行させる採用で他の企業より大きく先行しており、支援中心の利用との違いが示されている。",
-      "bodyEn": "## From simple assistance\n\nOpenAI research examines how enterprises are adopting agentic AI through ChatGPT and Codex. The shift matters because the research describes companies moving beyond simple assistance toward AI that can perform autonomous execution.\n\n## Frontier adopters pulling ahead\n\nAccording to the research, this transition is taking place through the use of ChatGPT and Codex, with AI moving from an assistant role to an execution agent. The findings also indicate a gap in adoption: frontier firms are pulling significantly ahead of their peers as enterprises put agentic AI into use.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIが「支援」から「実行」に移るって、ChatGPTやCodexが何をするようになるの？",
-          "en": "When AI shifts from “assistance” to “execution,” what do ChatGPT and Codex actually start doing?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、人を支えるだけでなく、仕事を自律的に実行するエージェントとして使う流れを示しているよ。",
-          "en": "The research describes companies using them not just to assist people, but as agents that execute work autonomously."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ企業は、AIに助けてもらうだけじゃなく、仕事の実行も任せ始めているんだね？",
-          "en": "So companies are starting to let AI carry out work, rather than only asking it for help?"
-        },
-        {
-          "s": "b",
-          "ja": "うん。ChatGPTやCodexを支援の道具から実行を担う仕組みへ広げ、先進企業ほど採用で先行しているんだ。",
-          "en": "Yes. They’re expanding ChatGPT and Codex from support tools into execution systems, with frontier firms further ahead in adoption."
-        },
-        {
-          "s": "a",
-          "ja": "AI活用が、相談相手を置く段階から、実際に動いてもらう段階へ進んでいるんだね。",
-          "en": "Got it—AI use is moving from having a helper to having something that actually carries out the work."
-        },
-        {
-          "s": "b",
-          "ja": "ただ、先進企業とほかの企業には採用の差があるから、すべての企業が同じ段階とは限らないよ。",
-          "en": "One caution: adoption differs between frontier firms and their peers, so not every company is at the same stage."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T18:10:07.705Z"
-    },
-    "f67c88ba872d8347": {
-      "bodyJa": "## AI時代のスコアカード\n\nOpenAIは、AI時代の社会・経済・安全面における進捗を評価するスコアカードの枠組みを公開した。AIの影響を可視化し、継続的に追跡する基準を設けることで、説明責任と透明性の向上を目指す取り組みだ。\n\n## ROIの測定基準\n\nOpenAIのCFOであるSarah Friarは、実用的なAIスコアカードを紹介した。ROIは、有用な仕事、成功したタスク当たりのコスト、信頼性、コンピュートに対するリターンという観点から測定する。AIの成果を単一の指標ではなく、実際の仕事や費用、安定性を含めて捉える枠組みとなっている。",
-      "bodyEn": "## Practical AI scorecard\n\nOpenAI introduced a framework for measuring and tracking AI progress across social, economic, and safety dimensions. The scorecard matters because it is intended to improve accountability and transparency around how AI development affects the world.\n\n## Measuring useful work\n\nSarah Friar, OpenAI’s CFO, presents the scorecard as a practical way to measure return on investment. Its measures include useful work, the cost per successful task, dependability, and return on compute.\n\nBy establishing criteria for tracking these areas, the framework is designed to make AI’s effects more visible and support evaluation of social, economic, and safety progress.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "ROIを4つの項目で測るんだね。これって大きい変化なの？",
-          "en": "They’re measuring ROI across four areas. Is that a big shift?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、AIの成果を複数の軸で追い、社会・経済・安全への影響と説明責任を見えやすくする試みなんだ。",
-          "en": "Here, the idea is to track AI outcomes across several dimensions, making its social, economic, and safety impact—and accountability—more visible."
-        },
-        {
-          "s": "a",
-          "ja": "「リターン・オン・コンピュート」って、どういう意味？",
-          "en": "What does “return on compute” mean?"
-        },
-        {
-          "s": "b",
-          "ja": "計算資源を使った分に対して、どれだけ役立つ成果が得られたかを見る考え方だよ。",
-          "en": "It means looking at how much useful output you get for the computing resources you use."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、よくする作業で、成功した回数や費用を記録してみたいな。",
-          "en": "I’d try tracking successful runs and costs for a task I do often."
-        },
-        {
-          "s": "b",
-          "ja": "いいね。成功したタスク当たりの費用だけでなく、役立つ仕事か、安定して動くかも一緒に見る枠組みだよ。",
-          "en": "That fits. The framework also considers whether the work is useful and dependable, not just the cost per successful task."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T20:10:32.501Z"
-    },
-    "9c950e309ba7defd": {
-      "bodyJa": "OpenAIは、大規模なAI学習を支える新しいネットワーク技術「MRC(Multipath Reliable Connection)」を公開した。複数の通信経路を同時に活用することで信頼性とスループットを高め、スーパーコンピュータ規模に達するGPUクラスタを効率的に結ぶことを狙う技術だ。\n\n近年の生成AIモデルは、数万から数十万規模のGPUを連携させて学習する。その際、各GPUが計算した勾配などを互いにやり取りする集団通信(collective communication)が頻繁に発生し、ネットワークの遅延や帯域が学習全体の速度を大きく左右する。計算資源を増やしても通信が追いつかなければ性能は頭打ちになるため、ネットワークはAI基盤における重要なボトルネックとされてきた。\n\nMRCは、この課題に対して「複数経路(マルチパス)」と「信頼性のある接続」を組み合わせて応える設計と見られる。単一の経路に依存せず複数のルートにトラフィックを分散させることで、一部の経路で障害や輻輳が起きても通信を継続でき、全体の帯域利用効率も高められる。大規模クラスタでは配線やスイッチの故障が日常的に起こり得るため、こうした耐障害性は学習を止めないうえで重要になる。\n\n注目すべきは、OpenAIがこの技術をOCP(Open Compute Project)を通じて公開した点だ。OCPはデータセンター向けのハードウェアやネットワーク仕様をオープンに共有する業界団体で、Metaなどが主導してきた経緯がある。標準化の枠組みに乗せることで、特定ベンダーに縛られない相互運用性の向上が期待される。\n\n背景として、AI向けネットワークの分野ではNVIDIAのInfiniBandやNVLink、Ethernetの高速化を進めるUltra Ethernet Consortiumなど、各社・各陣営の取り組みが活発化している。OpenAIがインフラ層の技術を自ら公開する動きは、モデル開発だけでなく学習基盤そのものをめぐる競争が激しくなっている状況を映しているとも言えそうだ。今後、MRCがどの程度広く採用されるかが、その実用性を測る一つの指標となるだろう。",
-      "bodyEn": "OpenAI has introduced a networking technology called MRC, short for Multipath Reliable Connection, aimed at interconnecting the supercomputer-scale GPU clusters that train its largest models. The announcement matters because the network fabric has become one of the central bottlenecks in modern AI training, where tens of thousands of accelerators must exchange data almost continuously, and a single congested or failed link can stall an entire job that spans thousands of machines.\n\nAccording to OpenAI, MRC is being released through the Open Compute Project (OCP), the industry consortium originally founded by Meta to share open hardware and data-center designs. Publishing the protocol through OCP rather than keeping it proprietary suggests OpenAI is seeking broader interoperability and external adoption, a path that could let hardware vendors and other operators build compatible switches, network interface cards, and software stacks. The move aligns with a wider trend of large AI labs and cloud providers contributing infrastructure specifications to open bodies in order to influence the supply chain they depend on.\n\nThe core idea behind MRC, as its name indicates, is to spread traffic across multiple network paths simultaneously while preserving reliable delivery. Large-scale training depends heavily on collective communication operations such as all-reduce, all-gather, and reduce-scatter, in which gradients and model parameters are synchronized across every participating GPU. These collectives are only as fast as their slowest path, so uneven load distribution or transient congestion can disproportionately slow down an entire training step. By using several paths at once and rerouting around hotspots or faults, a multipath approach is intended to raise effective throughput and reduce the impact of so-called stragglers and tail latency.\n\nThis addresses a known limitation of conventional data-center routing. Many AI clusters today run RDMA over Converged Ethernet (RoCE) or InfiniBand, and they often rely on equal-cost multi-path (ECMP) routing that hashes each flow onto a single path. When several large flows hash onto the same link, the result is congestion on some paths while others sit idle. Techniques that distribute packets more granularly across the fabric, sometimes described as packet spraying, attempt to balance load more evenly, but they require careful handling to reassemble data correctly and to maintain reliable, in-order delivery. MRC appears to target exactly this class of problem, combining multipath distribution with reliability mechanisms suited to the bursty, synchronized traffic that AI workloads generate.\n\nMRC also enters a crowded and fast-moving area of the industry. The Ultra Ethernet Consortium (UEC), which includes major chip, networking, and cloud companies, is developing updated Ethernet specifications for AI and high-performance computing that similarly emphasize multipathing and modern congestion control. NVIDIA, meanwhile, promotes its InfiniBand and Spectrum-X Ethernet platforms, along with NVLink for tight intra-server GPU connections, as integrated alternatives. It is not yet fully clear from the announcement how MRC relates to these efforts, whether it complements emerging Ethernet standards or defines a distinct protocol layer, and the details that OpenAI publishes through OCP will likely determine how easily it can be implemented on existing or near-future hardware.\n\nThe context for this work is the relentless growth in cluster size. Training frontier models now involves coordinating very large numbers of accelerators across many racks, and at that scale the probability of component failures during a long run rises substantially. Resilience features that allow the network to keep operating smoothly when individual links degrade are therefore as important as raw bandwidth. OpenAI frames MRC as contributing to both goals, improving performance under normal conditions and maintaining stability when parts of the fabric falter.\n\nFor readers tracking the AI infrastructure landscape, MRC is a reminder that progress in model capability is increasingly tied to advances below the software layer, in the interconnects, switches, and protocols that bind accelerators together. The practical impact will depend on independent implementation, published benchmarks, and how the protocol performs in production deployments outside OpenAI. As an openly released specification, it offers other operators a chance to evaluate the design directly, though its long-term significance will become clearer only as adoption, tooling, and real-world results accumulate.",
-      "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T18:09:12.132Z"
-    },
     "812999a7f5c48ecb": {
       "bodyJa": "大規模言語モデル（LLM）を強化学習（RL）で訓練する手法は、対話品質や推論能力を高める中核技術として定着しつつある。今回arXivで公開された論文は、その過程で「本来強化すべきでない低確率トークンが誤って強化される」という見過ごされがちな課題を指摘し、確率分布のテール（裾野）を考慮した新たなクレジット調整手法を提案している。\n\n背景には、RLHF（人間のフィードバックによる強化学習）やその発展形であるPPO、GRPOといった手法が広く使われている現状がある。これらは生成された応答に報酬を与え、方策勾配を通じてモデルを更新する。しかし報酬は通常、応答全体に対して与えられるため、それを個々のトークンにどう帰属させるか、いわゆるクレジット割り当て（credit assignment）が学習の精度を左右する。\n\n論文が問題視するのは、生成確率が極端に低いトークンの扱いである。方策勾配の更新式では対数確率の勾配が用いられるため、確率が小さいトークンほど更新の影響が過大になりやすい傾向がある。結果として、たまたま高い報酬を得たシーケンスに含まれる非現実的なトークンが強く押し上げられ、モデルが不自然な生成傾向を学習してしまう可能性がある。これはノイズの多い報酬信号のもとで特に顕在化しやすいと見られる。\n\n提案手法は、トークンの確率分布のテール部分を明示的に考慮し、低確率トークンへ割り当てる報酬の寄与を補正（calibration）する。これにより報酬の帰属精度を高め、学習の安定性とモデル全体の品質向上を狙う。著者らは、こうした調整によって過剰な強化を抑えつつ、有益なトークンへの信号は保持できるとしている。\n\nこの研究は、DeepSeek-R1やOpenAIのo1系に代表される推論特化モデルの登場でRL訓練への関心が高まる中、報酬設計やトークンレベルの最適化を見直す動きの一環と位置づけられる。トークン単位のクレジット割り当ての改善は、学習効率や生成の信頼性に直結するため、今後の実装や追試を通じて有効性がさらに検証されていくと考えられる。",
       "bodyEn": "Reinforcement learning has become a central technique for aligning and improving large language models (LLMs), but a new paper posted to arXiv highlights a subtle flaw in how these methods distribute reward across a model's generated tokens. The authors argue that during RL training, tokens drawn from the low-probability tail of a model's output distribution can be inadvertently reinforced, and they introduce a tail-aware credit adjustment technique intended to make reward attribution more accurate.\n\nThe problem sits at the heart of what reinforcement learning calls the credit assignment problem: when a model produces a full response and receives a reward—say, a score indicating whether the answer was correct or preferred by a human—that single signal has to be apportioned back across the many individual token decisions that produced the output. In popular policy-gradient methods such as Proximal Policy Optimization (PPO) and the increasingly common Group Relative Policy Optimization (GRPO), each token is nudged toward or away from being generated depending on the estimated advantage of the sequence it belongs to.\n\nThe difficulty the paper identifies is that this process does not distinguish well between tokens the model chose deliberately and tokens it sampled almost by accident. Because generation is stochastic, a response that ultimately earns a positive reward may still contain tokens that had very low probability under the current policy. When the whole sequence is reinforced, those improbable tokens are pushed up as well, even though they may have contributed little to the outcome or may reflect noise rather than genuinely good behavior. The paper frames these as unrealistic tokens whose reinforcement can distort the model.\n\nPart of the technical reason appears to lie in the mathematics of the policy gradient. The gradient of the log-probability of a token scales inversely with that token's probability, so rare tokens can produce disproportionately large update signals. Combined with a coarse, sequence-level reward, this can amplify the influence of exactly the tokens that are least representative of the model's intended distribution. Over many updates, repeatedly reinforcing such tokens is likely to skew the output distribution in unhelpful ways.\n\nTo counter this, the authors propose calibrating the credit—the effective reward or advantage—assigned to each token according to where it falls in the probability distribution. Tokens in the extreme tail receive adjusted treatment so that their updates do not dominate, while tokens the model actually favored retain their influence. The stated goal is to improve the precision of reward attribution and, in turn, overall model quality, rather than to change the reward signal or the underlying task.\n\nThis line of work connects to a broader effort in the research community to make RL for LLMs more stable and sample-efficient. PPO's clipping mechanism already tries to limit destabilizing updates, and techniques such as entropy regularization, importance-sampling corrections, and token-level or process reward models address related concerns about how and where reward should be applied. The rise of GRPO, popularized by systems oriented toward mathematical and reasoning tasks, has renewed attention on token-level dynamics because it dispenses with a separate value network and relies on comparisons among sampled responses.\n\nThe emphasis on low-probability tokens also echoes findings elsewhere that the tails of an LLM's distribution behave differently from its bulk, and that naive optimization can be misled by rare events. Careful handling of these tails matters for reasoning tasks, where a single misplaced token can derail a chain of thought, and for safety, where reinforcing improbable outputs could have unintended effects.\n\nAs with many arXiv preprints, the results here should be read as a proposal supported by the authors' experiments rather than a settled conclusion; independent replication and testing across model scales and tasks will help establish how broadly the method generalizes. The approach also invites questions about tuning, since deciding how aggressively to discount tail tokens involves a trade-off between suppressing noise and preserving useful exploration. Still, the paper adds to a growing understanding that the quality of RL-tuned LLMs depends not only on the reward model and the data, but on the finer-grained question of which tokens actually deserve the credit.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-09-05T01:13:57.153Z"
+      "generatedAt": "2026-09-05T01:13:57.153Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIに推論をさせる場面で、この研究だと何が変わるのかな？",
+          "en": "When an AI is working through reasoning problems, what does this research actually change?"
+        },
+        {
+          "s": "b",
+          "ja": "強化学習は推論力を伸ばしてきたけど、ありえなさそうな低確率トークンまで誤って強化されることがある、と指摘してるよ。そこを直して品質を上げるのが狙いだね。",
+          "en": "RL has boosted reasoning, but the paper points out that unlikely, low-probability tokens can get reinforced by mistake. The goal is to fix that and improve model quality."
+        },
+        {
+          "s": "a",
+          "ja": "前の方法は、どの言葉も同じように褒めてたの？",
+          "en": "So before, were all the words just rewarded the same way?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、広く使われるcritic-free手法は全トークンに同じadvantageを配る均一な割り当てとあるよ。新手法の細かい中身までは、ここでは分からないな。",
+          "en": "The article says widely used critic-free methods give every token the same advantage, a uniform credit assignment. How the new method works in detail isn't covered here, so I can't say."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ収穫は、変な言葉まで一緒に褒められちゃうことがあると気づけたことかな。",
+          "en": "So my takeaway is that even odd, unlikely words can get praised along with the good ones. Is that right?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めるよ。次は、テールを考慮した調整が実際どこまで品質を上げるのか、結果に注目だね。具体的な数字は、ここでは分からないよ。",
+          "en": "That's a fair reading. Next, watch how far the tail-aware calibration really improves quality. The article gives no concrete numbers, so we'll have to see the results."
+        }
+      ]
     },
     "28438ddbdcb8b1de": {
       "bodyJa": "全二重（フルデュプレックス）で対話する音声エージェントの品質を、大規模音声言語モデル（LALM）が自動で採点する仕組みは、どこまで信頼できるのか。arXivで公開された本研究は、こうしたLALMベースの「オーディオ審判（judge）」の信頼性を体系的に検証し、評価の一致度や偏りに無視できない課題があることを示した。\n\n全二重音声エージェントとは、人間同士の会話のように相手の発話を聞きながら同時に話したり、相づちを打ったり、割り込みに応じたりできる対話システムを指す。OpenAIのGPT-4o音声モードやGoogleのGemini Live、Kyutaiが公開した「Moshi」などリアルタイム性の高い音声対話への注目が高まる中で、その自然さや応答の適切さをどう測るかが大きな課題になっている。従来の書き起こしベースの指標では、間の取り方や割り込みのタイミングといった全二重特有の要素を捉えにくいためだ。\n\nそこで広まりつつあるのが、テキスト領域で定着した「LLM-as-a-judge（審判としてのLLM）」を音声に拡張し、音声を直接理解できるLALMに対話の良し悪しを判定させる手法である。人手評価に比べて低コストかつ大規模に実施できる利点があるが、その判定が人間の感覚とどれだけ一致し、どのような偏りを持つのかは十分に検証されてこなかった。\n\n本研究は複数のLALM審判を対象に、人間の評価との一致度やシステム間の順位付けの安定性、特定の応答スタイルへの偏りなどを分析したものとみられる。その結果、審判モデルによって評価が揺れやすく、一貫性や公平性の面で限界があることが浮かび上がったという。こうした知見は、自動評価をそのまま鵜呑みにするリスクを示すと同時に、どの条件であれば信頼できるかを見極める手がかりにもなる。\n\n音声AIの開発では、モデルの性能向上と並んで、その性能を正しく測る評価基盤の整備が不可欠とされる。本研究のように自動審判の限界を定量的に把握する取り組みは、今後より堅牢で再現性の高い音声対話の品質測定パイプラインを築くうえで、重要な一歩となる可能性がある。",
@@ -12635,6 +12617,202 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T00:39:54.415Z"
+    },
+    "07d7016d3e74f2e5": {
+      "bodyJa": "OpenAIは、大規模なAI学習を支える新しいネットワーク技術「MRC(Multipath Reliable Connection)」を公開した。複数の通信経路を同時に活用することで信頼性とスループットを高め、スーパーコンピュータ規模に達するGPUクラスタを効率的に結ぶことを狙う技術だ。\n\n近年の生成AIモデルは、数万から数十万規模のGPUを連携させて学習する。その際、各GPUが計算した勾配などを互いにやり取りする集団通信(collective communication)が頻繁に発生し、ネットワークの遅延や帯域が学習全体の速度を大きく左右する。計算資源を増やしても通信が追いつかなければ性能は頭打ちになるため、ネットワークはAI基盤における重要なボトルネックとされてきた。\n\nMRCは、この課題に対して「複数経路(マルチパス)」と「信頼性のある接続」を組み合わせて応える設計と見られる。単一の経路に依存せず複数のルートにトラフィックを分散させることで、一部の経路で障害や輻輳が起きても通信を継続でき、全体の帯域利用効率も高められる。大規模クラスタでは配線やスイッチの故障が日常的に起こり得るため、こうした耐障害性は学習を止めないうえで重要になる。\n\n注目すべきは、OpenAIがこの技術をOCP(Open Compute Project)を通じて公開した点だ。OCPはデータセンター向けのハードウェアやネットワーク仕様をオープンに共有する業界団体で、Metaなどが主導してきた経緯がある。標準化の枠組みに乗せることで、特定ベンダーに縛られない相互運用性の向上が期待される。\n\n背景として、AI向けネットワークの分野ではNVIDIAのInfiniBandやNVLink、Ethernetの高速化を進めるUltra Ethernet Consortiumなど、各社・各陣営の取り組みが活発化している。OpenAIがインフラ層の技術を自ら公開する動きは、モデル開発だけでなく学習基盤そのものをめぐる競争が激しくなっている状況を映しているとも言えそうだ。今後、MRCがどの程度広く採用されるかが、その実用性を測る一つの指標となるだろう。",
+      "bodyEn": "OpenAI has introduced a networking technology called MRC, short for Multipath Reliable Connection, aimed at interconnecting the supercomputer-scale GPU clusters that train its largest models. The announcement matters because the network fabric has become one of the central bottlenecks in modern AI training, where tens of thousands of accelerators must exchange data almost continuously, and a single congested or failed link can stall an entire job that spans thousands of machines.\n\nAccording to OpenAI, MRC is being released through the Open Compute Project (OCP), the industry consortium originally founded by Meta to share open hardware and data-center designs. Publishing the protocol through OCP rather than keeping it proprietary suggests OpenAI is seeking broader interoperability and external adoption, a path that could let hardware vendors and other operators build compatible switches, network interface cards, and software stacks. The move aligns with a wider trend of large AI labs and cloud providers contributing infrastructure specifications to open bodies in order to influence the supply chain they depend on.\n\nThe core idea behind MRC, as its name indicates, is to spread traffic across multiple network paths simultaneously while preserving reliable delivery. Large-scale training depends heavily on collective communication operations such as all-reduce, all-gather, and reduce-scatter, in which gradients and model parameters are synchronized across every participating GPU. These collectives are only as fast as their slowest path, so uneven load distribution or transient congestion can disproportionately slow down an entire training step. By using several paths at once and rerouting around hotspots or faults, a multipath approach is intended to raise effective throughput and reduce the impact of so-called stragglers and tail latency.\n\nThis addresses a known limitation of conventional data-center routing. Many AI clusters today run RDMA over Converged Ethernet (RoCE) or InfiniBand, and they often rely on equal-cost multi-path (ECMP) routing that hashes each flow onto a single path. When several large flows hash onto the same link, the result is congestion on some paths while others sit idle. Techniques that distribute packets more granularly across the fabric, sometimes described as packet spraying, attempt to balance load more evenly, but they require careful handling to reassemble data correctly and to maintain reliable, in-order delivery. MRC appears to target exactly this class of problem, combining multipath distribution with reliability mechanisms suited to the bursty, synchronized traffic that AI workloads generate.\n\nMRC also enters a crowded and fast-moving area of the industry. The Ultra Ethernet Consortium (UEC), which includes major chip, networking, and cloud companies, is developing updated Ethernet specifications for AI and high-performance computing that similarly emphasize multipathing and modern congestion control. NVIDIA, meanwhile, promotes its InfiniBand and Spectrum-X Ethernet platforms, along with NVLink for tight intra-server GPU connections, as integrated alternatives. It is not yet fully clear from the announcement how MRC relates to these efforts, whether it complements emerging Ethernet standards or defines a distinct protocol layer, and the details that OpenAI publishes through OCP will likely determine how easily it can be implemented on existing or near-future hardware.\n\nThe context for this work is the relentless growth in cluster size. Training frontier models now involves coordinating very large numbers of accelerators across many racks, and at that scale the probability of component failures during a long run rises substantially. Resilience features that allow the network to keep operating smoothly when individual links degrade are therefore as important as raw bandwidth. OpenAI frames MRC as contributing to both goals, improving performance under normal conditions and maintaining stability when parts of the fabric falter.\n\nFor readers tracking the AI infrastructure landscape, MRC is a reminder that progress in model capability is increasingly tied to advances below the software layer, in the interconnects, switches, and protocols that bind accelerators together. The practical impact will depend on independent implementation, published benchmarks, and how the protocol performs in production deployments outside OpenAI. As an openly released specification, it offers other operators a chance to evaluate the design directly, though its long-term significance will become clearer only as adoption, tooling, and real-world results accumulate.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T18:09:12.132Z"
+    },
+    "18e14364732e5903": {
+      "bodyJa": "Salesforce の Agentforce Employee エージェントが外部の MCP サーバーへ接続する際、認証を全ユーザー共用からユーザーごとの認証へ切り替える手順を扱った解説です。題材は Asana の MCP サーバーで、Salesforce のケースから Asana のタスクを起票するエージェントを使います。前回の「Agentforce エージェントから外部 MCP サーバー（Asana）のツールを使う」の続編にあたります。\n\n## ユーザー単位認証とは\n\nユーザー単位認証は Winter '27 で GA になった機能です。Agentforce Employee エージェントが個々のユーザーに代わって動き、共有の接続ではなくユーザー自身のクレデンシャルで外部 MCP サーバーにアクセスします。認証には OAuth 2.0 のブラウザフローが使われます。\n\nリリースノートが挙げる利点は二つです。一つは共有のサービスユーザートークンをなくせること、もう一つはユーザーごとの監査証跡が明確になることです。\n\n## 共用接続からの変更点\n\nSummer '26 で GA になった外部 MCP サーバーの登録では、管理者が登録時にサーバーの認証情報を入力していました。この方式では、接続は全ユーザーで共有されます。Winter '27 ではこれに加えて、利用者それぞれの認証でサーバーに入る形が選べるようになりました。\n\nこの記事では、切り替える前と後でタスクの作成者がどう変わるかを最初に示すと説明されています。共用の接続と個人の認証で、Asana 側に残る記録がどう違うのかを確認できる構成です。\n\n## 提供対象と時期\n\n対象エディションは Enterprise、Performance、Unlimited、Developer Edition です。Winter '27 にアップグレードされた組織に対し、2026 年 10 月 5 日の週から順次提供されています。\n\n## 記事で扱う手順\n\n設定は次の順で解説されます。まず外部ログイン情報へのプリンシパルを追加し、次に権限セットを付け替えます。そのうえで、ユーザーが初めてエージェントを使うときの認可の流れを確認します。\n\n著者は Winter '27 のリリースノートをまとめた記事でもこの機能に触れていますが、そこではリリース内容の紹介にとどまっていました。今回はそれを補い、設定方法を手順ごとに追う位置づけです。",
+      "bodyEn": "## Per-User Authentication for MCP\n\nThis article explains how to switch an Agentforce Employee agent's connection to an external MCP (Model Context Protocol) server from a credential shared by all users to authentication handled per user. It is a follow-up to an earlier piece on using tools from an external MCP server, Asana, through an Agentforce agent. The example is the same: an agent that creates Asana tasks from a Salesforce case.\n\n## From Shared Connection to Own Credentials\n\nAccording to the article, per-user authentication became generally available in Winter '27. External MCP server registration reached general availability in Summer '26, and under that arrangement an administrator entered the server's credentials at registration time. With Winter '27, an Agentforce Employee agent can act on behalf of individual users and reach the external MCP server with each user's own credentials, through an OAuth 2.0 browser flow, rather than a shared connection.\n\nThe article says the release notes name two benefits: the shared service-user token can be eliminated, and per-user audit trails become clearer. The article also compares who is recorded as the creator of a task before and after the switch.\n\n## Availability\n\nThe feature applies to Enterprise, Performance, Unlimited, and Developer Edition. It is being rolled out gradually to organizations upgraded to Winter '27, starting the week of October 5, 2026.\n\n## Setup Steps Covered\n\nThe author previously introduced this feature in a summary of the Winter '27 release notes, but that piece only announced the release. This article goes through the configuration step by step. After the before-and-after comparison of task creators, it covers three areas in order:\n\nFirst, adding a principal to the external login information.\n\nSecond, replacing permission sets.\n\nThird, the authorization flow a user goes through the first time they use the agent.\n\nThe material provided does not describe the individual settings within these steps, so the details are left to the original article.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Salesforceのケースから、Asanaにタスクを作るとき、普段の何が変わるの？",
+          "en": "When I create an Asana task from a Salesforce case, what actually changes for me day to day?"
+        },
+        {
+          "s": "b",
+          "ja": "全員共用の接続ではなく、自分のクレデンシャルでOAuth 2.0のブラウザフローを通して接続します。切り替え前後でタスクの作成者がどう変わるかも、記事で示されています。",
+          "en": "The agent connects with your own credentials through an OAuth 2.0 browser flow, not a shared connection. The article also shows how the task creator differs before and after the switch."
+        },
+        {
+          "s": "a",
+          "ja": "前は、みんなで同じ認証を使うしかなかったの？",
+          "en": "So before, everyone just had to share one login?"
+        },
+        {
+          "s": "b",
+          "ja": "Summer '26で外部MCPサーバーの登録が使えるようになった時点では、管理者が登録時に認証情報を入力していました。Winter '27でユーザー単位が加わった形です。",
+          "en": "With the Summer '26 external MCP registration, an admin entered the server credentials at setup. Winter '27 adds the per-user option on top of that."
+        },
+        {
+          "s": "a",
+          "ja": "共有トークンがなくなって、誰が何をしたか分かりやすくなるのが一番の収穫だね。",
+          "en": "So the big win is no shared token, and it's clearer who did what. Right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね、リリースノートもその二点を利点に挙げています。次は、ユーザーが初めて使うときの認可の流れに注目です。",
+          "en": "Yes, the release notes name those two benefits. Next, watch the authorization flow when a user first uses it."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:37:44.604Z"
+    },
+    "68d36b4f6cf45894": {
+      "bodyJa": "OpenHands v1.44.0が2026年11月23日付で公開された。チャット機能の追加に加え、自動化の閲覧範囲の指定やキーバリューストアの編集、Factoriesのサイドバー項目などが盛り込まれている。\n\n## 会話メンションとチャット\n\nチャット関連では、会話メンションが conversation_mentions フラグの背後に置かれる形で追加された。フラグで制御される機能のため、利用にはこのフラグが関わる。実装は @enyst による #19921 である。\n\nもう一つの変更は、予算に達したときの表示だ。読みやすいエラーを表示するようになった(@hieptl、#19926)。\n\n## 自動化の閲覧範囲とストア\n\n自動化については二つの機能が加わった。ひとつは、自動化を誰が閲覧できるかを選べる機能で、OHE-4206 として @hieptl が #19893 で実装した。もうひとつは、自動化のキーバリューストアを表示・編集できる機能で、@tofarr による #19907 である。\n\nこれらにより、チームでの自動化運用がしやすくなるとされている。\n\n## Factoriesサイドバー\n\nサイドバーには Factories の項目が追加された。一覧表示と、各項目に入り込む drill-in 表示が用意されている。実装は @jpshackelford による #19800 である。\n\n## 主なバグ修正\n\n修正は三件が確認できる。\n\n一つ目は、Home から送ったメッセージの保留中バブルに関するもので、履歴がそのメッセージを過ぎて進んだ時点でバブルを消すようにした(OHE-4121、@hieptl、#19875)。\n\n二つ目は設定画面で、SettingsDropdownInput を既定でクリア可能にした(@SaltGardenia、#19664)。\n\n三つ目は会話概要で、差分(diff)の統計を最長共通部分列から数えるよう改めた(@LeizhenZhang、#19580)。",
+      "bodyEn": "OpenHands v1.44.0 was released on 2026-11-23. The release centers on chat and automation changes, and the release summary says the additions make team automation easier to manage.\n\n## What's Changed\n\nThe release notes list five features and three bug fixes, each credited to a contributor and a pull request number. The features cover conversation mentions, automation visibility, budget error messages, automation data editing, and a new sidebar entry. The fixes address chat display, a settings input, and diff statistics.\n\n## Conversation Mentions and Chat\n\nConversation mentions arrive behind the conversation_mentions flag, contributed by @enyst in #19921. Because the feature is gated, it is not simply switched on for everyone. A separate chat change from @hieptl (#19926) shows a readable error when a budget is reached.\n\n## Automation Controls\n\nTwo automation features are listed. The first lets users choose who can see an automation (OHE-4206), contributed by @hieptl in #19893. The second, from @tofarr in #19907, lets users view and edit an automation's key-value store. The release also adds a Factories sidebar entry with list and drill-in views, contributed by @jpshackelford in #19800.\n\n## Bug Fixes\n\nThree fixes are listed. In chat, a Home message's pending bubble is now dropped once history has moved past it (OHE-4121), by @hieptl in #19875. In settings, SettingsDropdownInput is now clearable by default, by @SaltGardenia in #19664. In the conversation overview, diff stats are now counted from the longest common subsequence, by @LeizhenZhang in #19580.\n\nThe notes also include a documentation section, but its contents are not shown here. Beyond the entries above, the release notes give no further detail on how each change behaves, so the descriptions here stay close to the wording of the listed items.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "自動化のキーバリューストアを見て編集できるようになったんだね。これって大きい変化なの？",
+          "en": "You can now view and edit an automation's key-value store. Is that a big change?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、閲覧範囲の指定も加わっています。チームで自動化を運用しやすくなる、という位置づけですね。",
+          "en": "The article also adds visibility controls for automations. It's framed as making team automation easier to manage."
+        },
+        {
+          "s": "a",
+          "ja": "「フラグ制御」ってなに？会話メンションに付いてたけど、勝手に使えるわけじゃないの？",
+          "en": "What does \"flag-gated\" mean? It was attached to conversation mentions. Can't everyone just use it?"
+        },
+        {
+          "s": "b",
+          "ja": "フラグは機能のオン・オフを切り替えるスイッチのことです。会話メンションは conversation_mentions フラグの裏にあるので、有効にしてから使う形ですね。",
+          "en": "A flag is basically an on/off switch for a feature. Conversation mentions sit behind the conversation_mentions flag, so it has to be enabled first."
+        },
+        {
+          "s": "a",
+          "ja": "チームで自動化を使うなら、見える人を決められるのは安心かも。新しいFactoriesサイドバーも気になる！",
+          "en": "On a team, choosing who sees an automation sounds reassuring. The new Factories sidebar looks interesting too!"
+        },
+        {
+          "s": "b",
+          "ja": "Factoriesは一覧と詳細に入る表示が用意されたと書かれています。ただ、中身の細かい使い方まではこの記事では触れていないですね。",
+          "en": "Factories gets a list view and drill-in views. The article doesn't go into how it's used in detail, though."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:37:59.006Z"
+    },
+    "7b3a743f616f5625": {
+      "bodyJa": "## Inkling 2 Mini の追加\n\nOllama v0.40.17では、Thinking Machinesのモデル「Inkling 2 Mini」が利用可能になった。Macで大型モデルを動かしたい開発者にとって、選択肢が広がるリリースだ。あわせてApple silicon上での同時リクエスト処理や、Claude Code連携の改善も加わっている。\n\nInkling 2 Miniは総パラメータ26B、アクティブパラメータ5.4Bのモデルである。ループ構造のレイヤーにより、サイズから想像されるより多くの計算をトークンごとに行えると説明されている。それでもMac上では約20GBに収まるという。\n\nテキストと画像の入力、ツール呼び出し、thinkingに対応し、SWE-Bench Verifiedでは79.2%のスコアとされる。実行は「ollama run inkling-2-mini」で行う。\n\n## Apple siliconのみ対応\n\nこのリリースでinkling-2-miniが動作するのはApple siliconだけである。PC向けのサポートは今後のリリースで提供される予定と案内されている。Windowsなど他環境での利用を考えている場合は、その対応を待つ必要がある。\n\n## 同時リクエストと launch の改善\n\n「What's Changed」では、Apple silicon上のOllamaが複数のリクエストを同時に処理できるようになった点が挙げられている。\n\nollama launch関連では、次の変更が記載されている。\n\nollama launch claudeは、Claude Codeのツール遅延読み込みに対応した。MCPツールを最初にすべて読み込むのではなく、必要になった時点で読み込む方式である。\n\nollama launch opencodeは、モデルのメタデータをもとにthinkingのオプションを設定する。\n\nollama launch piは、サインイン後にPiのモデル一覧を更新する。この項目の記述はここで途切れており、これ以降の詳細は確認できない。\n\n## 押さえておきたい点\n\n今回の目玉はInkling 2 Miniの追加だが、現時点ではApple silicon限定である。同時リクエスト処理もApple silicon向けの変更として記されている。Macで大型モデルを試す場面では、約20GBというメモリ目安と合わせて検討するとよいだろう。",
+      "bodyEn": "## Inkling 2 Mini arrives\n\nOllama v0.40.17 adds support for Inkling 2 Mini, a model that matters most to people who want to run a large model locally on a Mac. The release also changes how Ollama handles requests on Apple silicon and updates several launch integrations.\n\nAccording to the release notes, Inkling 2 Mini comes from Thinking Machines and has 26B parameters, of which 5.4B are active. The notes say its looped layers give it more computation per token than its size suggests, and that it still fits on a Mac at about 20GB. It handles text and images, tool calls, and thinking. The notes also report a score of 79.2% on SWE-Bench Verified.\n\nThe model is started with the command ollama run inkling-2-mini.\n\n## Apple silicon only, for now\n\nThe release notes state that inkling-2-mini is supported on Apple silicon only in this version. They say PC support will follow in an upcoming release. Anyone on other hardware should therefore treat this model as not yet available through this release.\n\n## What's Changed\n\nThe same release brings a change to how Ollama serves requests on Apple silicon: it now serves multiple requests at once. The notes do not give further detail on how this is implemented or what performance effect it has.\n\nSeveral changes affect the ollama launch command. For Claude Code, ollama launch claude now supports deferred tool loading, so MCP tools are loaded when needed instead of all at once. For opencode, ollama launch opencode sets thinking options from the model's metadata. For Pi, ollama launch pi refreshes Pi's model list after sign-in and passes along additional settings; the source text is cut off at that point, so the remainder of that item is not available.\n\n## Why it matters\n\nTaken together, the release combines a new model that is sized to fit on a Mac with concurrent request handling on the same platform. It also adds on-demand tool loading for Claude Code. For developers who want to try a large model on Apple hardware, the 20GB figure and the Apple-silicon-only note are the main details to check before pulling the model.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Macで普段使う人には、今回なにが変わるの？",
+          "en": "What changes day to day for someone using a Mac?"
+        },
+        {
+          "s": "b",
+          "ja": "inkling-2-miniが約20GBでMacに収まる形で動かせます。加えて、Apple siliconで複数のリクエストを同時に処理できるようになりました。",
+          "en": "inkling-2-mini can run on a Mac at about 20GB. Ollama on Apple silicon also now serves multiple requests at once."
+        },
+        {
+          "s": "a",
+          "ja": "同時に処理って、前はできなかったの？ツール読み込みも変わったみたいだけど。",
+          "en": "Wasn't concurrent handling possible before? The tool loading seems different too."
+        },
+        {
+          "s": "b",
+          "ja": "同時処理が前はどうだったかは、この記事では分かりません。ツールは、Claude Code連携で必要な時に読み込む遅延読み込みになり、全部一度に読まなくて済みます。",
+          "en": "The article doesn't say how it worked before. For Claude Code, MCP tools now load when needed instead of all at once."
+        },
+        {
+          "s": "a",
+          "ja": "26Bなのにアクティブ5.4Bで、Macで動くのが一番の収穫かな。でもPCは？",
+          "en": "Biggest win for me: a 26B model with 5.4B active runs on a Mac. But what about PCs?"
+        },
+        {
+          "s": "b",
+          "ja": "今回はApple siliconのみで、PC対応は今後のリリースで続くと書かれています。そこが次の注目点ですね。",
+          "en": "This release is Apple silicon only. The article says PC support will follow in an upcoming release, so that's the next thing to watch."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:39:03.446Z"
+    },
+    "15bb135334f836c3": {
+      "bodyJa": "Ollama v0.40.17-rc4 が公開されました。v0.40.17 に向けた4回目のリリース候補で、正式版の手前の段階にあたるビルドです。\n\n## rc4の位置づけ\n\n公開日時は2026年11月20日23時04分(UTC)です。バージョン名の末尾にある「-rc4」は、v0.40.17 の候補版として4番目に出されたことを表します。rc1 から数えて4回目の候補が出ている点から、v0.40.17 のリリースブランチ上で更新が重ねられていることがうかがえます。\n\n## 統合された内容\n\nこのリリースに添えられているのは、「Merge remote-tracking branch 'upstream/main' into release_v0.40.17」という変更記録です。上流の main ブランチを、v0.40.17 用の release ブランチへ取り込んだ、という内容になります。\n\n新機能や個別の修正点を並べた一覧は示されていません。そのため、このrc4で具体的にどの動作が変わったのかは、リリース情報の範囲では断定できません。確認できるのは、上流 main の更新が release ブランチへ統合されたという一点です。\n\n## 検証したい利用者向け\n\nrc4は、正式版の公開を待たずに v0.40.17 の内容を先に試したい利用者向けの候補版と位置づけられます。細かな変更点が明記されていないため、導入する場合はそれぞれの環境で動作を確かめる前提になるでしょう。安定した運用を優先する場合は、正式版の公開を待つという選択も考えられます。",
+      "bodyEn": "Ollama has published v0.40.17-rc4, the fourth release candidate on the way to v0.40.17. The release was posted on 20 November 2026 (UTC), and it matters mainly for people who want to check the upcoming version before the final release arrives.\n\n## Fourth Release Candidate\n\nThe version label shows where this build sits in the sequence. The \"rc4\" suffix marks it as the fourth candidate for v0.40.17, not a finished release. Anyone tracking the v0.40.17 line will see it as the latest step before the final version.\n\nThe announcement does not present this build as a new product or a feature release. It is an incremental candidate within an existing version series.\n\n## Merge Remote-Tracking Branch\n\nThe only change recorded is a merge commit titled \"Merge remote-tracking branch 'upstream/main' into release_v0.40.17\". In plain terms, the upstream main branch was merged into the release branch for v0.40.17.\n\nAccording to the source, that merge is the entire content of the entry. It names no individual fixes, additions, or behavior changes, so the contents of the merge cannot be read from the release notes themselves.\n\n## Who Should Care\n\nBecause no feature details are listed, the practical audience is narrow. The release mainly suits early testers who want to try the candidate ahead of the final v0.40.17 release.\n\nReaders who need to know exactly what changed would have to look at the merged commits in the repository. The release entry itself offers a version number, a date, and a branch-merge description.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "このリリース候補って、普段Ollamaを使っている人には何が変わるの？",
+          "en": "For someone who just uses Ollama day to day, what actually changes with this release candidate?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、機能の変更点は書かれていないんだ。upstreamのmainをrelease_v0.40.17に統合した、という内容だけだよ。",
+          "en": "The article doesn't list any feature changes. All it says is that upstream main was merged into the release_v0.40.17 branch."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ前のrc3までは、何かできなかったことがあったの？",
+          "en": "So was there something earlier candidates couldn't do, before this rc4?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは記事からは分からないよ。前の候補との差分は書かれていなくて、4回目の候補だということと統合の事実だけなんだ。",
+          "en": "The article doesn't say. It gives no diff from earlier candidates, only that this is the fourth one and that a merge happened."
+        },
+        {
+          "s": "a",
+          "ja": "つまり今回は新機能の話じゃなくて、正式版の前に試したい人向けのお知らせなんだね。",
+          "en": "So this isn't about new features. It's a heads-up for people who want to test before the final release."
+        },
+        {
+          "s": "b",
+          "ja": "そう読めるね。注目するなら、v0.40.17の正式版が出るかどうかと、そこで内容が明らかになるかどうかかな。",
+          "en": "That's how it reads. Worth watching whether the final v0.40.17 arrives, and whether its notes spell out what's inside."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:39:20.052Z"
+    },
+    "e8fc8139ea60e079": {
+      "bodyJa": "OpenHands v1.38.0 が2026年11月10日付で公開された。自動化まわりの設定編集、会話予算の表示、テーマやバナーといった画面表示の改良が、主な機能追加として並んでいる。\n\n## 自動化とプラグイン設定\n\n自動化のヘルプ画面で、実行可能なプラグインの構成を編集できるようになった(#19453)。設定を確認するだけでなく、その場で構成に手を入れられる点が変更の中心である。\n\nあわせて、プロンプトとプラグインのプリセットをエージェントプロファイルから実行できるようにする変更も入った(#19421)。自動化の入口がエージェントプロファイル側にも広がった形だ。\n\n## 会話予算のメーター\n\n会話ごとの予算が、意味を持たせたメーターの塗りで表示されるようになった(#18533)。予算の状況を数値だけに頼らず、塗りの状態として視覚的に示す仕組みとされる。塗り分けの具体的な基準は示されていない。\n\n## テーマとバナー\n\nAgent Canvas には新たに Paper テーマが追加された(#19445)。また、Light+ と Solarized のコントラスト調整が仕上げられた(#17730)。これにより、各テーマでの見やすさの改善が進んだ。\n\nバナー関連では、プロジェクトの会話に対して「解決済み」を示すバナーがチャットに表示されるようになった(#19494)。Canvas には OpenHands Enterprise のライセンスバナーも表示される(#19470)。\n\n## /launch リンクの変更\n\n/launch まわりでは、mode=automation と POST /plugin-spec を用いた、自動化を意識したインストールが追加された(#18699)。この変更は #18793 に向けた取り組みの一環と位置づけられている。さらに、メッセージのみの /launch リンクを許可する変更(#19494 とは別の項目)も含まれる。\n\n今回のリリースは、自動化の設定、予算の見せ方、テーマとバナーの各分野にまたがる機能追加でまとまっている。",
+      "bodyEn": "OpenHands v1.38.0 was released on 2026-11-10. The release notes list a set of feature changes covering automation settings, conversation budget display, and interface themes, which the announcement says improve usability and visibility for developers.\n\n## What's Changed\n\nThe 1.38.0 notes are organized under a Features heading, with each entry credited to a contributor and linked to a pull request. The headline items are editable plugin configuration in automation, budget meters with semantic fills, and a new Paper theme for Agent Canvas. The summary describes these as improvements to developer operability and visibility.\n\n## Automation and plugin configuration\n\nSeveral entries concern automations. One lets users edit executable plugin configuration in automation help (#19453). Another lets prompt and plugin presets run from an agent profile (#19421). A third makes installation automation-aware through mode=automation and a POST /plugin-spec endpoint, which the entry describes as work toward #18793 (#18699).\n\n## Budgets, themes, and banners\n\nOn the display side, conversation budgets are now shown with semantic meter fills (#18533). Agent Canvas gains a Paper theme (#19445), and the Light+ and Solarized themes receive a finished contrast pass (#17730).\n\nTwo banner changes are also listed. Chat now shows a resolved banner for project conversations (#19494), and Canvas shows the OpenHands Enterprise license banner (#19470).\n\n## Launch links\n\nThe notes also include a change to /launch links that covers message-only links. The notes available here cut off partway through that entry, so its full conditions are not stated.\n\nTaken together, the visible entries in this release center on how automations are configured and launched, and on how budgets, themes, and status banners appear to users in Agent Canvas and chat.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "いろいろ追加されてるね。自動化のプラグイン設定を編集できるとか、予算のメーターとか。これって大きい変更なの？",
+          "en": "There's a lot in here, like editable plugin settings for automations and budget meters. Is this a big change?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと機能追加がいくつも並んでるよ。大改造というより、設定の編集や表示の見やすさなど、使い勝手を整える変更が中心みたい。",
+          "en": "The release lists quite a few additions. It reads less like an overhaul and more like usability and visibility improvements, such as editing settings and clearer displays."
+        },
+        {
+          "s": "a",
+          "ja": "「予算を色の塗りで示すメーター」って、どういうこと？",
+          "en": "What does \"budget meters shown with color fills\" actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "会話にかかる予算の状況を、メーターの塗りで見分けやすくする、くらいの意味だよ。数字だけより一目でつかみやすくなるかもね。",
+          "en": "Roughly, it shows a conversation's budget status as a filled meter. That could be easier to grasp at a glance than numbers alone."
+        },
+        {
+          "s": "a",
+          "ja": "私なら、自動化の設定を画面で直せるのが助かりそう。Paperテーマも試してみたいな。",
+          "en": "I think I'd love fixing automation settings right on screen. I'd want to try the Paper theme too."
+        },
+        {
+          "s": "b",
+          "ja": "いいね。agent profileからプロンプトやプラグインのプリセットを動かす変更もあるよ。細かい条件は各項目で確かめると安心かな。",
+          "en": "Nice. There's also a change for running prompt and plugin presets from an agent profile. For the details, check each listed item to be safe."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:40:35.508Z"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T12:30:48.855Z",
-  "count": 411,
+  "generatedAt": "2026-11-28T13:30:51.747Z",
+  "count": 415,
   "bodies": {
     "7b752c9b3e3af2c6": {
       "bodyJa": "AIエージェントが高度化するにつれ、誤動作や悪用が発生した際の影響範囲（ブラスト半径）も拡大する。本記事はAnthropicのエンジニアリングブログに掲載され、その上限をどう設計するかという実践的な問いに答えている。\n\n対象製品はclaude.ai・Claude Code・Coworkの3つ。それぞれ異なるユースケースと権限モデルを持つ中で、共通の封じ込め原則をどう適用したかが論点と推察される。具体的な実装詳細は原文で確認することを推奨する。\n\nエージェントの安全設計に携わる開発者や、Claudeを自社プロダクトに組み込む実務者にとって参考になる内容と見られる。",
@@ -14068,44 +14068,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T10:30:14.274Z"
     },
-    "80955af470da00f0": {
-      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
-      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
-          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
-        },
-        {
-          "s": "b",
-          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
-          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
-        },
-        {
-          "s": "a",
-          "ja": "シークレットって、秘密のコードってこと？",
-          "en": "Does “secret” mean secret code?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
-          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
-          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
-          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T20:07:43.460Z"
-    },
     "706347545f4dbf63": {
       "bodyJa": "Ollama がリリース候補版「v0.40.20-rc0」を GitHub 上で公開した。正式版に先立って提供される試験版で、導入前に動作を確かめたい利用者にとっての確認用の位置づけとなる。\n\n## rc0 という表記\n\n今回公開されたのは Ollama の v0.40.20-rc0 である。バージョン名の末尾に付く「rc0」は、これが正式版ではなくリリース候補版であることを示している。公開日時は 2026年11月27日 21時06分(UTC)と記録されている。分類上はローカル LLM 関連のリリース情報で、Ollama のリリースページを出どころとして掲載されたものである。\n\n## 動作確認向けの版\n\nこの版は、正式版が出る前に動作を確認したい利用者に向けた試験版とされる。正式版に切り替える前に、手元の環境でどのように動くかを試したい場合に手に取る版、という位置づけである。つまり今回のリリースは、正式版の代わりに常用する版というより、事前に挙動を見るための版として公開されたものと整理できる。\n\n個々の変更内容を把握したい場合は、GitHub 上のリリースページで直接確認するのが確実だ。\n\n## GitHub 上のコミット\n\nこのリリースに関連するページでは、GitHub.com 上で作成され、GitHub の verified signature で署名されたコミットが表示されている。署名付きのコミットとして、GitHub 上で確認できる形になっている。",
       "bodyEn": "Ollama has published release candidate v0.40.20-rc0 on GitHub. It matters mainly to people running local LLMs with Ollama who want to see what is coming before the stable release.\n\n## Release Candidate v0.40.20-rc0\n\nThe release appeared in Ollama's GitHub releases feed on 2026-11-27 at 21:06:59 UTC. The version string, v0.40.20-rc0, marks it as a pre-release build rather than a final version. The announcement does not describe specific feature changes, fixes, or other contents, so nothing more can be said about what this build alters.\n\n## Verified Signature on GitHub\n\nThe release page notes that the associated commit was created on GitHub.com and signed with GitHub's verified signature. This describes how the commit was recorded on the platform. It is not a statement about the build's functionality.\n\n## Testing Ahead of Stable\n\nAccording to the source, this build suits users who want to check behavior before the official release. Those who prefer to wait for the stable version have no need to act on this candidate.",
@@ -14339,6 +14301,196 @@
       "bodyEn": "Enterprise software modernization remains one of the most expensive and error-prone tasks in corporate IT, and a new benchmark from IBM Research aims to measure how well AI agents can shoulder part of that burden. ScarfBench, published through Hugging Face, evaluates how effectively AI agents can carry out real-world enterprise Java framework migration tasks, offering a standardized way to gauge a problem that has historically resisted reliable automation.\n\nFramework migration is a specific and demanding category of software maintenance. Rather than writing new features from scratch, developers must move an existing application from one framework or framework version to another. Typical examples include upgrading across major Spring Boot releases, migrating from Java EE to Jakarta EE, or replacing a deprecated library with a supported alternative. Such changes ripple across a codebase: import statements, configuration files, build descriptors such as Maven or Gradle files, annotations, and API calls may all require coordinated edits. A single overlooked dependency can break compilation or introduce subtle runtime failures, which is why migrations frequently consume months of skilled engineering effort.\n\nScarfBench appears designed to capture this complexity in a form that AI systems can be tested against consistently. Benchmarks of this kind generally present an agent with a source repository and a defined migration goal, then let the model plan and execute the multi-step changes needed to reach a target state. Success is typically verified through objective signals such as whether the project still compiles and whether its existing test suite passes, rather than through subjective judgments about code style. This grounding in executable outcomes is important, because it distinguishes genuine functional migration from plausible-looking edits that do not actually work.\n\nThe focus on enterprise Java is significant. Java underpins a large share of the world's banking, insurance, government, and telecommunications systems, and many of those applications are years or decades old. Modernizing them is a recurring cost, and organizations are keen to understand whether AI agents can accelerate the work without introducing regressions. By narrowing the scope to a well-defined, high-value domain, ScarfBench targets a task where measurable improvements would translate directly into business value, in contrast to broader, more general coding benchmarks.\n\nScarfBench sits within a growing ecosystem of tools for evaluating AI coding agents. The best-known example is SWE-bench, which draws tasks from real GitHub issues and pull requests to test whether models can resolve bugs and implement changes across full repositories. ScarfBench can be seen as a more specialized counterpart, concentrating on migration and legacy modernization rather than general issue resolution. The two reflect a wider shift in how the field measures progress: away from isolated function-completion puzzles and toward agentic workflows in which a model must navigate an entire project, reason about dependencies, and make coordinated multi-file changes.\n\nThe involvement of IBM Research is consistent with the company's broader investment in enterprise code modernization. IBM has developed its Granite family of open models and offers watsonx Code Assistant products aimed at application modernization, including tooling focused on Java and mainframe workloads. A benchmark oriented toward open models, as ScarfBench's tags suggest, also aligns with interest in running capable systems locally or within controlled environments, which matters to enterprises that cannot send proprietary source code to external services for regulatory or security reasons. In that setting, a benchmark that helps compare open and self-hostable models on realistic migration tasks is likely to be practically useful.\n\nFor teams evaluating whether to adopt AI agents in their modernization pipelines, a benchmark like this provides a shared reference point rather than relying on vendor claims or one-off demonstrations. It is worth noting, however, that benchmark performance does not guarantee production readiness. Real migrations often involve undocumented business logic, incomplete test coverage, and integration constraints that a curated benchmark may not fully represent, so strong scores should be read as an indicator of capability rather than a promise of turnkey automation.\n\nAs AI agents move from experimental assistants toward tools entrusted with substantive engineering work, standardized and executable evaluations like ScarfBench help clarify where current models genuinely help and where human oversight remains essential. Its long-term impact will depend on how widely it is adopted, how representative its task set proves to be, and how the results hold up as models and agent frameworks continue to evolve.",
       "model": "claude-opus-4.8",
       "generatedAt": "2026-07-12T01:03:35.679Z"
+    },
+    "571c8c47df881aa3": {
+      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
+      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
+          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
+          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
+        },
+        {
+          "s": "a",
+          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
+          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
+          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
+          "en": "I’d line up a few review agents and compare which one might suit me best."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
+          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T12:37:57.149Z"
+    },
+    "b8e279433af937a2": {
+      "bodyJa": "Google DeepMindと映画スタジオA24が、研究に焦点を当てた初のパートナーシップを発表した。最先端の研究ラボと映画制作の現場が組み、将来のツールを実際に使うクリエイターが形づくる体制を目指すとされる。\n\n## 初の研究パートナーシップ\n\n両者はこの取り組みを「first-of-its-kind」、つまり前例のない形の提携と位置づけている。組み合わせるのは、世界をリードする研究ラボと、業界で最もフィルムメーカーを重視するスタジオだと説明されている。\n\n発表では、この協業によって映像制作者が新しいワークフローや手法を開発できるよう支援するとしている。目的として掲げられているのは、未来のツールが、それを使う作り手自身によって形づくられるようにすることだ。\n\n## 複数プロジェクトの協業\n\n提携は、A24とGoogle DeepMindによる深い研究開発の協業と説明されており、時間をかけて複数のプロジェクトにまたがる。単発の取り組みではなく、継続的に進める枠組みである点が特徴だ。\n\n具体的なプロジェクト名や内容、期間、成果物については、今回の発表では示されていない。\n\n## 創作の現場に技術を置く\n\nGoogle DeepMindの技術革新を創作プロセスの中に直接据えることで、A24とその映画作家たちが、自らのビジョンに資する形で新しい技術の形成に関われるとされる。その結果として、物語表現の可能性を広げられるという考え方だ。\n\n一方、Google DeepMindにとっては、第一線のアーティストから実践的なフィードバックや助言を得られることが利点になると説明されている。現場での手を動かす協業が、技術側への貴重な知見になるという位置づけである。\n\n## Googleによる投資\n\n発表では、このパートナーシップに加えて、GoogleがA24に投資を行ったことも明らかにされた。投資の金額や条件など、詳細は示されていない。\n\n研究面の協業と資本面の関係が並行して発表された点が、今回の提携の要素の一つとなっている。",
+      "bodyEn": "## A First-of-Its-Kind Partnership\n\nGoogle DeepMind and the film studio A24 have announced a research partnership that the announcement describes as the first of its kind. It matters because it ties an AI research lab directly to a working film studio, with the stated aim of letting creators influence the tools they will eventually use.\n\nAccording to the announcement, the collaboration pairs \"a world-leading research lab with the industry's most filmmaker-forward studio.\" The stated goal is to help artists develop new workflows and techniques, so that the tools of the future are shaped by the creators who use them.\n\n## Research and Development Across Projects\n\nThe announcement describes the arrangement as a deep research and development collaboration between A24 and Google DeepMind. It is meant to span multiple projects over time rather than a single initiative. No specific projects, tools, or technologies are named in the announcement.\n\nThe approach rests on anchoring Google DeepMind's innovations directly within the creative process. According to the announcement, this lets A24 and its filmmakers help shape new technology in service of their vision, and it expands the storytelling possibilities available to them.\n\n## Feedback From Artists\n\nThe announcement presents the collaboration as a two-way exchange. A24's filmmakers get a hands-on role in how the technology develops. Google DeepMind, in turn, receives what the announcement calls invaluable feedback and guidance from leading artists.\n\nThis framing places creative practitioners inside the development loop instead of treating them only as end users of finished products. The announcement says this is what ensures future tools are shaped by the people who use them.\n\n## Investment in A24\n\nThe announcement also states that Google has made an investment in A24. It does not give the size of the investment or its terms, and it does not describe how the investment relates to the research work beyond appearing alongside it.\n\nIn summary, the partnership combines a research lab and a film studio in an ongoing, multi-project effort focused on new creative workflows and techniques. Beyond the points above, the announcement offers no further detail on scope, timelines, or outputs.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「初の研究パートナーシップ」って書いてあるけど、これって大きいことなのかな？",
+          "en": "It says \"first-of-its-kind research partnership.\" Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、複数のプロジェクトにわたって時間をかけて進める、深い共同研究開発だと説明されてるよ。単発の企画ではないところが特徴だね。",
+          "en": "The article describes a deep R&D collaboration spanning multiple projects over time. So it's not a one-off, and that seems to be the point."
+        },
+        {
+          "s": "a",
+          "ja": "「ワークフロー」ってなに？ 記事に出てきたけど、よくわからなくて。",
+          "en": "What's a \"workflow\"? It showed up in the article, but I'm not sure what it means."
+        },
+        {
+          "s": "b",
+          "ja": "作業の流れや手順、くらいの意味だよ。記事だと、アーティストが新しいワークフローや技法を作るのを手助けする、と書かれてるね。",
+          "en": "Roughly, the steps and flow of how work gets done. The article says the aim is to help artists develop new workflows and techniques."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、自分が映画を作るとき、そのツールを使えるようになるのかな？",
+          "en": "So if I made a film, would I get to use those tools someday?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは記事に書かれてないんだ。書かれているのは、A24の映画人のフィードバックで技術を形作ることと、GoogleがA24に投資したことだよ。",
+          "en": "The article doesn't say. It only mentions A24's filmmakers giving feedback to shape the technology, and that Google has invested in A24."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T12:37:36.990Z"
+    },
+    "1a34175cf3f911cf": {
+      "bodyJa": "OpenAIは新たな「OpenAI Signals」のデータをもとに、ChatGPTの普及が世界的に拡大している様子を示した。利用の広がりを具体的に追う内容とされる。\n\n## 世界で広がる利用\n\nデータでは、利用者が使う頻度を増やし、より多くの機能を試すようになっていると説明されている。成長は特定の地域に限らず、複数の地域や言語にまたがって進んでいるという。\n\n## 個人から機関まで\n\nOpenAIは、ChatGPTの採用が個人にとどまらず、企業や教育機関にも広がってきた経緯を振り返っている。活用シーンの幅も広がっており、世界規模での到達範囲の大きさが強調されている。",
+      "bodyEn": "## Adoption Is Growing Globally\n\nOpenAI has published new Signals data on how ChatGPT adoption is expanding worldwide. The release matters because it describes how people are actually using the product and how widely it has spread.\n\nAccording to the announcement, users are increasing their usage and exploring more of ChatGPT's capabilities. Growth is also being driven across regions and languages.\n\n## Individuals, Businesses, Institutions\n\nOpenAI's review frames this growth as spanning individuals, businesses, and institutions. It highlights an expanding range of use cases alongside the scale of ChatGPT's global reach.\n\nThe source presents these findings as a look back at how adoption broadened over time, rather than as a new product or feature.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ふだんの生活や仕事で、ChatGPTの使われ方って何が変わってきたの？",
+          "en": "In everyday life or work, what's actually changing in how people use ChatGPT?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、利用を増やしながらいろんな機能も試す人が増えているそうだよ。個人だけでなく、企業や教育機関にも広がっているとのこと。",
+          "en": "This piece says users are using it more and trying more capabilities. It also describes adoption spreading from individuals to businesses and educational institutions."
+        },
+        {
+          "s": "a",
+          "ja": "前は、使われる地域や言語も今ほど広くなかったの？",
+          "en": "Before this, was it not used across as many regions and languages?"
+        },
+        {
+          "s": "b",
+          "ja": "以前との比較は書かれていないから、そこは分からないな。記事で言えるのは、地域や言語をまたいで成長が進んでいる、というところまでだよ。",
+          "en": "The piece doesn't compare with earlier times, so I can't say. What it does say is that growth is happening across regions and languages."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ収穫は、人が増えただけじゃなくて、使い方もどんどん広がってることだね。",
+          "en": "So the takeaway is that it's not just more people. The ways they use it are widening too."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。次は、OpenAIのSignalsデータで、地域や言語ごとの伸びがどう示されていくかに注目したいな。",
+          "en": "Right. Next, I'd watch how OpenAI's Signals data shows growth across regions and languages."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T12:38:27.298Z"
+    },
+    "95f13a7124617b6a": {
+      "bodyJa": "Hugging Faceは、Every Eval Ever(EEE)の評価結果をモデルページ上で閲覧できるようにした。EEEとHugging Face Community Evalsが相互に互換となったことで、評価結果の相互投稿と解釈が可能になると説明されている。\n\n## 散在する評価結果\n\n評価結果は、モデルの能力を測り、モデル同士を比べ、安全性やガバナンスを考えるための手がかりとなる。一方で、結果は散らばっていて比較しにくいという課題がある。今回の連携は、この状況の隙間を補う取り組みとして位置づけられている。\n\n## EEEとCommunity Evals\n\nEEEは2026年2月に始まったプロジェクトで、EvalEval Coalitionの取り組みである。ファーストパーティとサードパーティの双方の評価者による、AIの評価結果の報告方法を改善する、機関横断では初の試みとされる。\n\nHugging FaceのCommunity Evalsも同じく2026年2月に始まった。Hub上でのベンチマークスコアの報告を分散化することを目的としている。\n\n## 相互互換でできること\n\n両者が互換になったことで、評価結果の相互投稿と解釈が可能になる。その際には、オープンモデル、リーダーボード、標準化されたメタデータを一元的に扱うストアへのリンクも提供される。\n\nモデルページ上では、多様な評価スコアを一か所でまとめて確認できる。これによりオープンモデルの比較がより透明になるとされる。\n\n## 信頼と選択の補強\n\n2つの仕組みを組み合わせることで、ユーザー、研究者、政策担当者が評価やモデルを信頼し、理解し、選ぶ際に生じていた隙間を埋められると説明されている。",
+      "bodyEn": "## Intercompatible Evaluation Systems\n\nHugging Face has made Every Eval Ever (EEE) and Hugging Face Community Evals intercompatible, and EEE benchmark results now appear directly on model pages. The change matters because, according to the announcement, evaluation results are how people measure model capabilities, compare models, and reason about safety and governance, yet those results remain scattered and hard to compare.\n\nThe announcement says the two efforts now allow cross-posting and interpreting of evaluation results. The results are linked to open models, leaderboards, and a unified standardized metadata store. Hugging Face's own summary frames this as a unified view of diverse evaluation scores that makes open-model comparison more transparent.\n\n## Two Projects, One Purpose\n\nEEE launched in February 2026 as a project of the EvalEval Coalition. The source describes the coalition as the first cross-institutional effort to improve how AI evaluation results get reported, covering both first-party and third-party evaluators.\n\nHugging Face launched Community Evals in February 2026 as well. Its stated aim was to decentralize how benchmark scores get reported on the Hub, rather than leaving reporting to a single place or party.\n\n## Patching Gaps in Trust\n\nAccording to the announcement, the two efforts combined patch gaps in how users, researchers, and policymakers trust, understand, and choose evaluations and models. The problem it names is not a shortage of evaluation results but their fragmentation: scores exist in many places and are difficult to line up against each other.\n\nBy surfacing EEE results on model pages, users can see a range of benchmark scores for a model in one location instead of searching across separate sources. The linking to leaderboards and to a shared metadata store is presented as the mechanism for interpreting those results consistently.\n\n## What the Update Changes\n\nIn practical terms, the update brings community-reported benchmark results from EEE into the place where people already look at models on Hugging Face. Cross-posting means results reported through one system can be read and understood through the other.\n\nThe announcement does not stand alone as a new benchmark or a new model. It describes a compatibility step between two existing efforts, both started in February 2026, with the goal of making evaluation reporting more consistent and easier to read for the people who rely on it.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "EEEとCommunity Evalsが、どっちも2026年2月に始まったんだね。これって、つながるのは大きいこと？",
+          "en": "Both EEE and Community Evals launched in February 2026, right? Is it a big deal that they now connect?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、両方が相互に使えるようになったと書かれています。評価結果がバラバラで比べにくい問題を、一緒に埋める狙いのようです。",
+          "en": "The post says the two are now intercompatible. The aim seems to be closing the gap where evaluation results are scattered and hard to compare."
+        },
+        {
+          "s": "a",
+          "ja": "「クロスポスト」って、どういうこと？ 同じ結果をあちこちに載せるのかな？",
+          "en": "What does \"cross-posting\" mean here? Is it posting the same results in more than one place?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、一か所に出した内容を別の場所にも掲載することです。記事だと、評価結果の投稿と読み取りができるようになる、と説明されています。",
+          "en": "Generally, it means sharing something posted in one place somewhere else too. The post describes it as enabling results to be posted and interpreted across both."
+        },
+        {
+          "s": "a",
+          "ja": "モデルを選ぶとき、ページで評価をまとめて見られたら便利そう。比べる時に使えるかな？",
+          "en": "If I could see evaluations together on a model page, that'd help when choosing. Could I use it to compare?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、オープンモデルやリーダーボード、統一メタデータへのリンクも挙げられています。ただ、どのモデルがどこまで載るかは、この記事からは分かりません。",
+          "en": "The post mentions links to open models, leaderboards, and a unified metadata store. But it doesn't say which models will be covered or how fully."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T12:38:58.934Z"
+    },
+    "bc4d287bb5ae08d5": {
+      "bodyJa": "## Frontier提携\n\nHP Inc.がOpenAIと「Frontier」戦略的パートナーシップを結んだ。HPはこの提携の規模を拡大し、AIをさまざまな領域に展開するとされる。\n\n狙いは企業ユーザーの生産性向上だと説明されている。HP製品・サービスにAI機能を深く統合する形で進める。\n\n## AIを展開する領域\n\n展開先として挙げられているのは、顧客体験、ソフトウェア開発、企業の業務運営の3分野だ。\n\nまた、高度なAI機能をHPのハードウェアとサービスに組み込むことで、企業向けの生産性を高めるとされる。",
+      "bodyEn": "## HP Inc. and OpenAI Frontier\n\nHP Inc. has announced a strategic partnership with OpenAI called Frontier. According to the announcement, the aim is to scale AI across the company and raise productivity for enterprise users.\n\nThe source describes the partnership as covering customer experiences, software development, and enterprise operations.\n\n## Integration into HP products\n\nThe announcement says HP will integrate advanced AI capabilities into its hardware and services. The stated goal of this deeper integration is to boost enterprise productivity.\n\nThe source does not describe specific products, rollout timing, pricing, or regional availability, so the partnership's concrete scope remains defined only by those three areas of deployment and the productivity objective.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "HPがOpenAIと組むと、会社で働く私たちの毎日って何か変わるのかな？",
+          "en": "If HP teams up with OpenAI, does anything change in our daily work?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、AIを顧客体験、ソフトウェア開発、企業の業務運営に展開するそうです。狙いは企業ユーザーの生産性向上ですね。",
+          "en": "The article says AI will be deployed across customer experiences, software development, and enterprise operations. The goal is boosting productivity for business users."
+        },
+        {
+          "s": "a",
+          "ja": "前はHPでAIを使えなかったの？今回は何が新しいんだろう。",
+          "en": "So HP couldn't use AI before? What's actually new here?"
+        },
+        {
+          "s": "b",
+          "ja": "記事には「パートナーシップを拡大する」とあります。ただ、以前との具体的な違いは書かれていないので、そこは分かりません。",
+          "en": "The article says the partnership is being scaled up. But it doesn't spell out how things differed before, so I can't say what's changed in detail."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、AIが製品だけじゃなくて仕事の進め方にも入っていくってことかな？",
+          "en": "So the big takeaway is that AI goes beyond products and into how the work gets done?"
+        },
+        {
+          "s": "b",
+          "ja": "記事の範囲ならそう読めます。次は、HPのどの製品やサービスにAIが入るのか、具体的な説明が出るかに注目ですね。",
+          "en": "That's a fair reading of the article. Next, I'd watch for specifics on which HP products and services get the AI features."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T12:39:35.343Z"
     }
   }
 }

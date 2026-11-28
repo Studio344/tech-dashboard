@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T12:30:48.855Z",
-  "count": 429,
+  "generatedAt": "2026-11-28T13:30:51.747Z",
+  "count": 432,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -12730,13 +12730,77 @@
       "bodyJa": "複数のAIエージェントが科学者コミュニティのように協調し、ニューラル演算子のアーキテクチャを自動で探索・発見する枠組みが提案された。人手に頼ってきた設計工程を大幅に省力化し、科学機械学習の研究を加速する可能性がある。\n\nニューラル演算子は、関数から関数への写像を学習するニューラルネットワークの一種で、偏微分方程式(PDE)の解を高速に近似する用途で注目を集めている。従来の数値解法に比べて推論が速く、流体や気象、材料科学などの大規模シミュレーションへの応用が期待される。代表的なモデルにはフーリエニューラル演算子(FNO)やDeepONetなどがある。\n\nもっとも、こうしたアーキテクチャの設計には専門知識と試行錯誤が欠かせず、対象とする問題ごとに最適な構造が異なるという難しさがある。この課題に対しては、AutoMLやニューラルアーキテクチャ探索(NAS)と呼ばれる自動化手法がかねて研究されてきた。\n\n本研究は、大規模言語モデル(LLM)を基盤とする複数のエージェントに、仮説の立案、コードの実装、実験の実行、結果の査読といった科学者の役割を分担させる。エージェント同士が議論や検証を重ねながら候補となる構造を提案・改良し、研究コミュニティのように知見を蓄積していく点が特徴とされる。\n\n近年は、Sakana AIの「AI Scientist」のように、LLMエージェントへ研究プロセス全体を委ねる試みが相次いでいる。本研究はその潮流を、科学機械学習という特定領域のアーキテクチャ設計に応用したものと位置づけられる。\n\nこの仕組みが有効に機能すれば、専門家でなくても高性能なニューラル演算子を構築できるようになり、研究の裾野が広がる可能性がある。一方で、エージェントが生み出す設計の妥当性検証や計算コスト、再現性の確保など、実用化に向けた課題も残ると見られる。プレプリントとして公開された段階であり、今後の追試や第三者による比較評価が注目される。",
       "bodyEn": "A new paper posted to arXiv proposes an agent-based framework in which multiple AI agents act as a collaborative scientific community to automatically search for and discover neural operator architectures. The work is notable because designing these architectures has traditionally depended on scarce human expertise, and an automated approach could lower that barrier for scientific machine learning practitioners.\n\nNeural operators are a family of deep learning models built to approximate mappings between function spaces rather than between fixed-size vectors. This distinction matters for scientific computing, where the goal is often to learn the behavior of a physical system governed by partial differential equations. Well-known examples include the Fourier Neural Operator, which parameterizes convolutions in the spectral domain, and DeepONet, which separates the input function and the query location into distinct sub-networks. Once trained, such models can produce solutions far faster than classical numerical solvers, which has made them attractive for fluid dynamics, weather modeling, materials science, and other simulation-heavy domains.\n\nThe challenge the paper targets is architecture design. Choosing the right combination of layers, spectral truncation, lifting and projection operators, and normalization strategies for a given class of equations usually requires substantial trial and error and domain knowledge. This is the same problem that automated machine learning, or AutoML, and neural architecture search have tackled in mainstream deep learning, though those methods have historically been computationally expensive and have focused on standard image or language tasks rather than operator learning.\n\nAccording to the summary, the proposed system frames the search as a multi-agent process that mimics how a research community operates. Rather than relying on a single optimization loop, the framework appears to distribute roles across several agents that generate hypotheses, implement candidate architectures, run evaluations, and critique or refine the results. This division of labor is likely intended to combine exploration, where new design ideas are proposed, with exploitation, where promising candidates are tuned and validated. The stated aim is to reduce the need for manual expert design, allowing the community of agents to iterate on architectures with limited human intervention.\n\nThe approach sits at the intersection of two active research trends. The first is the rise of large language model agents that can plan, write code, and use tools, which has spurred a wave of \"AI scientist\" systems designed to automate parts of the research process, from proposing experiments to drafting analyses. The second is scientific machine learning, where the reliability and physical consistency of learned models is a central concern. Combining the two is a natural step, but it also inherits the open questions of both fields, including how to verify that automatically generated designs are correct, reproducible, and genuinely better than existing baselines.\n\nSeveral practical considerations are worth keeping in mind when interpreting results of this kind. Multi-agent frameworks that rely on language models can be sensitive to the underlying model, the prompts, and the search budget, so reported gains may not transfer uniformly across different equation families or datasets. Training and evaluating many candidate operators can also be costly, and the paper's contribution will ultimately depend on how efficiently the agent community narrows the search space compared with simpler baselines such as random search or established neural architecture search methods. As with most preprints, the work has not yet completed formal peer review, and independent replication on standard benchmarks would strengthen confidence in the claims.\n\nIf the framework performs as described, the broader implication is a shift in how specialized deep learning models are built for science. Instead of a human expert hand-tuning an architecture for each new problem, an automated community of agents could propose tailored operators, potentially accelerating the adoption of neural operators in fields where few teams have the necessary machine learning depth. It also fits a wider movement toward automating the design layer of research infrastructure, alongside tools for automated hyperparameter tuning, experiment tracking, and code generation.\n\nFor readers following scientific machine learning, the paper is best viewed as an early exploration of how agentic AI and operator learning might reinforce each other. The concept is promising and aligns with clear industry and academic momentum, but its real value will become clearer as detailed benchmarks, ablation studies, and comparisons against strong existing methods are made available and scrutinized by the community.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:01:18.689Z"
+      "generatedAt": "2026-08-30T17:01:18.689Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "1つのラボにエージェントが3人もいて、それが群れになってるの？これって大きいこと？",
+          "en": "Each lab has three agents, and there's a whole swarm of labs? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "大きな一歩かもね。この記事だと、各ラボは案を出す役、学習して測る役、査読する役の3人組で、人手の設計を減らすのが狙いだよ。",
+          "en": "Could be. In this paper each lab has a planner, a trainer-and-measurer, and a reviewer, aiming to cut down on manual expert design."
+        },
+        {
+          "s": "a",
+          "ja": "「引用にもとづく影響力の経済」って、どういうこと？",
+          "en": "What does a \"citation-based economy of influence\" mean?"
+        },
+        {
+          "s": "b",
+          "ja": "論文の引用みたいに、よく引用されるラボが力を持つ感じだよ。人気のラボは同じ方向の新ラボを作り、成績の悪いラボと入れ替わるんだって。",
+          "en": "Think of paper citations: highly cited labs gain influence. They found new labs in their direction, which replace the ones that perform poorly."
+        },
+        {
+          "s": "a",
+          "ja": "自分なら、設計案を試す下働きをAIに任せたいな。レビューまでしてくれるんだね。",
+          "en": "I'd hand the trial-and-error grunt work to the AI. It even does peer review, huh?"
+        },
+        {
+          "s": "b",
+          "ja": "LLMが案を出し、数値ワーカーが学習して測り、別ラボのレビュアーが査読する流れだよ。結果で入れ替わるから、測定を回せる課題が合うのかもね。",
+          "en": "The LLM proposes, a numerical worker trains and measures, and reviewers from other labs critique. Since labs get replaced on results, it may suit tasks you can measure."
+        }
+      ]
     },
     "d180c496e9005e3b": {
       "bodyJa": "大規模言語モデル(LLM)を中核に据えたエージェントは、外部ツールの呼び出しや多段階の推論を繰り返すため、応答生成にかかる時間がユーザー体験や運用コストを大きく左右する。arXivで公開された論文「Speculate with Memory」は、過去の実行履歴をメモリとして活用する投機的デコード手法を提案し、出力品質を損なわない「無損失」の高速化を実現したと報告している。\n\n投機的デコード(speculative decoding)は、LLMの推論を速める代表的な手法の一つだ。通常は小型の「ドラフトモデル」が続くトークン列を先読みして提案し、本体の大型モデルがそれをまとめて検証する。提案が当たれば複数トークンを一度に確定でき、外れた部分だけを再生成するため、最終的な出力は本体モデル単体の結果と一致する。これが「無損失」と呼ばれる理由で、精度を犠牲にせずスループットを高められる点が特徴である。\n\n今回の手法の要点は、ドラフトの生成源として別モデルを使う代わりに、エージェントが過去に行った実行の履歴をメモリとして参照する点にあると見られる。エージェントの作業は、同種のツール呼び出しや定型的な応答、同じフォーマットの出力など、繰り返しの多い構造を持ちやすい。こうした反復性を手がかりに、過去に生成したトークン列を候補として再利用すれば、ドラフトモデルの追加学習や推論コストを抑えつつ高い的中率を狙える可能性がある。\n\nこの着眼点は、エージェント特有のワークフローと相性が良い。複数のステップで似た処理を反復する自動化タスクや、同じ指示を繰り返し処理する場面では、履歴に蓄積されたパターンが次の生成を的確に先読みしやすいと考えられる。\n\n投機的デコードの周辺では、MedusaやEAGLE、lookahead decodingといった手法が提案され、推論基盤のvLLMなどにも高速化機構が取り込まれてきた。過去のテキストからn-gramを引く「prompt lookup」に近い発想とも言えるが、本手法はエージェントの実行履歴という文脈に特化している点に新規性があると見られる。\n\nただし、履歴が乏しい初回タスクや、入力が毎回大きく異なるケースでは高速化の恩恵が限定的になる可能性がある。メモリの保持・検索にかかるオーバーヘッドや、実運用での効果は環境に依存するため、今後の追試や実装の公開が待たれる。",
       "bodyEn": "Researchers have proposed a technique called \"Speculate with Memory\" that aims to accelerate large language model (LLM) agents by reusing their own past execution traces, without altering the text the model ultimately produces. Described in a paper posted to arXiv, the work targets a growing practical problem: agentic systems that repeatedly call an LLM to plan, reason, and invoke tools tend to be slow and costly, yet much of what they generate closely resembles output they have produced in earlier steps or earlier runs.\n\nThe method builds on speculative decoding, an inference-acceleration approach that has become common in production LLM serving. In conventional autoregressive generation, a model emits one token at a time, and each step requires a full forward pass, so latency scales with output length. Speculative decoding breaks this bottleneck by having a cheaper \"draft\" mechanism guess several tokens ahead, then letting the large target model verify all of them in a single parallel pass. Tokens that match the target model's own distribution are accepted, and the rest are discarded and regenerated. Because the target model still validates every token, the final output is provably identical to what standard decoding would have produced. This equivalence is why such methods are described as lossless, distinguishing them from lossy shortcuts like quantization or pruning that can subtly change results.\n\nThe distinguishing idea in this paper is where the draft tokens come from. Instead of relying only on a smaller draft model or on generic heuristics, \"Speculate with Memory\" treats the agent's prior execution history as a retrieval source for candidate continuations. In repetitive agentic workflows, an LLM often regenerates near-identical spans, such as boilerplate reasoning, structured tool calls, formatted responses, or repeated planning templates. By storing these past outputs and retrieving relevant fragments, the system can propose long candidate sequences that the target model may accept in bulk. When the memory is a good match, many tokens are confirmed per forward pass, and speedups appear to grow with the degree of repetition in the task. When the match is poor, the target model simply rejects the guesses and falls back to normal generation, which preserves correctness at the cost of forfeiting the speedup on those steps.\n\nThis positions the work alongside a family of draft-model-free speculative techniques. Prompt lookup decoding and n-gram-based approaches draft tokens by copying spans from the current prompt, which helps in summarization or retrieval-augmented settings where input and output overlap. Retrieval-based methods such as REST pull candidates from an external datastore of text. Other approaches, including Medusa and EAGLE, attach lightweight prediction heads to the base model to generate drafts without a separate model. \"Speculate with Memory\" is conceptually closest to the retrieval-based line, but it is tailored to the agentic setting, where the most predictive source of future tokens is the agent's own accumulated trajectory rather than a static corpus.\n\nThe context that makes this relevant is the rapid expansion of agent frameworks. Patterns such as ReAct interleave reasoning with tool use, and systems built with orchestration libraries frequently loop through similar subtasks across many iterations. These loops multiply inference calls, so per-call latency becomes a dominant factor in overall wall-clock time and serving cost. A method that exploits redundancy across an agent's history is therefore well aligned with how these systems actually behave, and it complements rather than replaces existing serving optimizations like key-value cache reuse, batching, and prefix caching.\n\nSeveral caveats are worth noting without the full experimental details in hand. The benefits are likely concentrated in workflows with high repetition, and gains may be more modest for open-ended or highly variable tasks. Maintaining and searching a growing memory store introduces its own overhead, and the retrieval step must be fast enough not to erode the savings. The lossless guarantee, however, is a meaningful property: because the approach only changes how tokens are drafted and not how they are verified, adopting it should not degrade an agent's answers. If the reported speedups hold across realistic benchmarks, the technique could offer a low-risk way to reduce latency and compute in production agent deployments.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:01:43.580Z"
+      "generatedAt": "2026-08-30T17:01:43.580Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「無損失で大幅に高速化」って書いてあるけど、これって大きいこと？ 速くなると品質が落ちそうなのに。",
+          "en": "It says \"lossless\" yet much faster. Is that a big deal? I'd expect speed to cost some quality."
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、出力の品質を落とさずに速くするのがポイントだよ。繰り返しの多い作業で効果が出やすい、という位置づけだね。",
+          "en": "Yes, the point here is speeding things up without hurting output quality. It's framed as especially useful for repetitive agent workflows."
+        },
+        {
+          "s": "a",
+          "ja": "「スペキュレーター」ってなに？ しかも「ステートレス」だと困るの？",
+          "en": "What's a \"speculator\"? And why is being \"stateless\" a problem?"
+        },
+        {
+          "s": "b",
+          "ja": "小さくて安いモデルが次の一手を予想して、先に動かしておく役だよ。ステートレスは前の経験を忘れること。だから使っても賢くならないんだ。",
+          "en": "It's a smaller, cheaper model that guesses the next step and starts it early. Stateless means it forgets past tasks, so it never improves with experience."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、毎回似た作業をするエージェントなら、覚えてくれて予想が当たりやすくなるのかな？",
+          "en": "So if my agent does similar jobs every day, it could remember and guess better over time?"
+        },
+        {
+          "s": "b",
+          "ja": "そのイメージで合うよ。記事では過去の行動履歴から学ぶ三つのメモリを使うとあるけど、効果の大きさはここで示された範囲では語れないかな。",
+          "en": "That fits. The article describes three memories learning from past trajectories, but I can't say how big the gain is from what's shown here."
+        }
+      ]
     },
     "4a0da68c49316bac": {
       "bodyJa": "Model Context Protocol（MCP）は、AIアシスタントを外部のデータソースやツールへ標準的な方法で接続するためのオープンプロトコルだ。今回取り上げるのは、自作のMCPサーバーを公式レジストリやサードパーティのディレクトリに掲載し、より多くのユーザーに見つけてもらうための実践ガイドである。\n\nMCPは2024年後半にAnthropicが公開して以降、Claudeをはじめとする複数のAIクライアントが対応を進め、対応ツールやサーバーが急速に増えてきた。サーバーを作るだけでは他者の目に触れにくいため、公開して配布する仕組みが重要になる。公式のMCPレジストリは、こうしたサーバーを一元的に検索・参照できる場として位置づけられており、掲載することで導入のハードルを下げられる可能性がある。\n\nガイドでは、公開までの一連の流れが順を追って解説されている。一般的には、サーバーのメタデータを記述した設定ファイル（server.jsonなどのマニフェスト）を用意し、名前や説明、インストール方法、対応するトランスポート（標準入出力やHTTPなど）といった情報を正確に記載する必要がある。加えて、名前空間の指定やパッケージレジストリ（npmやPyPIなど）との紐付け、認証や検証の手順でつまずきやすいとされる。\n\nサードパーティのディレクトリについても触れられている。コミュニティ主導で運営される一覧サイトやまとめリポジトリは複数存在し、掲載条件や必要な情報がそれぞれ異なる。公式レジストリと併用することで露出を広げられるが、記載フォーマットの違いにより二重の作業が発生する場合がある点には注意が必要だ。\n\nMCP対応のエコシステムは発展途上であり、仕様やレジストリの運用方法も更新が続くと見られる。掲載を検討する開発者にとって、本ガイドのような手順とハマりどころの整理は、公開作業の見通しを立てるうえで有用な参照先となりそうだ。最新の仕様や要件については、公式ドキュメントを都度確認することが望ましい。",
@@ -14516,44 +14580,6 @@
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-04T23:25:08.837Z"
     },
-    "3c70dc9317b0bdb0": {
-      "bodyJa": "技術の進歩があまりに速く、私たちがどんな明日を目指しているのかを定義することさえ難しくなっています。Microsoft Researchのポッドキャスト「The Shape of Things to Come」の今回のエピソードは、その状況を背景に「AIは医療の未来をどう変えうるのか」という問いを扱います。\n\n## 速い進歩の中で未来を描く\n\nこの番組では、Microsoft ResearchのリーダーであるDoug Burgerが各分野の専門家とともに、技術者、政策担当者、事業判断者などの関係者が現在直面している、AIをめぐる難しい課題を掘り下げます。\n\n番組の目標は、AIへの移行が全体として好ましい結果になる未来を築くために必要な共通理解を広げることだと説明されています。個々の技術の紹介にとどまらず、立場の異なる関係者が同じ問題意識を持つことに重きを置いた構成といえます。\n\n## 医療を語る4人の顔ぶれ\n\n今回、Burgerとともに議論するのは3人です。Microsoftのプリンシパル・リサーチ・マネージャーであるAva Amini、同社のチーフ・サイエンティフィック・オフィサーであるEric Horvitz、そしてScripps Researchの医師・研究者で、MicrosoftのAIヘルスアドバイザーも務めるEric Topolです。\n\n## 「何が先に必要か」という問い\n\nエピソードの中心にあるのは、AIが実現する医療の未来はどのようなものか、そしてそこに至る前に何が起きなければならないのか、という問いです。この問いは地球上のすべての人に関わる影響を持つと位置づけられています。\n\n英語の要約では、技術者や政策担当者が利点とリスクを見極める助けになる内容とされています。議論の具体的な結論や個別の論点は、ここで紹介できる範囲では示されていません。医療とAIの関係を、技術の可能性だけでなく、実現に向けた前提条件も含めて考えるための入り口となるエピソードです。",
-      "bodyEn": "## The Shape of Things to Come\n\nMicrosoft Research has published an episode of its podcast series The Shape of Things to Come that asks whether AI can help build a healthier future. The question matters because, in the source's words, it carries ramifications for every individual on the planet.\n\nThe series is led by Microsoft Research leader Doug Burger. According to the announcement, he is joined by experts from across disciplines to work through what it calls the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders. The stated goal is to amplify the shared understanding needed to build a future in which the AI transition is a net positive.\n\n## Defining the Tomorrow We're Working Toward\n\nThe source begins from the observation that technical advancement is moving so quickly that it can be hard to define the tomorrow people are working toward. The series is presented as a response to that difficulty, bringing together voices from different fields rather than a single viewpoint.\n\n## Guests on Health and Medicine\n\nFor this episode, Burger is joined by three guests. Ava Amini is a Principal Research Manager at Microsoft. Eric Horvitz is Microsoft's Chief Scientific Officer. Eric Topol is a physician-scientist at Scripps Research and a Microsoft AI health advisor.\n\nThe conversation takes on a two-part question: what the future of medicine might look like with AI, and what needs to happen first. The framing points to both the potential of AI in health and the groundwork that the source suggests must come before that potential is realized.\n\n## Who the Discussion Is For\n\nThe summary of the episode says it is meant to help technologists and policymakers weigh benefits and risks of AI in health. Business decisionmakers are also named among the stakeholders the series addresses. The material does not spell out specific medical applications, findings, or recommendations from the conversation, so the episode itself is the place to find how the guests answer the question of what needs to happen first.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "これって、ふだんの暮らしや仕事だと何が変わる話なの？",
-          "en": "So what does this change in everyday life or work? Is it that kind of story?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事は具体的な新機能の紹介ではなく、医療とAIの未来を議論する対談です。技術者や政策担当者、事業判断者が共通認識を築くのが狙いだそうです。",
-          "en": "This one isn't a new feature announcement. It's a conversation about AI and the future of medicine, meant to build shared understanding among technologists, policymakers and business decision-makers."
-        },
-        {
-          "s": "a",
-          "ja": "前は、こういう話し合いってなかったのかな？",
-          "en": "Did people not have conversations like this before?"
-        },
-        {
-          "s": "b",
-          "ja": "そこは記事からは分からないんです。ただ、技術の進みが速く、目指す明日を描きにくいことがこの番組の出発点だと書かれています。",
-          "en": "The article doesn't say, so I can't tell. It does say tech is moving so fast that defining the tomorrow we're aiming for is hard, and that's the starting point of the series."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ一番の収穫は、医療にAIを使う前に「何が先に必要か」を考えること、ってことかな？",
-          "en": "So the big takeaway is thinking about what needs to happen first before using AI in medicine?"
-        },
-        {
-          "s": "b",
-          "ja": "いい読み取りですね。記事も「何が先に必要か」を問いにしています。答えは対談の中身を聞いて確かめたいところです。",
-          "en": "Nice reading. The article frames it as a question too: what needs to happen first? The answers are something to check in the conversation itself."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T04:38:37.413Z"
-    },
     "cf23135d6ba00615": {
       "bodyJa": "## Grok 4.5の脚注が示したもの\n\n2026年7月8日、CursorとSpaceXAIが共同訓練したGrok 4.5が発表された。その脚注には、Grok 4.5はCursorBenchで有利になっているとの記載がある。Cursorコードベースの以前のスナップショットが誤って学習に含まれていたためで、正確な影響は不明だという。「ベンチマーク汚染」を一括りにせず、種類ごとに区別して評価結果を読むべきだというのが、この記事の主張である。\n\nCursorの発表は、重複による影響を正確に算定できないとして、Grok 4.5の評価結果からCursorBenchを除外した。該当データは将来のモデルの訓練対象から外し、並行してCursorBenchの大規模更新を進めるとしている。\n\n## FrontierCode 1.1の課題\n\nその前日、CognitionはFrontierCode 1.1を公開した。中心課題は、評価実行中のエージェントが公開Webやパッケージから既存の修正を見つける「不公平なインターネット利用」である。\n\nつまりFrontierCode 1.1が扱ったのは、評価実行時に公開済みの解答へ到達する経路を制御する問題だ。記事は、FrontierCode自体に学習時汚染が確認されたわけではないと明記している。\n\n## 発生段階の違い\n\n同じ週に表面化した2つの問題は、発生した段階が異なると整理されている。\n\nCursorBench/Grok 4.5は、訓練データと評価用コードベースの重複が確認された事例である。FrontierCode 1.1は、評価の実行中に解答へ到達できてしまう経路を制御した事例だ。前者は学習の段階、後者は評価の段階の問題といえる。記事によれば、この違いはこれからのコーディングベンチマークを読むうえで重要になる。\n\n## 評価の読み方\n\n記事は2つの事例を起点に、汚染耐性だけでなく、評価器の妥当性や運営体制まで含めて検討するとしている。検討は2026年7月13日時点で公開されている各運営元の一次資料に基づく。\n\n非公開の訓練コーパスとCursorBenchのタスク本体は外部から監査できない。そのため記事は、公開情報で確認できる範囲と、そこから導く分析を区別して記述する方針である。\n\nなお記事は、前提となる用語の整理としてベンチマークを「AIモデルの能力を測るための共通テスト」と定義するところから本題に入っている。",
       "bodyEn": "## 2つの問題が同じ週に表面化\n\nThis article uses two cases from the same week to argue that \"benchmark contamination\" should not be treated as a single phenomenon. According to the source, the distinction matters for anyone reading coding-benchmark results.\n\nThe first case is the July 8, 2026 announcement of Grok 4.5, which Cursor and SpaceXAI trained jointly. A footnote in that announcement says Grok 4.5 has an advantage on CursorBench because an earlier snapshot of the Cursor codebase was included in training by mistake, and that the exact effect is unknown. The second case is FrontierCode 1.1, which Cognition released the day before.\n\n## 訓練データと評価コードベースの重複\n\nIn the CursorBench case, the overlap between training data and the evaluation codebase was confirmed. The Cursor announcement says it cannot calculate the exact effect of this overlap, so it excluded CursorBench from Grok 4.5's evaluation results. It also says the affected data will be removed from the training targets of future models, and that a large-scale update of CursorBench is under way in parallel.\n\n## 評価実行時の「不公平なインターネット利用」\n\nFrontierCode 1.1 addressed a different problem. According to the article, its central issue was \"unfair internet use\": agents running during an evaluation could find existing fixes on the public web or in packages. The article describes this as a case of controlling the routes by which an agent can reach already-published solutions at evaluation time. It states that contamination during training has not been confirmed for FrontierCode itself.\n\n## 評価の読み方\n\nThe author's point is that the two problems arise at different stages. One is an overlap between training data and the evaluation codebase. The other is access to published answers while the evaluation is running. The article says this difference is important when reading future coding benchmarks, and that it will consider not only contamination resistance but also the validity of the evaluator and how the benchmark is operated.\n\nThe assessment is based on primary materials published by each operator as of July 13, 2026. The article notes that the non-public training corpus and the CursorBench tasks themselves cannot be audited from outside. It therefore separates what public information can confirm from the analysis derived from it.",
@@ -14667,44 +14693,6 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T10:31:44.883Z"
-    },
-    "e781aae55ec024a5": {
-      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
-      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
-          "en": "If my team wants to modernize an app, how does the usual way of working change?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
-          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
-        },
-        {
-          "s": "a",
-          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
-          "en": "So people used to start by picking a framework? And what is that evidence for?"
-        },
-        {
-          "s": "b",
-          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
-          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
-          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
-        },
-        {
-          "s": "b",
-          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
-          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-27T21:40:18.238Z"
     },
     "d8fd57a6144d1d56": {
       "bodyJa": "## 課金基準改定の影響\n\nAIエージェントの利用量が急増するなか、著者の現場ではGitHub Copilotの課金基準改定が大きな影響を与えたという。従来は重いタスクや大量の情報を投げても1リクエストの料金が変わらなかったが、改定後はトークン量、つまりAIへの入力と出力の情報量に応じた課金に変わった。\n\nこの変更に対応するには、AIに余計な情報を渡さないことが重要だと著者は述べている。送る情報が増えるほど費用がかかるためだ。\n\n## 約5万トークンの削減\n\n著者は自身が関わるプロジェクトでこの観点に沿った改善を行い、1回のリクエストあたり約5万トークン（日本語の概算で5.3万文字）を削減できたと報告している。タスクによってはクレジットの消費量が半減したとされる。\n\n改善の要となったのは、MCPサーバーとスキル(SKILL)の構成の見直しだ。不要なツールを整理する棚卸しによって、トークン消費を抑えられることが示されている。\n\n## AIはステートレス\n\n記事はまず前提として、AIがステートレス、つまり記憶を持たない点を押さえている。人間は経験を蓄積し続けるが、AIは毎回きれいに忘れるという説明だ。\n\nそれでも会話が成立したり、特定の人格を演じたり、個人に合わせた返答ができたりするのは、毎回の入力に補足情報が付け加えられているからだと説明されている。記事の例では、「太郎は散歩が好き」「あなたは太郎の友達の涼子20歳です」といった設定や、それまでのやり取りが、発言のたびに添えられている。この補足情報によって、AIはあたかも会話内容や個人情報を覚えているかのように振る舞えるという。\n\n## MCPサーバーとの関係\n\n続いて記事は、AIと外部システムを連携させる際にMCPサーバーが使われることがある、という話に進む。補足情報が毎回の入力に加わり、それが課金の対象になるという流れを踏まえると、MCPやスキルの構成が入力量に関わる点が見直しの焦点になるとわかる。\n\n具体的な棚卸しの手順や詳細は、この続きで解説される構成になっている。",
@@ -14863,6 +14851,196 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T11:28:48.856Z"
+    },
+    "b2937bbd676220f2": {
+      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
+      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
+          "en": "If my team wants to modernize an app, how does the usual way of working change?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
+          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
+        },
+        {
+          "s": "a",
+          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
+          "en": "So people used to start by picking a framework? And what is that evidence for?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
+          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
+          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
+          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:40:18.238Z"
+    },
+    "9bf242a7c3461006": {
+      "bodyJa": "GitHub Copilotのブログは、エージェントスキルを「繰り返し作業の手順を再利用可能にする仕組み」として紹介している。同じ説明をエージェントに何度もする手間や、特定の人の頭の中にだけあるノウハウを残す手段として位置づけられている。\n\n## 同じ説明の繰り返し\n\nブログはまず、今週同じタスクをエージェントに何度説明し直したか、組織の事情に詳しい同僚に特定の問題の解き方を何度尋ねたか、と問いかける。こうした文脈はチャットの中に埋もれたり、一人の頭の中に閉じ込められたりするべきではない、というのが出発点だ。\n\nエージェントスキルは、繰り返し行う作業の指示を記録しておき、自分もエージェントも再利用できるようにするものと説明されている。\n\n## SKILL.mdを軸にした構造\n\nエージェントスキルの実体は、SKILL.mdというファイルを中心に置いた、バージョン管理されるディレクトリである。SKILL.mdには、繰り返し行う作業を「いつ」「どのように」行うのかが記述される。\n\n指示そのものはファイルとして書き残されるため、複数のエージェント間で共有できる。ディレクトリ単位でバージョンを管理できる点も、手順を資産として扱ううえでの特徴だ。\n\n## 権限は付与されない\n\n共有できるのは指示だけで、実行に必要なものは別に用意しなければならない。ブログによれば、ツール、認証情報、権限は実行環境が提供する必要がある。\n\n例として挙げられているのがデータベースだ。スキルにはデータベースへのクエリの方法を記述できるが、そのデータベースへのアクセス権を与えるわけではない。スキルは手順書であり、手順を実行する力は環境側にある、という切り分けである。\n\n## 個人からチームへ\n\nブログは、今夜自分のために書いたスキルが、後にチームのパイプラインの一部になりうると述べている。個人の工夫として始めた手順を、同じ形式のまま共有の資産へ広げられるという見方だ。\n\n個人の経験則をチームで使える形にしたい開発者にとって、スキルは手順を残して共有するための出発点になる。ただし、共有先のエージェントが実際に動くかどうかは、そこで使えるツールや認証、権限が整っているかにも左右される。",
+      "bodyEn": "Agent skills are the subject of a GitHub Copilot blog guide, which argues that developers should not keep re-explaining the same task to an agent. The guide's framing is that this context should not be lost in a chat or locked in one person's head.\n\n## Repeatable instructions, captured\n\nThe guide begins with two questions. How many times this week did you re-explain the same task to an agent? How many times did you ask a colleague with deep institutional knowledge how to solve a specific problem? According to the source, agent skills let you capture repeatable instructions so that you and your agents can reuse them.\n\nThe source also describes a path from personal use to shared use. A skill you write for yourself tonight can later become part of a team's pipeline.\n\n## A directory built around SKILL.md\n\nThe guide defines an agent skill as a versioned directory centered on a SKILL.md file. That file describes when and how to do a repeatable task. Because the skill is a versioned directory, the instructions have a defined, trackable form rather than living only in conversation history.\n\nThe guide says these instructions can be shared across agents. This matches the promise in its title: build a skill once, and it works with any agent.\n\n## Tools, credentials, and permissions\n\nThe guide also states a limit. Sharing instructions across agents does not mean the agents can carry them out on their own. The environment still has to provide the tools, credentials, and permissions needed to do the work.\n\nThe source gives a concrete example. A skill can describe how to query a database, but it does not grant access to that database. The skill covers the when and how of a task, and access remains a matter for the environment in which the agent runs.\n\n## Turning know-how into team assets\n\nThe guide is aimed at developers who want to turn personal know-how into something a team can reuse. The skill is the vehicle for that: written down once, kept in a versioned directory, and usable by more than one agent, provided the runtime supplies the access the task requires.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "同じ作業を何度もエージェントに説明し直すって、この記事の最初の問いかけにドキッとしたよ。スキルがあると、それが減るの？",
+          "en": "That opening question about re-explaining the same task to an agent hit home. Do skills actually cut that down?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、繰り返す作業の手順を残して、自分もエージェントも再利用できるようにするのがスキルの狙いだよ。チャットや個人の頭の中に埋もれさせないんだ。",
+          "en": "That's the idea in this piece: capture the steps of a repeatable task so you and your agents can reuse them, instead of losing them in a chat or one person's head."
+        },
+        {
+          "s": "a",
+          "ja": "SKILL.mdを軸にしたバージョン管理できるディレクトリって、どういうこと？",
+          "en": "What does \"a versioned directory centered on SKILL.md\" mean?"
+        },
+        {
+          "s": "b",
+          "ja": "SKILL.mdに「いつ、どうやるか」を書いて、そのフォルダごと履歴を管理する感じかな。バージョン管理は、変更の記録を残せる仕組みくらいの意味だよ。",
+          "en": "Roughly, SKILL.md says when and how to do a task, and the whole folder is tracked over time. Versioning just means changes get recorded."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあデータベースの調べ方をスキルに書けば、エージェントがそのまま調べてくれる？",
+          "en": "So if I write down how to query our database in a skill, will the agent just go and do it?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは注意で、記事だとスキルは手順を説明するだけで、アクセス権までは与えないよ。ツールや認証、権限は実行環境側で用意する必要があるんだ。",
+          "en": "Careful there. This article says a skill describes the steps but doesn't grant access. The environment still has to supply the tools, credentials, and permissions."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:38:07.424Z"
+    },
+    "df55124286315754": {
+      "bodyJa": "## 1週間で12億コミット\n\nGitHub Copilotのブログは、コード生成の先にあるエージェント型エンジニアリングを取り上げ、実装が速くなった後の開発者の仕事をどう進めるかを論じている。\n\n同ブログによると、この10月にGitHubでは1週間で12億件を超えるコミットが記録された。1年前と比べて400%超の増加で、2025年の1年間に受け取ったコミット数より多いという。\n\n## 生産性は400%上がったか\n\nコードを生成する量は、1年前より増えている可能性が高い。ただし著者は、自分が400%生産的になったと感じるかどうかを読者に問いかける。ソフトウェア開発は優れたプロンプトだけで成り立つものではない、という立場である。\n\n## レビュー時間441%増\n\nAIが実装を加速させる一方で、負荷は別の場所にかかっている。Faros AIの調査では、AIの導入度合いが低い状態から高い状態に移ったチームで、プルリクエストがレビューに費やす時間が441%長くなったと紹介されている。\n\n## 4つの工程\n\n開発者の仕事は、要件を集めて実装の舵を取ること、変更をレビューしてテスト結果を評価すること、そして本番環境で起きていることを調べることに及ぶ。エージェントは、こうした一連の作業をPlan、Build、Verify、Observeの4つの段階で効率化する助けになるとされている。",
+      "bodyEn": "## Beyond Code Generation\n\nGitHub Copilot's guide to agentic engineering starts from a question about productivity. It matters because faster code generation does not by itself make software development proportionally faster. According to the source, GitHub saw more than 1.2 billion commits in a single week this October, over 400% more than a year earlier. The source adds that this is more commits than GitHub received in all of 2025.\n\n## Pressure Moves Downstream\n\nThe source asks whether developers feel 400% more productive than last year. Its answer is that building software takes more than a good prompt. As AI speeds up implementation, the source says, developers feel more pressure in other places. It cites a Faros AI study finding that pull requests spent 441% longer in review when teams went from low to high AI adoption.\n\nThis is the central tension the guide addresses. More code is being produced, but review time grew sharply as teams adopted AI more heavily. The work that surrounds implementation has not shrunk to match.\n\n## Plan, Build, Verify, Observe\n\nThe source describes a developer's job as broader than writing code. Developers gather requirements and steer implementation, review changes and evaluate test results, and then investigate what happens in production. The guide's argument is that agents can help across all of these stages, which it names Plan, Build, Verify, and Observe.\n\nMapped onto that description, the stages line up roughly as follows. Plan and Build cover gathering requirements and steering implementation. Verify covers reviewing changes and evaluating test results. Observe covers investigating what happens in production. The framing treats code generation as one part of a larger cycle rather than the whole of the work.\n\n## What This Means for Developers\n\nThe guide is positioned as an introduction to agentic engineering for developers, aimed at managing work beyond code generation. Its premise is that the areas feeling the strain, such as review, are where agents can also be applied, not only at the point where code is written. The material provided here covers this framing and the figures behind it. It does not detail specific workflows, features, or instructions for each stage.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIでコードをたくさん書けるようになったら、普段の仕事って何が変わるの？",
+          "en": "If AI helps us write so much more code, what actually changes in everyday work?"
+        },
+        {
+          "s": "b",
+          "ja": "書く速さが上がる分、レビューなど他の工程に負担が寄るみたい。この記事はPlan・Build・Verify・Observeの4段階で考えているよ。",
+          "en": "Writing gets faster, but the pressure seems to shift to other stages like review. This article frames it as four stages: Plan, Build, Verify, and Observe."
+        },
+        {
+          "s": "a",
+          "ja": "前は、コード生成だけで困らなかったのかな？比べて何が違うの？",
+          "en": "Was code generation alone fine before? What's different now?"
+        },
+        {
+          "s": "b",
+          "ja": "以前どうだったかまでは書かれていないんだ。ただ、AI導入が低から高になるとレビュー時間が441%長くなった調査が紹介されているよ。",
+          "en": "The article doesn't say how things were before. It does cite a study where review time rose 441% when teams moved from low to high AI adoption."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ収穫は、コードが増えても、同じだけ楽になるとは限らないってことだね。",
+          "en": "So my takeaway: more code doesn't automatically mean the same jump in productivity, right?"
+        },
+        {
+          "s": "b",
+          "ja": "記事もそこを問いかけているね。次は、検証や本番の観察でエージェントがどう助けになるか、に注目したいな。",
+          "en": "The article raises that very question. Next, I'd watch how agents can help with verification and with observing what happens in production."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:41:04.647Z"
+    },
+    "5cb4ed49cbdddf72": {
+      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
+      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
+          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
+          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
+        },
+        {
+          "s": "a",
+          "ja": "シークレットって、秘密のコードってこと？",
+          "en": "Does “secret” mean secret code?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
+          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
+          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
+          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T20:07:43.460Z"
+    },
+    "5e51eeb6149782a6": {
+      "bodyJa": "OpenAIは、AIがEU域内の仕事をどう変えうるかを整理した新しいレポートを公表した。欧州のAI関連雇用の現状と、職種間の移行可能性を分析した内容とされる。\n\n## 職種ごとの影響\n\nレポートは、どの職種で自動化が進みうるのか、どの職種で成長が見込まれるのか、そして業務の進め方が変わりうるのかを区別して描いていると説明されている。AIの影響を一括りにせず、職種単位で捉える構成だ。\n\n## 移行可能性と課題\n\n分析の軸には、仕事の移行可能性と、AI導入が労働市場に与える影響がある。これにより、労働市場におけるAI活用の機会と課題が明らかにされたという。個別の数値や対象職種の詳細は、ここで確認できる範囲では示されていない。",
+      "bodyEn": "## Mapping AI Across EU Jobs\n\nOpenAI has released a report that maps how AI could reshape jobs across the European Union. The topic matters because the report looks at the labor market effects of AI adoption across the region.\n\nAccording to the announcement, the report highlights which occupations may face automation, growth, or changes to their workflows.\n\n## Transition Potential and Opportunities\n\nThe report also analyzes job transition potential, meaning how workers might move between roles as AI is adopted. OpenAI says the analysis covers AI-related employment in Europe and sets out both the opportunities and the challenges that AI use brings to the labor market.\n\nThe source gives no further detail on methodology, specific occupations, or figures.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "仕事がなくなる話だけじゃなくて、増える仕事も調べてるの？",
+          "en": "Is it only about jobs disappearing, or does it look at jobs that might grow too?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、自動化されそうな職種、成長しそうな職種、仕事の進め方が変わりそうな職種の3つに注目しているよ。",
+          "en": "The piece highlights three groups: jobs that may face automation, jobs that may grow, and jobs where the workflow may change."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、どの仕事が変わりそうか、先に見当をつけるための地図ってこと？",
+          "en": "So it's like a map to get a rough idea of which jobs might change first?"
+        },
+        {
+          "s": "b",
+          "ja": "そう見ることもできるかも。記事では、EU全体で雇用の移行可能性やAI導入の労働市場への影響を分析したと説明されているよ。",
+          "en": "You could see it that way. The article says it analyzes job transition potential and AI adoption's labor market impact across the EU."
+        },
+        {
+          "s": "a",
+          "ja": "減る話だけじゃなく、増える仕事や進め方の変化も含めて見てるんだね。",
+          "en": "Got it. It's not just about losses, but also growth and changes in how work gets done."
+        },
+        {
+          "s": "b",
+          "ja": "うん。ただ、ここで分かるのは「こうなりうる」という分析の整理で、実際にどうなるかまでは断定していないよ。",
+          "en": "Right. But it shows what could happen, not a firm prediction. The article doesn't claim to say exactly how things will turn out."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T12:39:17.112Z"
     }
   }
 }

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T12:30:48.855Z",
-  "count": 418,
+  "generatedAt": "2026-11-28T13:30:51.747Z",
+  "count": 419,
   "bodies": {
     "17f496c665a12174": {
       "bodyJa": "Metaは、AIネイティブ時代に向けたプライバシー対応インフラの中核として、社内の膨大なデータアセットを正確に分類する取り組みをエンジニアリングブログで公開した。データ保持期間やアクセス制御、利用目的の制限、第三者への共有可否、匿名化といったプライバシー制御は、対象となるデータの性質を正しく把握して初めて機能するためだ。\n\n同社の出発点はシンプルである。あらゆるプライバシーコントロールは「どこに、どのようなデータが存在するか」という信頼できる理解を前提とする。たとえば特定の個人情報を一定期間で削除する保持ポリシーを適用するには、まずそのデータがどのテーブルやログ、ストレージのどこに含まれているかを機械的に判別できなければならない。分類が曖昧なままでは、制御そのものが空回りしてしまう。\n\nしかし、この前提を大規模に満たすことは容易ではない。Meta規模のサービスでは、データは無数のシステムを横断して生成・変換・複製され、形式やスキーマも多様だ。さらに生成AIや機械学習パイプラインの普及により、学習用データセットや派生データが増え、データの流れはいっそう複雑になっている。こうした環境で分類の精度と網羅性を保つには、自動化された分類基盤と継続的な検証の仕組みが欠かせない。\n\nこの課題は業界共通のものでもある。EUのGDPRや米カリフォルニア州のCCPAをはじめとする各国の規制は、データの利用目的や保持に厳格な要件を課しており、データガバナンスの基盤整備は大手テック各社にとって避けて通れない。GoogleやMicrosoftなども独自のデータ分類・カタログ化の仕組みを整えてきたとされ、Metaの今回の公開はその一つの実装例と位置づけられる。\n\nAIの普及はデータ活用の幅を広げる一方で、プライバシー保護の難度を押し上げている。データを正確に「知る」ための分類基盤は、派手さこそないが、信頼できるAIサービスを支える土台になると見られる。Metaの事例は、プライバシーを後付けではなく設計段階から組み込む「プライバシー・バイ・デザイン」の実践として参考になりそうだ。",
@@ -14188,158 +14188,6 @@
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-05T13:13:27.097Z"
     },
-    "d9302d8306c35a57": {
-      "bodyJa": "GitHub Copilotのブログは、エージェントスキルを「繰り返し作業の手順を再利用可能にする仕組み」として紹介している。同じ説明をエージェントに何度もする手間や、特定の人の頭の中にだけあるノウハウを残す手段として位置づけられている。\n\n## 同じ説明の繰り返し\n\nブログはまず、今週同じタスクをエージェントに何度説明し直したか、組織の事情に詳しい同僚に特定の問題の解き方を何度尋ねたか、と問いかける。こうした文脈はチャットの中に埋もれたり、一人の頭の中に閉じ込められたりするべきではない、というのが出発点だ。\n\nエージェントスキルは、繰り返し行う作業の指示を記録しておき、自分もエージェントも再利用できるようにするものと説明されている。\n\n## SKILL.mdを軸にした構造\n\nエージェントスキルの実体は、SKILL.mdというファイルを中心に置いた、バージョン管理されるディレクトリである。SKILL.mdには、繰り返し行う作業を「いつ」「どのように」行うのかが記述される。\n\n指示そのものはファイルとして書き残されるため、複数のエージェント間で共有できる。ディレクトリ単位でバージョンを管理できる点も、手順を資産として扱ううえでの特徴だ。\n\n## 権限は付与されない\n\n共有できるのは指示だけで、実行に必要なものは別に用意しなければならない。ブログによれば、ツール、認証情報、権限は実行環境が提供する必要がある。\n\n例として挙げられているのがデータベースだ。スキルにはデータベースへのクエリの方法を記述できるが、そのデータベースへのアクセス権を与えるわけではない。スキルは手順書であり、手順を実行する力は環境側にある、という切り分けである。\n\n## 個人からチームへ\n\nブログは、今夜自分のために書いたスキルが、後にチームのパイプラインの一部になりうると述べている。個人の工夫として始めた手順を、同じ形式のまま共有の資産へ広げられるという見方だ。\n\n個人の経験則をチームで使える形にしたい開発者にとって、スキルは手順を残して共有するための出発点になる。ただし、共有先のエージェントが実際に動くかどうかは、そこで使えるツールや認証、権限が整っているかにも左右される。",
-      "bodyEn": "Agent skills are the subject of a GitHub Copilot blog guide, which argues that developers should not keep re-explaining the same task to an agent. The guide's framing is that this context should not be lost in a chat or locked in one person's head.\n\n## Repeatable instructions, captured\n\nThe guide begins with two questions. How many times this week did you re-explain the same task to an agent? How many times did you ask a colleague with deep institutional knowledge how to solve a specific problem? According to the source, agent skills let you capture repeatable instructions so that you and your agents can reuse them.\n\nThe source also describes a path from personal use to shared use. A skill you write for yourself tonight can later become part of a team's pipeline.\n\n## A directory built around SKILL.md\n\nThe guide defines an agent skill as a versioned directory centered on a SKILL.md file. That file describes when and how to do a repeatable task. Because the skill is a versioned directory, the instructions have a defined, trackable form rather than living only in conversation history.\n\nThe guide says these instructions can be shared across agents. This matches the promise in its title: build a skill once, and it works with any agent.\n\n## Tools, credentials, and permissions\n\nThe guide also states a limit. Sharing instructions across agents does not mean the agents can carry them out on their own. The environment still has to provide the tools, credentials, and permissions needed to do the work.\n\nThe source gives a concrete example. A skill can describe how to query a database, but it does not grant access to that database. The skill covers the when and how of a task, and access remains a matter for the environment in which the agent runs.\n\n## Turning know-how into team assets\n\nThe guide is aimed at developers who want to turn personal know-how into something a team can reuse. The skill is the vehicle for that: written down once, kept in a versioned directory, and usable by more than one agent, provided the runtime supplies the access the task requires.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "同じ作業を何度もエージェントに説明し直すって、この記事の最初の問いかけにドキッとしたよ。スキルがあると、それが減るの？",
-          "en": "That opening question about re-explaining the same task to an agent hit home. Do skills actually cut that down?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、繰り返す作業の手順を残して、自分もエージェントも再利用できるようにするのがスキルの狙いだよ。チャットや個人の頭の中に埋もれさせないんだ。",
-          "en": "That's the idea in this piece: capture the steps of a repeatable task so you and your agents can reuse them, instead of losing them in a chat or one person's head."
-        },
-        {
-          "s": "a",
-          "ja": "SKILL.mdを軸にしたバージョン管理できるディレクトリって、どういうこと？",
-          "en": "What does \"a versioned directory centered on SKILL.md\" mean?"
-        },
-        {
-          "s": "b",
-          "ja": "SKILL.mdに「いつ、どうやるか」を書いて、そのフォルダごと履歴を管理する感じかな。バージョン管理は、変更の記録を残せる仕組みくらいの意味だよ。",
-          "en": "Roughly, SKILL.md says when and how to do a task, and the whole folder is tracked over time. Versioning just means changes get recorded."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあデータベースの調べ方をスキルに書けば、エージェントがそのまま調べてくれる？",
-          "en": "So if I write down how to query our database in a skill, will the agent just go and do it?"
-        },
-        {
-          "s": "b",
-          "ja": "そこは注意で、記事だとスキルは手順を説明するだけで、アクセス権までは与えないよ。ツールや認証、権限は実行環境側で用意する必要があるんだ。",
-          "en": "Careful there. This article says a skill describes the steps but doesn't grant access. The environment still has to supply the tools, credentials, and permissions."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T05:38:07.424Z"
-    },
-    "9c3380ee4f1290dc": {
-      "bodyJa": "## 1週間で12億コミット\n\nGitHub Copilotのブログは、コード生成の先にあるエージェント型エンジニアリングを取り上げ、実装が速くなった後の開発者の仕事をどう進めるかを論じている。\n\n同ブログによると、この10月にGitHubでは1週間で12億件を超えるコミットが記録された。1年前と比べて400%超の増加で、2025年の1年間に受け取ったコミット数より多いという。\n\n## 生産性は400%上がったか\n\nコードを生成する量は、1年前より増えている可能性が高い。ただし著者は、自分が400%生産的になったと感じるかどうかを読者に問いかける。ソフトウェア開発は優れたプロンプトだけで成り立つものではない、という立場である。\n\n## レビュー時間441%増\n\nAIが実装を加速させる一方で、負荷は別の場所にかかっている。Faros AIの調査では、AIの導入度合いが低い状態から高い状態に移ったチームで、プルリクエストがレビューに費やす時間が441%長くなったと紹介されている。\n\n## 4つの工程\n\n開発者の仕事は、要件を集めて実装の舵を取ること、変更をレビューしてテスト結果を評価すること、そして本番環境で起きていることを調べることに及ぶ。エージェントは、こうした一連の作業をPlan、Build、Verify、Observeの4つの段階で効率化する助けになるとされている。",
-      "bodyEn": "## Beyond Code Generation\n\nGitHub Copilot's guide to agentic engineering starts from a question about productivity. It matters because faster code generation does not by itself make software development proportionally faster. According to the source, GitHub saw more than 1.2 billion commits in a single week this October, over 400% more than a year earlier. The source adds that this is more commits than GitHub received in all of 2025.\n\n## Pressure Moves Downstream\n\nThe source asks whether developers feel 400% more productive than last year. Its answer is that building software takes more than a good prompt. As AI speeds up implementation, the source says, developers feel more pressure in other places. It cites a Faros AI study finding that pull requests spent 441% longer in review when teams went from low to high AI adoption.\n\nThis is the central tension the guide addresses. More code is being produced, but review time grew sharply as teams adopted AI more heavily. The work that surrounds implementation has not shrunk to match.\n\n## Plan, Build, Verify, Observe\n\nThe source describes a developer's job as broader than writing code. Developers gather requirements and steer implementation, review changes and evaluate test results, and then investigate what happens in production. The guide's argument is that agents can help across all of these stages, which it names Plan, Build, Verify, and Observe.\n\nMapped onto that description, the stages line up roughly as follows. Plan and Build cover gathering requirements and steering implementation. Verify covers reviewing changes and evaluating test results. Observe covers investigating what happens in production. The framing treats code generation as one part of a larger cycle rather than the whole of the work.\n\n## What This Means for Developers\n\nThe guide is positioned as an introduction to agentic engineering for developers, aimed at managing work beyond code generation. Its premise is that the areas feeling the strain, such as review, are where agents can also be applied, not only at the point where code is written. The material provided here covers this framing and the figures behind it. It does not detail specific workflows, features, or instructions for each stage.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIでコードをたくさん書けるようになったら、普段の仕事って何が変わるの？",
-          "en": "If AI helps us write so much more code, what actually changes in everyday work?"
-        },
-        {
-          "s": "b",
-          "ja": "書く速さが上がる分、レビューなど他の工程に負担が寄るみたい。この記事はPlan・Build・Verify・Observeの4段階で考えているよ。",
-          "en": "Writing gets faster, but the pressure seems to shift to other stages like review. This article frames it as four stages: Plan, Build, Verify, and Observe."
-        },
-        {
-          "s": "a",
-          "ja": "前は、コード生成だけで困らなかったのかな？比べて何が違うの？",
-          "en": "Was code generation alone fine before? What's different now?"
-        },
-        {
-          "s": "b",
-          "ja": "以前どうだったかまでは書かれていないんだ。ただ、AI導入が低から高になるとレビュー時間が441%長くなった調査が紹介されているよ。",
-          "en": "The article doesn't say how things were before. It does cite a study where review time rose 441% when teams moved from low to high AI adoption."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ収穫は、コードが増えても、同じだけ楽になるとは限らないってことだね。",
-          "en": "So my takeaway: more code doesn't automatically mean the same jump in productivity, right?"
-        },
-        {
-          "s": "b",
-          "ja": "記事もそこを問いかけているね。次は、検証や本番の観察でエージェントがどう助けになるか、に注目したいな。",
-          "en": "The article raises that very question. Next, I'd watch how agents can help with verification and with observing what happens in production."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T01:41:04.647Z"
-    },
-    "c4607aa43c817be8": {
-      "bodyJa": "AIコーディングツールはコードを素早く生成できますが、速度だけではソフトウェアエンジニアリングの最も難しい課題は解決しません。GitHub Copilotを実務でどう使いこなすかについて、3人のJava Championが具体例と実践を語っています。\n\n## 速度だけでは足りない\n\n記事は、AIが生成したコードをそのまま使えば済むわけではないという前提から始まります。開発者には、AIに文脈を与えること、出てきた結果を検証すること、保守性を守ることが引き続き求められます。さらに、最終的に出荷されるものへの責任も開発者自身に残るとされています。\n\n## 3人のJava Champion\n\n話を聞いたのは、いずれもJavaを10年以上使ってきた3人のJava Championです。経験豊富な開発者がこのバランスをどう取っているかを探るのが狙いで、本番開発とオープンソースの両方でGitHub Copilotを使った具体例が紹介されています。あわせて、AIが生成した出力を信頼できるソフトウェアへ仕上げるために各人が実践している方法も共有されています。\n\n## Hypersistenceでの活用\n\n「最近GitHub Copilotはどのように役立ったか」という問いに対する回答の一つとして、Hypersistence UtilsとHypersistence Optimizerの両方で使っているという例が挙がっています。用途は、さまざまな機能の分析、設計、実装です。コードを書く工程だけでなく、その前段にあたる分析や設計にも使われている点が読み取れます。\n\n## 文脈・検証・保守性\n\nこの記事で繰り返し示されているのは、文脈を渡し、結果を確かめ、保守しやすい状態を保つという姿勢です。Copilotの生成速度を活かしつつ、品質と説明責任は人間が引き受ける、という考え方といえます。AI支援で書いたコードを信頼できるものにしたい開発者にとって、経験者がどんな習慣を持っているかを知る手がかりになります。",
-      "bodyEn": "## Speed alone is not enough\n\nAI coding tools can generate code quickly, but the source argues that speed does not solve the hardest software engineering problems. Developers still need to provide context, validate results, protect maintainability, and remain accountable for what ships. That is the frame for a set of conversations with experienced Java developers about how they use GitHub Copilot.\n\n## Three Java Champions\n\nThe article draws on interviews with three Java Champions, each with more than a decade of experience using Java. According to the source, they shared concrete examples of using GitHub Copilot in both production work and open source. They also described the practices they follow to turn AI-generated output into reliable software. The piece is organized around tips collected from these conversations, which is useful for developers who want AI-assisted code they can trust.\n\n## How has Copilot helped you recently?\n\nThe article poses this question to its interviewees. The one answer the source presents in full comes from a developer who says they have been using GitHub Copilot to analyze, design, and implement various features in two projects, Hypersistence Utils and Hypersistence Optimizer. That description covers more than code generation. It spans analysis and design as well as implementation, which fits the article's point that the tool is used within a broader engineering workflow rather than only to produce code faster.\n\n## What readers can take from it\n\nThe central message is that the value of AI coding tools depends on the habits around them. The article names three of these: giving the tool context, checking its results, and keeping the code maintainable. It also stresses that developers stay responsible for what they release. Readers who want practical, experience-based examples of how to apply these ideas with GitHub Copilot, in both commercial and open source settings, are the audience the piece is written for.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "Java Championが3人も出てくるんだね。どの人も10年以上のJava経験ってあるけど、これって大きいこと？",
-          "en": "Three Java Champions, each with over ten years of Java experience. Is that a big deal?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、経験豊富な人がAIとどう付き合うかを知るために3人に話を聞いています。速さだけでは難しい問題は解けない、という前提なんです。",
-          "en": "The article talked to them to see how seasoned developers balance AI use. Its starting point is that speed alone doesn't solve the hardest engineering problems."
-        },
-        {
-          "s": "a",
-          "ja": "「文脈を渡す」ってどういうこと？Copilotに何を渡すのかな。",
-          "en": "What does \"provide context\" mean? What are we handing to Copilot?"
-        },
-        {
-          "s": "b",
-          "ja": "記事に細かい手順はないけど、一般的には、何を作りたいかや周りの状況を伝えることかな。そうすると的外れな答えが減るかもね。",
-          "en": "The article doesn't spell out steps. Generally it means telling the tool what you're building and the surrounding situation, which might cut down off-target answers."
-        },
-        {
-          "s": "a",
-          "ja": "私なら、新しい機能の分析や設計から相談してみたいな。でも最後まで任せていいの？",
-          "en": "I'd try it for analyzing and designing a new feature. But can I leave it to finish the job?"
-        },
-        {
-          "s": "b",
-          "ja": "記事は、結果の検証や保守性の確保、出荷するものへの責任は開発者に残ると言っています。分析や設計、実装に使う例はありますが、任せきりではないんです。",
-          "en": "The article says developers still validate results, protect maintainability, and stay accountable for what ships. It mentions analysis, design and implementation, but not hands-off use."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T08:39:14.739Z"
-    },
-    "aab87b57e449c025": {
-      "bodyJa": "GitHub Copilot app 入門シリーズの最新回は、Copilot にプロジェクト固有のルールを把握させる方法を扱っている。AI との作業では文脈が重要であり、規約やスクリプトをリポジトリ内に置いておけば、毎回同じ説明を繰り返さずに済むと説明されている。\n\n## コードベースごとの流儀\n\nどのコードベースにも、その場所ならではのハウスルールがある。コンポーネントをどう構成するか、どのスクリプトを実行するか、フレームワークやファイルの種類ごとにどの規約が適用されるか、といったことだ。Copilot はプロジェクト全体にわたる変更を手伝えるが、こうしたルールを知っているときのほうがよく機能するとされる。\n\nその知識の多くはリポジトリの中に置いておける。そうすれば Copilot が自動的に拾い上げるため、新しいタスクを始めるたびに同じ標準、スクリプト、ワークフローを人が説明し直す必要がなくなる。\n\n## 4つの調整方法\n\n今回の記事では、Copilot がプロジェクトに合わせて動く仕組みを整える方法として、4つの手法が紹介されている。そのうち、カスタム指示、エージェントスキル、カスタムエージェントの3つについて、役割の違いが次のように示されている。\n\n## 指示・スキル・エージェント\n\nカスタム指示は、Copilot が従うべき規約を伝えるためのものである。いわば、そのプロジェクトで守ってほしいルールを書き添えておく手段にあたる。\n\nエージェントスキルは、繰り返し行う手順をひとまとめにするためのものとされる。毎回同じ流れで進めたい作業を、再利用できる形で用意しておく発想だ。\n\nカスタムエージェントは、より大きなタスクに対して専門的なガイダンスをもたらす。規約を伝える、手順をまとめる、専門的な助言を加えるという形で、それぞれ異なる角度から Copilot の振る舞いを方向づけるものと整理できる。",
-      "bodyEn": "## Context matters with AI\n\nThis installment of the GitHub Copilot app for Beginners series looks at how to help Copilot understand a codebase. The source frames the problem simply: every project has its own house rules, and Copilot works best when it knows them.\n\nAccording to the source, those rules include how components are structured, which scripts to run, and which conventions apply to different frameworks and file types. Copilot can help make changes across a project, but it is more effective when it has this knowledge in hand.\n\n## Rules that live in the repository\n\nThe central idea is that much of this knowledge can be stored inside the repository itself. Copilot can then pick it up automatically, rather than a developer having to explain the same standards, scripts, and workflows each time a new task begins. For anyone who finds themselves repeating the same background to Copilot, this is the practical benefit the article highlights.\n\n## Four ways to tailor Copilot\n\nThe article says it will cover four ways to tailor how Copilot works with a project. The source text describes three of them:\n\nCustom instructions communicate the conventions Copilot should follow. In other words, they are the place to state a project's expected practices.\n\nAgent skills package repeatable procedures. They suit work that follows the same steps more than once.\n\nCustom agents bring specialized guidance to larger tasks. They are positioned for bigger pieces of work where focused direction helps.\n\nThe fourth method is not named in the material available here, so this explainer does not describe it.\n\n## What to take from it\n\nThe summary of the installment is that conventions and scripts can be kept in the repo so Copilot learns them without repeated prompting. The article is aimed at beginners using the GitHub Copilot app and is part of an ongoing series. Beyond the descriptions above, the source does not provide setup steps, file names, or examples, so the specifics of how each method is configured are left to the full installment.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "毎回同じ説明をしなくていいって書いてあったね。Copilotはどうやってルールを知るの？",
-          "en": "It says we don't have to repeat the same explanations every time. How does Copilot learn the rules?"
-        },
-        {
-          "s": "b",
-          "ja": "規約やスクリプトをリポジトリの中に置いておくと、Copilotが自動で拾ってくれる、という考え方だよ。",
-          "en": "The idea is to keep conventions and scripts inside the repository, so Copilot can pick them up automatically."
-        },
-        {
-          "s": "a",
-          "ja": "チームの決まりごとを置いておけば、新しい作業のたびに説明し直さなくていいってこと？ 手順も置けるのかな？",
-          "en": "So if we store our team's rules there, we skip re-explaining on each new task? Can procedures go in too?"
-        },
-        {
-          "s": "b",
-          "ja": "カスタム指示は守ってほしい規約を伝える役で、エージェントスキルは繰り返す手順をまとめる役だよ。",
-          "en": "Custom instructions communicate the conventions to follow, and agent skills package repeatable procedures."
-        },
-        {
-          "s": "a",
-          "ja": "つまりプロジェクトの「家のルール」を先に置いておくと、Copilotが合わせやすくなるんだね。",
-          "en": "So we put our project's house rules in place first, and Copilot can work with them more easily."
-        },
-        {
-          "s": "b",
-          "ja": "そうだね。ただ記事は「知識の多く」を置けると言っていて、全部とは言っていないよ。大きな作業にはカスタムエージェントも挙がってるね。",
-          "en": "Right. But the article says \"much of\" that knowledge can live in the repo, not all of it. Custom agents are mentioned for larger tasks."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T08:40:12.714Z"
-    },
     "4393dca00b5de0ae": {
       "bodyJa": "## Swiftワーカー経由\n\nApple Intelligenceのローカルな言語モデルを、使い慣れたPythonから呼び出す方法を扱った記事です。利用するのはFoundation Models APIですが、公式APIはSwiftで提供されています。そのためPythonから直接呼び出すのではなく、Swiftで書いたワーカーをローカル推論サーバーとして扱う構成が採られています。\n\nSwift Packageで .macOS(.v26) を使う場合は、swift-tools-version に 6.2 を指定する必要があります。コード例には、受け取った1行の文字列をUTF-8のデータに変換し、JSONDecoderで処理する部分も登場します。\n\n## 4,096トークンの予算\n\nSystemLanguageModelのコンテキスト上限は4,096トークンです。この上限はプロンプトだけに適用されるものではありません。instructions、会話履歴、Tool定義、構造化出力のSchema、モデルの出力まで含めた、セッション全体の予算だと説明されています。\n\n## セッションと履歴\n\nLanguageModelSessionは単一のコンテキストを保持します。同じインスタンスを再利用すると、過去のプロンプトと応答が後続リクエストのコンテキストにも含まれます。会話履歴は上記の予算に数えられるため、セッションを使い回す際にはこの点を意識する必要があります。\n\n## SchemaとToolの役割\n\nFoundation ModelsのSchemaは、出力されたJSONの形式を後処理で検査する仕組みではありません。生成時に、指定された構造へ出力を制約するものです。ただし、型や構造が正しいことと内容が正しいことは別だと強調されています。\n\nToolについては、モデルによる選択、引数の生成、Swiftコードの実行、結果のセッションへの再投入をFoundation Modelsが処理します。一方、Toolの具体的な機能やデータ取得の部分は、アプリ側で実装する必要があります。",
       "bodyEn": "## Calling Apple's on-device LLM from Python\n\nA Zenn article explains how to call Apple Intelligence's local LLM from Python through the Foundation Models API. It matters for anyone who wants to use the on-device model from a familiar scripting language rather than writing everything in Swift.\n\n## Apple SystemLanguageModel specifications\n\nThe article begins with the model's specification. The context limit is 4,096 tokens. According to the author, this is not just a prompt limit. It is a budget for the whole session, covering instructions, conversation history, tool definitions, the structured-output schema, and the model's own output.\n\nA LanguageModelSession holds a single context. If the same instance is reused, earlier prompts and responses are included in the context of later requests.\n\nThe article also describes how Foundation Models treats schemas. A schema does not check the output JSON in post-processing. It constrains generation to the specified structure. The author adds a caveat: a correct type and structure does not mean the content is correct.\n\n## Tool handling\n\nFor tools, the article says Foundation Models handles the model's tool selection, argument generation, execution of Swift code, and feeding of tool results back into the session. The concrete functionality of each tool and the data retrieval behind it are implemented on the app side.\n\n## A Swift worker as local server\n\nThe official Foundation Models API is Swift. For that reason, the article does not have Python call Foundation Models directly. Instead, it treats a Swift worker as a local inference server, and Python talks to that worker. The excerpted code includes a guard that converts a line of text to UTF-8 data and a JSONDecoder call, which suggests the worker exchanges line-based JSON messages. The article does not spell out the protocol in the portion available here, so that reading is an inference from the code fragments.\n\nOn build requirements, the article notes that a Swift Package targeting .macOS(.v26) needs swift-tools-version 6.2.\n\nIn short, the Python route described here runs through a Swift intermediary, and the article's notes on the 4,096-token budget, session reuse, schema constraints, and tool responsibilities describe the limits that apply when working with the on-device model.",
@@ -14605,6 +14453,164 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T11:27:53.697Z"
+    },
+    "f9c5095dcdcc7bb0": {
+      "bodyJa": "## Copilot アプリから VS Code へ\n\nGitHub Copilot アプリのセッションを Visual Studio Code で直接開き、そのまま作業を続けられると説明されている。エージェントが変更の大部分を終えたあと、細部の確認や手作業での修正、ローカルでの実行といった工程を、同じ流れの中で進められる点が要点だ。\n\n## 作業が分断される場面\n\n想定されているのは、エージェントが変更の大半を完了した段階だ。開発者はここで、ある実装の細部を確認し、数行を手で直し、出荷前にプロジェクトをローカルで動かしたいと考える。ところが作業は Copilot アプリの中にあり、差分のレビューやデバッグ、最終調整を行う場所はエディターである。\n\nこの状況で、アプリのセッションに留まるか、VS Code で最初からやり直すかの二択を迫られるように見える。それに対して、そのような選択は不要だというのが今回の説明だ。\n\n## 引き継がれるもの\n\nCopilot アプリのセッションを VS Code で開くと、会話、コードの変更、作業の文脈がそのまま保たれるとされる。新しく始め直すのではなく、同じセッションの続きとして扱える。\n\nこれにより、反復的な作業や時間のかかる作業は Copilot に任せ、その後の制御を開発者の手に戻すという進め方ができると説明されている。\n\n## 手順の流れ\n\n紹介されている流れは次の四つだ。まず Copilot アプリのセッションを VS Code で開く。次にエージェントによる変更を一行ずつ確認する。続いて同じ会話をエディターから継続する。最後にコードを修正し、ローカルでテストする。\n\n会話の継続とコードの手動編集が同じ場所で行えるため、エージェントへの追加の指示と自分での修正を行き来しやすくなる。具体的な操作手順や画面上のボタン名、対応する環境の条件などは示されていない。",
+      "bodyEn": "The GitHub Copilot app's agent can complete much of a code change, but developers often still want to inspect, adjust, and run the result in their editor. According to the GitHub Copilot blog, a Copilot app session can be opened directly in Visual Studio Code, so moving to the editor does not mean starting over.\n\n## The Agent Has Finished the Bulk\n\nThe post begins with a familiar situation. The agent has done most of your change, and you now want to inspect one implementation detail, adjust a few lines by hand, and run the project locally before shipping. The work is sitting in the GitHub Copilot app, while the editor is where you review diffs, debug code, and make final adjustments.\n\nThe post frames this as an apparent choice between staying in the session and starting over in VS Code. Its answer is that you don't have to choose.\n\n## Continue With Context Intact\n\nThe post says you can open the Copilot app session directly in VS Code and continue with its conversation, code changes, and working context intact. In other words, the chat, the code edits, and the surrounding context carry over rather than being left behind in the app.\n\nThe post describes this as a division of labor. Copilot handles the repetitive or time-consuming work, then hands control back to you for closer review, hands-on editing, and local testing.\n\n## Review, Edit, and Test Locally\n\nThe post summarizes the workflow in four steps. First, open a Copilot app session in VS Code. Second, review the agent's changes line by line. Third, continue the same conversation from your editor. Fourth, modify and test the code locally.\n\nThis matters most for developers who want the agent to do the heavy lifting but still want to check diffs, make manual corrections, and run the code themselves before finalizing. Because the same conversation continues in the editor, the session you started with the agent remains the thread you work from, rather than a separate starting point.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "エージェントが作業を終えたあとで、細かい部分は自分で直したいとき、どうすればいいの？",
+          "en": "When the agent finishes most of the work and I want to tweak the details myself, what do I do?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、Copilot アプリのセッションを VS Code で直接開けるんだ。会話や코ード変更、作業の文脈もそのまま続けられるよ。",
+          "en": "The article says you can open the Copilot app session directly in VS Code. The conversation, code changes, and working context all carry over."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、最初からやり直さなくていいんだね。それって、どんな人に役立つの？",
+          "en": "So I don't have to start over. Who does that help most?"
+        },
+        {
+          "s": "b",
+          "ja": "エージェントの作業後に、差分の確認や手での修正、ローカルでのテストをしたい開発者だね。時間のかかる作業は Copilot に任せて、最後は自分で見られるよ。",
+          "en": "Developers who want to review diffs, edit by hand, and test locally after the agent's work. Copilot handles the time-consuming parts, then hands control back to you."
+        },
+        {
+          "s": "a",
+          "ja": "つまり、任せたあとにエディタで細かく確かめて、同じ会話の続きもできるんだね。",
+          "en": "So I let it do the heavy lifting, check things closely in my editor, and keep the same conversation going."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。流れは、セッションを開く、変更を一行ずつ見直す、会話を続ける、直してテストする、の順だよ。",
+          "en": "Right. The flow is: open the session, review changes line by line, continue the conversation, then modify and test the code."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T09:37:25.801Z"
+    },
+    "3880d3fb95cb0138": {
+      "bodyJa": "## 第4部の位置づけ\n\nPhotoroomがPRXシリーズの第4部として、データ戦略を公開した。モデルの品質を形づくった要素の中で、データパイプラインは作っていて最も地味な部分の一つだったが、正しく仕上げることが重要だったと説明されている。\n\nこれまでの第1〜3部では、モデルアーキテクチャ、学習設計、24時間のスピードランが扱われた。今回は、それらすべてを下支えするデータが主題となる。\n\n## 公開・社内データの混合\n\n目標は、事前学習に使う大規模で多様なデータセットを組み立てることだった。そのために、公開データセットと社内データセットを組み合わせて学習データを構成したとされる。\n\n## VLMで再キャプション\n\nパイプラインには、画像に対してVLMでキャプションを付け直す、再キャプションの工程が含まれている。公開・社内の混合データをそのまま使うのではなく、この工程を通した結果を学習用データの材料にしている。\n\n## ストリーミング用コーパス\n\n最終的には、再キャプションまで済ませたデータを、ストリーミング可能なコーパスに変換してPRXの学習に用いた。全体の流れは、公開・社内データの混合、VLMによる再キャプション、ストリーミング可能なコーパス化の三段階にまとめられる。\n\n筆者は、実際に行ったこと、今ならこうしたいと考える点、時間をかけて初めて分かったことをあわせて共有するとしている。各工程の詳細は、元記事で順に掘り下げられていく構成である。",
+      "bodyEn": "## PRX Part 4: Data Strategy\n\nPart 4 of the PRX series, published on the Hugging Face blog, turns to the data behind the model. Photoroom's authors say the data pipeline quietly underpins everything else, and that it was one of the least glamorous parts to build but still important to get right. That framing is why the post matters: it shifts attention from architecture to the material the model learns from.\n\nThe earlier installments covered model architectures, training design, and a 24-hour speedrun. This installment, according to the post, explains what the team did, what they would do differently, and a few things they learned only the slow way.\n\n## Public and Internal Datasets\n\nThe post summarizes its approach in one sentence: training data is assembled from a mix of public and internal datasets. The stated goal was a large, diverse dataset for pre-training.\n\nOf everything that shaped PRX's quality, the authors single out the data pipeline as a key contributor. They present the post as a detailed walkthrough of how that pipeline was put together.\n\n## Re-Captioning With a VLM\n\nA central step the authors describe is re-captioning the images with a VLM. Rather than relying only on the descriptions that came with the source material, the pipeline generates new captions for the images as part of preparing the training set.\n\nThe post presents this step as one stage in a larger sequence, not as a standalone technique. The sequence runs from collecting datasets, to re-captioning, to the final training corpus.\n\n## Streamable Corpus\n\nThe last stage the authors name is turning the captioned result into a streamable corpus, which is what PRX was trained on. In their one-sentence summary, the pipeline ends with a corpus designed to be streamed during training.\n\nTaken together, the post describes a three-part flow: mix public and internal sources, re-caption images with a VLM, and produce a streamable corpus. The authors say they go into each of these in detail, along with lessons about what they would change.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "第1〜3部が設計や24時間スピードランで、今回はデータなんだね。地味そうだけど、これって大きいことなの？",
+          "en": "Parts 1 to 3 covered design and a 24-hour speedrun, and now it's data. Sounds unglamorous, but is it a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、データパイプラインは地味だけど正しく作ることが大事な部分と書いています。全体を静かに支える土台という位置づけですね。",
+          "en": "The post calls the data pipeline one of the least glamorous parts, but important to get right. It's the quiet foundation under everything else."
+        },
+        {
+          "s": "a",
+          "ja": "「VLMで再キャプション」ってなに？ 画像の説明文を付け直すってこと？",
+          "en": "What does \"re-caption with a VLM\" mean? Are they rewriting the text descriptions for images?"
+        },
+        {
+          "s": "b",
+          "ja": "VLMは画像と言葉の両方を扱えるモデル、くらいの意味です。この記事では、そのVLMで画像の説明文を付け直していると書かれています。",
+          "en": "A VLM is roughly a model that handles both images and language. The post says they use one to re-caption the images, so yes, you've got it."
+        },
+        {
+          "s": "a",
+          "ja": "自分で画像を集めて学習に使うなら、公開データと自分のデータを混ぜる感じかな？",
+          "en": "If I collected images to train on myself, would I mix public data with my own, like they did?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では公開データと社内データを混ぜ、ストリーミングできる形に整えたと書いています。ただ目的は大規模な事前学習用なので、小規模に合うかは分かりません。",
+          "en": "They mixed public and internal datasets and made a streamable corpus. But the goal was large-scale pre-training, so whether it fits a small project isn't clear from the post."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T12:37:32.584Z"
+    },
+    "6a890a0dc1d312c7": {
+      "bodyJa": "## 6月のAI発表まとめ\n\nGoogleは2026年6月に発表したAI関連のアップデートを、月次の振り返り記事として公開した。中心に据えられているのは、Gemini 3.5 Live Translateの提供開始、Android 17の最新機能、そしてGeminiに向けて作られた新しいGoogle Home Speakerの3点である。\n\n記事全体は、端末やアプリをより役立つものにするための新しいAI機能をまとめて紹介する内容になっている。\n\n## 翻訳機能の強化\n\n今月の主要な話題の一つが、Gemini 3.5 Live Translateの登場だ。記事では、より優れた翻訳機能が使えるようになった点が利用者にとっての変化として挙げられている。\n\nそのほか、ノートパソコンでより賢いツールを使えるようになったことや、学校の勉強や宿題をAIで手助けできるようになったことも紹介されている。扱う場面は、仕事道具から学習まで幅広い。\n\n## Androidとスピーカー\n\nAndroid 17については、最新の機能が今月の主なアップデートの一つとして取り上げられている。端末そのものの使い勝手に関わる更新が、翻訳などの新機能と並んで紹介された形だ。\n\nまた、Geminiのために作られた新しいGoogle Home Speakerも発表された。家庭で使うスピーカーにもGeminiが組み込まれる点が、今回のまとめの特徴といえる。\n\n## 日常のパートナー\n\nGoogleは、これらのアップデートを面倒な作業をAIに任せるためのものと位置づけている。そうすることで、利用者が本当に楽しみたいことに集中できるようにする狙いだと説明されている。\n\n同社はこの一連の取り組みを、テクノロジーを日々の生活における自然なパートナーのように感じられるものにする計画の一部としている。",
+      "bodyEn": "Google has published a recap of its biggest AI updates from June 2026, collecting the month's announcements in one post on its Keyword blog. For readers who do not follow each release separately, it gives a single view of what the company says it launched across devices and apps.\n\n## Biggest AI Updates From June\n\nAccording to the post, the headline items are the launch of Gemini 3.5 Live Translate, the latest features in Android 17, and the new Google Home Speaker, which is built for Gemini. These three are named as the main highlights of the month.\n\nThe post describes the wider set of releases as new AI updates meant to make devices and apps more helpful. It does not present them as a single product launch. It presents them as a collection of changes spread across several kinds of products.\n\n## Smarter Tools on Your Laptop\n\nThe post's summary text points to several everyday uses. People can now use smarter tools on their laptop, get better translation features, and even use AI to help with their schoolwork.\n\nThe translation point appears twice in the material. Gemini 3.5 Live Translate is named as a launch, and the post separately lists better translation features among the changes users can now get. The post does not say how the laptop tools or the schoolwork features work, so those remain broad claims rather than specific product descriptions.\n\n## Natural Partner in Daily Life\n\nGoogle says the updates are designed to handle boring tasks so people can focus on what they actually enjoy. The post describes this as part of the company's plan to make technology feel like a natural partner in daily life.\n\nThat framing is Google's own. It is a statement of intent rather than a measured result, and the post offers no usage figures or comparisons to support it.\n\nThe summary text in the post also carries a note that it was generated by Google AI and that generative AI is experimental. Readers should treat the recap as the company's own overview of its June announcements, with Gemini 3.5 Live Translate, Android 17 and the Gemini-built Google Home Speaker as the items it chose to put first.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Gemini 3.5 Live TranslateにAndroid 17、新しいスピーカーまで出てるね。6月のまとめって、これって大きいこと？",
+          "en": "Gemini 3.5 Live Translate, Android 17, and a new speaker too? Is June a big month, then?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、翻訳、Android、Gemini向けのGoogle Home Speakerが主な更新として並んでるよ。一つの分野じゃなく、幅広く動いているのが特徴だね。",
+          "en": "The recap lists translation, Android, and a Google Home Speaker built for Gemini as headline updates. So it's a wide spread, not just one area."
+        },
+        {
+          "s": "a",
+          "ja": "Live Translateのライブって、どういう意味なの？ふつうの翻訳と違うのかな。",
+          "en": "What does \"Live\" in Live Translate mean? Is it different from regular translation?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、話している言葉をその場で別の言語にしていくイメージだよ。記事に細かい仕組みは書かれてないから、そこまでは言い切れないけどね。",
+          "en": "Generally it means translating speech as it happens. The article doesn't spell out how it works, so I can't say more than that."
+        },
+        {
+          "s": "a",
+          "ja": "ノートパソコンで賢いツールが使えて、宿題も手伝ってくれるなら、私は調べ物の整理に使ってみたいな。",
+          "en": "If I can get smarter tools on my laptop and help with schoolwork, I'd try it for organizing my research."
+        },
+        {
+          "s": "b",
+          "ja": "いい使い道だね。ただ記事には、生成AIは実験的だとも書かれているよ。便利さを活かしつつ、結果は自分で確かめながら使うのが現実的かな。",
+          "en": "Nice idea. But the article notes generative AI is experimental, so it's realistic to use it while double-checking the results yourself."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T12:38:15.836Z"
+    },
+    "6441692fc8196712": {
+      "bodyJa": "OpenAIは次世代モデル「GPT-5.6 Sol」のプレビューを公開した。同社のモデル群における注目すべき前進と位置づけられている。\n\n## 能力の強化\nコーディング、科学、サイバーセキュリティの各分野で能力が強まったと説明されている。あわせて、推論と性能の面でも大きな向上があるとされる。\n\n## 最先端の安全スタック\n今回のプレビューは、同社として最も高度な安全スタックと組み合わせて示されている。開発者や企業向けに新たな可能性を広げる重要なマイルストーンになるとされる。",
+      "bodyEn": "## OpenAI previews GPT-5.6 Sol\n\nOpenAI has announced a preview of GPT-5.6 Sol, a next-generation model. The announcement matters because it marks a notable step forward in the company's model lineup, according to the source.\n\nThe preview was published on June 26, 2026.\n\n## Stronger capabilities, safety stack\n\nAccording to the announcement, GPT-5.6 Sol offers stronger capabilities in coding, science, and cybersecurity. The source also describes significant improvements in reasoning and performance.\n\nOpenAI says the model is paired with its most advanced safety stack. The source presents the preview as opening new possibilities for developers and enterprises.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "今回は数字じゃなくて、コーディングと科学とセキュリティが強くなったって書いてあるね。これって大きいこと？",
+          "en": "No numbers this time, but coding, science, and cybersecurity all got stronger, right? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、その3分野の強化に最も高度な安全対策を組み合わせた次世代モデルとされているよ。ただ、具体的な数値までは書かれていないんだ。",
+          "en": "The article frames it as a next-gen model with stronger abilities in those three areas, plus OpenAI's most advanced safety stack. It doesn't give specific numbers, though."
+        },
+        {
+          "s": "a",
+          "ja": "「safety stack」ってなに？ 安全のための道具がいろいろ入ってるってこと？",
+          "en": "What's a \"safety stack\"? Like a bunch of safety tools all packed together?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、安全のための仕組みをいくつも重ねたもの、くらいの意味だよ。この記事では、それが「最も高度」だと述べているね。",
+          "en": "Generally, it means several safety measures layered together. This article says OpenAI's version is its most advanced one yet."
+        },
+        {
+          "s": "a",
+          "ja": "わたしならコードを書くときに頼ってみたいな。もう使えるのかな？",
+          "en": "I'd love to try it when I'm writing code. Can we use it already?"
+        },
+        {
+          "s": "b",
+          "ja": "今回はあくまでプレビューの発表だよ。この記事から分かるのは能力と安全面の方向性までで、使える範囲や条件は書かれていないんだ。",
+          "en": "This is a preview announcement. The article covers the capability and safety direction, but nothing about who can use it or under what conditions."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T12:39:57.874Z"
+    },
+    "c64f69921adf199e": {
+      "bodyJa": "オープンソース開発の現場では、日々寄せられる Issue やプルリクエスト（PR）の分類・仕分け作業、いわゆるトリアージがメンテナーの大きな負担となっている。HuggingFace は自社ブログで、ローカル環境で動作するオープンな大規模言語モデル（LLM）を用いて OpenClaw リポジトリのトリアージを自動化する手法を公開した。クラウドの有料 API に頼らず、コストをかけずに運用できる点が注目を集めている。\n\n紹介された仕組みは、GitHub に新しい Issue や PR が投稿された際、その内容をローカルで動く LLM に渡し、ラベル付けや優先度の判定、重複の検出などを自動で行うというものだ。処理をすべて手元のマシンや自前のサーバーで完結させるため、外部 API の従量課金が発生せず、コードや議論の内容が第三者のサービスに送信されないという利点もある。\n\nこの手法の背景には、オープンモデルの性能向上と軽量化の進展がある。近年は Llama や Qwen、Mistral をはじめ、比較的小規模でも実用的な精度を持つモデルが増えており、量子化技術によって一般的な GPU や高性能な CPU でも動かせるようになってきた。Ollama や llama.cpp、vLLM といった推論ツールの普及も、ローカル運用のハードルを下げている。\n\nトリアージ自動化そのものは目新しい発想ではなく、これまでも GitHub Actions と OpenAI や Anthropic などのクラウド API を組み合わせる事例は存在した。今回のアプローチの特徴は、その処理をオープンモデルとローカル実行に置き換えることで、コストとプライバシーの両面の課題に対応しようとする点にあると言える。\n\n一方で、ローカルモデルはクラウドの最先端モデルと比べ、判定精度や複雑な文脈の理解で及ばない場合もあり、運用にはプロンプト設計や人間による最終確認が引き続き重要になると見られる。とはいえ、小規模なプロジェクトや予算の限られたチームにとって、無料で試せるトリアージ基盤は魅力的な選択肢となる可能性がある。今後、同様のワークフローがオープンソースコミュニティ全体に広がるかが注目される。",
+      "bodyEn": "HuggingFace has published a walkthrough showing how maintainers can automate the triage of issues and pull requests in the OpenClaw repository using open models that run entirely on local hardware. The demonstration matters because triage is one of the most time-consuming and repetitive tasks in open-source maintenance, and the approach removes the recurring cost and data-sharing concerns associated with commercial cloud APIs.\n\nAt its core, the workflow uses a locally hosted large language model to read incoming issues and pull requests, then classify and route them. Typical triage actions include suggesting labels, identifying duplicates, flagging incomplete bug reports, estimating severity, and pointing contributors toward relevant documentation or code owners. Rather than sending repository content to an external service, the model processes text on the maintainer's own machine or self-managed infrastructure, which keeps private or pre-release code within the local environment. For projects with strict data-handling requirements, this is often as important as the cost savings.\n\nThe technical setup appears to rely on the now-familiar stack for running open models locally. Tools such as Ollama, llama.cpp, vLLM, and HuggingFace's own text-generation-inference make it possible to serve a quantized open model behind a simple API endpoint. Quantization formats like GGUF reduce memory requirements so that mid-sized models can run on a single consumer GPU or even a capable laptop, albeit with some trade-off in accuracy. Open model families such as Llama, Mistral, Qwen, and Gemma are commonly used for this kind of task because they are freely available and can be fine-tuned or prompted for structured output. The choice of model typically balances hardware constraints against the reasoning quality needed to make reliable triage decisions.\n\nA crucial part of any triage automation is producing machine-readable results. The workflow is likely to prompt the model to return structured output, such as JSON containing a label list, a confidence score, and a short rationale. That output is then consumed by a script or a GitHub Action that applies labels, posts a comment, or assigns reviewers through the GitHub API. Running the process inside GitHub Actions or a scheduled job means new issues and pull requests can be triaged automatically as they arrive, with a human maintainer reviewing the model's suggestions rather than starting from scratch.\n\nThe cost argument is straightforward. Cloud-based language model APIs charge per token, and a busy repository can generate a substantial volume of text to analyze over time. A local model shifts that expense to a one-time hardware investment and ongoing electricity, which can be attractive for volunteer-run or budget-constrained projects. It is worth noting, however, that local deployment is not truly free in the broader sense: it requires suitable hardware, setup effort, and maintenance, and smaller models may miss nuances that larger hosted models catch. HuggingFace's demonstration should be read as a practical template rather than a claim that local models match the strongest proprietary systems on every task.\n\nThis effort sits within a wider industry trend toward on-device and self-hosted AI. GitHub already offers commercial features such as Copilot for code assistance, and various bots have long handled mechanical triage using rule-based logic. The shift here is toward using general-purpose open models to make more context-aware judgments while avoiding vendor lock-in. HuggingFace has consistently positioned itself around open models and accessible tooling, and this blog post continues that theme by connecting its model hub and inference libraries to a concrete maintenance problem.\n\nFor teams considering a similar setup, a few prerequisites are worth understanding. Retrieval or careful prompt design helps the model reason about project-specific conventions, since a general model will not inherently know a repository's labeling scheme. Guardrails matter too: automated actions should generally be advisory or reversible, because language models can misclassify or hallucinate. Evaluating the model against a sample of past issues before enabling automation is a sensible way to gauge reliability.\n\nOverall, the OpenClaw example illustrates how far local open models have come as practical tools rather than experiments. Whether the accuracy is sufficient will depend on the project, the hardware, and the chosen model, but the pattern of combining open models, local inference, and existing automation pipelines is increasingly viable for everyday maintenance work.",
+      "model": "claude-opus-4.8",
+      "generatedAt": "2026-07-12T08:01:48.235Z"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T12:30:53.171Z",
+  "generatedAt": "2026-11-28T13:30:55.950Z",
   "month": "2026-10",
   "count": 136,
   "entries": [
@@ -13,7 +13,7 @@
       "titleEn": "From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence",
       "lang": "en",
       "publishedAt": "2026-10-30T13:05:28.000Z",
-      "collectedAt": "2026-11-28T07:30:41.693Z",
+      "collectedAt": "2026-11-28T13:30:40.006Z",
       "tags": [
         "benchmark",
         "copilot",
@@ -285,8 +285,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "32b5d3e2c34f5a54",
@@ -313,8 +313,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "f488ab92286122dc",
@@ -442,8 +442,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "cc9f1fc4deba48fb",
@@ -470,8 +470,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "b1d92492b7f0e9d8",
@@ -599,8 +599,8 @@
       "excerptOrigin": "article-unavailable"
     },
     {
-      "id": "c4607aa43c817be8",
-      "source": "github-blog-ai",
+      "id": "7cf69f7ae5c77b67",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/",
       "title": "How 3 Java Champions are using GitHub Copilot for increased productivity",
@@ -610,7 +610,7 @@
       "summaryEn": "Three Java Champions, each with over ten years of Java experience, share real production and open source uses of GitHub Copilot, plus habits for giving context and validating output. Useful for developers who want reliable AI-assisted code.",
       "lang": "en",
       "publishedAt": "2026-10-20T16:05:03.000Z",
-      "collectedAt": "2026-11-28T12:30:36.852Z",
+      "collectedAt": "2026-11-28T13:30:40.006Z",
       "tags": [
         "ai-coding",
         "copilot",
@@ -661,8 +661,8 @@
       "feedSnippet": "Define an agent as a folder of code, test it with evals, and deploy it to Cursor or your own infrastructure."
     },
     {
-      "id": "cb4f638784301c3b",
-      "source": "github-blog-ai",
+      "id": "f9c5095dcdcc7bb0",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
       "title": "How to continue a GitHub Copilot app session in VS Code",
@@ -672,7 +672,7 @@
       "summaryEn": "A Copilot app session can be opened directly in VS Code, carrying over its chat, code edits, and context. Developers can let the agent do the heavy lifting, then review diffs, edit by hand, and test locally.",
       "lang": "en",
       "publishedAt": "2026-10-19T18:47:22.000Z",
-      "collectedAt": "2026-11-28T12:30:36.852Z",
+      "collectedAt": "2026-11-28T13:30:40.006Z",
       "tags": [
         "agent",
         "agent-workflow",
@@ -875,9 +875,9 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "GitHub’s context-aware secret classifier improves detection quality, raises weighted acceptance by 11.5%, and reduces median scan execution time by 86%. The post GitHub’s model for secret detection: Finding more secrets with less noise appeared first on The GitHub Blog .",
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "18ea178a7f4055ec",
@@ -910,8 +910,8 @@
       "feedSnippet": "Origin integrates with over 20 apps for deployments, CI, code review, security, monitoring, and project management, and the marketplace is now open to public submissions."
     },
     {
-      "id": "aab87b57e449c025",
-      "source": "github-blog-ai",
+      "id": "73f986d3e9b463d0",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
       "title": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
@@ -921,7 +921,7 @@
       "summaryEn": "This GitHub Copilot app beginner installment covers four ways, including custom instructions, to store conventions and scripts in a repo so Copilot learns them automatically, saving developers repeated explanations.",
       "lang": "en",
       "publishedAt": "2026-10-12T17:43:59.000Z",
-      "collectedAt": "2026-11-28T12:30:36.852Z",
+      "collectedAt": "2026-11-28T13:30:40.006Z",
       "tags": [
         "copilot",
         "custom-instructions",
@@ -1015,8 +1015,8 @@
       "evergreen": true
     },
     {
-      "id": "80955af470da00f0",
-      "source": "github-blog-ai",
+      "id": "5cb4ed49cbdddf72",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/",
       "title": "Secret protection must scale with software",
@@ -1026,7 +1026,7 @@
       "summaryEn": "AI agents now touch one-third of GitHub pull requests, up from under one-tenth last year. Automated secret protection can prevent leaks and cut manual response work for developers.",
       "lang": "en",
       "publishedAt": "2026-10-07T17:45:34.000Z",
-      "collectedAt": "2026-11-28T12:30:36.852Z",
+      "collectedAt": "2026-11-28T13:30:40.006Z",
       "tags": [
         "ai-agents",
         "copilot",
@@ -2675,8 +2675,8 @@
       "knowledgeEligible": false
     },
     {
-      "id": "ed744c789037c203",
-      "source": "github-blog-ai",
+      "id": "571c8c47df881aa3",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
       "title": "ReviewBench: An open benchmark for AI code review",
@@ -2686,7 +2686,7 @@
       "summaryEn": "ReviewBench offers an open evaluation set based on GitHub pull requests, with multi-source labels, calibrated scoring, and production metrics for fair assessment of review agents.",
       "lang": "en",
       "publishedAt": "2026-10-05T15:59:40.000Z",
-      "collectedAt": "2026-11-28T12:30:36.852Z",
+      "collectedAt": "2026-11-28T13:30:40.006Z",
       "tags": [
         "ai-code-review",
         "benchmark",
@@ -3594,7 +3594,6 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "AI is changing how developers work and apply their skills. Writing code is still essential, but developers increasingly need to know how to direct AI, evaluate its output, communicate tradeoffs, and make sound technical decisions. The good news? You can start preparing today. Here’s where to focus: Tip #1: Learn to direct AI, not just use it. AI is changing what execution looks like. Increasingly, great execution means defining the problem clearly, providing the right context, evaluating AI-generated code, and deciding what’s ready to ship. As AI agents take on more of the implementation, these skills become even more valuable. For example, imagine you’re asked to add a new authentication flow. As AI tools become more capable and more deeply integrated into day-to-day workflows, those same skills can help you coordinate multiple AI agents.",
       "excerptOrigin": "article",
       "feedSnippet": "Learn to direct AI agents, critically review their output, and keep technical judgment at the center of your workflow. The post AI is changing developer work. Here are three skills to strengthen. appeared first on The GitHub Blog .",
@@ -3605,7 +3604,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "d76bc67b3882fa08",

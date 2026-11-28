@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T00:30:58.213Z",
-  "count": 362,
+  "generatedAt": "2026-11-28T01:30:56.672Z",
+  "count": 364,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -12058,44 +12058,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-27T21:41:34.824Z"
     },
-    "ed744c789037c203": {
-      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
-      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
-          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
-          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
-        },
-        {
-          "s": "a",
-          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
-          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
-          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
-          "en": "I’d line up a few review agents and compare which one might suit me best."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
-          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T12:37:57.149Z"
-    },
     "86f1cfd68d515956": {
       "bodyJa": "langchain-core 1.8.5 が公開された。1.8.4 からの変更は、依存ライブラリ mistune のバージョン更新と、関連パッケージ 2 件のリリースにまとめられている。\n\n## 1.8.5 に含まれる変更\n\n1.8.4 以降の変更として挙げられているのは 4 件である。core 自体のリリース作業（#42103）、standard-tests 1.2.0 のリリース（#41996）、text-splitters 1.2.0 のリリース（#41998）、そして mistune の依存更新（#41968）だ。\n\ncore の番号は 1.8.4 から 1.8.5 への更新で、パッチ版にあたる。今回の更新の中心は、次に述べる依存ライブラリの引き上げである。\n\n## mistune を 3.3.4 へ更新\n\n依存関係の更新は「chore(deps)」として扱われており、/libs/core 配下で mistune を 3.3.3 から 3.3.4 に上げる内容だ。対象は core ディレクトリの依存定義である。\n\nこの更新に伴う新機能や API の変更は示されておらず、core 側の変更としては、依存するライブラリのバージョンを一つ進めたものと読める。\n\n## standard-tests と text-splitters\n\ncore と並んで、standard-tests と text-splitters がそれぞれ 1.2.0 としてリリースされた。いずれも core の 1.8.5 と同じ変更一覧に含まれている。\n\n両パッケージの 1.2.0 で具体的に何が変わったかは、今回の変更一覧からは分からない。分かるのは、core のパッチ更新と同じタイミングで、この 2 つのパッケージにも新しいバージョンが出たという点だ。LangChain の利用者にとっては、バージョンを最新に保つ際の更新対象になると説明されている。\n\n## 公開情報\n\nこのリリースは 2026 年 11 月 25 日に公開された。リリースページには、変更を含むコミットが GitHub.com 上で作成され、GitHub の検証済み署名が付いていることも表示されている。",
       "bodyEn": "langchain-core 1.8.5 was published on 2025-11-25 as a new release of the LangChain core package. It is a small, maintenance-oriented update, and it ships alongside new versions of two companion packages. Anyone who tracks LangChain releases will want to know what changed.\n\n## Changes since langchain-core==1.8.4\n\nThe release notes list four items between 1.8.4 and 1.8.5. The first is the version release commit for core itself, \"release(core): 1.8.5\", tracked as #42103. The other three concern companion packages and a dependency. The release commit was created on GitHub.com and signed with GitHub's verified signature.\n\nThe summary describes 1.8.5 as a patch release. The only change listed that touches the core library's contents is a dependency update, so the notes describe no new feature work in core.\n\n## Bump mistune from 3.3.3 to 3.3.4\n\nThe dependency change is recorded as \"chore(deps): bump mistune from 3.3.3 to 3.3.4 in /libs/core\", tracked as #41968. The path /libs/core shows that the update applies to the core library's own directory. The move is from version 3.3.3 to 3.3.4 of mistune, a one-step increment.\n\nThe notes give no further detail about why the bump was made or what it changes in mistune. They list it as the substantive change in this release.\n\n## standard-tests 1.2.0 and text-splitters 1.2.0\n\nTwo other packages were released at the same time. The notes list \"release(standard-tests): 1.2.0\" as #41996 and \"release(text-splitters): 1.2.0\" as #41998. Both are shown as version 1.2.0.\n\nAccording to the summary, the three releases together help LangChain users keep their installations current. The notes do not list individual changes for standard-tests or text-splitters, so users who want specifics on those packages would need to consult each package's own release history.",
@@ -12189,6 +12151,120 @@
       "bodyEn": "## Flutter and canvas-based apps\n\nFlutter Web and canvas-based applications expose no DOM elements, so conventional element-based AI automation does not work. This matters because controls that are visible on screen cannot be located or read through the methods used for ordinary HTML pages.\n\nButtons and panels in these interfaces are not represented as individual DOM elements. Instead, the interface is drawn as pixels on a single canvas. As a result, find returns nothing, while the accessibility tree exposed through read_page is effectively empty. The element-based approach described as the most reliable option for standard HTML pages is therefore fundamentally unavailable.\n\n## Screenshots and screen coordinates\n\nThe article explains a practical alternative that uses only screenshots and screen-coordinate information. Through MCP, an AI agent can operate the interface by interpreting what is visible in a screenshot and targeting controls according to their coordinates.\n\nThis coordinate-based procedure is presented for interfaces such as the Rive editor, an animation-production tool built with Flutter. It replaces DOM-based targeting with direct interaction at specific positions on the rendered interface.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T20:48:57.172Z"
+    },
+    "a0042df48ddfc236": {
+      "bodyJa": "langchain-perplexity 1.5.0 がリリースされた。1.4.2 以降の変更として、EOL を迎えた Python 3.10 をパートナーパッケージから外す対応や、サードパーティ依存関係の上限緩和などが含まれる。Perplexity 連携を使う開発者は、アップグレード前に自分の Python 環境を確認しておきたい。\n\n## Python 3.10\n\n今回の変更の中心は、パートナーパッケージ全体を対象にした「EOL となった Python 3.10 の削除」(#41268)である。langchain-perplexity もその対象に含まれるリリースだ。\n\n一方で、テスト専用の Pillow にパッチを当てる変更(#41484)は「Python 3.10 を落とさずに」行うものと記されている。この変更は、3.10 削除とは別に扱われている。\n\n## 依存関係の調整\n\n依存関係まわりでは、サードパーティ依存の上限を緩める変更(#41407)が入った。バージョンの上限が緩和されることで、組み合わせられるパッケージの範囲に影響する可能性がある。\n\nまた、脆弱な統合用依存関係にパッチを当てる変更(#41473)と、同じく「patch vulnerable integration dependencies」を題する revert(#41481)が並んでいる。変更履歴からわかるのは、この2件がそれぞれ記録されているところまでである。\n\n## certifiの更新\n\nperplexity パッケージのディレクトリでは、certifi が 2026.10.19 から 2026.10.23 に引き上げられた(#41438)。\n\n## 関連リリース\n\nperplexity 本体の 1.5.0(#42001)に加え、standard-tests の 1.2.0(#41996)のリリースも変更履歴に含まれている。\n\n## 確認したい点\n\nこのリリースは Python 3.10 のサポートをパートナーパッケージから外すため、3.10 を使っている環境ではアップグレード前にバージョンの確認が必要になる。あわせて、依存関係の上限緩和と certifi の更新が、既存環境で使っているパッケージ構成に影響しないかも見ておくとよい。",
+      "bodyEn": "The langchain-perplexity 1.5.0 release, published on November 23, 2026, changes which Python versions the partner packages cover and how their dependencies are constrained. Anyone using the Perplexity integration should read the notes before upgrading.\n\n## Changes since 1.4.2\n\nThe release notes list changes made since the 1.4.2 release. The first entry is the version bump itself, \"release(perplexity): 1.5.0\" (#42001). Alongside it is a separate entry, \"release(standard-tests): 1.2.0\" (#41996). The rest of the list covers Python support, dependency handling and a certificate package update.\n\n## Remove EOL'd Python 3.10\n\nThe most visible change is the entry \"feat(partners): Remove EOL'd Python 3.10 from partner packages\" (#41268). According to the summary, Python 3.10 support is dropped from the partner packages because that version has reached end of life. The summary advises Perplexity users to check their Python versions before upgrading.\n\nA related entry, \"build(infra): patch test-only Pillow without dropping Python 3.10\" (#41484), describes a patch to a test-only Pillow dependency. Its title says the patch was made without dropping Python 3.10.\n\n## Relax third-party dependency upper bounds\n\nAnother entry, \"chore(infra): relax third-party dependency upper bounds\" (#41407), loosens the upper version limits placed on third-party dependencies. The summary describes this as loosening dependency caps.\n\nTwo further entries concern patching vulnerable integration dependencies. One is \"build(deps): patch vulnerable integration dependencies\" (#41473), and the other is a \"revert: patch vulnerable integration dependencies\" (#41481). Both appear in the list, and the notes do not say more about what was patched or reverted.\n\n## Certifi bump\n\nThe release also includes \"chore(deps): bump certifi from 2026.10.19 to 2026.10.23 in /libs/partners/perplexity\" (#41438). This updates certifi within the Perplexity partner package directory, moving it from version 2026.10.19 to 2026.10.23.\n\nTaken together, 1.5.0 is mainly a maintenance release. It removes support for an end-of-life Python version, relaxes dependency constraints and updates certifi. The notes list no new features specific to the Perplexity integration, so the practical step for developers is to confirm their environment before upgrading.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Python 3.10がパートナーパッケージから外れたって書いてあったけど、これってどういうこと？",
+          "en": "The notes say Python 3.10 was removed from the partner packages. What does that actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、EOL、つまりサポート終了を迎えたPython 3.10を、perplexityなどのパートナーパッケージの対象から外したと書かれています。",
+          "en": "This release removes Python 3.10, which has reached end-of-life, from the partner packages, Perplexity's included."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、Perplexity連携を使っている人は何をしたらいいの？",
+          "en": "So if I'm using the Perplexity integration, what should I do?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、更新する前にPythonのバージョンを確認するのが大事、という流れです。3.10を使っているなら、見直しが必要かもしれません。",
+          "en": "The release suggests checking your Python version before upgrading. If you're on 3.10, you may need to rethink your setup."
+        },
+        {
+          "s": "a",
+          "ja": "3.10が外れて、依存関係の上限もゆるくなって、certifiも更新されたんだね。",
+          "en": "So 3.10 is out, dependency caps are looser, and certifi got a bump. Got it."
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。ただ、上限の緩和が実際の環境でどう影響するかは、この記事からは分かりません。更新前に確認しておくと安心です。",
+          "en": "Right. But the release doesn't say how looser caps affect real setups, so it's wise to check before you update."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T00:38:51.368Z"
+    },
+    "22931a925a33dde9": {
+      "bodyJa": "langchain-ollama 1.2.0 がリリースされました。1.1.0 以降の変更として、thinking レベルに対応するための ollama パッケージの下限引き上げと、EOL となった Python 3.10 の除外が含まれています。あわせて、依存関係の上限緩和や各種ライブラリの更新も行われています。\n\n## thinkingと下限\n\n利用側の要件に直接関わるのが、ollama の最低バージョンの変更です。thinking レベルを扱うため、ollama の下限が 0.6.3 に引き上げられました(#40986)。これより古い ollama を組み合わせている環境では、この下限に合わせることになります。\n\n## 3.10 を対象外に\n\nパートナーパッケージ群から、EOL となった Python 3.10 が削除されました(#41268)。この変更は langchain-ollama 単体ではなく、パートナーパッケージ全体を対象にしたものです。同じ系統の変更として、一部のパートナーパッケージで依存関係を修正する対応(#41266)も入っています。\n\n## 依存関係の更新\n\nサードパーティ依存の上限を緩める変更(#41407)が入りました。ollama パッケージのディレクトリでは、certifi が 2025.8.3 から 2026.10.19 へ(#41381)、urllib3 が 2.7.0 から 2.8.0 へ(#40953)、anyio が 4.11.0 から 4.14.2 へ(#40632)、vcrpy が 8.1.1 から 8.2.1 へ(#38295)と、それぞれ引き上げられています。langsmith も 0.8.5 から 0.8.18 への更新が変更一覧に含まれます。ロックファイルの更新(#38746)も実施されました。\n\nリリース作業としては、ollama の 1.2.0(#41997)と、standard-tests の 1.2.0(#41996)がそれぞれ記録されています。",
+      "bodyEn": "langchain-ollama 1.2.0 is a release of the Ollama partner package for LangChain. It raises the minimum supported ollama version and removes Python 3.10 from the partner packages, which matters to anyone who installs the package and manages its dependency range.\n\n## Changes since 1.1.0\n\nThe release notes list the changes made since langchain-ollama 1.1.0. They include the version release entry for ollama 1.2.0 (#41997) and a matching release entry for standard-tests 1.2.0 (#41996). The rest are feature, fix and maintenance items affecting the package and its dependencies.\n\n## Raising the ollama floor\n\nOne fix raises the ollama floor to 0.6.3 for thinking levels (#40986). According to the notes, the new minimum exists to support thinking levels. Installations that pin an older ollama version will need to move to 0.6.3 or later to use this release.\n\n## Python 3.10 removed\n\nA feature entry removes Python 3.10 from the partner packages (#41268). The entry describes that Python version as end-of-life. Another fix addresses dependencies in some partner packages (#41266).\n\n## Dependency caps and lockfiles\n\nA chore entry relaxes the upper bounds on third-party dependencies (#41407), so the package should accept a wider range of those dependencies. The release also bundles a series of dependency bumps in the ollama partner directory:\n\ncertifi moves from 2025.8.3 to 2026.10.19 (#41381). urllib3 moves from 2.7.0 to 2.8.0 (#40953). anyio moves from 4.11.0 to 4.14.2 (#40632). vcrpy moves from 8.1.1 to 8.2.1 (#38295). langsmith moves from 0.8.5 to 0.8.18.\n\nLockfiles were also refreshed (#38746).\n\nIn short, the headline items for users are the higher ollama minimum of 0.6.3, the end of Python 3.10 support, and looser dependency caps, along with the updated dependency versions listed above.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ollama の下限が 0.6.3 に上がったって書いてあるけど、これって大きいことなの？",
+          "en": "The minimum ollama version jumped to 0.6.3. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、thinking レベルに対応するための引き上げだよ。下限より古い ollama は使えない範囲になるから、環境によっては影響があるかもね。",
+          "en": "Here it's done to support thinking levels. Versions older than the new floor fall outside the allowed range, so some setups might be affected."
+        },
+        {
+          "s": "a",
+          "ja": "Python 3.10 が「EOL」だから外したともあるよね。EOL ってなに？",
+          "en": "It also says Python 3.10 was dropped because it's EOL. What does EOL mean?"
+        },
+        {
+          "s": "b",
+          "ja": "EOL は「サポート期間が終わった」くらいの意味だよ。この版ではそのPython 3.10が対象から外れたんだ。",
+          "en": "EOL roughly means support has ended. In this release, that Python 3.10 is no longer a supported target."
+        },
+        {
+          "s": "a",
+          "ja": "もし自分の環境が Python 3.10 なら、先に確認してから上げたほうがいいのかな？",
+          "en": "If my setup runs Python 3.10, should I check before upgrading?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。1.2.0 は Python 3.10 を対象外にして、ollama も 0.6.3 以上が前提だから、両方を見直してから更新するのが現実的だよ。",
+          "en": "Yes. 1.2.0 drops Python 3.10 and expects ollama 0.6.3 or higher, so checking both before updating is the realistic move."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T00:39:03.929Z"
+    },
+    "82125adf0975fcf0": {
+      "bodyJa": "マルチモーダル大規模言語モデル(MLLM)の安全対策では、安全性と有用性のトレードオフが根本的な課題になっている。本論文(Jiayi Li氏ら)は、入力だけでなくモデルが生成する応答にも着目するガードレールを提案し、過剰拒否の軽減を目指している。\n\n## 安全性と有用性の板挟み\n\n既存の安全対策のうち、モデルのファインチューニングは頑健な安全性を実現できる一方で、汎用的な有用性が損なわれるとされる。そこで軽量な代替策として、入力側のガードレールが用いられている。\n\nただし入力側のガードレールには、過剰拒否という深刻な問題があると指摘されている。無害な問い合わせを区別なく遮断してしまい、本来は拒否や助言的な応答によって、モデル自身が安全に答えられたはずの問い合わせまで止めてしまうという。\n\n## 過剰拒否の根本原因\n\n著者らは、この問題の根本原因を「入力認識型」というパラダイムそのものにあると位置づけている。入力認識型のガードレールは、モデル自身が安全な応答を生成できるかどうかを考慮しないまま、安全性の判断を下す。入力だけを見て可否を決めるため、モデルが適切に対処できる場合でも遮断が起きうるという整理である。\n\n## 出力を評価する提案手法\n\n提案されたのは、出力認識型のセーフティガードレールである。入力だけで判断するのではなく、モデルが生成した応答の内容も評価の対象とする。\n\nこの方針により、有害なコンテンツを防ぎつつ、正当な要求への応答の精度を高められると説明されている。安全性を損なわずに使い勝手を改善することが狙いであり、モデルの再学習に頼らずに過剰拒否へ対処する方向性として位置づけられている。\n\n論文はarXivのcs.LG分野で2026年7月14日に公開された。",
+      "bodyEn": "## Safety versus utility trade-off\n\nA paper on multimodal large language models (MLLMs) takes up the problem of over-refusal, where a safeguarded model turns away requests it should have handled. The question matters because, according to the authors, existing safety mechanisms for MLLMs face a basic trade-off between safety and utility.\n\nThe paper, by Jiayi Li and one other author, describes two existing approaches. Model fine-tuning achieves robust safety, but it compromises the model's general utility. Input-side safety guardrails are presented as a lightweight alternative to fine-tuning.\n\n## Over-refusal in input-side guardrails\n\nThe abstract says input-side guardrails suffer from severe over-refusal. They block benign queries indiscriminately. They also block queries the model could have safely answered through a refusal or an advisory response. In those cases the model itself might have produced an acceptable reply, yet the guardrail stops the request before that can happen.\n\n## The input-aware paradigm\n\nThe authors identify the root cause of over-refusal as the input-aware paradigm. In that paradigm, a safety guardrail makes its decision without considering whether the model is capable of generating a safe response. The decision rests on the input alone, not on what the model would actually say.\n\n## Output-aware guardrail\n\nIn response, the paper proposes an output-aware safety guardrail for multimodal LLMs. According to the summary of the work, the guardrail evaluates the model's generated response rather than only the input. The paper's stated aim is to reduce over-refusal while still preventing harmful content, so that legitimate requests receive more accurate responses.\n\nThe summary also says this improves usability without compromising safety. The material provided does not describe the guardrail's architecture, the evaluation setup, or any measured results, so how it performs in practice is not covered here. What the paper does establish is its diagnosis: refusals driven by input alone ignore the model's own ability to respond safely, and the proposed remedy is to take the output into account.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "安全なお願いまで断っちゃう「過剰拒否」が問題って書いてあったけど、これって大きいことなの？",
+          "en": "The paper says models turn down even harmless requests, called over-refusal. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、安全性と使いやすさのトレードオフが根本的な課題とされています。入力側のガードレールは軽い反面、無害な質問まで無差別に止めてしまうそうです。",
+          "en": "The paper frames it as a core trade-off between safety and usefulness. Input-side guardrails are lightweight, but they indiscriminately block harmless questions too."
+        },
+        {
+          "s": "a",
+          "ja": "「入力認識型」ってなに？ 質問だけを見て判断するってこと？",
+          "en": "What does \"input-aware\" mean? Does it judge only by looking at the question?"
+        },
+        {
+          "s": "b",
+          "ja": "その読み方で合っています。この記事では、モデル自身が安全に答えられるかを考えずに、入力だけで可否を決めてしまう点が原因だと指摘しています。",
+          "en": "That reading works. The paper says the cause is deciding on the input alone, without asking whether the model itself can produce a safe response."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ普段使うAIが、ちゃんと答えてくれる場面が増えるのかな？",
+          "en": "So would everyday AI tools answer properly more often?"
+        },
+        {
+          "s": "b",
+          "ja": "そうなれば嬉しいですね。要約では、出力も評価して使いやすさを高めつつ安全性は損なわないとされています。ただ、ここで読み取れる範囲では具体的な効果の大きさまでは分かりません。",
+          "en": "That would be nice. The summary says checking the output improves usability without compromising safety. But the text here doesn't tell us how large the effect is."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T00:39:34.328Z"
     }
   }
 }

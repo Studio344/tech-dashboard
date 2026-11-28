@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T00:30:58.213Z",
-  "count": 363,
+  "generatedAt": "2026-11-28T01:30:56.672Z",
+  "count": 367,
   "bodies": {
     "7b752c9b3e3af2c6": {
       "bodyJa": "AIエージェントが高度化するにつれ、誤動作や悪用が発生した際の影響範囲（ブラスト半径）も拡大する。本記事はAnthropicのエンジニアリングブログに掲載され、その上限をどう設計するかという実践的な問いに答えている。\n\n対象製品はclaude.ai・Claude Code・Coworkの3つ。それぞれ異なるユースケースと権限モデルを持つ中で、共通の封じ込め原則をどう適用したかが論点と推察される。具体的な実装詳細は原文で確認することを推奨する。\n\nエージェントの安全設計に携わる開発者や、Claudeを自社プロダクトに組み込む実務者にとって参考になる内容と見られる。",
@@ -12110,7 +12110,39 @@
       "bodyJa": "全二重（フルデュプレックス）で対話する音声エージェントの品質を、大規模音声言語モデル（LALM）が自動で採点する仕組みは、どこまで信頼できるのか。arXivで公開された本研究は、こうしたLALMベースの「オーディオ審判（judge）」の信頼性を体系的に検証し、評価の一致度や偏りに無視できない課題があることを示した。\n\n全二重音声エージェントとは、人間同士の会話のように相手の発話を聞きながら同時に話したり、相づちを打ったり、割り込みに応じたりできる対話システムを指す。OpenAIのGPT-4o音声モードやGoogleのGemini Live、Kyutaiが公開した「Moshi」などリアルタイム性の高い音声対話への注目が高まる中で、その自然さや応答の適切さをどう測るかが大きな課題になっている。従来の書き起こしベースの指標では、間の取り方や割り込みのタイミングといった全二重特有の要素を捉えにくいためだ。\n\nそこで広まりつつあるのが、テキスト領域で定着した「LLM-as-a-judge（審判としてのLLM）」を音声に拡張し、音声を直接理解できるLALMに対話の良し悪しを判定させる手法である。人手評価に比べて低コストかつ大規模に実施できる利点があるが、その判定が人間の感覚とどれだけ一致し、どのような偏りを持つのかは十分に検証されてこなかった。\n\n本研究は複数のLALM審判を対象に、人間の評価との一致度やシステム間の順位付けの安定性、特定の応答スタイルへの偏りなどを分析したものとみられる。その結果、審判モデルによって評価が揺れやすく、一貫性や公平性の面で限界があることが浮かび上がったという。こうした知見は、自動評価をそのまま鵜呑みにするリスクを示すと同時に、どの条件であれば信頼できるかを見極める手がかりにもなる。\n\n音声AIの開発では、モデルの性能向上と並んで、その性能を正しく測る評価基盤の整備が不可欠とされる。本研究のように自動審判の限界を定量的に把握する取り組みは、今後より堅牢で再現性の高い音声対話の品質測定パイプラインを築くうえで、重要な一歩となる可能性がある。",
       "bodyEn": "Evaluating conversational voice AI has become a pressing challenge as full-duplex systems move from research demos toward practical deployment. A new paper on arXiv examines whether large audio language models (LALMs) can be trusted to act as automatic judges of these systems, systematically probing the consistency and biases of such evaluators. The question matters because reliable, scalable evaluation is a prerequisite for progress: if the yardstick itself is flawed, reported improvements in voice agents may be misleading.\n\nFull-duplex voice agents differ fundamentally from the turn-based, half-duplex assistants that dominate today. Rather than waiting for a user to finish before responding, full-duplex systems listen and speak at the same time, handling interruptions, overlapping speech, backchannels such as \"uh-huh,\" and rapid turn-taking that characterize natural human conversation. This behavioral richness makes them difficult to score. Traditional metrics like word error rate or single-turn response quality fail to capture timing, interruption handling, and the fluidity of an exchange, so researchers have increasingly turned to model-based judges that can assess audio directly.\n\nLALMs are the natural candidate for this role. These models extend the language-model paradigm to audio, ingesting speech and other sounds and producing text-based analysis or ratings. Using them as judges mirrors the now-common \"LLM-as-a-judge\" approach in text, where a capable model rates the outputs of other models in place of costly human annotation. The appeal is obvious: automated judging is cheap, fast, and reproducible, and it enables the large-scale comparisons needed to iterate on dialogue systems. The open question the paper addresses is how faithfully these audio judges track human perceptions of quality.\n\nAccording to the study, LALM judges exhibit measurable consistency and bias problems. In practical terms, consistency issues mean a judge may assign different verdicts to the same or similar audio depending on incidental factors, while bias refers to systematic preferences unrelated to genuine quality. The paper frames these as limitations that must be understood before automated pipelines can be trusted, rather than as reasons to abandon the approach outright. By characterizing where and how the judges agree or diverge, the work aims to establish more trustworthy evaluation practices for conversational speech AI.\n\nThe findings echo well-documented failure modes from text-based LLM judging, which appear likely to carry over and potentially intensify in the audio domain. In text, judges have shown position bias, favoring whichever answer is presented first; verbosity bias, rewarding longer responses; and self-preference bias, rating outputs from similar models more highly. Audio introduces additional confounds, since aspects like voice timbre, speaking rate, prosody, and recording conditions could sway a judge independently of conversational substance. For full-duplex settings specifically, the temporal dimension of overlap and interruption adds evaluation complexity that has few established baselines.\n\nThis research fits into a broader wave of activity around real-time voice interaction. Systems such as Kyutai's Moshi, along with the streaming voice modes introduced by major providers, have demonstrated low-latency, full-duplex conversation, intensifying the need for benchmarks that can fairly compare them. On the evaluation side, the community has produced audio-focused models and benchmarks, and datasets aimed at measuring spoken dialogue quality. The reliability of the judges underpinning these efforts is a foundational concern: benchmark leaderboards and ablation studies are only as credible as the scoring mechanism behind them.\n\nFor practitioners, the practical takeaway is caution paired with methodology. Automated LALM judging can plausibly accelerate development cycles, but the paper suggests that results should be validated against human ratings, checked for known biases, and reported with attention to the judge's limitations. Techniques used in text evaluation, such as randomizing presentation order, calibrating scores, and using multiple judges, may help mitigate some issues, though their effectiveness in audio remains to be confirmed.\n\nAs full-duplex voice agents mature, the tension between the desire for scalable automated evaluation and the need for trustworthy measurement is likely to grow. By spelling out where LALM judges fall short, this work contributes a diagnostic step toward more robust evaluation infrastructure. Whether the community can build audio judges that reliably align with human judgment will shape how confidently future claims about conversational voice AI can be assessed.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-09-05T01:14:32.421Z"
+      "generatedAt": "2026-09-05T01:14:32.421Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Geminiが音声を直接聞いて採点するって、どういうこと？文字に起こしたりしないの？",
+          "en": "Gemini scores the audio itself? It doesn't just turn it into text first?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、生のステレオ波形から全二重の会話を直接スコアにするんだ。全二重は、同時に話したり聞いたりできる会話のことだよ。",
+          "en": "In this paper, the judge scores full-duplex conversations straight from the raw stereo waveform. Full-duplex just means both sides can talk and listen at the same time."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、音声エージェントを作る人が、AI審判を使って品質を測れるようになるってこと？",
+          "en": "So people building voice agents could use an AI judge to measure quality?"
+        },
+        {
+          "s": "b",
+          "ja": "そこが狙いだね。ただ、この研究は審判を使う前提で、本当に信頼できるかを確かめているんだ。2.5 Flash、3.5 Flash、3.1 Proの3モデルが対象だよ。",
+          "en": "That's the idea. But the study checks whether such a judge can be trusted at all, testing three models: 2.5 Flash, 3.5 Flash, and 3.1 Pro."
+        },
+        {
+          "s": "a",
+          "ja": "人の評価者3人と比べて、209セッションを8項目で採点したんだね。意図的に欠陥を入れた音声も57本あるのが面白い！",
+          "en": "Three human raters compared on 209 sessions across 8 dimensions. And 57 clips with deliberately injected defects, that's clever!"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。ただ、主な根拠ではGemini 2.5 Flashを基準モデルにしているよ。結果は、一致度や偏りの問題を踏まえて読むのが大事かな。",
+          "en": "Right. Though the main evidence uses Gemini 2.5 Flash as the ground-truth model. The results are best read with the consistency and bias issues in mind."
+        }
+      ]
     },
     "191b880a4a1f772f": {
       "bodyJa": "LLMを教育目的で使う際には、単に正答を返すだけでなく、学習者の認知レベルに合わせて出力の深さを調整できるかが重要になる。arXivで公開された論文は、教育心理学で広く知られる「ブルームの分類法」に沿って、LLMがこうした教育的な制御をどの程度行えるかを定量評価するフレームワークを提案している。\n\nブルームの分類法は、学習目標を認知の深さによって段階分けした枠組みで、1956年に提唱され2001年に改訂された。「記憶」「理解」「応用」「分析」「評価」「創造」といったレベルを設け、教育現場では設問づくりやカリキュラム設計の指針として長く使われてきた。学習者が今どの段階にいて、次にどこを目指すべきかを見立てるための共通言語として機能してきたものだ。\n\n従来のLLM評価は、正確性や事実との整合性、有害な出力の有無といった尺度に偏りがちだった。しかし教育の場面では、答えをそのまま与えるのが適切なときもあれば、あえてヒントにとどめて高次の思考を促すべきときもある。同じ問いへの応答でも望ましい形は状況で変わり、こうした「教育的制御力」を体系的に測る指標は乏しかった。論文の枠組みは、指定した認知レベルに沿った出力をモデルが生成・維持できるか、また指示からの逸脱をどの程度抑えられるかを測ろうとするものだと見られる。\n\n背景にはAIチュータリングの急速な普及がある。カーンアカデミーの「Khanmigo」やDuolingoの生成AI機能など、実サービスへの組み込みが進む一方、学習効果や安全性をどう担保するかは依然として課題として残る。認知レベルという教育学の枠組みを評価軸に取り込む本研究は、精度中心だった従来指標を補い、教育向けAIの品質保証に新たな観点をもたらす可能性がある。実際に標準的なベンチマークとして定着するかは、今後の追試や実運用での検証にかかっていると言える。",
@@ -12288,44 +12320,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-27T21:42:08.116Z"
     },
-    "80955af470da00f0": {
-      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
-      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
-          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
-        },
-        {
-          "s": "b",
-          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
-          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
-        },
-        {
-          "s": "a",
-          "ja": "シークレットって、秘密のコードってこと？",
-          "en": "Does “secret” mean secret code?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
-          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
-          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
-          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T20:07:43.460Z"
-    },
     "61020694e8fd4971": {
       "bodyJa": "GitHubのシークレットスキャンが、Slack向けシークレットの検出で起きていた誤検知を減らしました。検出器の改善により、Slackの受信Webhook用URLの形式に合わないURLは、検出の対象から外れます。\n\n## 検出器の改善内容\n\n今回の更新は、サポート対象のシークレットに対する誤検知を減らすための検出器の改善の一環として案内されています。Slackについては、Incoming Webhook URLの形式を使っていないURLを除外する、という変更です。これまでSlackのシークレット候補として拾われていたURLのうち、形式が一致しないものはマッチしなくなります。\n\n## 受信Webhook URLの形式\n\n変更の焦点は、URLがSlackの受信Webhook用の形式に従っているかどうかです。形式に合致しないURLはSlackのシークレットとは見なされず、検出から外れます。その結果、Slack関連で不要なアラートが上がる場面が減ると説明されています。\n\n## 確認負担の軽減\n\n誤検知のアラートが減ることで、アラートを確認する開発者やセキュリティ担当者のトリアージ作業の負担が軽くなるとされています。確認すべきアラートの数そのものが、Slackのシークレットに関しては絞り込まれる形です。\n\n## 詳細とフィードバック\n\nシークレットスキャンの仕組みや、サポート対象シークレットの全一覧は、GitHubのドキュメントで確認できます。今回の変更への意見や感想は、コミュニティディスカッションで受け付けています。",
       "bodyEn": "## Fewer false positives for Slack\n\nGitHub's secret scanning has been updated to reduce false-positive detections for Slack secrets. For teams that review secret scanning alerts, fewer incorrect matches means less time spent checking findings that turn out not to be real secrets.\n\n## Detector improvements\n\nThe announcement describes the change as a set of detector improvements that reduce false-positive matches for supported secrets. The specific improvement it names is that URLs which do not use Slack's incoming-webhook URL format are now excluded from detection. In other words, a URL that does not match the format Slack uses for incoming webhooks should no longer be flagged as a Slack secret.\n\nAccording to the source, the practical result is fewer false-positive alerts for Slack secrets. The summary of the change adds that this eases triage work for developers and security teams, since fewer spurious alerts need to be reviewed and dismissed.\n\n## Where to learn more\n\nThe announcement points readers to the secret scanning documentation, which includes the full list of supported secrets. Anyone who wants to see which secret types the feature covers beyond Slack can find that list there.\n\nGitHub also invites feedback on the change through a community discussion. Separately, the post promotes a biweekly newsletter aimed at developers, which offers tips, technical guides, and best practices.\n\nThe source does not describe any other changes to secret scanning in this update. The announcement is limited to the narrowing of Slack detection so that only URLs matching the incoming-webhook format are considered.",
@@ -12483,6 +12477,164 @@
       "bodyEn": "Large language models increasingly solve complex problems by generating intermediate reasoning steps, yet how that reasoning actually unfolds inside the network remains poorly understood. A new arXiv paper proposes treating latent Chain-of-Thought (CoT) reasoning as a dynamical system, offering a mathematical framework for describing how intermediate reasoning states evolve within a model's hidden representations. The work matters because interpretability of multi-step reasoning is one of the central open challenges in current AI research, with direct implications for reliability, safety, and debugging.\n\nChain-of-thought prompting, popularized in 2022, showed that encouraging a model to \"think step by step\" in natural language substantially improves performance on arithmetic, logical, and commonsense tasks. More recently, researchers have explored latent or implicit reasoning, where the intermediate computation happens inside the model's continuous hidden states rather than being spelled out as text tokens. Methods such as latent-space reasoning and continuous \"thought\" vectors suggest that models can perform meaningful multi-step computation without externalizing every step. That shift makes reasoning harder to inspect, since there is no readable trace to examine, which is precisely the gap this paper appears to target.\n\nThe core idea is to view the sequence of hidden states produced during reasoning as a trajectory through a high-dimensional state space, governed by an update rule analogous to the equations of a dynamical system. In this framing, each reasoning step is a transition from one state to the next, and the overall reasoning process becomes a path that can be studied with tools from dynamical-systems theory. Concepts such as fixed points, attractors, stability, and convergence, long used to analyze recurrent neural networks and physical systems, are brought to bear on how a model settles toward an answer. The authors argue that this lens provides a principled way to characterize reasoning that is otherwise opaque.\n\nTechnically, such an approach typically involves extracting hidden-state representations across layers or generation steps, then modeling their evolution as a flow in latent space. Analyses of this kind often look at whether trajectories converge to stable regions, how perturbations propagate, and whether distinct problem types produce distinguishable dynamical signatures. If reasoning behaves like movement toward an attractor, that could help explain phenomena such as models locking onto an incorrect answer or self-correcting mid-generation. The framework is likely intended to be descriptive and diagnostic rather than a replacement for training methods, giving researchers a vocabulary for what the network is doing over the course of a reasoning chain.\n\nThis work sits within the broader field of mechanistic interpretability, which seeks to reverse-engineer the internal computations of neural networks. Related efforts include probing classifiers that decode information from hidden states, circuit analysis that traces how specific components combine to produce behavior, and sparse autoencoders that attempt to isolate interpretable features from dense activations. The dynamical-systems perspective is complementary: rather than identifying individual features or circuits, it describes the temporal or layer-wise evolution of the model's internal state as a whole. There is also historical precedent, as dynamical-systems analysis was a well-established approach for understanding recurrent networks before the transformer era, and applying it to CoT reasoning extends that tradition to modern architectures.\n\nThe practical value of the framework will depend on how well its predictions hold up empirically and whether the identified structures generalize across models and tasks. Latent reasoning is still an emerging area, and mapping continuous internal dynamics to human-understandable reasoning remains difficult. It is also worth noting that a compelling mathematical description does not automatically confer causal control over model behavior; understanding a trajectory is not the same as steering it. Still, if the approach yields measurable, reproducible signatures of reasoning, it could inform methods for detecting failures, evaluating robustness, or intervening on flawed reasoning before a final answer is produced.\n\nAs models increasingly rely on internal computation that users cannot directly observe, frameworks that make latent reasoning legible are likely to grow in importance. This paper contributes one such lens, and its longer-term significance will hinge on empirical validation and adoption by the wider interpretability community.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T17:24:22.870Z"
+    },
+    "571c8c47df881aa3": {
+      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
+      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
+          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
+          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
+        },
+        {
+          "s": "a",
+          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
+          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
+          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
+          "en": "I’d line up a few review agents and compare which one might suit me best."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
+          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T12:37:57.149Z"
+    },
+    "f6b94ed3ab463313": {
+      "bodyJa": "langchain-nomic 1.1.0 は、1.0.1 以降の変更をまとめたリリースです。パートナーパッケージから EOL となった Python 3.10 が外され、certifi などの依存関係が更新されました。統合テストの不具合修正も含まれます。\n\n## Python 3.10 の削除\n\n「Remove EOL'd Python 3.10 from partner packages」(#41268) という変更が入りました。対象は nomic 単体ではなく、パートナーパッケージ全体です。langchain-nomic 1.1.0 はこの変更を取り込んだ版にあたります。\n\n## certifi などの更新\n\nnomic のディレクトリ (/libs/partners/nomic) では、次の依存関係が更新されています。\n\ncertifi は 2025.8.3 から 2026.10.19 へ、urllib3 は 2.7.0 から 2.8.0 へ上がりました。pyjwt も 2.13.0 からの更新対象に含まれています。\n\nそのほかにも依存関係に関わる変更が並びます。サードパーティ依存の上限を緩める調整 (#41407) と、一部のパートナーパッケージの依存関係の修正 (#41266) があります。新しい Python 向けのセキュリティ関連のロック解決へのパッチ (#41585) も入りました。\n\n脆弱な統合依存関係へのパッチ (#41473) は、いったん適用されたあと revert (#41481) されています。\n\n## 認証ファイル競合の修正\n\n統合テストについては、nomic で直列実行にする修正 (#42034) が入りました。認証ファイルをめぐる競合 (credentials file race) を避けるための変更です。要点としては、これによりビルドの信頼性が上がるとされています。\n\n## 関連リリース\n\n今回の変更履歴には、nomic 1.1.0 のリリース (#41993) とあわせて、standard-tests 1.2.0 のリリース (#41996) も記載されています。",
+      "bodyEn": "## langchain-nomic 1.1.0 Release\n\nlangchain-nomic 1.1.0 has been released, covering changes made since langchain-nomic 1.0.1. The release removes end-of-life Python 3.10 from the partner packages and updates a number of dependencies, which matters for anyone running the Nomic integration in their own environment.\n\n## Python 3.10 Removed\n\nThe most notable change is the entry \"Remove EOL'd Python 3.10 from partner packages\" (#41268). According to the release notes, Python 3.10 is no longer supported across the partner packages, which include langchain-nomic. Users still on Python 3.10 would need to review their setup before moving to this version.\n\n## Dependency Updates\n\nSeveral entries concern dependencies. The notes list a bump of certifi from 2025.8.3 to 2026.10.19 in the nomic package (#41382) and a bump of urllib3 from 2.7.0 to 2.8.0 (#40954). A pyjwt bump from 2.13.0 is also listed, though the target version is cut off in the source.\n\nOther maintenance items include patching newer-python security lock resolutions (#41585), relaxing third-party dependency upper bounds (#41407), and fixing dependencies in some partner packages (#41266). The notes also record a change to patch vulnerable integration dependencies (#41473) and a later revert of that change (#41481).\n\n## Test and Release Changes\n\nThe release includes a fix to run integration tests serially to avoid a credentials file race (#42034). Running the tests one after another is intended to prevent a conflict over the credentials file, which should make test runs more reliable.\n\nThe list also contains the release entries themselves: the nomic 1.1.0 release (#41993) and a standard-tests 1.2.0 release (#41996).\n\nTaken together, 1.1.0 is a maintenance-oriented update. It narrows the supported Python versions, refreshes dependencies including certifi and urllib3, and stabilizes the integration test process. The notes do not describe new user-facing features for the Nomic integration.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Python 3.10 がパートナーパッケージから外れたんだね。これって大きいことなの？",
+          "en": "Python 3.10 got dropped from the partner packages, right? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、サポートが終わった(EOL)3.10 を外したと書かれているよ。まだ3.10を使っているなら、確認したほうがいいかもね。",
+          "en": "The article says 3.10 is end-of-life, so it was removed. If you're still on 3.10, it might be worth checking your setup."
+        },
+        {
+          "s": "a",
+          "ja": "「credentials file race」ってなに？ レースするの？",
+          "en": "What's a \"credentials file race\"? Does something actually race?"
+        },
+        {
+          "s": "b",
+          "ja": "競争というより、複数の処理が同じ認証ファイルに同時に触ってぶつかる状態、くらいの意味だよ。対策に統合テストを順番に実行するようにしたんだ。",
+          "en": "Kind of! It roughly means several processes touching the same credentials file at once and clashing. The fix here is running integration tests one after another."
+        },
+        {
+          "s": "a",
+          "ja": "もし私が使うなら、まず自分の Python のバージョンを確かめればいいのかな？",
+          "en": "If I used this, would I just check my Python version first?"
+        },
+        {
+          "s": "b",
+          "ja": "うん、いい入口だよ。3.10 が外れた点に加えて、certifi や urllib3 の更新も入っているよ。",
+          "en": "Yep, good starting point. Besides 3.10 being dropped, the release also includes bumps to certifi and urllib3."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T00:38:11.695Z"
+    },
+    "d0aba9bb5e13edd6": {
+      "bodyJa": "langchain-qdrant 1.2.0 が公開されました(公開日は 2026年11月23日)。1.1.0 以降の変更は、EOL となった Python 3.10 のパートナーパッケージからの削除と、依存ライブラリの更新が中心です。Qdrant 連携を使う開発者が、より安全で柔軟な依存関係で運用できるようになると説明されています。\n\n## Python 3.10 の削除\n\n今回の変更で目立つのは、パートナーパッケージ全体から EOL となった Python 3.10 を取り除く対応です(#41268)。qdrant パッケージ自体は 1.2.0 としてリリースされ(#41992)、あわせて standard-tests も 1.2.0 がリリースされています(#41996)。\n\n利用側で Python 3.10 を使っている場合は、この点を確認しておく必要があります。\n\n## 依存ライブラリの更新\n\nqdrant パッケージ配下では、複数の依存ライブラリがバージョンアップされています。\n\nfilelock は 4.2.5 から 4.2.10 へ更新されました(#41835)。certifi は 2025.8.3 から 2026.10.19 へ(#41376)、fsspec は 2026.6.0 から 2026.9.0 へ更新されています(#41090)。fsspec については、これとは別の更新も含まれています。\n\nあわせて、一部のパートナーパッケージで依存関係を修正する変更も入りました(#41266)。\n\n## 上限の緩和と脆弱性対応\n\nサードパーティ依存のバージョン上限を緩める変更も含まれます(#41407)。依存関係を柔軟に扱えるようにする狙いと説明されています。\n\n脆弱性への対処としては、「脆弱な統合依存関係へのパッチ」(#41473)が入った後、いったん revert されています(#41481)。その後、新しい Python 向けのセキュリティ関連ロック解決をパッチする変更が加わりました(#41585)。\n\n一連の変更は、依存関係を安全かつ柔軟に保つための調整と位置づけられます。アップグレードの際は、Python のサポート範囲と依存ライブラリのバージョンを確認してください。",
+      "bodyEn": "## langchain-qdrant 1.2.0 release\n\nThe langchain-qdrant 1.2.0 release is a maintenance-focused update to the Qdrant integration. According to the release notes, it centers on dropping an end-of-life Python version and refreshing dependencies, which matters for developers who want their Qdrant setup to rest on a current, safer dependency set.\n\n## Python 3.10 removed\n\nOne listed change, \"Remove EOL'd Python 3.10 from partner packages\" (#41268), removes support for Python 3.10 across the partner packages. The release notes describe that version as end-of-life. Anyone running the Qdrant integration on Python 3.10 should check this change before upgrading.\n\n## Dependency bumps and patches\n\nMuch of the changelog covers dependency updates in the Qdrant package directory. The notes list these bumps:\n\nfilelock moves from 4.2.5 to 4.2.10 (#41835).\n\ncertifi moves from 2025.8.3 to 2026.10.19 (#41376).\n\nfsspec moves from 2026.6.0 to 2026.9.0 (#41090). The listing also shows a further fsspec bump, but the entry is cut off.\n\nOther entries concern security and dependency resolution. They include \"patch newer-python security lock resolutions\" (#41585) and \"patch vulnerable integration dependencies\" (#41473). A revert titled \"patch vulnerable integration dependencies\" (#41481) also appears in the list, and the notes do not say how it relates to the original patch. A separate fix addresses dependencies in some partner packages (#41266).\n\n## Looser version bounds and release steps\n\nThe changelog also includes \"relax third-party dependency upper bounds\" (#41407). The release summary says this loosens upper version bounds, giving users a more flexible dependency set.\n\nThe release itself is recorded as \"release(qdrant): 1.2.0\" (#41992). A matching \"release(standard-tests): 1.2.0\" entry (#41996) appears alongside it. Both are listed as changes since the 1.1.0 release of langchain-qdrant.\n\nOverall, the 1.2.0 notes describe housekeeping rather than new features: a narrower range of supported Python versions, updated dependency pins, security-motivated patches, and relaxed upper bounds. Teams using the Qdrant integration should review the Python version change in particular when planning an upgrade.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T00:38:29.191Z"
+    },
+    "06bea836423c5b57": {
+      "bodyJa": "langchain-tests 1.2.0 が公開された。1.1.9 以降の変更をまとめたリリースで、standard-tests から Python 3.10 を外す対応や、依存関係の更新、バージョン上限の緩和が含まれる。LangChain の統合テストを保守する開発者にとって、テスト環境を最新に保ちやすくなる更新とされる。\n\n## Python 3.10の削除\n\n目立つ変更は、サポートが終了した Python 3.10 を外す対応である。対象は text_splitters、model_profiles、standard-tests の3つで、機能追加(feat)として扱われている。standard-tests を利用する側は、この版から Python 3.10 を前提にした構成を見直す必要が出てくる。\n\n## vcrpyとcertifiの更新\n\n依存関係では、standard-tests ディレクトリ内の vcrpy が 8.3.0 から 8.5.0 に更新された。certifi も 2025.11.12 から 2026.10.19 に上がっている。vcrpy の更新は、メジャーグループとしてまとめられた依存更新の一部である。\n\nこのほか、minor-and-patch グループの更新が複数回取り込まれている。確認できる範囲では、2ディレクトリで4件の更新をまとめたものが2回あり、3ディレクトリで4件の更新をまとめたものも含まれる。\n\n## 上限制約の緩和\n\nインフラ面では、サードパーティ依存の上限制約を緩める変更が入った。バージョンの上限を緩めることで、周辺ライブラリの新しい版と組み合わせやすくなると見られる。ただし、具体的にどのパッケージの上限が変わったかは、この更新内容からは分からない。\n\n## tool-call-deltaの読み取り\n\n機能面では、core、langchain、standard-tests にまたがる変更として、ストリームを受け取る側(stream consumers)が tool-call-delta を読むようになった。ストリーミング処理でのツール呼び出し差分の扱いに関わる変更だが、具体的な挙動や影響範囲までは示されていない。\n\n今回のリリースは、Python 3.10 の削除と依存関係の整理が中心である。standard-tests を使って統合を検証している場合は、利用中の Python のバージョンと依存の組み合わせを確認しておくとよい。",
+      "bodyEn": "## langchain-tests 1.2.0 release\n\nlangchain-tests 1.2.0 has been released, covering changes to the standard-tests package since the 1.1.9 release. The update matters mainly to people who maintain LangChain integrations and need their test environments to stay current.\n\n## Removing EOL'd Python 3.10\n\nThe headline change is a feature entry, \"Remove EOL'd Python 3.10 from text_splitters, model_profiles and standard-tests\" (#41343). According to the release notes, support for Python 3.10, which has reached end of life, is dropped from standard-tests as well as from text_splitters and model_profiles. The release is labeled 1.2.0 (#41996).\n\n## Dependency bumps and relaxed bounds\n\nMuch of the release consists of dependency maintenance. Specific items listed include:\n\nvcrpy is raised from 8.3.0 to 8.5.0 in /libs/standard-tests, under the major group (#41617). certifi moves from 2025.11.12 to 2026.10.19 in /libs/standard-tests (#41368).\n\nSeveral grouped updates are also listed as \"minor-and-patch group\" bumps. These span two directories with four updates each (#41615 and #41464), and another entry covers three directories with four updates.\n\nA separate infrastructure change, \"relax third-party dependency upper bounds\" (#41407), loosens the upper version limits placed on third-party dependencies. The source describes it as a chore rather than a feature.\n\n## Tool-call-delta in stream consumers\n\nOne further feature entry touches functionality rather than upkeep: \"read tool-call-delta in stream consumers\" (#41246). It is tagged across core, langchain and standard-tests. The source gives no further detail on how this behaves, so the scope of the change is limited to what the title states.\n\nTaken together, the release combines a Python version cutoff, refreshed dependencies, looser upper bounds and one change involving stream consumers. For integration maintainers, the practical effect described is a test environment that is easier to keep up to date.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Python 3.10を外したって書いてあるけど、「EOL」ってどういうこと？",
+          "en": "It says Python 3.10 was removed, but what does \"EOL\" mean here?"
+        },
+        {
+          "s": "b",
+          "ja": "EOLは公式サポートが終わったという意味だよ。この記事では、そのPython 3.10をstandard-testsなどから外したと書かれているよ。",
+          "en": "EOL means official support has ended. This release removes Python 3.10 from standard-tests and a couple of other packages."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあvcrpyやcertifiの更新と、上限制約をゆるめたのは、テストを保守する人が使いやすくなるってこと？",
+          "en": "So the vcrpy and certifi updates, plus the looser upper bounds, make life easier for people maintaining tests?"
+        },
+        {
+          "s": "b",
+          "ja": "記事ではそう読めるね。依存関係が新しくなり、上限制約も緩むので、LangChainの統合テストの環境を整えやすくなる更新だよ。",
+          "en": "That's how the article frames it. Newer dependencies and relaxed bounds should make it easier to keep LangChain integration test setups current."
+        },
+        {
+          "s": "a",
+          "ja": "3.10を外して、依存関係を新しくして、制約もゆるめた。テスト環境を最新に保ちやすくする更新なんだね。",
+          "en": "So: 3.10 dropped, dependencies refreshed, bounds loosened. It's about keeping test environments up to date."
+        },
+        {
+          "s": "b",
+          "ja": "うん。ただ3.10を外した点は、まだ3.10で使っている人には影響するかもしれないから、環境は確認しておきたいね。",
+          "en": "Right. Since 3.10 support is gone, anyone still on it might be affected, so it's worth checking your environment."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T00:39:14.380Z"
+    },
+    "241fa848d362de15": {
+      "bodyJa": "YUKTIは、自然言語で書かれた意思決定の状況を、仮定に対して頑健で検証可能な意思決定へとつなげるフレームワークである。言語モデルが文章の状況を数値計画に変える場面で、数値を「確定した事実」として扱ってしまう問題に取り組んでいる。著者はSuyash Mishraである。\n\n## 点推定への依存\n\n論文によれば、NL4Opt、OptiMUS、ORLM、OR-LLM-Agentといった主流のパイプラインは、単一の目的関数と点で与えた係数を採用し、一度だけ解く構成をとる。予算や労力、臨床上の注意といった実際の資源を割り当てる意思決定では、この確信が失敗のもとになると指摘されている。\n\n数値として取り出された値は、いずれも仮定にすぎない。推測が寸分違わず当たったときにだけ最適になる計画は脆く、論文はこれを「計算の模倣」と表現している。\n\n## 不確実性型命題IR\n\nYUKTIはまず、自然言語の状況を「不確実性型命題」の中間表現(IR)に変換する。曖昧な前提を数値の裏に隠さず、表現の段階で明示的に扱えるようにする点が特徴とされる。\n\nIRの詳しい構造や変換の手順は、ここで取り上げた範囲では示されていない。ただ、不確実性を型として命題に持たせるという設計から、仮定を後段の処理で扱える形に残す意図がうかがえる。\n\n## パレートと後悔証明書\n\nこの中間表現から、YUKTIは「仮定ロバストなパレートフロンティア」と「後悔証明書」を導き出す。単一の解を一度だけ求めるのではなく、複数の目的のあいだのトレードオフを、仮定が変わりうることを踏まえて示す方向の手法と読める。後悔証明書は、出力された意思決定を検証・監査可能にするための要素と位置づけられている。\n\nこれらにより、YUKTIは検証可能で監査しやすい意思決定を生み出すと説明されている。曖昧な仮定を無視せず明示的に扱うことが、AIによる意思決定を前進させる貢献だという。\n\n## 読み取れる位置づけ\n\nこの研究の中心は、数値化の過程で生じる仮定を計画の脆さの原因として正面から扱い、その扱いを検証可能な出力にまで結びつける点にある。評価結果や実装の詳細は示されていないため、実際の有効性についてはここでは判断できない。",
+      "bodyEn": "YUKTI is a research paper by Suyash Mishra on turning a decision situation described in natural language into a plan that can be checked. It matters because language-model pipelines that produce numeric plans are being used for decisions that allocate real budget, effort, or clinical attention, where an overconfident answer carries real cost.\n\n## Mimicry of computation\n\nThe paper starts from a criticism of current practice. Language models can turn a worded situation into a numeric plan, and the pipelines it names (NL4Opt, OptiMUS, ORLM, and OR-LLM-Agent) commit to a single objective and point-valued coefficients, then solve once.\n\nAccording to the paper, that confidence is the failure mode. Every number extracted from the text is an assumption. A plan that is optimal only if those guesses are exactly right is fragile, and the author calls this \"mimicry of computation.\"\n\n## An uncertainty-typed proposition IR\n\nYUKTI responds by changing the intermediate step. It converts a natural-language decision scenario into an uncertainty-typed proposition intermediate representation (IR). The title and summary indicate that ambiguous premises are meant to be represented explicitly rather than collapsed into single values. The framework is built to treat assumptions as assumptions instead of ignoring them.\n\n## Robust frontiers and regret\n\nFrom that representation, the framework derives two outputs named in the title. The first is an assumption-robust Pareto frontier. This replaces the single-objective, solve-once approach with a set of trade-offs designed to hold up across the assumptions made.\n\nThe second is a regret certificate. The stated aim is decisions that are verifiable and auditable, so a reader can inspect how far a recommended plan could fall short rather than accept it on trust.\n\n## What the paper claims\n\nThe paper positions YUKTI as a path from natural-language situations to robust, verifiable decisions. Its central contribution, as summarized, is handling ambiguous assumptions explicitly in AI decision-making. The source is an arXiv computer science (AI) paper dated 14 July 2026.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、普段のどんな場面で役に立つの？お金や時間の使い方を決めるときとか？",
+          "en": "So where would this show up in real life? Like deciding how to spend money or time?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、予算や労力、臨床での注意の配分といった決定が例です。文章で書いた状況を、仮定ごと検証できる形の判断にするのがねらいです。",
+          "en": "The article mentions decisions about budget, effort, or clinical attention. The aim is to turn a described situation into a decision whose assumptions can be checked."
+        },
+        {
+          "s": "a",
+          "ja": "前の方法だと、そこがうまくできなかったの？",
+          "en": "Couldn't the older methods do that?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、従来の流れは目的を一つに絞り、数値も一点の値で置いて一度だけ解くと説明しています。その数値は仮定なので、外れると計画がもろい、という指摘です。",
+          "en": "The article says earlier pipelines pick one objective, use single-value numbers, and solve once. Those numbers are assumptions, so a plan can be fragile if the guesses are off."
+        },
+        {
+          "s": "a",
+          "ja": "つまり、数字を当たり前に信じず、仮定だと認めて考えるのが大事なんだね。",
+          "en": "So the big takeaway is not trusting the numbers blindly, and treating them as assumptions?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。要約では曖昧な前提を無視せず明示的に扱う点が貢献とされています。次は、仮定ロバストなパレートフロンティアと後悔証明書がどう働くかに注目です。",
+          "en": "Yes, the summary credits it for handling ambiguous assumptions explicitly. Next, watch how the assumption-robust Pareto frontiers and the regret certificate actually work."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T00:39:54.415Z"
     }
   }
 }

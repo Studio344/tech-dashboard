@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T06:30:54.829Z",
-  "count": 385,
+  "generatedAt": "2026-11-28T07:30:53.875Z",
+  "count": 388,
   "bodies": {
     "17f496c665a12174": {
       "bodyJa": "Metaは、AIネイティブ時代に向けたプライバシー対応インフラの中核として、社内の膨大なデータアセットを正確に分類する取り組みをエンジニアリングブログで公開した。データ保持期間やアクセス制御、利用目的の制限、第三者への共有可否、匿名化といったプライバシー制御は、対象となるデータの性質を正しく把握して初めて機能するためだ。\n\n同社の出発点はシンプルである。あらゆるプライバシーコントロールは「どこに、どのようなデータが存在するか」という信頼できる理解を前提とする。たとえば特定の個人情報を一定期間で削除する保持ポリシーを適用するには、まずそのデータがどのテーブルやログ、ストレージのどこに含まれているかを機械的に判別できなければならない。分類が曖昧なままでは、制御そのものが空回りしてしまう。\n\nしかし、この前提を大規模に満たすことは容易ではない。Meta規模のサービスでは、データは無数のシステムを横断して生成・変換・複製され、形式やスキーマも多様だ。さらに生成AIや機械学習パイプラインの普及により、学習用データセットや派生データが増え、データの流れはいっそう複雑になっている。こうした環境で分類の精度と網羅性を保つには、自動化された分類基盤と継続的な検証の仕組みが欠かせない。\n\nこの課題は業界共通のものでもある。EUのGDPRや米カリフォルニア州のCCPAをはじめとする各国の規制は、データの利用目的や保持に厳格な要件を課しており、データガバナンスの基盤整備は大手テック各社にとって避けて通れない。GoogleやMicrosoftなども独自のデータ分類・カタログ化の仕組みを整えてきたとされ、Metaの今回の公開はその一つの実装例と位置づけられる。\n\nAIの普及はデータ活用の幅を広げる一方で、プライバシー保護の難度を押し上げている。データを正確に「知る」ための分類基盤は、派手さこそないが、信頼できるAIサービスを支える土台になると見られる。Metaの事例は、プライバシーを後付けではなく設計段階から組み込む「プライバシー・バイ・デザイン」の実践として参考になりそうだ。",
@@ -12522,7 +12522,39 @@
       "bodyJa": "## 米国製チップ\n\nAppleはBroadcomとの取引を拡大し、米国で数十億個の追加チップを生産すると発表した。米国内の半導体生産を大幅に広げる方針を明確にした点が重要だ。\n\n## 6年間の契約\n\n新たな取り組みは6年間の契約で、カスタムシリコン部品と最先端の無線接続技術を設計・生産する。生産数量の追加だけでなく、部品の設計と無線接続技術も契約の対象になると説明されている。",
       "bodyEn": "## Apple and Broadcom\n\nApple has announced increased spending with Broadcom to manufacture billions of additional chips in the United States. The move represents a major expansion of domestic semiconductor production and, according to the existing summary, is expected to strengthen supply stability and reduce geopolitical risk.\n\n## Custom silicon components\n\nThe announcement describes a new six-year commitment with Broadcom to design and produce custom silicon components. It also covers cutting-edge wireless connectivity technologies.\n\nApple plans to expand chip production substantially within the United States, adding billions of chips through its broader commitment with Broadcom.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-09-05T13:13:56.936Z"
+      "generatedAt": "2026-09-05T13:13:56.936Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "私たちが使うApple製品って、これで何か変わるのかな？ 数字がすごく大きくて気になる。",
+          "en": "Would this change anything in the Apple products we actually use? Those numbers are huge."
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、Apple製品向けのカスタムチップと最先端の無線接続技術を、米国で150億個以上作る話だよ。製品ごとの変化までは書かれていないんだ。",
+          "en": "The piece says custom chips and advanced wireless tech for many Apple products, with over 15 billion made in the U.S. It doesn't spell out changes for individual products."
+        },
+        {
+          "s": "a",
+          "ja": "前はアメリカで作ってなかったの？ Broadcomとは今回が初めて？",
+          "en": "Wasn't this done in the U.S. before? Is this the first time with Broadcom?"
+        },
+        {
+          "s": "b",
+          "ja": "そこまでは書かれていなくて、従来との違いは分からないんだ。ただ「増やす」とあって、Broadcomは昨年始まった米国製造プログラムAMPの一員だと説明されているよ。",
+          "en": "The article doesn't say, so I can't tell what's different from before. It does say \"increase,\" and that Broadcom is part of Apple's American Manufacturing Program, launched last year."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、300億ドル超の見込みの契約で、米国製チップが150億個以上作られて、雇用も支えるってことかな。",
+          "en": "So the big takeaway is a deal expected to top $30 billion, with over 15 billion U.S.-made chips and support for American jobs?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。次はコロラド州フォートコリンズの施設の拡張と、Appleが進める米国内の一貫したシリコン供給網がどう広がるかに注目かな。",
+          "en": "Right. Next, I'd watch the expansion of the Fort Collins, Colorado facility, and how Apple's push for an end-to-end U.S. silicon supply chain develops."
+        }
+      ]
     },
     "7944fc8cac623dff": {
       "bodyJa": "## 中小企業向け\n\nOpenAIは、中小企業向けの「ChatGPT for small business」プログラムを開始した。AIツールを業務へ取り入れやすくし、生産性の向上と競争力の強化を後押しする取り組みだ。\n\n## ChatGPT活用支援\n\n小規模な組織によるAIツールの導入に向けて、リソースと支援を提供する。起業家がAIスキルを身につけ、ChatGPT Workで業務を自動化し、成長につなげることを支援すると説明されている。",
@@ -13148,45 +13180,39 @@
       "bodyJa": "OpenHandsのクラウド版であるOpenHands cloudがバージョン1.43.0に更新された。今回のリリースは大きな機能追加というよりも、クラウド型AIコーディングエージェント環境の改善と安定性向上を主眼としたアップデートと位置づけられる。\n\nOpenHandsは、旧称OpenDevinとして知られるオープンソースのAIコーディングエージェント基盤である。自然言語での指示を受けて、コードの記述や修正、コマンドの実行、ブラウザ操作などを自律的にこなすことを目指したプロジェクトで、提供されるクラウド版は、ローカル環境の構築を必要とせずにこうしたエージェント機能を利用できる点が特徴とされる。\n\n今回の1.43.0は、要約によれば段階的な改善と安定性の更新が中心と説明されている。この種のマイナーバージョンアップでは、エージェントの実行精度やUIの応答性、既知の不具合の修正、依存ライブラリの更新といった地道な改良が積み重ねられることが多い。派手な新機能こそ目立たないものの、日常的にエージェントを使う開発者にとっては、こうした継続的なメンテナンスが実用性を左右する要素となる。\n\n背景として、AIコーディングエージェントの分野はここ数年で競争が急速に激化している。CognitionのDevinをはじめ、GitHub Copilotのエージェント機能、CursorやClineといったツール群が相次いで登場し、単なるコード補完から自律的なタスク遂行へと軸足が移りつつある。OpenHandsはオープンソースであることを強みに、利用するモデルの選択自由度やセルフホスト可能な柔軟性で存在感を示してきた。\n\nクラウド版は、こうしたオープンソースの利点を保ちつつ、環境構築の手間を省いた手軽さを提供する狙いがあると見られる。一方で、コードを扱うエージェントを外部のクラウド上で動かす場合、セキュリティやデータの取り扱いへの配慮が重要になる。頻繁なバージョン更新は、機能面だけでなく、こうした運用上の信頼性を高める意味合いも持つと考えられる。\n\n利用を検討する開発者は、公式のリリースノートで具体的な変更点や既知の制約を確認したうえで、自身のワークフローに適合するかを見極めるとよいだろう。",
       "bodyEn": "OpenHands cloud, the managed version of the open-source AI software development agent platform, has released version 1.43.0, delivering what appears to be a round of incremental improvements and stability updates rather than a major feature overhaul. For teams that rely on autonomous or semi-autonomous coding agents in day-to-day development, point releases like this matter because they typically address the reliability and predictability issues that determine whether such tools are usable in real workflows rather than just demos.\n\nOpenHands is a platform that lets AI agents perform software engineering tasks in a sandboxed environment. Rather than only suggesting code inline, the agents are designed to operate more like a developer: reading and editing files, executing shell commands, running tests, and in some configurations browsing the web to gather information. The cloud edition packages this capability as a hosted service, removing the need for users to provision and maintain their own execution infrastructure. That hosting model places particular weight on stability and runtime consistency, since users are depending on the provider's environment rather than tuning their own.\n\nThe project has a notable lineage. OpenHands was previously known as OpenDevin, a name it carried when it launched as a community response to Devin, the AI software engineer demonstrated by Cognition Labs. The project was later renamed and is now developed under the All Hands AI umbrella, while remaining open source. That heritage is relevant context because OpenHands has positioned itself as a transparent, inspectable alternative in a category where several competing products are closed and commercially gated. The availability of a cloud offering alongside the open-source codebase reflects a common pattern in developer tooling, where an open core is paired with a managed service that funds ongoing development.\n\nBecause the release notes for 1.43.0 emphasize incremental refinement, the changes are likely to fall into categories such as bug fixes, performance tuning, agent behavior adjustments, and interface or integration polish. In agent platforms, stability work of this kind often targets recurring failure modes: agents getting stuck in loops, mishandling long-running commands, exhausting context windows, or producing inconsistent results across similar tasks. Improvements to the underlying sandbox, session handling, or model orchestration can meaningfully change how dependable the system feels, even when no headline feature is added. Readers who need the precise list of modifications should consult the official changelog, as the specifics of any individual point release are best confirmed against the source rather than inferred.\n\nThe broader context is a rapidly moving market for AI coding assistance that spans several tiers of autonomy. On one end sit inline completion and chat tools such as GitHub Copilot and Cursor, which augment a developer who remains firmly in control. Further along are more agentic systems, including command-line tools like Aider and research-oriented frameworks such as SWE-agent, which grew out of academic work on the SWE-bench benchmark for evaluating how well models resolve real GitHub issues. OpenHands sits toward the agentic end of this spectrum, and its performance is frequently discussed in relation to such benchmarks. The distinction that matters to most users is how much a tool can be trusted to complete a multi-step task without supervision, and how gracefully it fails when it cannot.\n\nSeveral prerequisite concepts help explain why releases in this space are watched closely. Agentic coding tools depend on a loop of planning, acting, and observing results, which makes them sensitive to the quality of their sandbox, their access to tools, and the capabilities of the underlying large language model. Many platforms, OpenHands included, are model-agnostic to varying degrees, allowing different backends to be plugged in, which means updates can also involve compatibility work as new models are released. Sandbox isolation is another core concern, both for safety, since agents execute code, and for reproducibility.\n\nFor existing OpenHands cloud users, upgrading to 1.43.0 should generally require no action given the managed nature of the service, though anyone integrating the platform through APIs or automation may want to verify behavior after the update. As with any fast-iterating tool, the practical takeaway is that steady, unglamorous releases of this type are often what move an agent platform from experimental to dependable, and they are worth tracking even when they lack a marquee feature.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:49:16.366Z"
-    },
-    "9c3380ee4f1290dc": {
-      "bodyJa": "## 1週間で12億コミット\n\nGitHub Copilotのブログは、コード生成の先にあるエージェント型エンジニアリングを取り上げ、実装が速くなった後の開発者の仕事をどう進めるかを論じている。\n\n同ブログによると、この10月にGitHubでは1週間で12億件を超えるコミットが記録された。1年前と比べて400%超の増加で、2025年の1年間に受け取ったコミット数より多いという。\n\n## 生産性は400%上がったか\n\nコードを生成する量は、1年前より増えている可能性が高い。ただし著者は、自分が400%生産的になったと感じるかどうかを読者に問いかける。ソフトウェア開発は優れたプロンプトだけで成り立つものではない、という立場である。\n\n## レビュー時間441%増\n\nAIが実装を加速させる一方で、負荷は別の場所にかかっている。Faros AIの調査では、AIの導入度合いが低い状態から高い状態に移ったチームで、プルリクエストがレビューに費やす時間が441%長くなったと紹介されている。\n\n## 4つの工程\n\n開発者の仕事は、要件を集めて実装の舵を取ること、変更をレビューしてテスト結果を評価すること、そして本番環境で起きていることを調べることに及ぶ。エージェントは、こうした一連の作業をPlan、Build、Verify、Observeの4つの段階で効率化する助けになるとされている。",
-      "bodyEn": "## Beyond Code Generation\n\nGitHub Copilot's guide to agentic engineering starts from a question about productivity. It matters because faster code generation does not by itself make software development proportionally faster. According to the source, GitHub saw more than 1.2 billion commits in a single week this October, over 400% more than a year earlier. The source adds that this is more commits than GitHub received in all of 2025.\n\n## Pressure Moves Downstream\n\nThe source asks whether developers feel 400% more productive than last year. Its answer is that building software takes more than a good prompt. As AI speeds up implementation, the source says, developers feel more pressure in other places. It cites a Faros AI study finding that pull requests spent 441% longer in review when teams went from low to high AI adoption.\n\nThis is the central tension the guide addresses. More code is being produced, but review time grew sharply as teams adopted AI more heavily. The work that surrounds implementation has not shrunk to match.\n\n## Plan, Build, Verify, Observe\n\nThe source describes a developer's job as broader than writing code. Developers gather requirements and steer implementation, review changes and evaluate test results, and then investigate what happens in production. The guide's argument is that agents can help across all of these stages, which it names Plan, Build, Verify, and Observe.\n\nMapped onto that description, the stages line up roughly as follows. Plan and Build cover gathering requirements and steering implementation. Verify covers reviewing changes and evaluating test results. Observe covers investigating what happens in production. The framing treats code generation as one part of a larger cycle rather than the whole of the work.\n\n## What This Means for Developers\n\nThe guide is positioned as an introduction to agentic engineering for developers, aimed at managing work beyond code generation. Its premise is that the areas feeling the strain, such as review, are where agents can also be applied, not only at the point where code is written. The material provided here covers this framing and the figures behind it. It does not detail specific workflows, features, or instructions for each stage.",
+      "generatedAt": "2026-08-30T17:49:16.366Z",
       "chat": [
         {
           "s": "a",
-          "ja": "AIでコードをたくさん書けるようになったら、普段の仕事って何が変わるの？",
-          "en": "If AI helps us write so much more code, what actually changes in everyday work?"
+          "ja": "この更新で、具体的にはどんなところが変わったの？",
+          "en": "What actually changed in this update?"
         },
         {
           "s": "b",
-          "ja": "書く速さが上がる分、レビューなど他の工程に負担が寄るみたい。この記事はPlan・Build・Verify・Observeの4段階で考えているよ。",
-          "en": "Writing gets faster, but the pressure seems to shift to other stages like review. This article frames it as four stages: Plan, Build, Verify, and Observe."
+          "ja": "記事だと、移行処理でインデックス列をリストで渡す修正と、ACP関連の設定がクラウド版で見えるようにする修正が載っているよ。",
+          "en": "The notes list a migration fix that passes index columns as a list, and a fix so ACP agent settings show up in the cloud version."
         },
         {
           "s": "a",
-          "ja": "前は、コード生成だけで困らなかったのかな？比べて何が違うの？",
-          "en": "Was code generation alone fine before? What's different now?"
+          "ja": "ACPの設定が見えるようになるって、クラウドを使う人には助かるってこと？",
+          "en": "So people using the cloud version can now see the ACP settings? That sounds helpful."
         },
         {
           "s": "b",
-          "ja": "以前どうだったかまでは書かれていないんだ。ただ、AI導入が低から高になるとレビュー時間が441%長くなった調査が紹介されているよ。",
-          "en": "The article doesn't say how things were before. It does cite a study where review time rose 441% when teams moved from low to high AI adoption."
+          "ja": "そうかもね。ENABLE_ACPが初期でオンになる変更なので、設定画面に出てこない状況は減りそう。ただ細かい効果までは書かれていないよ。",
+          "en": "Probably. ENABLE_ACP now defaults to on, so the settings should be easier to find. The notes don't go into finer effects, though."
         },
         {
           "s": "a",
-          "ja": "じゃあ収穫は、コードが増えても、同じだけ楽になるとは限らないってことだね。",
-          "en": "So my takeaway: more code doesn't automatically mean the same jump in productivity, right?"
+          "ja": "じゃあ今回は、大きな新機能というより細かい修正やSDK更新が中心なのかな？",
+          "en": "So this is more small fixes and an SDK bump than a big new feature?"
         },
         {
           "s": "b",
-          "ja": "記事もそこを問いかけているね。次は、検証や本番の観察でエージェントがどう助けになるか、に注目したいな。",
-          "en": "The article raises that very question. Next, I'd watch how agents can help with verification and with observing what happens in production."
+          "ja": "記事の内容からはそう読めるよ。SDKパッケージのv1.33.0への更新やリリース番号の更新も入っているけど、使い心地の変化まではこの記事だけでは分からないね。",
+          "en": "That's how the notes read. They include the SDK packages moving to v1.33.0 and release bumps, but the actual user experience impact isn't spelled out."
         }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T01:41:04.647Z"
+      ]
     },
     "a8516a8e18e8648b": {
       "bodyJa": "Ollama v0.40.17-rc1 で、mlxrunner が投機的デコードの検証をバッチ処理に対応した(#19663)。並行生成の場面でもドラフト生成を止めず、ターゲットモデルでの検証を共有できる点が変更の中心だ。\n\n## 検証のバッチ処理\n\n並行して生成を行うとき、ドラフトを有効に保ったまま、ターゲット側の検証を複数のリクエストで共有する。共有されるのは検証の部分であり、リクエストごとのサンプリングと、キャッシュの巻き戻し(rollback)は個別に維持されると説明されている。MLX で並列のワークロードを扱う利用者にとって、推論効率の面で意味のある変更とされる。\n\n## ドラフト深度の学習\n\nドラフト深度は、単独で実行されるリクエストから得た値とは切り離し、並行ワークロードごとに別々に学習する。あわせて、短いリクエストでは実行されないプローブも保持される。単独実行の結果を並行時にそのまま流用しない設計になっている。\n\n## 特徴量の確保とテスト\n\n実装面では、所有しているターゲットの特徴量を、リーダーが一時停止し得る前にマテリアライズ(実体化)する処理が加わった。テストでは、受理(acceptance)、キャンセル、ハンドオフ、混在したデコード、保持メモリの境界といった場面が対象になっている。コミットにはレビューコメントへの対応も含まれている。",
@@ -13225,44 +13251,6 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T05:37:40.961Z"
-    },
-    "d9302d8306c35a57": {
-      "bodyJa": "GitHub Copilotのブログは、エージェントスキルを「繰り返し作業の手順を再利用可能にする仕組み」として紹介している。同じ説明をエージェントに何度もする手間や、特定の人の頭の中にだけあるノウハウを残す手段として位置づけられている。\n\n## 同じ説明の繰り返し\n\nブログはまず、今週同じタスクをエージェントに何度説明し直したか、組織の事情に詳しい同僚に特定の問題の解き方を何度尋ねたか、と問いかける。こうした文脈はチャットの中に埋もれたり、一人の頭の中に閉じ込められたりするべきではない、というのが出発点だ。\n\nエージェントスキルは、繰り返し行う作業の指示を記録しておき、自分もエージェントも再利用できるようにするものと説明されている。\n\n## SKILL.mdを軸にした構造\n\nエージェントスキルの実体は、SKILL.mdというファイルを中心に置いた、バージョン管理されるディレクトリである。SKILL.mdには、繰り返し行う作業を「いつ」「どのように」行うのかが記述される。\n\n指示そのものはファイルとして書き残されるため、複数のエージェント間で共有できる。ディレクトリ単位でバージョンを管理できる点も、手順を資産として扱ううえでの特徴だ。\n\n## 権限は付与されない\n\n共有できるのは指示だけで、実行に必要なものは別に用意しなければならない。ブログによれば、ツール、認証情報、権限は実行環境が提供する必要がある。\n\n例として挙げられているのがデータベースだ。スキルにはデータベースへのクエリの方法を記述できるが、そのデータベースへのアクセス権を与えるわけではない。スキルは手順書であり、手順を実行する力は環境側にある、という切り分けである。\n\n## 個人からチームへ\n\nブログは、今夜自分のために書いたスキルが、後にチームのパイプラインの一部になりうると述べている。個人の工夫として始めた手順を、同じ形式のまま共有の資産へ広げられるという見方だ。\n\n個人の経験則をチームで使える形にしたい開発者にとって、スキルは手順を残して共有するための出発点になる。ただし、共有先のエージェントが実際に動くかどうかは、そこで使えるツールや認証、権限が整っているかにも左右される。",
-      "bodyEn": "Agent skills are the subject of a GitHub Copilot blog guide, which argues that developers should not keep re-explaining the same task to an agent. The guide's framing is that this context should not be lost in a chat or locked in one person's head.\n\n## Repeatable instructions, captured\n\nThe guide begins with two questions. How many times this week did you re-explain the same task to an agent? How many times did you ask a colleague with deep institutional knowledge how to solve a specific problem? According to the source, agent skills let you capture repeatable instructions so that you and your agents can reuse them.\n\nThe source also describes a path from personal use to shared use. A skill you write for yourself tonight can later become part of a team's pipeline.\n\n## A directory built around SKILL.md\n\nThe guide defines an agent skill as a versioned directory centered on a SKILL.md file. That file describes when and how to do a repeatable task. Because the skill is a versioned directory, the instructions have a defined, trackable form rather than living only in conversation history.\n\nThe guide says these instructions can be shared across agents. This matches the promise in its title: build a skill once, and it works with any agent.\n\n## Tools, credentials, and permissions\n\nThe guide also states a limit. Sharing instructions across agents does not mean the agents can carry them out on their own. The environment still has to provide the tools, credentials, and permissions needed to do the work.\n\nThe source gives a concrete example. A skill can describe how to query a database, but it does not grant access to that database. The skill covers the when and how of a task, and access remains a matter for the environment in which the agent runs.\n\n## Turning know-how into team assets\n\nThe guide is aimed at developers who want to turn personal know-how into something a team can reuse. The skill is the vehicle for that: written down once, kept in a versioned directory, and usable by more than one agent, provided the runtime supplies the access the task requires.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "同じ作業を何度もエージェントに説明し直すって、この記事の最初の問いかけにドキッとしたよ。スキルがあると、それが減るの？",
-          "en": "That opening question about re-explaining the same task to an agent hit home. Do skills actually cut that down?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、繰り返す作業の手順を残して、自分もエージェントも再利用できるようにするのがスキルの狙いだよ。チャットや個人の頭の中に埋もれさせないんだ。",
-          "en": "That's the idea in this piece: capture the steps of a repeatable task so you and your agents can reuse them, instead of losing them in a chat or one person's head."
-        },
-        {
-          "s": "a",
-          "ja": "SKILL.mdを軸にしたバージョン管理できるディレクトリって、どういうこと？",
-          "en": "What does \"a versioned directory centered on SKILL.md\" mean?"
-        },
-        {
-          "s": "b",
-          "ja": "SKILL.mdに「いつ、どうやるか」を書いて、そのフォルダごと履歴を管理する感じかな。バージョン管理は、変更の記録を残せる仕組みくらいの意味だよ。",
-          "en": "Roughly, SKILL.md says when and how to do a task, and the whole folder is tracked over time. Versioning just means changes get recorded."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあデータベースの調べ方をスキルに書けば、エージェントがそのまま調べてくれる？",
-          "en": "So if I write down how to query our database in a skill, will the agent just go and do it?"
-        },
-        {
-          "s": "b",
-          "ja": "そこは注意で、記事だとスキルは手順を説明するだけで、アクセス権までは与えないよ。ツールや認証、権限は実行環境側で用意する必要があるんだ。",
-          "en": "Careful there. This article says a skill describes the steps but doesn't grant access. The environment still has to supply the tools, credentials, and permissions."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T05:38:07.424Z"
     },
     "78f83a6bd571ce8a": {
       "bodyJa": "OpenHands v1.40.0 が2026年11月12日付で公開されました。Codex サブスクリプション認証の案内が改善され、チャット機能や Git のブランチ判定に関する修正も含まれています。\n\n## Codex認証の案内改善\n\n新機能として挙げられているのは、Codex サブスクリプションの認証ガイダンスの改善です。PR #17194 として @xunjizhe 氏が提出しました。\n\n## チャット周りの修正\n\nチャットに関する修正は3件あります。\n\n1件目は、履歴のページ境界で同順位(tied)になる位置にあるメッセージが、境界をまたいでも保持されるようにする修正です(#19649、@enyst 氏)。\n\n2件目は、遅れて届いたエコーが、より新しい下書きを消してしまう問題の防止です(#19382、@marcello-pichini 氏)。\n\n3件目は、セルフホスト環境のインスタンスで Agent Profiles がオフになった際に、ホームで選んだモデルを有効にする修正です(#19682、@hieptl 氏)。\n\n## Gitの既定ブランチ判定\n\nGit 関連では、リポジトリの既定ブランチを \"main\" だと決め打ちせず、実際の既定ブランチを使うようになりました(#19604、@hieptl 氏)。既定ブランチ名が \"main\" 以外のリポジトリでも、実際の設定に沿って扱われるようになる修正です。\n\n## 多言語と依存更新\n\n多言語対応では、Codex サブスクリプション関連のキーについて、不足していたインドネシア語訳が追加されました(#19685、@hieptl 氏)。\n\nメンテナンスとしては、dependabot による依存関係の更新が2件あります。i18next グループの2件の更新をまとめて反映した #19634 と、unist-util-visit を 5.1.0 から 5.2.0 に上げる更新です。\n\n今回のリリースは、セルフホスト環境の利用者やインドネシア語環境の利用者にとって特に関係が深い内容とされています。",
@@ -13383,6 +13371,164 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T05:40:07.864Z"
+    },
+    "8b194fe7554ca68e": {
+      "bodyJa": "Appleは米国で、対話型の健康AIツールを人々がどのように使うのかを調べる研究調査「Apple Health AI Usage Study」を開始したと発表した。信頼や理解度、日々の健康行動までを対象とし、結果は責任あるヘルスAI体験の設計に役立てられるとされる。\n\n## 米国で始まる調査\n\nこの調査は、バーチャル形式の研究と、それに付随するアプリで構成されている。米国で実施され、対話型の健康AIツールに人々がどう接しているのかへの理解を深めることを目的に掲げている。\n\n調査はOpenEvidenceとの共同で進められる。専用アプリを通じて、利用者と健康AIとのやり取りに関する情報が集められる仕組みだ。\n\n## 調べる4つの観点\n\n調査が見るのは、ユーザーの信頼を左右する要因、回答の質、内容の理解度、そして日常の健康に関する行動である。いずれも、健康AIが実際の生活の中でどのように受け止められ、使われているかに関わる項目といえる。\n\nAppleは、信頼、理解、現実の利用状況という複数の面から健康AIとの関わりを評価するとしている。単に回答が得られるかどうかではなく、その回答を人がどう理解し、どう行動に結びつけるかまで視野に入れている点が特徴だ。\n\n## 責任ある設計へ\n\n調査の狙いは、Appleと業界の双方にとって、健康AI体験を責任ある形で設計するための知見を得ることだと説明されている。\n\nAppleは「責任あるイノベーションは、科学的な厳密さと臨床的な裏付けから始まると私たちは信じています」という趣旨の考えを示している。今回の研究は、その姿勢を踏まえた取り組みとして位置づけられている。",
+      "bodyEn": "Apple has announced the launch of the Apple Health AI Usage Study, a research effort focused on how people use conversational health AI tools. The announcement matters because it centers on the way users actually interact with these tools, rather than on a new product feature.\n\n## Apple Health AI Usage Study\n\nAccording to the announcement, the study is being launched in the United States and is conducted in collaboration with OpenEvidence. It is described as a virtual research study with an associated app. The stated purpose is to advance the understanding of how people interact with conversational health AI tools.\n\nThe study is a US launch. The announcement does not describe it as available elsewhere.\n\n## Trust, Comprehension, and Engagement\n\nThe study is set up to evaluate trust, comprehension, and real-world health AI engagement. By examining what drives user trust, the quality of responses, comprehension, and everyday health actions, it looks at several parts of the experience: how much people rely on a conversational health AI tool, how good its answers are, whether users understand them, and what they go on to do in their daily health decisions.\n\nBecause the research is delivered virtually through its own app, participation is organized around that app rather than around in-person visits.\n\n## Responsible Design\n\nApple says the aim is to inform the responsible design of health AI experiences, both for Apple and for the industry. The findings are therefore framed as input for design choices rather than as a product announcement.\n\nThe announcement includes a statement attributed to Apple: \"At Apple, we believe responsible innovation starts with scientific rigor and clinical grounding.\" That wording signals the framing Apple has chosen for the project, which presents the work as a research effort and pairs it with a collaboration with OpenEvidence.\n\nThe announcement as provided does not give further operational details.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、普段の私たちの暮らしでは何が変わるの？ 健康のことをAIに聞く人にも関係あるのかな。",
+          "en": "So what changes in daily life? Does this matter for people who ask AI about their health?"
+        },
+        {
+          "s": "b",
+          "ja": "すぐ何かが変わる話ではなさそうだよ。この記事では、対話型の健康AIとの関わり方を調べる研究が米国で始まったと書かれているよ。",
+          "en": "Nothing changes right away, it seems. This article says a study on how people use conversational health AI has started in the US."
+        },
+        {
+          "s": "a",
+          "ja": "前は、こういう調べ方はなかったの？ 今回は何が新しいんだろう。",
+          "en": "Did nobody study this before? What's new this time?"
+        },
+        {
+          "s": "b",
+          "ja": "従来との違いは、この記事からは分からないんだ。ただ今回はOpenEvidenceと共同で、専用アプリを使って調べると書いてあるよ。",
+          "en": "The article doesn't say how it differs from before. It does mention working with OpenEvidence and using a dedicated app."
+        },
+        {
+          "s": "a",
+          "ja": "なるほど。信頼や理解度、日常の行動まで見るのが大事ってことだね。結果はAIづくりに使われるの？",
+          "en": "I see. So they look at trust, understanding, and everyday actions. Will the results help shape the AI?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。結果は責任ある健康AIの設計に役立てる狙いだと書かれているよ。どんな知見が出てくるかが気になるところだね。",
+          "en": "Yes, the aim is to guide more responsible health AI design. What findings come out of it is worth watching."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:38:45.202Z"
+    },
+    "bfaa74090b290435": {
+      "bodyJa": "企業向けLLMアプリケーションは、プロンプトと検索コンテキストに挙動を委ねたプロトタイプとして始まることが多い。論文「From Prompts to Contracts」(Joongho Ahn ほか1名)は、このパターンを追跡可能で監査可能なLLMエージェントの構成へ作り替える「ハーネスエンジニアリング」を提案している。\n\n## プロトタイプから製品へ\n\n論文によれば、プロトタイプを製品にする段階では、ソースの境界、エンティティのルーティング、回答契約、再現可能なトレースといった要件が加わる。ハーネスエンジニアリングは、プロンプトと検索コンテキストが挙動を担う従来の作りを、これらの要件に応えられる形へ再構成する取り組みとして位置づけられている。\n\n## コードとスキーマへ移す\n\n提案の中心は、決定的な振る舞いをコード、マニフェスト、スキーマ、検証アーティファクトへ移すことにある。これらは、置き換え可能な構成の境界(composition boundary)の周囲に配置される。挙動をプロンプトの文面だけに頼らず、検証できる成果物として外側に持つことで、動作の追跡や監査をしやすくする設計だと説明されている。\n\n## 回答の権威はソースに\n\n実行時の回答については、ソースに裏づけられた主張が引き続き権威であり続けるとされる。決定的な処理を外へ出す一方で、回答の根拠はソースにひもづいた主張に置くという役割分担である。\n\n## 契約として扱う\n\n論文の趣旨は、プロンプトを形式的な契約として扱い、企業での運用における信頼性、ガバナンス、説明責任を高める枠組みを示すことだと要約されている。タイトルの「プロンプトから契約へ」は、この方向性を表している。",
+      "bodyEn": "The paper \"From Prompts to Contracts: Harness Engineering for Auditable Enterprise LLM Agents,\" by Joongho Ahn and one other author, addresses how enterprise LLM applications can be made traceable and auditable. It matters because, according to the authors, many such applications start as prototypes whose behavior depends mainly on prompts and retrieval context.\n\n## Productization Adds Requirements\n\nThe paper describes a common starting point: an enterprise LLM application built as a prototype, where prompts and retrieval context carry the behavior. Moving that prototype into production, the authors say, adds several requirements: source boundaries, entity routing, answer contracts, and reproducible traces. These requirements are the reason the prompt-centered pattern needs to be rebuilt rather than simply extended.\n\n## From Prompts to Contracts\n\nThe authors present a harness-engineering approach that reconstructs the prototype pattern into a traceable, auditable LLM-agent architecture. A summary of the work says the framework treats LLM agent prompts as formal contracts. The stated aim is to support auditability and governance in enterprise deployments, with improved reliability and accountability as the intended results.\n\n## Deterministic Behavior Moves Into Code\n\nAccording to the abstract, the central architectural move is to shift deterministic behavior out of prompts and into code, manifests, schemas, and validation artifacts. These artifacts are arranged around what the authors call a replaceable composition boundary. In other words, the parts of the system that can be fixed and checked are expressed in explicit, verifiable forms, while the composition step they surround can be swapped out.\n\n## Source-Backed Claims Stay Authoritative\n\nThe abstract also states that source-backed claims remain the authority for runtime answers. Even with the added structure of manifests, schemas, and validation, the answers the agent gives at runtime are meant to rest on claims that can be traced to sources. This ties back to the listed requirements for source boundaries and reproducible traces.\n\nThe paper is categorized as research and appears on arXiv in the computer science AI listing.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "試作ではプロンプトに任せていた動作を、製品化では決まった部分だけコードに移すんだね。これって大きな変化なの？",
+          "en": "So prototypes lean on prompts, but for production the fixed behavior moves into code? Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事ではそう整理しているよ。決まった動作をコードやスキーマ、検証用の成果物に移して、あとから確かめやすくする狙いなんだ。",
+          "en": "That's how the article frames it. Fixed behavior goes into code, schemas, and validation artifacts, so it's easier to check later."
+        },
+        {
+          "s": "a",
+          "ja": "「回答の契約（answer contract）」って、なんだろう？ほんとに契約みたいなもの？",
+          "en": "What's an \"answer contract\"? Is it really like a contract?"
+        },
+        {
+          "s": "b",
+          "ja": "答えが満たすべき形や条件を、先に決めておく約束くらいの意味だよ。守れているか検証できるから、監査もしやすくなるんだ。",
+          "en": "Roughly, it's a promise about the form and conditions an answer must meet. You can check it was kept, which helps auditing."
+        },
+        {
+          "s": "a",
+          "ja": "もし自分の会社で使うなら、答えの根拠をあとからたどれたら安心だな。そういう作りなのかな？",
+          "en": "If I used this at work, I'd want to trace where an answer came from. Is it built for that?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、出典に裏づけられた主張を実行時の回答の拠り所にして、再現できる記録も要件に挙げているよ。ただ、その前提としてコードやマニフェストを整える作りになるね。",
+          "en": "The article keeps source-backed claims as the basis for runtime answers and lists reproducible traces as a requirement. But it assumes you set up code and manifests first."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:39:21.217Z"
+    },
+    "91b9443623bc1c70": {
+      "bodyJa": "孫が本を読むとき、隣に座って必要なときだけ答えるAI「侍読(じどく)」の開発記録が公開されている。ローカルLLM運用で起きがちな「日本語の自然さ」と「複雑な指示への追従力」のトレードオフに直面し、Claudeを使って解いた過程が中心に語られている。\n\n## 侍読という構想\n\n侍読は自宅のリビングで使うことを想定したAIで、答えを教えるのではなく、聞かれたときだけ答え、聞かれなければ黙っている控えめな存在として設計されたという。孫たちがいつか本を読む場面を想定している。\n\n## 三つの構成要素\n\nシステムは三つの部品でできている。一つ目のOpen Notebookは自己ホスト型のNotebookLM代替で、松岡正剛『少年の憂鬱』をソースに登録し、RAGの土台にしている。二つ目のJarvisはfaster-whisperとAivisSpeechを使ったローカル音声アシスタントだ。ウェイクワード「Hey Jarvis」で起動し、侍読モードと雑談モードを音声で切り替えられる。\n\n三つ目が今回新規に実装されたKernelで、上記2つの間に立つ「知能エンジン」にあたる。RAGの組み立てとLLM呼び出しをまとめて担う。\n\n## 3段階チェーンの壁\n\n侍読モードでは当初、Open Notebookの /api/search/ask/simple エンドポイントを使っていた。内部では strategy_model、answer_model、final_answer_model の順に3回LLMを呼び出す。検索戦略の決定、回答生成、最終整形をそれぞれ別の呼び出しで行う設計だ。\n\nこのチェーンをRTX 5060 Ti(VRAM 16GB)上のOllamaで動かしたところ、2つの問題に突き当たった。1つ目は速度である。3回の呼び出しが直列に走るため、1回の質問に数十秒かかることがあり、会話として成立させるには致命的だったという。2つ目はモデルサイズを変えた検証で、そこでは明確な傾向が見られたとされる。\n\n## Claudeで解く\n\n筆者は、こうしたプライバシーと性能のトレードオフを、ClaudeとRAGを組み合わせることで解決し、実用的なシステムに仕上げたと説明している。ローカルで運用するか、性能の高いモデルを使うかというジレンマに、具体的な実装を通じて答えを出した体験談である。",
+      "bodyEn": "## 控えめなAI「侍読」とは\n\nThis article describes a home project: an AI called \"Jidoku\" (侍読) that sits beside a reader while they read. The author designed it for their grandchildren, so that when they read books someday, the AI does not hand over answers. According to the author, it answers only when needed and stays quiet if no one asks. The piece is a record of the technical obstacles met during implementation, centered on a trade-off in local LLM operation between natural Japanese and the ability to follow complex instructions.\n\n## 三つの構成要素\n\nThe system is described as three parts. Open Notebook is a self-hosted alternative to NotebookLM; Matsuoka Seigo's 『少年の憂鬱』 is registered as its source and serves as the foundation for RAG. Jarvis is a local voice assistant built on faster-whisper and AivisSpeech. It starts with the wake word \"Hey Jarvis\" and lets the user switch between Jidoku mode and chat mode by voice. The third part, Kernel, was newly implemented for this project. It sits between the other two as an \"intelligence engine\" and handles both RAG assembly and LLM calls.\n\n## 三段階チェーンの問題\n\nIn Jidoku mode, the author originally used Open Notebook's /api/search/ask/simple endpoint. Internally it runs a chain of three LLM calls: strategy_model, answer_model, and final_answer_model. These decide the search strategy, generate the answer, and format the final output, each as a separate call.\n\nThe author ran this chain with Ollama on an RTX 5060 Ti with 16GB of VRAM and hit two problems. The first was latency. Because the three calls run in series, a single question sometimes took tens of seconds to answer, which the author calls fatal for making the exchange work as a conversation.\n\nThe second problem concerns model size. The author tested different model sizes and says a clear tendency emerged, though the details of that result are not given here.\n\n## 解決の方向\n\nThe author's summary is that, after running into the limits of local LLMs, the project reached a practical system by combining Claude with RAG. The write-up frames this as a resolution of the privacy-versus-performance trade-off, and the article as a whole presents the solution as a concrete account of that process.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "孫と本を読むとき、侍読って普段の何が変わるの？",
+          "en": "When a grandkid is reading, what actually changes with Jidoku?"
+        },
+        {
+          "s": "b",
+          "ja": "隣に座って、聞かれたときだけ答えて、聞かれなければ黙っている控えめなAIだよ。答えを教え込まない設計なんだ。",
+          "en": "It sits beside them, answers only when asked, and stays quiet otherwise. It's designed not to just hand over answers."
+        },
+        {
+          "s": "a",
+          "ja": "前はローカルのLLMで動かしてたんだよね？何が困ったの？",
+          "en": "It used to run on a local LLM, right? What went wrong?"
+        },
+        {
+          "s": "b",
+          "ja": "3段階のLLM呼び出しが直列に走って、1回の質問に数十秒かかることがあったそうだよ。導入後の具体的な速さは書かれていないから分からないな。",
+          "en": "Three LLM calls ran in sequence, so one question could take tens of seconds. How fast it got after the switch isn't stated, so I can't say."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、ローカルの限界にぶつかっても、ClaudeとRAGを組み合わせて使える形にできたことかな？",
+          "en": "So the big win is that even after hitting local limits, pairing Claude with RAG made it usable?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めるよ。次は、モデルサイズを変えた検証の「明確な傾向」が、日本語の自然さと指示への追従力にどう効いたかが気になるね。",
+          "en": "That's how it reads. Next, I'd look at the clear trend from varying model sizes, and how it affected natural Japanese and instruction-following."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:40:14.909Z"
+    },
+    "0d58dc4db1809894": {
+      "bodyJa": "MicrosoftはMicrosoft 365 CopilotとDynamics 365の両方でエージェント型AIの機能を拡充した。営業とサービスの各チームが、顧客対応をより自律的かつ効率的に進められるようにする狙いだと説明されている。\n\n## 顧客の期待がリセット\n\n発表では、カスタマーエクスペリエンスの基準が書き換えられたという認識が示されている。顧客は、もはや業界内の同業他社とだけサービスを比べるわけではない。これまでに受けた中で最高の体験と比べることが多い、というのが前提である。\n\nそうした顧客は、企業がニーズを先回りして察し、文脈を瞬時に理解し、問題を速く正確に解決することを期待しているかもしれないとされる。対応する側にとっては、求められる水準そのものが一段上がったという見立てだ。\n\n## アシスタンスを超えて\n\nこうした状況に対する答えとして挙げられているのが、エージェント型AIである。単に人の作業を補助する段階にとどまらず、文脈を浮かび上がらせ、次に取るべき行動を提案し、これまでは手が届かないと感じられていた顧客体験の提供を組織が支えられるようにする、と位置づけられている。\n\n今回の拡充の内容としては、営業・サービス組織が顧客とのやり取りをより効果的に自動化し、CX全体の成果を高められるようにすることが挙げられている。\n\n## 業務の流れの中で\n\nMicrosoft 365 CopilotとDynamics 365にまたがる形で提供される点が、今回の取り組みの特徴である。営業チームとサービスチームが、普段の仕事の流れから離れることなく新しい基準に応えられるようにする、という考え方が示されている。\n\n提供される個々の機能の名称や詳細、提供時期、対応範囲などについては、ここで示された内容からは確認できない。確かなのは、両製品を横断してエージェント型AIの活用を広げ、顧客の期待が高まった状況でも営業・サービスの現場が対応しやすくすることを狙っている、という方向性である。",
+      "bodyEn": "Microsoft has expanded agentic AI capabilities across Microsoft 365 Copilot and Dynamics 365, aimed at sales and service teams. According to the announcement, the change responds to a shift in what customers expect from the businesses they deal with, and it matters because those expectations apply to every customer-facing team.\n\n## Customer Expectations Have Reset\n\nThe announcement opens by saying the standard for customer experience has been rewritten. In its framing, customers may no longer compare a company's service to industry peers. They often compare it to the best experience they have ever had.\n\nThe announcement also says customers may expect businesses to anticipate needs, understand context instantly, and resolve issues with speed and precision. This is the benchmark the new capabilities are meant to help teams meet.\n\n## Moving Beyond Assistance\n\nMicrosoft describes agentic AI as expanding what is possible, moving beyond assistance. According to the announcement, the approach helps surface context and suggest next steps. It also says the technology supports organizations in delivering customer experiences that once felt out of reach.\n\nThe emphasis is on the AI taking a more active role in customer-facing work, rather than only responding when asked.\n\n## Right in the Flow of Work\n\nThe announcement positions the agentic capabilities across Microsoft 365 Copilot and Dynamics 365 as a way for sales and service teams to meet the new standard \"right in the flow of work.\" In other words, the help is meant to appear where teams already do their jobs rather than in a separate tool.\n\nMicrosoft's summary says the expanded capabilities let sales and service organizations handle customer interactions more autonomously and efficiently. It also says they allow teams to automate customer interactions more effectively and improve overall customer experience outcomes.\n\nThe announcement gives no further detail on specific features, availability, or pricing. What it establishes is the direction: agentic AI spanning Microsoft 365 Copilot and Dynamics 365, aimed at helping sales and service teams keep up with rising customer expectations.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "お客さんは同業他社じゃなくて、これまでで一番良かった体験と比べるって書いてあって、驚いた。これって大きい変化なの？",
+          "en": "The article says customers compare you to the best experience they've ever had, not to your industry peers. Wow. Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、顧客対応の基準が書き換わったと見ています。先回りや即時の文脈理解、速く正確な解決まで期待されうる、という流れです。",
+          "en": "The piece says the standard has been rewritten. Customers may expect you to anticipate needs, grasp context instantly, and resolve issues quickly and accurately. So yes, the bar looks higher."
+        },
+        {
+          "s": "a",
+          "ja": "「エージェント型AI」って、ふつうのAIアシスタントと何が違うの？",
+          "en": "What does \"agentic AI\" mean? How is it different from a regular AI assistant?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、質問に答えるだけでなく目的に向けて自分で動くAIのこと。この記事では、状況を示して次の一手を提案する、支援の先へ進む役割として書かれています。",
+          "en": "Generally, it means AI that works toward a goal instead of only answering questions. Here, it's framed as going beyond assistance: surfacing context and suggesting next steps."
+        },
+        {
+          "s": "a",
+          "ja": "もし自分が問い合わせ対応をするなら、お客さんの状況が先に見えて、次にやることも出てくると助かりそう！",
+          "en": "If I handled customer inquiries, it'd be great to see the customer's situation up front and get suggested next steps."
+        },
+        {
+          "s": "b",
+          "ja": "記事も「仕事の流れの中で」使う想定で、営業とサービスの両方が対象です。ただ書かれているのは支援という方向性なので、実際の範囲は確認が要りそうです。",
+          "en": "The article does frame it as working inside the flow of work, for both sales and service teams. But it describes support as a direction, so you'd want to check what it actually covers."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:41:14.879Z"
+    },
+    "dbf9ef7401e13be1": {
+      "bodyJa": "大規模言語モデル（LLM）が、数学オリンピック級の問題を解く段階を超え、未解決問題の探索や定理証明といった本格的な数学研究の支援へと近づきつつある。arXivに公開されたこのサーベイ論文は、形式数学とLLMの融合が研究の最前線に到達しつつある現状を体系的に整理し、AIが数学研究の在り方そのものを変える可能性を論じている。\n\n背景には「形式数学（formal mathematics）」という分野の存在がある。これはLeanやCoq、Isabelleといった証明支援系（proof assistant）を用い、数学の証明を機械が厳密に検証できる形式言語で記述する取り組みだ。人間が書く自然言語の証明は曖昧さや見落としを含みうるが、形式化された証明はコンピュータが一行ずつ正しさを確認できる。近年はこの形式言語をLLMと組み合わせ、証明の生成や、自然言語の数学を形式言語へ翻訳する「オートフォーマリゼーション」の研究が活発化している。\n\n論文が示すのは、こうした技術が単なる問題演習から研究支援へと軸足を移しつつある点だ。従来のベンチマークは競技数学の問題を解く能力を測るものが中心だったが、実際の研究では、既知の結果を積み上げて新たな定理を導いたり、未解決問題に対する反例や補題を探索したりする作業が求められる。LLMは膨大な数学的知識を横断し、証明の方針を提案する補助役として機能しうると見られる。\n\nこうした流れは学術界でも注目を集めてきた。GoogleのDeepMindが発表したAlphaProofやAlphaGeometryは、国際数学オリンピックの問題を形式的に解いて話題となり、著名な数学者が大規模な定理ライブラリの形式化プロジェクトにこれらの手法を取り入れる動きも報じられている。数学者コミュニティがLeanなどの共同形式化に取り組む例も広がりつつある。\n\nただし課題も残る。形式化には依然として多大な人手が必要で、LLMが生成する証明の信頼性や、研究レベルの独創的な発想をどこまで担えるかは未知数だ。本論文は現時点の到達点と限界を俯瞰したうえで、形式検証という「正しさの保証」とLLMの生成能力を組み合わせることが、今後の数学研究を加速させる鍵になる可能性を示している。",
+      "bodyEn": "A new survey paper argues that large language models are crossing an important threshold in mathematics, moving from solving contest-style problems toward supporting genuine research, including formal theorem proving and the exploration of open questions. If the trend holds, it could reshape how mathematicians collaborate with automated systems and how much of the discipline's reasoning becomes machine-checkable.\n\nThe distinction the authors draw is between two very different activities. Competition mathematics, such as the International Mathematical Olympiad or the Putnam, involves hard but self-contained problems with known answers and clean solutions. Research mathematics, by contrast, involves formulating conjectures, building long chains of argument across many results, and confronting problems whose answers are unknown. The paper contends that LLM-based methods are beginning to demonstrate capabilities relevant to the latter, not merely the former, which is a more demanding and open-ended target.\n\nCentral to this shift is formal mathematics, the practice of writing proofs in a machine-verifiable language so that a computer can check every logical step. Proof assistants such as Lean, Coq, and Isabelle provide the underlying systems, and communities have built large libraries of formalized results, most notably Lean's Mathlib. Formalization matters here because it addresses a chronic weakness of language models: they can produce fluent but incorrect reasoning. When a model's output must compile inside a proof assistant, errors are caught automatically, giving a level of reliability that natural-language proofs alone cannot offer.\n\nThe survey situates recent progress against several high-profile efforts. Google DeepMind's AlphaGeometry and AlphaProof drew wide attention for reaching medal-level performance on olympiad problems, with AlphaProof working through the Lean environment. Other systems, sometimes described under names like DeepSeek-Prover and related open models, have pushed automated theorem proving on benchmark sets such as miniF2F. A recurring technique is autoformalization, in which a model translates informal mathematical statements written in ordinary prose into formal code, helping bridge the gap between how mathematicians communicate and what machines can verify. The paper appears to treat these developments as evidence that the tooling is maturing rather than as a claim that research-level mathematics is solved.\n\nTechnically, the approaches combine several ingredients. Language models supply candidate proof steps or tactics, search procedures explore the tree of possible proofs, and the proof assistant acts as a verifier and source of feedback. Reinforcement learning and expert-iteration loops let systems learn from proofs they successfully complete, generating new training data in the process. This creates a feedback cycle that is difficult to achieve in domains without automatic verification, and it is one reason mathematics is seen as an unusually promising testbed for reasoning models.\n\nThe authors are careful to catalog limitations, and readers should weigh the optimism accordingly. Formalizing existing mathematics remains slow and labor-intensive, and much of the field's knowledge has never been formalized at all. Benchmarks skew toward problems with tidy statements, which may not reflect the messy, definition-heavy nature of frontier research. Models still struggle with very long proofs, with inventing the right intermediate lemmas, and with the creative leaps that characterize original work. Whether current systems can genuinely propose and settle open problems, as opposed to reconstructing known results, is likely to remain contested.\n\nFor context, the survey connects to a broader movement in which working mathematicians have begun experimenting with these tools directly. Collaborative formalization projects, including efforts led by prominent researchers to verify recent theorems in Lean, have shown that human-machine teams can handle substantial results. At the same time, the wider industry push toward reasoning-focused models has made mathematics a favored proving ground, because correct answers can be checked cheaply and objectively compared with open-ended tasks like writing or coding.\n\nAs a survey rather than a single experimental result, the paper's contribution is primarily to organize a fast-moving landscape, map the methods, benchmarks, and datasets, and identify where the frontier now lies. Its central claim, that formal mathematics and LLMs are converging in ways that could change how research is done, is presented as a direction of travel rather than an accomplished fact. For practitioners, the more immediate takeaway is that verification-grounded AI offers a template for trustworthy machine reasoning that other technical fields may eventually seek to imitate.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-09-05T01:11:31.319Z"
     }
   }
 }

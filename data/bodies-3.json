@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T06:30:54.829Z",
-  "count": 397,
+  "generatedAt": "2026-11-28T07:30:53.875Z",
+  "count": 407,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -13536,44 +13536,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T03:42:07.769Z"
     },
-    "3c70dc9317b0bdb0": {
-      "bodyJa": "技術の進歩があまりに速く、私たちがどんな明日を目指しているのかを定義することさえ難しくなっています。Microsoft Researchのポッドキャスト「The Shape of Things to Come」の今回のエピソードは、その状況を背景に「AIは医療の未来をどう変えうるのか」という問いを扱います。\n\n## 速い進歩の中で未来を描く\n\nこの番組では、Microsoft ResearchのリーダーであるDoug Burgerが各分野の専門家とともに、技術者、政策担当者、事業判断者などの関係者が現在直面している、AIをめぐる難しい課題を掘り下げます。\n\n番組の目標は、AIへの移行が全体として好ましい結果になる未来を築くために必要な共通理解を広げることだと説明されています。個々の技術の紹介にとどまらず、立場の異なる関係者が同じ問題意識を持つことに重きを置いた構成といえます。\n\n## 医療を語る4人の顔ぶれ\n\n今回、Burgerとともに議論するのは3人です。Microsoftのプリンシパル・リサーチ・マネージャーであるAva Amini、同社のチーフ・サイエンティフィック・オフィサーであるEric Horvitz、そしてScripps Researchの医師・研究者で、MicrosoftのAIヘルスアドバイザーも務めるEric Topolです。\n\n## 「何が先に必要か」という問い\n\nエピソードの中心にあるのは、AIが実現する医療の未来はどのようなものか、そしてそこに至る前に何が起きなければならないのか、という問いです。この問いは地球上のすべての人に関わる影響を持つと位置づけられています。\n\n英語の要約では、技術者や政策担当者が利点とリスクを見極める助けになる内容とされています。議論の具体的な結論や個別の論点は、ここで紹介できる範囲では示されていません。医療とAIの関係を、技術の可能性だけでなく、実現に向けた前提条件も含めて考えるための入り口となるエピソードです。",
-      "bodyEn": "## The Shape of Things to Come\n\nMicrosoft Research has published an episode of its podcast series The Shape of Things to Come that asks whether AI can help build a healthier future. The question matters because, in the source's words, it carries ramifications for every individual on the planet.\n\nThe series is led by Microsoft Research leader Doug Burger. According to the announcement, he is joined by experts from across disciplines to work through what it calls the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders. The stated goal is to amplify the shared understanding needed to build a future in which the AI transition is a net positive.\n\n## Defining the Tomorrow We're Working Toward\n\nThe source begins from the observation that technical advancement is moving so quickly that it can be hard to define the tomorrow people are working toward. The series is presented as a response to that difficulty, bringing together voices from different fields rather than a single viewpoint.\n\n## Guests on Health and Medicine\n\nFor this episode, Burger is joined by three guests. Ava Amini is a Principal Research Manager at Microsoft. Eric Horvitz is Microsoft's Chief Scientific Officer. Eric Topol is a physician-scientist at Scripps Research and a Microsoft AI health advisor.\n\nThe conversation takes on a two-part question: what the future of medicine might look like with AI, and what needs to happen first. The framing points to both the potential of AI in health and the groundwork that the source suggests must come before that potential is realized.\n\n## Who the Discussion Is For\n\nThe summary of the episode says it is meant to help technologists and policymakers weigh benefits and risks of AI in health. Business decisionmakers are also named among the stakeholders the series addresses. The material does not spell out specific medical applications, findings, or recommendations from the conversation, so the episode itself is the place to find how the guests answer the question of what needs to happen first.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "これって、ふだんの暮らしや仕事だと何が変わる話なの？",
-          "en": "So what does this change in everyday life or work? Is it that kind of story?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事は具体的な新機能の紹介ではなく、医療とAIの未来を議論する対談です。技術者や政策担当者、事業判断者が共通認識を築くのが狙いだそうです。",
-          "en": "This one isn't a new feature announcement. It's a conversation about AI and the future of medicine, meant to build shared understanding among technologists, policymakers and business decision-makers."
-        },
-        {
-          "s": "a",
-          "ja": "前は、こういう話し合いってなかったのかな？",
-          "en": "Did people not have conversations like this before?"
-        },
-        {
-          "s": "b",
-          "ja": "そこは記事からは分からないんです。ただ、技術の進みが速く、目指す明日を描きにくいことがこの番組の出発点だと書かれています。",
-          "en": "The article doesn't say, so I can't tell. It does say tech is moving so fast that defining the tomorrow we're aiming for is hard, and that's the starting point of the series."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ一番の収穫は、医療にAIを使う前に「何が先に必要か」を考えること、ってことかな？",
-          "en": "So the big takeaway is thinking about what needs to happen first before using AI in medicine?"
-        },
-        {
-          "s": "b",
-          "ja": "いい読み取りですね。記事も「何が先に必要か」を問いにしています。答えは対談の中身を聞いて確かめたいところです。",
-          "en": "Nice reading. The article frames it as a question too: what needs to happen first? The answers are something to check in the conversation itself."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T04:38:37.413Z"
-    },
     "1546774d7315b0b0": {
       "bodyJa": "LLMが生成したコードは、コンパイルが通り、テストにも合格し、一見正しく見えるのに、デプロイ後に壊れることがある。Viraaji MothukuriとReza M. Parizi の論文は、この原因がしばしば論理ではなく構造にあるとして、「パッチワーク問題」と名付けている。\n\n## 動くのに壊れる\n\n論文が問題にするのは、ロジックの誤りではなく構造的な不整合である。生成コードはビルドもテストも通過するため、正しいものとして受け取られやすい。しかしデプロイ後になって初めて失敗が表面化する、と説明されている。\n\n## 挙げられた失敗例\n\n具体例として三つが示されている。一つ目は、生成されたエンドポイントが、プロジェクト内で一度も宣言されていない設定キーを参照するケースである。二つ目は、どのレジストリにも存在しないパッケージをimportするケースである。三つ目は、新しく追加されたルートが、兄弟にあたるすべてのエンドポイントに適用されている認証ガードを欠いているケースである。\n\nいずれも、コードの一行ごとの文法や処理内容に問題があるわけではない。プロジェクト全体との整合が取れていない点が共通している。\n\n## 局所的には妥当\n\n論文は、こうした個々のパッチは局所的には妥当でも、全体としては一貫性を欠く(globally incoherent)と述べている。この性質が「パッチワーク問題」という呼び名の中心にある。\n\n## CIで見つかりにくい\n\n標準的なCIツールチェーンは、この種の失敗をほとんど検出できないとされる。LLMを用いたコーディングツールの普及が進むなかで、この盲点はソフトウェア品質に対する増大するリスクになると論文は位置づけている。",
       "bodyEn": "LLM-generated code can look correct and still fail in production. A paper by Viraaji Mothukuri and Reza M. Parizi names this failure mode the \"patchwork problem\" and argues it is a blind spot for software quality as LLM-powered coding tools spread.\n\n## Compiles, passes tests, breaks\n\nAccording to the abstract, LLM-generated code often compiles, passes tests, and appears correct, yet breaks once deployed. Nothing in the usual signals of correctness flags these cases. The authors say the root cause is frequently structural rather than logical. The code's reasoning may be fine, but it does not fit the project it was added to.\n\n## Locally valid, globally incoherent\n\nThe abstract gives three concrete examples of this structural mismatch:\n\nAn endpoint references configuration keys that were never declared in the project.\n\nAn import targets a package that does not exist in any registry.\n\nA new route omits the authentication guard applied to every sibling endpoint.\n\nIn each case, the authors describe the patch as locally valid but globally incoherent. The added code looks acceptable on its own, but it conflicts with the conventions and declarations of the surrounding codebase. The missing authentication guard is the clearest case. The new route works, but it breaks a pattern that every comparable route follows.\n\n## Why standard CI misses it\n\nThe abstract states that standard CI toolchains rarely surface these failures. This helps explain why such code can pass checks and still cause problems after deployment. The paper's framing is that existing pipelines are not set up to catch inconsistencies of this kind.\n\n## A growing risk\n\nThe authors link the issue to adoption. As LLM-powered coding tools become more widely used, they say, this blind spot poses a growing risk to software quality. A summary of the work adds that the findings matter for how AI coding tools are evaluated and improved, and that the outputs tend toward inconsistency and poor maintainability. The abstract itself centers on the observation that correctness at the level of a single patch does not guarantee coherence across the whole project.",
@@ -13656,44 +13618,6 @@
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-05T13:10:37.390Z"
     },
-    "e781aae55ec024a5": {
-      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
-      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
-          "en": "If my team wants to modernize an app, how does the usual way of working change?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
-          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
-        },
-        {
-          "s": "a",
-          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
-          "en": "So people used to start by picking a framework? And what is that evidence for?"
-        },
-        {
-          "s": "b",
-          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
-          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
-          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
-        },
-        {
-          "s": "b",
-          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
-          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-27T21:40:18.238Z"
-    },
     "1dcce708fb98d4bf": {
       "bodyJa": "Azure Content Understanding が、GPT-5.6、GPT-6、GPT-6.1 の各モデルファミリーに対応しました。利用できるモデルの幅が広がり、ワークロードに合わせた選択がしやすくなるとされています。\n\n## 対応する3ファミリー\n\n今回追加されたのは GPT-5.6、GPT-6、GPT-6.1 の3つのモデルファミリーです。Content Understanding にはすでに GPT-5 系をはじめとする対応モデルがあり、今回の対応はそれに加わる形になります。従来のモデルが置き換えられたとは説明されておらず、既存の選択肢と新しい選択肢が並ぶことになります。\n\n## 扱えるワークロード\n\n対応の追加によって選択肢が増えるのは、文書、テキスト、音声、動画の各ワークフローです。Content Understanding が扱うこれらの処理で、使うモデルを選べる範囲が広がったと説明されています。\n\n## モデル推奨の更新\n\n選択肢が増えると、どのモデルをどの用途に使うかの判断が重要になります。そこで、顧客が拡張された選択肢の使い方を理解できるよう、モデルの推奨を更新し、あわせて関連する情報を共有するとされています。推奨の具体的な中身は、Microsoft Foundry Blog の元記事で示されています。",
       "bodyEn": "## Expanded model support\n\nAzure Content Understanding now supports the GPT-5.6, GPT-6, and GPT-6.1 model families. The announcement says this gives users more choices for document, text, speech, and video workflows, which matters for teams deciding which model should handle each kind of content.\n\nThe new families are added to the existing set of supported models, such as the GPT-5 series. Nothing is being replaced in the announcement's description; the range of options is simply wider than before.\n\n## Choosing the right model\n\nWith more models available, the choice of which one to use becomes a bigger decision. According to the source, the update is meant to help customers understand how to use this expanded set of options. To that end, the team says it is updating its model recommendations and sharing guidance on selecting a model that fits a given workload.\n\nThe title frames the topic as how to match a model to a workload. The announcement ties that guidance to four content types: documents, text, speech, and video. Teams working across more than one of these may therefore find that different tasks call for different model choices, though the announcement as quoted does not spell out which model suits which task.\n\n## What the update covers\n\nTo summarize what the announcement states directly:\n\nAzure Content Understanding works with the GPT-5.6, GPT-6, and GPT-6.1 families.\n\nThe GPT-5 series remains among the supported models.\n\nThe supported scenarios named are document, text, speech, and video workflows.\n\nModel recommendations are being refreshed so teams can choose the best-fitting model for their work.\n\nThe material was published on the Microsoft Foundry Blog under the title \"Content Understanding adds GPT-6.1, 6, and 5.6: Choose the right model for your workload.\" Readers who want the specific recommendations, such as which model is advised for which workload, will need to consult the full post, since the announcement summary describes the guidance but does not list its contents.",
@@ -13775,6 +13699,398 @@
       "bodyEn": "## GPT-5.6 Powers Microsoft 365 Copilot\n\nOpenAI's GPT-5.6 has been designated the default model behind Microsoft 365 Copilot, according to the announcement. This matters because Copilot sits inside productivity tools that the source describes as used by millions of people in enterprises.\n\nThe announcement says the model brings stronger AI capabilities to Word, Excel, PowerPoint, Chat, and Cowork.\n\n## Faster, Higher-Quality Work\n\nThe stated aim is faster, higher-quality work for business users. The source frames the move as a deeper collaboration between OpenAI and Microsoft on productivity.\n\nThe material does not give benchmarks, rollout timing, or pricing, so the practical size of the improvement is not specified here.",
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T05:40:16.061Z"
+    },
+    "b2937bbd676220f2": {
+      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
+      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
+          "en": "If my team wants to modernize an app, how does the usual way of working change?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
+          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
+        },
+        {
+          "s": "a",
+          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
+          "en": "So people used to start by picking a framework? And what is that evidence for?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
+          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
+          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
+          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:40:18.238Z"
+    },
+    "9bf242a7c3461006": {
+      "bodyJa": "GitHub Copilotのブログは、エージェントスキルを「繰り返し作業の手順を再利用可能にする仕組み」として紹介している。同じ説明をエージェントに何度もする手間や、特定の人の頭の中にだけあるノウハウを残す手段として位置づけられている。\n\n## 同じ説明の繰り返し\n\nブログはまず、今週同じタスクをエージェントに何度説明し直したか、組織の事情に詳しい同僚に特定の問題の解き方を何度尋ねたか、と問いかける。こうした文脈はチャットの中に埋もれたり、一人の頭の中に閉じ込められたりするべきではない、というのが出発点だ。\n\nエージェントスキルは、繰り返し行う作業の指示を記録しておき、自分もエージェントも再利用できるようにするものと説明されている。\n\n## SKILL.mdを軸にした構造\n\nエージェントスキルの実体は、SKILL.mdというファイルを中心に置いた、バージョン管理されるディレクトリである。SKILL.mdには、繰り返し行う作業を「いつ」「どのように」行うのかが記述される。\n\n指示そのものはファイルとして書き残されるため、複数のエージェント間で共有できる。ディレクトリ単位でバージョンを管理できる点も、手順を資産として扱ううえでの特徴だ。\n\n## 権限は付与されない\n\n共有できるのは指示だけで、実行に必要なものは別に用意しなければならない。ブログによれば、ツール、認証情報、権限は実行環境が提供する必要がある。\n\n例として挙げられているのがデータベースだ。スキルにはデータベースへのクエリの方法を記述できるが、そのデータベースへのアクセス権を与えるわけではない。スキルは手順書であり、手順を実行する力は環境側にある、という切り分けである。\n\n## 個人からチームへ\n\nブログは、今夜自分のために書いたスキルが、後にチームのパイプラインの一部になりうると述べている。個人の工夫として始めた手順を、同じ形式のまま共有の資産へ広げられるという見方だ。\n\n個人の経験則をチームで使える形にしたい開発者にとって、スキルは手順を残して共有するための出発点になる。ただし、共有先のエージェントが実際に動くかどうかは、そこで使えるツールや認証、権限が整っているかにも左右される。",
+      "bodyEn": "Agent skills are the subject of a GitHub Copilot blog guide, which argues that developers should not keep re-explaining the same task to an agent. The guide's framing is that this context should not be lost in a chat or locked in one person's head.\n\n## Repeatable instructions, captured\n\nThe guide begins with two questions. How many times this week did you re-explain the same task to an agent? How many times did you ask a colleague with deep institutional knowledge how to solve a specific problem? According to the source, agent skills let you capture repeatable instructions so that you and your agents can reuse them.\n\nThe source also describes a path from personal use to shared use. A skill you write for yourself tonight can later become part of a team's pipeline.\n\n## A directory built around SKILL.md\n\nThe guide defines an agent skill as a versioned directory centered on a SKILL.md file. That file describes when and how to do a repeatable task. Because the skill is a versioned directory, the instructions have a defined, trackable form rather than living only in conversation history.\n\nThe guide says these instructions can be shared across agents. This matches the promise in its title: build a skill once, and it works with any agent.\n\n## Tools, credentials, and permissions\n\nThe guide also states a limit. Sharing instructions across agents does not mean the agents can carry them out on their own. The environment still has to provide the tools, credentials, and permissions needed to do the work.\n\nThe source gives a concrete example. A skill can describe how to query a database, but it does not grant access to that database. The skill covers the when and how of a task, and access remains a matter for the environment in which the agent runs.\n\n## Turning know-how into team assets\n\nThe guide is aimed at developers who want to turn personal know-how into something a team can reuse. The skill is the vehicle for that: written down once, kept in a versioned directory, and usable by more than one agent, provided the runtime supplies the access the task requires.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "同じ作業を何度もエージェントに説明し直すって、この記事の最初の問いかけにドキッとしたよ。スキルがあると、それが減るの？",
+          "en": "That opening question about re-explaining the same task to an agent hit home. Do skills actually cut that down?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、繰り返す作業の手順を残して、自分もエージェントも再利用できるようにするのがスキルの狙いだよ。チャットや個人の頭の中に埋もれさせないんだ。",
+          "en": "That's the idea in this piece: capture the steps of a repeatable task so you and your agents can reuse them, instead of losing them in a chat or one person's head."
+        },
+        {
+          "s": "a",
+          "ja": "SKILL.mdを軸にしたバージョン管理できるディレクトリって、どういうこと？",
+          "en": "What does \"a versioned directory centered on SKILL.md\" mean?"
+        },
+        {
+          "s": "b",
+          "ja": "SKILL.mdに「いつ、どうやるか」を書いて、そのフォルダごと履歴を管理する感じかな。バージョン管理は、変更の記録を残せる仕組みくらいの意味だよ。",
+          "en": "Roughly, SKILL.md says when and how to do a task, and the whole folder is tracked over time. Versioning just means changes get recorded."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあデータベースの調べ方をスキルに書けば、エージェントがそのまま調べてくれる？",
+          "en": "So if I write down how to query our database in a skill, will the agent just go and do it?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは注意で、記事だとスキルは手順を説明するだけで、アクセス権までは与えないよ。ツールや認証、権限は実行環境側で用意する必要があるんだ。",
+          "en": "Careful there. This article says a skill describes the steps but doesn't grant access. The environment still has to supply the tools, credentials, and permissions."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:38:07.424Z"
+    },
+    "df55124286315754": {
+      "bodyJa": "## 1週間で12億コミット\n\nGitHub Copilotのブログは、コード生成の先にあるエージェント型エンジニアリングを取り上げ、実装が速くなった後の開発者の仕事をどう進めるかを論じている。\n\n同ブログによると、この10月にGitHubでは1週間で12億件を超えるコミットが記録された。1年前と比べて400%超の増加で、2025年の1年間に受け取ったコミット数より多いという。\n\n## 生産性は400%上がったか\n\nコードを生成する量は、1年前より増えている可能性が高い。ただし著者は、自分が400%生産的になったと感じるかどうかを読者に問いかける。ソフトウェア開発は優れたプロンプトだけで成り立つものではない、という立場である。\n\n## レビュー時間441%増\n\nAIが実装を加速させる一方で、負荷は別の場所にかかっている。Faros AIの調査では、AIの導入度合いが低い状態から高い状態に移ったチームで、プルリクエストがレビューに費やす時間が441%長くなったと紹介されている。\n\n## 4つの工程\n\n開発者の仕事は、要件を集めて実装の舵を取ること、変更をレビューしてテスト結果を評価すること、そして本番環境で起きていることを調べることに及ぶ。エージェントは、こうした一連の作業をPlan、Build、Verify、Observeの4つの段階で効率化する助けになるとされている。",
+      "bodyEn": "## Beyond Code Generation\n\nGitHub Copilot's guide to agentic engineering starts from a question about productivity. It matters because faster code generation does not by itself make software development proportionally faster. According to the source, GitHub saw more than 1.2 billion commits in a single week this October, over 400% more than a year earlier. The source adds that this is more commits than GitHub received in all of 2025.\n\n## Pressure Moves Downstream\n\nThe source asks whether developers feel 400% more productive than last year. Its answer is that building software takes more than a good prompt. As AI speeds up implementation, the source says, developers feel more pressure in other places. It cites a Faros AI study finding that pull requests spent 441% longer in review when teams went from low to high AI adoption.\n\nThis is the central tension the guide addresses. More code is being produced, but review time grew sharply as teams adopted AI more heavily. The work that surrounds implementation has not shrunk to match.\n\n## Plan, Build, Verify, Observe\n\nThe source describes a developer's job as broader than writing code. Developers gather requirements and steer implementation, review changes and evaluate test results, and then investigate what happens in production. The guide's argument is that agents can help across all of these stages, which it names Plan, Build, Verify, and Observe.\n\nMapped onto that description, the stages line up roughly as follows. Plan and Build cover gathering requirements and steering implementation. Verify covers reviewing changes and evaluating test results. Observe covers investigating what happens in production. The framing treats code generation as one part of a larger cycle rather than the whole of the work.\n\n## What This Means for Developers\n\nThe guide is positioned as an introduction to agentic engineering for developers, aimed at managing work beyond code generation. Its premise is that the areas feeling the strain, such as review, are where agents can also be applied, not only at the point where code is written. The material provided here covers this framing and the figures behind it. It does not detail specific workflows, features, or instructions for each stage.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIでコードをたくさん書けるようになったら、普段の仕事って何が変わるの？",
+          "en": "If AI helps us write so much more code, what actually changes in everyday work?"
+        },
+        {
+          "s": "b",
+          "ja": "書く速さが上がる分、レビューなど他の工程に負担が寄るみたい。この記事はPlan・Build・Verify・Observeの4段階で考えているよ。",
+          "en": "Writing gets faster, but the pressure seems to shift to other stages like review. This article frames it as four stages: Plan, Build, Verify, and Observe."
+        },
+        {
+          "s": "a",
+          "ja": "前は、コード生成だけで困らなかったのかな？比べて何が違うの？",
+          "en": "Was code generation alone fine before? What's different now?"
+        },
+        {
+          "s": "b",
+          "ja": "以前どうだったかまでは書かれていないんだ。ただ、AI導入が低から高になるとレビュー時間が441%長くなった調査が紹介されているよ。",
+          "en": "The article doesn't say how things were before. It does cite a study where review time rose 441% when teams moved from low to high AI adoption."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ収穫は、コードが増えても、同じだけ楽になるとは限らないってことだね。",
+          "en": "So my takeaway: more code doesn't automatically mean the same jump in productivity, right?"
+        },
+        {
+          "s": "b",
+          "ja": "記事もそこを問いかけているね。次は、検証や本番の観察でエージェントがどう助けになるか、に注目したいな。",
+          "en": "The article raises that very question. Next, I'd watch how agents can help with verification and with observing what happens in production."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:41:04.647Z"
+    },
+    "5cb4ed49cbdddf72": {
+      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
+      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
+          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
+          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
+        },
+        {
+          "s": "a",
+          "ja": "シークレットって、秘密のコードってこと？",
+          "en": "Does “secret” mean secret code?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
+          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
+          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
+          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T20:07:43.460Z"
+    },
+    "275e1e2cffee0970": {
+      "bodyJa": "Model Context Protocol(MCP)が公開から2年を迎え、GitHubには延べ2,500人を超えるコントリビューターが参加した。開発チームはこの節目に、MCPの構築に関わった人々と、MCPを使って開発している人々を称える記事を公開している。\n\n## 2周年を迎えたMCP\n\nMCPが公開されたのは2024年11月で、今週で2年になる。開発チームは自らを「小さなオープンソースプロジェクト」と呼び、この機会に、MCPの形づくりを手伝った人々と、MCPを使って開発しているすべての人々を祝いたいとしている。\n\n公開当初は、コミュニティがこれほど創造的で野心的になることも、これほど多くの人が参加して今の姿に育ててくれることも想像していなかったと振り返っている。\n\n## 初日から集まった開発者\n\n開発者は、プロジェクトがGitHubに公開された最初の日から参加し始めたという。それ以来、ユニークなコントリビューターは2,500人を超えたと説明されている。この数字は、公開初日から続いてきた参加の積み重ねとして示されている。\n\n記事の最初の節は「Open from the start(最初からオープン)」という見出しで始まっている。\n\n## 3年目に向けた振り返り\n\n記事は、3年目に入るにあたり、2024年11月以降のハイライトを振り返る価値があるとして話を進めている。\n\n冒頭には「2024年11月から2026年11月までのMCPのマイルストーンと仕様リリース」と題した図が置かれている。2年間の歩みを、コミュニティの貢献とあわせてたどるための資料として位置づけられている。",
+      "bodyEn": "The Model Context Protocol (MCP), an open-source project, turns two years old this week, according to the project's own blog. The anniversary matters because the post uses it to credit the people who helped build MCP and everyone building with it.\n\n## Two years old\n\nThe post calls MCP \"our little open-source project\" and presents the birthday as a chance to celebrate its community. The authors say they could not have imagined how creative and ambitious that community would become when MCP first launched. They also say they did not foresee how many people would jump in to help make the project what it is today.\n\n## Open from the start\n\nAccording to the post, developers have been showing up since the very first day the project landed on GitHub. It reports that more than 2,500 unique contributors have taken part since then. The post places the launch in November 2024, which it calls a \"fateful\" month, and treats that early and continuous participation as central to how MCP has developed.\n\n## Milestones and spec releases\n\nThe post frames itself as a look back at highlights since that November of 2024. It includes a graphic titled \"MCP milestones and spec releases from November 2024 to November 2026,\" which indicates the retrospective covers the full two-year span and includes releases of the specification alongside other community milestones.\n\n## Heading into year three\n\nAs the project moves into its third year, the authors say it is worth pausing to review the path so far. The recap is written as a thank-you to contributors and to the wider group of developers building with MCP. For readers following the project, the main figures it offers are its two-year age and the more than 2,500 unique contributors who have worked on it through GitHub.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "2,500人超って、けっこう大きい数字なのかな？ 2年で集まったんだよね。",
+          "en": "More than 2,500 contributors in two years. Is that a big deal? It sounds like a lot to me."
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、公開初日から開発者が集まり、累計2,500人超になったと書かれているよ。書き手自身も、ここまで広がるとは想像していなかったそうだよ。",
+          "en": "The post says developers showed up from day one, reaching 2,500+ unique contributors. The team says they never imagined the community getting this creative and ambitious."
+        },
+        {
+          "s": "a",
+          "ja": "「ユニーク」ってつくのは、同じ人を何回も数えないってこと？",
+          "en": "What does \"unique\" mean here? Each person is only counted once?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的な意味ではそうだね。一人を一回だけ数えるから、貢献の回数ではなく人数を表す言い方だよ。",
+          "en": "In general usage, yes. Each person counts once, so it's a headcount, not a tally of contributions."
+        },
+        {
+          "s": "a",
+          "ja": "私もMCPで何か作ってみたいな。まず、どこから見ればいいかな？",
+          "en": "I'd love to build something with MCP. Where should I start looking?"
+        },
+        {
+          "s": "b",
+          "ja": "記事は2024年11月から2026年11月までの節目と仕様リリースを振り返っているよ。3年目に向けた入口になりそう。個々の中身は、それぞれ確かめてみてね。",
+          "en": "The post looks back at milestones and spec releases from November 2024 to November 2026, so it could be a good way into year three. Check each item for the details."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:38:17.504Z"
+    },
+    "63d4895ee7d64f88": {
+      "bodyJa": "Microsoft Researchの研究者が、AIモデル内部の休眠ニューロンを再プログラムしてバックドアを仕込む手法「Lazarus」を報告した。ツールやターミナルにアクセスできるAIエージェントにとって、特に深刻な脅威になるとされる。\n\n## 休眠ニューロンの再プログラム\nLazarusは、モデルの中の休眠ニューロンを再プログラムすることで成立するバックドア手法だと説明されている。対象となるのは、通常は正常に振る舞うAIモデルやエージェントである。仕込まれたモデルは、普段は何の問題もなく動作を続ける。\n\n## 隠しトリガーの発動\nこのバックドアが働くのは、隠されたトリガーが現れたときだ。トリガーが現れると、それまで正常だったエージェントが悪意あるコマンドを実行するようになるとされる。トリガーが現れるまでは通常どおり動作する点が、この手法の特徴として示されている。\n\n## ツールとターミナル\n脅威が特に深刻とされるのは、ツールやターミナルへのアクセス権を持つエージェントである。トリガーされたモデルは、攻撃者のコードを気づかれないままダウンロードして実行しうると説明されている。\n\n## 開発者への警戒\n今回の報告は、ツールを使うエージェントを構築するチームに警戒を促す内容となっている。",
+      "bodyEn": "## Lazarus: Dormant Neurons Reprogrammed\n\nMicrosoft researchers have described \"Lazarus,\" a backdoor technique that targets AI models by reprogramming dormant neurons. The finding matters because it concerns AI agents that can act on systems, not only generate text.\n\nAccording to the announcement, an AI agent compromised this way would otherwise appear normal. The model behaves as expected until a hidden trigger appears, and at that point it executes malicious commands.\n\n## A Hidden Trigger Changes Behavior\n\nThe core mechanism, as the researchers present it, is the repurposing of neurons within the model that were dormant. Rather than building a visibly different model, the technique rewires these neurons so that the altered behavior stays inactive until the trigger is present. This is why the source describes the agent as \"otherwise normal\" before activation.\n\nThe source does not frame this as an abstract model-quality problem. It describes a concrete outcome: a triggered model executing commands chosen by an attacker.\n\n## Risk for Tool and Terminal Access\n\nThe announcement says the threat is especially serious for AI agents with tool or terminal access. In that setting, it says, a triggered model could quietly download and run attacker code. The ability to take actions through tools or a terminal is what turns a hidden behavioral change into a way to carry out malicious commands.\n\nThe Microsoft Research post is aimed at teams building tool-using agents and warns them about this class of backdoor. Its title, \"Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents,\" points to the central idea of bringing dormant parts of a model back into active, attacker-directed use.\n\n## What the Report Establishes\n\nIn summary, the report introduces Lazarus as a newly discovered backdoor method, identifies dormant neurons as the point of attack, and names the hidden trigger as the activation condition. It identifies agents with tool or terminal access as the most exposed. Further technical specifics are in the full Microsoft Research post.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "普段は普通に動くのに、合図ひとつで悪いコマンドを実行しちゃうの？これって大きいこと？",
+          "en": "It acts normal, but one hidden signal makes it run bad commands? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "大きいと思うよ。この記事では、ツールやターミナルを使えるエージェントだと特に深刻で、気づかれずに攻撃者のコードを落として実行し得るとされているんだ。",
+          "en": "It looks serious. The post says it's especially risky for agents with tool or terminal access, since a triggered model could quietly download and run attacker code."
+        },
+        {
+          "s": "a",
+          "ja": "「休眠ニューロン」って、どういうものなの？",
+          "en": "What's a \"dormant neuron\" anyway?"
+        },
+        {
+          "s": "b",
+          "ja": "モデルの中で、普段ほとんど働いていない部分、くらいの意味だよ。そこを書き換えて、隠しトリガーが来たときだけ動かすのがLazarusなんだ。",
+          "en": "Roughly, a part of the model that's rarely active. Lazarus rewires those parts so they only kick in when a hidden trigger shows up."
+        },
+        {
+          "s": "a",
+          "ja": "もし自分がターミナルを触れるエージェントを作るなら、ちょっと怖いなあ。",
+          "en": "If I built an agent with terminal access, that'd honestly make me nervous."
+        },
+        {
+          "s": "b",
+          "ja": "その感覚は大事だと思う。普段は正常に見えるのが厄介な点で、記事もツールやターミナルを使うエージェントを作るチームに警戒を促しているよ。",
+          "en": "That instinct is useful. It's tricky because the model looks normal, and the post specifically urges teams building tool-using agents to stay alert."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:39:23.923Z"
+    },
+    "73903b1f8a4bc1d6": {
+      "bodyJa": "Chain-of-thought(CoT)監視は、AIエージェントの安全性を支える有望な仕組みとされている。この論文は、その監視役のLLMが説得によって欺かれ、本来は承認すべきでない行動を通してしまうかを検証している。著者はJennifer Za、Julija Bainiaksina、Nikita Ostrovsky、Tanush Chopra、Victoria Krakovnaの各氏である。\n\n## CoT監視の前提\n\nCoT監視は、目に見える推論の過程(推論トレース)を監視対象にする考え方である。エージェントが目的に沿わない振る舞いや欺瞞的な振る舞いをしていれば、その推論を読むことで兆候を捉えられる、という前提に立っている。論文は、この手法が標準的な状況では有効に働くと述べている。\n\n## 説得型ジェイルブレイク\n\n一方で論文は、大規模言語模型が説得型のジェイルブレイクに弱いままだという最近の知見を挙げている。これは、自然言語による議論がモデルに課された制約を上書きしてしまう攻撃を指す。論文の関心は、この弱点が攻撃対象のモデルだけでなく、監視を担うLLMにも当てはまるのかという点にある。\n\n## 検証された問い\n\n研究が立てた問いは明確である。敵対的なエージェントは、自分が提案する行動を監視役のCoTモニターに承認させられるのか。しかもその行動は、モニター自身のポリシーに違反するものである。論文はこれを、監視機構に対するストレステストとして位置づけている。\n\nつまり、監視される側が自分の行動を正当化する説得的な文章を示し、監視側がそれに納得してしまう状況が想定されている。\n\n## 示唆される脆弱性\n\nこの研究は、説得を用いたプロンプト操作がCoT監視を弱め、安全性の検査をすり抜けられることを示したと説明されている。その場合、有害な振る舞いを見逃す恐れが生じる。CoTに基づくAI監督の脆弱性として、重要な警鐘になるとされている。\n\nここで確認できるのは、CoT監視が万能ではなく、監視役のLLMが説得という自然言語の働きかけに影響されうるという問題提起である。",
+      "bodyEn": "## Persuasion Attacks on CoT Monitoring\n\nA new arXiv paper examines whether a widely discussed safety mechanism for AI agents, chain-of-thought (CoT) monitoring, can itself be manipulated. The work matters because the mechanism rests on a specific premise: that visible reasoning traces can surface misaligned or deceptive behavior.\n\nThe paper, titled \"Persuasion Attacks Can Decrease Effectiveness of CoT Monitoring,\" is authored by Jennifer Za, Julija Bainiaksina, Nikita Ostrovsky, Tanush Chopra, and Victoria Krakovna. It was published on 2026-07-11.\n\n## A Promising Safety Mechanism\n\nAccording to the abstract, CoT monitoring is considered a promising safety approach for AI agents. The idea is that when an agent's reasoning is visible, a monitor can read it and flag behavior that is misaligned or deceptive. The authors say this works well in standard scenarios.\n\nThe abstract then points to a known weakness in large language models. Recent work, it says, shows that LLMs remain vulnerable to persuasion-based jailbreaks, in which natural-language arguments override a model's constraints.\n\n## Stress-Testing the Monitor\n\nThe authors ask whether that vulnerability extends to the monitoring model as well. Their framing is a stress test built around one question: can an adversarial agent persuade its CoT monitor to approve proposed actions that violate the monitor's policy?\n\nIn this setup, the monitor is itself an LLM. The concern is therefore not only that the agent being watched might be manipulated, but that the overseer might be talked into approving actions it is supposed to block.\n\n## What the Findings Suggest\n\nThe title states that persuasion attacks can decrease the effectiveness of CoT monitoring. The summary of the work describes persuasion-based prompt attacks as able to undermine CoT monitoring, so that safety oversight misses harmful model behavior. It characterizes this as a significant vulnerability in CoT-based AI supervision and as a warning about relying on such monitoring.\n\nThe available description does not give experimental details such as the models tested, the attack designs, or quantitative results, so the scale of the effect is not stated here. What the source does establish is the research question, the premise behind CoT monitoring, and the conclusion that persuasion can reduce the monitor's reliability.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "CoTモニタリングって、そもそも何を見張る仕組みなの？",
+          "en": "What does CoT monitoring actually watch for?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、AIエージェントの考えの跡（推論の過程）を見て、ずれた行動やごまかしを見つける安全の仕組みとされています。",
+          "en": "Here it's described as a safety mechanism for AI agents: you read their visible reasoning to spot misaligned or deceptive behavior."
+        },
+        {
+          "s": "a",
+          "ja": "で、説得攻撃って、見張り役のAIを言葉で説得しちゃうってこと？",
+          "en": "So a persuasion attack means talking the monitor AI into letting things through?"
+        },
+        {
+          "s": "b",
+          "ja": "近いです。自然な言葉の議論でモデルの制約を覆す手口が知られていて、それが監視役のLLMにも通じるかを試しています。",
+          "en": "Pretty much. Natural-language arguments can override a model's constraints, and the study tests whether that works on monitoring LLMs too."
+        },
+        {
+          "s": "a",
+          "ja": "つまり、ルール違反の行動を、監視役に「いいよ」と言わせられるか調べたんだね。",
+          "en": "So they checked whether an agent could get its monitor to approve actions that break the policy."
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。ただ、この記事の範囲で分かるのは問いの立て方までで、結果の細かい数字などはここからは読み取れません。",
+          "en": "Right. But from what we have here, we only see how the question is framed, not detailed results or numbers."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:39:45.964Z"
+    },
+    "482f1b9777924530": {
+      "bodyJa": "銘柄をスクリーニングで絞っても、最後の「この会社、買って大丈夫か」は決算の中身を読まないと分かりません。この記事は、有価証券報告書を人間の代わりに読むAIアナリストを、無料の財務データAPIとClaudeで作る実装解説です。個人投資家でも低コストで財務分析を自動化できる点が注目されます。\n\n## 3つの分析エンジン\n\n分析の中核は、Piotroski F-Score、Altman Z''、DCFの3つのエンジンで、いずれもPythonで実装されます。各エンジンの結果をClaudeに渡し、統合レポートを生成するところまでが解説範囲です。コードは、実際に毎日動いているシステムのものだと説明されています。\n\n## 実装で扱う論点\n\n実運用での判断や工夫にも踏み込んでいます。取り上げられているのは次の点です。\n\n生のXBRLをパースしないという判断、欠損データとの戦い方、LLMに数字を作らせないためのプロンプト設計、そして1日100コールという制限です。\n\n数値の扱いをLLM任せにせず、計算は各エンジン側で行い、Claudeには結果を渡して統合させる構成になっています。",
+      "bodyEn": "## Reading earnings with Claude\n\nScreening can narrow a list of Japanese stocks, but the final question of whether a company is safe to buy depends on what its financial statements actually say. This guide explains how to build an \"AI analyst\" that reads securities reports in place of a human, using a free financial data API together with Claude.\n\n## Three analysis engines\n\nAccording to the description, the system implements three analysis engines in Python: the Piotroski F-Score, Altman Z'', and DCF. Their results are then passed to Claude, which generates an integrated report. The guide walks through this using code from a system it says runs every day.\n\n## Design decisions covered\n\nThe write-up lists several practical topics. One is the decision not to parse raw XBRL. Another is how to deal with missing data. A third is prompt design intended to stop the LLM from making up numbers. The text also mentions working within a limit of 100 calls per day.\n\nThe guide's stated pitch is that individual investors can automate financial analysis at low cost.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "3つの分析エンジンとか、1日100コール制限とか、数字がいろいろ出てきたね。これって個人でも現実的ってこと？",
+          "en": "There are a lot of numbers here, like three analysis engines and a 100-calls-a-day limit. Does that mean it's realistic for an individual?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、無料の財務データAPIとClaudeで作る前提で、実際に毎日動いているコードを使って解説しているよ。個人投資家でも低コストで試せる点が狙いだね。",
+          "en": "The guide builds it with a free financial data API and Claude, using code from a system that runs daily. The aim is that individual investors can try it at low cost."
+        },
+        {
+          "s": "a",
+          "ja": "Piotroski F-Scoreとか、Altman Z''とか、DCFって何？名前が難しいよ。",
+          "en": "What are Piotroski F-Score, Altman Z'', and DCF? The names sound tough."
+        },
+        {
+          "s": "b",
+          "ja": "記事では3つとも分析エンジンとして実装されているよ。一般的には、F-Scoreは財務の健全さ、Z''は倒産リスク、DCFは将来のお金から会社の価値を見積もる方法、くらいの意味だね。",
+          "en": "The guide implements all three as analysis engines. Generally, F-Score checks financial health, Z'' relates to bankruptcy risk, and DCF estimates a company's value from future cash."
+        },
+        {
+          "s": "a",
+          "ja": "もし自分で使うなら、気になる会社の決算を毎日チェックさせて、Claudeにレポートを書いてもらいたいな。",
+          "en": "If I used it, I'd have it check a company's earnings every day and let Claude write me a report."
+        },
+        {
+          "s": "b",
+          "ja": "いいね。ただ記事では1日100コール制限や欠損データへの対処にも触れているよ。LLMに数字を作らせないプロンプト設計も大事なポイントみたい。",
+          "en": "Nice idea. But the guide also covers the 100-calls-a-day limit and handling missing data. It also stresses prompt design so the LLM doesn't invent numbers."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:40:15.605Z"
+    },
+    "be820e25ead24e80": {
+      "bodyJa": "OpenHands cloud のバージョン 1.46.0 が公開された。cloud-1.45.1 から cloud-1.46.0 までの変更として、app-server、enterprise、CIにまたがる3件が掲載されている。\n\n## 最終アーカイブ\n\napp-server では「final archive manifests」を拡充し、あわせて「initial snapshots」を取り除く変更が入った。タイトルは feat(app-server): enrich final archive manifests and remove initial snapshots で、@simonrosenberg 氏による #15058 として取り込まれている。\n\n最終アーカイブのマニフェストの内容を充実させる一方、初期スナップショットは削除する、というのが変更の骨子である。マニフェストに具体的に何が加わったのか、初期スナップショットを外した理由は何かといった詳細は、リリースノートの文面からは確認できない。\n\n## 会話削除の連動\n\nenterprise 向けには、会話を削除したときに conversation_cost_events を連鎖的に削除する修正が入った。fix(enterprise): cascade-delete conversation_cost_events on conversation delete という題名で、@tofarr 氏による #15220 である。\n\n題名どおりに読めば、会話の削除に合わせて、その会話に結び付く conversation_cost_events も一緒に削除される挙動になる。\n\n## chartの同期\n\nCI 関連では、chart の appVersion を cloud のイメージタグと同期させる変更が入った。題名は ci: PLTF-2960 sync chart appVersion with cloud image tag で、@aivong-openhands 氏による #15219 として記載されている。チケット番号 PLTF-2960 が付いており、appVersion とクラウド側のイメージタグを揃えるための CI 上の対応と読み取れる。\n\n## リリースの扱い\n\n今回のリリースノートは Release Please によって生成された PR に基づく。差分の全体は「Full Changelog: cloud-1.45.1...cloud-1.46.0」から確認できる。\n\n1.46.0 は、クラウド版の定期的なアップデートとして上記3件の機能改善と修正をまとめたものである。",
+      "bodyEn": "## OpenHands cloud 1.46.0\n\nOpenHands cloud version 1.46.0 has been published as a release on the openhands-releases feed. It is the next step after cloud-1.45.1, and the release notes list three changes spanning the app server, enterprise features, and continuous integration.\n\n## Archive manifests and snapshots\n\nThe first change is titled \"feat(app-server): enrich final archive manifests and remove initial snapshots,\" contributed by @simonrosenberg in pull request #15058. According to the release notes, it makes two adjustments: final archive manifests are enriched, and initial snapshots are removed. The notes give no further description of what the enriched manifests contain or how the removal of initial snapshots affects behavior, so those details are best checked in the pull request itself.\n\n## Conversation deletion fix\n\nThe second change is a fix labeled \"fix(enterprise): cascade-delete conversation_cost_events on conversation delete,\" by @tofarr in #15220. Going by the title, deleting a conversation will now also delete the associated conversation_cost_events records through a cascade. This is scoped to the enterprise area of the project.\n\n## Chart version sync\n\nThe third change, by @aivong-openhands in #15219, is a CI item tagged PLTF-2960: \"sync chart appVersion with cloud image tag.\" As the title describes it, the chart's appVersion is kept in line with the cloud image tag.\n\n## Release details\n\nThe notes point to a full changelog comparing cloud-1.45.1 with cloud-1.46.0. They also state that the release pull request was generated with Release Please, and that the commit was created on GitHub.com and signed with GitHub's verified signature.\n\nTaken together, the release is a small incremental update to the cloud-hosted platform: one feature-level change to archive handling, one data-cleanup fix tied to conversation deletion, and one CI change related to versioning. The notes do not mention pricing, regional availability, or platform support changes.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "1.45.1から1.46.0になったけど、これって大きな更新なの？変更点はいくつあるのかな。",
+          "en": "It went from 1.45.1 to 1.46.0. Is that a big update? How many changes are there?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事に挙がっている変更は3つだよ。アーカイブ情報の強化と初期スナップショットの削除、会話削除時の修正、チャートのappVersion同期だね。",
+          "en": "The notes list three changes: richer archive manifests with initial snapshots removed, a conversation-deletion fix, and syncing the chart appVersion with the cloud image tag."
+        },
+        {
+          "s": "a",
+          "ja": "cascade-deleteって何？親を消したら、関連するものも連鎖して消えるってこと？",
+          "en": "What's cascade-delete? Does it mean deleting one thing also deletes the related things?"
+        },
+        {
+          "s": "b",
+          "ja": "そのイメージで近いよ。この記事では、会話を消すときに関連するconversation_cost_eventsも一緒に消す、という内容だね。",
+          "en": "That's pretty close. Here, deleting a conversation also deletes its related conversation_cost_events."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ自分が会話を整理するとき、費用の記録も一緒に消えるのかな。",
+          "en": "So if I tidy up my conversations, would the cost records disappear along with them?"
+        },
+        {
+          "s": "b",
+          "ja": "記事に書かれているのは、会話の削除に合わせて関連するコストイベントも消す修正、というところまでだよ。細かい挙動は公式の変更内容で確かめたいね。",
+          "en": "The notes only say related cost events are deleted along with the conversation. For finer behavior, I'd check the official change details."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:40:43.450Z"
+    },
+    "25273430064f1ed6": {
+      "bodyJa": "Cursor 3.11は2026年7月10日にリリースされた。メインのエージェント会話を止めずに質問できるサイドチャットと、クラウドエージェント向けの新フックが目玉で、エージェントとの協働の進め方を広げるアップデートとされる。\n\n## /sideと/btw\n\nサイドチャットは、/side または /btw で開始できる機能だ。メインのエージェント会話とは別に、コンテキストを引き継いだ会話を立ち上げられる。\n\n従来は、エージェントが長いタスクを実行している間に別のことを聞きたくなっても、完了を待つか、会話を中断するしかなかった。サイドチャットによって、「作業を止めて聞く」か「聞かずに我慢する」かの二択に、並行して聞くという第三の選択肢が加わると説明されている。\n\n## 新フックの位置づけ\n\nもう一つの柱が、クラウドエージェント向けに追加された新フックである。エージェントの発話や思考そのものを観察し、制御できるようになるとされる。\n\n背景には、エージェントの応答内容をもとに自動で処理を挟みたいというニーズがある。これまではこうした要望に応える手段がなかったが、今回の追加でエージェント動作をプログラムによって制御する方向に開発体験が拡張される。\n\n## トランスクリプト検索\n\n3.11では、Agents Window でエージェントのトランスクリプト全文を検索できるようにもなった。過去のやり取りの内容を、検索で探せる機能である。\n\n## 2つの方向性\n\n今回の変更は、並行作業とエージェント動作のプログラマブルな制御という2つの方向にまとめられる。サイドチャットは前者、クラウドエージェントの新フックは後者にあたる。いずれもエージェントの作業を待つ、あるいは中断するという従来の制約を和らげるものだ。\n\nなお、チェンジログの差分上で3.7のセクションが消えたように見えることがあるが、これは機能の廃止ではない。チェンジログページ上の古いエントリが表示から外れただけである。",
+      "bodyEn": "Cursor 3.11, released on July 10, 2026, adds a way to talk to an AI agent without interrupting its work, plus new hooks for cloud agents. According to the source, the update extends the development experience in two directions: parallel work and programmable control over agent behavior.\n\n## Side Chat: /side and /btw\n\nThe headline feature is a side chat, opened with the /side or /btw commands. It runs separately from the main agent conversation but carries over the existing context. Users can ask a question while the main agent keeps working on its task.\n\nThe source describes the problem this addresses. When an agent was running a long task and the user wanted to ask something unrelated, the only options were to wait or to interrupt the conversation. The source says side chats turn that either-or choice into a third option: asking in parallel.\n\n## New Hooks for Cloud Agents\n\nThe second major change is a set of new hooks for cloud agents. The source says they make it possible to observe and control the agent's utterances and its thinking. It gives the example of wanting to insert automatic processing based on what an agent says, a need that was previously hard to meet.\n\nThe announcement presents this as programmable control of agent behavior. The material does not detail the individual hook names or how they are configured.\n\n## Transcript Search in Agents Window\n\nCursor 3.11 also lets users search the full agent transcript in the Agents Window. The source treats this conversation search as a secondary change. It also mentions a redesign of the picker, but only briefly and as less relevant to the main story.\n\n## A Note on the Changelog\n\nThe source adds a clarification for readers who compare changelog diffs. The \"3.7 section\" may appear to have been deleted, but this does not mean any feature was discontinued. According to the source, older entries on the changelog page simply dropped out of view.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "エージェントを待つか、会話を中断するかの二択だったのが変わるんだよね。これって大きいこと？",
+          "en": "So it used to be wait or interrupt the agent, and that's changing? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、そこが目玉として書かれているよ。止めずに並行して聞ける、という第三の選択肢が加わるんだ。",
+          "en": "The article treats it as the headline. You can ask in parallel without stopping the agent, which is a third option."
+        },
+        {
+          "s": "a",
+          "ja": "「フック」って何？エージェントの発話や思考を観察・制御するって書いてあったけど。",
+          "en": "What's a \"hook\"? The article says you can observe and control what the agent says and thinks."
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、何かが起きたときに自分の処理を差し込める入口のことだよ。記事では、応答をもとに自動で処理を挟む例が挙がってるね。",
+          "en": "Generally, it's a spot where you can plug in your own step when something happens. The article mentions inserting automatic steps based on the agent's responses."
+        },
+        {
+          "s": "a",
+          "ja": "長い作業中に、ちょっと気になることを /side で聞く使い方をしてみたいな。",
+          "en": "I'd love to use /side to ask a quick question while a long task is running."
+        },
+        {
+          "s": "b",
+          "ja": "それは合いそうだね。サイドチャットは文脈を引き継ぐと書かれているよ。ただ、新しいフックはクラウドエージェント向けという条件つきだね。",
+          "en": "That fits. The article says side chats carry over context. Just note the new hooks are specifically for cloud agents."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:40:42.654Z"
+    },
+    "33f9290381318e36": {
+      "bodyJa": "近年、複雑な質問に答えるために複数回の検索と推論を繰り返す「深層検索(deep search)エージェント」の研究が活発だ。arXivで公開された論文「DeepSearch-World」は、こうしたエージェントを検証可能な環境で自己蒸留により訓練し、強化学習に依存せずに検索精度を高める枠組みを提案している。\n\n深層検索エージェントは、単発の検索で完結せず、得た情報をもとに次の検索クエリを生成し、段階的に答えを絞り込む点に特徴がある。従来、この能力を伸ばすには強化学習(RL)を用いる手法が主流で、正解に到達できたかどうかを報酬として与え、試行錯誤を通じてエージェントの方針を最適化してきた。検索やウェブ操作を組み込んだRLベースの研究が相次いで報告されている。\n\nしかしRLは報酬設計の難しさや学習の不安定さ、計算コストといった課題を抱えることが多い。DeepSearch-Worldは、この点を回避するため自己蒸留(self-distillation)というアプローチを採用したとされる。自己蒸留は、モデル自身が生成した出力のうち質の高いものを教師信号として再学習に用いる手法で、外部の大規模な教師モデルを必ずしも必要としない。\n\n鍵となるのが「検証可能な環境」だ。答えの正誤を自動的に判定できる環境を用意することで、エージェントが生成した多数の検索軌跡の中から正解に至ったものを選別し、良質な事例だけを蒸留に回せる。これにより、報酬関数を通じた勾配最適化を行わずとも、教師あり学習に近い形で能力を高められる可能性がある。\n\nこうした方向性は、検索や外部ツールを扱うエージェントの訓練を簡素化しうる点で注目される。RLの複雑さを避けつつ性能を引き出せれば、再現性やスケールの面で利点が生じると見られる。一方で、環境の検証可能性に強く依存する設計であり、正誤判定が難しいオープンな課題へどこまで一般化できるかは、今後の検証課題となりそうだ。情報検索とエージェント研究が交差する領域として、関連手法との比較を含めた継続的な評価が期待される。",
+      "bodyEn": "Deep search agents — language models that plan queries, read retrieved documents, and iterate toward an answer — have become a focal point in information retrieval research, and a new paper posted to arXiv describes a training approach called DeepSearch-World that aims to sharpen these agents without the reinforcement learning most recent systems rely on. The work matters because reinforcement learning, while effective, is often expensive and unstable to run at scale, so a method that reaches comparable accuracy through simpler means could lower the barrier to building capable research assistants.\n\nThe core idea is self-distillation inside a verifiable environment. Broadly, self-distillation refers to a model improving by learning from its own outputs rather than from a separate, larger teacher or from human annotations. DeepSearch-World appears to have the agent generate many search trajectories — sequences of queries, retrievals, and intermediate reasoning steps — and then retain the ones that lead to correct results, using those successful traces as supervised training data for the next iteration of the model.\n\nThe \"verifiable\" part is central to why this can work. A verifiable environment is one in which the correctness of a final answer can be checked automatically, for example a factual question with a known ground-truth answer or a task whose result can be validated against a reference. This automatic check acts as a filter: trajectories that reach the right answer are treated as high-quality demonstrations, while those that fail are discarded. In effect, the environment supplies the kind of reward signal that reinforcement learning would normally optimize, but the method consumes that signal through supervised fine-tuning on filtered examples rather than through policy-gradient updates.\n\nThis positions DeepSearch-World alongside a wave of recent search-agent systems. Over the past couple of years, projects such as Search-R1 and R1-Searcher, along with various \"deep research\" agents from major labs, have trained models to interleave reasoning with live retrieval, frequently using reinforcement learning with verifiable rewards (RLVR), a technique popularized by reasoning-focused models. The distinction the paper draws is methodological: it substitutes an iterative, rejection-sampling-style self-training loop for the online RL loop, an approach often characterized in the literature as easier to implement and less prone to reward hacking or training collapse.\n\nReaders unfamiliar with the space may find a few prerequisites helpful. Retrieval-augmented generation (RAG) is the broader family in which these agents sit; instead of answering purely from parametric memory, the model pulls in external documents. Deep or \"agentic\" search extends single-shot RAG into multi-turn loops, where the model decides what to search for next based on what it has already read. Rejection-sampling fine-tuning — sometimes called best-of-N distillation — is the general recipe of sampling many candidate outputs, keeping the best according to some scorer, and fine-tuning on them. DeepSearch-World's contribution is likely the specific way it applies this pattern to multi-step search behavior and the environment design that makes the reward signal reliable.\n\nSeveral caveats apply. Self-distillation methods depend heavily on the base model already being able to solve some fraction of tasks; if the initial success rate is too low, there are few good trajectories to learn from, and improvement can stall. The approach also inherits the limits of its verifier — tasks whose answers cannot be checked cleanly, such as open-ended synthesis or subjective judgments, fall outside the \"verifiable environment\" framing. As with most arXiv preprints, the results have not yet undergone peer review, and the reported gains should be read against the specific benchmarks and retrieval corpora the authors used.\n\nEven so, the direction reflects broader industry interest in making agent training cheaper and more reproducible. If methods like this hold up under independent evaluation, they could make competent deep-search agents accessible to teams that lack the infrastructure to run large-scale reinforcement learning. They also add to an ongoing debate about how much of the recent progress in reasoning and retrieval genuinely requires RL, versus how much can be achieved with carefully constructed supervised pipelines and a dependable way to verify answers. For now, DeepSearch-World is best understood as one data point in that conversation, worth watching as follow-up work tests whether the self-distillation route generalizes beyond the settings reported here.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-09-05T01:12:29.540Z"
+    },
+    "765f741f663f66a4": {
+      "bodyJa": "高速動作と共同編集を売りにするコードエディタ「Zed」の最新版、v1.10.0がリリースされた。オープンソースとして開発が進む同エディタにとって、機能追加と各種改善を盛り込んだ定期アップデートであり、開発者には最新版への更新が推奨されている。\n\nZedは、テキストエディタ「Atom」や構文解析ライブラリ「Tree-sitter」の開発に携わったメンバーが立ち上げたプロジェクトで、プログラミング言語Rustで実装されている点が大きな特徴だ。GPUを活用した描画によって大規模ファイルでも軽快に動作するとされ、起動やキー入力の応答性を重視する設計思想が支持を集めてきた。加えて、複数人が同じコードベースをリアルタイムに編集できるマルチプレイヤー機能を早期から備えており、リモート環境での協働を想定した設計になっている。\n\n今回のv1.10.0では、公開情報の範囲で新機能と改善が加えられたとされる。Zedはこれまで、言語サーバープロトコル(LSP)対応の拡充、ターミナル統合、Vimモードの改善、そしてAIによるコード補完やチャット機能の統合などを段階的に進めてきた。マイナーバージョンの更新では、こうした既存機能の安定化やパフォーマンス最適化、対応言語・拡張機能の拡大が中心になる傾向がある。具体的な変更点はリリースノートで確認するのが確実だろう。\n\n背景には、コードエディタ市場での競争激化がある。現在はMicrosoftの「VS Code」が広く普及する一方、AI支援を前面に押し出した「Cursor」など、既存エディタを基盤とした派生ツールも台頭している。こうした中でZedは、独自実装による速度性能とネイティブなAI統合を差別化要素として位置づけていると見られる。\n\nエディタは開発者が日々長時間触れる基盤ツールであり、わずかな応答性の違いや機能の使い勝手が生産性に影響しうる。Zedのような選択肢が継続的に更新されることは、利用者にとって環境を見直す一つの契機になる可能性がある。導入を検討する場合は、対応OSや既存のワークフローとの相性を含め、公式のリリースノートを参照したうえで判断したい。",
+      "bodyEn": "Zed Editor has reached version 1.10.0, the latest step in the ongoing development of a code editor that positions itself around raw performance and real-time collaboration. For developers weighing their daily tools, releases like this matter because Zed represents one of the more credible attempts to challenge the dominance of established editors, and each update signals how quickly the project is maturing.\n\nZed is an open-source editor written in Rust and created by several of the people behind Atom and the Tree-sitter parsing library. Its central pitch has long been speed: the editor uses GPU acceleration to render its interface, aiming to keep typing, scrolling, and search responsive even in large files and projects. That focus on latency sets it apart from Electron-based editors, which prioritize cross-platform convenience and a vast extension ecosystem but can carry a heavier resource footprint. Alongside performance, Zed ships built-in multiplayer editing, allowing several developers to work in the same buffer, share a project, and collaborate without a separate screen-sharing tool.\n\nThe v1.10.0 label follows the project's move to a more conventional versioning scheme after years of date-based and rapid incremental builds. As a point release, it is likely to bundle a mix of bug fixes, editor refinements, and incremental feature work rather than a single headline change. Zed's team typically publishes detailed release notes covering language support updates, changes to the extension system, adjustments to keybindings and settings, and fixes reported by the community. Readers who depend on a specific language server, theme, or workflow should consult the official changelog before upgrading, since behavior around configuration and defaults can shift between versions.\n\nA recurring theme across recent Zed development has been the integration of AI-assisted coding. The editor has added an assistant panel, inline completions, and support for connecting to various model providers, reflecting the broader industry shift toward embedding language models directly into the writing and editing experience. It is reasonable to expect that this release continues to refine those capabilities, though the exact scope depends on the published notes. This direction places Zed in direct conversation with tools such as Cursor, a VS Code fork built around AI pair programming, and GitHub Copilot, which operates as an extension across many editors. The category framing of this release around \"cursor\" underscores how tightly the AI-editor space and Zed's roadmap now overlap.\n\nContext helps explain why these updates draw attention. The editor market is unusually competitive right now. Microsoft's Visual Studio Code remains the default choice for a large share of developers, supported by an enormous marketplace of extensions and deep integration with the wider Microsoft toolchain. JetBrains continues to serve users who want heavier, language-specific IDEs with advanced refactoring. Neovim and other terminal-first editors retain a devoted following built on extensibility and keyboard-driven workflows. Zed attempts to occupy a middle ground, offering a modern graphical experience with the responsiveness that performance-conscious users associate with lighter tools. Its open-source licensing also appeals to developers wary of proprietary lock-in, though the project has at times balanced open code with paid collaboration and hosting services.\n\nFor teams evaluating whether to adopt Zed, several prerequisites are worth understanding. The editor relies on the Language Server Protocol to provide autocompletion, diagnostics, and navigation, meaning language support quality varies with the maturity of each server and Zed's own integration. Its extension ecosystem, while growing, is smaller than that of VS Code, so users migrating from other editors should verify that essential tooling is available. Platform coverage has also expanded over time, with the project extending beyond its initial macOS focus toward Linux and, more recently, Windows, so version notes often include platform-specific fixes.\n\nAs with any point release, the practical advice is measured rather than urgent. Upgrading to v1.10.0 is likely to bring stability improvements and incremental features that benefit regular users, but the value depends on which fixes and additions the changelog actually contains. Developers who rely on Zed in production settings may prefer to review the release notes, check for any breaking configuration changes, and confirm compatibility with their language servers before updating. For those already invested in the editor, staying current generally keeps them aligned with the project's fast-moving development and its evolving take on collaborative, AI-assisted coding.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T17:50:09.577Z"
     }
   }
 }

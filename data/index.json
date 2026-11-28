@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-28T06:30:59.121Z",
+  "generatedAt": "2026-11-28T07:30:58.127Z",
   "count": 2000,
   "health": {
-    "lastRunAt": "2026-11-28T06:30:59.104Z",
-    "batchIndex": 1,
+    "lastRunAt": "2026-11-28T07:30:58.110Z",
+    "batchIndex": 2,
     "batchTotal": 6,
     "sourcesAttempted": 10,
     "sourcesOk": 10,
@@ -27,7 +27,7 @@
     "summaryQueueCooldownCount": 1,
     "copilotOk": true,
     "copilotError": null,
-    "ogCached": 4559,
+    "ogCached": 4560,
     "ogNewHits": 1,
     "excerptFetchCandidates": 0,
     "excerptFetchAttempted": 0,
@@ -36,73 +36,68 @@
     "excerptFetchDeferred": 0,
     "excerptFetchPrioritized": 0,
     "excerptFetchUnlockable": 0,
-    "excerptBodyBatchPinned": 17,
-    "excerptBodyBatchEnqueued": 17,
+    "excerptBodyBatchPinned": 18,
+    "excerptBodyBatchEnqueued": 12,
     "publisherContractFingerprint": "sha256:266dd4595d0557a506cda949689e0df1d122361294958d844533678bd71eba3f",
     "bodyQueueMode": "enabled",
     "bodyEnqueueCap": 32,
-    "bodyEnqueueCandidates": 22,
-    "bodyEnqueued": 22,
-    "bodyBacklog": 179,
-    "bodyQueueDrainEstimateHours": 6,
+    "bodyEnqueueCandidates": 17,
+    "bodyEnqueued": 17,
+    "bodyBacklog": 156,
+    "bodyQueueDrainEstimateHours": 5,
     "bodyLookupCount": 35,
     "chatLookupCount": 120,
-    "chatCompatibilityRejected": 110,
+    "chatCompatibilityRejected": 109,
     "chatRepairBlocked": 0,
-    "chatRepairCandidates": 119,
+    "chatRepairCandidates": 122,
     "chatRepairEnqueued": 5,
     "chatRepairPendingIds": [
-      "98442a954f5bd220",
-      "4ba7cf764a4fcd75",
-      "c96eaf30fad9ca28",
       "c6389827905fb571",
-      "5b3a06af2f1abbb5"
+      "50e6cec3d6291d77",
+      "73a62637fea9583a",
+      "c162d148a89f3e1b",
+      "f02e43f1988731ab"
     ],
-    "bodyPendingLookupCount": 18,
+    "bodyPendingLookupCount": 17,
     "bodyMergePendingIds": [
-      "acff2e94dd9223b7",
-      "1e0b95e9935b584c",
-      "c6e981287832aa8c",
-      "275e1e2cffee0970",
-      "299de60a1e88915b",
-      "8b194fe7554ca68e",
-      "c05b32fd5d5f9fad",
-      "63d4895ee7d64f88",
-      "bfaa74090b290435",
-      "15257e030f2117a4",
-      "73903b1f8a4bc1d6",
-      "91b9443623bc1c70",
-      "482f1b9777924530",
-      "be820e25ead24e80",
-      "25273430064f1ed6",
-      "0d58dc4db1809894",
-      "f092f5c9854f3002"
+      "75a9f02f59a5e1ff",
+      "91282f609e645db4",
+      "a3866d39f20be1e6",
+      "742d69c4e9a1c77b",
+      "be9d9b196aa38b60",
+      "56a0a646526d9fc5",
+      "cfea7d479ade0a4f",
+      "5eaa0889b3ff2853",
+      "0ca309f378516fe4",
+      "ad35820326f094e8",
+      "de3535ae2f8767a5",
+      "b164e47cd8eeb9bf"
     ],
-    "bodyMerged": 23,
+    "bodyMerged": 27,
     "bodyPruned": 0,
-    "bodiesTotal": 1559,
+    "bodiesTotal": 1582,
     "bodyRetentionDays": 30,
     "bodyRetentionEligible": 1785,
     "bodyBudgetTargetBytes": 18000000,
-    "bodyBudgetBytes": 11564911,
+    "bodyBudgetBytes": 11721548,
     "bodyShardBytes": [
-      2854859,
-      2822789,
-      2963190,
-      2924073
+      2880251,
+      2845050,
+      3008361,
+      2987886
     ],
     "bodyStorageMode": "shards-v1",
     "bodyBudgetPruned": 0,
     "bodyBudgetEvictedIds": [],
     "bodyShardDigests": [
-      "b8d594344d9e03249905397eae0c63c8660f6bea4c60b9fab280ac09b5507a5b",
-      "2882c006103bbf2c4f0f096047ca564f74f52ea5c0af7799ae89dab2ae47db99",
-      "f0bf43f08a9032dc22f8aee722c2f0e3099466c2c219146270090df65ce618bb",
-      "573f3f7d58e8c28ed17ac6c06cc68d73421102bae82f0025e93f3dd4395112dd"
+      "b213dee93227b28f96972fca1b79b148fbc84ebf33666271c6083dbffded73dd",
+      "af2942f283983e3c68b16a415c65114c6ac5c9e0cf82ee75879b9e50a7414b23",
+      "b68e3e78bcbbd6ec90250b8342de7b3fa97aef8a479944ad4f27b3121d51360b",
+      "a3dd25d048d0a2809965612499801b2c28fe920499726b57e047775487b01fa5"
     ],
     "enrichmentEnqueueCap": 35,
-    "enrichmentEnqueued": 25,
-    "enrichmentRemaining": 10
+    "enrichmentEnqueued": 20,
+    "enrichmentRemaining": 15
   },
   "entries": [
     {
@@ -579,7 +574,7 @@
       "summaryEn": "For Copilot Business and Enterprise accounts with no saved choice, code review by licensed members will be charged to the organization from December 30, 2026. Admins wanting current behavior must select Member first.",
       "lang": "en",
       "publishedAt": "2026-11-25T22:18:03.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "billing",
         "changelog",
@@ -802,8 +797,8 @@
       "bodyEn": ""
     },
     {
-      "id": "e781aae55ec024a5",
-      "source": "github-blog-ai",
+      "id": "b2937bbd676220f2",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-to-choose-the-next-safe-step-in-application-modernization/",
       "title": "How to choose the next safe step in application modernization",
@@ -813,7 +808,7 @@
       "summaryEn": "Using GitHub Copilot, the author tested an evidence-first approach on four public apps, from a small Node.js game to a large Java ERP system, gathering regression evidence before picking a framework. Teams can repeat it on their own application.",
       "lang": "en",
       "publishedAt": "2026-11-25T15:00:00.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "copilot",
         "github",
@@ -890,7 +885,7 @@
       "summaryEn": "GitHub.com notifications migrate to a new system from December 1, 2026 over about a week, so commenting or reviewing no longer resubscribes you after you unsubscribe. This helps developers who filter notifications.",
       "lang": "en",
       "publishedAt": "2026-11-24T16:40:59.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "github",
@@ -1127,7 +1122,7 @@
       "summaryEn": "Meta's personal AI agent Muse is now available in the UK, going beyond Q&A to carry out tasks that users assign to it. UK users can delegate everyday chores while staying in control.",
       "lang": "en",
       "publishedAt": "2026-11-24T06:00:40.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -1244,7 +1239,7 @@
       "summaryEn": "Z.ai released GLM 5.4, its first looped transformer, which reruns a block of weight-shared layers several times to deepen the network without adding parameters, a design that is gaining traction among labs.",
       "lang": "en",
       "publishedAt": "2026-11-23T23:40:49.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "coding-model",
         "glm",
@@ -1320,7 +1315,7 @@
       "summaryEn": "GitHub issues now support finer-grained statuses beyond open and closed, plus repository boards to visualize progress. Teams and agents get shared context on what is in flight and what comes next.",
       "lang": "en",
       "publishedAt": "2026-11-23T20:37:11.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "github",
@@ -1358,7 +1353,7 @@
       "summaryEn": "GitHub secret scanning now filters out URLs that do not match Slack's incoming webhook format, cutting false-positive alerts for Slack secrets and easing triage work for developers and security teams.",
       "lang": "en",
       "publishedAt": "2026-11-23T18:32:59.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "false-positives",
@@ -1397,7 +1392,7 @@
       "summaryEn": "Meta widened its academic partnerships, offering funding and access to Muse Glimmer, SAM3, DINOv3 and Brain2Qwertyv2. Researchers apply them to epilepsy mapping, rare diseases and training clinicians in under-resourced areas.",
       "lang": "en",
       "publishedAt": "2026-11-23T18:00:01.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "academic-partnerships",
         "dinov3",
@@ -1738,7 +1733,7 @@
       "summaryEn": "GitHub Code Quality's upload-code-coverage action now verifies that reports are Cobertura XML and fails the step otherwise. Teams no longer get silent uploads with missing PR coverage, and can fix the format quickly.",
       "lang": "en",
       "publishedAt": "2026-11-23T15:28:36.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "cobertura",
@@ -1777,7 +1772,7 @@
       "summaryEn": "Starting December 1, 2026, GitHub's detailed, AI, and premium request usage reports gain a user_id column beside username, shifting later columns right. Teams parsing by position should switch to header names.",
       "lang": "en",
       "publishedAt": "2026-11-23T10:29:36.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "billing",
         "breaking-change",
@@ -2010,7 +2005,7 @@
       "summaryEn": "GitHub custom repository roles gain four new Security permissions covering advisory viewing, editing, and private vulnerability reports. Organizations can delegate triage without granting admin or security manager access.",
       "lang": "en",
       "publishedAt": "2026-11-20T21:49:29.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "access-control",
         "changelog",
@@ -2049,7 +2044,7 @@
       "summaryEn": "GitHub Enterprise Server 3.23 adds Projects filters with OR and parentheses, plus CPU-only AI secret detection that works in air-gapped networks, helping admins find unstructured secrets securely.",
       "lang": "en",
       "publishedAt": "2026-11-20T20:41:26.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "air-gapped",
         "changelog",
@@ -2068,7 +2063,15 @@
       "excerptOrigin": "article",
       "feedSnippet": "GitHub Enterprise Server (GHES) 3.23 is now available and introduces new capabilities across the platform. Here are a few highlights in the 3.23 release: When working in GitHub Projects, you… The post GitHub Enterprise Server 3.23 release candidate appeared first on The GitHub Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "image": {
+        "src": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-new-releases.jpg",
+        "origSrc": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-new-releases.jpg",
+        "alt": "GitHub Enterprise Server 3.23 release candidate",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "299de60a1e88915b",
@@ -2190,7 +2193,7 @@
       "summaryEn": "Meta's FAIR team hosted the Open Source AI for Science Summit, gathering university, hospital, and industry researchers to share open source AI work in neurology, chemistry, drug discovery, and materials, helping scientists tackle hard problems.",
       "lang": "en",
       "publishedAt": "2026-11-20T18:30:45.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "ai-for-science",
         "drug-discovery",
@@ -2344,7 +2347,7 @@
       "summaryEn": "GitHub added a Favorite repositories section so users can search and choose which repos show on the dashboard, synced with GitHub Mobile pins. It was temporarily rolled back on November 23 pending feedback-driven improvements.",
       "lang": "en",
       "publishedAt": "2026-11-20T14:12:05.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "dashboard",
@@ -2375,7 +2378,7 @@
       "summaryEn": "GitHub Desktop can now sign in with several accounts on one host, including GitHub.com, GitHub Enterprise Server, and GHE.com, and bind each repository to an account. Developers juggling personal and work identities no longer need to switch credentials by hand.",
       "lang": "en",
       "publishedAt": "2026-11-20T02:06:01.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "enterprise",
@@ -2552,38 +2555,6 @@
       },
       "excerptOrigin": "article",
       "feedSnippet": "mlxrunner: adapt saved history to memory pressure Retain Metal prefix history using observed memory headroom and execution workspace rather than a fixed 8 GiB allowance. Release unused buffers and cold history when system compression grows, preserving reusable paths and active requests. Cover pressure reclamation, snapshot ownership, memory observation, and cacheless request isolation. address comments address comments",
-      "bodyJa": "",
-      "bodyEn": ""
-    },
-    {
-      "id": "3c70dc9317b0bdb0",
-      "source": "microsoft-source",
-      "sourceType": "blog",
-      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
-      "title": "The future of medicine: Could AI help predict and prevent disease?",
-      "titleJa": "AIはより健康な未来づくりに役立つのか",
-      "titleEn": "The future of medicine: Could AI help predict and prevent disease?",
-      "summaryJa": "Microsoft Researchのポッドキャスト「The Shape of Things to Come」で、Doug BurgerがAva Amini、Eric Horvitz、Eric Topolと医療分野でのAIの可能性と課題を議論する。政策担当者や事業判断者が共通認識を築く助けになる。",
-      "summaryEn": "In a Microsoft Research podcast episode of The Shape of Things to Come, Doug Burger talks with Ava Amini, Eric Horvitz and Eric Topol about AI in health, helping technologists and policymakers weigh benefits and risks.",
-      "lang": "en",
-      "publishedAt": "2026-11-19T22:14:18.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
-      "tags": [
-        "ai-health",
-        "healthcare",
-        "microsoft",
-        "microsoft-research",
-        "news",
-        "podcast",
-        "research"
-      ],
-      "category": "tech-news",
-      "importance": 2,
-      "halfLife": "news",
-      "archiveTier": "hot",
-      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
-      "excerptOrigin": "article",
-      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research .",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -3207,7 +3178,7 @@
       "summaryEn": "Meta's personal AI agent Muse launches in Australia today, with local connectors for creativity, shopping, property, fitness and entertainment arriving gradually. It performs tasks and lets users control access, helping Australians offload everyday work.",
       "lang": "en",
       "publishedAt": "2026-11-17T18:00:31.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -3256,8 +3227,40 @@
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "excerptOrigin": "article-unavailable",
+      "bodyJa": "",
+      "bodyEn": "",
+      "evergreen": true
+    },
+    {
+      "id": "255f21e05c50335e",
+      "source": "microsoft-research",
+      "sourceType": "blog",
+      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
+      "title": "Can AI help build a healthier future?",
+      "titleJa": "AIはより健康な未来づくりに役立つのか",
+      "titleEn": "Can AI help build a healthier future?",
+      "summaryJa": "Microsoft Researchのポッドキャスト「The Shape of Things to Come」で、Doug BurgerがAva Amini、Eric Horvitz、Eric Topolと医療分野でのAIの可能性と課題を議論する。政策担当者や事業判断者が共通認識を築く助けになる。",
+      "summaryEn": "In a Microsoft Research podcast episode of The Shape of Things to Come, Doug Burger talks with Ava Amini, Eric Horvitz and Eric Topol about AI in health, helping technologists and policymakers weigh benefits and risks.",
+      "lang": "en",
+      "publishedAt": "2026-11-17T16:52:17.000Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
+      "tags": [
+        "ai-health",
+        "healthcare",
+        "microsoft",
+        "microsoft-research",
+        "news",
+        "podcast",
+        "research"
+      ],
+      "category": "research",
+      "importance": 2,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
+      "excerptOrigin": "article",
+      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research .",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -3311,7 +3314,7 @@
       "summaryEn": "TokenEconomizer is an open-source plugin that mines past sessions in a repository to trim wasted effort, cutting costs 18.4–30.9% over 277 bug-fix tasks while keeping success rates steady. Teams running coding agents benefit.",
       "lang": "en",
       "publishedAt": "2026-11-16T17:01:35.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "ai-agents",
         "coding-agent",
@@ -3432,8 +3435,8 @@
       "evergreen": true
     },
     {
-      "id": "d9302d8306c35a57",
-      "source": "github-blog-ai",
+      "id": "9bf242a7c3461006",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/",
       "title": "Build once, run on any agent: A practical guide to agent skills",
@@ -3443,7 +3446,7 @@
       "summaryEn": "GitHub Copilot's agent skills package repeatable task instructions in a versioned directory built around SKILL.md, shareable across agents, though the runtime must supply tools, credentials, and permissions. This helps developers turn personal know-how into team assets.",
       "lang": "en",
       "publishedAt": "2026-11-12T22:54:52.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "agent-skills",
@@ -3770,7 +3773,7 @@
       "summaryEn": "Microsoft Research describes Lazarus, a backdoor method that rewires dormant neurons so a model acts normally until a hidden trigger makes it run malicious commands, warning teams building tool-using agents.",
       "lang": "en",
       "publishedAt": "2026-11-10T20:52:56.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "ai-agents",
         "ai-security",
@@ -3985,10 +3988,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "a8256a8bf6828cc7",
@@ -4028,8 +4031,8 @@
       "bodyEn": ""
     },
     {
-      "id": "9c3380ee4f1290dc",
-      "source": "github-blog-ai",
+      "id": "df55124286315754",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/",
       "title": "Beyond code generation: A developer’s guide to agentic engineering",
@@ -4039,7 +4042,7 @@
       "summaryEn": "A GitHub Copilot guide to agentic engineering, noting a week of over 1.2 billion commits and a 441% rise in review time, to help developers manage work beyond code generation.",
       "lang": "en",
       "publishedAt": "2026-11-06T22:15:59.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "agentic-engineering",
@@ -4139,7 +4142,7 @@
       "summaryEn": "PDD Kit turns a developer's intent into a Verus specification, proves AI-written code satisfies it for all inputs, and falls back to tests where proofs are impractical. Reviewers can check intent instead of every line.",
       "lang": "en",
       "publishedAt": "2026-11-05T16:00:00.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "code-generation",
@@ -4349,7 +4352,7 @@
       "summaryEn": "Microsoft built the Industry Evaluation Data Generation Platform, creating full-scale synthetic enterprises from O*NET, job postings and SEC filings. It lets teams test Copilot realistically without exposing sensitive data.",
       "lang": "en",
       "publishedAt": "2026-10-30T13:05:28.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "benchmark",
         "copilot",
@@ -4639,10 +4642,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "32b5d3e2c34f5a54",
@@ -4669,10 +4672,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "f488ab92286122dc",
@@ -4806,10 +4809,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "cc9f1fc4deba48fb",
@@ -4836,10 +4839,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "b1d92492b7f0e9d8",
@@ -4975,8 +4978,8 @@
       "bodyEn": ""
     },
     {
-      "id": "c4607aa43c817be8",
-      "source": "github-blog-ai",
+      "id": "7cf69f7ae5c77b67",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-3-java-champions-are-using-github-copilot-for-increased-productivity/",
       "title": "How 3 Java Champions are using GitHub Copilot for increased productivity",
@@ -4986,7 +4989,7 @@
       "summaryEn": "Three Java Champions, each with over ten years of Java experience, share real production and open source uses of GitHub Copilot, plus habits for giving context and validating output. Useful for developers who want reliable AI-assisted code.",
       "lang": "en",
       "publishedAt": "2026-10-20T16:05:03.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "ai-coding",
         "copilot",
@@ -5041,8 +5044,8 @@
       "bodyEn": ""
     },
     {
-      "id": "cb4f638784301c3b",
-      "source": "github-blog-ai",
+      "id": "f9c5095dcdcc7bb0",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-to-continue-a-github-copilot-app-session-in-vs-code/",
       "title": "How to continue a GitHub Copilot app session in VS Code",
@@ -5052,7 +5055,7 @@
       "summaryEn": "A Copilot app session can be opened directly in VS Code, carrying over its chat, code edits, and context. Developers can let the agent do the heavy lifting, then review diffs, edit by hand, and test locally.",
       "lang": "en",
       "publishedAt": "2026-10-19T18:47:22.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "agent-workflow",
@@ -5267,11 +5270,11 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "GitHub’s context-aware secret classifier improves detection quality, raises weighted acceptance by 11.5%, and reduces median scan execution time by 86%. The post GitHub’s model for secret detection: Finding more secrets with less noise appeared first on The GitHub Blog .",
       "excerptOrigin": "article-unavailable",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "18ea178a7f4055ec",
@@ -5306,8 +5309,8 @@
       "bodyEn": ""
     },
     {
-      "id": "aab87b57e449c025",
-      "source": "github-blog-ai",
+      "id": "73f986d3e9b463d0",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-teach-copilot-about-your-codebase/",
       "title": "GitHub Copilot app for Beginners: How to teach Copilot about your codebase",
@@ -5317,7 +5320,7 @@
       "summaryEn": "This GitHub Copilot app beginner installment covers four ways, including custom instructions, to store conventions and scripts in a repo so Copilot learns them automatically, saving developers repeated explanations.",
       "lang": "en",
       "publishedAt": "2026-10-12T17:43:59.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "copilot",
         "custom-instructions",
@@ -5417,8 +5420,8 @@
       "evergreen": true
     },
     {
-      "id": "80955af470da00f0",
-      "source": "github-blog-ai",
+      "id": "5cb4ed49cbdddf72",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/secret-protection-must-scale-with-software/",
       "title": "Secret protection must scale with software",
@@ -5428,7 +5431,7 @@
       "summaryEn": "AI agents now touch one-third of GitHub pull requests, up from under one-tenth last year. Automated secret protection can prevent leaks and cut manual response work for developers.",
       "lang": "en",
       "publishedAt": "2026-10-07T17:45:34.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "ai-agents",
         "copilot",
@@ -7148,8 +7151,8 @@
       "knowledgeEligible": false
     },
     {
-      "id": "ed744c789037c203",
-      "source": "github-blog-ai",
+      "id": "571c8c47df881aa3",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/reviewbench-an-open-benchmark-for-ai-code-review/",
       "title": "ReviewBench: An open benchmark for AI code review",
@@ -7159,7 +7162,7 @@
       "summaryEn": "ReviewBench offers an open evaluation set based on GitHub pull requests, with multi-source labels, calibrated scoring, and production metrics for fair assessment of review agents.",
       "lang": "en",
       "publishedAt": "2026-10-05T15:59:40.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "ai-code-review",
         "benchmark",
@@ -8119,7 +8122,6 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "AI is changing how developers work and apply their skills. Writing code is still essential, but developers increasingly need to know how to direct AI, evaluate its output, communicate tradeoffs, and make sound technical decisions. The good news? You can start preparing today. Here’s where to focus: Tip #1: Learn to direct AI, not just use it. AI is changing what execution looks like. Increasingly, great execution means defining the problem clearly, providing the right context, evaluating AI-generated code, and deciding what’s ready to ship. As AI agents take on more of the implementation, these skills become even more valuable. For example, imagine you’re asked to add a new authentication flow. As AI tools become more capable and more deeply integrated into day-to-day workflows, those same skills can help you coordinate multiple AI agents.",
       "excerptOrigin": "article",
       "feedSnippet": "Learn to direct AI agents, critically review their output, and keep technical judgment at the center of your workflow. The post AI is changing developer work. Here are three skills to strengthen. appeared first on The GitHub Blog .",
@@ -8132,7 +8134,8 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true
     },
     {
       "id": "d76bc67b3882fa08",
@@ -10926,7 +10929,7 @@
       "summaryEn": "GitHub Copilot app canvases let users and agents jointly edit custom interfaces, from kanban boards to release checklists, enabling teams to tailor workflows to their needs.",
       "lang": "en",
       "publishedAt": "2026-09-25T18:00:00.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "canvases",
         "copilot",
@@ -10939,6 +10942,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "warm",
+      "evergreen": true,
       "contentSnippet": "Most tools give you a fixed set of screens and ask you to fit your work into them. But what if you could start with the workflow you want instead and have the interface take shape around it? That’s the idea behind canvases in the GitHub Copilot app . A canvas, also called a canvas extension, is a customizable interface that you and the agent share. It can be a kanban board, an issue triage board, a release checklist, a dashboard, a form, or even a spreadsheet: a UI shaped to how you work. Because the canvas is bidirectional, the agent can update it as it works, and you can use buttons, cards, filters, and other controls to make changes too. Just like using a live shared whiteboard. To create a canvas, you don’t have to do any coding or design by hand. Just open an agent session, enter the /create-canvas skill , and describe what you want in plain English.",
       "excerptOrigin": "article",
       "feedSnippet": "Describe the interface you need in plain English, then let the agent build a live surface you can both use and update—so you spend less time adapting to tools and more time getting work done. The post GitHub Copilot app for Beginners: How to build custom workflows with canvases appeared first on The GitHub Blog .",
@@ -10951,8 +10955,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "3f1de919b2487a4d",
@@ -11260,7 +11263,7 @@
       "summaryEn": "LLMs still default to chat as their main interface three years into the current AI wave, and the author challenges that assumption to help developers design interactions suited to each task.",
       "lang": "en",
       "publishedAt": "2026-09-24T20:00:00.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "copilot",
         "github",
@@ -11272,6 +11275,7 @@
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "warm",
+      "evergreen": true,
       "contentSnippet": "We’re 176 years into this AI experiment. Wait…it’s only been three years? Sometimes I remember things that happened last year, but it feels like it was so long ago. Did that really happen to me, or was it something that happened to my dad and he just told me about it when I was a kid? Anyway… we’re three years into this AI experiment and the primary interaction surface we have with LLMs is still chat. I’m pretty sure it was @pmarca who first argued for a textarea component in the HTML spec. And I’m pretty sure of that fact because I asked AI about it. In a textarea. But I would like to propose to you that perhaps, just maybe, chat is the wrong UI. Well, at least most of the time. It’s kind of a shame that the first large-scale implementation of AI was kind of a gimmick—a first-person chatbot. But there is tremendous promise for AI if it is task oriented.",
       "excerptOrigin": "article",
       "feedSnippet": "What is a developer to do when they need something more tangible than a chat box? Enter canvases. The post When chat is the wrong UI appeared first on The GitHub Blog .",
@@ -11284,8 +11288,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "75990177efa1f29d",
@@ -71192,7 +71195,7 @@
       "summaryEn": "DORA warns that \"tokenmaxxing\"—rewarding raw AI token consumption via internal leaderboards to spur adoption—can become a vanity metric that distorts real productivity, urging teams to balance quantity with quality.",
       "lang": "en",
       "publishedAt": "2026-06-02T00:00:00.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "ai-adoption",
         "developer-productivity",

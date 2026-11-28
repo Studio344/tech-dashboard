@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T06:30:54.829Z",
-  "count": 391,
+  "generatedAt": "2026-11-28T07:30:53.875Z",
+  "count": 398,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -11882,7 +11882,39 @@
       "bodyJa": "AIによるソフトウェア開発を自動化するエージェント基盤「OpenHands」のクラウド版が、バージョン1.41.0をリリースした。今回のアップデートは大規模な機能追加ではなく、安定性の向上や不具合修正を中心とした継続的な改善と位置づけられており、日々の開発ワークフローにエージェントを組み込むユーザーにとって使い勝手の底上げにつながる可能性がある。\n\nOpenHandsは、かつて「OpenDevin」として知られたオープンソースプロジェクトを起源とし、自然言語の指示を受けてコードの記述や修正、テスト実行、リポジトリ操作などを自律的に進めるAIエージェントである。ローカル環境でも動作するが、クラウド版は実行環境の構築やスケーリングをサービス側が担うため、利用者は煩雑なセットアップを省いてブラウザから直接エージェントを動かせる点が特徴とされる。\n\nバージョン1.41.0のような小刻みなポイントリリースは、エージェントの応答精度やツール連携の挙動、UIの細部といった領域に対する漸進的な調整を含むケースが多い。リリースノートで明示された変更点の詳細は限定的だが、こうした反復的なアップデートの積み重ねが、長時間のタスク実行における信頼性やエラー処理の質を左右すると見られる。\n\n背景には、コード生成にとどまらず開発工程全体を代行する「AIエージェント」への関心の高まりがある。この分野ではCognition Labsの「Devin」やGitHubの各種支援機能、Cursorをはじめとするエディタ統合型ツールなど、商用・オープンソース双方で競争が激化している。OpenHandsはオープンな開発体制と自前で拡張できる柔軟性を強みとしており、クラウド版はその成果を手軽に試せる入口としての役割を担う。\n\n利用を検討する場合は、対応するモデルや料金体系、既存のGitワークフローとの統合方法を事前に確認しておくとよいだろう。頻繁なバージョン更新は活発な開発の証しでもあり、今後も機能面と安定性の両輪で改善が続く可能性がある。",
       "bodyEn": "OpenHands Cloud, the hosted edition of the open-source AI software development agent platform maintained by All Hands AI, has been updated to version 1.41.0. Point releases like this one matter because they represent the continuous maintenance work that keeps an agentic coding service dependable for day-to-day use, even when no single headline feature is introduced. For teams that rely on the platform to automate parts of their development workflow, the stability and quality gains from these frequent updates are often as valuable as larger feature launches.\n\nOpenHands, formerly known as OpenDevin, is a framework in which AI agents perform the kinds of tasks a human developer would: reading and modifying source files, executing shell commands, running tests, browsing documentation, and interacting with APIs. Rather than only suggesting code inline, the agent operates inside a sandboxed environment where it can iterate toward a goal, observe the results of its actions, and correct course. OpenHands Cloud packages this capability as a managed service, removing the need for users to provision their own runtime, container infrastructure, or model integrations before getting started.\n\nBecause the release is a minor version increment under semantic versioning conventions, the changes are likely to consist of bug fixes, performance tuning, dependency updates, and refinements to the agent's behavior or user interface rather than breaking changes. Releases in this range typically address issues surfaced by real usage, such as edge cases in tool invocation, reliability of long-running sessions, handling of repository integrations, or adjustments to how the agent plans and executes multi-step tasks. Without a detailed public changelog to hand, the specific contents should be confirmed against the official release notes, but the version number and cadence suggest a routine, low-risk update.\n\nThe technical foundation of platforms like this rests on a few prerequisite concepts. An agent loop drives the system: the model receives context, decides on an action, the action runs in an execution environment, and the resulting observation feeds back into the next decision. Reliability depends heavily on the quality of that sandbox, the design of the available tools, and the guardrails that prevent runaway or unsafe operations. Cloud-hosted delivery adds further concerns around isolation between users, secret management for repository credentials, and the cost and latency of the underlying large language models, which is why incremental releases in this space frequently touch infrastructure as much as agent logic.\n\nOpenHands sits within a fast-moving segment of developer tooling. It is often compared to Cognition's Devin, a proprietary autonomous software engineer, and to research efforts such as SWE-agent and Princeton's SWE-bench benchmark, which measures how well systems can resolve real GitHub issues. Adjacent tools take different approaches to a similar problem: command-line assistants like Aider focus on pair-programming inside a terminal, editor-based products such as Cursor and GitHub Copilot embed suggestions directly into the coding surface, and Anthropic's Claude Code and Google's offerings extend agentic coding into their own ecosystems. OpenHands differentiates itself primarily through its open-source core, which lets organizations inspect, self-host, or extend the agent, while the cloud service targets users who prefer a maintained, ready-to-run option.\n\nThe broader context is an industry-wide shift from autocomplete-style assistance toward more autonomous agents that can take on entire tasks. That shift raises practical questions about verification, since generated changes still require human review, testing, and oversight before merging. Frequent releases such as 1.41.0 are part of how these platforms mature, tightening the feedback between what users attempt and how the agent responds. They also reflect the model-agnostic nature of many of these tools, which can route requests to different providers, meaning a portion of ongoing updates simply keeps pace with new model versions and pricing.\n\nFor existing users, adopting the update is generally straightforward on a managed service, where changes are applied by the provider rather than installed manually. Anyone integrating OpenHands into a critical workflow would still be well advised to review the official release notes, validate behavior against their own repositories, and monitor for any changes to defaults or integrations. As with any agentic system, treating generated output as a draft to be reviewed remains the prudent approach, regardless of the incremental reliability improvements a release like this appears to deliver.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-09-05T13:20:49.890Z"
+      "generatedAt": "2026-09-05T13:20:49.890Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "tree-sitterでファイルを意味のまとまりに分ける、っていう項目が気になったよ。これってどういうこと？",
+          "en": "The item about splitting files into meaningful chunks with tree-sitter caught my eye. What does that mean?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、tree-sitterのAST解析を使った「セマンティックなファイル分割」が追加されたとあります。ASTは、コードの構造を木のように表したもの、くらいの意味ですね。",
+          "en": "This release adds semantic file chunking using tree-sitter AST parsing. An AST is roughly a tree-shaped representation of how code is structured."
+        },
+        {
+          "s": "a",
+          "ja": "ワークスペースの状態を最初に保存して、削除の前にアーカイブする項目もあったね。これは開発する人の役に立つのかな？",
+          "en": "There's also one about saving the workspace state at the start and archiving it before deletion. Would that help developers?"
+        },
+        {
+          "s": "b",
+          "ja": "開始時のスナップショットと削除前のアーカイブを取ると書かれています。作業状態を記録に残す変更のようですが、どう役立つかの詳細までは書かれていません。",
+          "en": "It says a snapshot is taken at start and an archive before deletion. That sounds like keeping a record of workspace state, but the details of the benefit aren't spelled out."
+        },
+        {
+          "s": "a",
+          "ja": "大きな新機能というより、分割の仕組みや認証まわりなど、いろいろな改善が入った更新って感じかな？",
+          "en": "So it's less one big feature and more a mix of improvements, like chunking and auth changes?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね、スーパーロールの追加やデバイス認証画面の調整も並んでいます。ただ各項目の細かい挙動までは書かれていないので、使う前に確かめたいですね。",
+          "en": "Right, it also lists super roles and tweaks to the device verification screen. The finer behavior of each item isn't described, so it's worth checking before relying on it."
+        }
+      ]
     },
     "3a3027e11fd6e8e0": {
       "bodyJa": "オープンソースのAIソフトウェア開発エージェント基盤「OpenHands」が、最新版となるv1.9.0を公開した。今回のリリースは各種機能の強化と多数のバグ修正を柱としており、自動化されたコーディングワークフローの実用性を一段と高める継続的アップデートの一環と位置づけられる。\n\nOpenHandsは、自然言語による指示をもとにコードの記述や修正、ファイル操作、コマンド実行などを自律的にこなすAIエージェント基盤だ。もともと「OpenDevin」として登場したプロジェクトで、商用のコーディング支援ツールに対するオープンソースの選択肢として開発者コミュニティの注目を集めてきた。エージェントがサンドボックス環境内でターミナルやブラウザを操作しながらタスクを進める仕組みを備え、大規模言語モデル(LLM)と実行環境を橋渡しする役割を担う。\n\nv1.9.0の具体的な変更点は、機能拡張とバグ修正が中心とされる。この種のマイナーバージョンアップでは、対応モデルの追加や拡充、エージェントの推論・計画精度の改善、実行環境やUIまわりの安定性向上などが含まれることが多く、今回も同様の方向性で開発者の生産性向上に寄与する内容と見られる。正確な内容を把握するには、公式のリリースノートを確認するのが確実だ。\n\n背景として、AIコーディングエージェントの分野は競争が激しさを増している。GitHub CopilotやCursor、Anthropicが提供するClaude Codeといった商用ツールに加え、AiderやClineなどオープンソースの選択肢も存在感を高めており、各プロジェクトが自律性や信頼性の向上を競っている。OpenHandsはソースコードが公開されている点で、利用するLLMを自由に選べる柔軟性や、自社インフラ上で動作させやすい透明性を強みとしていると考えられる。\n\n一方で、こうした自律型エージェントを実運用に組み込む際には、生成されたコードの品質検証やセキュリティ面の配慮が引き続き重要になる。エージェントが誤った変更を加える可能性は完全には排除できないため、人間によるレビューを前提とした運用が推奨されるだろう。継続的なバージョンアップは、こうした課題への対応を積み重ねる取り組みとも言え、OpenHandsが今後どこまで実務での信頼を獲得していくかが注目される。",
@@ -13134,44 +13166,6 @@
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-05T01:15:23.065Z"
     },
-    "ed744c789037c203": {
-      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
-      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
-          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
-          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
-        },
-        {
-          "s": "a",
-          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
-          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
-          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
-          "en": "I’d line up a few review agents and compare which one might suit me best."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
-          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T12:37:57.149Z"
-    },
     "453c0b2179fa70a6": {
       "bodyJa": "## 毎回ゼロから始まる作業\n\nTokenEconomizerは、AIコーディングエージェントが同じリポジトリでの過去のセッションから学び、将来のセッションでの無駄を減らすオープンソースのプラグインです。277件の実際のバグ修正タスクで、費用を18.4〜30.9%削減したと報告されています。\n\n開発者は同じコードベースで毎日のようにAIコーディングエージェントを使いますが、エージェントはセッションのたびにゼロから始まることが多いとされます。すでに分かっているはずの事実を再び調べ直し、使わないツールを読み込み、うまくいかなかった方法を繰り返す、といった無駄が生じます。\n\n## トークン消費の仕組み\n\nAIコーディングエージェントは、バグ修正や機能開発を多くの場面で自力で進めるようになっています。ただし、モデルとのやり取りのたびにトークンが消費されます。各セッションでは、エージェントが指示、ツールの説明、セッション履歴をモデルに送ります。\n\n## 過去の経験を使う方法\n\nTokenEconomizerは、リポジトリ内でのエージェントの過去セッションを手がかりに学習します。その結果を将来のセッションに生かして無駄を減らす仕組みで、エージェント自体も、その基盤となるモデルも変更しません。\n\n## 277件での検証結果\n\n複数のAIコーディングエージェントを対象にした277件の実際のバグ修正タスクで、費用は18.4〜30.9%低下しました。費用の低下はテストしたすべてのリポジトリで見られ、タスクの成功率も概ね安定していたとされます。\n\n削減が一部のリポジトリに偏らず、テストした範囲では一貫して現れた点が特徴です。",
       "bodyEn": "TokenEconomizer is an open-source plugin aimed at a common inefficiency in AI coding agents: they repeat work they have already done. Because every interaction with an agent's model consumes tokens, wasted effort translates directly into cost.\n\n## Starting each session from scratch\n\nDevelopers tend to use AI coding agents in the same codebases day after day. According to the source, agents often begin each session from scratch anyway. They rediscover familiar facts, load tools they never use, and repeat approaches that have already failed.\n\nThe source notes that agents are increasingly helping developers fix bugs and build features largely on their own. In each session, an agent sends instructions, tool descriptions, and session history to its model. Each of those exchanges uses tokens, which is where the repeated effort adds up.\n\n## Learning from past sessions\n\nTokenEconomizer learns from an agent's past sessions in a given repository and uses what it finds to reduce waste in future sessions. The plugin works without modifying the agent or its underlying model. The announcement frames the goal as trimming wasted effort rather than changing how the agent itself operates.\n\n## Results across 277 tasks\n\nThe reported evaluation covered 277 real bug-fixing tasks. Across multiple AI coding agents, TokenEconomizer reduced costs by 18.4 to 30.9 percent. According to the source, costs fell in every repository tested, and task success rates remained broadly stable. That means the savings were not reported as coming at the expense of agents completing their tasks.\n\n## What this means for teams\n\nThe source positions the plugin for developers and teams who run coding agents repeatedly in the same repositories. The reported figures come from the bug-fixing tasks described above, so they should be read as results for that evaluation rather than guarantees for every workload.",
@@ -13291,6 +13285,246 @@
       "bodyEn": "## ChatGPT Work as an agent\n\nOpenAI has repositioned ChatGPT from a simple question-answering tool into a collaborator for complex, high-stakes work. According to the announcement, this widens its role in professional settings and makes it a partner for ambitious projects.\n\n## Action across apps and files\n\nThe source describes ChatGPT Work as an agent that can take action across a user's apps and files. It can reportedly stay with a project for hours if needed, and its stated purpose is to turn a goal into finished work.\n\nThe announcement frames this as a shift beyond Q&A toward sustained, hands-on involvement in larger tasks.",
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T05:40:30.507Z"
+    },
+    "255f21e05c50335e": {
+      "bodyJa": "技術の進歩があまりに速く、私たちがどんな明日を目指しているのかを定義することさえ難しくなっています。Microsoft Researchのポッドキャスト「The Shape of Things to Come」の今回のエピソードは、その状況を背景に「AIは医療の未来をどう変えうるのか」という問いを扱います。\n\n## 速い進歩の中で未来を描く\n\nこの番組では、Microsoft ResearchのリーダーであるDoug Burgerが各分野の専門家とともに、技術者、政策担当者、事業判断者などの関係者が現在直面している、AIをめぐる難しい課題を掘り下げます。\n\n番組の目標は、AIへの移行が全体として好ましい結果になる未来を築くために必要な共通理解を広げることだと説明されています。個々の技術の紹介にとどまらず、立場の異なる関係者が同じ問題意識を持つことに重きを置いた構成といえます。\n\n## 医療を語る4人の顔ぶれ\n\n今回、Burgerとともに議論するのは3人です。Microsoftのプリンシパル・リサーチ・マネージャーであるAva Amini、同社のチーフ・サイエンティフィック・オフィサーであるEric Horvitz、そしてScripps Researchの医師・研究者で、MicrosoftのAIヘルスアドバイザーも務めるEric Topolです。\n\n## 「何が先に必要か」という問い\n\nエピソードの中心にあるのは、AIが実現する医療の未来はどのようなものか、そしてそこに至る前に何が起きなければならないのか、という問いです。この問いは地球上のすべての人に関わる影響を持つと位置づけられています。\n\n英語の要約では、技術者や政策担当者が利点とリスクを見極める助けになる内容とされています。議論の具体的な結論や個別の論点は、ここで紹介できる範囲では示されていません。医療とAIの関係を、技術の可能性だけでなく、実現に向けた前提条件も含めて考えるための入り口となるエピソードです。",
+      "bodyEn": "## The Shape of Things to Come\n\nMicrosoft Research has published an episode of its podcast series The Shape of Things to Come that asks whether AI can help build a healthier future. The question matters because, in the source's words, it carries ramifications for every individual on the planet.\n\nThe series is led by Microsoft Research leader Doug Burger. According to the announcement, he is joined by experts from across disciplines to work through what it calls the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders. The stated goal is to amplify the shared understanding needed to build a future in which the AI transition is a net positive.\n\n## Defining the Tomorrow We're Working Toward\n\nThe source begins from the observation that technical advancement is moving so quickly that it can be hard to define the tomorrow people are working toward. The series is presented as a response to that difficulty, bringing together voices from different fields rather than a single viewpoint.\n\n## Guests on Health and Medicine\n\nFor this episode, Burger is joined by three guests. Ava Amini is a Principal Research Manager at Microsoft. Eric Horvitz is Microsoft's Chief Scientific Officer. Eric Topol is a physician-scientist at Scripps Research and a Microsoft AI health advisor.\n\nThe conversation takes on a two-part question: what the future of medicine might look like with AI, and what needs to happen first. The framing points to both the potential of AI in health and the groundwork that the source suggests must come before that potential is realized.\n\n## Who the Discussion Is For\n\nThe summary of the episode says it is meant to help technologists and policymakers weigh benefits and risks of AI in health. Business decisionmakers are also named among the stakeholders the series addresses. The material does not spell out specific medical applications, findings, or recommendations from the conversation, so the episode itself is the place to find how the guests answer the question of what needs to happen first.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、ふだんの暮らしや仕事だと何が変わる話なの？",
+          "en": "So what does this change in everyday life or work? Is it that kind of story?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事は具体的な新機能の紹介ではなく、医療とAIの未来を議論する対談です。技術者や政策担当者、事業判断者が共通認識を築くのが狙いだそうです。",
+          "en": "This one isn't a new feature announcement. It's a conversation about AI and the future of medicine, meant to build shared understanding among technologists, policymakers and business decision-makers."
+        },
+        {
+          "s": "a",
+          "ja": "前は、こういう話し合いってなかったのかな？",
+          "en": "Did people not have conversations like this before?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは記事からは分からないんです。ただ、技術の進みが速く、目指す明日を描きにくいことがこの番組の出発点だと書かれています。",
+          "en": "The article doesn't say, so I can't tell. It does say tech is moving so fast that defining the tomorrow we're aiming for is hard, and that's the starting point of the series."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、医療にAIを使う前に「何が先に必要か」を考えること、ってことかな？",
+          "en": "So the big takeaway is thinking about what needs to happen first before using AI in medicine?"
+        },
+        {
+          "s": "b",
+          "ja": "いい読み取りですね。記事も「何が先に必要か」を問いにしています。答えは対談の中身を聞いて確かめたいところです。",
+          "en": "Nice reading. The article frames it as a question too: what needs to happen first? The answers are something to check in the conversation itself."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T04:38:37.413Z"
+    },
+    "acff2e94dd9223b7": {
+      "bodyJa": "## 接続時のエラー\n\nmacOS上のVSCodeで拡張機能Remote SSHを使ってリモートサーバに接続しようとすると、「got bad result from install script」と表示されてアクセスできなくなる事象がある。この問題への対処法が紹介されている。\n\n## 対処の中心\n\n対処法の中心は、VSCodeのプロセスを一度停止することである。プロセスを止めたうえで、あらためて接続を試す手順が示されている。\n\n動作環境として挙げられているのは、OSがmacOSであること、接続方法がVSCode拡張のRemote SSH経由であることの2点である。同じ症状でサーバに入れず困っている場合に参照できる内容といえる。",
+      "bodyEn": "## Error When Connecting\n\nA VSCode user on macOS who connects to a remote server through the Remote SSH extension may see the message \"got bad result from install script\" and be unable to get in. The article documents this problem and a fix, which matters to anyone locked out of a remote server by the same symptom.\n\n## Stopping VSCode Processes\n\nAccording to the article, the environment is macOS, with access made through the Remote SSH extension in VSCode. The remedy it describes centers on stopping the VSCode processes and then trying to connect again. The source presents this as a workaround for the error rather than a change to the server or to the extension itself.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "リモートサーバに入れなくなったとき、この記事は何を助けてくれるの？VSCodeで接続しようとして失敗する場面かな。",
+          "en": "When I can't get into a remote server, what does this help with? Is it the moment VSCode fails to connect?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。macOSのVSCodeでRemote SSH経由の接続が、「got bad result from install script」で止まる場面の対処法だよ。",
+          "en": "Right. It's a fix for when Remote SSH in VSCode on macOS stops with the \"got bad result from install script\" error."
+        },
+        {
+          "s": "a",
+          "ja": "その対処って、特別な設定をいじるの？それとも前は直せなかったのかな。",
+          "en": "Does the fix mean changing some special settings? Or couldn't people fix it before?"
+        },
+        {
+          "s": "b",
+          "ja": "記事の中心は、VSCodeのプロセスを一度止めてから再試行する手順だよ。以前との違いは、この記事からは分からないな。",
+          "en": "The article centers on stopping VSCode processes, then trying again. How this compares to before isn't something the article tells us."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、設定を疑う前にまずVSCodeのプロセスを止めて試してみる、ってことだね。",
+          "en": "So the big takeaway is to stop the VSCode processes and retry first, before suspecting settings. Got it."
+        },
+        {
+          "s": "b",
+          "ja": "いいまとめだね。注目したいのは、記事が挙げる環境がmacOSとRemote SSH経由という点で、自分の状況が同じか確かめたいね。",
+          "en": "Nice summary. One thing to check: the article's setup is macOS with Remote SSH, so see if your situation matches."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:37:12.344Z"
+    },
+    "1e0b95e9935b584c": {
+      "bodyJa": "## 自己署名証明書への接続\n\nVS Codeの拡張機能が、自己署名証明書(オレオレ証明書)を使うサーバーに接続できない問題への対処法が紹介されている。社内環境や検証環境で役立つとされる。\n\n## 環境変数でパスを指定\n\n解決策は、環境変数 NODE_EXTRA_CA_CERTS に、信頼させたい証明書(.crt ファイル)のパスを指定することである。手順では、次の形式で export する。\n\nexport NODE_EXTRA_CA_CERTS={オレオレ証明書(.crt)のパス}\n\n波括弧の部分には、手元の .crt ファイルのパスを入れる。\n\n## 設定時の注意点\n\n手順には、実行するたびに追記される点への注意書きがある。間違った内容を設定してしまった場合は、~/.bashrc ファイルを直接編集して直すようにと説明されている。\n\n誤ったパスで実行を繰り返すと、そのたびに記述が増えていく。やり直す際は、コマンドを再実行するのではなくファイルの編集で対応する、という流れになる。",
+      "bodyEn": "## Trusting a self-signed certificate\n\nVS Code extensions can fail to connect to servers that use a self-signed certificate. This article describes a fix for that problem, which can come up in internal or test environments.\n\nThe approach is to set the environment variable NODE_EXTRA_CA_CERTS so that it points to the path of the self-signed certificate, which is a .crt file. The command shown is an export statement in the form export NODE_EXTRA_CA_CERTS={path to the self-signed .crt certificate}.\n\n## Editing the shell configuration\n\nThe article includes a warning about the export line: according to the source, it is appended each time it is run. If a mistake is made, the reader is told to edit the ~/.bashrc file directly rather than running the command again.\n\nThe source also shows lines containing Debian's home, support and bug-report URLs, which suggests the steps were carried out on a Debian-based system. The article does not say more about those lines.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "自己署名の証明書だと、VS Codeの拡張機能がつながらなくなるの？ どう直すのかな。",
+          "en": "So VS Code extensions can't connect when a server uses a self-signed certificate? How do you fix that?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、環境変数 NODE_EXTRA_CA_CERTS に、自前の証明書（.crt）のパスを指定する方法を紹介しているよ。",
+          "en": "The post shows how to point the NODE_EXTRA_CA_CERTS environment variable at the path of your own certificate, the .crt file."
+        },
+        {
+          "s": "a",
+          "ja": "ファイルの場所を環境変数に書くだけなんだね。それは、どんな人の役に立つの？",
+          "en": "So you just put the file's location in an environment variable? Who is that actually useful for?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、社内環境や検証環境のように、自己署名証明書のサーバーを使う場面で役立つと説明されているよ。",
+          "en": "The post says it's handy for internal or test environments, where servers use self-signed certificates."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ自前の.crtを指定すれば、拡張機能がそのサーバーに接続できるようになる、ってことだね。",
+          "en": "So if I point it at my own .crt, the extension should be able to reach that server. Got it."
+        },
+        {
+          "s": "b",
+          "ja": "うん。ただ、実行するたびに追記されるから、間違えたら ~/.bashrc を直接編集してね、と注意書きがあるよ。",
+          "en": "Right. One caution: each run appends the line, so if you get it wrong, the post says to edit ~/.bashrc directly."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:37:32.259Z"
+    },
+    "c6e981287832aa8c": {
+      "bodyJa": "Google Antigravity向けの「Mass Spec Skills」が、Google DeepMindのブログで紹介された。タンデム質量スペクトルを解釈して化学的な根拠を整理し、軽量モデルでも最先端級の検索精度に並ぶとされる、未知の低分子を同定するための取り組みだ。\n\n## 血液・土壌・植物の低分子\n\n記事はまず、血液、土壌、植物組織といったあらゆるサンプルに、多種多様な低分子が含まれていると述べる。挙げられている例は、栄養素、ホルモン、薬物とその分解産物、汚染物質、そして治療に役立つ可能性を持つ生理活性化合物である。\n\nこうした未知の低分子の同定を進めたい研究者に役立つ、とMass Spec Skillsは位置づけられている。\n\n## タンデム質量スペクトル\n\nMass Spec Skillsは、Google Antigravityを使う科学者がタンデム質量スペクトルを解釈できるようにするものだ。解釈の結果だけでなく、その裏づけとなる化学的な根拠を整理して示すことが特徴とされる。\n\nタイトルにある「スペクトルから構造へ」は、測定されたスペクトルから分子の同定へ進む流れを表している。\n\n## 共同開発と軽量モデル\n\nこのスキルは分析化学者との共同開発で作られ、コミュニティが開発したツールを活用している。そのうえで、軽量モデルを使った場合でも最先端級の検索精度に匹敵すると説明されている。\n\n記事は2026年11月24日に公開された。Robert Brunck氏をはじめ10名が著者として名を連ねており、Stefan Ganscha氏やEliseo Papa氏もその中に含まれる。",
+      "bodyEn": "## Mass Spec Skills for Google Antigravity\n\nIdentifying the molecules in a biological or environmental sample is a core task for analytical scientists, and Google has published a new tool aimed at it. According to the announcement, Mass Spec Skills for Google Antigravity helps scientists interpret tandem mass spectra and work toward identifying unknown small molecules.\n\n## A vast array of small molecules\n\nThe source frames the problem by noting that every sample of blood, soil or plant tissue contains a wide range of small molecules. It lists nutrients, hormones, drugs and their breakdown products, pollutants, and bioactive compounds with therapeutic potential as examples. Working out which of these are present in a given sample is the challenge that the title describes as moving \"from spectrum to structure.\"\n\n## Built with analytical chemists\n\nThe announcement says Mass Spec Skills was built in collaboration with analytical chemists and uses community-developed tools. The post is credited to a team of authors: Robert Brunck, Stefan Ganscha, Swaroop Guntupalli, Dariusz Lasecki, Gabriella Marfani, Jack Mason, Hussain Masoom, Rose Mirshafian, Eliseo Papa and Zoi Tsangalidou. It was published on the Google DeepMind blog.\n\n## Evidence and retrieval accuracy\n\nAccording to the source, the tool lets scientists using Google Antigravity do three things: interpret tandem mass spectra, lay out the chemical evidence behind an interpretation, and match frontier-level retrieval accuracy. The announcement stresses that this level of accuracy is reached even with a lightweight model, which it presents as a notable result.\n\nLaying out the evidence is a distinct part of the description. Rather than only returning a candidate answer, the tool is described as presenting the chemical evidence for its interpretation, so that scientists can see the basis for it. The source does not give benchmark figures or name the model used in this account, so the extent of the accuracy claim is not quantified here.\n\nIn short, the announcement positions Mass Spec Skills as a way for researchers who want to identify unknown small molecules to interpret spectral data within Google Antigravity, with evidence presented alongside the results and strong retrieval performance from a lightweight model.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "軽量モデルでも最先端級の検索精度って出てきたけど、これって大きいこと？",
+          "en": "It says even a lightweight model reaches frontier-level retrieval accuracy. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "大きな点だと思うよ。この記事では、軽いモデルでも最先端級の検索精度に並ぶと言っていて、Mass Spec Skillsの強みとして示されているんだ。",
+          "en": "It looks like a big one. The post says even a light model matches frontier-level retrieval accuracy, and it's presented as a strength of Mass Spec Skills."
+        },
+        {
+          "s": "a",
+          "ja": "タンデム質量スペクトルって、そもそも何を見ているの？",
+          "en": "What is a tandem mass spectrum actually showing, anyway?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、分子を壊して、その壊れ方のパターンから正体を探る手がかり、くらいの意味だよ。未知の低分子を調べる材料になるんだ。",
+          "en": "Generally, it's a pattern of how a molecule breaks apart, which gives clues to what it is. That's the material for investigating unknown small molecules."
+        },
+        {
+          "s": "a",
+          "ja": "土や植物のサンプルで正体不明の分子が見つかったら、これで調べてみたいな。答えも出してくれる？",
+          "en": "If I found an unknown molecule in a soil or plant sample, I'd want to try this. Would it just give me the answer?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、スペクトルを解釈して化学的な根拠を整理するところまでが役割として書かれているよ。根拠が見えるなら、人が確かめながら進めやすいかもね。",
+          "en": "The post describes its role as interpreting spectra and laying out the chemical evidence. If the evidence is visible, it may be easier for a person to check along the way."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:38:05.480Z"
+    },
+    "299de60a1e88915b": {
+      "bodyJa": "Amazon Textract Insights が一般提供を開始した。必要な項目を自然言語で指定するだけで構造化データを得られる、Amazon Textract の新しい生成AI機能で、ドキュメント向けの検証可能な生成AIとして発表されている。\n\n## 自然言語で項目を指定\n\n利用者は取り出したいフィールドを自然言語で記述し、単一の文書、または種類の混在した書類束を送信する。すると構造化された結果が返ってくる。モデルの学習は不要と説明されている。\n\n## 信頼度スコアとページ根拠\n\n返される各値には、信頼度スコアと、ページ単位のグラウンディング(根拠)が付く。抽出された値ごとに確からしさを確認でき、その根拠がどのページにあるかも示される。\n\nこうした仕組みにより、結果の監査性を保ちながら書類処理のワークフローを自動化したい開発者やチームの助けになるとされる。",
+      "bodyEn": "## Natural-language field requests\n\nAmazon Textract Insights is now generally available, according to the announcement. It is a new generative AI feature of Amazon Textract, aimed at teams that want to automate document processing while still being able to verify the results.\n\nInstead of building or training a model, a user describes the fields they need in natural language. The user then submits either a single document or a mixed packet of documents. The announcement says no model training is required.\n\n## Confidence scores and grounding\n\nThe output is structured data. According to the source, each extracted value comes with a confidence score and page-level grounding. Grounding at the page level means every value can be traced back to the page it came from, which the source presents as a way to keep results auditable.\n\nThe title describes the feature as verifiable generative AI for documents, and the key points emphasize that teams can automate document workflows without giving up the ability to check what was extracted.\n\n## What the announcement covers\n\nIn summary, the announcement describes a workflow of plain-language field definitions, single or mixed-packet input, and structured results where each value carries a confidence score and a page reference. It presents general availability and the no-training approach as the main points. No pricing, regional availability, or other platform details are given.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "欲しい項目を自然言語で指定するだけって、どういうことなの？",
+          "en": "Name the fields in plain language... what does that actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "必要な項目を普通の言葉で書いて文書を送ると、構造化された結果が返ってくるんです。モデルの学習は要らないと書かれています。",
+          "en": "You describe the fields you need in everyday words, submit a document, and get structured results back. The post says no model training is required."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、いろんな書類が混ざった書類束でも使えるの？それって誰が助かるのかな。",
+          "en": "So it works on mixed packets of documents too? Who would that help?"
+        },
+        {
+          "s": "b",
+          "ja": "単一文書にも混在した書類束にも使えるそうです。各値に信頼度スコアとページ単位の根拠が付くので、結果を検証しながら書類処理を自動化したい開発者向けですね。",
+          "en": "It handles single documents and mixed packets. Each value gets a confidence score and page-level grounding, so it suits developers who want to automate document workflows and still verify the results."
+        },
+        {
+          "s": "a",
+          "ja": "つまり、項目を言葉で頼むだけで、どのページから取ったかも確かめられるんだね。",
+          "en": "So I just ask for fields in words, and I can check which page each value came from?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。ただ信頼度スコアは確認の目安で、最終的な検証は使う側の仕組み次第かもしれません。この記事では一般提供開始までが書かれています。",
+          "en": "Right. Though a confidence score is a guide for review, and how you verify may depend on your own setup. This post covers the general availability announcement."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:38:24.379Z"
+    },
+    "c05b32fd5d5f9fad": {
+      "bodyJa": "MCPプロジェクトが、リリースサイクルをより予測しやすくする取り組みを打ち出した。提案のレビュー時期、修正に使える期間、仕様の凍結時期を明確にすることで、関わる人々が計画を立てやすくなるとされる。\n\n## 予測しやすいリリース\n\nプロジェクトは過去2年ほど、MCPの改善や新機能の追加、そしてより予測しやすいリリースの流れについて議論を重ねてきたと述べている。メンテナーと広い開発者コミュニティの双方から、アイデアは数多く寄せられてきたという。\n\nただし、アイデアをレビューし、実装し、テストし、リリースに載せるまでの工程は、アイデアを出すこととは別の仕事である。今回の取り組みは、その工程をコミュニティにとって追いやすいものにすることを狙っている。\n\n## 提案者が知りたいこと\n\n仕様の提案に取り組む人にとって重要なのは、レビューがいつ行われるのか、そして調整のための時間がどれだけ残されているのか、という点だと説明されている。これが分かれば、提案者は修正の準備を見通しをもって進めやすくなる。\n\n## 仕様の凍結とSDK\n\nSDKのメンテナーには、仕様がいつ変わらなくなるのかを知る必要がある。クライアント開発者もサーバー開発者も、新しいMCPの機能を試してフィードバックを共有する際の出発点として、プロジェクトの開発者向けツールチェーンを使っているためだ。\n\n仕様の凍結時期が明確になれば、こうした開発者も計画を立てやすくなる。提案者、SDKメンテナー、クライアント・サーバーの開発者それぞれにとって、先の見通しを持ちやすくすることがこの取り組みの趣旨である。",
+      "bodyEn": "## Predictable release cadence\n\nThe MCP project has announced an effort to make its release cycle easier to follow. According to the announcement, the maintainers and the wider developer community have spent roughly two years discussing ways to improve MCP, add features and capabilities, and move to a more predictable release cadence.\n\nThe post says there has been no shortage of ideas from either the maintainers or the broader community. The harder part, it explains, is getting those ideas reviewed, implemented, tested, and into a release. That specific stage is what the project says it wants to make easier for the community to follow.\n\n## Reviews and revision time\n\nFor people working on proposals, the announcement says the aim is to make clear when reviews will happen and how much time authors have to make adjustments. The source presents this as a matter of predictability: contributors should be able to see the schedule rather than guess at it.\n\nThe key points summarizing the announcement add that the new cycle clarifies when proposals get reviewed and how long authors have to revise them. This gives proposal authors a defined window in which to respond to feedback.\n\n## When the spec stops changing\n\nThe announcement also addresses SDK maintainers, who it says need to know when the spec will stop changing. It notes that both client and server developers use the project's developer toolchain as a starting point to try new MCP capabilities and to share feedback. A clear point at which the spec freezes would therefore matter to those maintainers and to the developers building on their work.\n\nAccording to the summary of the announcement, the freeze timing is one of the elements the release cycle is meant to make explicit, alongside proposal review timing and revision periods.\n\n## Who benefits\n\nTaken together, the stated goal is to help several groups plan: contributors who write proposals, SDK maintainers who track the spec, and client and server developers who experiment with new capabilities. The announcement frames the work as a way of organizing the path from idea to release, not as a change to what MCP itself does.\n\nThe portion of the post available here describes the motivation and the problems the new cycle is meant to solve. It introduces the effort as a move toward predictability for the community.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "MCPの仕様に提案を出す人にとって、このリリースサイクルで何が変わるの？",
+          "en": "If someone proposes something for MCP, what actually changes for them with this release cycle?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、提案者はレビューがいつ行われるか、どのくらい修正の時間があるかが分かるようになります。計画が立てやすくなる、という話ですね。",
+          "en": "The post says proposal authors will know when reviews happen and how much time they have to revise. So it's about being able to plan ahead."
+        },
+        {
+          "s": "a",
+          "ja": "前はそういうの、分からなかったのかな？SDKを作る人たちも困ってたの？",
+          "en": "So before, that wasn't clear? Were SDK maintainers struggling with it too?"
+        },
+        {
+          "s": "b",
+          "ja": "以前の運用の詳しい中身は、この記事では書かれていないので違いは断言できません。ただ、SDKメンテナは仕様がいつ変わらなくなるかを知る必要がある、とは書かれています。",
+          "en": "The post doesn't detail how things worked before, so I can't say exactly what differs. It does say SDK maintainers need to know when the spec stops changing."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、レビューと修正と凍結の時期が先に分かること、ってことだね。",
+          "en": "So the big takeaway is knowing the review, revision, and freeze timing ahead of time. Right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。次は、その時期が実際にどんなスケジュールで示されるかを見たいところです。ここで引用した範囲では、具体的な日程までは確認できません。",
+          "en": "Yes. Next, I'd look at what schedule is actually laid out. In the part we have, the specific dates aren't shown."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T06:38:48.131Z"
+    },
+    "ff6bc71e25a43c58": {
+      "bodyJa": "GitHub CopilotのコーディングエージェントやAnthropicのClaude Code、OpenAIのCodexなど、AIが自律的にプルリクエスト（PR）を生成する場面が急速に増えている。こうしたエージェントが書いたコードをどう安全にマージするか、その「merge前チェック」の設計が、開発チームにとって新たな課題として浮上している。\n\n従来のコードレビューは、人間の書いたコードを人間が確認する前提で組み立てられてきた。しかしAIエージェントは一度に大量のPRを、しかも高速に生成できる。件数が増えれば人間のレビュー能力は追いつかず、表面的には妥当に見えても意図しない副作用を含むコードが見落とされる可能性がある。レビュアーの疲弊や、確認が形式的になる「LGTM」の形骸化も懸念される。\n\nそこで重要になるのが、CI/CDパイプライン上に自動化された品質・安全性のゲートを敷くという考え方だ。ユニットテストや静的解析（リンター、型チェック）に加え、依存関係の脆弱性スキャン、シークレット（APIキーなど）の混入検知、ライセンス確認などを必須チェックとしてPRに紐づける。GitHubのブランチ保護ルールやrequired status checksを使えば、これらを通過しないPRはマージできないよう強制できる。\n\n背景として、AIが生成するコードには特有のリスクが指摘されている。存在しないパッケージ名を提案する「ハルシネーション」を突いたサプライチェーン攻撃や、古い学習データに由来する非推奨の書き方などだ。人間のレビューだけに依存せず、機械的に検証できる項目は機械に任せる多層防御が有効と見られる。\n\n近年はDependabotやRenovate、Semgrep、GitGuardianといったツール群がこうしたチェックを担い、さらにAIによるコードレビュー支援を組み合わせる動きも広がっている。ただしAIレビューにも見落としはあり得るため、最終的な判断や設計意図の確認は人間が担う役割として残るだろう。エージェントに任せる範囲と、人間が守る境界をどう線引きするかが、これからのチーム設計の鍵になりそうだ。",
+      "bodyEn": "Software teams are entering a period where a growing share of pull requests are opened not by humans but by autonomous coding agents. Tools such as GitHub Copilot's coding agent, Anthropic's Claude, and OpenAI's Codex can now take an issue, modify code across several files, run a test suite, and submit a pull request with limited direct supervision. This shift raises a practical question that this article addresses: when machines generate the changes, how should teams design the checks that run before a merge?\n\nThe central argument is that human code review, already a bottleneck on many teams, does not scale to match the volume and speed of agent-generated contributions. Reviewers tend to skim large diffs, trust confident-looking code, and miss subtle issues, and these tendencies are amplified when the author is a model that can produce plausible but incorrect output. Agents may reference APIs that do not exist, introduce logic that passes shallow tests but fails on edge cases, or make changes that are locally reasonable yet break assumptions elsewhere. Because of this, the article treats automated pre-merge gates in continuous integration as the primary line of defense, with human review repositioned to focus on intent, architecture, and risk rather than mechanical correctness.\n\nIn practice, this means enforcing a layered set of required status checks through mechanisms like GitHub branch protection rules, so that no pull request can merge until every gate passes. A typical design starts with fast, deterministic checks: linting and formatting, type checking, and compilation. It then adds unit and integration tests, often with coverage thresholds to discourage agents from submitting code paths that are never exercised. Static analysis tools can flag common defects, and semantic or contract tests help confirm that behavior matches expectations rather than merely that the code runs.\n\nSecurity deserves particular attention because agent-authored code broadens the surface for both accidental and malicious problems. The article points to established building blocks such as static application security testing, dependency and software composition analysis, secret scanning to catch committed credentials, and CodeQL or similar tools for deeper vulnerability detection. Supply-chain concerns, including generating a software bill of materials and pinning dependencies, are increasingly relevant when an agent can add packages on its own. Teams also need to consider prompt injection and data exfiltration risks, since an agent that reads issues, comments, or external content could be steered toward unsafe actions. Running agents with least-privilege tokens and constraining what their workflows can access appears to be a sensible precaution.\n\nGovernance and ownership form another layer. Configuring CODEOWNERS to require sign-off from responsible maintainers on sensitive files, and using policy-as-code to encode rules that must hold regardless of who or what wrote the change, help keep automation within guardrails. Some teams label or segregate agent-authored pull requests so they receive stricter scrutiny, and many keep a human as the final approver even when every automated check is green. The goal is not to eliminate people from the loop but to let the machine handle the repetitive verification while humans concentrate where judgment matters most.\n\nIt is worth situating this within broader industry movement. GitHub has been extending Copilot from an in-editor autocomplete toward an agent that operates on repositories and interacts with Actions, while Anthropic and OpenAI have released command-line and agentic coding tools that can run tests and open changes. Adjacent developments such as the Model Context Protocol, which standardizes how agents connect to external tools and data, and the rise of merge-queue features that serialize and re-validate changes before they land, are shaping how these workflows are assembled. Together they suggest that pre-merge automation is likely to become a core part of engineering practice rather than an optional add-on.\n\nThe practical takeaway is that the design principles are largely familiar; what changes is their importance and the assumptions behind them. Checks that were once a safety net for occasional human mistakes now function as the main quality and security barrier for a potentially high throughput of automated changes. Teams adopting agentic development would likely benefit from auditing their current gates, tightening required checks, and deciding explicitly which decisions remain reserved for people before the volume of agent-generated pull requests grows.",
+      "model": "claude-opus-4.8",
+      "generatedAt": "2026-07-12T00:04:26.068Z"
+    },
+    "8335fa293c0aea14": {
+      "bodyJa": "Microsoftは2026年7月8日、コードエディタ「Visual Studio Code(VS Code)」の最新版となるバージョン1.128を公開した。毎月恒例の月次アップデートで、エディタの操作性改善やGitHub Copilotとの連携強化、拡張機能向けAPIの拡充など、日常的な開発作業の効率を底上げする改良が幅広く盛り込まれている。\n\nVS Codeは無償で利用できる軽量なエディタでありながら、豊富な拡張機能とクロスプラットフォーム対応によって、Web開発からデータサイエンス、組み込み開発まで幅広い分野で使われている。開発者の利用率が高いツールとして各種調査でも知られ、月次リリースのたびに細かな使い勝手の向上が積み重ねられてきた点が特徴だ。\n\n今回のリリースで注目されるのは、AIコーディング支援機能「GitHub Copilot」との統合強化と見られる。近年のVS Codeはチャット形式でのコード生成や、エージェント的にファイルを横断して編集する機能の拡充を続けており、1.128でもこうした方向性に沿った改善が進んだ可能性がある。競合となるCursorやJetBrainsのAIアシスタントなどもAI機能の取り込みを加速しており、エディタ市場全体でAI統合が標準機能となりつつある。\n\nエディタ本体の操作性については、検索や候補表示、差分表示といった日常操作の細部が調整されたとみられる。こうした小さな改善は一つひとつの効果は限定的でも、積み重なることで長時間の作業における負担軽減につながる。\n\n拡張機能の開発者にとっては、新たに提供されるAPIが重要だ。VS Codeの強みは巨大な拡張エコシステムにあり、APIの拡充は新しいタイプの拡張機能や、既存拡張のより深い統合を可能にする。ただし、APIには実験段階(proposed API)のものも含まれるため、実運用での採用にあたっては安定性の確認が求められる。\n\n正式な変更点の全容は公式リリースノートに記載されており、各機能の詳細や既知の不具合を確認したうえで更新するのが望ましい。多くのユーザーにとっては、自動更新または手動更新で無理なく導入できる内容となっている。",
+      "bodyEn": "Microsoft has published the release notes for Visual Studio Code 1.128, the July 2026 update in the editor's long-running monthly cadence. Because VS Code remains one of the most widely used code editors across professional and hobbyist development, even incremental releases tend to shape day-to-day workflows for millions of developers, and this version continues that pattern with a mix of editor refinements, deeper GitHub Copilot integration, and expanded extension APIs.\n\nThe headline themes center on editor usability. VS Code releases typically bundle a range of small quality-of-life adjustments—improvements to search, navigation, diff views, terminal handling, and settings management—that individually seem minor but collectively reduce friction. According to the summary accompanying this release, 1.128 focuses on refining these interaction points rather than introducing sweeping structural changes. Users upgrading from recent versions should expect a familiar interface with targeted polish rather than a redesign, which is consistent with how the VS Code team has historically approached its stable channel.\n\nA significant portion of the update appears to concern GitHub Copilot integration. Over the past several release cycles, Microsoft has steadily moved AI-assisted features from optional add-ons toward core, first-class capabilities within the editor. This has included inline code completion, a conversational chat panel, and increasingly agent-oriented workflows that can read across files, run tasks, and propose multi-step edits. The 1.128 notes indicate continued enhancement in this area, which is likely to mean tighter coupling between the AI features and existing editor surfaces such as the command palette, source control view, and inline suggestions. Developers who rely on Copilot should review the notes closely, as changes to defaults, keybindings, or model behavior can affect established habits.\n\nThe expansion of extension APIs is the third pillar. VS Code's extensibility model is central to its ecosystem, and each release commonly adds or stabilizes APIs that let third-party developers build richer integrations. New APIs may cover areas such as language server interactions, notebook support, testing, authentication, or the interfaces that allow extensions to participate in AI-driven features. When new APIs are introduced, they often begin as proposed APIs available only in the Insiders build before graduating to the stable release, so extension authors typically watch these notes to plan compatibility and adopt new capabilities. Broader API surface tends to benefit the wider marketplace, since it enables tools like linters, debuggers, and framework-specific extensions to integrate more seamlessly.\n\nFor context, VS Code operates on a predictable monthly release schedule, with a preview Insiders build updated more frequently and a stable build shipping roughly once a month. The editor is built on the open-source Code – OSS project, though the Microsoft-branded distribution adds proprietary components and telemetry. It sits within a competitive landscape that includes JetBrains IDEs, the Zed editor, and newer AI-centric forks and tools that have emerged as coding assistants became mainstream. Microsoft's ownership of both VS Code and GitHub gives it a strategic advantage in tightening the loop between editor, repository hosting, and AI assistance, a direction reflected across recent releases.\n\nPractically, users can update through the editor's built-in update mechanism, which prompts when a new stable version is available, or by downloading the release directly. As with any update, teams that depend on specific extensions may want to verify compatibility, particularly where API changes are involved, and organizations with managed deployments often stage rollouts to catch regressions. The release notes themselves generally include a detailed changelog, contributor acknowledgments, and notes on any deprecations or breaking changes that maintainers should heed.\n\nBecause the specific technical details of 1.128 depend on the full published notes, developers seeking precise information—exact new settings, API signatures, or Copilot behavior changes—should consult the official documentation directly. The broad thrust, however, aligns with VS Code's established strategy: steady, incremental improvement of the core editing experience, continued investment in AI-assisted development, and an open extensibility platform. For most users, the upgrade is low-risk and worth adopting to stay current with security fixes and performance improvements that accompany each monthly cycle.",
+      "model": "claude-opus-4.8",
+      "generatedAt": "2026-07-08T22:01:40.769Z"
     }
   }
 }

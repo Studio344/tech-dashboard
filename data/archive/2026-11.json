@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T06:30:59.121Z",
+  "generatedAt": "2026-11-28T07:30:58.127Z",
   "month": "2026-11",
   "count": 117,
   "entries": [
@@ -427,7 +427,7 @@
       "titleEn": "Copilot code review billing will default to the organization",
       "lang": "en",
       "publishedAt": "2026-11-25T22:18:03.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "billing",
         "changelog",
@@ -628,8 +628,8 @@
       "feedSnippet": "Learn what's new in Visual Studio Code 1.148 Read the full article"
     },
     {
-      "id": "e781aae55ec024a5",
-      "source": "github-blog-ai",
+      "id": "b2937bbd676220f2",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-to-choose-the-next-safe-step-in-application-modernization/",
       "title": "How to choose the next safe step in application modernization",
@@ -639,7 +639,7 @@
       "summaryEn": "Using GitHub Copilot, the author tested an evidence-first approach on four public apps, from a small Node.js game to a large Java ERP system, gathering regression evidence before picking a framework. Teams can repeat it on their own application.",
       "lang": "en",
       "publishedAt": "2026-11-25T15:00:00.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "copilot",
         "github",
@@ -708,7 +708,7 @@
       "titleEn": "More predictable notifications on GitHub.com",
       "lang": "en",
       "publishedAt": "2026-11-24T16:40:59.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "github",
@@ -923,7 +923,7 @@
       "titleEn": "Introducing Muse in the UK: A Personal AI Agent You Control",
       "lang": "en",
       "publishedAt": "2026-11-24T06:00:40.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -1028,7 +1028,7 @@
       "titleEn": "GLM-5.4: Toward Generalized Coding with Our First Loop Transformer",
       "lang": "en",
       "publishedAt": "2026-11-23T23:40:49.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "coding-model",
         "glm",
@@ -1096,7 +1096,7 @@
       "titleEn": "Issue statuses and repository boards are in public preview",
       "lang": "en",
       "publishedAt": "2026-11-23T20:37:11.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "github",
@@ -1130,7 +1130,7 @@
       "titleEn": "Secret scanning reduces false positives for Slack",
       "lang": "en",
       "publishedAt": "2026-11-23T18:32:59.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "false-positives",
@@ -1165,7 +1165,7 @@
       "titleEn": "Researchers Are Using Meta’s Open-Weight AI Models to Transform Medicine",
       "lang": "en",
       "publishedAt": "2026-11-23T18:00:01.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "academic-partnerships",
         "dinov3",
@@ -1470,7 +1470,7 @@
       "titleEn": "Code coverage uploads now flag invalid report formats",
       "lang": "en",
       "publishedAt": "2026-11-23T15:28:36.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "cobertura",
@@ -1505,7 +1505,7 @@
       "titleEn": "Usage reports will include a user ID column starting December 1",
       "lang": "en",
       "publishedAt": "2026-11-23T10:29:36.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "billing",
         "breaking-change",
@@ -1716,7 +1716,7 @@
       "titleEn": "Security advisory permissions are now generally available",
       "lang": "en",
       "publishedAt": "2026-11-20T21:49:29.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "access-control",
         "changelog",
@@ -1751,7 +1751,7 @@
       "titleEn": "GitHub Enterprise Server 3.23 release candidate",
       "lang": "en",
       "publishedAt": "2026-11-20T20:41:26.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "air-gapped",
         "changelog",
@@ -1768,7 +1768,15 @@
       "archiveTier": "hot",
       "contentSnippet": "GitHub Enterprise Server (GHES) 3.23 is now available and introduces new capabilities across the platform. Here are a few highlights in the 3.23 release: When working in GitHub Projects, you can create more precise project views by combining filters with logical OR , explicit AND , and parentheses for grouping. For example, (status:Done OR status:Todo) is:issue shows issues with either status. If your enterprise uses GitHub Secret Protection, you can detect unstructured secrets entirely within your network using AI secret detection on GHES, including in air-gapped environments. A self-contained, fine-tuned model runs on the appliance’s CPU without a GPU, hosted LLM, or outbound connection. This feature is in public preview and subject to change.",
       "excerptOrigin": "article",
-      "feedSnippet": "GitHub Enterprise Server (GHES) 3.23 is now available and introduces new capabilities across the platform. Here are a few highlights in the 3.23 release: When working in GitHub Projects, you… The post GitHub Enterprise Server 3.23 release candidate appeared first on The GitHub Blog ."
+      "feedSnippet": "GitHub Enterprise Server (GHES) 3.23 is now available and introduces new capabilities across the platform. Here are a few highlights in the 3.23 release: When working in GitHub Projects, you… The post GitHub Enterprise Server 3.23 release candidate appeared first on The GitHub Blog .",
+      "image": {
+        "src": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-new-releases.jpg",
+        "origSrc": "https://github.blog/wp-content/themes/github-2021-child/dist/img/social-v3-new-releases.jpg",
+        "alt": "GitHub Enterprise Server 3.23 release candidate",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "299de60a1e88915b",
@@ -1878,7 +1886,7 @@
       "titleEn": "Advancing Science Together: Highlights From the Open Source AI for Science Summit",
       "lang": "en",
       "publishedAt": "2026-11-20T18:30:45.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "ai-for-science",
         "drug-discovery",
@@ -2018,7 +2026,7 @@
       "titleEn": "Pin your favorite repositories to your dashboard",
       "lang": "en",
       "publishedAt": "2026-11-20T14:12:05.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "dashboard",
@@ -2045,7 +2053,7 @@
       "titleEn": "GitHub Desktop now supports multiple accounts per host",
       "lang": "en",
       "publishedAt": "2026-11-20T02:06:01.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "changelog",
         "enterprise",
@@ -2202,34 +2210,6 @@
       },
       "excerptOrigin": "article",
       "feedSnippet": "mlxrunner: adapt saved history to memory pressure Retain Metal prefix history using observed memory headroom and execution workspace rather than a fixed 8 GiB allowance. Release unused buffers and cold history when system compression grows, preserving reusable paths and active requests. Cover pressure reclamation, snapshot ownership, memory observation, and cacheless request isolation. address comments address comments"
-    },
-    {
-      "id": "3c70dc9317b0bdb0",
-      "source": "microsoft-source",
-      "sourceType": "blog",
-      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
-      "title": "The future of medicine: Could AI help predict and prevent disease?",
-      "titleJa": "AIはより健康な未来づくりに役立つのか",
-      "titleEn": "The future of medicine: Could AI help predict and prevent disease?",
-      "lang": "en",
-      "publishedAt": "2026-11-19T22:14:18.000Z",
-      "collectedAt": "2026-11-28T05:30:37.729Z",
-      "tags": [
-        "ai-health",
-        "healthcare",
-        "microsoft",
-        "microsoft-research",
-        "news",
-        "podcast",
-        "research"
-      ],
-      "category": "tech-news",
-      "importance": 2,
-      "halfLife": "news",
-      "archiveTier": "hot",
-      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
-      "excerptOrigin": "article",
-      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research ."
     },
     {
       "id": "d15916ebb27fea0f",
@@ -2793,7 +2773,7 @@
       "titleEn": "Muse Is Now Available in Australia: The World’s First Personal AI Agent Built for Everyone",
       "lang": "en",
       "publishedAt": "2026-11-17T18:00:31.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "ai-agents",
@@ -2840,8 +2820,36 @@
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
+    },
+    {
+      "id": "255f21e05c50335e",
+      "source": "microsoft-research",
+      "sourceType": "blog",
+      "url": "https://www.microsoft.com/en-us/research/podcast/can-ai-help-build-a-healthier-future/",
+      "title": "Can AI help build a healthier future?",
+      "titleJa": "AIはより健康な未来づくりに役立つのか",
+      "titleEn": "Can AI help build a healthier future?",
+      "lang": "en",
+      "publishedAt": "2026-11-17T16:52:17.000Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
+      "tags": [
+        "ai-health",
+        "healthcare",
+        "microsoft",
+        "microsoft-research",
+        "news",
+        "podcast",
+        "research"
+      ],
+      "category": "research",
+      "importance": 2,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "contentSnippet": "Technical advancement is moving at such a rapid pace that it can be challenging to define the tomorrow we’re working toward. In The Shape of Things to Come , Microsoft Research leader Doug Burger and experts from across disciplines tease out the thorniest AI issues facing technologists, policymakers, business decisionmakers, and other stakeholders today. The goal: to amplify the shared understanding needed to build a future in which the AI transition is a net positive. Microsoft Principal Research Manager Ava Amini , Microsoft Chief Scientific Officer Eric Horvitz , and physician-scientist and Microsoft AI health advisor Eric Topol (opens in new tab) of Scripps Research join Burger to tackle a question with ramifications for every individual on the planet: What might the future of medicine look like with AI, and what needs to happen first?",
+      "excerptOrigin": "article",
+      "feedSnippet": "What can AI enable in medicine, and how do we get there? Microsoft Research lead Doug Burger, Microsoft Principal Research Manager Ava Amini, Microsoft Chief Scientific Officer Eric Horvitz, and physician-scientist Eric Topol of Scripps Research explore these questions and more. The post Can AI help build a healthier future? appeared first on Microsoft Research ."
     },
     {
       "id": "37e0b176c97615e8",
@@ -2887,7 +2895,7 @@
       "titleEn": "TokenEconomizer: Learning from Experience to Make AI Coding Agents More Efficient",
       "lang": "en",
       "publishedAt": "2026-11-16T17:01:35.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "ai-agents",
         "coding-agent",
@@ -2996,8 +3004,8 @@
       "evergreen": true
     },
     {
-      "id": "d9302d8306c35a57",
-      "source": "github-blog-ai",
+      "id": "9bf242a7c3461006",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/",
       "title": "Build once, run on any agent: A practical guide to agent skills",
@@ -3007,7 +3015,7 @@
       "summaryEn": "GitHub Copilot's agent skills package repeatable task instructions in a versioned directory built around SKILL.md, shareable across agents, though the runtime must supply tools, credentials, and permissions. This helps developers turn personal know-how into team assets.",
       "lang": "en",
       "publishedAt": "2026-11-12T22:54:52.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "agent-skills",
@@ -3312,7 +3320,7 @@
       "titleEn": "Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents",
       "lang": "en",
       "publishedAt": "2026-11-10T20:52:56.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "ai-agents",
         "ai-security",
@@ -3513,8 +3521,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "excerptOrigin": "article-unavailable"
+      "excerptOrigin": "article-unavailable",
+      "evergreen": true
     },
     {
       "id": "a8256a8bf6828cc7",
@@ -3552,8 +3560,8 @@
       }
     },
     {
-      "id": "9c3380ee4f1290dc",
-      "source": "github-blog-ai",
+      "id": "df55124286315754",
+      "source": "github-copilot",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/",
       "title": "Beyond code generation: A developer’s guide to agentic engineering",
@@ -3563,7 +3571,7 @@
       "summaryEn": "A GitHub Copilot guide to agentic engineering, noting a week of over 1.2 billion commits and a 441% rise in review time, to help developers manage work beyond code generation.",
       "lang": "en",
       "publishedAt": "2026-11-06T22:15:59.000Z",
-      "collectedAt": "2026-11-28T06:30:42.188Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "agentic-engineering",
@@ -3655,7 +3663,7 @@
       "titleEn": "Formally verifying agent-written full-stack web apps with PDD Kit",
       "lang": "en",
       "publishedAt": "2026-11-05T16:00:00.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T07:30:41.693Z",
       "tags": [
         "agent",
         "code-generation",

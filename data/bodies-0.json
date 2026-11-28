@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T03:30:52.843Z",
-  "count": 369,
+  "generatedAt": "2026-11-28T04:30:54.935Z",
+  "count": 373,
   "bodies": {
     "17f496c665a12174": {
       "bodyJa": "Metaは、AIネイティブ時代に向けたプライバシー対応インフラの中核として、社内の膨大なデータアセットを正確に分類する取り組みをエンジニアリングブログで公開した。データ保持期間やアクセス制御、利用目的の制限、第三者への共有可否、匿名化といったプライバシー制御は、対象となるデータの性質を正しく把握して初めて機能するためだ。\n\n同社の出発点はシンプルである。あらゆるプライバシーコントロールは「どこに、どのようなデータが存在するか」という信頼できる理解を前提とする。たとえば特定の個人情報を一定期間で削除する保持ポリシーを適用するには、まずそのデータがどのテーブルやログ、ストレージのどこに含まれているかを機械的に判別できなければならない。分類が曖昧なままでは、制御そのものが空回りしてしまう。\n\nしかし、この前提を大規模に満たすことは容易ではない。Meta規模のサービスでは、データは無数のシステムを横断して生成・変換・複製され、形式やスキーマも多様だ。さらに生成AIや機械学習パイプラインの普及により、学習用データセットや派生データが増え、データの流れはいっそう複雑になっている。こうした環境で分類の精度と網羅性を保つには、自動化された分類基盤と継続的な検証の仕組みが欠かせない。\n\nこの課題は業界共通のものでもある。EUのGDPRや米カリフォルニア州のCCPAをはじめとする各国の規制は、データの利用目的や保持に厳格な要件を課しており、データガバナンスの基盤整備は大手テック各社にとって避けて通れない。GoogleやMicrosoftなども独自のデータ分類・カタログ化の仕組みを整えてきたとされ、Metaの今回の公開はその一つの実装例と位置づけられる。\n\nAIの普及はデータ活用の幅を広げる一方で、プライバシー保護の難度を押し上げている。データを正確に「知る」ための分類基盤は、派手さこそないが、信頼できるAIサービスを支える土台になると見られる。Metaの事例は、プライバシーを後付けではなく設計段階から組み込む「プライバシー・バイ・デザイン」の実践として参考になりそうだ。",
@@ -6614,44 +6614,6 @@
       "model": "gpt-5.6-sol",
       "generatedAt": "2026-09-05T15:24:33.604Z"
     },
-    "9bbf61c409b5e1e3": {
-      "bodyJa": "## Cursor SDK\n\nCursor SDKがリリースされた。Cursorを支えるエージェントの仕組みをTypeScriptから利用し、自動化ワークフローや独自ツールへの組み込みを進めたい開発者に役立つSDKだ。\n\n## 起動・制御\n\nCursorと同じランタイム、ハーネス、モデルを使って、コードからエージェントを起動・制御できる。CursorのエージェントスタックがTypeScriptに公開され、開発者はプログラム内からエージェントを動かし、ワークフローの自動化や独自ツールでの利用につなげられる。",
-      "bodyEn": "## Cursor SDK\n\nThe Cursor SDK lets developers build programmable agents and control them from TypeScript. It matters for developers who want to create automated workflows or embed agents in custom tools.\n\nThe SDK exposes the agent stack that powers Cursor, providing access to the same runtime, harness, and models.\n\n## Launch and control agents\n\nDevelopers can use TypeScript to launch and control agents in code. The SDK supports building automated workflows and integrating agents into custom tools while using the runtime, harness, and models that power Cursor.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "TypeScriptからエージェントを起動・制御できるようになったんだ！ これって大きい変化？",
-          "en": "You can now launch and control agents from TypeScript—wow! Is that a big change?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、Cursorを支える仕組みをコードから扱えるようになった点が大きいのじゃ。自動化や独自ツールへの組み込みに使えるぞい。",
-          "en": "The big shift described here is direct code access to the stack behind Cursor. That opens it up for automated workflows and custom tools."
-        },
-        {
-          "s": "a",
-          "ja": "「ランタイム」や「ハーネス」って何？ つまり、エージェントのどの部分を使えるの？",
-          "en": "What are a “runtime” and a “harness”? Which parts of the agent can developers actually use?"
-        },
-        {
-          "s": "b",
-          "ja": "ランタイムは動かす土台、ハーネスは動きをまとめて管理する仕組み、くらいの意味じゃ。ここではモデルも含む一式をSDKから扱えるのう。",
-          "en": "Think of the runtime as the foundation that runs things, and the harness as the system coordinating them. In this case, the SDK exposes those pieces along with the models."
-        },
-        {
-          "s": "a",
-          "ja": "へえ、すごい！ 自分なら定型作業を自動化して、独自ツールにもエージェントを入れてみたいな。",
-          "en": "That’s cool! I’d try automating repetitive workflows and adding an agent to a custom tool."
-        },
-        {
-          "s": "b",
-          "ja": "よい使い方じゃな。紹介されている範囲ではTypeScriptから起動・制御するSDKなので、その条件に合う仕組みとして考えるのが現実的じゃよ。",
-          "en": "That fits the intended use nicely. Based on what’s presented, it’s an SDK for launching and controlling agents through TypeScript, so plan around that setup."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-09-05T15:29:38.853Z"
-    },
     "31adc826e7913d24": {
       "bodyJa": "## 通知ノイズ\n\nMicrosoft Teams向けに、AIエージェントでコラボレーションの通知ノイズを管理する手法が紹介された。開発者がエージェントを構築し、通知の絞り込みや優先順位付けを自動化することで、情報があふれる場での負担を減らし、生産性を高める考え方だ。\n\n## 一対一のチャット\n\n利用者とエージェントが一対一で会話する場合、やり取りは非公開かつ直接的で、ルールも比較的単純になる。参加者が自分とエージェントだけなら、それぞれの発言の意図は明確だ。追加の質問をしたり、会話を一時停止したり、最初からやり直したりしても、そのやり取りがほかの人にどう影響するかを心配する必要はない。\n\n## グループでの判断\n\nグループでの協働は、一対一の会話とは異なる。すべてのメッセージが参加者の注意を求めて競合し、ある一人には役立つ返信でも、ほかの五人にとっては割り込みになり得る。円滑な協働には、返答するか沈黙するか、どの程度の長さで伝えるか、その場の慣習や機能をどう使うかといった、小さな社会的判断や振る舞いが積み重なる。\n\n## 優先順位付け\n\n人は直接的な指導や試行錯誤、周囲の観察を通じて、忙しい作業空間でもコミュニケーションを管理しやすくする振る舞いを学ぶ。エージェントが同じ場に加わる際にも、同種の振る舞いが必要とされる。Teams向けのエージェントでは、通知を単に増やすのではなく、どれを届けるか、何を優先するかを扱うことが、通知ノイズの抑制につながると説明されている。",
       "bodyEn": "## Collaboration notifications\n\nMicrosoft outlines how developers can build AI agents for Teams to filter and prioritize collaboration notifications. The approach is intended to reduce notification noise and improve productivity when many messages are competing for attention.\n\nIn busy workspaces, managing notifications is not simply a matter of responding to every message. A reply that helps one person may interrupt five others, so an agent must account for how its participation affects the wider group.\n\n## One-to-one agent chats\n\nOne-to-one agent chats are private, direct interactions in which the rules are relatively simple. With only one person and an agent involved, each moment has a clear intent. The person can ask follow-up questions, pause the conversation, or restart it without considering how the exchange affects anyone else.\n\nGroup collaboration works differently because every message competes for attention. The behavior that is useful in a direct chat may create unnecessary noise when applied in a shared communication space.\n\n## Small social judgments\n\nEffective collaboration depends on many small social judgments and gestures. These include deciding when to respond and when to remain quiet, choosing how much to say, and using the conventions and affordances of the setting appropriately.\n\nPeople learn these behaviors through direct guidance, trial and error, and observation. Together, they help keep communication manageable in busy workspaces. As agents enter the same spaces, Microsoft says they need to adopt comparable behaviors rather than treating every possible interaction as a reason to send a message.\n\n## Filter and prioritize\n\nThe outlined method gives developers a way to build AI agents for Teams that automate the filtering and prioritization of notifications. The goal is to help the agent distinguish between communication that warrants attention and activity that would otherwise add to the flood of collaboration notifications.\n\nBy applying these group-oriented behaviors, an agent can manage notification noise while participating in shared workspaces.",
@@ -11640,82 +11602,6 @@
       "model": "gpt-5.6-sol",
       "generatedAt": "2026-10-07T21:40:00.266Z"
     },
-    "9cc433d49f6ba8d2": {
-      "bodyJa": "## co-clinician\n\nGoogle DeepMindとGoogle Researchは、医師と協働するAI「co-clinician」の研究構想を発表した。複雑な症例における診断推論と治療計画を支援し、医師の専門性を拡張する新たな医療モデルを探る取り組みだ。\n\n## 医療人材の不足\n\n世界の医療システムは、患者の転帰改善、コスト削減、患者と臨床医双方の体験向上を目指している。一方で、臨床の専門家が世界的に不足しており、進展を阻む要因になっている。世界保健機関は、2030年までに医療従事者が1,000万人以上不足すると予測している。\n\nAIは、この不足を埋める鍵として捉えられることが多いものの、現時点では臨床医と患者のニーズを十分に満たせていないと説明されている。co-clinicianは、こうした状況を踏まえ、AIが医師の能力をどのように補強できるかを検討する研究 инициативだ。\n\n## 診断推論と治療計画\n\nco-clinicianが想定するのは、AIが単独で臨床判断を担う形ではなく、医師と協働して複雑な診断や治療計画を支援する形だ。診断推論や治療方針の検討にAIを組み込み、医師の専門的な判断を補完することが中心となる。\n\nこの構想では、AIの役割は臨床医の専門性をより有効に生かすことに置かれている。医師との協働を通じて、患者により質の高いケアを届ける方法を探るとしている。\n\n## 新たなケアモデル\n\n研究 инициативが目指すのは、AIによって臨床ケアを拡張する新たなモデルの検討だ。複雑な症例への対応で診断推論と治療計画を支援し、人間の臨床判断を補完することで、医師の専門性を増幅させる可能性を探る。",
-      "bodyEn": "## AI co-clinician research initiative\n\nGoogle DeepMind and Google Research are proposing an AI “co-clinician” designed to help doctors reason through complex diagnoses and develop treatment plans. The initiative matters because health systems worldwide are seeking better outcomes, lower costs, and improved experiences for patients and clinicians while facing a shortage of clinical experts.\n\nThe World Health Organization predicts a global shortfall of more than 10 million health workers by 2030. AI is often viewed as a way to help bridge that gap, but it has not yet fully met the needs of clinicians and patients. The AI co-clinician research initiative will explore how the technology could better amplify doctors’ expertise and support higher-quality patient care.\n\n## Complex diagnoses and treatment plans\n\nThe co-clinician concept focuses on collaboration between doctors and AI. It is designed to assist clinicians with diagnostic reasoning in complex cases and with the creation of treatment plans, rather than positioning AI as a separate source of clinical care.\n\nThis model centers the doctor’s expertise and clinical judgment while using AI as additional support. By working alongside clinicians on difficult cases, the system is intended to complement the decisions doctors make and help extend their ability to assess diagnoses and plan care.\n\n## AI-augmented clinical care\n\nThe initiative presents AI-augmented clinical care as a new care model in which AI supports clinical decision-making. Its stated aim is to explore how AI can expand healthcare by helping clinicians apply their expertise more effectively.\n\nThe proposed model connects two goals: supporting doctors as they handle complex clinical work and delivering higher-quality care to patients. It also addresses the challenge posed by the global shortage of health workers by investigating whether collaborative AI can better serve the practical needs of both clinicians and patients.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "複雑な症例を診るとき、医師の仕事や患者の診察はどう変わるの？",
-          "en": "When doctors handle complex cases, how could this change their work or a patient’s care?"
-        },
-        {
-          "s": "b",
-          "ja": "AI「co-clinician」が医師と協働し、診断の推論や治療計画を支える構想だよ。臨床判断を補う役割が想定されているんだ。",
-          "en": "The idea is for an AI co-clinician to work alongside doctors on diagnostic reasoning and treatment plans, complementing their clinical judgment."
-        },
-        {
-          "s": "a",
-          "ja": "AIは前から医療を助けていたんじゃないの？ 今回は何が違うんだろう。",
-          "en": "Wasn’t AI already helping in healthcare? What’s different this time?"
-        },
-        {
-          "s": "b",
-          "ja": "これまでのAIは、医師や患者のニーズを十分には満たせていないとされているよ。今回は医師の専門性を広げる協働型の研究構想なんだ。",
-          "en": "The piece says AI has not yet fully met clinicians’ and patients’ needs. This initiative explores a collaborative model that could amplify doctors’ expertise."
-        },
-        {
-          "s": "a",
-          "ja": "医師とAIが別々に判断するより、難しい診断や治療計画を一緒に考える形を探るのが大事なんだね。",
-          "en": "So the key is exploring how doctors and AI can work together on difficult diagnoses and treatment plans, rather than acting separately."
-        },
-        {
-          "s": "b",
-          "ja": "うん。実際に医師の専門性をどこまで支え、より質の高いケアにつなげられるかが次の注目点だね。",
-          "en": "Right. The next question is how well it can support doctors’ expertise and help lead to higher-quality care."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T21:40:26.599Z"
-    },
-    "7f56981b945dbbfa": {
-      "bodyJa": "Microsoftは、エージェント開発フレームワークSemantic Kernelの.NET版1.75.0を公開した。コネクタやエージェント機能の改善、依存関係の更新、バグ修正をまとめた通常のマイナー更新と位置付けられている。\n\n## .NET版1.75.0\n\n今回のリリースには、.NET版のリリースバージョン更新と依存関係のアップグレードが含まれる。個別の変更を一つの新機能として打ち出すのではなく、複数の改善や修正を束ねた更新となっている。最新のAIモデルやMCPとの統合強化も継続していると説明されているが、具体的なモデル名や統合内容は示されていない。\n\n## 検証の強化\n\nRestApiOperationRunnerでは、AllowedBaseUrlsの検証が強化された。許可されるベースURLを扱う部分の確認を厳格にする変更である。また、ステップの型を検証する処理も追加されている。いずれも入力や設定を扱う段階で条件を確認するための変更としてまとめられる。\n\n## エスケープ対応\n\nRedisのテキスト検索値には、バックスラッシュのエスケープ処理が追加された。検索値に含まれるバックスラッシュを適切に扱うための修正で、コネクタ周辺の改善に当たる。\n\n同じ更新履歴には、Python版のパッケージバージョンを1.41.3へ引き上げる変更と、PythonのSqlServerコネクタでフィールド名およびテーブル名をエスケープする変更も記録されている。.NET版1.75.0を中心としつつ、関連する実装でも更新が行われている。",
-      "bodyEn": "## Semantic Kernel for .NET\n\nMicrosoft has released Semantic Kernel for .NET 1.75.0. Published on April 29, 2026, the release is a routine minor update that matters for users because it combines connector and agent improvements with dependency upgrades and bug fixes.\n\nThe update continues Semantic Kernel’s tighter integration with the latest AI models and MCP. The release information does not present this integration as a separate new product or feature, but as part of the framework’s continuing development.\n\n## Upgrade dependencies\n\nDependency upgrades are included in the .NET release. Alongside those updates, the listed changes address validation and escaping behavior in specific parts of Semantic Kernel.\n\nOne change hardens AllowedBaseUrls validation in RestApiOperationRunner. This focuses the update on stricter handling of the allowed base URL setting within that runner. Another change adds backslash escaping to Redis text search values, improving how those values are handled by the relevant connector functionality.\n\n## Validate step types\n\nThe release also adds validation for step types. This change sits alongside the broader set of agent improvements and bug fixes bundled into version 1.75.0.\n\nRather than centering on a single major addition, the release groups these targeted changes into a minor update. The combination includes improvements affecting connectors and agent functionality, as well as maintenance work on dependencies and fixes.\n\n## Latest AI models and MCP\n\nSemantic Kernel for .NET 1.75.0 continues the framework’s closer integration with the latest AI models and MCP. That ongoing integration is presented together with the release’s connector and agent improvements, rather than as a standalone change.\n\nOverall, the release concentrates on incremental maintenance and refinement: upgraded dependencies, stronger AllowedBaseUrls validation in RestApiOperationRunner, step-type validation, backslash escaping for Redis text search values, and additional connector, agent, and bug-fix work.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "URLやステップの検証が強化されたの、なんで気になったんだろう？",
-          "en": "Why do the stronger URL and step checks stand out in this update?"
-        },
-        {
-          "s": "b",
-          "ja": "この更新では、許可URLの検証強化やステップ型の確認、Redis検索値のバックスラッシュ処理が入っているよ。",
-          "en": "This update strengthens allowed-URL validation, checks step types, and adds backslash escaping for Redis text search values."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ、.NET版でエージェントやコネクタを使う人の足元を整える更新なのかな？",
-          "en": "So is this mainly a cleanup update for people building with agents and connectors on .NET?"
-        },
-        {
-          "s": "b",
-          "ja": "そう読めるね。コネクタとエージェントの改善、依存関係の更新、バグ修正をまとめた通常のマイナー更新だよ。",
-          "en": "That’s a fair reading. It’s a routine minor update combining connector and agent improvements, dependency upgrades, and bug fixes."
-        },
-        {
-          "s": "a",
-          "ja": "大きく変えるより、連携や動作を少しずつ整えつつ、最新AIモデルやMCPとの統合も進めているんだね。",
-          "en": "Got it—rather than a major shift, it steadily improves behavior and integrations with the latest AI models and MCP."
-        },
-        {
-          "s": "b",
-          "ja": "うん。ただ、変更一覧にはPython向けの項目も混じるので、.NET 1.75.0の更新とは分けて読むとよさそう。",
-          "en": "Yes. One caution: the change list also includes Python items, so keep those separate from the .NET 1.75.0 update."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T21:40:57.346Z"
-    },
     "7fd88aafef0c1bf5": {
       "bodyJa": "Claude CodeやOpenAIのCodex、GitHub Copilotといったコーディングエージェントが、開発者の手元を離れてクラウド上で自律的に動くケースが増えている。こうした環境では、ローカルのgitフックやCIチェックだけではmainブランチを守り切れないという構造的な問題を、Zennに公開された記事が指摘している。\n\nこれまで多くのチームは、コミット前にpre-commitフックでリンターやテストを走らせ、さらにプルリクエスト時にCIで検査するという二段構えでコード品質を担保してきた。しかしローカルフックはあくまで開発者の端末上で動く仕組みであり、実行するかどうかは最終的にクライアント側の裁量に委ねられる。悪意がなくても、設定漏れや--no-verifyオプションで簡単に回避できてしまう。\n\nエージェントがクラウドで動くようになると、この前提はさらに崩れる。人間のレビューを介さずにブランチを切り、コミットし、場合によっては直接pushやマージまで実行する可能性があるためだ。端末という「境界」が存在しないため、クライアント側に置いたガードは意味をなさなくなる。記事は、監視や制御の重心をローカルからクラウド側へ移す必要があると論じている。\n\n具体的な対策として挙げられるのが、GitHubやGitLabが提供するブランチ保護ルールやリポジトリ側のポリシー設定だ。mainへの直接pushを禁止し、必須のステータスチェックや所定の承認者によるレビューを通過しなければマージできないよう構成すれば、どのクライアントから来た変更であっても一律に規制できる。エージェント用のアクセストークンやサービスアカウントに与える権限を最小限に絞ることも有効とされる。\n\n背景には、AIエージェントの実行環境がIDEのプラグインから、クラウドのサンドボックスや非同期タスクへと広がっている流れがある。GitHub Copilotのcoding agentやAnthropicのClaude Codeなどは、割り当てられたタスクを裏側で処理してPRを提出する形態を取り始めた。生産性が上がる一方で、誰が何をマージできるのかというガバナンスをサーバー側で明示的に定義し直すことが、今後いっそう重要になると見られる。",
       "bodyEn": "The rapid adoption of autonomous AI coding agents is exposing a structural weakness in how many teams protect their most important branch. As tools such as Anthropic's Claude Code, OpenAI's Codex, and GitHub Copilot increasingly run in cloud environments rather than only on a developer's laptop, the traditional safeguards that live locally, like git hooks and developer-side checks, no longer sit in the path of every change. This matters because the main branch is usually the source of truth for production, and a single unvetted merge can propagate quickly through automated pipelines.\n\nThe core issue is where enforcement actually happens. Client-side git hooks, such as pre-commit and pre-push scripts, execute only on the machine that runs them. They were designed for a world in which a human engineer cloned a repository, configured their environment, and pushed from that same machine. Hooks are not distributed with the repository by default, they can be skipped with flags like --no-verify, and they simply do not run in an environment that never installed them. When an agent operates in an ephemeral cloud sandbox, opens a pull request through an API, or commits from a hosted runner, those local controls are effectively absent.\n\nContinuous integration checks are stronger because they run on shared infrastructure, but the article argues they are still insufficient on their own. CI validates the contents of a proposed change, yet it does not inherently govern who or what is allowed to merge, whether a review occurred, or whether a check can be bypassed. If a workflow has permission to push directly, or if required checks are not enforced as a merge gate, a passing build does not guarantee that policy was respected. Agents that hold write credentials can, in principle, act faster than any human reviewer can intervene.\n\nThis is why the recommended posture is to move governance to the server side, closer to the repository itself. On platforms like GitHub, this means branch protection rules or the newer repository rulesets, which can require pull requests before merging, mandate a minimum number of approving reviews, require that specific status checks pass, enforce linear history or signed commits, and prevent force pushes to protected branches. Crucially, these rules can be configured so they apply to everyone, including administrators and automation, rather than trusting each actor to enforce them locally. CODEOWNERS files can further require review from designated maintainers for sensitive paths.\n\nThe identity of the agent also becomes central to enforcement. Whether a change arrives from a GitHub App, a fine-grained personal access token, or an OAuth-scoped integration, the permissions attached to that identity determine what the agent can do. Scoping tokens narrowly, avoiding broad write access, and treating agent credentials with the same care as human credentials all reduce the blast radius if an agent behaves unexpectedly or is misdirected by a crafted prompt. Environment protection rules and required reviewers for deployments add another layer between a merged change and production.\n\nContext helps explain why this shift is happening now. Claude Code, Codex, and Copilot have each moved toward more autonomous, cloud-hosted modes. GitHub's Copilot coding agent, for example, can be assigned an issue and produce a pull request on its own, running in a hosted environment rather than the developer's terminal. Codex has offered cloud-based execution, and Claude Code can operate in sandboxes and CI-like settings. These modes are convenient, but they relocate work away from the individual machine where local guardrails traditionally lived.\n\nFor teams evaluating their exposure, a few prerequisites are worth confirming. Protected branches should reject direct pushes and require pull requests. Required status checks should be marked as mandatory rather than advisory. Merge permissions should be restricted, and automation identities should be inventoried and least-privileged. Audit logging and, where available, artifact or build provenance can help reconstruct what an agent did after the fact.\n\nNone of this eliminates the value of local hooks or CI, which remain useful for fast feedback and catching mistakes early. The article's argument is narrower: as more code originates from agents running outside the developer's machine, controls that only exist on that machine cannot be the last line of defense. The main branch appears best protected when policy is enforced by the platform itself, applied uniformly to humans and agents alike.",
@@ -11922,7 +11808,39 @@
       "bodyJa": "Googleは、画像検索機能「Google画像検索」の提供開始から25周年を迎えたのを機に、検索体験を刷新したと発表した。一度に表示される画像の件数を増やすとともに、AIを活用した新機能を導入し、視覚的な情報探索の効率化を図るという。\n\nGoogle画像検索は2001年に登場した。当初は歌手ジェニファー・ロペスがグラミー賞授賞式で着用したドレスへの検索需要がきっかけになったと語られることが多く、テキストだけでは探しにくい視覚情報へのアクセス手段として定着してきた。以降、サムネイルの表示方法やレイアウトは段階的に改良が重ねられてきたが、今回の変更もその延長線上に位置づけられる。\n\n主な刷新点は、表示件数の増加とAI機能の統合とされる。表示件数が増えれば、ユーザーはスクロールや追加読み込みの回数を減らしつつ、より多くの候補を一覧して比較しやすくなると見られる。一方、AIによる機能強化については、検索意図の解釈や関連画像の提示、被写体や商品の識別といった領域での活用が想定される。\n\n背景には、生成AIの普及に伴う検索インターフェースの再設計という業界全体の潮流がある。Googleはすでに、カメラで写した対象を調べる「Google レンズ」や、検索結果に生成AIの要約を組み込む「AI Overviews(AIによる概要)」などを展開してきた。画像検索の強化は、こうしたマルチモーダル(複数の入力形式に対応する)戦略と連続性を持つ取り組みと位置づけられる可能性がある。\n\n競合の動きも見逃せない。MicrosoftはBingやCopilotで画像認識と生成AIの統合を進めており、OpenAIなどの新興サービスも、テキストと画像を横断する検索・対話機能を強化している。視覚的な発見をめぐる競争が激化するなか、長年の資産である画像検索をどう進化させるかは、Googleにとって重要な論点だといえる。\n\nもっとも、AIを組み込んだ検索は、生成される情報の正確性や出典の扱い、著作権への配慮といった課題も抱える。新機能が実際の利用場面でどの程度の精度と利便性を発揮するかは、今後の展開や地域ごとの提供状況を見極める必要がありそうだ。",
       "bodyEn": "Google has revamped its image search to coincide with the feature's 25th anniversary, increasing the number of results displayed at once and folding in new artificial intelligence tools intended to make visual discovery faster and more intuitive. The changes matter because image search remains one of the most heavily used entry points into Google's ecosystem, and adjustments to how results are surfaced can ripple across publishers, retailers, and the broader web that depends on referral traffic.\n\nGoogle Image Search first appeared in 2001, reportedly prompted by the surge of interest in a green Versace dress worn by Jennifer Lopez that year, which strained the text-only search interface of the time. Over the following two and a half decades, the product evolved from a simple grid of thumbnails into a visual browsing surface with filters, related-image suggestions, and shopping integrations. The latest update continues that trajectory, emphasizing density and context over the sparse layouts of earlier iterations.\n\nAccording to the reporting, one of the most visible changes is a denser results page that shows more images in a single view. The company appears to be betting that presenting a wider selection up front reduces the need to scroll or refine queries, which can be especially useful for exploratory searches where a user is not looking for one specific item but browsing possibilities. This kind of layout change is subtle from a technical standpoint but can meaningfully alter click behavior and how much attention individual results receive.\n\nThe AI-related additions are the more consequential part of the overhaul. Google has been steadily infusing generative and multimodal AI across its search products, and image search is a natural fit given that modern models can interpret the contents of a picture rather than relying solely on surrounding text, captions, and metadata. The renewed experience is likely to lean on these capabilities to better understand what a photo depicts, group visually similar results, and connect images to related information such as product listings, sources, or contextual explanations.\n\nThis effort sits alongside several adjacent tools Google has built in recent years. Google Lens, which lets users search using their camera or an existing image, has become a core part of the company's visual search strategy and now handles a substantial volume of queries. The \"circle to search\" gesture on Android and the multisearch feature, which combines an image with a text refinement, both point toward a future in which the boundary between typing a query and pointing at something visually continues to blur. The image search update can be read as an extension of that same philosophy applied to the traditional desktop and mobile web interface.\n\nThe timing also reflects broader industry dynamics. Search providers are under competitive pressure from AI-native tools and chat-based assistants that answer questions directly, and Google's own AI Overviews have changed how some results are presented. Rivals including Microsoft's Bing, along with newer entrants, have pushed multimodal features that let users search with and about images. Refreshing image search helps Google keep a long-standing product aligned with these expectations rather than allowing it to feel dated.\n\nFor publishers and website owners, changes to image search carry practical stakes. Historically, image results have been a source of traffic and, at times, friction, given debates over how Google displays and links to third-party images. A denser layout and stronger AI interpretation could shift how often users click through to source sites versus finding what they need on the results page itself. It is not yet clear from the announcement how these changes will affect referral patterns, and the real-world impact will likely become apparent only after the update reaches a wide audience.\n\nAs with many Google feature rollouts, availability and specific behavior may vary by region, device, and language, and some capabilities could arrive gradually. Readers should treat early descriptions as a snapshot of the direction rather than a final, uniform experience. What is clear is that Google is framing the 25th anniversary less as a nostalgic milestone and more as an occasion to reposition image search around AI-driven understanding, signaling that visual queries remain a strategic priority as the company navigates a rapidly changing search landscape.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:10:31.443Z"
+      "generatedAt": "2026-08-30T17:10:31.443Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "画像検索が25周年なんだって。しかも昔はウェブで画像を探せなかったって書いてあって、びっくり。これって大きいこと？",
+          "en": "Image search is 25 years old? And there was a time you couldn't search the web for images at all. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、2001年7月に最初のバージョンが出たとあります。今では当たり前の機能なので、始まりの話は意外に感じるかもね。",
+          "en": "The article says the first version launched in July 2001. We take it for granted now, so hearing how it began can feel surprising."
+        },
+        {
+          "s": "a",
+          "ja": "始まりのきっかけが、ジェニファー・ロペスの緑のドレスって本当？ どういうこと？",
+          "en": "Wait, it started because of Jennifer Lopez's green dress? How does that work?"
+        },
+        {
+          "s": "b",
+          "ja": "Googleの主張では、2000年のグラミー賞のドレスを探す人は、読むより見たかったんです。文章ではなく画像で探す需要が背景だった、という話ですね。",
+          "en": "Google says people searching for the 2000 Grammy dress wanted to see it, not read about it. So the push was demand for finding things by image."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ私も、気になるものを画像でぱっと探すのに使えそう。リニューアルでどう変わるの？",
+          "en": "Then I could use it to find things quickly by picture. What changes with the refresh?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、AIを広げた刷新を行うと触れています。ただ、紹介されている範囲だと具体的な新機能の中身までは分からないので、使い方は公式の案内を見たいですね。",
+          "en": "The article mentions a refresh with expanded AI, but it doesn't spell out the new features. I'd check Google's own announcement for how to use them."
+        }
+      ]
     },
     "8e89339933249699": {
       "bodyJa": "AIコーディング支援ツールの高機能化が進む一方で、その利用料が開発者の負担として意識されるようになってきた。こうしたなか、Zennに公開された記事は、高価な自律型AIエージェントに頼らずとも、Cursorを軸にGitHubのissueからプルリクエスト(PR)作成までの一連のワークフローを効率よく回せる実践的な手法を紹介している。\n\n近年はGitHub Copilotのエージェントモードや、Devin、Claude Codeなど、issueを与えるだけでコード変更やPR作成までを自動化するツールが相次いで登場した。ただしこれらは高機能な半面、従量課金や比較的高額な月額プランを前提とするものも多く、個人開発者や小規模チームにとってはコストが導入の障壁になりやすい。\n\n記事が提案するのは、こうした高価なツールを使わずに、エディタ統合型のCursorとGitHubの標準機能を組み合わせるアプローチだと見られる。まずissueで作業内容と受け入れ条件を明確にし、その情報をコンテキストとしてCursorに渡す。チャットや編集機能でコードを生成・修正し、変更をブランチにコミットしたうえでPRを作成する、という流れを想定していると考えられる。\n\nこの方法の利点は、AIによる補完や生成の恩恵を受けつつ、費用を抑えられる点にある。issueに要件や背景を丁寧に書き込んでおくことは、AIに渡すプロンプトの質を高めることにもつながり、結果として生成コードの精度向上が期待できる。GitHub CLIやPRテンプレートを併用すれば、定型作業をさらに省力化できる可能性がある。\n\n一方で、完全自律型のエージェントに比べると、人手による指示やレビューの比重は大きくなる。どこまでを自動化し、どこを開発者が担うかの線引きは、プロジェクトの規模やコスト許容度によって変わるだろう。高機能なツールと低コストな手法のどちらが適するかは一概には言えず、自身の開発スタイルや予算に応じて選び取ることが重要になりそうだ。",
@@ -12775,6 +12693,240 @@
       "bodyEn": "Google DeepMind has announced an expanded investment in the safety of multi-agent artificial intelligence systems, signaling that the company sees the interaction between autonomous AI agents as a distinct and increasingly urgent area of study. The move matters because much of today's AI safety work has focused on single models operating in isolation, yet the direction of the industry points toward environments where many agents plan, negotiate, and act together. As those systems move from research demonstrations toward real deployments, the failure modes that emerge from interaction rather than from any individual model are becoming harder to ignore.\n\nAt the core of the announcement is the recognition that groups of agents can behave in ways that none of their designers explicitly intended. When multiple systems pursue their own objectives while sharing an environment, problems such as miscoordination, unintended collusion, cascading errors, and emergent strategies can appear. A single well-aligned agent may still contribute to a harmful outcome when its actions combine with those of others. DeepMind frames these as risks that are not simply the sum of individual model risks, but properties of the wider system, which means they require analysis at the level of the collective rather than the component.\n\nThe technical challenges here are substantial. Evaluating a single model is already difficult, but assessing a population of interacting agents introduces combinatorial complexity, because behavior depends on how agents respond to one another over many steps. Researchers in this area typically draw on game theory, mechanism design, and multi-agent reinforcement learning to reason about incentives and equilibria. Concepts such as cooperation under partial information, commitment and trust between agents, and the design of communication protocols all become relevant. DeepMind's stated focus appears to include building better evaluation environments, developing methods to detect undesirable collective behavior, and studying how incentive structures can be shaped so that agents reliably cooperate without producing harmful side effects.\n\nThis investment fits within a broader industry shift toward agentic AI. Over the past two years, tool-using agents that can browse, write code, call external services, and complete multi-step tasks have become a central theme across major AI labs. Google has pushed agentic capabilities through its Gemini models and related tooling, while companies such as OpenAI and Anthropic have introduced their own agent frameworks and protocols for connecting models to external tools and data. As these agents proliferate, it is likely that they will increasingly encounter one another, whether cooperating on shared workflows or competing on behalf of different users or organizations. Emerging standards for agent-to-agent communication and interoperability make such interactions more plausible, which raises the stakes for understanding how they behave at scale.\n\nThe work also builds on DeepMind's longer history in both multi-agent research and AI safety. The organization has previously studied cooperation in social dilemmas, negotiation between learning agents, and the dynamics of populations trained together, alongside its published frameworks for evaluating frontier model risks and its Frontier Safety Framework. Positioning multi-agent safety as a priority connects those research traditions, suggesting an effort to extend existing alignment and evaluation methods into settings where several capable systems operate at once. It is worth noting that this remains an area where established best practices are still forming, and much of the research is exploratory rather than settled.\n\nFor the wider field, the announcement underscores a shift in how safety is conceptualized. Alignment has often been posed as the problem of ensuring that one model does what its developers intend. Multi-agent safety adds a second question: whether many aligned systems, each behaving reasonably on its own, can nonetheless produce collectively undesirable results. Addressing that question may require not only technical tools but also thinking about governance, accountability, and the rules that govern interactions between agents built by different parties.\n\nDeepMind has not detailed the full scope of funding, staffing, or timelines associated with the effort, and the practical impact will depend on what evaluation methods, benchmarks, and safeguards emerge from it. Still, the decision to name multi-agent interaction as a dedicated research priority reflects a growing consensus that the next phase of AI deployment will be defined less by isolated models and more by systems working together. How effectively the industry anticipates the risks of that transition is likely to shape how much trust these agentic systems ultimately earn.",
       "model": "claude-opus-4.8",
       "generatedAt": "2026-07-11T05:43:26.247Z"
+    },
+    "96026e367b11000a": {
+      "bodyJa": "Microsoft FoundryのManaged Computeが一般提供(GA)になった。オープンモデルを、マネージドなモデルAPIを呼び出すのと同じ手軽さで使えるようにすることを目指したサービスで、本番運用を担うチームの負担を下げるものとされている。\n\n## GPUとコンテナを任せる\n\n利用者はアプリケーションに合うモデルを選ぶ。GPUの手配、コンテナの保守、サービングランタイムの運用はMicrosoft側が受け持つと説明されている。この方針は、6月のMicrosoft Buildでプレビューとして導入された当初から変わっていない。\n\n## Build以降の強化点\n\nプレビュー公開以降、サービング容量の拡大、プロンプト再利用の改善、GPUおよびデプロイ方法の選択肢の拡充が進められた。選択肢の拡充には、USとEUのData Zonesへの対応が含まれる。\n\nあわせて、顧客からのフィードバックをもとに利用体験が見直された。その結果、チームは自分たちのデプロイがどのように動いているかを、これまでより明確に把握できるようになったとされる。\n\n## サプライチェーンとカタログ\n\nソフトウェアサプライチェーンの強化も行われた。カタログに加わるオープンモデルも増えており、選べるモデルの幅が広がっている。\n\n## 使い慣れたFoundryで専用GPUを使う\n\nこうした改善の結果、Managed Computeは専用GPU上でオープンモデルを提供するマネージドなプラットフォームとして位置づけられている。利用者が普段使っているFoundryの体験の中で扱えることも特徴だ。インフラの調達や運用に手間をかけず、モデル選定とアプリケーション側の開発に集中したいチームに向けた提供形態といえる。",
+      "bodyEn": "## Managed Compute Reaches General Availability\n\nMicrosoft Foundry has announced the general availability of Managed Compute, a service for running open models in production. It matters for teams that want to serve open models without taking on the operational work that usually comes with dedicated GPU infrastructure.\n\nAccording to the announcement, Managed Compute was first introduced in preview at Microsoft Build in June. The stated goal was to make serving open models as approachable as calling a managed model API.\n\n## Serving Open Models on Dedicated GPUs\n\nThe division of responsibility is straightforward. You choose the model that fits your application, and the service provisions the GPUs, maintains the containers, and operates the serving runtime. The announcement describes the result as a managed platform for serving open models on dedicated GPUs, delivered within the Foundry experience that existing users already work in.\n\nThis arrangement is meant to reduce the burden on teams running models in production, since hardware provisioning, container upkeep, and runtime operation are handled by the platform rather than by the application team.\n\n## Changes Since Build\n\nThe announcement lists several areas of work between the June preview and general availability. Serving capacity has been scaled, and prompt reuse has been improved. GPU and deployment options have been expanded, including US and EU Data Zones, which gives teams regional choices for where their deployments run.\n\nCustomer feedback shaped the experience and led to a clearer view of how deployments are running. The announcement also says the software supply chain has been strengthened and that more open models have been added to the catalog.\n\n## What This Means for Teams\n\nBased on the announcement, the main change is the move from preview to general availability, paired with broader capacity, regional options, and catalog coverage. Teams that want open models on dedicated GPUs, with the infrastructure operated for them, can now do so in Foundry. The source does not provide further detail on specific models, pricing, or GPU types, so those points should be confirmed through Foundry directly.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Managed Computeが一般提供になったって、プレビューのときから何が変わったの？これって大きいこと？",
+          "en": "Managed Compute is generally available now? What changed since the preview? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、Buildでのプレビュー後に提供能力を拡大し、プロンプト再利用の改善やGPU・配備の選択肢を増やしたそうです。米国とEUのData Zoneにも対応しました。",
+          "en": "The post says that since the Build preview, they've scaled capacity, improved prompt reuse, and added GPU and deployment options. US and EU Data Zones are now supported too."
+        },
+        {
+          "s": "a",
+          "ja": "Data Zoneって初めて聞いたかも。どういうものなの？",
+          "en": "I haven't heard of Data Zones before. What are they?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では中身の詳細までは書かれていません。一般的には、データを扱う地域を米国やEUといった範囲で区切る仕組み、くらいの意味です。",
+          "en": "The post doesn't go into detail. Generally, it means keeping data handling within a region, like the US or EU. That's the rough idea."
+        },
+        {
+          "s": "a",
+          "ja": "私がオープンモデルを試すなら、GPUの準備とかを任せられるのは助かりそう。どこまで任せられるの？",
+          "en": "If I tried an open model, handing off GPU setup sounds helpful. How much can I actually hand off?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、GPUの手配、コンテナの保守、推論基盤の運用を任せられるとあります。ただ、使うモデルを選ぶのは自分で、動作状況の確認も必要でしょうね。",
+          "en": "The post says GPUs, container upkeep, and the serving runtime are handled for you. You still choose the model, though, and you'd probably want to keep an eye on how deployments run."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:37:25.862Z"
+    },
+    "235f054b81912456": {
+      "bodyJa": "GitHubのダッシュボードに、表示するリポジトリを自分で選べる「Favorite repositories」セクションが追加された。ただし2026年11月23日付の編集部注記によると、ユーザーからのフィードバックを受けて体験を改善するため、この変更は一時的にロールバックされている。\n\n## Favoriteセクションの位置づけ\n\n新しいセクションでは、ダッシュボードに表示するリポジトリを利用者が選択できる。新しいダッシュボード体験が有効になっていない場合、従来の「Top repositories」は変更されないと説明されている。つまり、この機能は新しいダッシュボード体験の側で提供されるものだ。\n\n## 選択と保存の流れ\n\n操作はまず「Edit」または「Add repositories」を選んでピッカーを開くところから始まる。ピッカーではリポジトリを検索し、選択したり選択を外したりできる。検索語を変えても、選んだ内容は表示されたままになる。\n\n変更を反映するには「Save」を選ぶ。新たにお気に入りへ加えたリポジトリは、リストの末尾に追加される。変更を破棄したい場合は「Cancel」を選ぶ。\n\n## GitHub Mobileとの同期と上限\n\nお気に入りは、GitHub Mobileでのピン留めリポジトリと同期される。どちらか一方で行った変更は、更新(リフレッシュ)した後にもう一方へ反映される。\n\nピン留めできるリポジトリは、両方の体験を合わせて最大25件。保存によってこの上限を超える場合はエラーが表示され、リストは変更されない。\n\n## ロールバックの状況\n\n冒頭の注記にあるとおり、この変更は2026年11月23日時点で一時的に元へ戻されている。理由は、フィードバックをもとに体験を改善するためとされる。ここで紹介した仕様は、ロールバック前に示されていた内容である。再開の時期や改善の具体的な中身については、示されていない。",
+      "bodyEn": "## Favorite repositories on the Dashboard\n\nGitHub introduced a Favorite repositories section that lets users choose which repositories appear on their Dashboard. An editor's note dated November 23, 2026 says the change has been temporarily rolled back while the experience is improved based on user feedback, so the feature described here is not currently in place.\n\n## Choosing and saving repositories\n\nAccording to the announcement, users select Edit or Add repositories to open a picker. Inside it, they can search for repositories and select or deselect them, and their selections stay visible as they search. Selecting Save applies the changes, while selecting Cancel discards them. New favorites are added to the end of the list.\n\nThe announcement also states that if the new dashboard experience isn't enabled, the Top repositories section remains unchanged.\n\n## Sync with GitHub Mobile\n\nFavorites sync with pinned repositories in GitHub Mobile. Changes made in either place appear in the other after a refresh. This means the Dashboard list and the mobile pins are treated as one set rather than two separate lists.\n\n## The 25-repository limit\n\nA total of 25 repositories can be pinned across both experiences. If saving would push the count over that limit, the user sees an error and the list is left unchanged. The limit applies to the combined total, so pins made in GitHub Mobile count toward the same 25.\n\n## Current status\n\nThe original post, published on November 20, 2026, presented the section as a new way to control what the Dashboard shows. The later editor's note says the rollback is temporary and ties it to ongoing improvements informed by user feedback. The source does not specify what will change or when the section might return, so the behavior outlined above reflects how the feature worked before the rollback.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "ダッシュボードに「Favorite repositories」っていうのが増えたんだね。これって、何ができるの？",
+          "en": "There's a new Favorite repositories section on the dashboard. What can I actually do with it?"
+        },
+        {
+          "s": "b",
+          "ja": "ダッシュボードに表示するリポジトリを、自分で選べるんだ。ピッカーを開いて検索し、選んで保存する流れだよ。",
+          "en": "You get to choose which repositories show up on your dashboard. Open the picker, search, select, then save."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、よく使うリポジトリをすぐ開けるように並べておく感じかな？スマホ側とも関係あるの？",
+          "en": "So it's like keeping the repos I use most right where I can reach them? Does the phone side connect to this too?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。GitHub Mobileのピン留めと同期していて、どちらで変えても更新後にもう一方へ反映されるよ。",
+          "en": "Right. Favorites sync with your pinned repositories in GitHub Mobile, and a change in either place shows up in the other after a refresh."
+        },
+        {
+          "s": "a",
+          "ja": "なるほど。選んで保存すれば、PCでもスマホでも同じお気に入りが見られるんだね。数に上限はあるの？",
+          "en": "Got it. Pick and save, and I see the same favorites on desktop and mobile. Is there a limit?"
+        },
+        {
+          "s": "b",
+          "ja": "両方合わせて最大25件までだよ。あと冒頭の編集注記だと、11月23日に改善のため一時的にロールバックされているので注意してね。",
+          "en": "Up to 25 across both. Also, the editor's note says it was temporarily rolled back on November 23 while they make improvements, so keep that in mind."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:37:40.890Z"
+    },
+    "cb7a1dc97e71e7b1": {
+      "bodyJa": "社内向けのMCPサーバーをCloud Run上で動かし、公開インターネットに晒さずにGemini Enterpriseへつなぐ方法を扱った解説記事だ。試作段階から企業の本番環境へ移すときに直面する、セキュリティとネットワークの課題が主題とされている。\n\n## MCPサーバーの用途\n\nGemini Enterpriseを導入する企業チームでは、AIエージェントを社内API、データベース、業務ワークフローと結びつけるため、独自のModel Context Protocol(MCP)サーバーを構築するケースが増えていると説明されている。\n\n## Cloud Runが向く理由\n\n軽量なStreamableHTTP型のMCPサーバーのホスト先として、Cloud Runは自然な選択肢だとされる。理由として挙げられているのは、自動でスケールすること、TLS証明書を標準で管理してくれること、Cloud IAMとネイティブに統合されていることの三点だ。\n\n## 本番化の三つの課題\n\n一方で、独自のMCPサーバーを試作から企業の本番環境へ移すと、セキュリティとネットワークに関する現実的な課題が三つ、すぐに表面化するという。そのひとつが、公開インターネットへ露出させない「内部専用のイングレス」である。\n\n企業のセキュリティポリシーでは、社内向けMCPサーバーはパブリックなインターネットからの通信をすべて遮断し、プライベートなVPCネットワークからのリクエストだけを受け付けることが求められる。Cloud Run上のサーバーをこの条件に合わせながら、Gemini Enterpriseとどう接続するかが焦点になる。\n\n## 接続手順の位置づけ\n\n記事は、こうした条件のもとでStreamableHTTP型のMCPサーバーをGemini Enterpriseへ接続する手順を示すチュートリアルとして書かれている。社内専用の構成を保ったまま、AIエージェントと社内システムをつなぎたい企業の開発チームが想定読者である。",
+      "bodyEn": "Enterprise teams adopting Gemini Enterprise are increasingly building custom Model Context Protocol (MCP) servers, and this tutorial covers how to connect an internal-only StreamableHTTP MCP server running on Cloud Run to Gemini Enterprise without exposing it publicly. It matters because the move from prototype to production brings security and networking requirements that enterprise teams have to meet.\n\n## Custom MCP servers\n\nAccording to the source, teams build these servers to connect AI agents with internal APIs, databases, and business workflows. The article describes the servers as lightweight and built on StreamableHTTP. The tutorial is aimed at enterprise development teams that want to take such a server beyond the initial prototype stage.\n\n## Cloud Run as the host\n\nThe article calls Google Cloud Run a natural fit for hosting these servers and gives three reasons. It scales automatically, it manages TLS certificates out of the box, and it integrates natively with Cloud IAM. These properties explain why the service is a sensible starting point before the production concerns are addressed.\n\n## No public internet exposure\n\nThe source says that moving a custom MCP server into an enterprise production environment immediately introduces three real-world security and networking challenges. The one spelled out here is internal-only ingress. Enterprise security policies, the article says, require internal MCP servers to block all public internet traffic and accept requests only from private Virtual Private Cloud (VPC) networks.\n\nThat requirement frames the tutorial's central goal. The MCP server must stay unreachable from the public internet, yet Gemini Enterprise still needs to connect to it. The guide walks through how to achieve this, so that a server built for internal APIs, databases, and workflows can be used by AI agents while respecting the network boundary that enterprise policy sets.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "社内のAPIやデータベースをAIにつなぎたいとき、この話は何が変わるの？",
+          "en": "If I want AI to reach our internal APIs and databases, what changes with this?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、Cloud Run上の社内専用MCPサーバーを、公開インターネットに出さずGemini Enterpriseへつなぐ手順を扱っています。",
+          "en": "This article walks through connecting an internal-only MCP server on Cloud Run to Gemini Enterprise without exposing it to the public internet."
+        },
+        {
+          "s": "a",
+          "ja": "試作のときは、そのままじゃダメだったの？",
+          "en": "Wasn't the prototype setup good enough as it was?"
+        },
+        {
+          "s": "b",
+          "ja": "試作から本番に移すと、セキュリティとネットワークの課題が出てくると書かれています。例えば社内向けは、公開通信を遮断してプライベートなVPCからだけ受け付ける必要があります。",
+          "en": "The article says moving from prototype to production brings security and networking hurdles. For instance, internal servers must block public traffic and accept requests only from private VPC networks."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ大事なのは、便利さだけじゃなくて「外に出さない」ことなんだね。",
+          "en": "So it's not just about convenience. Keeping it off the public internet is the key, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。記事は課題を3つ挙げていますが、この部分では最初の「公開しない入口」だけが読めます。残りの課題がどう解決されるか、注目したいですね。",
+          "en": "Right. The article lists three challenges, but only the first, internal-only ingress, is covered here. I'd watch how the remaining ones get solved."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:38:16.755Z"
+    },
+    "2f00885565037ee6": {
+      "bodyJa": "Zed Editor のパッチ版 v1.29.2 が、GitHub 上で公開された。Zed を使っている開発者にとっては、更新の前にリリース内容を確かめておきたい一件である。\n\n## v1.29.2 公開\n\n公開日時は2026年11月18日21時44分(UTC)と記録されている。zed-releases のリリース情報として掲載されており、タイトルは「Zed エディタ v1.29.2 をリリース」となっている。\n\n## パッチ版という位置づけ\n\n今回の v1.29.2 は、パッチ版として公開されたものと説明されている。バージョン番号の表記は v1.29.2 で、Zed Editor 本体のリリースとして GitHub に載っている。個々の修正項目や追加機能の一覧は、現時点で確認できていない。\n\n## GitHub上のリリース\n\nリリースページには、この内容が GitHub.com 上で作成され、GitHub の検証済み署名(verified signature)が付いているとの表示がある。さらに、リリースについて編集できるのはタイトルとリリースノートだけだという注意書きも出ている。これらは署名や編集範囲に関する表示であり、Zed の機能変更について述べたものではない。\n\n## 確認したい点\n\nこのリリースで何が変わったのかは、現時点で明らかになっていない。更新を検討している場合は、適用する前に公式のリリースページで変更内容の詳細を確認するのが確実である。",
+      "bodyEn": "## Zed Editor v1.29.2\n\nZed Editor has published version v1.29.2, a patch-level release, on GitHub. For developers who use Zed, a new release is worth noting because it is the version they would move to next.\n\nThe release was published on 2026-11-18 at 21:44 UTC, according to the source listing. It appears on the project's releases feed, where each tagged version is posted as a release entry.\n\n## Release on GitHub\n\nThe release page shows that the commit was created on GitHub.com and signed with GitHub's verified signature. That label indicates the commit was made through the GitHub web interface and carries GitHub's own signature.\n\nThe page also states that only the release title and notes can be modified. In practice, this means the text attached to the release can be edited after publication, while the release itself is otherwise fixed.\n\n## Release title and notes\n\nThe release is titled as Zed Editor v1.29.2. Its version number, with the final digit incremented, marks it as a patch release rather than a major or minor one.\n\nThe source does not give a list of specific changes. Anyone deciding whether to upgrade should read the notes on the official release page and review them before installing. Because the notes can be edited after publication, the page itself is the most reliable place to see what the release contains.\n\nFor now, the confirmed facts are the version number, the publication date and time, and the GitHub-signed commit.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:39:51.092Z"
+    },
+    "f149cad3d90c7c19": {
+      "bodyJa": "Cursor の Bugbot が、レビュー時間、コスト、バグ検出数の3点で同時に改善されました。あわせて、コードをプッシュする前にレビューを実行できる /review コマンドも追加されています。\n\n## 約90秒への短縮\n\nBugbot の平均レビュー時間は、これまでの約5分から約90秒になりました。1レビューあたりに見つかるバグの数は平均で10%増え、0.56 から 0.62 になっています。1回あたりの実行コストも約22%下がりました。\n\nこれらの向上は、現在 Bugbot を支えている Composer 2.5 の学習が進んだ結果と説明されています。なお、Bugbot はモデルのブロックリストに従い、速度やパフォーマンスは設定によって異なる場合があります。\n\n## プッシュ前の /review\n\n/review を使うと、プッシュ前に Bugbot と Security Review を実行できます。実行時には、どのエージェントを使うかを選ぶよう求められます。/review-bugbot や /review-security を直接入力して、特定のレビューだけを起動することも可能です。\n\n/review は GitHub と GitLab 上の Bugbot とも同期します。/review を実行したあと、同じ diff で PR を開くと、Bugbot はそれを認識してレビューをスキップします。その diff がすでにレビュー済みであることを示すコメントが残される仕組みです。\n\n## 対応環境\n\n/review は Cursor 3.7 以降と cursor.com/agents で利用できます。CLI のサポートは近日提供予定とされています。\n\n## 新しい変更だけを対象に\n\nBugbot は、前回のレビュー以降に新しく変更された内容だけをレビューするよう設定できるようになりました。これにより、フィードバックを最新の更新内容に絞り込めます。",
+      "bodyEn": "## Faster, Cheaper Reviews\n\nCursor's Bugbot, its automated code review tool, has become noticeably quicker and less costly to run, according to the changelog. The average review time has dropped from about five minutes to about 90 seconds. Cost per run is down roughly 22%.\n\nThe changelog also reports that Bugbot finds more bugs per review. The average rose 10%, from 0.56 to 0.62. The source attributes these gains to further training of Composer 2.5, which now powers Bugbot. It adds that Bugbot follows the model blocklist, and that speed and performance may vary depending on settings.\n\n## Reviewing Before You Push\n\nA new /review command lets developers run Bugbot and Security Review before pushing code. When /review is invoked, the user is asked to choose which agent to run. Developers can also skip the prompt and use /review-bugbot or /review-security directly.\n\nThe command also syncs with Bugbot on GitHub and GitLab. If a developer runs /review and then opens a pull request with the same diff, Bugbot recognizes it, skips the review, and leaves a comment noting that the diff has already been reviewed.\n\n## Availability and Settings\n\nAccording to the changelog, /review is available in Cursor 3.7+ and at cursor.com/agents. CLI support is described as coming soon.\n\nBugbot can also now be configured to review only what has changed since the previous review. This narrows feedback to the most recent updates rather than covering the whole change again.\n\nTaken together, the update covers three things: faster and cheaper Bugbot runs with a modest rise in bugs found, a way to trigger reviews before code leaves the local environment, and an option to limit reviews to new changes. The source does not give further detail on how the speed and cost figures were measured.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Bugbotのレビュー待ちって、普段の作業だとどれくらい変わるの？",
+          "en": "When I'm waiting on a Bugbot review, how much actually changes day to day?"
+        },
+        {
+          "s": "b",
+          "ja": "平均で約5分から約90秒になったよ。1レビューで見つけるバグも0.56から0.62に増えて、実行コストも約22%下がったんだって。",
+          "en": "The average review dropped from about 5 minutes to about 90 seconds. Bugs found per review rose from 0.56 to 0.62, and the cost per run fell about 22%."
+        },
+        {
+          "s": "a",
+          "ja": "push前にレビューできるのは新しいの？前はできなかったのかな？",
+          "en": "Is reviewing before pushing new? Couldn't we do that before?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、/review でpush前にBugbotとSecurity Reviewを実行できるようになったとあるよ。以前の手順までは書かれていないから、細かい違いは分からないな。",
+          "en": "The post says /review now lets you run Bugbot and Security Review before pushing. It doesn't describe how things worked before, so I can't say exactly what differs."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ収穫は、速くなって、push前にも確認できて、同じdiffならPRでスキップされることかな？",
+          "en": "So the big wins are faster reviews, checks before pushing, and the PR skipping a diff that's already been reviewed?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。次はCLIのサポートが近日提供予定とのことなので、そこに注目かな。今はCursor 3.7+とcursor.com/agentsで使えるよ。",
+          "en": "Right. Next, watch for CLI support, which is coming soon. For now it's available in Cursor 3.7+ and at cursor.com/agents."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:40:14.887Z"
+    },
+    "42761518ccf99b8c": {
+      "bodyJa": "AIエージェントが2つのHugging Face Spacesを連携させ、パリをテーマにした3Dギャラリーを作り上げた事例が紹介されている。画像生成ツールも3D再構成ツールも人が操作せず、素材づくりまでエージェントが担った点が焦点だ。\n\n## パリの3Dギャラリー\n\n作られたのは、パリを3Dガウシアンスプラットで表現したインタラクティブなギャラリーである。筆者は画像ジェネレーターを一度も開かず、3D再構成ツールにも触れていないという。画像と3Dを含むすべてのアセットをエージェントが生成したと説明されている。\n\n## 2つのSpaceの連携\n\n構成は、画像生成を担うSpaceと、3Dシーンを作るSpaceをエージェントがつないだものだ。生成した画像を次の工程に渡し、3Dシーンへ仕上げるという流れで、複数のSpaceを自律的にチェーンする実践例として示されている。\n\n## 部品を組み立てる発想\n\nこの事例の背景には、これからのマルチメディア系ソフトウェアの作られ方についての考えがある。最も効果的な道筋は、作り込まれた一枚岩のソフトウェアではなく、十分に文書化された小さな部品を、他者、特にエージェントが組み立てる形だという主張だ。エージェントは実績のある部品をつなぎ合わせることが得意だとされる。\n\nこの考え方はこれまで主にコードライブラリの文脈で語られてきたが、同じ力が画像、動画、音声合成(TTS)、3D再構成といったマルチメディアAIにも及んでいると述べられている。\n\n## 難所は統合だった\n\n筆者によれば、最先端の画像モデルや動画モデル、TTSモデル、3D再構成モデルを使う際に難しかったのはモデルそのものではない。難所は統合の作業にあった。具体的には、SDK、重み、GPU、入力形式、ポーリングなどが挙げられている。\n\nこの統合の手間をエージェントがSpace経由でこなし、人はモデルの使い方に深入りせずに成果物へ到達できる。そうした実用的な可能性を、パリの3Dギャラリーが示している。",
+      "bodyEn": "## An agent builds Paris in 3D\n\nAn agent built a 3D Paris gallery by chaining two Hugging Face Spaces, according to the source post. The scenes are Paris rendered as 3D Gaussian splats. The author says they never opened an image generator and never touched a 3D reconstruction tool, because the agent produced every asset, both the images and the 3D. The case matters as a concrete example of an agent orchestrating multiple hosted components to deliver a finished multimedia result.\n\n## Small, well-documented components\n\nThe post frames the demonstration around a broader thesis about how multimedia software gets built. It argues that the most effective path to software is no longer a polished monolith, but small, well-documented components that others, increasingly agents, can assemble. It adds that agents are really good at gluing together proven pieces.\n\nAccording to the author, that thesis has mostly been told with code libraries. The post argues the same forces are now reaching multimedia AI, which is where the Paris gallery fits in.\n\n## Integration is the hard part\n\nThe post makes a specific claim about where the difficulty lies. When using a state-of-the-art image model, video model, text-to-speech model, or 3D reconstruction model, the hard part was never the model itself. It was the integration. The author lists the sources of that friction: SDKs, weights, GPUs, input formats, and polling.\n\nIn this account, the agent handles that integration work. One Space supplied image generation and the other supplied 3D scene creation, and the agent linked them so that the output of the first fed the second. The result was an interactive Paris-themed gallery.\n\n## What the example shows\n\nThe demonstration is presented as a practical case of multi-Space orchestration. The person directing the work did not operate an image generator or a 3D reconstruction tool directly. The agent produced the images and the 3D scenes end to end.\n\nThe source presents this as an illustration of its thesis rather than a benchmark, and the material gives no further detail on the specific Spaces, the agent used, or the steps taken. What it does establish is the central argument: documented, composable components can be assembled by agents into working multimedia software, with integration overhead shifted away from the human.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、普段のものづくりで何が変わるの？画像生成ツールも3Dツールも、自分で触らなくていいってこと？",
+          "en": "So what changes in everyday making? Do I really not have to touch an image generator or a 3D tool myself?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事の筆者は、画像生成ツールも3D再構成ツールも開いていないそうです。画像も3Dも、エージェントがすべて作ったと書かれています。",
+          "en": "The author says they never opened an image generator or a 3D reconstruction tool. The agent produced every asset, the images and the 3D, from two Spaces."
+        },
+        {
+          "s": "a",
+          "ja": "前はできなかったの？画像モデルとかを使うのって、そんなに大変だったのかな。",
+          "en": "Couldn't this be done before? Was using those image models really that hard?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、難しいのはモデルそのものより「つなぐ作業」だったそうです。SDK、重み、GPU、入力形式、ポーリングが挙がっています。以前との細かな比較は書かれていません。",
+          "en": "The article says the hard part was integration, not the model: SDKs, weights, GPUs, input formats, polling. It doesn't compare in detail with how it was done before."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、小さな部品をつなげば、エージェントがギャラリーまで作れるってことかな？",
+          "en": "So the big takeaway is that small pieces can be chained, and an agent can build a whole gallery from them?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めます。記事は、よく文書化された小さな部品をエージェントが組み立てる流れを語っています。次は、その部品がマルチメディアでどこまで広がるかですね。",
+          "en": "That's how I read it. The article points to small, well-documented components that agents assemble. Next, I'd watch how far that approach spreads across multimedia."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:40:24.251Z"
+    },
+    "d4e17ecc9d88efef": {
+      "bodyJa": "Hugging Faceは、Hubの公式コマンドライン入口である「hf」CLIを、人間のユーザーとコーディングエージェントの両方で使えるように作り直した。複雑な複数ステップのタスクでは、CLIを使わない場合にトークン消費が最大6倍になったと報告されている。\n\n## hfはHubの公式入口\n\nhfは、Hugging Face Hubを操作するための公式のコマンドラインの入口である。Python SDKでできることは、ターミナルからも実行できるとされている。長年、主に人間のユーザー向けに作られてきたツールだ。\n\n## 操作できる範囲\n\n対象は幅広い。モデル、データセット、Spacesのダウンロードとアップロードに加え、リポジトリ、ブランチ、タグ、プルリクエストの作成と管理ができる。HFのインフラ上でJobsを実行することも可能だ。さらにBuckets、Collections、webhooks、Inference Endpointsも管理できる。\n\n## エージェント利用の増加\n\n近年、このCLIはClaude Code、Codex、Cursorなどのコーディングエージェントからも使われるようになってきた。そこでHugging Faceは、従来のユーザーとエージェントの両方に対応できるようCLIを作り直したという。作り直しの内容とベンチマークの方法は、公式ブログで解説されている。Hub上でのエージェントの利用状況は、2026年4月から追跡している。\n\n## 最大6倍のトークン差\n\n比較の対象は、CLIを使わないベースラインである。具体的には、エージェントがcurlを手書きするか、Python SDKを使って処理する方法を指す。複雑な複数ステップのタスクでは、このベースラインがhf CLIの最大6倍のトークンを消費したという。\n\nエージェントがHubを扱う場面では、使うインターフェースの違いがトークン消費に直接表れうることを示す結果だ。ただし、ここで示されているのは複雑なマルチステップのタスクでの「最大」値である。あらゆる場面で6倍になるわけではない点には注意が必要だ。",
+      "bodyEn": "## hf is the official entrypoint\n\nHugging Face has rebuilt hf, the official command-line entrypoint to the Hugging Face Hub, so that it works for both human users and the coding agents that increasingly rely on it. This matters because the CLI was originally built primarily for people, while agent usage has grown alongside it.\n\nAccording to the announcement, anything you can do on the Hub from the Python SDK can also be done from the terminal with hf. That covers downloading and uploading models, datasets and Spaces, and creating and managing repos, branches, tags and pull requests. It also covers running Jobs on HF infrastructure and managing Buckets, Collections, webhooks and Inference Endpoints.\n\n## Built for two audiences\n\nThe post says the hf CLI has been built for its users over the years but is now used by coding agents, naming Claude Code, Codex and Cursor among them. In response, the team rebuilt the CLI to serve both audiences at once. The framing is an agent-optimized design that still serves the people who have long used the tool, with the goal of making Hub operations easier to automate within agentic workflows.\n\n## Benchmarked against no CLI\n\nThe post describes how the team benchmarked the redesign. The comparison point was a no-CLI baseline, in which an agent hand-rolls curl commands or uses the Python SDK instead of calling hf. According to the announcement, on complex, multi-step tasks this baseline used up to 6× as many tokens as the hf CLI. The source presents this as a ceiling (\"up to\") observed on the more demanding tasks, not as a uniform saving across every task.\n\n## Tracking agent usage\n\nThe announcement also states that Hugging Face started tracking agent usage of the Hub in April 2026. The post is meant to summarize what the team changed and how it measured the results, and the token comparison is the main quantitative finding it highlights.\n\nIn short, the source presents hf as a single terminal interface that covers the Hub's capabilities, redesigned so that agents can drive it efficiently. The reported benefit is lower token consumption compared with agents assembling the same operations from raw curl calls or the Python SDK.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "トークンが最大6倍も違うって、驚いた！これって大きいことなの？",
+          "en": "Up to 6× more tokens? Wow. Is that actually a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "複雑な複数ステップの作業で、curlやPython SDKを自前で書くエージェントは、hf CLIの最大6倍のトークンを使ったそうです。",
+          "en": "On complex, multi-step tasks, an agent hand-rolling curl or the Python SDK used up to 6× the tokens of the hf CLI, the post says."
+        },
+        {
+          "s": "a",
+          "ja": "トークンって、そもそも何なの？",
+          "en": "Wait, what exactly is a token?"
+        },
+        {
+          "s": "b",
+          "ja": "AIが文字を読み書きするときの単位、くらいの意味です。この記事では、その使用量をhf CLIと比べています。",
+          "en": "Roughly, it's the unit an AI uses when reading and writing text. The post compares how many of those get used with the hf CLI."
+        },
+        {
+          "s": "a",
+          "ja": "私ならClaude Codeみたいなエージェントに、モデルのダウンロードを任せてみたいな。できるのかな？",
+          "en": "I'd want to hand model downloads to an agent like Claude Code. Could that work?"
+        },
+        {
+          "s": "b",
+          "ja": "ダウンロードもアップロードもhfでできるとあります。ただ6倍は複雑な複数ステップの作業での最大値なので、いつもそうとは限りません。",
+          "en": "The post says hf handles downloads and uploads. But 6× is a maximum for complex, multi-step tasks, so it won't always be that big."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:41:44.356Z"
     }
   }
 }

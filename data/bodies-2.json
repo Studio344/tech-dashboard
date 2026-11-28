@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T03:30:52.843Z",
-  "count": 378,
+  "generatedAt": "2026-11-28T04:30:54.935Z",
+  "count": 382,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -10988,13 +10988,77 @@
       "bodyJa": "複数の大手出版社が、自社の記事やコンテンツをGoogleが人工知能（AI）モデルの学習に無断で利用したとして、著作権侵害を訴える新たな訴訟を提起した。メディア業界とAI開発企業の法的対立がさらに拡大しており、今後のAI開発のあり方に影響を及ぼす可能性がある。\n\n訴訟の争点となっているのは、大規模言語モデル（LLM）の学習プロセスだ。生成AIは、インターネット上に公開された膨大なテキストや画像を取り込んで学習し、文章生成や要約などの能力を獲得する。出版社側は、こうした学習データに自社の著作物が許諾なく含まれ、対価も支払われていないと主張しているとみられる。特に、Googleが検索結果にAIによる回答を直接提示する「AI Overviews」のような仕組みは、ユーザーが元記事にアクセスしなくなり、出版社の広告収入や購読収入を損なうとの懸念が根強い。\n\n同様の訴訟は近年相次いでいる。米New York Timesは2023年末にOpenAIとMicrosoftを提訴し、作家や報道機関による集団訴訟も各国で続いている。一方で、一部の出版社はライセンス契約による共存の道を選んでおり、OpenAIやGoogleは複数のメディアと有料の提携を結んでいる。訴訟と提携という二つの潮流が並行して進んでいる点が、現在の状況の特徴と言える。\n\nAI企業側はこれまで、公開情報の学習は米著作権法の「フェアユース（公正利用）」に該当すると主張してきた。しかし、その解釈が生成AIの文脈でどこまで通用するかは裁判所の判断が定まっておらず、今回の訴訟も含めて司法の結論が業界全体の基準を左右する可能性がある。\n\nGoogleが今回の提訴にどのような反論を示すかは現時点で不明だが、判決や和解の内容次第では、学習データの調達方法やライセンス料の相場、さらにはAI製品の設計そのものにまで波及することも考えられる。日本を含む各国でも著作権とAIをめぐる議論が活発化しており、今回の動きは国際的な制度設計の行方を占う一つの指標となりそうだ。",
       "bodyEn": "A coalition of major publishers has filed a new lawsuit against Google, alleging that the company used their copyrighted articles and other content to train its artificial intelligence systems without permission or compensation. The complaint adds to a rapidly expanding body of litigation between media organizations and AI developers, and it underscores how unresolved questions about training data are becoming a central legal and commercial battleground for the technology industry.\n\nAt the heart of the case is a dispute that has recurred across the sector: whether the ingestion of copyrighted material to build large language models constitutes infringement, or whether it falls under fair use and similar exceptions. The publishers argue that their journalism represents a significant and costly investment, and that Google appears to have benefited from that work to develop products that can summarize, paraphrase, or otherwise reproduce information without directing traffic or revenue back to the original sources. Google has typically defended such practices by pointing to fair use doctrine and arguing that training models on publicly available text is transformative rather than a substitute for the original works.\n\nThe complaint reportedly focuses on both the training process and the downstream products that rely on it. Modern AI systems are built by processing enormous volumes of text, and news content is often considered especially valuable because it is timely, factual, and professionally edited. Publishers contend that features such as AI-generated overviews in search results can answer user questions directly, potentially reducing the clicks that news sites depend on for advertising and subscription income. That concern connects the legal argument about how models are trained to a broader business anxiety about how AI-driven interfaces may reshape the flow of readers across the open web.\n\nThis is not an isolated action. The suit follows a series of high-profile cases, most notably The New York Times' litigation against OpenAI and Microsoft, along with claims brought by authors, artists, music labels, and other publishers against companies including Anthropic, Stability AI, and Meta. Courts in the United States and elsewhere have begun to weigh these disputes, but there is not yet a settled body of precedent, and outcomes have so far been mixed. Some rulings have leaned toward fair-use arguments in narrow contexts, while others have allowed infringement claims to proceed, leaving the overall legal landscape unresolved.\n\nRunning alongside the courtroom fights is a parallel track of commercial negotiation. Several AI firms have signed licensing deals with publishers, agreeing to pay for access to archives and ongoing content. OpenAI, for example, has struck agreements with a number of news organizations, and Google itself has pursued content partnerships in various forms. These arrangements suggest that at least part of the industry is moving toward a licensing model, even as litigation seeks to establish whether such licensing is legally required in the first place. The new lawsuit can be read, in part, as an effort to strengthen publishers' bargaining position by pressing the argument that unlicensed training is unlawful.\n\nFor readers less familiar with the underlying technology, the core concepts help explain the stakes. Large language models learn statistical patterns from vast text datasets, and the quality and provenance of that data materially affect performance. Because the models do not simply store and retrieve articles verbatim, questions about when output infringes copyright, and how to attribute or trace training data, remain technically and legally complex. Related debates include the use of retrieval-augmented generation, which pulls in live web content, and the growing interest in \"opt-out\" mechanisms and machine-readable licensing signals that would let publishers control how their material is used.\n\nThe financial and strategic implications are considerable. If courts ultimately require broad licensing, AI developers could face higher costs and more constrained access to high-quality data, which may influence how future systems are built and priced. If fair-use defenses prevail, publishers may need to rely more heavily on negotiated deals and product partnerships. Either way, the outcome is likely to shape the relationship between the news industry and AI platforms for years to come. Google has not conceded the claims, and the litigation is expected to be lengthy, meaning any definitive resolution, whether through the courts or a settlement, appears to be some distance away.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:07:24.468Z"
+      "generatedAt": "2026-08-30T17:07:24.468Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "訴えたのって出版社だけなの？ Googleの何が問題だって言ってるんだろう？",
+          "en": "Is it only publishers suing? What exactly are they saying Google did wrong?"
+        },
+        {
+          "s": "b",
+          "ja": "出版社と著者による集団訴訟だよ。Hachette、Cengage、Elsevier、作家のScott Turowたちが、著作物をGeminiの学習に使ったと主張してるんだ。",
+          "en": "It's a class action by publishers and authors, including Hachette, Cengage, Elsevier and Scott Turow. They claim their copyrighted works were used to train Gemini."
+        },
+        {
+          "s": "a",
+          "ja": "著作権情報を消したり変えたりしたとも言ってるよね。それってどういうこと？",
+          "en": "They also say Google removed or changed copyright information. What does that mean?"
+        },
+        {
+          "s": "b",
+          "ja": "訴状では、Geminiが「盗まれた素材」で学習されたことを隠すために、意図的に消したり変えたりしたと主張してるよ。ただ、これは原告側の主張だね。",
+          "en": "The complaint says Google did it on purpose to conceal that Gemini was trained on \"stolen materials.\" But that's the plaintiffs' claim."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、GoogleだけじゃなくMetaやOpenAIも同じような訴えを受けてるんだね。",
+          "en": "So Meta and OpenAI have faced similar complaints too, not just Google."
+        },
+        {
+          "s": "b",
+          "ja": "そう、Anthropicも含めて、出版社や著者などが多くの訴えを起こしてるって記事は伝えてるよ。ただ、この訴えの結論はまだ分からないよ。",
+          "en": "Right, the article says publishers, authors and others have filed many complaints, including against Anthropic. But nothing here says how this one will turn out."
+        }
+      ]
     },
     "e305871a692415df": {
       "bodyJa": "家庭向けの複数 GPU 環境で大規模言語モデル（LLM）を高速に動かす需要が高まる中、量子化推論ライブラリ exllamav3 の Tensor Parallel（TP）を、12GB の Blackwell 世代 GPU 2 枚と WSL2 という制約下で動作させるまでの記録が公開された。VRAM の限られた民生 GPU を組み合わせて実用的な推論環境を構築する上での、実践的な知見として参考になる内容だ。\n\nexllamav3 は、EXL3 形式などの量子化モデルを効率よく扱う推論エンジンで、単一 GPU に載りきらないモデルを複数 GPU に分割する Tensor Parallel に対応する。TP は各層の行列演算を複数デバイスに分散し、全 GPU が並列に計算した結果を集約（gather や all-reduce）することでスループットを高める手法だが、GPU 間の高速な通信が前提となる。\n\nここで壁となったのが NCCL（NVIDIA Collective Communications Library）だ。TP の集団通信で標準的に使われる NCCL は、Windows 上の WSL2 環境では GPU 間の Peer-to-Peer 通信を十分にサポートしておらず、そのまま動作させることが難しいとされる。記事では NCCL に依存しない通信経路へ切り替えるといった回避策で対処している。\n\nさらに、GPU 間で計算結果を集める gather カーネルにおいて、同期の不備に起因すると見られるレースコンディション（競合状態）が発生し、出力が破損する問題にも直面したという。こうした競合は、複数ストリームやデバイスをまたぐ処理でタイミング依存の不具合として現れやすく、適切な同期を挿入することで安定動作にこぎ着けたとしている。\n\n背景として、NVIDIA の Blackwell 世代は新しいアーキテクチャゆえにドライバや CUDA、各種ライブラリの対応が発展途上で、既存コードがそのまま動かない場面も少なくない。WSL2 は Windows 上で Linux 向けの機械学習ツールを扱える利便性がある一方、ネイティブ Linux と比べてハードウェア寄りの機能に制約が残る場合がある。llama.cpp や vLLM など他の推論基盤でもマルチ GPU 構成の相性問題は報告されており、環境固有の検証が依然として重要であることを示す事例と言えるだろう。",
       "bodyEn": "Running large language models locally on consumer hardware increasingly means combining more than one mid-range GPU, and this write-up walks through the practical obstacles of doing exactly that: enabling exllamav3's Tensor Parallel inference across two 12 GB Blackwell-generation cards inside a WSL2 environment. The exercise matters because it sits at the intersection of three trends — the rise of quantized inference engines, the growing viability of multi-GPU setups for enthusiasts, and the reality that many hobbyists run their AI stack on Windows through the Windows Subsystem for Linux rather than on bare-metal Linux.\n\nBy way of background, exllamav3 is a high-performance inference library optimized for its EXL3 quantization format, designed to squeeze large models onto limited VRAM while retaining acceptable quality. Tensor Parallel, the technique at the center of this article, splits individual weight matrices across multiple GPUs so that each device handles a slice of every layer. This differs from simple layer-wise or pipeline splitting, where whole layers are assigned to separate cards. Tensor parallelism can improve throughput and lets a model that would not fit on a single 12 GB card span two of them, but it demands frequent, low-latency communication between the GPUs to combine partial results after each parallelized operation.\n\nThat communication requirement is where the first wall appears. Multi-GPU inference frameworks typically rely on NCCL, NVIDIA's Collective Communications Library, to handle the all-reduce and all-gather operations that stitch tensor-parallel shards back together. NCCL, however, is not fully supported under WSL2. The virtualized GPU path that WSL exposes does not provide the peer-to-peer and device-to-device transport features NCCL expects, so attempts to initialize an NCCL communicator inside WSL commonly fail or hang. The article frames this bluntly as the \"NCCL is impossible on WSL\" barrier, and it is a well-known limitation that has affected other projects attempting distributed workloads on the subsystem.\n\nThe workaround, as described, is to avoid NCCL entirely and route the cross-GPU synchronization through an alternative communication path. In practice this appears to mean falling back to a non-NCCL backend for the collective operations — for example, staging data through host memory or using a custom gather implementation rather than the library's optimized collectives. This sidesteps the incompatibility but shifts the burden onto exllamav3's own kernels to move and combine tensors between the two Blackwell devices, which is where the second problem surfaces.\n\nThat second issue is a race condition in the gather kernel. When partial outputs from each GPU are gathered and recombined, correct results depend on all contributing operations completing before the gathered buffer is read. If synchronization is missing or incorrectly placed, one GPU can begin reading or writing shared data before the other has finished, producing corrupted activations, non-deterministic output, or outright crashes. The article documents diagnosing and addressing this timing hazard, likely by adding or correcting stream synchronization so that the gather step waits for the relevant kernels and memory transfers to finish. Race conditions of this kind are notoriously intermittent, which makes them difficult to reproduce and easy to mistake for other faults, so pinning the behavior to the gather path is a meaningful part of the story.\n\nThe Blackwell context adds another layer of nuance. As a newer architecture, Blackwell cards can require recent CUDA toolkits, driver versions, and framework builds, and support in inference libraries may still be maturing. Combining bleeding-edge hardware with the constraints of WSL2 compounds the risk that a given code path has not been widely tested, which is one reason low-level bugs like the gather race can go unnoticed until someone runs this specific configuration.\n\nFor readers weighing a similar build, the takeaways are pragmatic rather than universal. Dual 12 GB GPUs can serve as an affordable route to running larger quantized models with tensor parallelism, but the software path is not turnkey on WSL2, and users should expect to substitute non-NCCL communication and to verify output correctness carefully. Those who can run native Linux may avoid the NCCL limitation altogether, and anyone attempting this on Windows should treat the described fixes as a starting point that may shift as exllamav3 and Blackwell support continue to evolve.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:08:18.285Z"
+      "generatedAt": "2026-08-30T17:08:18.285Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "RTX 5070を2枚で24GBにして、27Bのモデルを動かしたんだよね？どうやって収めたの？",
+          "en": "So two RTX 5070s make 24GB, and a 27B model runs on that? How did it all fit?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、モデル本体をEXL3の4.15bpwにして、KVキャッシュも2bit級に量子化したのが決め手です。それで27Bと128Kのキャッシュが24GBに収まったそうです。",
+          "en": "Per the article, the key was EXL3 at 4.15bpw for the model plus a roughly 2-bit KV cache. That let 27B and a 128K cache fit in 24GB."
+        },
+        {
+          "s": "a",
+          "ja": "そのあとTensor Parallelに挑戦したんだね。これって2枚のGPUを1つのモデルで使うってこと？",
+          "en": "Then he went for Tensor Parallel. Does that mean using both GPUs for one model?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、記事でもそういう狙いです。ただ「WSL2ではNCCLもTPも動かない」という定説と、推論で必ず落ちるクラッシュの2つが壁でした。前者は環境変数3点で突破しています。",
+          "en": "Yes, that's the goal here. But there were two walls: the \"NCCL and TP don't work on WSL2\" belief, and a crash on every inference request. Three environment variables got past the first."
+        },
+        {
+          "s": "a",
+          "ja": "落ちる原因はgather.cuの自前カーネルのレースだったんだね。それをNCCLのsend/recvに置き換えたの？",
+          "en": "So the crash came from a race in gather.cu's own kernel? And he swapped it for NCCL send/recv?"
+        },
+        {
+          "s": "b",
+          "ja": "そうです。疑われた rep_pen.cu ではなく gather.cu が真犯人でした。最終的にTP有効で2枚同時稼働し、本番はMTPを見送って20〜21 T/sで安定しています。",
+          "en": "Right. The culprit was gather.cu, not the suspected rep_pen.cu. It ended up running stably on both GPUs with TP, skipping MTP in production, at 20 to 21 T/s."
+        }
+      ]
     },
     "069f1838583b56ab": {
       "bodyJa": "## AIの独り言\n\nClaude CodeやGitHub Copilotに作業を頼むと、コードを出す前に、エラーの確認や調査方針を言葉にすることがあります。この「独り言」には、問題解決の進め方や判断根拠が含まれており、経験の浅いエンジニアが思考力を鍛える材料になると説明されています。\n\n## コードだけを見る\n\n新人エンジニアは途中の出力をスクロールで読み飛ばし、最後に示されるコードだけを見がちです。しかし、それでは修正結果は得られても、なぜその箇所を調べ、どの情報から原因を絞り込んだのかという過程を捨てることになります。\n\n先輩が短時間でバグを直した場合、周囲から見えるのは直ったという結果だけです。判断過程は本人の頭の中にあり、無意識に行われているため、尋ねても「なんとなく」としか説明されないことがあります。AIエージェントは作業過程を言語化する設計であり、その判断に相当する内容を日本語で追えるとされています。\n\n## エージェントモード\n\nGitHub Copilotで独り言が見えるのは、チャットやエージェントモードを利用しているときで、タブ補完では表示されません。エージェントモードで簡単なバグ修正を頼み、コードが出る前の出力を観察することで、この違いを体感できると説明されています。\n\n## バグ修正の流れ\n\n典型例では、まずエラーメッセージ全体を確認します。TypeError: Cannot read properties of undefined であれば、変数がどこでundefinedになるのかを特定し、呼び出し元を検索します。スタックトレースでは最下部だけを見るのではなく、自分のコードが最初に登場する行を見る、という着眼点も示されています。\n\n重要なのは、出力された修正コードをそのまま使うことだけではありません。確認、切り分け、検索、判断という流れを読み、どの情報を手掛かりに次の行動を選んだのかを追うことに、AIの独り言を読む意味があります。",
@@ -11523,82 +11587,6 @@
       ],
       "model": "gpt-5.6-sol",
       "generatedAt": "2026-10-07T21:39:35.051Z"
-    },
-    "a7f44934506c927a": {
-      "bodyJa": "## ベータ提供\n\nCursor Security Reviewが、TeamsプランとEnterpriseプラン向けのベータ版として利用可能になった。常時稼働するSecurity ReviewerとVulnerability Scannerの2種類のセキュリティエージェントにより、PRのレビューとコードベースの定期的な検査を行える。\n\n## 脆弱性チェック\n\nSecurity Reviewerは、すべてのPRを対象にセキュリティ上の脆弱性を確認する。認証まわりのリグレッションに加え、プライバシーやデータ処理に関するリスク、エージェントのツールの自動承認、プロンプトインジェクション攻撃もチェック対象となる。問題を検出した場合は、重大度と対処方法を添え、該当するdiffの箇所にインラインコメントを残す。\n\n## 定期スキャン\n\nVulnerability Scannerはコードベースを定期的にスキャンし、既知の脆弱性、古くなった依存関係、設定上の問題を調べる。指摘内容の更新をSlackへ送信する設定にも対応する。PR単位で確認するSecurity Reviewerとは異なる形で、コードベースに含まれる問題を継続的に確認できる。\n\n## カスタマイズ\n\nCursorが管理するセキュリティエージェントは、トリガーの調整、独自の指示の追加、カスタムツールの付与、出力の共有方法の選択によってカスタマイズできる。既存のSAST、SCA、シークレットスキャナー用のMCPサーバーを接続し、レビューの一部として利用させることも可能だ。\n\nランタイム、ハーネス、モデルも継続的に改善すると説明されている。セキュリティエージェントは既存の使用量プールを消費し、管理者はCursorダッシュボードでSecurity Reviewを有効にすることで利用を開始できる。",
-      "bodyEn": "## Cursor Security Review\n\nCursor Security Review is now available in beta for Cursor Teams and Enterprise plans. It provides two always-on security agents, Security Reviewer and Vulnerability Scanner, to help development teams identify risks earlier.\n\nThe security agents consume the organization’s existing usage pool. Administrators can enable Security Review from the Cursor dashboard to get started.\n\n## Security Reviewer\n\nSecurity Reviewer checks every pull request for security vulnerabilities, authentication-related regressions, privacy and data-handling risks, automatic approval of agent tools, and prompt injection attacks.\n\nWhen it identifies an issue, the agent leaves an inline comment at the relevant location in the diff. Each comment includes the issue’s severity and guidance on how to address it, keeping the finding connected to the code under review.\n\n## Vulnerability Scanner\n\nVulnerability Scanner periodically scans the codebase for known vulnerabilities, outdated dependencies, and configuration issues. Unlike the pull-request-focused Security Reviewer, it runs recurring checks across the codebase.\n\nTeams can configure the scanner to send updates about its findings to Slack. This provides an option for sharing the results outside the Cursor interface.\n\n## Customize Security Agents\n\nCursor-managed security agents can be customized by adjusting their triggers, adding organization-specific instructions, giving them custom tools, and choosing how their output is shared.\n\nFor example, teams can connect MCP servers for existing SAST, SCA, and secret scanners. Cursor can then use those servers as part of its review process.\n\nCursor is also continuing to improve the runtime, harness, and models that support Security Review, with the aim of providing an experience that can be used immediately.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "常時動く2つのエージェント、何を分担するの？",
-          "en": "There are two always-on agents. What does each one handle?"
-        },
-        {
-          "s": "b",
-          "ja": "Security Reviewerは各PRを確認し、Vulnerability Scannerはコードベースを定期スキャンする役目です。",
-          "en": "Security Reviewer checks every PR, while Vulnerability Scanner periodically scans the codebase."
-        },
-        {
-          "s": "a",
-          "ja": "開発チームが、問題を早めに見つけて直す助けになるってこと？",
-          "en": "So they help development teams find and fix problems earlier?"
-        },
-        {
-          "s": "b",
-          "ja": "うん。前者は該当diffに重大度と対処法をコメントし、後者は既知の脆弱性や古い依存関係、設定の問題を探します。",
-          "en": "Yes. The reviewer comments on relevant diffs with severity and fixes, while the scanner looks for known vulnerabilities, outdated dependencies, and configuration issues."
-        },
-        {
-          "s": "a",
-          "ja": "PRとコード全体を別々に見張れて、トリガーや指示、共有方法も調整できるんだね。",
-          "en": "Got it—they watch PRs and the broader codebase separately, and teams can adjust triggers, instructions, and how results are shared."
-        },
-        {
-          "s": "b",
-          "ja": "ただし現在はTeams・Enterprise向けベータです。既存の使用量プールを消費し、管理者がダッシュボードで有効にします。",
-          "en": "One caveat: it’s currently a beta for Teams and Enterprise. It uses the existing usage pool, and an admin must enable it in the dashboard."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T21:40:30.224Z"
-    },
-    "11f7a942f92bd4c4": {
-      "bodyJa": "## 戦略的提携\n\nGoogle DeepMindは2026年4月27日、大韓民国の科学技術情報通信部（MSIT）との戦略的パートナーシップを発表した。AI研究、人材育成、社会的応用を軸に、韓国のAIエコシステムの発展と責任あるAI活用を進める取り組みとなる。\n\n## AI研究\n\n両者は、AIが国の経済発展において重要な役割を果たすという認識を共有している。最先端AIを活用して科学的なブレークスルーを加速させ、イノベーションの可能性を広げることが協力の柱に位置付けられている。研究だけでなく、成果を社会でどのように応用するかも対象に含まれる。\n\n## 人材育成\n\nパートナーシップでは、韓国の地域人材を支援することも重視される。韓国ではAIの能力が将来の雇用とイノベーションを支える基盤になりつつあり、AIイノベーション密度で世界をリードしていると説明されている。また、世界の上位30経済圏の中で、AI導入率が最も速く伸びているとされる。\n\n## AlphaGo\n\n発表は、ソウルで行われた歴史的なAlphaGoの対局から10年という節目に重ねられた。この対局は世界の関心を集め、人工知能が持つ大きな可能性を示したものと位置付けられている。今回の提携は、その節目にGoogle DeepMindと韓国政府が協力を一段進め、研究、人材、社会での活用を通じてAIの発展に取り組むものだ。",
-      "bodyEn": "## A new partnership\n\nGoogle DeepMind has announced a strategic partnership with the Republic of Korea, working with the Ministry of Science and ICT. The partnership matters because it brings together AI research, talent development and societal applications, with the stated aim of advancing Korea’s AI ecosystem and supporting responsible AI adoption.\n\nThe two sides share a vision in which AI plays a pivotal role in national economic development. Their cooperation is intended to use frontier AI to accelerate scientific breakthroughs, push the boundaries of innovation and support local talent.\n\n## AI research and talent\n\nThe partnership focuses on three connected areas: AI research, the development of talent and the application of AI across society. Through this collaboration, Google DeepMind and the Republic of Korea aim to encourage the development of the country’s AI ecosystem while promoting responsible use of the technology.\n\nThe emphasis on local talent places skills development alongside research and societal applications. Together, these areas form the central scope of the announced partnership.\n\n## National economic development\n\nThe announcement presents AI capabilities as an increasingly important foundation for future employment and innovation in Korea. It also describes the country as uniquely positioned for an AI-driven transformation.\n\nAccording to Google DeepMind, Korea leads the world in AI innovation density and has the fastest-growing AI adoption rate among the world’s top 30 economies. These claims frame the partnership within the broader goal of supporting national economic development through AI research, innovation and adoption.\n\n## AlphaGo in Seoul\n\nThe announcement coincides with the tenth anniversary of the historic AlphaGo match in Seoul. Google DeepMind says that event captured global attention and demonstrated the profound potential of artificial intelligence.\n\nAgainst that anniversary, the new partnership is presented as a significant step forward in Google DeepMind’s work with the Republic of Korea. Its stated priorities remain scientific breakthroughs, innovation, local talent, societal applications and responsible AI adoption.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "仕事や暮らしでは、何が変わりそうなの？ すぐ使える新しいAIが出る話かな。",
-          "en": "What could this change in daily life or at work? Is it about a new AI we can use right away?"
-        },
-        {
-          "s": "b",
-          "ja": "今回は新製品ではなく、Google DeepMindと韓国政府の協力だよ。AI研究、人材育成、社会での活用を進めるとしている。",
-          "en": "This is a partnership between Google DeepMind and the Korean government, not a product launch. It focuses on AI research, talent development, and societal applications."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ、前は韓国でAI研究や人材育成ができなかったの？ 今回から始まるのかな。",
-          "en": "So Korea couldn’t do AI research or train talent before? Is all of that starting now?"
-        },
-        {
-          "s": "b",
-          "ja": "そこまでは書かれていないよ。分かる違いは、Google DeepMindと韓国の科学技術情報通信部が新たな提携を発表したことだね。",
-          "en": "The article doesn’t say that. What’s new is the announced partnership between Google DeepMind and Korea’s Ministry of Science and ICT."
-        },
-        {
-          "s": "a",
-          "ja": "研究だけじゃなく、人を育てたり社会で使ったりするところまで、一緒に進めるのが大事なんだね。",
-          "en": "So the key is working together not only on research, but also on developing people and applying AI in society."
-        },
-        {
-          "s": "b",
-          "ja": "うん、責任あるAI活用と韓国のAIエコシステム発展を目指す枠組みだよ。次は、協力がどう具体化されるかに注目したいね。",
-          "en": "Right. The stated goals are responsible AI adoption and growth of Korea’s AI ecosystem. Next, it’ll be worth watching how the collaboration takes shape."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T21:41:28.789Z"
     },
     "4bd10cf53d72879d": {
       "bodyJa": "Hugging Faceは、検索拡張生成（RAG）パイプラインの精度向上を狙ったオープンなリランカーモデル群「Ettin Reranker」を公開した。候補文書をより正確かつ効率的に並べ替えることで、ローカルLLM環境でも高品質な検索結果を得やすくする狙いがある。\n\nリランカーは、RAGにおける二段階検索の後段を担うモデルだ。一般的なRAGでは、まず埋め込みベクトルによる類似度検索で数十件程度の候補文書を高速に絞り込み、その後にリランカーが質問文と各文書を突き合わせて関連度を精密に評価し直す。埋め込みモデルが質問と文書を別々にベクトル化する「バイエンコーダ」であるのに対し、多くのリランカーは質問と文書を一組にして同時に処理する「クロスエンコーダ」構成を取り、文脈の対応関係をより深く捉えられるとされる。その分だけ計算コストは高いが、少数の候補に絞ってから適用するため実用的な速度を保ちやすい。\n\nEttin Rerankerはオープンモデルとして公開されており、重みをダウンロードして自前の環境で動かせる点が特徴となる。外部APIに依存しないため、機密性の高いデータを社外に出さずに処理できるほか、用途に合わせた微調整やコスト管理の面でも柔軟性が高いと見られる。sentence-transformersなどの既存ライブラリと組み合わせれば、現行のRAG構成へ比較的容易に組み込める可能性がある。\n\nリランカー分野では、これまでもCohereの「Rerank」やJina AI、BAAIの「BGE reranker」、mixedbreadなどが商用・オープン双方でモデルを提供してきた。近年はRAGの普及に伴って再順位付けの重要性が再認識されており、検索の初段だけでは拾いきれない微妙な関連性を補う手段として注目が集まっている。Ettin Rerankerがどの程度の精度と効率を示すかは、公開されたベンチマークや実運用での検証を通じて明らかになっていくとみられる。",
@@ -12797,6 +12785,170 @@
       "bodyEn": "Cursor has improved Design Mode, a feature in its built-in browser that lets developers steer AI agents toward user interface changes by clicking on elements, drawing directly on the rendered page, or describing edits by voice. The update is notable because it tries to close the long-standing gap between how a UI looks in a running application and the code that produces it, letting visual intent translate more directly into source changes.\n\nIn practice, Design Mode appears to function as a layer over the live preview of a web application. Rather than switching between a browser, a design tool, and the editor to reason about a layout, a developer can interact with the page itself. Clicking selects a component or region, drawing can indicate where something should move or how it should be sized, and voice input offers a hands-free way to describe more complex intent, such as adjusting spacing, changing colors, or restructuring a section. The agent then interprets these signals and proposes the corresponding edits to the underlying code.\n\nThe combination of click, draw, and voice is the central change here. Each input modality carries different strengths: pointing is precise about location, sketching conveys spatial relationships that are awkward to put into words, and speaking is well suited to describing behavior or higher-level goals. By accepting all three, Cursor is positioning the agent to disambiguate requests using multiple cues at once, which is likely to reduce the back-and-forth that often accompanies purely text-based prompting.\n\nThis builds on Cursor's broader product direction. Cursor, developed by Anysphere, is an AI-centric code editor based on the open-source foundation of Visual Studio Code, and much of its recent work has focused on agents that can read a codebase, make multi-file edits, and run tasks with limited human supervision. Adding an in-editor browser gave those agents a way to observe the result of their changes; Design Mode extends that loop so the human can annotate what they see and feed corrections back to the agent without leaving the environment.\n\nThe approach sits within a wider industry push toward visual and multimodal interfaces for AI-assisted development. Tools such as Vercel's v0, Figma's developer-oriented features, and various prompt-to-UI generators have all explored ways to move between design surfaces and code. Browser-based and WYSIWYG editing has a long history in web development, but the newer wave pairs that direct manipulation with code-generating models, so the output is editable source rather than an opaque export. Cursor's contribution here is to keep the agent and the running application tightly coupled inside a single editor.\n\nVoice input is one of the more distinctive elements. Speech-driven coding has been explored by accessibility-focused tools and by experimental projects, but it remains relatively uncommon in mainstream development workflows. Whether voice becomes a routine part of UI editing will likely depend on how reliably the agent transcribes and interprets spoken instructions, and on how comfortable developers are dictating changes in shared or open office settings. For some tasks, speaking a change may be faster than typing a detailed prompt; for others, precise text or direct manipulation may remain preferable.\n\nSeveral practical questions are worth keeping in mind. The quality of the generated edits depends on the underlying model and on how well the agent maps a visual region to the right part of the codebase, which can be harder in large or heavily abstracted projects. Reviewing the agent's diffs remains important, since automatically applied UI changes can have side effects on responsiveness, accessibility, or component reuse. As with other agentic features, the workflow tends to work best when a human verifies the result rather than accepting changes unseen.\n\nFor teams already using Cursor, the improved Design Mode mainly lowers the friction of iterating on front-end work, offering a more direct path from \"this should look different\" to a concrete code change. It reflects a continuing shift toward editors that combine writing, previewing, and editing in one place, with agents handling more of the mechanical translation between intent and implementation. As these capabilities mature, the practical test will be whether they save time on real projects without introducing changes that developers later have to unpick by hand.",
       "model": "claude-opus-4.8",
       "generatedAt": "2026-06-28T06:09:02.391Z"
+    },
+    "90db74e0e3c4d6de": {
+      "bodyJa": "GitHub Desktopが、同じホストに複数のアカウントでサインインできるようになった。対象はGitHub.com、GitHub Enterprise Server、GHE.comで、Desktopのコミュニティで最も要望の多かった機能の一つと説明されている。\n\n## 複数アカウントの追加\n\n1つのホストに追加できるアカウントの数に固定の上限は設けられていない。GitHub.comだけでなく、GitHub Enterprise ServerやGHE.comでも同様に、同一ホストで複数のアカウントを使える。\n\n## リポジトリごとの紐付け\n\n今回の変更の中心は、各リポジトリを特定のアカウントに関連付けられる点だ。紐付けたアカウントの認証情報が、クローン、公開(パブリッシュ)、Git操作の際に自動的に使われる。個人用と業務用のように複数のアカウントを使い分ける場合でも、認証情報を手動で切り替える手間を減らせるとされる。\n\nリポジトリを追加またはクローンするときの動作は、状況によって異なる。サインイン中の複数のアカウントがそのリポジトリにアクセスできる場合は、使うアカウントを選択する。アクセスできるアカウントが1つだけの場合は、Desktopがそのアカウントを推測して選ぶ。\n\n## 後から変更、既存環境への影響\n\nリポジトリに関連付けたアカウントは、あとから変更できる。変更はリポジトリの設定、またはリポジトリ一覧のコンテキストメニューから行う。\n\n既存のリポジトリは、それまで使っていたアカウントへ自動的に移行される。したがって、ホストごとにアカウントが1つだけの場合は、利用者側で変わることはないと説明されている。",
+      "bodyEn": "## Multiple Accounts on One Host\n\nGitHub Desktop now supports signing in with more than one account on the same host. This applies to GitHub.com, GitHub Enterprise Server, and GHE.com. According to the announcement, this has been one of the most requested features in the Desktop community, and it matters for anyone who uses separate identities, such as personal and work accounts, on a single host.\n\nUsers can add more than one account for a single host, and the announcement states there is no fixed limit on how many.\n\n## Associating Repositories with Accounts\n\nEach repository can be associated with a specific account. Once that link is set, clone, publish, and Git operations use the right credentials automatically, so the developer does not need to switch credentials by hand.\n\nWhen adding or cloning a repository that several signed-in accounts can access, the user chooses which account to use. If only one of the signed-in accounts can access the repository, Desktop infers the account on its own.\n\n## Changing an Association Later\n\nThe account tied to a repository is not permanent. According to the announcement, it can be changed at any time, either from the repository settings or from the context menu in the repository list.\n\n## Existing Repositories and Migration\n\nRepositories you already have are migrated automatically to the account you were already using. The announcement notes that anyone with only one account per host will see no change in how Desktop works for them.\n\nIn short, the update lets Desktop hold several accounts per host, ties each repository to one of them, and carries existing setups forward without requiring action from users who have a single account per host.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "同じホストで複数アカウントにサインインできるようになったって、これ大きいことなの？",
+          "en": "Signing in with multiple accounts on the same host now — is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、Desktopコミュニティで特に要望の多かった機能だと書かれています。しかも追加できる数に決まった上限はないそうです。",
+          "en": "The post says it's among the most requested Desktop features. And there's no fixed limit on how many accounts you can add per host."
+        },
+        {
+          "s": "a",
+          "ja": "リポジトリにアカウントを紐付けるって、どういうこと？",
+          "en": "What does it mean to associate a repository with an account?"
+        },
+        {
+          "s": "b",
+          "ja": "リポジトリごとに「このアカウントで使う」と決めておく、くらいの意味です。クローンや公開、Git操作が自動で正しい認証情報になります。",
+          "en": "You tell each repository which account it uses. Then clone, publish, and Git operations automatically use the right credentials."
+        },
+        {
+          "s": "a",
+          "ja": "私なら個人用と仕事用を分けて使えそう。間違えて紐付けたらどうなるの？",
+          "en": "I could keep personal and work accounts apart. What if I link the wrong one?"
+        },
+        {
+          "s": "b",
+          "ja": "いつでも変えられます。リポジトリ設定か、一覧の右クリックメニューからです。アカウントが1つだけなら、既存の環境は何も変わりません。",
+          "en": "You can change it anytime from repository settings or the list's context menu. And if you only have one account per host, nothing changes."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:37:51.875Z"
+    },
+    "19fd3c0bc6d1a897": {
+      "bodyJa": "Zed Editor のプレリリース版 v1.30.1-pre が GitHub 上で公開された。正式版に先立って出されるビルドであり、早い段階で動作を確かめたい利用者に向けた更新とされる。\n\n## v1.30.1-pre\n\n今回のビルドの版名は v1.30.1-pre で、末尾の「-pre」が示すとおりプレリリースとして扱われている。公開日時は2026年11月18日22時35分(UTC)で、zed-releases のリリース情報として配信された。プレリリース版という性質上、正式版と同じ位置づけの更新ではない点には留意したい。\n\n## GitHub 上の表示\n\nリリースのページには「release」という表示があり、編集できるのはリリースのタイトルとノートのみだと示されている。公開後に手を加えられるのは、説明にあたる部分に限られるという扱いである。\n\nまた、このコミットは GitHub.com 上で作成され、GitHub の検証済み署名(verified signature)で署名されていると表示されている。これらはエディターの機能ではなく、リリースページそのものの状態や仕様に関する表示である。\n\n## 先行検証の位置づけ\n\nこのリリースが何を変えたのか、個別の機能追加や修正の内容については、ここでは断定できない。確かなのは、v1.30.1-pre というプレリリース版が GitHub で公開されたという点である。\n\n先行検証を目的とする利用者向けの更新であり、個々の変更点を知るにはリリースノートの記載を確認する必要がある。",
+      "bodyEn": "Zed Editor has a new prerelease build, v1.30.1-pre, published on GitHub on 2026-11-18 at 22:35 UTC. The \"-pre\" suffix marks it as a prerelease, which matters mainly to people who want to try a build early.\n\n## Zed Editor v1.30.1-pre\n\nThe release appears in the zed-releases feed as a release entry. Its version label is v1.30.1-pre. The source gives no list of individual changes, so this explainer does not describe fixes or features. What can be said is that the build exists, that it carries a prerelease designation, and that it was published on the date above.\n\nAccording to the available summary, the build mainly serves users who want to test early versions before the stable release. Anyone who needs details of what changed should check the release notes on the GitHub release page itself.\n\n## Created on GitHub.com\n\nThe release page states that its commit was created on GitHub.com and signed with GitHub's verified signature. In practice, this means the release entry was produced through the GitHub web interface, and GitHub vouches for the signature on that commit.\n\n## Only release title and notes\n\nThe page also states that, for this release, only the release title and notes can be modified. This describes what can be edited on the release entry after publication. It says nothing about the contents of the build.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "v1.30.1-pre って、何が変わったの？ 気になって見てみたんだけど。",
+          "en": "What actually changed in v1.30.1-pre? I looked, but I couldn't tell."
+        },
+        {
+          "s": "b",
+          "ja": "この記事では具体的な変更点は載っていなくて、分かるのはGitHubでプレリリース版が公開されたことくらいなんだ。",
+          "en": "This article doesn't list any specific changes. What we can see is that a prerelease build went up on GitHub."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、これは誰向けなの？ 早く新しいのを試したい人、って感じ？",
+          "en": "So who is it for? People who want to try new builds early?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね、安定版の前に先行して試したい利用者向けの更新、という位置づけだよ。",
+          "en": "Right, it's aimed at users who want to test an early build before the stable release."
+        },
+        {
+          "s": "a",
+          "ja": "公開はされたけど中身は分からないから、まず先行して試す人向け、って覚えておけばいいかな。",
+          "en": "So it's out, but we don't know what's in it. I'll remember it as something for early testers."
+        },
+        {
+          "s": "b",
+          "ja": "うん、それでいいと思う。ただ変更点は確認できないから、先行版だと分かった上で使うのがいいかもね。",
+          "en": "Yep. Just keep in mind the changes aren't confirmed, so it's best to use it knowing it's an early build."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:39:44.548Z"
+    },
+    "78ac018eae07eac2": {
+      "bodyJa": "NVIDIAは、Nemotron 3.5 Content Safetyを公開した。テキストと画像に対応するマルチモーダルな安全モデルで、企業が独自のコンテンツポリシーを適用しながら、グローバルに展開するAIシステムの安全対策を進められるとされる。\n\n## 英語分類器からモデル群へ\n\nこの2年間で、NVIDIAのコンテンツ安全スタックは、英語テキストに絞った分類器から、専門化したモデルのファミリーへと成長してきたと説明されている。各モデルは、対応するモダリティ、言語、推論モードを新たに広げる役割を担ってきた。\n\n2026年3月に公開されたNemotron 3 Content Safetyは、マルチモーダルと多言語の能力を初めて組み合わせたモデルである。パラメータ数は4Bで、これを単一のモデルで実現した。\n\n## 1回の推論に4要素\n\nNemotron 3.5 Content Safetyは、この流れを締めくくるモデルと位置づけられている。マルチモーダル入力、多言語への対応、企業独自のポリシー適用、監査可能な推論という4つを、1回の推論呼び出しにまとめた単一モデルだという。\n\nこれらの機能がひとつのモデルに集約されている点が、3.5の特徴として示されている。\n\n## 本番の安全パイプライン\n\n元のブログ記事では、3.5での変更点、各新機能の背景にある設計上の判断、そしてモデルを本番の安全パイプラインへ組み込む方法が取り上げられている。\n\n企業が独自のポリシーを適用できる点と、推論を監査できる点は、グローバルにAIシステムを展開する組織に向けた機能として提示されている。",
+      "bodyEn": "NVIDIA has released Nemotron 3.5 Content Safety, a customizable multimodal safety model aimed at global enterprise AI. According to the announcement, it supports text and images and lets enterprises enforce tailored content policies across AI deployments in different regions.\n\n## From Text Classifier to Family\n\nThe announcement describes the last two years of NVIDIA's content safety work as growth from a focused English text classifier into a family of specialized models. Each addition extended coverage to new modalities, languages, or inference modes.\n\nThe most recent step before this release was Nemotron 3 Content Safety, issued in March 2026. The post says it was the first to combine multimodal and multilingual capabilities, and that it did so in a single 4B-parameter model.\n\n## What's New in 3.5\n\nNVIDIA says Nemotron 3.5 Content Safety \"completes that arc.\" It describes the model as a single system that unifies four things in one inference call:\n\nMultimodal input, covering text and images.\n\nMultilingual reach.\n\nCustom enterprise policy enforcement.\n\nAuditable reasoning.\n\nThe key claim is that these capabilities are handled together in one call rather than split across separate models or steps. The policy customization is the part aimed at enterprises, since it lets an organization apply its own content rules rather than a fixed set.\n\n## Production Safety Pipelines\n\nThe post says it covers three topics: what changes in version 3.5, the design decisions behind each new capability, and how to integrate the model into production safety pipelines. The source material available here does not go into those design decisions or integration steps, so this explainer does not describe them. Readers who want specifics on deployment or policy configuration should consult the original post on the Hugging Face blog.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "会社のAIサービスで使うとき、普段の何が変わるの？",
+          "en": "If a company uses this in its AI service, what actually changes day to day?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、画像も多言語も会社独自のルールも、理由を追える推論も、1回の呼び出しでまとめて扱えると説明されているよ。",
+          "en": "The post says one call can handle images, multiple languages, a company's own policies, and reasoning you can audit, all together."
+        },
+        {
+          "s": "a",
+          "ja": "前のバージョンでは、その全部はできなかったの？",
+          "en": "So the earlier version couldn't do all of that?"
+        },
+        {
+          "s": "b",
+          "ja": "3月公開のNemotron 3は、マルチモーダルと多言語を初めて1つの4Bモデルにまとめたそうだよ。3.5はそこに自社ポリシーと監査できる推論が加わる流れだね。",
+          "en": "Nemotron 3, out in March 2026, first combined multimodal and multilingual in one 4B model. 3.5 seems to add custom policies and auditable reasoning on top."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、画像も言葉も自社ルールも1回でまとめて判定できることかな？",
+          "en": "So the big takeaway is checking images, text, and a company's own rules together in one go?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。この記事は続けて、新機能の設計の考え方と、本番の安全パイプラインへの組み込み方を扱うと言っているから、そこを読むと良さそう。",
+          "en": "Right. The post goes on to cover the design choices behind each new feature and how to plug it into production safety pipelines. That's worth reading next."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:41:24.672Z"
+    },
+    "c76ccf576c616d16": {
+      "bodyJa": "Appleは、App Storeエコシステム全体が2025年に促進した開発者の請求額と売上が、1.4兆ドルを超えたと発表した。この数字は、経済学者チームであるAnalysis Groupの新たな調査に基づくものとされる。\n\n## 1.4兆ドルという規模\n\n発表によると、世界のApp Storeエコシステムが2025年に促進した開発者の請求額と売上の合計は、1.4兆ドルを上回った。算出を担ったのはAnalysis Groupの経済学者たちで、Appleはこの調査結果をもとに、世界中の開発者が引き続き成長していると位置づけている。\n\n## 手数料なしが9割超\n\n数字の中でとくに目を引くのが、手数料に関する説明だ。App Storeエコシステムが促進した請求額と売上のうち90%超について、開発者はAppleに手数料を一切支払っていないとされる。1.4兆ドルという総額の大半は、Appleへの手数料が発生しない部分だという構図になる。\n\n## 2019年から約3倍に\n\nAppleは、2019年以降にApp Storeエコシステムの規模がほぼ3倍になったと説明している。あわせて、App Storeはユーザーがアプリを見つけてダウンロードする場として、最も安全で最良であり続けているとも述べている。この「安全で最良」という評価はAppleの主張である。\n\n## AI活用アプリも対象\n\nAppleによれば、App Storeは世界中の開発者がユーザーに向けて新しい体験を築くことを支え続けており、その中には人工知能(AI)のような新興技術を使ったアプリも含まれる。\n\n今回の発表は、2025年の1.4兆ドルという総額、9割超で手数料が発生していない点、2019年からの約3倍という成長を軸に、App Storeエコシステムの広がりを示す内容となっている。",
+      "bodyEn": "Apple announced that the global App Store ecosystem facilitated more than $1.4 trillion in developer billings and sales in 2025. The figure matters because it shows the scale of commercial activity running through the platform, as Apple presents it.\n\n## Record $1.4 Trillion Ecosystem\n\nAccording to the announcement, the number comes from a new study by economists at Analysis Group. Apple describes the result as a record and says developers continue to thrive globally. The measure is billings and sales facilitated by the ecosystem, which is the basis on which the $1.4 trillion total is stated.\n\n## Developers Paid No Commission\n\nOne detail in the announcement concerns commission. Apple says that for more than 90 percent of the billings and sales facilitated by the App Store ecosystem, developers did not pay any commission to Apple. The announcement presents this alongside the headline total, so the two figures should be read together: according to Apple, the large majority of the activity counted in the study carried no commission.\n\n## Growth Since 2019\n\nApple also states that the size of the App Store ecosystem has nearly tripled since 2019. In the same passage, the company describes the App Store as remaining the safest and best place for users to discover and download apps. That characterization is Apple's own claim, not something attributed to the study.\n\n## Supporting New Experiences\n\nThe announcement says the App Store continues to support developers as they build new experiences for users around the world. It specifically mentions apps that use emerging technologies such as artificial intelligence.\n\nTaken together, the announcement makes four points: the 2025 total, the share of activity without commission, the near-tripling since 2019, and continued support for developers building new kinds of apps. All of them come from Apple's own announcement and its reference to the Analysis Group study.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、アプリを作る人にとっては普段の何が変わる話なの？",
+          "en": "So what does this change for people who make apps day to day?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、2025年に1.4兆ドル超の売上が動いたとされています。しかもその9割以上で、開発者はAppleに手数料を払っていないそうです。",
+          "en": "The article says over $1.4 trillion in billings and sales flowed through in 2025. And for more than 90 percent of it, developers paid Apple no commission."
+        },
+        {
+          "s": "a",
+          "ja": "手数料を払わない分が9割もあるんだ！前からこんなに大きかったの？",
+          "en": "Wow, 90 percent with no commission! Was it always this big?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、2019年からエコシステムの規模はほぼ3倍になったとあります。手数料の割合が以前どうだったかは、書かれていないので分かりません。",
+          "en": "The article says the ecosystem has nearly tripled since 2019. It doesn't say what the commission share looked like before, so I can't tell you that."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、2019年から3倍近くになって、世界中の開発者に広がってるってことかな。",
+          "en": "So the big takeaway is that it's nearly tripled since 2019, with developers around the world benefiting?"
+        },
+        {
+          "s": "b",
+          "ja": "その読み方で合っていそうです。あと記事ではAIなど新しい技術を使うアプリも支えていくとあるので、そこが次の注目点かもしれません。",
+          "en": "That reading fits. The article also mentions supporting apps built with emerging tech like AI, so that could be worth watching next."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:41:16.991Z"
+    },
+    "bda79656119b3b90": {
+      "bodyJa": "## MCPで権限分担\n\nMCPを使い、AIエージェントには参照系の権限だけを渡し、更新・変更はシステムまたは人間に残す設計パターンを解説する。AIの自律性と安全性のバランスを取る実践的な手法として、AWS上で構成し検証している。\n\n## S3の読み書き\n\n題材はS3オブジェクトの読み書きだ。AIエージェントにはバケット内を読む操作を担わせる一方、更新作業は拒否する。バケットの読み取りと書き込みは、システムまたは人が実施する分担となる。\n\n## IAMユーザー\n\n要件を満たすだけなら、S3の読み取り権限を持つIAMユーザーを1つ作る方法でも済むと説明されている。ただし記事ではその方法を採らず、AWS Identity Centerを用いる。単なる読み取り用ユーザーの作成ではなく、MCPを活用した権限分担が検証の中心である。",
+      "bodyEn": "## AI agents\n\nThis article presents an MCP design pattern that gives AI agents read-only permissions while leaving write and update operations to people or the system. The approach matters because it aims to balance AI autonomy with safety by separating lower-risk reference actions from higher-risk changes.\n\n## S3 objects\n\nThe pattern is implemented and tested on AWS using reads and writes of S3 objects as the example. The AI agent is allowed to inspect the contents of a bucket, but attempts to update that content are rejected. A person or the system retains the ability to perform both reads and writes.\n\n## Read-only permissions\n\nThe source notes that the basic requirement could be met by creating a single IAM user with S3 read permissions. However, the article does not use that simpler route and instead describes the division of permissions through an MCP-based setup. The resulting arrangement keeps data modification outside the AI agent’s permitted operations while allowing it to carry out read-only tasks.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T20:53:01.345Z"
+    },
+    "6b80fc88b1aec8c5": {
+      "bodyJa": "## Memory MCP\n\nClaude CodeのようなAIは、会話が終わるとそれまでのやり取りを覚えていません。そこで、AIに外部機能を追加できるMCPの公式サンプルとして配布されている、会話をまたいだ「記憶」を持たせるサーバーを、AI本体を経由せず直接呼び出して挙動が検証されました。\n\n## 記憶の保存先\n\n同じ名前でもう一度記憶を登録すると、既存内容の上書きやマージは行われず、新しい内容がまるごと無視されると説明されています。また、初期設定では保存先がプロジェクトのフォルダではなく、npm installで作られる場所に置かれます。\n\n## npm install\n\nこのため、npm installを再実行するだけで、保存されていたナレッジグラフの記憶データが消失したとされています。継続的に記憶を保持する運用では、データ永続化に別途対策が必要だと要約されています。",
+      "bodyEn": "## Memory MCP server for Claude\n\nA hands-on test found that reinstalling the Memory MCP server through npm erased its stored knowledge graph data. The result matters because the server is intended to give an AI “memory” across conversations, while an AI such as Claude Code does not retain previous exchanges after a conversation ends.\n\n## Model Context Protocol\n\nThe server is distributed as an official sample of MCP, or Model Context Protocol, a mechanism for adding external capabilities to an AI. The test examined the server directly, without going through the AI itself, to check its behavior.\n\nThe test also found that registering memory again under the same name did not overwrite or merge the existing entry. Instead, the new content was ignored in full.\n\n## Data persistence\n\nUnder the default configuration, the memory was not stored in the project folder. Its storage location was created by npm install, and running npm install again caused the knowledge graph memory data to disappear.\n\nAccording to the existing summary, using the server where persistent memory is required therefore needs a separate data-persistence measure.",
+      "model": "chat-backfill:gpt-5.6-sol",
+      "generatedAt": "2026-08-30T20:53:28.266Z"
     }
   }
 }

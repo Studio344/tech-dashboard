@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-28T03:30:57.443Z",
+  "generatedAt": "2026-11-28T04:30:58.375Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
-    "allTime": 8340,
-    "last30d": 110,
-    "last7d": 44,
-    "last24h": 4
+    "allTime": 8352,
+    "last30d": 119,
+    "last7d": 47,
+    "last24h": 6
   },
   "byDay": [
     {
@@ -384,13 +384,13 @@
       "date": "2026-10-01",
       "count": 20,
       "byCategory": {
-        "codex": 1,
         "tech-news": 10,
         "cline": 1,
         "gemini": 2,
         "cursor": 2,
         "vscode": 3,
-        "agent-fw": 1
+        "agent-fw": 1,
+        "codex": 1
       }
     },
     {
@@ -544,8 +544,9 @@
     },
     {
       "date": "2026-10-22",
-      "count": 1,
+      "count": 2,
       "byCategory": {
+        "tech-news": 1,
         "vscode": 1
       }
     },
@@ -579,9 +580,9 @@
     },
     {
       "date": "2026-10-27",
-      "count": 2,
+      "count": 4,
       "byCategory": {
-        "tech-news": 2
+        "tech-news": 4
       }
     },
     {
@@ -602,9 +603,10 @@
     },
     {
       "date": "2026-10-30",
-      "count": 1,
+      "count": 2,
       "byCategory": {
-        "research": 1
+        "research": 1,
+        "mcp": 1
       }
     },
     {
@@ -637,8 +639,9 @@
     },
     {
       "date": "2026-11-10",
-      "count": 3,
+      "count": 4,
       "byCategory": {
+        "mcp": 1,
         "opencode": 1,
         "local-llm": 1,
         "tech-news": 1
@@ -646,9 +649,9 @@
     },
     {
       "date": "2026-11-11",
-      "count": 5,
+      "count": 6,
       "byCategory": {
-        "mcp": 1,
+        "mcp": 2,
         "local-llm": 1,
         "research": 1,
         "tech-news": 2
@@ -673,6 +676,13 @@
     },
     {
       "date": "2026-11-14",
+      "count": 1,
+      "byCategory": {
+        "tech-news": 1
+      }
+    },
+    {
+      "date": "2026-11-16",
       "count": 1,
       "byCategory": {
         "tech-news": 1
@@ -720,11 +730,12 @@
     },
     {
       "date": "2026-11-21",
-      "count": 11,
+      "count": 12,
       "byCategory": {
         "cline": 1,
         "local-llm": 3,
         "tech-news": 3,
+        "agent-fw": 1,
         "opencode": 1,
         "cursor": 2,
         "copilot": 1
@@ -747,12 +758,13 @@
     },
     {
       "date": "2026-11-24",
-      "count": 19,
+      "count": 21,
       "byCategory": {
+        "gemini": 2,
         "opencode": 2,
+        "mcp": 1,
         "local-llm": 3,
         "tech-news": 4,
-        "gemini": 1,
         "agent-fw": 8,
         "copilot": 1
       }
@@ -788,8 +800,9 @@
     },
     {
       "date": "2026-11-28",
-      "count": 2,
+      "count": 4,
       "byCategory": {
+        "vscode": 2,
         "local-llm": 1,
         "mcp": 1
       }
@@ -1075,14 +1088,14 @@
       "month": "2026-04",
       "count": 174,
       "byCategory": {
-        "gemini": 19,
-        "cursor": 8,
-        "vscode": 5,
-        "opencode": 9,
-        "agent-fw": 8,
         "local-llm": 14,
         "tech-news": 21,
+        "opencode": 9,
+        "gemini": 19,
         "codex": 67,
+        "cursor": 8,
+        "vscode": 5,
+        "agent-fw": 8,
         "cline": 10,
         "claude": 6,
         "research": 2,
@@ -1187,14 +1200,14 @@
     },
     {
       "month": "2026-10",
-      "count": 146,
+      "count": 150,
       "byCategory": {
         "research": 5,
+        "mcp": 6,
         "local-llm": 16,
-        "mcp": 5,
         "vscode": 15,
         "agent-fw": 7,
-        "tech-news": 41,
+        "tech-news": 44,
         "claude": 7,
         "copilot": 19,
         "cursor": 10,
@@ -1206,18 +1219,18 @@
     },
     {
       "month": "2026-11",
-      "count": 109,
+      "count": 117,
       "byCategory": {
+        "vscode": 6,
         "local-llm": 12,
-        "mcp": 6,
+        "mcp": 9,
         "cline": 5,
         "copilot": 15,
-        "agent-fw": 12,
+        "agent-fw": 13,
         "cursor": 10,
-        "vscode": 4,
         "opencode": 10,
-        "tech-news": 22,
-        "gemini": 4,
+        "tech-news": 23,
+        "gemini": 5,
         "claude": 5,
         "research": 4
       }
@@ -1281,8 +1294,8 @@
     },
     {
       "source": "qiita-vscode",
-      "total": 275,
-      "last30d": 0
+      "total": 277,
+      "last30d": 2
     },
     {
       "source": "cline-releases",
@@ -1341,8 +1354,8 @@
     },
     {
       "source": "google-deepmind",
-      "total": 131,
-      "last30d": 0
+      "total": 132,
+      "last30d": 1
     },
     {
       "source": "qiita-llm",
@@ -1371,8 +1384,8 @@
     },
     {
       "source": "aws-ml-blog",
-      "total": 103,
-      "last30d": 0
+      "total": 104,
+      "last30d": 1
     },
     {
       "source": "google-cloud-blog",
@@ -1440,6 +1453,11 @@
       "last30d": 1
     },
     {
+      "source": "mcp-blog",
+      "total": 30,
+      "last30d": 4
+    },
+    {
       "source": "meta-engineering",
       "total": 30,
       "last30d": 6
@@ -1460,14 +1478,14 @@
       "last30d": 2
     },
     {
-      "source": "mcp-blog",
-      "total": 26,
-      "last30d": 0
-    },
-    {
       "source": "mcp-servers-releases",
       "total": 24,
       "last30d": 4
+    },
+    {
+      "source": "apple-newsroom",
+      "total": 19,
+      "last30d": 1
     },
     {
       "source": "github-blog-ai",
@@ -1478,11 +1496,6 @@
       "source": "microsoft-research",
       "total": 16,
       "last30d": 5
-    },
-    {
-      "source": "apple-newsroom",
-      "total": 15,
-      "last30d": 0
     },
     {
       "source": "continue-releases",
@@ -1516,8 +1529,8 @@
     }
   ],
   "byImportance": {
-    "1": 4621,
-    "2": 3352,
+    "1": 4630,
+    "2": 3355,
     "3": 367
   }
 }

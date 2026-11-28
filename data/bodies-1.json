@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T03:30:52.843Z",
-  "count": 373,
+  "generatedAt": "2026-11-28T04:30:54.935Z",
+  "count": 377,
   "bodies": {
     "7b752c9b3e3af2c6": {
       "bodyJa": "AIエージェントが高度化するにつれ、誤動作や悪用が発生した際の影響範囲（ブラスト半径）も拡大する。本記事はAnthropicのエンジニアリングブログに掲載され、その上限をどう設計するかという実践的な問いに答えている。\n\n対象製品はclaude.ai・Claude Code・Coworkの3つ。それぞれ異なるユースケースと権限モデルを持つ中で、共通の封じ込め原則をどう適用したかが論点と推察される。具体的な実装詳細は原文で確認することを推奨する。\n\nエージェントの安全設計に携わる開発者や、Claudeを自社プロダクトに組み込む実務者にとって参考になる内容と見られる。",
@@ -12018,7 +12018,39 @@
       "bodyJa": "NVIDIAは、オープンモデル群「Nemotron」を軸とした新たな取り組み「Nemotron Labs」を通じ、企業や各国政府が自前のインフラ上でAIを構築・カスタマイズし、完全に制御できる基盤の提供を打ち出した。生成AIの活用が広がる一方でデータ主権やセキュリティへの懸念が高まるなか、外部のクラウドサービスに依存しない選択肢として注目される。\n\nNemotronは、NVIDIAが公開してきた大規模言語モデル(LLM)のファミリーで、モデルの重み(パラメータ)や関連ツールを開示する「オープン」な形態を特徴とする。利用者は自社のデータセンターや管理下の環境にモデルを配置し、独自データを使ったファインチューニングや、業務に合わせた調整を行える。API経由でしか使えないクローズドなモデルと異なり、内部の挙動を検証しやすく、機密情報を外部に送らずに運用できる点が、信頼性を重視する組織にとっての利点とされる。\n\n背景には「AI主権(AI sovereignty)」と呼ばれる潮流がある。各国政府や規制産業では、国民や顧客のデータを国外のサーバーに預けることへの警戒が強まっており、自国の言語や文化、法制度に適合したAIを国内インフラ上で運用したいという需要が拡大している。医療、金融、公共分野など、規制やコンプライアンスの制約が厳しい領域では、モデルの制御可能性やカスタマイズ性が導入の前提条件になりつつある。\n\nオープンモデルをめぐっては、MetaのLlamaシリーズやフランスのMistral、各国発の地域特化型モデルなど、企業や研究機関の選択肢が近年急速に増えている。NVIDIAの場合、こうしたモデル自体に加え、学習・推論を担うGPUや開発基盤「NeMo」、推論最適化のためのソフトウェア群を一体で提供できる点が特徴と見られる。ハードウェアからモデル、運用ツールまでを組み合わせて訴求することで、自社エコシステムへの取り込みを狙う戦略とも受け取れる。\n\nもっとも、オープンモデルの自社運用には、GPUなどの計算資源の確保や、モデルを扱う専門人材、継続的な保守といったコストが伴う。すべての組織にとって最適な解になるとは限らず、クローズドなクラウドサービスとの使い分けが現実的な論点となる可能性がある。データの管理主体をどこに置くかという問いは今後も各組織で議論が続くとみられ、Nemotron Labsはその選択肢を広げる動きとして位置づけられる。",
       "bodyEn": "NVIDIA has consolidated its open-model efforts under a banner it calls Nemotron Labs, positioning openly available AI systems as a way for enterprises and national governments to deploy, adapt, and retain full control over models running on their own infrastructure. The framing matters because it lands directly in an ongoing debate over who controls the most capable AI systems, and whether organizations handling sensitive data must route that data through third-party cloud APIs to benefit from advanced models.\n\nAt its core, the Nemotron family consists of models distributed with open weights, and in several cases accompanied by documentation of the datasets, training recipes, and post-training techniques used to build them. That distinction is important. \"Open\" spans a spectrum: some releases publish only the final model weights, while others also share data and code that let outside teams reproduce or audit the work. NVIDIA has generally described Nemotron as sitting toward the more transparent end, which the company argues gives customers a clearer basis for trust than a closed API whose inner workings are not inspectable.\n\nThe practical appeal centers on control and customization. Because the weights can be downloaded and run locally, an organization can fine-tune a model on proprietary data without that data leaving its environment. For regulated sectors such as finance, healthcare, and the public sector, this supports air-gapped or on-premises deployment where compliance rules restrict sending information to external services. It also insulates users from the risk of a vendor changing pricing, deprecating a model version, or altering behavior in ways that break downstream applications, a recurring concern with proprietary hosted systems.\n\nThe government angle is tied to what the industry has taken to calling sovereign AI. NVIDIA and others have promoted the idea that nations may want to build and operate AI capabilities on domestic infrastructure, trained to reflect local languages, laws, and cultural context, rather than depending on models hosted abroad. Several countries have announced national compute and model initiatives along these lines. Open weights fit that agenda because they can be localized, retrained, and governed under domestic oversight, though doing so still requires substantial hardware, talent, and data resources that not every organization possesses.\n\nNemotron Labs does not exist in isolation within NVIDIA's stack. The models are designed to work with the company's broader tooling, including the NeMo framework for training and customization and NIM inference microservices for packaging models into deployable containers, alongside optimization libraries such as TensorRT. This integration is a notable part of the strategy: even when the models themselves are free to use, they tend to run best on NVIDIA GPUs and software, so an open-model approach can reinforce demand for the company's core hardware business. That commercial logic is worth keeping in view when assessing the initiative's motivations.\n\nThe effort also reflects a wider industry shift. Open-weight releases from Meta's Llama family, Mistral, Alibaba's Qwen, and DeepSeek, among others, have narrowed the gap with closed frontier systems and made self-hosted deployment more viable. NVIDIA's participation signals that the hardware layer of the ecosystem is actively encouraging this direction rather than resisting it. For customers, the growing catalog of competitive open models increases leverage and reduces lock-in, though it also raises the burden of evaluating which model, license, and deployment path best fits a given use case.\n\nSome caveats apply. Open weights lower barriers to control but shift responsibility for security, safety testing, and ongoing maintenance onto the deploying organization. Running large models on private infrastructure demands significant expertise and capital expenditure, which can offset the flexibility gains for smaller teams. License terms also vary across open models and merit close reading, since \"open\" does not always mean unrestricted commercial use.\n\nTaken together, Nemotron Labs appears to formalize a strategy NVIDIA has been building toward for some time: offering high-quality models that organizations can own and operate rather than merely rent. Whether it becomes a default choice will likely depend on how the models perform against both open and closed competitors, how sustainable the licensing proves, and how much the promised gains in trust, control, and data sovereignty outweigh the operational cost of running frontier AI in-house.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:09:09.703Z"
+      "generatedAt": "2026-08-30T17:09:09.703Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "どのモデルを選ぶかより、どう作るかで差がつくって書いてあったね。これって大きな変化なの？",
+          "en": "It says how you build matters more than which model you pick. Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、強力なモデルは企業にもう十分そろっているとされています。だから勝負は、業務の改善や専門知識の活用、精度と信頼の基準を超えられるかに移る、という見方です。",
+          "en": "The post says enterprises already have plenty of strong models. So the contest moves to improving workflows, using domain knowledge, and exceeding standards for accuracy and trust."
+        },
+        {
+          "s": "a",
+          "ja": "オープンモデルって、そもそもどういうものなの？",
+          "en": "So what exactly is an open model?"
+        },
+        {
+          "s": "b",
+          "ja": "一般的には、モデルの中身が公開されている、くらいの意味です。この記事では、それを自分たちのインフラで動かし、調整や制御ができる点が大事だと示されています。",
+          "en": "Generally, it means the model's inside is made public. Here, the point is running it on your own infrastructure, where you can customize and control it."
+        },
+        {
+          "s": "a",
+          "ja": "もし自分の会社で使うなら、データを外に出さずに自社用に育てられるのかな？",
+          "en": "If I used it at work, could I tailor it to my company without sending data outside?"
+        },
+        {
+          "s": "b",
+          "ja": "その方向なら、記事が挙げるデータ主権や信頼の課題と合いそうです。ただ、精度や信頼の基準を超えられるかは、作り方しだいという考え方ですね。",
+          "en": "That fits the data sovereignty and trust concerns the post raises. But whether it meets accuracy and trust standards depends on how you build it, as the post frames it."
+        }
+      ]
     },
     "01af16427bb24da7": {
       "bodyJa": "これまで人工知能(AI)開発の主戦場は、OpenAIのGPTシリーズやGoogleのGeminiに代表される、莫大な計算資源を投じて構築される「フロンティアモデル」の性能競争にあると見られてきた。しかし、オープンソースで公開されるモデルが急速に性能を高めたことで、競争の本質が一点集中の性能争いから、より広い裾野へと移りつつある可能性が指摘されている。\n\nTechCrunchの報道によれば、オープンモデルと最先端の商用モデルとの性能差は着実に縮まっており、両者を隔てる壁は以前ほど絶対的なものではなくなっているという。かつては巨大テック企業だけが到達できた水準の言語モデルが、比較的小規模な組織や研究コミュニティでも扱える形で提供され始めている。\n\nこの流れの中心にあるのが、モデルやデータセットの共有基盤として広く使われるHugging Faceだ。同プラットフォームは、開発者が公開モデルを検索・微調整(ファインチューニング)・再配布できるハブとして機能し、オープンAIエコシステムの結節点としての存在感を増している。加えて、MetaのLlamaシリーズ、フランスのMistral、中国発のQwenやDeepSeekなど、モデルの重み(パラメータ)を公開する取り組みが相次ぎ、開発者の選択肢は着実に広がっている。\n\nオープンモデルが注目される背景には、コストと制御性という現実的な事情がある。商用APIに依存せず自社の環境でモデルを動かせれば、機密データを外部に出さずに済み、用途に合わせた細かな調整も可能になる。特定業務向けに最適化された小型モデルが、汎用の巨大モデルに匹敵する成果を出す場面も増えているとされ、性能が「十分」であれば必ずしも最大規模のモデルを選ぶ必要はないという考え方が広がりつつある。\n\nもっとも、フロンティアモデルの重要性が失われたわけではない。最先端の研究や高度な推論を要する領域では、依然として大手のクローズドモデルが先行しているとの見方も根強く、両者の差が再び開く局面もありうる。今後の競争は、単一の「最強モデル」を頂点とする構図から、オープンとクローズドがそれぞれの強みを生かして共存する多層的な構造へと移っていく可能性がある。",
@@ -12927,6 +12959,126 @@
       "bodyEn": "Google DeepMind has published findings from a study measuring the educational impact of AI-assisted learning in Sierra Leone, offering early evidence that generative AI tools can support teaching and learning in regions with limited access to educational resources. The work matters because much of the current enthusiasm around AI in education rests on pilots conducted in wealthy, well-connected schools, leaving open the question of whether the same tools deliver measurable benefits where infrastructure, trained teachers, and learning materials are scarce.\n\nSierra Leone presents a demanding test case. The West African country has faced longstanding challenges in its education system, including large class sizes, shortages of qualified teachers, and disruptions caused by past crises such as the Ebola outbreak and civil conflict. Against that backdrop, the government has pursued technology-driven reforms, and it has previously worked with outside partners to explore how digital tools might extend the reach of a stretched teaching workforce. Evaluating AI in this setting is intended to show whether the technology can complement, rather than merely supplement, existing efforts.\n\nAccording to the reported results, the program focused on using AI models to assist both students and educators, with the study designed to quantify changes in learning outcomes rather than simply document usage. DeepMind frames this as part of its broader \"AI for good\" research agenda, which seeks to apply advanced models to problems in health, science, and education. The emphasis on measurement is notable: rigorous impact evaluation, ideally using controlled comparisons, is often missing from educational technology deployments, where adoption is sometimes treated as a proxy for effectiveness. By collecting outcome data, the researchers appear to be trying to build a more defensible evidence base.\n\nThe tools involved are built on large language models, the same class of technology underpinning Google's Gemini family of systems. In an educational context, such models can act as tutoring aids, generate practice questions, explain concepts in local languages or simplified terms, and help teachers prepare lessons or assess student work. These capabilities are attractive in low-resource environments precisely because a single teacher may be responsible for dozens of pupils, and personalized attention is difficult to provide at scale. An AI assistant that can answer questions or adapt explanations could, in principle, help fill that gap.\n\nHowever, deploying such systems in Sierra Leone raises practical constraints that shape what is realistically achievable. Reliable electricity and internet connectivity cannot be assumed across the country, device availability is uneven, and much AI training data underrepresents African languages and contexts. These factors can limit both access and accuracy, and they mean that results from one region may not transfer directly elsewhere. The framing of the study as extending \"beyond\" Sierra Leone suggests the researchers are interested in generalizable lessons, though any broader conclusions are likely to require additional studies across different countries and curricula.\n\nThe work sits within a wider industry and research movement examining AI's role in education. Companies including OpenAI and Anthropic have promoted their chatbots for tutoring and teacher support, while organizations such as UNESCO have urged caution, calling for evidence and safeguards before AI is embedded in classrooms. Independent evaluations, including some randomized trials of AI tutoring in developing countries, have reported encouraging but mixed results, underscoring that outcomes depend heavily on implementation, teacher involvement, and the specific subjects taught. DeepMind's contribution adds to this growing but still immature body of evidence.\n\nImportant caveats remain. Details on the study's scale, methodology, control conditions, and the durability of any gains will determine how much weight the findings can bear, and short-term improvements do not always translate into lasting learning. Questions around data privacy, the risk of AI producing incorrect information, equitable access, and long-term reliance on external technology providers are also relevant when children's education is involved.\n\nEven so, the effort reflects a shift toward treating AI education tools as interventions that should be measured rather than assumed to work. If the results hold up under scrutiny and are replicated in other settings, they could inform how governments and development organizations weigh investments in AI-based learning support for underserved communities in the years ahead.",
       "model": "claude-opus-4.8",
       "generatedAt": "2026-07-11T05:45:52.379Z"
+    },
+    "f033b8ce934dcf8a": {
+      "bodyJa": "Gemini platformでプレビュー提供されているSemantic governance policiesは、AIエージェントが実行しようとする操作を、実行する前に確認するための仕組みです。企業がエージェントを統制し、ガードレールを設けるための機能と説明されています。\n\n## 決算前の依頼\n\n想定されている場面は次のとおりです。決算発表の2日前、従業員が同僚役のエージェントに、四半期決算の暫定結果をNDAの対象だと話す投資家へ送るよう頼みます。あわせて、今夜数字を見直せるように、従業員本人の個人用Gmailにもコピーするよう求めます。\n\nエージェントはファイルを読むことも、メールを送ることもできます。そのため、このまま依頼を実行してしまいます。ポリシーは、この呼び出しが走る前に止めるためのものとして紹介されています。\n\n## ツール呼び出しの照合\n\nこのポリシーは、エージェントが提案するツール呼び出しを一件ずつ確認します。照合の基準は二つです。一つは、ユーザーが何を依頼したか。もう一つは、企業が平易な言葉で書いたルールです。\n\nつまり判断の対象は、エージェントがその道具を使えるかどうかではなく、いま提案されている個々の呼び出しの内容です。確認は呼び出しが実行される前に行われます。\n\n## 権限だけでは不十分\n\n従来の権限設定は、エージェントに何ができるかを定めるものです。個々の呼び出しがルールに沿っているかどうかまでは示しません。冒頭の例でも、エージェントにはファイルの読み取りとメール送信の権限があり、依頼どおりに動くこと自体は権限の範囲内でした。\n\nそのため、権限だけでは不適切な操作を防ぎきれないと説明されています。Semantic governance policiesは、権限の上に、依頼内容と社内ルールに基づく実行前の確認を加えるものです。現時点ではプレビューとして提供されています。",
+      "bodyEn": "## Check what agents do first\n\nEnterprises that let AI agents act on their behalf need a way to stop a bad action before it happens. According to the announcement, Semantic governance policies, available in Preview in the Gemini platform, are meant to do this by letting enterprises govern their agents and provide guardrails that stop a tool call before it runs.\n\n## Checking each tool call\n\nThe policies check each tool call an agent proposes against two things: what the user asked for, and rules the enterprise writes in plain language. The check happens before the call executes, so the agent's proposed action can be evaluated rather than reviewed after the fact.\n\nThe source says this approach is meant to help enterprises block risky actions that permissions alone miss. Because the rules are written in plain language, they describe what an organization expects in everyday wording rather than only as a list of granted capabilities.\n\n## A pre-earnings example\n\nThe announcement illustrates the problem with a scenario. Two days before earnings, an employee asks their coworker agent to send the preliminary quarterly results to an investor who says they are under NDA. The employee also asks the agent to copy their personal Gmail so they can review the numbers that night.\n\nIn this case, the agent can read the file and send email, so it fulfills the user's request. Nothing in its access stops it. The source presents this as the kind of call that Semantic governance policies are designed to halt before it runs.\n\n## Why permissions fall short\n\nThe source states that permissions alone can't catch this situation. Permissions say what an agent can do, not whether a particular call follows an organization's rules. An agent may be fully entitled to read a file and send email, yet a specific combination of recipient, content and request may still break policy.\n\nSemantic governance policies address that gap by evaluating individual calls rather than the agent's general capabilities. The feature is currently in Preview in the Gemini platform, and the announcement frames it as a tool for enterprises that want to keep agent behavior aligned with their own written rules.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:38:02.277Z"
+    },
+    "40d3abf8dcfd3e52": {
+      "bodyJa": "Anthropic, PBCは、クラスA普通株式による新規株式公開(IPO)の完了を発表した。公開価格は1株83.00ドル、売り出し総数は11億2,700万株で、調達規模は総額で約935億ドルに達した。\n\n## 83ドルでIPO完了\n\n今回のIPOは、クラスA普通株式合計11億2,700万株を1株83.00ドルで売り出したものだ。発表ではクローズが完了したことが示されている。あわせて、同時私募もクローズしたと伝えられている。\n\n## 追加購入オプション\n\n売り出し総数には、引受人が追加購入オプションを全行使した分が含まれている。このオプションは、Anthropicから新たにクラスA普通株式1億4,700万株を、IPO価格と同じ条件で購入できる権利である。全行使されたため、追加分の株式も今回のクローズに織り込まれた。\n\n## 売り出しの内訳\n\n売り出された11億2,700万株のうち、Anthropic自身が売却したのは11億351万354株で、残りの2,364万8,646株は一部の売出株主が売却した。両者を合わせると売り出し総数と一致する。\n\n売出株主による株式売却の代金について、Anthropicは受け取っていないと説明されている。\n\n## 調達額と手取り\n\n引受割引・手数料やその他の募集費用を差し引く前の総調達額は、約935億ドルだった。そのうちAnthropicが受け取ったのは約916億ドルである。差額は売出株主の売却分などに対応するとみられるが、詳細な配分は示されていない。\n\n今回の調達は、同社の成長投資を支える資金基盤になると位置づけられている。",
+      "bodyEn": "Anthropic, PBC has announced the closing of its initial public offering of Class A common stock. The announcement matters because it sets out how many shares were sold, at what price, and how much money was raised and by whom. It was published on November 20, 2026.\n\n## Closing of Initial Public Offering\n\nAccording to the announcement, the offering totaled 1,127,000,000 shares of Class A common stock at a public offering price of $83.00 per share. That total includes the underwriters' full exercise of their option to purchase an additional 147,000,000 shares of Class A common stock from Anthropic, also at the initial public offering price. The headline also refers to the closing of a concurrent private placement, though the announcement text provided here does not describe its terms.\n\n## Shares Sold by Anthropic\n\nThe announcement splits the offering into two parts. Anthropic itself sold 1,103,351,354 shares, and certain selling stockholders sold the remaining 23,648,646 shares. Together these add up to the 1,127,000,000-share total. The distinction matters for proceeds, because the announcement states that Anthropic did not receive any proceeds from the sale of shares by the selling stockholders.\n\n## Gross Proceeds Figures\n\nThe aggregate gross proceeds were approximately $93.5 billion. This figure is stated before deducting underwriting discounts and commissions and other offering expenses. Of that amount, approximately $91.6 billion was received by Anthropic. The difference corresponds to the shares sold by the selling stockholders, which Anthropic did not receive money for. The $91.6 billion is likewise described in the context of gross proceeds, so the net amount after discounts, commissions, and expenses is not given here.\n\nIn summary, the announcement reports a completed offering at $83.00 per share, with the underwriters' additional-share option exercised in full. It also reports roughly $93.5 billion in gross proceeds, about $91.6 billion of which went to Anthropic.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "追加購入オプションが全部使われた、ってどういうこと？ 普通のIPOと何が違うの？",
+          "en": "What does it mean that the extra-share option was fully used? Is that different from a normal IPO?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、引受人が同じ公開価格で追加の1億4,700万株を買える権利を、全部行使したと書かれています。つまり上限まで追加購入されたということです。",
+          "en": "The article says the underwriters could buy 147 million more shares at the same offering price, and they used all of it. So the option was exercised to the maximum."
+        },
+        {
+          "s": "a",
+          "ja": "調達額は約935億ドルなんだよね。それは全部Anthropicに入るの？",
+          "en": "The total is about $93.5 billion. Does all of that go to Anthropic?"
+        },
+        {
+          "s": "b",
+          "ja": "全部ではないです。約935億ドルのうち、Anthropicが受け取ったのは約916億ドルで、一部は既存株主が売った株の分です。手数料などを引く前の金額でもあります。",
+          "en": "Not all of it. Of the roughly $93.5 billion, Anthropic received about $91.6 billion; some came from selling stockholders' shares. Those figures are also before fees and expenses."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、会社が新しく株を売った分と、株主が売った分があるんだね。",
+          "en": "So some shares came from the company and some from existing shareholders. Got it."
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。Anthropicが売ったのは約11億300万株、株主が売ったのは約2,365万株です。ただ、資金の使い道は、この部分だけでは分かりません。",
+          "en": "Right. Anthropic sold about 1.103 billion shares, and selling stockholders sold about 23.65 million. But this part doesn't tell us how the money will be used."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:38:45.280Z"
+    },
+    "988e5d719ad3bf3e": {
+      "bodyJa": "Microsoft Foundry Blogは、チームが安心して任せられる自律型エージェントをMicrosoft Foundryで構築する、というテーマの記事を公開しました。企業がAIエージェントに全力で取り組みながら、投資対効果が追いついていないという課題が出発点です。\n\n## 投資と成果のずれ\n\n記事は、企業がAIエージェントに全面的に舵を切っている一方で、期待されたROIがまだ伴っていないと指摘しています。導入は進んでいても、それが成果として見えてこない状況が問題の出発点とされています。\n\n## 足かせは能力ではない\n\n記事によると、エージェントの導入を妨げているのは能力の不足ではありません。現在のエージェントは単独でも目覚ましい仕事ができると説明されています。例として挙げられているのは、数学者が数十年にわたって解けなかった問題を解くこと、オペレーティングシステムをゼロから作り上げて動かすこと、人が作業する様子を見て新しいスキルを自ら身につけることです。\n\n## 信頼のギャップに目を向ける\n\nでは何が問題なのか。記事は、ROIが伸び悩む原因を能力ではなく「信頼のギャップ」に見いだしています。エージェントにできることと、チームがそれを安心して任せられることの間に開きがある、という整理です。\n\nこうした認識のもと、Microsoft Foundryはチームが信頼できる自律型エージェントを構築するための手段として紹介され、導入を進める際の指針が示されています。能力の高さだけでなく、信頼をどう築くかを導入の軸に据える点が、この記事の主張です。",
+      "bodyEn": "## Enterprises Are All-In on Agents\n\nMicrosoft Foundry is presented as a way to build autonomous agents that teams can trust. The topic matters because, according to the source, enterprises have committed heavily to AI agents while the return on investment has not followed.\n\nThe source's central claim is that capability is not what holds these agents back. It describes today's agents as able to do remarkable work on their own, and it offers several examples of that ability.\n\n## What Agents Can Already Do\n\nThe post lists several things it says current agents can accomplish. They can solve math problems that stumped mathematicians for decades. They can build functional operating systems from scratch. They can also teach themselves a new skill by watching a person perform a task.\n\nThese examples support the argument that the shortfall lies elsewhere. If agents are already this capable, the source suggests, limited ROI cannot be explained by a lack of ability.\n\n## Trust as the Missing Piece\n\nAccording to the article's framing, the gap behind weak enterprise returns is one of trust rather than capability. The piece positions Microsoft Foundry as the route to autonomous agents that a team can rely on and operate with confidence.\n\nThe article is described as guidance for adoption: it frames trust as the central issue organizations need to address when deploying agents, and presents Foundry as the platform for doing so.\n\n## Where the Post Appears\n\nThe piece was published on the Microsoft Foundry Blog on November 19, 2026, under the title \"Build trusted autonomous agents for your team with Microsoft Foundry.\" The material available here covers the opening argument: enterprise enthusiasm for agents, the disconnect with ROI, and the claim that trust is the obstacle. Specific mechanisms, features, or steps for building trusted agents are not described in this opening section, so this explainer does not attempt to characterize them.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "何十年も数学者が解けなかった問題を、エージェントが解くって本当？ それってすごく大きいことなの？",
+          "en": "Agents solving math problems that stumped mathematicians for decades? Is that really a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事ではそう挙げていて、OSをゼロから作る例も出ています。つまり能力は十分なのに、成果が追いついていないという話なんです。",
+          "en": "The post does say that, and it also mentions building operating systems from scratch. The point is that capability isn't the problem; the results just haven't caught up."
+        },
+        {
+          "s": "a",
+          "ja": "成果が追いついてないって、ROIのことだよね？ ROIってそもそも何？",
+          "en": "So the missing results are about ROI, right? What does ROI actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "ROIは、かけたお金に対してどれだけ成果が戻ったか、くらいの意味です。記事は、AIに力を入れても戻りが見えにくい状況を指しています。",
+          "en": "ROI roughly means how much return you get for what you put in. The post describes companies going all-in on AI agents without seeing that return yet."
+        },
+        {
+          "s": "a",
+          "ja": "もし自分のチームで使うなら、まず「ちゃんと任せて大丈夫？」って安心できることが大事かな。",
+          "en": "If my team used one, I'd want to feel safe handing work over first. Is trust really the key?"
+        },
+        {
+          "s": "b",
+          "ja": "その見方は記事に近いですね。課題は能力より信頼性で、Foundryはチームで信頼できる自律型エージェントを作る手段として紹介されています。",
+          "en": "That's close to the post's view. It says the gap is trust, not capability, and presents Microsoft Foundry as a way to build autonomous agents teams can rely on."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:39:13.699Z"
+    },
+    "605ba9b9334dd9b7": {
+      "bodyJa": "Zed Editor v1.29.1 では、Git パネルに基準ブランチからの変更ファイルをまとめて確認できるブランチモードが加わった。あわせてブックマークピッカー、Git の日付形式の設定、Anthropic の新しいモデルへの対応、エージェントのスレッドタイトル自動生成を止める設定が追加されている。\n\n## Git パネルのブランチモード\n\n今回の目玉の一つが、Git パネルのブランチモードである。基準となるブランチを起点に、それ以降に変更されたファイルをすべて一覧できると説明されている。ブランチ全体でどのファイルに手が入ったかを、パネル上でまとめて把握するための機能と位置づけられる。\n\nこのほか、Git の日付形式を設定で変えられるようになった。ブックマークピッカーも新たに加わっている。ブックマークピッカーの具体的な操作方法や表示内容については、詳細は示されていない。\n\n## Claude Fable 5.2 への対応\n\nAI 関連では、Anthropic の API キーを自前で持ち込む BYOK ユーザー向けに、Claude Fable 5.2 がサポートされた。組織がアクセス権を持っている場合に限り、Claude Mythos 5.2 も利用できるとされる。この対応は #66760 として記載されている。\n\n## エージェント機能の調整\n\nZed Agent のスレッドには、タイトルを自動生成する機能がある。今回、設定項目 agent.auto_generate_thread_titles が追加された。既定値は true で、false にすると自動生成が無効になる。この変更は #63998 で、コントリビューターの FrederickGeek8 の貢献によるものだ。\n\nエージェントの応答にあるコピーボタンも改善された。コピーすると一瞬チェックマークが表示され、コピーが完了したことを確認できる。この変更は #64664 で、itsfuad の貢献とされている。\n\nリリースノートには ACP に関する並び順の改善も記載されているが、内容の全体は確認できない。\n\n## 変更の位置づけ\n\n今回の更新は、Git での作業を支える機能と、エージェント機能の使い勝手に関わる調整が中心である。ブランチモードは Git を多用する開発者に、Claude Fable 5.2 への対応は Anthropic BYOK を使う人に役立つと紹介されている。",
+      "bodyEn": "Zed Editor v1.29.1 adds Git and AI changes that affect how developers review branch work and choose models. According to the release notes, this week's update centers on a new Git Panel mode, a bookmark picker, and support for newer Claude models.\n\n## Git Panel Branch Mode\n\nThe headline Git feature is a branch mode in the Git Panel. It lists every file changed since a base branch, so a developer can see the full set of modifications on a working branch in one place instead of only the latest uncommitted edits. The release also adds configurable Git date formats, letting users change how dates appear in Git-related views. A bookmark picker is included in the same release, though the notes give no further detail on how it works.\n\n## Claude Fable 5.2 Support\n\nOn the AI side, the release adds support for Claude Fable 5.2 for Anthropic BYOK users, meaning people who bring their own Anthropic API key. Claude Mythos 5.2 is also supported, but the announcement says this applies only if your organization has access to it. The change is listed as pull request #66760.\n\n## Agent Thread Controls\n\nThe release adds a setting named agent.auto_generate_thread_titles. It defaults to true, so Zed Agent threads continue to receive automatically generated titles unless a user changes it. Setting it to false turns that behavior off. The change is credited to contributor FrederickGeek8 and tracked as #63998.\n\nA smaller improvement concerns the copy button on agent responses. It now briefly shows a checkmark after a click, confirming that the text was copied. That change is attributed to contributor itsfuad and listed as #64664.\n\nThe notes also mention improved ordering of ACP, but the text provided ends before explaining what that change involves, so nothing more can be said about it here.\n\nTaken together, the update is most relevant to people who work heavily with Git branches and to those who use Anthropic models through their own keys. Further items in the full release notes may go beyond what is summarized here.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Gitで作業しているとき、普段の何が変わるの？",
+          "en": "If I'm working in Git a lot, what changes day to day?"
+        },
+        {
+          "s": "b",
+          "ja": "Gitパネルにブランチモードが加わって、基準ブランチから変更されたファイルを全部一覧できるようになるよ。ブックマークピッカーも入ったね。",
+          "en": "The Git Panel gets a branch mode that lists every file changed since a base branch. There's also a new bookmark picker."
+        },
+        {
+          "s": "a",
+          "ja": "前は、変更ファイルをまとめて見られなかったの？",
+          "en": "So before this, I couldn't see all those changed files together?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは記事だと比較が書かれていなくて、従来との違いは分からないんだ。分かるのは、今回の一覧機能が追加されたことまでだね。",
+          "en": "The article doesn't compare it with before, so I can't say what was different. All it tells us is that this list view is newly added."
+        },
+        {
+          "s": "a",
+          "ja": "一番の収穫は、基準ブランチからの変更を一覧で見られることかな。Claudeの対応も入ったんだよね？",
+          "en": "My big takeaway is seeing every change from a base branch in one list. Claude support came in too, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだよ。Anthropic BYOKならClaude Fable 5.2が使えて、組織に権限があればMythos 5.2も使える。エージェントのスレッドタイトル自動生成をオフにする設定も入ったよ。",
+          "en": "Right. Anthropic BYOK users get Claude Fable 5.2, plus Mythos 5.2 if their organization has access. There's also a setting to turn off automatic agent thread titles."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:40:01.514Z"
     }
   }
 }

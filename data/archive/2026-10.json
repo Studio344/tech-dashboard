@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-11-28T03:30:57.443Z",
+  "generatedAt": "2026-11-28T04:30:58.375Z",
   "month": "2026-10",
-  "count": 132,
+  "count": 136,
   "entries": [
     {
       "id": "742d69c4e9a1c77b",
@@ -31,6 +31,35 @@
       "contentSnippet": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances. To resolve this tension, we built Industry Evaluation Data Generation Platform: full-scale synthetic enterprise environments grounded in publicly available real-world data sources such as O*NET occupational data, online job postings, and SEC filings. The synthetic environments mimic real business workflows, helping Microsoft find issues that generic benchmarks would miss. Safety and privacy are built into the platform by design. Every environment is fully synthetic and automated content-safety checks keep the generated data free of harmful or personally identifiable material.",
       "excerptOrigin": "article",
       "feedSnippet": "Evaluating Microsoft Copilot at enterprise scale requires test data that captures the full complexity of real organizations, yet real enterprise data contains sensitive information that cannot be used for evaluation under any circumstances. The post From synthetic enterprise data evaluations to real Microsoft Copilot AI confidence appeared first on Microsoft Research ."
+    },
+    {
+      "id": "be9d9b196aa38b60",
+      "source": "mcp-blog",
+      "sourceType": "blog",
+      "url": "https://blog.modelcontextprotocol.io/posts/ruby-sdk-tier-1/",
+      "title": "The Official Ruby SDK for MCP Reaches Tier 1",
+      "titleJa": "",
+      "titleEn": "The Official Ruby SDK for MCP Reaches Tier 1",
+      "lang": "en",
+      "publishedAt": "2026-10-30T09:00:00.000Z",
+      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "tags": [
+        "mcp",
+        "mcp-server"
+      ],
+      "category": "mcp",
+      "importance": 1,
+      "halfLife": "architecture",
+      "archiveTier": "hot",
+      "contentSnippet": "The official Ruby SDK for Model Context Protocol is now a Tier 1 SDK, as defined in our SDK tiering system . Ruby is not alone here, and joins the company of our TypeScript, Python, C#, Go, and Rust SDKs. When an SDK becomes Tier 1-compliant, it means that it reached the top of the three tiers, reserved for SDKs with the highest level of feature support, responsiveness to bugs and security issues, and alignment with MCP ecosystem priorities. If you build MCP servers or clients in Ruby, you can now sleep well knowing that you will get full spec feature support, a 100% conformance pass rate, support for new spec versions by their release date, issue triage within two business days, and critical bug fixes within seven days. This is especially important for developers that are responsible for",
+      "image": {
+        "src": "https://blog.modelcontextprotocol.io/posts/images/ruby-sdk-tier-1/tier-progress.svg",
+        "origSrc": "https://blog.modelcontextprotocol.io/posts/images/ruby-sdk-tier-1/tier-progress.svg",
+        "alt": "The Official Ruby SDK for MCP Reaches Tier 1",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      }
     },
     {
       "id": "56a0a646526d9fc5",
@@ -168,6 +197,56 @@
         "height": 0,
         "source": "media"
       }
+    },
+    {
+      "id": "ab428a33dd6d012a",
+      "source": "apple-newsroom",
+      "sourceType": "blog",
+      "url": "https://www.apple.com/newsroom/2026/10/apple-creator-studio-adds-powerful-new-ai-features-and-even-more-creative-tools/",
+      "title": "Apple Creator Studio adds powerful new AI features and even more creative tools",
+      "titleJa": "",
+      "titleEn": "Apple Creator Studio adds powerful new AI features and even more creative tools",
+      "summaryJa": "このエントリは apple-newsroom から収集した tech-news 領域の最新アップデートです。原題:「Apple Creator Studio adds powerful new AI features and even more creative tools」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Apple Creator Studio adds powerful new AI features and even more creative tools",
+      "lang": "en",
+      "publishedAt": "2026-10-27T12:58:45.444Z",
+      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "tags": [
+        "apple",
+        "news"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "Updates bring built-in MotionVFX content to Final Cut Pro, video assets in the Content Hub, expanded music creation tools to Logic Pro, and new intelligence features to Logic Pro, Keynote, Pages, and Numbers CUPERTINO, CALIFORNIA Apple today introduced transformative updates to Apple Creator Studio , the powerful collection of creative apps designed to put studio-grade tools into the hands of modern creators across Mac, iPad, and iPhone. Final Cut Pro for Mac now includes built-in MotionVFX — an expansive collection of visual effects, plug-ins, transitions, templates, and motion graphics tools — as well as seamless editing in Pixelmator Pro. Apple’s curated Content Hub now includes video assets and is available in Final Cut Pro.",
+      "feedSnippet": "Apple introduces updates to Apple Creator Studio, the collection of creative apps designed to put studio-grade tools into the hands of creators.",
+      "excerptOrigin": "article"
+    },
+    {
+      "id": "dd76cdda13b8633a",
+      "source": "apple-newsroom",
+      "sourceType": "blog",
+      "url": "https://www.apple.com/newsroom/2026/10/siri-ai-is-available-in-more-languages-starting-today/",
+      "title": "Siri AI is available in more languages starting today",
+      "titleJa": "",
+      "titleEn": "Siri AI is available in more languages starting today",
+      "summaryJa": "このエントリは apple-newsroom から収集した tech-news 領域の最新アップデートです。原題:「Siri AI is available in more languages starting today」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Siri AI is available in more languages starting today",
+      "lang": "en",
+      "publishedAt": "2026-10-26T18:37:30.189Z",
+      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "tags": [
+        "apple",
+        "news"
+      ],
+      "category": "tech-news",
+      "importance": 2,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "With the 27.2 software updates released today, Siri AI — an entirely new version of Siri that is profoundly more capable, conversational, and personal — is expanding to more people around the world, with availability now in the French, Japanese, Korean, Portuguese, and Spanish languages. Siri AI is a completely reimagined version of Siri that is more personal and powerful, without compromising users’ privacy. Built on Apple Intelligence, it draws on personal context understanding to help users find what they need in the moment across their messages, emails, photos, and more. With even more systemwide app actions, Siri AI can help users with tasks such as drafting an email from scratch or editing and sharing a set of photos. With onscreen awareness, Siri AI can answer questions or take actions related to the content on a user’s screen.",
+      "feedSnippet": "With the 27.2 software updates released today, Siri AI is expanding to French, Japanese, Korean, Portuguese, and Spanish.",
+      "excerptOrigin": "article"
     },
     {
       "id": "5ebccf67a9de1f56",
@@ -411,6 +490,31 @@
       "archiveTier": "warm",
       "contentSnippet": "AWS Continuum for code vulnerabilities is a new security service that uses AI to automatically find, validate, and prioritize code vulnerabilities in your environment, then delivers ready-to-review fixes as pull requests replacing what previously took hours of manual investigation and days of cross-team coordination.",
       "excerptOrigin": "article-unavailable"
+    },
+    {
+      "id": "dfaef0d840ad945e",
+      "source": "apple-newsroom",
+      "sourceType": "blog",
+      "url": "https://www.apple.com/newsroom/2026/10/developers-bring-incredible-new-app-experiences-to-iphone-duo/",
+      "title": "Developers bring incredible new app experiences to iPhone Duo",
+      "titleJa": "",
+      "titleEn": "Developers bring incredible new app experiences to iPhone Duo",
+      "summaryJa": "このエントリは apple-newsroom から収集した tech-news 領域の最新アップデートです。原題:「Developers bring incredible new app experiences to iPhone Duo」。AI による日本語要約は次回以降の Worker run で生成されます。",
+      "summaryEn": "Developers bring incredible new app experiences to iPhone Duo",
+      "lang": "en",
+      "publishedAt": "2026-10-22T11:59:15.686Z",
+      "collectedAt": "2026-11-28T04:30:40.901Z",
+      "tags": [
+        "apple",
+        "news"
+      ],
+      "category": "tech-news",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "warm",
+      "contentSnippet": "From streaming and gaming to creativity and productivity, developers worldwide are taking advantage of the unique capabilities of the first foldable iPhone Starting this Friday, iPhone Duo users can discover amazing apps and games optimized for the first foldable iPhone. With an inner display that’s 50 percent larger than iPhone 18 Pro Max, and the flexibility to use iPhone Duo in a variety of poses, developers are enhancing their apps to create exciting new experiences for capturing and sharing memories, streaming entertainment, gaming, multitasking, and much more. Because both displays share the same aspect ratio, apps transition smoothly from the outer display to the inner display and scale proportionally, so users can pick up right where they left off.",
+      "feedSnippet": "Starting this Friday, iPhone Duo users can discover amazing apps and games optimized for the first foldable iPhone.",
+      "excerptOrigin": "article"
     },
     {
       "id": "c6d7d327b3177bde",

@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T03:30:52.843Z",
-  "count": 388,
+  "generatedAt": "2026-11-28T04:30:54.935Z",
+  "count": 392,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -2165,44 +2165,6 @@
           "s": "b",
           "ja": "その理解でよいぞ。記事では陥りやすい落とし穴も3つ紹介しているので、実装時はそこが注意点じゃな。",
           "en": "Exactly. The article also highlights three common pitfalls, so those are the key things to watch when implementing it."
-        }
-      ]
-    },
-    "b7952cdbc2338e15": {
-      "bodyJa": "AWSの機械学習ブログが、AIエージェントと外部システムを接続する標準規格「MCP（Model Context Protocol）」において、ツールをどう設計すべきかをまとめた実践的なガイドを公開した。エージェントの信頼性や実用性は個々のツールの作り込みに大きく左右されるため、開発者にとって示唆に富む内容となっている。\n\nMCPは、Anthropicが2024年に提唱したオープンな規格で、大規模言語モデル（LLM）が外部のデータソースやAPIを一貫した形式で呼び出せるようにする。エージェントが利用する「ツール」は、その名前や入力スキーマ、説明文などをMCPサーバーが定義し、モデルはこれらの情報をもとに、どのツールをどう呼ぶかを判断する。つまり、ツールの記述品質がそのままエージェントの判断精度に直結する構図だ。\n\n同ブログが重視するのが「粒度」の設計である。ツールを細かく分割しすぎると、モデルが選択に迷い呼び出し回数が増える一方、粗すぎると引数が複雑になり誤用を招きやすい。適切な粒度は、想定するユースケースやモデルの能力に応じて調整する必要があると見られる。\n\n命名とスキーマ定義も要点として挙げられている。曖昧な名前や不十分な説明はモデルの誤解を招くため、機能を的確に表す一貫した命名と、必須・任意を明示した型定義が推奨される。ただし冗長すぎる説明はトークン消費を増やすため、簡潔さとのバランスが問われる。加えて、エラー時の応答をモデルが解釈しやすい形で返す設計も、動作の安定性に寄与するとされる。\n\nこうした設計論が注目される背景には、MCPの急速な普及がある。OpenAIやGoogleなど主要各社もエージェント連携の仕組みを整えつつあり、AWSも「Amazon Bedrock」を通じてエージェント開発を後押ししている。ツール群が乱立するなかで相互運用性と品質を保つには、設計段階でのトレードオフの見極めが今後いっそう重要になる可能性がある。",
-      "bodyEn": "The Model Context Protocol (MCP) has quickly become a common way to connect large language models to external systems, and how developers design the tools exposed through an MCP server has a direct effect on whether an AI agent behaves reliably. In a post on its Machine Learning blog, AWS lays out practical guidance for MCP tool design, focusing on granularity, naming, and schema definition, along with the tradeoffs that come with each decision. For teams building agents on services such as Amazon Bedrock, these choices determine how accurately a model selects and calls tools, and how predictable the resulting behavior is.\n\nMCP, originally introduced by Anthropic as an open standard, defines a consistent interface between models and the tools, data sources, and services they can act on. An MCP server advertises a set of tools, each described by a name, a natural-language description, and a machine-readable input schema, typically expressed in JSON Schema. The model reads these descriptions at inference time and decides which tool to invoke and with what arguments. Because the model relies almost entirely on that metadata, the quality of the descriptions and schemas becomes as important as the underlying implementation.\n\nA central theme is tool granularity, meaning how much functionality each tool should encapsulate. Fine-grained tools that each perform a single narrow action can be easier to describe precisely, but exposing too many of them tends to overwhelm the model, increases prompt token usage, and raises the chance of an incorrect selection. Coarse-grained tools that bundle many operations reduce the number of choices, but they can become ambiguous and force the model to reason about complex parameter combinations. The blog frames this as a balance rather than a fixed rule, and it appears to recommend grouping related actions in ways that match how an agent would naturally reason about a task.\n\nNaming and descriptions receive similar attention. Clear, unambiguous tool names and descriptions help the model distinguish between options that might otherwise look similar, such as separate tools for reading and updating the same resource. The guidance emphasizes writing descriptions for the model as the audience, stating what a tool does, when it should be used, and any important limitations. Vague or overlapping descriptions are a common cause of misrouted calls, and refining this text is often one of the cheapest ways to improve agent accuracy.\n\nSchema design is the third pillar. Input schemas should constrain what the model can supply, using types, enumerations, required fields, and descriptive property names to reduce malformed calls. Well-structured schemas act as guardrails, catching invalid arguments before they reach downstream systems, while overly rigid schemas can prevent legitimate use cases. There is also a tradeoff around verbosity, since richer schemas and longer descriptions consume more context window and can add latency and cost. The article treats these as engineering decisions to be tuned against the specific agent and workload rather than optimized in isolation.\n\nThe broader context helps explain why this matters now. MCP has seen rapid adoption across the industry, with support emerging in numerous development tools and agent frameworks, and it complements existing function-calling and tool-use mechanisms already offered by major model providers. On the AWS side, this guidance is relevant to Bedrock Agents and the newer Amazon Bedrock AgentCore offerings, as well as open frameworks such as Strands Agents, all of which can consume tools exposed over MCP. Because MCP is model-agnostic, well-designed servers can in principle be reused across different agents and models.\n\nFor developers, the practical takeaway is that MCP tool design is an iterative process closely tied to how models interpret metadata, not just how APIs are implemented. Testing with representative tasks, observing which tools the model selects, and refining names, descriptions, and schemas accordingly is likely to yield more reliable agents than trying to specify everything upfront. As agent systems move toward production, treating tool design as a first-class concern, with attention to token cost, error handling, and maintainability, appears increasingly important. AWS positions this post as a starting set of principles rather than a definitive standard, reflecting how quickly practices around MCP and agent development are still evolving.",
-      "model": "claude-opus-4.8",
-      "generatedAt": "2026-07-25T17:58:20.156Z",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "MCPツールの「粒度」って何？細かく分けるか、大きくまとめるかってこと？",
-          "en": "What does “granularity” mean for an MCP tool? Is it about splitting tasks up or bundling them together?"
-        },
-        {
-          "s": "b",
-          "ja": "簡単に言うとじゃな、1つのツールにどこまで役割を持たせるかじゃ。記事では、粒度に加えて命名やスキーマ定義も要点としておる。",
-          "en": "Simply put, it’s how much responsibility one tool takes on. According to the article, granularity, naming, and schema definitions are all key design considerations."
-        },
-        {
-          "s": "a",
-          "ja": "それをきちんと決めると、何がうれしいの？AIエージェントがツールを使いやすくなるのかな？",
-          "en": "What’s the benefit of getting those choices right? Does it make tools easier for AI agents to use?"
-        },
-        {
-          "s": "b",
-          "ja": "記事によれば、実践的な文脈設計で、設計がうまくいかない箇所と直し方を示しておる。より信頼でき、効果的なMCPサーバー作りに役立つそうじゃ。",
-          "en": "According to the article, practical context-engineering approaches show where tool design goes wrong and how to fix it. This can help developers build more reliable, effective MCP servers."
-        },
-        {
-          "s": "a",
-          "ja": "なるほど、役割の切り方や名前、データの形を整えて、エージェントが使いやすい道具にするんだね！",
-          "en": "Got it—you shape each tool’s role, name, and data format so it works better for the agent. That’s neat!"
-        },
-        {
-          "s": "b",
-          "ja": "その理解でよいぞ。設計時には、実践的な手法だけでなく、それぞれのトレードオフも見るのが記事のポイントじゃ。",
-          "en": "Exactly. The article’s key takeaway is to consider both the practical approaches and their tradeoffs when designing an MCP server."
         }
       ]
     },
@@ -11684,7 +11646,39 @@
       "bodyJa": "DeepMindのCEOが、最先端AI（フロンティアAI）の開発を監督する独立した標準化機関の設立を公式に訴えた。急速に高度化するAIのリスク管理において、企業による自主規制だけでは不十分だという認識が業界内で広がりつつあることを示す動きとして注目される。\n\nフロンティアAIとは、大規模言語モデルをはじめとする最先端の汎用的なAIシステムを指す。学習に投じられる計算資源やモデルの規模が拡大するにつれ性能が飛躍的に高まる一方で、誤情報の生成やサイバー攻撃への悪用、生物・化学分野での危険な知識の提供といったリスクも懸念されている。こうした能力の全体像は開発した企業自身でも完全には把握しきれない場合があるとされ、外部からの検証の重要性がかねて指摘されてきた。\n\n今回の提言の核心は、安全性の評価基準を策定・検証する役割を、開発企業から切り離した第三者機関に委ねる点にある。現状では各社が独自の安全対策やレッドチーム（攻撃的な手法で弱点を洗い出す専門チーム）による評価を行っているが、基準や手法は企業ごとに異なり、比較や外部監査が難しい。共通の標準を定める独立機関があれば、評価の透明性と一貫性を高められる可能性がある。\n\n背景には、規制をめぐる各国の動きがある。欧州連合（EU）は包括的な「AI法」を成立させ、リスクに応じた規制を段階的に導入しつつある。米国や英国は政府主導のAI安全研究所（AI Safety Institute）を設け、主要モデルの評価に乗り出している。一方で、法整備が技術の進歩に追いつかないとの指摘は根強く、国際的に整合した枠組みづくりは途上にある。\n\nもっとも、独立機関の設立には課題も多い。誰が資金を拠出し、専門人材をどう確保するのか、国境を越えた実効性をどう持たせるのかといった論点が残る。業界主導で設けられる機関が、実質的に企業寄りの「お手盛り」にならないよう、独立性の担保も問われるだろう。DeepMindのトップが公の場で標準機関の必要性に言及したこと自体は、ガバナンスをめぐる議論を一歩進める契機になると見られる。",
       "bodyEn": "The chief executive of Google DeepMind has publicly called for the creation of an independent standards body to govern the development of frontier artificial intelligence, adding a prominent voice to a debate over whether the industry can be trusted to police itself. The intervention matters because DeepMind sits among the small group of laboratories building the most capable general-purpose models, and support from within that group could influence how governments and international bodies structure future oversight.\n\nThe core argument is that voluntary commitments and internal safety teams, while useful, are not sufficient to manage the risks associated with increasingly capable systems. An independent institution, in this framing, would define technical benchmarks, evaluation protocols, and thresholds that apply consistently across competing developers, rather than leaving each company to set and interpret its own standards. Such a body would ideally be insulated from commercial pressure, allowing it to make judgments that individual firms, facing competitive and financial incentives, may find difficult to make on their own.\n\n\"Frontier AI\" is a term used to describe the most advanced foundation models, typically large systems trained on vast datasets whose full range of capabilities is not always predictable before or even after release. The concern driving calls for oversight is that these models can exhibit emergent behaviors, and that capabilities relevant to areas such as cybersecurity, biosecurity, or autonomous decision-making could scale in ways that outpace existing safeguards. Standardized testing, sometimes called evaluations or \"evals,\" is central to this discussion, because reliable measurement of what a model can do is a prerequisite for any meaningful regulation.\n\nThe appeal for a third-party standards organization reflects a broader acknowledgment that self-regulation has limits. Companies have published responsible scaling policies and frontier safety frameworks describing the precautions they intend to take as models grow more powerful, but critics note that these documents are self-authored, self-assessed, and revisable at will. An independent standard-setter would, in principle, provide external verification, reducing the risk that safety claims amount to marketing or that a race to deploy erodes caution across the sector.\n\nThis proposal does not emerge in a vacuum. Several governments have already established public institutions focused on evaluating advanced models, including the AI Safety Institutes created in the United Kingdom and the United States, which have since been reframed in some jurisdictions around security concerns. The European Union's AI Act introduced obligations for general-purpose models deemed to carry systemic risk, and a voluntary code of practice was developed to help companies comply. At the international level, a series of AI safety summits, beginning at Bletchley Park in the United Kingdom, produced declarations signed by numerous countries and led to periodic reports assessing the state of frontier capabilities. A dedicated standards body could complement these efforts or, depending on its design, risk duplicating them.\n\nThere are meaningful open questions about how such an institution would function. It is unclear who would fund it, who would appoint its leadership, and how it would maintain independence from both the companies it scrutinizes and the governments that might charter it. Standards bodies in other industries, such as those governing aviation safety, pharmaceuticals, or financial auditing, offer possible models, but AI development moves quickly and the underlying technology is less mature and less well understood. A body that sets standards too rigidly could struggle to keep pace, while one that defers heavily to industry input could reproduce the very conflicts of interest it is meant to resolve.\n\nObservers are also likely to weigh the commercial context. DeepMind and its parent company compete directly with other major laboratories, and support for common standards can serve varied interests, including the possibility that established players are better positioned to absorb compliance costs than smaller entrants. That does not necessarily undermine the substance of the argument, but it is a factor that policymakers appear inclined to consider as they evaluate proposals originating from within the industry.\n\nFor now, the call functions as a signal rather than a concrete blueprint. Whether it translates into an actual institution will depend on coordination among governments, willingness among competing firms to accept binding external scrutiny, and agreement on the technical details of what should be measured and how. The statement nonetheless reinforces a shift in tone, suggesting that at least some leading developers view external governance not as an obstacle but as a necessary component of deploying advanced AI responsibly.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:07:50.949Z"
+      "generatedAt": "2026-08-30T17:07:50.949Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Hassabisさんが言う「標準機関」って、具体的にどんな組織なの？",
+          "en": "What exactly is this \"standards body\" Hassabis is talking about?"
+        },
+        {
+          "s": "b",
+          "ja": "FINRAをモデルにした新しい規制機関だよ。最先端モデルをテストして、公開の際のベストプラクティスを作る役目を想定しているんだ。",
+          "en": "It's a new regulatory body modeled on FINRA. The idea is that it would test frontier models and develop best practices for how they get released."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあAIを作る会社は、公開の前に見てもらう形になるのかな？",
+          "en": "So AI labs would get their models checked before release? How would that work?"
+        },
+        {
+          "s": "b",
+          "ja": "最初は任意で、公開の30日前までにモデルを共有して審査を受ける案だよ。評価方法が有効で頑健と示されたら、正式な義務化も早く進められるとしているね。",
+          "en": "At first it'd be voluntary: labs share models up to 30 days before release. If the assessment proves effective and robust, formalisation could follow quickly."
+        },
+        {
+          "s": "a",
+          "ja": "まず自主的に始めて、うまくいったら義務にするってことだね。",
+          "en": "So start voluntary, and if it works, make it mandatory. Did I get that right?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めるよ。義務化の場合は、米国市場で展開するにはこの審査を通る必要がある、という書き方だね。ただ、ここで示されているのは提案の段階だよ。",
+          "en": "That's how it reads. Under mandatory rules, models would need to pass it to be deployed in the US market. But this is a proposal at this stage."
+        }
+      ]
     },
     "13f2fd2b5cd9971f": {
       "bodyJa": "## 統合ブラウザー\n\nVisual Studio Code 1.125は、AIコーディング支援やエディター機能を改善する月次アップデートだ。統合ブラウザーの強化、拡張機能の更新制御、Copilotの企業向け管理機能など、日常的に利用する開発者の生産性に関わる変更が盛り込まれている。\n\n統合ブラウザーでは、VS Codeを離れることなくWebを検索できる。さらに、リモート接続を介した環境でも安全にブラウジングできると説明されており、エディター内で検索と閲覧を継続できる。\n\n## モデルプロバイダー\n\n追加のモデルを見つけて導入するための機能も加わった。モデルプロバイダーはMarketplaceから検索してインストールでき、利用したいモデルをVS Code上で追加する流れが用意されている。AIコーディング支援の強化を構成する変更の一つとなる。\n\n## 自動更新の遅延\n\n拡張機能の更新については、自動更新をインストールするまでにVS Codeが待機する時間を選択できるようになった。更新そのものを受け取るだけでなく、適用までの遅延を設定可能にすることで、拡張機能の更新タイミングを利用者側で調整できる。\n\n## Copilotポリシー\n\nCopilotでは、管理された設定を既存のデバイス管理ツール経由で配布できるポリシー機能が提供される。企業環境でCopilotの設定を管理し、端末へ届けるための仕組みが強化された形だ。\n\nダウンロードはWindowsのx64とArm64、MacのUniversal、Intel、silicon、Linuxのdeb、rpm、tarball、Arm、snap向けに案内されている。また、1.125.1では複数の問題に対処する更新が行われた。",
@@ -12303,44 +12297,6 @@
       ],
       "model": "gpt-5.6-sol",
       "generatedAt": "2026-10-07T21:39:01.039Z"
-    },
-    "ef826494fcbeed0e": {
-      "bodyJa": "## OpenHands\n\nAIエージェント基盤OpenHandsのクラウド版「cloud-1.24.0」がリリースされた。今回の中心的な情報は、クラウド版に新しいバージョン番号が付与されたことで、公開日時は2026-04-29T14:24:41.000Zと記録されている。\n\n## cloud-1.24.0\n\ncloud-1.24.0は、OpenHandsのクラウド版として示されている。具体的な変更内容は明らかにされておらず、このバージョン番号だけから機能や動作の変化を断定することはできない。従来の状態と比較できる個別の説明もなく、明確に示されている更新情報はリリースの実施とバージョン番号に限られる。\n\n## リリースノート\n\n詳細なリリースノートは現在公開されていない。今回のリリースは定常的なアップデートと見られているが、個々の変更内容を示す説明ではない。掲載ページでは読み込みエラーが繰り返し表示され、再読み込みを求める案内も出ている。また、別のタブやウィンドウでのサインイン、サインアウト、アカウント切り替えに対し、セッションを更新するための再読み込みを促す表示がある。現時点では、リリースの存在とバージョン番号以外の詳細は示されていない。",
-      "bodyEn": "## OpenHands cloud-1.24.0\n\nOpenHands has released cloud-1.24.0 of its cloud-based AI agent platform. Published on April 29, 2026, the release marks a new cloud version, although detailed information about its changes is not currently available.\n\nThe limited information means the release can be identified and dated, but specific additions, fixes, or technical changes cannot be established.\n\n## AI agent platform\n\nThe release applies to the cloud edition of OpenHands, described as an AI agent platform. Its version designation is cloud-1.24.0.\n\nNo further technical details accompany that designation. In particular, the available information does not identify any new capabilities or describe changes to the platform’s behavior. It also provides no figures or other release-specific technical measurements.\n\n## Detailed release notes\n\nDetailed release notes have not been published. The release page instead shows several page and session messages, including notices that the user signed in, signed out, or switched accounts in another tab or window. Each notice directs the user to reload to refresh the session.\n\nThe page also repeatedly reports an error while loading and asks the user to reload. Another message says that the action cannot be performed at that time. Consequently, the page does not provide a change-by-change account of cloud-1.24.0.\n\n## Routine maintenance update\n\nWith no detailed release notes available, the release is presented as likely to be a routine maintenance update. That characterization is a suggestion rather than a documented list of modifications.\n\nThe confirmed information is therefore limited: OpenHands cloud-1.24.0 has been released for the cloud version of the AI agent platform, and detailed notes explaining the release are not currently published.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "cloud-1.24.0が出たのに、詳しい変更点はまだ分からないの？",
-          "en": "cloud-1.24.0 is out, but we don’t know the detailed changes yet?"
-        },
-        {
-          "s": "b",
-          "ja": "確認できるのは、OpenHandsのクラウド版がcloud-1.24.0としてリリースされたこと。詳しいリリースノートは未公開で、定常的な更新と見られているよ。",
-          "en": "What’s confirmed is the release of OpenHands cloud-1.24.0. Detailed release notes aren’t available, and it appears to be a routine update."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ、使う人には新しい版が出たと分かるけど、何が変わったかまでは判断できないんだね？",
-          "en": "So users can see that a new version is available, but they can’t tell what actually changed?"
-        },
-        {
-          "s": "b",
-          "ja": "そう。リリースの把握には役立つけれど、機能や修正、影響まではこの記事から確認できないよ。",
-          "en": "Right. It helps people track the release, but the article doesn’t confirm any features, fixes, or impact."
-        },
-        {
-          "s": "a",
-          "ja": "分かった。クラウド版の更新が出たことは分かるけど、中身はまだ決めつけられないんだね。",
-          "en": "Got it. We know the cloud version was updated, but we shouldn’t assume what’s inside."
-        },
-        {
-          "s": "b",
-          "ja": "うん。定常的なアップデートと見られるものの、詳細ノートがないので変更内容は断定しないのが大事だね。",
-          "en": "Exactly. It looks routine, but without detailed notes, it’s best not to make firm claims about the changes."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T21:40:59.204Z"
     },
     "72780eb250ba9c5b": {
       "bodyJa": "大規模言語モデル（LLM）の選定では、「どちらが賢いか」という推論精度の比較が注目されがちだ。しかし、Moonshot AI 系の Kimi K3 と Anthropic の Claude Fable 5 を実際のタスクで突き合わせた今回のハンズオン検証は、実用上の差が推論力そのものよりも、出力トークン予算の柔軟性と回答の検証しやすさに現れることを示した。\n\n検証では、両モデルに同種のタスクを与えて出力を比較した。純粋な正答率や推論の深さでは決定的な差は見られなかったという。むしろ実務で効いてくるのは、モデルがどれだけ長い出力を許容し、その量を状況に応じて調整できるかという「出力予算」の設計だった。長い推論過程や大規模なコード生成を求める場面では、出力上限や生成の打ち切り挙動がそのまま作業効率に直結するためだ。\n\nもう一つの軸が「検証性」である。回答が正しいかどうかを人間が確かめやすい形で提示されるかは、実運用での信頼性を左右する。根拠や中間ステップが追いやすい出力は、誤りの発見や修正を容易にし、結果として総合的な生産性を高める可能性がある。逆に結論だけが示される形式では、精度が高くても検証コストがかさみやすい。\n\nこうした視点は、近年のモデル評価の潮流とも重なる。MMLU や GSM8K といった従来のベンチマークは知識や推論力を数値化するのに有用だが、実タスクでの使い勝手を必ずしも反映しない。OpenAI や Google、Anthropic をはじめ各社が推論特化モデルを相次いで投入するなか、単一のスコアではなく、出力制御や説明可能性を含めた多面的な評価が求められつつある。\n\n今回の比較が示すのは、モデル選定を「賢さ」の一元的な尺度で決めるのではなく、扱うタスクの性質に応じた判断軸を持つことの重要性だ。長文生成や監査が前提の業務では出力予算と検証性が、対話的な用途では応答速度やコストが優先されるなど、要件ごとに最適解は変わる。ベンチマークの数字を鵜呑みにせず、自らのユースケースで実測する姿勢が、実務では引き続き有効だと言えそうだ。",
@@ -13369,6 +13325,202 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T02:31:21.039Z"
+    },
+    "34349125c68361d0": {
+      "bodyJa": "Anthropic, PBCは、Class A普通株式の新規株式公開(IPO)が完了したと発表した。引受会社の追加購入権が全面的に行使されたことと、同時に実施された私募が完了したことも、あわせて伝えられている。\n\n## 発表された内容\n\n発表は、IPOのクローズ、引受会社による追加株式購入オプションの全面行使、そして同時私募のクローズという三つの事項をひとつにまとめた内容になっている。Anthropicは「本日」これを発表したとされ、公開日は2026年11月20日と記録されている。\n\n## 1株83ドルの売り出し\n\n売り出されたのはClass A普通株式で、総数は11億2,700万株にのぼる。公募価格は1株あたり83.00ドルと説明されている。この株数には、後述する引受会社の追加購入分が含まれている。\n\n## 追加購入権の全面行使\n\n引受会社は、Anthropicから追加でClass A普通株式を購入できるオプションを持っていた。今回このオプションが全面的に行使され、対象となったのは1億4,700万株である。購入価格は新規株式公開価格と同じ1株83.00ドルとされる。\n\n## 同時私募の完了\n\nIPOと並行して行われた私募も完了した。この私募のクローズも、IPOの完了と同じ発表の中で告げられている。\n\n整理すると、今回完了したのは、Class A普通株式11億2,700万株の公開、1億4,700万株の追加購入権の全面行使、そして同時私募の三点である。",
+      "bodyEn": "Anthropic, PBC has announced that its initial public offering has closed. The announcement matters because it marks the completion of the company's move to selling Class A common stock to the public, and it also confirms that a concurrent private placement has closed.\n\n## Closing of the initial public offering\n\nAccording to the announcement, dated November 20, 2026, Anthropic closed its initial public offering of an aggregate of 1,127,000,000 shares of its Class A common stock. The public offering price was $83.00 per share. The announcement describes this total as including the underwriters' option to purchase additional shares, so the aggregate share count already reflects that option having been exercised.\n\n## Underwriters' option exercised in full\n\nThe announcement states that the underwriters fully exercised their option to purchase an additional 147,000,000 shares of Class A common stock from Anthropic. These additional shares were purchased at the initial public offering price, the same $83.00 per share that applied to the rest of the offering. In other words, the option was used to its full extent rather than in part, and the shares came from Anthropic itself.\n\n## Concurrent private placement\n\nAlongside the public offering, the announcement says Anthropic also closed a concurrent private placement. The announcement's title treats the two closings together: the initial public offering, including the full exercise of the underwriters' option, and the concurrent private placement. The material available here does not give further terms for the private placement, so no additional details are offered.\n\n## What the announcement establishes\n\nThe key facts are these: the offering involved 1,127,000,000 Class A common shares, the price was $83.00 per share, the underwriters' 147,000,000-share option was exercised in full, and the concurrent private placement has closed. Anthropic describes the transaction as completed, and the announcement is framed as a closing notice for these transactions.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、普段Claudeを使っている私たちに何か変わることはあるの？",
+          "en": "Does this change anything for those of us who use Claude day to day?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事は株式の話が中心で、使い方が変わるとは書かれていないよ。Anthropic, PBCが新規株式公開を完了した、という発表なんだ。",
+          "en": "This one is about shares, and it doesn't mention any change in how Claude is used. It announces that Anthropic, PBC has closed its initial public offering."
+        },
+        {
+          "s": "a",
+          "ja": "新規株式公開って、前はできなかったことなの？",
+          "en": "Was an IPO something the company couldn't do before?"
+        },
+        {
+          "s": "b",
+          "ja": "IPOは、会社の株を初めて広く一般に売り出すこと、くらいの意味だよ。以前との細かな違いは、この記事だけでは分からないな。",
+          "en": "An IPO roughly means selling a company's shares to the public for the first time. This article doesn't say enough to tell how things differed before."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ収穫は、1株83ドルで11億2,700万株を売り出して、引受会社が追加の1億4,700万株分も全部使ったってことだね。",
+          "en": "So my takeaway: 1.127 billion shares at $83 each, and the underwriters used their full option for 147 million more."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。同時私募も完了したと書かれているよ。資金の使い道などは載っていないから、続報があればそこが気になるね。",
+          "en": "Right, and the concurrent private placement closed too. Nothing here on how the funds will be used, so any follow-up on that would be worth watching."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:38:35.475Z"
+    },
+    "cd42dd7807fd8434": {
+      "bodyJa": "Ollama v0.40.17-rc2 で、mlxrunner が保存済み履歴をメモリ負荷に合わせて調整するようになった。変更は #19678 として取り込まれ、履歴の扱いが固定的な上限から状況に応じた方式へ移った点が中心になる。\n\n## 保存済み履歴の調整\n\n今回の変更は、mlxrunner が保持する保存済み履歴の量を、メモリ負荷に適応させるというものだ。コミットのタイトルには「adapt saved history to memory pressure」とあり、メモリの逼迫具合に応じて履歴の扱いを変える趣旨だと読み取れる。\n\n## 固定の 8 GiB 枠から\n\n変更の説明では、固定の 8 GiB という許容量ではなく、ワークスペースの状況を基準にする形へ改められたとされる。あらかじめ決まった一定の枠で履歴を抱えるのではなく、実際に使える状況に合わせて量が決まる、という違いである。ワークスペースの具体的な定義や算出方法については、ここでは確認できる記述がない。\n\n## 不要なバッファの解放\n\nあわせて、使われていないバッファを解放する処理も盛り込まれている。履歴量の調整と未使用バッファの解放が組み合わさることで、メモリを必要以上に占有し続けない方向の変更になっていると考えられる。ただし、解放の対象や条件の細部は示されていない。\n\n## リリースの位置づけ\n\nこの変更は v0.40.17-rc2 のコミットとして、2026年11月19日に公開された。対象は mlxrunner に限られ、ほかの機能や挙動の変更はここからは読み取れない。メモリが限られたマシンでローカル LLM を動かす利用者に関わる改良として、この rc2 の内容を確認する価値はある。",
+      "bodyEn": "## mlxrunner adapts saved history\n\nOllama v0.40.17-rc2, a release candidate published on November 19, 2026, changes how mlxrunner handles saved history. The change is tracked as pull request #19678 and titled \"mlxrunner: adapt saved history to memory pressure.\" It matters for people running local language models on machines where memory is limited.\n\n## Memory pressure, not a fixed allowance\n\nAccording to the release entry, the amount of history mlxrunner keeps is no longer tied to a fixed 8 GiB allowance. Instead, the saved history is sized according to the workspace and the memory pressure the system is under. In practical terms, the stored amount can move up or down with current conditions rather than staying at one preset figure.\n\nThe summary of the change describes this as scaling saved history with memory pressure. The wording in the entry points to the workspace as the reference for how much to keep, replacing the earlier flat limit.\n\n## Releasing unused buffers\n\nThe same entry says that unused buffers are released as part of the change. The text of the entry is cut off after this point, so the full list of what is released and under what conditions is not spelled out here. What can be said is that the change pairs two behaviors: adjusting how much history is kept, and freeing buffers that are no longer needed.\n\n## Release details\n\nThe commit for v0.40.17-rc2 was created on GitHub.com and signed with GitHub's verified signature. Because this is a release candidate (rc2), it is a pre-release build rather than a final release. The source material gives no benchmarks, memory figures beyond the 8 GiB reference, or platform-specific measurements, so the effect on real workloads is not quantified. The stated benefit is for local LLM users working on memory-limited machines.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「固定の8GiBじゃなくて」って書いてあるけど、何が変わったの？",
+          "en": "It says \"rather than a fixed 8 GiB allowance.\" So what actually changed?"
+        },
+        {
+          "s": "b",
+          "ja": "mlxrunnerが保存しておく履歴の量を、ワークスペースの状況に合わせて調整する形になったよ。使われていないバッファも解放するそうだ。",
+          "en": "mlxrunner now adjusts how much history it saves based on the workspace, not a fixed amount. Unused buffers get released too."
+        },
+        {
+          "s": "a",
+          "ja": "それって、メモリが少ないパソコンで使う人に役立つのかな？",
+          "en": "So is this mainly helpful for people running on machines with limited memory?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。この記事では、メモリが限られたApple Silicon環境でローカルLLMを使う人に役立つとされているよ。",
+          "en": "Right. The article says it helps local LLM users on memory-limited Apple Silicon setups."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、決まった枠で抱え込まずに、状況を見て履歴の量を変えるってことだね。",
+          "en": "So instead of holding a set amount, it adapts the history to the situation. Got it."
+        },
+        {
+          "s": "b",
+          "ja": "うん。ただ、これはv0.40.17-rc2という候補版の変更だよ。実際の効果の大きさは、この記事からは分からないね。",
+          "en": "Yes. But this is in v0.40.17-rc2, a release candidate, and the article doesn't say how big the effect is."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:39:01.977Z"
+    },
+    "d28250894609a149": {
+      "bodyJa": "## ubuntu-latestの限界\n\nGitHub ActionsのCIをHugging Face Jobsへ移す方法を扱った記事で、GitHubを使い続けたまま実行環境だけを置き換える考え方が示されている。ML向けに作られたインフラを使える点が注目される。\n\nGitHubリポジトリでGitHub Actionsを有効にしていれば、多くの場合CIにはGitHubホストのrunnerを使う。ワークフローにruns-on: ubuntu-latestと書くだけでマシンが割り当てられるため、手軽さが既定として選ばれる理由になっている。\n\n## 汎用マシンの課題\n\nただし、この手軽さには限界もあるという。GitHub Actionsは遅くなったり、メンテナンスで止まったりすることがある。ホストされるマシンは汎用的なもので、GPUへのアクセスも、ほとんどのオープンソースプロジェクトが簡単に有効化できるものではない。\n\n## TrackioのCI要件\n\nTrackioでは、こうした制約が無視できなくなった。基本的なユニットテストとフロントエンドチェックを回すための、信頼できるCPU CIが必要だった。加えて、実際のCUDAハードウェア上で動かす必要のあるテストのために、GPU CIも求められた。\n\n## Jobsでの実行\n\nそこで作られた代替策が、CIの主導権はGitHub Actionsに残したまま、ジョブの実行先をHugging Face Jobsにするというものだ。GitHub ActionsがCIの起点であり続け、Jobsがジョブを実行する場所になるという役割分担になる。\n\nこの方法により、MLチームはモデルの評価や訓練のパイプラインを、ML向けに作られたインフラ上で、エコシステムとより密に統合された形で動かせるようになると説明されている。",
+      "bodyEn": "Many projects with GitHub Actions enabled rely on GitHub-hosted runners for CI. A recent Hugging Face blog post describes moving that CI work onto Hugging Face Jobs, which matters for teams whose tests need more than a generic machine.\n\n## GitHub-hosted runners by default\n\nAccording to the post, GitHub-hosted runners are the default for many projects because they are simple. You add a workflow, write runs-on: ubuntu-latest, and GitHub provides a machine. The post presents this convenience as real, but it comes with limits.\n\n## Where the limits showed up\n\nThe post lists several limits of the default setup. GitHub Actions can be slow or down for maintenance. The hosted machines are generic. GPU access is also not something most open-source projects can simply turn on.\n\nFor Trackio, the authors say these limits started to matter. They wanted reliable CPU CI for basic unit tests and frontend checks. They also wanted GPU CI for tests that have to run on actual CUDA hardware. A single generic runner type did not cover both needs.\n\n## Keeping Actions in charge\n\nThe alternative the authors built keeps GitHub Actions in charge of CI while running the jobs on Hugging Face Jobs. The workflow layer stays on GitHub, and only the place where the jobs execute changes. The same approach is meant to cover both the CPU checks and the GPU tests described above.\n\nThe article's summary frames the migration as a way for ML teams to run model training and evaluation pipelines on purpose-built infrastructure, with tighter integration into the Hugging Face ecosystem. The post is aimed at readers who already use GitHub Actions and want to make this change.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "普段のCIって、これでどう変わるの？GitHubのリポジトリを持ってる人の話かな？",
+          "en": "What actually changes in day-to-day CI here? Is this for people who already have a GitHub repo?"
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。GitHub Actionsは今のまま司令塔にして、ジョブの実行だけをHugging Face Jobsに任せる形だよ。GPUが要るテストも動かしたい、という話なんだ。",
+          "en": "Yes. GitHub Actions stays in charge of CI, but the jobs run on Hugging Face Jobs. The goal includes tests that need real GPU hardware."
+        },
+        {
+          "s": "a",
+          "ja": "前はGPUのテストってできなかったの？GitHubの普通のマシンじゃだめだった？",
+          "en": "Couldn't you do GPU tests before? Weren't GitHub's normal machines enough?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、GitHubのマシンは汎用で、GPUはたいていのOSSが気軽に使えるものではない、とあるよ。重くて止まることもあるらしい。ただ、Jobsとの細かな比較は書かれてないんだ。",
+          "en": "The article says GitHub's hosted machines are generic, and most open-source projects can't just turn on GPUs. It also mentions slowness and downtime, but no detailed comparison with Jobs."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、今のCIを捨てずにGPUのテストまで足せるってことだね。",
+          "en": "So the big win is that you keep your current CI and can still add GPU tests, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めるね。TrackioではCPUの基本テストやフロントエンド確認と、CUDAのGPUテストの両方が必要だったんだ。この続きで、実際の移行手順がどう組まれるかに注目だね。",
+          "en": "That's a fair reading. Trackio needed CPU unit and frontend checks plus CUDA GPU tests. Next, watch how the actual migration steps are set up from here."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:40:49.145Z"
+    },
+    "cf882ae8f47a1949": {
+      "bodyJa": "OpenEnvは、ターミナルやブラウザなど、エージェントが対話できるあらゆる対象を実行環境として作るためのツールだ。そのOpenEnvが、運営体制をさらに開かれたものにすると発表された。エージェントを訓練する未来をオープンソースにすることが狙いとされている。\n\n## 実行環境を作るツール\n\nOpenEnvが扱うのは、ターミナルやブラウザ、あるいはエージェントが操作できるあらゆるものを使った実行環境である。発表では、この仕組みをいっそうオープンにすることで、エージェント訓練の未来をオープンソースにしていくと説明されている。\n\n## 委員会による調整\n\n発表の日から、OpenEnvは委員会によって調整される。現時点の参加組織は、Meta-PyTorch、Reflection、Unsloth、Modal、Prime Intellect、Nvidia、Mercor、Fleet AI、Microsoft、Hugging Face、RadixArkである。この顔ぶれは「これまでのところ」の構成として示されている。\n\n## huggingface/OpenEnv\n\nOpenEnvは今後、huggingface/OpenEnv に置かれる。あわせて、AIエコシステムの主要な組織から支持・採用されているプロジェクトでもあると紹介されている。\n\n## 支持と採用の広がり\n\n支持・採用を表明している組織として、PyTorch Foundation、vLLM、SkyRL (UCB)、Lightning AI、Axolotl AI、Stanford Scaling Intelligence Lab、Mithril、OpenMinedが挙がっている。さらにScaler AI Labs、Scale AI、Patronus AI、Surge AI、Halluminate、Turing、Scorecard、Snorkel AI、SGLang、Milesも名を連ねる。",
+      "bodyEn": "## OpenEnv Becoming Even More Open\n\nOpenEnv is a tool for creating agentic execution environments, and a new announcement says it is moving toward a more open, community-coordinated model. The stated goal is to make the future of training agents open source, which matters for anyone building or evaluating agents against shared environments.\n\nAccording to the announcement, OpenEnv is a tool for building environments such as terminals, browsers, or anything else an agent can interact with. The summary of the news describes it as a unified environment framework for agentic reinforcement learning, used to train and evaluate AI agents across diverse tasks.\n\n## Coordinated by a Committee\n\nStarting with the announcement, OpenEnv will be coordinated by a committee. The source says the committee so far includes Meta-PyTorch, Reflection, Unsloth, Modal, Prime Intellect, Nvidia, Mercor, Fleet AI, Microsoft, Hugging Face, and RadixArk. The wording \"so far\" indicates the membership is not presented as final.\n\nThe project also has a new home: OpenEnv now lives at huggingface/OpenEnv. The announcement frames this change, together with the committee, as the way OpenEnv is becoming more open.\n\n## Supported and Adopted\n\nBeyond the committee, the announcement states that OpenEnv is supported and adopted by a number of leading organizations in the AI ecosystem. The list it gives includes PyTorch Foundation, vLLM, SkyRL (UCB), Lightning AI, Axolotl AI, Stanford Scaling Intelligence Lab, Mithril, OpenMined, Scaler AI Labs, Scale AI, Patronus AI, Surge AI, Halluminate, Turing, Scorecard, Snorkel AI, SGLang, and Miles.\n\nThe announcement presents this breadth of backing as a sign that the open source community is rallying behind the project. The source does not describe specific integrations, features, or technical changes tied to these organizations. What it does establish is the governance shift to a multi-organization committee, the repository location under huggingface/OpenEnv, and the list of supporters and adopters.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "OpenEnvって、そもそも何をするものなの？ターミナルとかブラウザとか書いてあったけど。",
+          "en": "What does OpenEnv actually do? I saw terminals and browsers mentioned, but I'm not sure how they fit."
+        },
+        {
+          "s": "b",
+          "ja": "エージェントが触れる実行環境を作る道具だよ。ターミナルやブラウザ、それ以外でもエージェントが操作できるものが対象と書かれているね。",
+          "en": "It's a tool for building environments an agent can interact with. The post names terminals and browsers, but says it can be anything an agent can operate."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、これが「もっとオープンになる」って、誰にどう役立つのかな？",
+          "en": "So when it says OpenEnv is becoming more open, who does that help, and how?"
+        },
+        {
+          "s": "b",
+          "ja": "今日から委員会が運営を調整して、Meta-PyTorchやHugging Faceなど複数の組織が参加しているよ。エージェントを訓練するオープンソースの未来を目指す、という位置づけだね。",
+          "en": "A committee now coordinates it, with groups like Meta-PyTorch and Hugging Face. The post frames this as making agent training open source for everyone."
+        },
+        {
+          "s": "a",
+          "ja": "一社だけのものじゃなくて、みんなで育てる土台になるってことかな？",
+          "en": "So it's less one company's tool and more a shared base that many groups build together?"
+        },
+        {
+          "s": "b",
+          "ja": "そういう方向性だね。PyTorch FoundationやvLLMなども支持・採用しているとあるよ。ただ、実際の使われ方や成果はこの記事だけでは分からないから、そこは注意だね。",
+          "en": "That's the direction. The post lists PyTorch Foundation and vLLM among supporters, but real-world use and results aren't covered here, so keep that in mind."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:40:47.174Z"
+    },
+    "1ded629d528187ea": {
+      "bodyJa": "CursorのキャンバスにデザインモードとコンテキストUsageレポートが加わった。キャンバスは、エージェントがダッシュボードやレポート、社内ツールといった対話型アーティファクトを作成し、チームと共有できる機能だ。今回のリリースでは、編集のしやすさとコンテキスト使用量の把握が強化された。\n\n## デザインモードで直接指示\n\nデザインモードでは、ブラウザと同じ感覚で、キャンバス内のUI要素を直接選択して注釈を付けられる。これにより、Cursorへの編集指示を行える。\n\n変更内容をテキストで説明する代わりに、対象を直接示してフィードバックできる。そのため、調整をより素早く繰り返せるとされている。\n\n## コンテキスト使用量\n\nCursorは、エージェントのコンテキスト使用量をキャンバス内の対話型レポートとして表示できるようになった。レポートの中核となるコンテキストエクスプローラーでは、システムプロンプト、ツール定義、ルール、スキルなどにトークンがどう割り当てられているかを確認できる。\n\nレポートはキャンバス上にあるため、エージェントに追加の質問をしたり、特定の質問に答えられるようレポートをカスタマイズしてもらったりすることも可能だ。\n\nキャンバスには「Debug with Agent」ボタンも埋め込まれている。クリックすると、新しい会話の中で、コンテキスト使用量を減らせる箇所の特定をCursorに依頼できる。\n\n## 共有とボタン埋め込み\n\n使い勝手の面では、共有されたキャンバスをブラウザでフルスクリーン表示できるようになった。他の人に見せやすくなったと説明されている。\n\nまた、エージェントがキャンバスにボタンを埋め込めるようになった。ボタンをクリックすると、特定のプロンプトを実行できる。\n\nこのほか、エージェントによるキャンバスの型エラー修正が改善された。コンポーネントのスタイルも改善され、グラフのカスタマイズ機能が追加されている。",
+      "bodyEn": "## Canvas gets Design Mode\n\nCursor's Canvas lets agents create interactive artifacts such as dashboards, reports, and internal tools, and share them with a team. The latest release adds a Design Mode for faster editing, a new way to see context usage, and several usability improvements, according to the changelog.\n\nDesign Mode works much like a browser. Users can select UI elements directly inside the canvas and annotate them to tell Cursor what to change. Instead of describing a change in text, they point at the target and give feedback on it, which the announcement says allows quicker rounds of adjustment.\n\n## Context usage as a report\n\nCursor can now show an agent's context usage as an interactive report inside a canvas. A Context Explorer shows where tokens are allocated across items such as system prompts, tool definitions, rules, and skills.\n\nBecause the report is itself a canvas, users can ask the agent follow-up questions or have it customize the report to answer specific questions. A \"Debug with Agent\" button is embedded in the canvas. Clicking it asks Cursor, in a new conversation, to identify where context usage could be reduced.\n\n## Other usability improvements\n\nThe release includes several smaller changes:\n\nShared canvases can now be viewed full-screen in a browser, which makes them easier to show to other people.\n\nAgents can embed buttons in a canvas that run a specific prompt when clicked.\n\nThe agent's handling of type errors in canvases has been improved.\n\nComponent styling has been improved, and chart customization options have been added.\n\n## What changes for users\n\nTaken together, the update gives users two new ways to work with canvases. They can direct edits by selecting and annotating interface elements, and they can inspect token allocation through an interactive report. The embedded buttons and the full-screen sharing view extend how canvases can be used and presented. The source does not mention pricing, regional availability, or platform restrictions for these features.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Canvasのデザインモードって、普段の作業だとどんな場面で役に立つの？",
+          "en": "How would Canvas's Design Mode actually help in everyday work?"
+        },
+        {
+          "s": "b",
+          "ja": "画面上のUI要素を直接選んで注釈を付け、Cursorに編集を指示できます。変更を文章で説明しなくていいので、調整を素早く重ねられるそうです。",
+          "en": "You can select UI elements right in the canvas and annotate them to guide Cursor's edits. No need to describe changes in text, so tweaking goes faster."
+        },
+        {
+          "s": "a",
+          "ja": "前は、直したいところを文章で説明するしかなかったのかな？",
+          "en": "So before this, did you have to explain every change in words?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと「テキストで説明する代わりに」と書かれているので、指示の方法が増えたんだと思います。前の細かな手順までは書かれていなくて、分かりません。",
+          "en": "The article says \"instead of describing changes in text,\" so it seems like a new way to give instructions. It doesn't detail the old workflow, so I can't say more."
+        },
+        {
+          "s": "a",
+          "ja": "コンテキスト使用量のレポートで、トークンがどこに使われてるか見えるのがいいね！",
+          "en": "The best part for me is seeing where tokens go in the Context Usage Report!"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。システムプロンプトやルールなどの内訳が見られます。次は「Debug with Agent」ボタンで、減らせる箇所の特定を頼めるところに注目です。",
+          "en": "Right, you can see breakdowns like system prompts and rules. Next, watch the \"Debug with Agent\" button, which asks Cursor to find where usage could be reduced."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:41:43.137Z"
+    },
+    "92196149397c199d": {
+      "bodyJa": "Cursor の TypeScript SDK と Python SDK に、新機能がまとめて追加された。エージェントと実行メタデータの保存方法の選択、独自関数のツール公開、ローカルのツール呼び出しの自動レビュー、ネストされたサブエージェントなどが利用できるようになる。\n\n## カスタムツールの追加\n\nローカルエージェントに独自のツールを持たせるには、Agent.create() または send() の呼び出しごとに、local.customTools を通じて関数定義を渡す。SDK は、これらの関数を custom-user-tools という組み込みの MCP サーバー経由でエージェントに公開する。そのためモデルは、ほかの MCP ツールと同じ経路、同じ権限ゲートを通じてユーザーのコードを呼び出す。\n\n従来は、カスタム機能を公開するために、独自の stdio またはリモート HTTP の MCP サーバーを立ち上げて接続する必要があった。今後は関数定義だけで足りるとされる。定義したカスタムツールは親エージェントのすべてのサブエージェントからも参照できるため、一度の定義で実行全体に使える。\n\n## 自動レビューの扱い\n\nデフォルトでは、ローカル SDK エージェントはツール呼び出しを承認なしで実行する。ヘッドレス実行では人間が介在しないためだ。こうした呼び出しを自動レビューに通したい場合は、local.autoReview を設定する。\n\n自動レビューはレビュー自体を迂回する仕組みではない。分類器が、どの呼び出しを自動的に実行し、どれを保留にするかを判断する。この分類器は、permissions.json に自然言語で書く instructions によって調整できる。\n\n## ストアとサブエージェント\n\n今回のリリースでは、エージェントと実行メタデータの保存方法を選べるようになった。また、ネストされたサブエージェントを任意の深さまで入れ子にできる。これらの具体的な設定方法や挙動の詳細は、ここで示された範囲では明らかではない。\n\n## 信頼性などの修正\n\nリリースには、信頼性、パフォーマンス、プラットフォームに関する一連の修正も含まれる。これらにより、ローカルとクラウドの両方の SDK エージェントを、本番用スクリプト、CI、カスタム統合でより簡単に実行できるようになると説明されている。",
+      "bodyEn": "The Cursor SDK for TypeScript and Python has received several new features, according to the Cursor changelog. The update is aimed at making local and cloud SDK agents easier to run in production scripts, CI, and custom integrations.\n\n## Custom tools through local.customTools\n\nLocal agents can now have their own tools. Developers pass function definitions through local.customTools, either in Agent.create() or with each send() call. The SDK exposes those functions to the agent through a built-in MCP server called custom-user-tools. As a result, the model calls your code along the same path, and through the same permission gates, as any other MCP tool.\n\nPreviously, exposing custom functionality meant standing up your own stdio or remote HTTP MCP server and connecting it to the agent. The announcement says function definitions alone are now enough. Custom tools are also visible to every subagent of the parent agent, so a tool defined once is available across the whole run.\n\n## Routing calls through auto-review\n\nBy default, local SDK agents execute tool calls without asking for approval, because headless runs have no human in the loop. Setting local.autoReview sends those calls through auto-review instead. Rather than bypassing review entirely, a classifier decides which calls run automatically and which are held back.\n\nThe classifier can be tuned with natural-language instructions in permissions.json.\n\n## Custom stores and nested subagents\n\nDevelopers can now choose how agents and run metadata are stored. Subagents can also be nested to any depth. The release summary additionally lists run correlation IDs and lighter imports, and describes the overall result as finer control over agent workflows and easier debugging.\n\n## Reliability and platform fixes\n\nThe release also bundles a set of fixes covering reliability, performance, and platform issues. According to the changelog, these fixes make it simpler to run both local and cloud SDK agents in production scripts, CI, and custom integrations.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T03:42:07.769Z"
     }
   }
 }

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T02:30:01.965Z",
+  "generatedAt": "2026-11-28T03:30:57.443Z",
   "bucketTimeZone": "Asia/Tokyo",
   "totals": {
     "allTime": 8340,
@@ -790,8 +790,8 @@
       "date": "2026-11-28",
       "count": 2,
       "byCategory": {
-        "mcp": 1,
-        "local-llm": 1
+        "local-llm": 1,
+        "mcp": 1
       }
     }
   ],
@@ -1208,8 +1208,8 @@
       "month": "2026-11",
       "count": 109,
       "byCategory": {
-        "mcp": 6,
         "local-llm": 12,
+        "mcp": 6,
         "cline": 5,
         "copilot": 15,
         "agent-fw": 12,
@@ -1226,7 +1226,7 @@
   "bySource": [
     {
       "source": "openai-news",
-      "total": 639,
+      "total": 602,
       "last30d": 0
     },
     {
@@ -1395,6 +1395,11 @@
       "last30d": 10
     },
     {
+      "source": "openai-blog",
+      "total": 64,
+      "last30d": 0
+    },
+    {
       "source": "zenn-ai",
       "total": 52,
       "last30d": 0
@@ -1448,11 +1453,6 @@
       "source": "semantic-kernel-releases",
       "total": 29,
       "last30d": 2
-    },
-    {
-      "source": "openai-blog",
-      "total": 27,
-      "last30d": 0
     },
     {
       "source": "youtube-anthropic",
@@ -1516,8 +1516,8 @@
     }
   ],
   "byImportance": {
-    "1": 4622,
-    "2": 3351,
+    "1": 4621,
+    "2": 3352,
     "3": 367
   }
 }

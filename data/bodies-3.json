@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T02:29:57.491Z",
-  "count": 389,
+  "generatedAt": "2026-11-28T03:30:52.843Z",
+  "count": 388,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -12906,7 +12906,39 @@
       "bodyJa": "複数の大規模言語モデル（LLM）エージェントが数珠つなぎに情報を受け渡す「マルチホップエージェントリレー」において、メッセージの形式が下流エージェントの振る舞いに与える影響は、そのエージェントが連鎖の中で占める階層（ティア）によって異なる——arXivで公開された研究がこう報告した。複数エージェントを組み合わせたシステムの信頼性を評価するうえで重要な示唆を含む知見だ。\n\n近年、単一のLLMにすべての処理を任せるのではなく、役割の異なる複数エージェントを連携させる「マルチエージェント」や「チェーン・オブ・エージェント」と呼ばれる構成が注目を集めている。長い文脈の分割処理や、計画・実行・検証といった役割分担に有効とされる一方、エージェント間で受け渡されるメッセージが積み重なるにつれて、誤りがどのように伝播するかは十分に解明されていなかった。\n\nこの研究が着目したのは、メッセージの「形式」がもたらす効果である。同じ内容でも記述の形式が変われば下流エージェントの出力が変化しうるが、分析の結果、その影響の度合いはエージェントが上流にあるか下流にあるかというティアに依存することが示されたという。\n\nさらに注目されるのは、上流エージェントが受け取った内容に誤りが含まれていても、それを自ら修正せず「忠実に」下流へ伝達する傾向が見られた点だ。エージェントが誤りを訂正する検証者として機能するとは限らず、むしろ誤情報をそのまま増幅させてしまう可能性を示唆している。\n\nこの知見は、複数エージェント系を設計する実務にも直結する。LangChainやAutoGen、CrewAIといったフレームワークの普及でマルチエージェント構成の構築は容易になったが、各エージェントを単純に連結するだけでは、上流の誤りが下流で温存されるリスクがある。信頼性を確保するには、明示的な検証ステップの挿入やメッセージ形式の標準化、ティアごとの挙動を踏まえた評価設計が求められると見られる。ただし本結果は特定の実験設定に基づくものであり、モデルやタスクの違いによる一般化可能性については、今後さらなる検証が必要となるだろう。",
       "bodyEn": "Multi-agent systems built on large language models increasingly rely on relay architectures, in which a task passes through a sequence of agents that each read, process, and forward information to the next. A new paper posted to arXiv examines how the format of the messages exchanged between these agents shapes downstream behavior, and reports that the effect is not uniform along the chain but depends on where an agent sits, or its tier. The question matters because relay and pipeline patterns are becoming a common way to decompose complex work, and small design choices in how agents talk to one another can quietly determine whether the overall system is reliable.\n\nThe central finding is that message-format effects in multi-hop agent relays are tier-dependent. Rather than acting as quality-control checkpoints, the agents studied tend to propagate the content they receive faithfully, passing information along—including apparent errors—without correcting it. The authors summarize this as behavior that is faithful but not corrective. The practical implication is that once a mistake or a particular formatting choice enters the chain, it is likely to persist and travel downstream rather than being filtered out by later agents. Because the influence of format varies by tier, the same formatting decision can carry different weight depending on how far into the relay it occurs.\n\nThis framing connects to a broader concern in multi-agent research often described informally as a telephone-game or error-propagation problem. When outputs from one model become the inputs to another, ambiguities, hallucinations, or brittle structure can compound across hops. The paper's contribution appears to be in isolating message format—for example, whether content is passed as free-form natural language or as more structured representations—as a variable and measuring its downstream effect at different positions rather than treating the chain as a single black box. That per-tier view is useful because it suggests reliability interventions may need to be placed at specific points rather than applied uniformly.\n\nThe work sits alongside a growing body of research and tooling around what is sometimes called chain-of-agents, a pattern in which multiple specialized agents collaborate sequentially or hierarchically on long or multi-step tasks. Frameworks such as LangGraph, AutoGen, and CrewAI have made it easier to wire together such pipelines, but they also make it easy to introduce many hand-off points where formatting conventions differ. The finding that upstream agents do not reliably correct upstream content is a caution for developers who might assume that adding more agents, or a downstream reviewer agent, will naturally catch and repair mistakes introduced earlier.\n\nFor readers less familiar with the underlying mechanics, a few prerequisite ideas help. In these systems, each agent is typically an LLM guided by a prompt that specifies its role and the expected input and output structure. The message format is the contract between agents, and it interacts with how models parse instructions: structured formats can reduce ambiguity but may also encourage an agent to accept the received content at face value, while looser formats leave more room for reinterpretation. The reported tendency toward faithful propagation is consistent with the observation that models often follow the framing of their input closely, though the paper's specific measurements are what ground this as an empirical result rather than an assumption.\n\nThe stated significance is for reliability evaluation in multi-agent system design. If the influence of message format is genuinely tier-dependent, then benchmarking a single agent in isolation may not predict how it behaves inside a relay, and evaluation should account for position within the chain. This points toward design practices such as adding explicit verification steps, defining clearer hand-off contracts, or validating content at chosen tiers rather than trusting that errors will self-correct.\n\nAs with any single study, the results should be read with appropriate caution. The findings likely depend on the particular models, tasks, and formats tested, and generalization to other architectures is not guaranteed. Still, the paper adds a useful, more granular lens to a practical problem, reframing message format from a minor implementation detail into a factor whose reliability impact varies systematically across an agent relay.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:23:43.706Z"
+      "generatedAt": "2026-08-30T17:23:43.706Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "エージェント同士が情報を渡すとき、メッセージの形式って本当に大事なの？",
+          "en": "When agents pass info to each other, does the message format really matter?"
+        },
+        {
+          "s": "b",
+          "ja": "そこが出発点だよ。形式を整えるとコストが減るという研究と、構造を課すと生成が悪くなるという研究があって、意見が割れているんだ。",
+          "en": "That's the starting question. Some work says structured messages cut cost, while other work says imposing structure hurts generation. The two disagree."
+        },
+        {
+          "s": "a",
+          "ja": "なるほど。複数のホップを通るって、何が新しいの？",
+          "en": "I see. What's new about messages going through multiple hops?"
+        },
+        {
+          "s": "b",
+          "ja": "どちらの研究も、メッセージが何段も渡る場面は測っていないんだ。そこでは一回きりの生成より、内容をどれだけ正確に写せるかが効いてくると書かれているよ。",
+          "en": "Neither side measured messages passing through several hops. There, how faithfully content is copied matters more than one-shot generation, the paper says."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、上流が間違えても下流が直してくれるわけじゃないんだね。",
+          "en": "So if an upstream agent makes a mistake, downstream agents won't fix it?"
+        },
+        {
+          "s": "b",
+          "ja": "要約ではそう示されているよ。誤りを修正せず、上流の内容をそのまま伝えるんだ。しかも形式の影響はティアごとに違うとされているよ。",
+          "en": "That's what the summary says: they pass upstream content along without correcting errors. The effect of format also differs by tier."
+        }
+      ]
     },
     "4e305a69a4ddb89a": {
       "bodyJa": "## AI対応度\n\n日本の主要SaaS 31社を対象に、AIエージェントから発見・利用されやすいかを独自指標で検証した調査だ。ソフトウェアを選ぶ主体にAIエージェントが加わり始めるなか、各社のMCP対応やAPI公開状況を評価している。\n\n## 31社を検証\n\n検証した31社のうち26社をAAA〜Dで格付けし、算定式も本文で全公開した。会計分野のfreeeとマネーフォワード、サイボウズ系が先行する一方、人事・契約・決済では、APIはあるもののAI向けの入口となる公式MCPはまだないケースが大半とされる。\n\n## SaaS支出\n\nGartnerは2026年7月1日、エンタープライズソフトウェアをエージェントのために買う時代に入り、2030年までにSaaS支出の約20％、$234Bが影響を受けると予測した。レポートは、MCP対応やAPI公開状況の差が競争優位に直結すると説明している。",
@@ -13104,82 +13136,6 @@
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T00:39:28.677Z"
     },
-    "e33edd69f7816887": {
-      "bodyJa": "## 支援から実行へ\n\nOpenAIの調査は、企業のAI活用が単純な支援から自律的な実行へ移りつつあることを示した。ChatGPTとCodexを通じ、AIをアシスタントとして使う段階から、実行エージェントとして活用する動きが明らかになった。\n\n## 先進企業の先行\n\n調査では、企業間の採用状況にも差があるとされる。特に先進企業は、AIを自律的な実行エージェントへ移行させる採用で他の企業より大きく先行しており、支援中心の利用との違いが示されている。",
-      "bodyEn": "## From simple assistance\n\nOpenAI research examines how enterprises are adopting agentic AI through ChatGPT and Codex. The shift matters because the research describes companies moving beyond simple assistance toward AI that can perform autonomous execution.\n\n## Frontier adopters pulling ahead\n\nAccording to the research, this transition is taking place through the use of ChatGPT and Codex, with AI moving from an assistant role to an execution agent. The findings also indicate a gap in adoption: frontier firms are pulling significantly ahead of their peers as enterprises put agentic AI into use.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIが「支援」から「実行」に移るって、ChatGPTやCodexが何をするようになるの？",
-          "en": "When AI shifts from “assistance” to “execution,” what do ChatGPT and Codex actually start doing?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、人を支えるだけでなく、仕事を自律的に実行するエージェントとして使う流れを示しているよ。",
-          "en": "The research describes companies using them not just to assist people, but as agents that execute work autonomously."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ企業は、AIに助けてもらうだけじゃなく、仕事の実行も任せ始めているんだね？",
-          "en": "So companies are starting to let AI carry out work, rather than only asking it for help?"
-        },
-        {
-          "s": "b",
-          "ja": "うん。ChatGPTやCodexを支援の道具から実行を担う仕組みへ広げ、先進企業ほど採用で先行しているんだ。",
-          "en": "Yes. They’re expanding ChatGPT and Codex from support tools into execution systems, with frontier firms further ahead in adoption."
-        },
-        {
-          "s": "a",
-          "ja": "AI活用が、相談相手を置く段階から、実際に動いてもらう段階へ進んでいるんだね。",
-          "en": "Got it—AI use is moving from having a helper to having something that actually carries out the work."
-        },
-        {
-          "s": "b",
-          "ja": "ただ、先進企業とほかの企業には採用の差があるから、すべての企業が同じ段階とは限らないよ。",
-          "en": "One caution: adoption differs between frontier firms and their peers, so not every company is at the same stage."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T18:10:07.705Z"
-    },
-    "e308cad69399bfa1": {
-      "bodyJa": "## AI時代のスコアカード\n\nOpenAIは、AI時代の社会・経済・安全面における進捗を評価するスコアカードの枠組みを公開した。AIの影響を可視化し、継続的に追跡する基準を設けることで、説明責任と透明性の向上を目指す取り組みだ。\n\n## ROIの測定基準\n\nOpenAIのCFOであるSarah Friarは、実用的なAIスコアカードを紹介した。ROIは、有用な仕事、成功したタスク当たりのコスト、信頼性、コンピュートに対するリターンという観点から測定する。AIの成果を単一の指標ではなく、実際の仕事や費用、安定性を含めて捉える枠組みとなっている。",
-      "bodyEn": "## Practical AI scorecard\n\nOpenAI introduced a framework for measuring and tracking AI progress across social, economic, and safety dimensions. The scorecard matters because it is intended to improve accountability and transparency around how AI development affects the world.\n\n## Measuring useful work\n\nSarah Friar, OpenAI’s CFO, presents the scorecard as a practical way to measure return on investment. Its measures include useful work, the cost per successful task, dependability, and return on compute.\n\nBy establishing criteria for tracking these areas, the framework is designed to make AI’s effects more visible and support evaluation of social, economic, and safety progress.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "ROIを4つの項目で測るんだね。これって大きい変化なの？",
-          "en": "They’re measuring ROI across four areas. Is that a big shift?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、AIの成果を複数の軸で追い、社会・経済・安全への影響と説明責任を見えやすくする試みなんだ。",
-          "en": "Here, the idea is to track AI outcomes across several dimensions, making its social, economic, and safety impact—and accountability—more visible."
-        },
-        {
-          "s": "a",
-          "ja": "「リターン・オン・コンピュート」って、どういう意味？",
-          "en": "What does “return on compute” mean?"
-        },
-        {
-          "s": "b",
-          "ja": "計算資源を使った分に対して、どれだけ役立つ成果が得られたかを見る考え方だよ。",
-          "en": "It means looking at how much useful output you get for the computing resources you use."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、よくする作業で、成功した回数や費用を記録してみたいな。",
-          "en": "I’d try tracking successful runs and costs for a task I do often."
-        },
-        {
-          "s": "b",
-          "ja": "いいね。成功したタスク当たりの費用だけでなく、役立つ仕事か、安定して動くかも一緒に見る枠組みだよ。",
-          "en": "That fits. The framework also considers whether the work is useful and dependable, not just the cost per successful task."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T20:10:32.501Z"
-    },
     "0f7af06fca162885": {
       "bodyJa": "GitHub Code Quality の upload-code-coverage アクションが、アップロードされるカバレッジレポートが Cobertura XML 形式かどうかを検証するようになった。非対応の形式であればアップロードのステップが失敗し、問題をワークフロー実行の段階で把握できる。\n\n## 無効な形式で失敗する\n\n検証の結果、Cobertura XML ではないと判断されたファイルは、アップロードのステップが失敗する。Actions のログには次のエラーが表示される。\n\nThis file is not a Cobertura XML report. Upload a Cobertura XML report.\n\n従来は、こうしたアップロードも成功したように見えていた。ところが実際にはカバレッジがプルリクエストに表示されず、原因が分かりにくい状態だった。今回の変更で、ワークフロー実行の中で問題に気づけるようになり、次に取るべき対応も明確になったと説明されている。\n\n## エラーが出たときの対処\n\nこのエラーでワークフローが失敗し始めた場合の対処は二つ示されている。一つは、テストフレームワークが Cobertura XML を出力するよう設定すること。もう一つは、アップロードのステップより前に、レポートを Cobertura XML へ変換することである。\n\n## 有効なレポートへの処理は寛容に\n\n形式の検証が厳しくなる一方で、有効な Cobertura レポートの処理は従来より寛容になった。細かな構造上の問題があっても、それだけでレポートが拒否されることはなくなった。\n\nまた、使える行番号やヒット数を持たない個別の行があった場合は、レポート全体を破棄せず、その行だけをスキップする。一部のデータに不備があっても、残りの行のカバレッジ情報は処理される仕組みだ。\n\n## 影響のまとめ\n\n今回の変更で、形式が誤っているレポートは明示的なエラーとして表れ、静かに失敗してプルリクエストにカバレッジが出ない事態を避けられる。一方、形式が正しく、軽微な不備がある程度のレポートは、これまでより受け入れられやすくなる。\n\n自分のワークフローでこのエラーが出た場合は、出力形式の設定か変換ステップの追加を確認することになる。",
       "bodyEn": "## Cobertura XML format check\n\nThe GitHub Code Quality upload-code-coverage action now verifies that a coverage report is in Cobertura XML format. This matters because, according to the announcement, bad uploads used to look successful while no coverage appeared on pull requests, leaving teams without a clue about what went wrong.\n\nIf the report is not in a supported format, the upload step fails. The Actions log then shows this error: \"This file is not a Cobertura XML report. Upload a Cobertura XML report.\"\n\n## Failing instead of silent success\n\nPreviously, uploads of unsupported reports appeared to succeed, yet no coverage showed up on pull requests. The change moves the signal earlier. According to the source, the problem is now visible in the workflow run itself, with a clear next step, rather than surfacing only as missing coverage on a pull request.\n\nFor workflows that begin failing with this error, the source gives two remedies. One is to configure the test framework to output Cobertura XML. The other is to convert the existing report to Cobertura XML before the upload step runs.\n\n## More forgiving processing\n\nThe announcement also describes changes to how valid Cobertura reports are handled. Reports are no longer rejected because of minor structural issues. In addition, when individual lines lack a usable line number or hit count, those lines are skipped instead of the whole report being discarded.\n\nTaken together, the two changes work in opposite directions on strictness. Reports in the wrong format now fail loudly at upload, while valid Cobertura reports with small flaws are more likely to be processed, with only the unusable lines left out.\n\n## What teams may notice\n\nThe practical effect is on workflow runs. A workflow that previously passed with a mismatched report format may now fail at the upload step with the error above. Teams that see it can fix the report format using one of the two approaches described, and the upload step should then proceed. Teams whose reports are already valid Cobertura XML should find processing tolerant of minor structural problems and of individual lines that cannot be read.",
@@ -13375,6 +13331,44 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T01:41:19.677Z"
+    },
+    "7d2674843567dc79": {
+      "bodyJa": "MetaのFundamental AI Research(FAIR)チームが、大学・病院・産業界の研究者を集めて「Open Source AI for Science Summit」を開催した。オープンソースAIによる科学的発見の加速を主題としたイベントで、その模様がハイライトとして公開されている。\n\n## 研究者が集まった場\n\nサミットは先月、米カリフォルニア州メンローパークにあるMetaの本社で開かれた。主催はFAIRチームである。参加者の所属は大学、病院、企業と幅広く、研究機関と医療現場、産業界の研究者が同じ場でオープンソースAIの活用について語り合う構成だったと説明されている。\n\nイベントは、オープンソースAIを科学の進歩に結びつけることを中心に据えて組み立てられたという。\n\n## 共有された活用事例\n\n登壇した研究者たちは、AIを使って神経学の理解を深める取り組みを紹介した。あわせて、化学をより身近で扱いやすいものにする試みや、創薬を前進させる取り組みも共有された。これら以外にも複数の分野の事例が披露されたとされる。\n\n個々の発表で使われた具体的なモデルやツール、成果の数値については、ここでは取り上げられていない。紹介されたのは、各分野でAIがどのような方向に役立てられているかという大きな枠組みである。\n\n## 脳から新素材まで\n\nMetaは、脳の研究から新しい材料の発見に至るまで、オープンソースAIが科学者に難しい問題へ挑むための新たな手段を与えていると位置づけている。\n\n神経学、化学、創薬、材料探索と、扱う対象は異なる。それでも、オープンソースのAIを共通の土台として活用するという点で、各分野の研究が一つのイベントの中でつながって紹介された形だ。\n\n大学、病院、企業の研究者が同じ場に集まったこのサミットは、分野や所属を越えてAIの使い方を共有する機会になったといえる。",
+      "bodyEn": "## Open Source AI for Science Summit\n\nMeta has published highlights from the Open Source AI for Science Summit, an event built around using open source AI to accelerate scientific discovery. The report matters because it shows how researchers from different parts of the scientific community are applying open tools to difficult problems.\n\nAccording to the announcement, Meta's Fundamental AI Research (FAIR) team hosted the summit last month at its Menlo Park, California, headquarters. The source describes the gathering as bringing together researchers from universities, hospitals, and industry in one place.\n\n## Researchers Shared Their Work\n\nThe summit gave attendees a chance to describe how they are using AI in their own fields. The announcement says researchers talked about using AI to better understand neurology, to make chemistry more accessible, and to advance drug discovery. The list is introduced with \"and more,\" which indicates the topics were not limited to these three.\n\nThe source also points to a range of scales and subjects, from studying the brain to discovering new materials. In the announcement's framing, open source AI is giving scientists new ways to tackle difficult problems. This is Meta's own characterization of the event rather than an independent assessment.\n\n## Who Took Part\n\nThe mix of participants is a notable feature of the summit. University researchers, hospital-based researchers, and people from industry were all invited, according to the source. That spread covers academic, clinical, and commercial settings, and the topics named, neurology and drug discovery among them, line up with that mix.\n\nThe announcement does not name individual speakers, specific models or tools, or particular results presented at the summit. It also does not provide attendance numbers or a formal agenda. What it does establish is the event's purpose, its host, its location, and the broad areas of science in which participants said they are applying open source AI.\n\n## What the Post Offers\n\nThe post is a recap rather than a technical release. It also includes a header video, which is linked in the original page. Its central message is that open source AI can serve as a shared resource across disciplines, with neurology, chemistry, drug discovery, and materials discovery named as examples of where researchers are putting it to work.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "このサミットって、研究している人の普段の仕事に何が関わってくるの？",
+          "en": "So how does this summit connect to a researcher's everyday work? What's the idea?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、オープンソースAIで科学の発見を早めるのが狙いです。脳の研究、化学を身近にすること、創薬などでの使い方が共有されました。",
+          "en": "The article says the goal is using open source AI to speed up scientific discovery. Researchers shared uses in neurology, making chemistry more accessible, drug discovery, and more."
+        },
+        {
+          "s": "a",
+          "ja": "前は、大学や病院や企業の人が一緒に集まることはなかったのかな？",
+          "en": "Was it not possible before for universities, hospitals, and companies to get together like this?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは記事に書かれていないので、以前との違いは分かりません。ただ今回は、MetaのFAIRチームがその三者の研究者を米国メンローパークの本社に集めたそうです。",
+          "en": "The article doesn't say, so I can't tell what's different from before. It does say Meta's FAIR team brought all three groups to its Menlo Park headquarters."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、脳の研究から新素材探しまで、AIが難しい問題への新しい取り組み方になっているってことかな？",
+          "en": "So the big takeaway is that AI is giving scientists new ways to tackle hard problems, from studying the brain to finding new materials?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね、記事もその点を挙げています。具体的にどんな成果や進み方があったかは、この記事の範囲では詳しく分からないので、そこが気になるところです。",
+          "en": "Yes, the article makes that point. It doesn't give details on specific results, so what actually came out of this work is the part worth watching."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T02:31:21.039Z"
     }
   }
 }

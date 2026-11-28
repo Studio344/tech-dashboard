@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-11-28T02:30:01.965Z",
+  "generatedAt": "2026-11-28T03:30:57.443Z",
   "count": 2000,
   "health": {
-    "lastRunAt": "2026-11-28T02:30:01.949Z",
-    "batchIndex": 3,
+    "lastRunAt": "2026-11-28T03:30:57.427Z",
+    "batchIndex": 4,
     "batchTotal": 6,
     "sourcesAttempted": 10,
     "sourcesOk": 10,
@@ -27,7 +27,7 @@
     "summaryQueueCooldownCount": 1,
     "copilotOk": true,
     "copilotError": null,
-    "ogCached": 4555,
+    "ogCached": 4556,
     "ogNewHits": 1,
     "excerptFetchCandidates": 0,
     "excerptFetchAttempted": 0,
@@ -36,68 +36,117 @@
     "excerptFetchDeferred": 0,
     "excerptFetchPrioritized": 0,
     "excerptFetchUnlockable": 0,
-    "excerptBodyBatchPinned": 11,
-    "excerptBodyBatchEnqueued": 10,
+    "excerptBodyBatchPinned": 25,
+    "excerptBodyBatchEnqueued": 21,
     "publisherContractFingerprint": "sha256:266dd4595d0557a506cda949689e0df1d122361294958d844533678bd71eba3f",
     "bodyQueueMode": "enabled",
     "bodyEnqueueCap": 32,
-    "bodyEnqueueCandidates": 15,
-    "bodyEnqueued": 15,
-    "bodyBacklog": 239,
+    "bodyEnqueueCandidates": 26,
+    "bodyEnqueued": 26,
+    "bodyBacklog": 225,
     "bodyQueueDrainEstimateHours": 8,
     "bodyLookupCount": 35,
     "chatLookupCount": 120,
-    "chatCompatibilityRejected": 109,
+    "chatCompatibilityRejected": 104,
     "chatRepairBlocked": 0,
-    "chatRepairCandidates": 117,
+    "chatRepairCandidates": 119,
     "chatRepairEnqueued": 5,
     "chatRepairPendingIds": [
-      "a60e79fd42ab6dab",
-      "ce4027fc2ea184a2",
-      "65f8cc2a40807d8d",
-      "da5ccac64787ac52",
-      "5c017a4ff98a9b6e"
+      "e7b28f0dd42086c8",
+      "dffbfbf5f86caa1c",
+      "e305871a692415df",
+      "94f402c2facd9111",
+      "dcb36cccbd64a05d"
     ],
-    "bodyPendingLookupCount": 24,
+    "bodyPendingLookupCount": 10,
     "bodyMergePendingIds": [
-      "2a489a3739513030",
-      "1454bbc81e17e8e8",
-      "7d2674843567dc79",
-      "bcb61ab4ef08a3e6",
-      "af8355f547885ad5",
-      "071616418be82625",
-      "46df7ecd1742f56a",
-      "e58509442c873b0d",
-      "6acb5e76885ca2ed",
-      "97d4f20abf776cc0"
+      "96026e367b11000a",
+      "235f054b81912456",
+      "90db74e0e3c4d6de",
+      "f033b8ce934dcf8a",
+      "cb7a1dc97e71e7b1",
+      "34349125c68361d0",
+      "40d3abf8dcfd3e52",
+      "cd42dd7807fd8434",
+      "988e5d719ad3bf3e",
+      "19fd3c0bc6d1a897",
+      "2f00885565037ee6",
+      "605ba9b9334dd9b7",
+      "f149cad3d90c7c19",
+      "42761518ccf99b8c",
+      "d28250894609a149",
+      "cf882ae8f47a1949",
+      "78ac018eae07eac2",
+      "c76ccf576c616d16",
+      "d4e17ecc9d88efef",
+      "1ded629d528187ea",
+      "92196149397c199d"
     ],
-    "bodyMerged": 30,
+    "bodyMerged": 19,
     "bodyPruned": 0,
-    "bodiesTotal": 1494,
+    "bodiesTotal": 1508,
     "bodyRetentionDays": 30,
     "bodyRetentionEligible": 1780,
     "bodyBudgetTargetBytes": 18000000,
-    "bodyBudgetBytes": 11170775,
+    "bodyBudgetBytes": 11260473,
     "bodyShardBytes": [
-      2715144,
-      2736338,
-      2852010,
-      2867283
+      2749938,
+      2752772,
+      2887973,
+      2869790
     ],
     "bodyStorageMode": "shards-v1",
     "bodyBudgetPruned": 0,
     "bodyBudgetEvictedIds": [],
     "bodyShardDigests": [
-      "06d645b5b640d21152afe3385f33a0792d3a6353b7a771705741267662138f4d",
-      "40feb52a0eae3954fb91807242f40b39b44919b948b03e3d1adad894ce3e6694",
-      "540d458be6ce32a55fa823970fa366c2c8032fd27fe98d8c1d5683fef9e85fec",
-      "686ce629a4045bb1b7c7ac2dc4ef64ee2e7cd10b4443df6550c66ea1894a1514"
+      "9504151742005c0437ab3088e8fb17ea88ba17235bdf1f66ba15652977189b2f",
+      "064e6f7117833586664a7b443fa71012dd8789a0edba14b5f40c634619572d38",
+      "8222e365afb5a341115b60a61af70297feac047df30a4f2e2b26a781e44470ec",
+      "171065a4b66841465805fae2eeb762b6a56a33bca2f277f3940859b2d542fe51"
     ],
     "enrichmentEnqueueCap": 35,
-    "enrichmentEnqueued": 18,
-    "enrichmentRemaining": 17
+    "enrichmentEnqueued": 29,
+    "enrichmentRemaining": 6
   },
   "entries": [
+    {
+      "id": "3afd307d15f302ce",
+      "source": "ollama-releases",
+      "sourceType": "release",
+      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.19",
+      "title": "Ollama Releases v0.40.19",
+      "titleJa": "Ollama v0.40.19 リリース",
+      "titleEn": "Ollama Releases v0.40.19",
+      "summaryJa": "Ollama v0.40.19 では、inkling2 の改良として短い履歴の処理高速化、ドラフト提案、会話スナップショットが加わりました(PR #19881)。ローカルでLLMを動かす利用者の応答性向上が期待できます。",
+      "summaryEn": "Ollama v0.40.19 improves inkling2 with faster handling of short histories, draft proposals, and conversation snapshots (PR #19881), helping local LLM users get snappier responses.",
+      "lang": "en",
+      "publishedAt": "2026-11-27T21:47:32.000Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
+      "tags": [
+        "conversation-snapshots",
+        "inkling2",
+        "ollama",
+        "performance",
+        "release"
+      ],
+      "category": "local-llm",
+      "importance": 1,
+      "halfLife": "news",
+      "archiveTier": "hot",
+      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . inkling2: faster short histories, draft proposals and conv snapshots by @dhiltgen in #19881 Full Changelog : v0.40.18...v0.40.19-rc0 There was an error while loading. Please reload this page . You can’t perform that action at this time.",
+      "image": {
+        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
+        "alt": "Ollama Releases v0.40.19",
+        "width": 0,
+        "height": 0,
+        "source": "media"
+      },
+      "excerptOrigin": "article",
+      "feedSnippet": "What's Changed inkling2: faster short histories, draft proposals and conv snapshots by @dhiltgen in #19881 mlxrunner: compact Engram history buffers by @pdevine in #19913 bump llama-server by @pdevine in #19917 Full Changelog : v0.40.18...v0.40.19-rc0",
+      "bodyJa": "",
+      "bodyEn": ""
+    },
     {
       "id": "78a255837b86de03",
       "source": "mcp-servers-releases",
@@ -134,44 +183,6 @@
         "height": 0,
         "source": "media"
       },
-      "bodyJa": "",
-      "bodyEn": ""
-    },
-    {
-      "id": "3afd307d15f302ce",
-      "source": "ollama-releases",
-      "sourceType": "release",
-      "url": "https://github.com/ollama/ollama/releases/tag/v0.40.19",
-      "title": "Ollama Releases v0.40.19",
-      "titleJa": "Ollama v0.40.19 リリース",
-      "titleEn": "Ollama Releases v0.40.19",
-      "summaryJa": "Ollama v0.40.19 では、inkling2 の改良として短い履歴の処理高速化、ドラフト提案、会話スナップショットが加わりました(PR #19881)。ローカルでLLMを動かす利用者の応答性向上が期待できます。",
-      "summaryEn": "Ollama v0.40.19 improves inkling2 with faster handling of short histories, draft proposals, and conversation snapshots (PR #19881), helping local LLM users get snappier responses.",
-      "lang": "en",
-      "publishedAt": "2026-11-27T21:04:44.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
-      "tags": [
-        "conversation-snapshots",
-        "inkling2",
-        "ollama",
-        "performance",
-        "release"
-      ],
-      "category": "local-llm",
-      "importance": 1,
-      "halfLife": "news",
-      "archiveTier": "hot",
-      "contentSnippet": "You signed in with another tab or window. Reload to refresh your session. You signed out in another tab or window. Reload to refresh your session. You switched accounts on another tab or window. Reload to refresh your session. There was an error while loading. Please reload this page . This commit was created on GitHub.com and signed with GitHub’s verified signature . inkling2: faster short histories, draft proposals and conv snapshots by @dhiltgen in #19881 Full Changelog : v0.40.18...v0.40.19-rc0 There was an error while loading. Please reload this page . You can’t perform that action at this time.",
-      "image": {
-        "src": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
-        "origSrc": "https://avatars.githubusercontent.com/in/15368?s=60&v=4",
-        "alt": "Ollama Releases v0.40.19",
-        "width": 0,
-        "height": 0,
-        "source": "media"
-      },
-      "feedSnippet": "What's Changed inkling2: faster short histories, draft proposals and conv snapshots by @dhiltgen in #19881 mlxrunner: compact Engram history buffers by @pdevine in #19913 bump llama-server by @pdevine in #19917 Full Changelog : v0.40.18...v0.40.19-rc0",
-      "excerptOrigin": "article",
       "bodyJa": "",
       "bodyEn": ""
     },
@@ -309,7 +320,7 @@
       "summaryEn": "Cline v4.1.28 refreshes its model catalog, dropping deprecated OpenAI models such as gpt-4o and o3, and adds Concentrate and Prima Labs providers, helping developers pick current models.",
       "lang": "en",
       "publishedAt": "2026-11-26T09:57:51.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "cline",
         "model-catalog",
@@ -345,7 +356,7 @@
       "summaryEn": "Cline Desktop v0.0.51 refreshes its model catalog, dropping deprecated OpenAI models such as gpt-4o and o3, and adds Concentrate and Prima Labs as providers, helping users pick current models.",
       "lang": "en",
       "publishedAt": "2026-11-26T09:54:23.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "cline",
         "desktop",
@@ -382,7 +393,7 @@
       "summaryEn": "Cline CLI v3.0.76 bundles a single third-party notices file in the npm package root for all platform binaries and prunes deprecated OpenAI ids such as gpt-4o and o3 from the picker, easing license checks and model selection.",
       "lang": "en",
       "publishedAt": "2026-11-26T08:56:12.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "cli",
         "cline",
@@ -421,7 +432,7 @@
       "summaryEn": "Cline SDK v0.2.2 refreshes its bundled model catalog, adding the concentrate and primalabs providers and changing defaults for 28 providers. It also drops deprecated OpenAI models and trims telemetry exports, so SDK users should check their integrations.",
       "lang": "en",
       "publishedAt": "2026-11-26T08:40:10.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "breaking-change",
         "cline",
@@ -458,7 +469,7 @@
       "summaryEn": "Ollama v0.40.19-rc0 improves inkling2 with faster handling of short histories, draft proposals, and conversation snapshots, letting local LLM users test quicker responses in this prerelease.",
       "lang": "en",
       "publishedAt": "2026-11-26T06:20:48.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "inkling2",
         "ollama",
@@ -863,8 +874,6 @@
       "importance": 3,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "knowledgeEligible": false,
       "contentSnippet": "At Ignite, we added a more direct path from a recurring problem in your agent’s traces to a fix you can test. New preview capabilities connect Insights to Agent Optimizer, learn reusable skills from real conversations, and find cheaper configurations that still meet your quality bar. You decide which changes go into the next version. Continuous improvement : Insights and multi-turn evaluation are GA. Human annotation, rubric evaluators, and new Agent Optimizer capabilities are in preview. Agents : Voice agents, external-agent registration, hosted-agent egress controls, and the A2A tool are GA. Browser Automation adds enterprise features and previews. Developer tools : The Foundry Dev Pack and Foundry CLI ( azd ai ) are GA. Models : Microsoft-Decision-1.1 and Managed Compute are GA. Model router Auto, MAI image models, MAI-Code-2-Flash, fal video models, and Baseten are in preview.",
       "excerptOrigin": "article",
       "feedSnippet": "Microsoft Foundry Ignite 2026 updates for agents, developer tools, models, training, enterprise context, and governance, with continuous improvement. The post What’s new in Microsoft Foundry | Ignite 2026 appeared first on Microsoft Foundry Blog .",
@@ -877,7 +886,9 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      }
+      },
+      "evergreen": true,
+      "knowledgeEligible": false
     },
     {
       "id": "b27de98209ff2a51",
@@ -929,7 +940,7 @@
       "summaryEn": "Ollama v0.40.18 consolidates mlxrunner tensor helpers and model setup across architectures, bumps llama.cpp to b12651, and drops jetpack5 support, which matters for Jetson users.",
       "lang": "en",
       "publishedAt": "2026-11-24T08:27:44.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "jetpack",
         "llama-cpp",
@@ -1008,7 +1019,7 @@
       "summaryEn": "Ollama v0.40.18-rc0 adds Inkling-specific Metal kernels with fallbacks, speeding up NVFP4/MXFP8 expert handling, split attention and prefill, plus an 8-bit draft model that keeps outputs exact. Mac users running Inkling benefit.",
       "lang": "en",
       "publishedAt": "2026-11-24T01:35:09.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "apple-silicon",
         "inkling2",
@@ -1712,12 +1723,20 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Over the last few weeks I have worked with several teams moving hosted agents into their own virtual network. Different industries, same five questions. This post answers each one with the commands I use to check it. Picture a financial services team running claims agents in a locked-down network. Public access on the Foundry resource is off. The agent subnet sits in a spoke VNet. Azure Cosmos DB, Storage and Azure AI Search sit behind private endpoints, some of them in a hub VNet. All outbound traffic goes through a firewall that inspects TLS. The deployment succeeds. Then the Agents page spins and fails with a timeout. Nothing is wrong with the agent. The network around it is missing one piece. Here is how to find it.",
       "excerptOrigin": "article",
       "feedSnippet": "The five questions teams ask most when they run hosted agents in their own virtual network: which subnet is the agent subnet, why listing agents times out, why a TLS-inspecting firewall still breaks after you add your CA, how peered VNets and DNS fit, and why a subnet stays in use after you delete an account. The post Hosted agents in your own virtual network: five checks when the Agents page times out appeared first on Microsoft Foundry Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true,
+      "image": {
+        "src": "https://devblogs.microsoft.com/foundry/wp-content/uploads/sites/89/2026/11/agent-subnet-traffic.webp",
+        "origSrc": "https://devblogs.microsoft.com/foundry/wp-content/uploads/sites/89/2026/11/agent-subnet-traffic.webp",
+        "alt": "Hosted agents in your own virtual network: five checks when the Agents page times out",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "cd23b3f138af1f15",
@@ -1731,7 +1750,7 @@
       "summaryEn": "Cline v4.1.27 adds an API key field for authenticated LM Studio servers and marks read-only MCP tools with a badge, making setup and tool vetting easier for users.",
       "lang": "en",
       "publishedAt": "2026-11-21T06:05:06.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "cline",
         "lm-studio",
@@ -1768,7 +1787,7 @@
       "summaryEn": "Ollama v0.40.17 adds inkling-2-mini, a 26B model with 5.4B active parameters, on Apple silicon only for now, plus deferred MCP tool loading for Claude Code and concurrent requests on Macs.",
       "lang": "en",
       "publishedAt": "2026-11-21T04:05:14.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "apple-silicon",
         "claude-code",
@@ -1806,7 +1825,7 @@
       "summaryEn": "Ollama v0.40.17-rc4 is the fourth release candidate for v0.40.17, merging the upstream main branch into the release branch. No feature details are listed, so it mainly suits early testers.",
       "lang": "en",
       "publishedAt": "2026-11-20T23:04:26.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ollama",
         "ollama-release",
@@ -1944,7 +1963,7 @@
       "summaryEn": "Ollama published release candidate v0.40.17-rc3 on GitHub. The captured page lists no change details, so testers can only treat it as a pre-release build to try before the final version.",
       "lang": "en",
       "publishedAt": "2026-11-20T18:37:07.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "github-releases",
         "ollama",
@@ -2117,12 +2136,12 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "We are excited to announce the general availability of Managed Compute in Microsoft Foundry. When we introduced Managed Compute in preview at Microsoft Build in June, we set out to make serving open models as approachable as calling a managed model API. You choose the model that fits your application; we provision the GPUs, maintain the containers, and operate the serving runtime. Since Build, we’ve scaled serving capacity, improved prompt reuse, and expanded GPU and deployment options, including US and EU Data Zones. Customer feedback helped us refine the experience and give teams a clearer view of how their deployments are running. We’ve also strengthened the software supply chain and added more open models to the catalog. The result is a managed platform for serving open models on dedicated GPUs in the Foundry experience you already use.",
       "excerptOrigin": "article",
       "feedSnippet": "Managed Compute serves open models on dedicated GPUs in Microsoft Foundry, with Global and US or EU Data Zone deployments. The post Serve open models in production with Foundry Managed Compute appeared first on Microsoft Foundry Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "235f054b81912456",
@@ -2321,7 +2340,7 @@
       "summaryEn": "Ollama v0.40.17-rc2 changes mlxrunner so saved history scales with memory pressure instead of a fixed 8 GiB allowance, and unused buffers get released. It helps local LLM users on memory-limited machines.",
       "lang": "en",
       "publishedAt": "2026-11-19T23:41:42.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "memory-management",
         "mlx",
@@ -2359,7 +2378,7 @@
       "summaryEn": "Anthropic's official YouTube video \"The making of Anthropic\" appears to look back at how the company was founded and developed. It offers context on the thinking behind Claude for developers and users.",
       "lang": "en",
       "publishedAt": "2026-11-19T21:03:23.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "anthropic",
         "claude",
@@ -2402,10 +2421,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Enterprises are all-in on AI agents, but the ROI hasn’t followed. What’s holding those agents back isn’t capability. Today’s agents can do remarkable work on their own. They can solve math problems that stumped mathematicians for decades, build functional operating systems from scratch, and teach themselves a new skill by watching you do a task […] The post Build trusted autonomous agents for your team with Microsoft Foundry appeared first on Microsoft Foundry Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "75ce1625dfb139b5",
@@ -2419,7 +2438,7 @@
       "summaryEn": "Anthropic's official YouTube channel posted a video arguing that how people choose to act at this turning point will shape what comes next. Only the title is available here, so details require watching it; useful for those tracking the company's outlook.",
       "lang": "en",
       "publishedAt": "2026-11-19T15:02:49.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-vision",
         "anthropic",
@@ -2649,12 +2668,12 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Over the last few months I’ve worked with a lot of teams taking a hosted agent from pilot to production. A working demo is only the start. The questions that decide whether it ships come next: Will the subnet hold up when usage takes off? Can the agent call internal services that use our own certificates? Where exactly can it connect, and who decides? Can it run on the Azure Kubernetes Service (AKS) clusters we already operate? And what happens when a two-hour job gets interrupted? At Microsoft Ignite 2026, we’re announcing a solution to each of these challenges for hosted agents in Foundry Agent Service. Below you’ll find what’s new, what you can use today, and what’s still to come. The egress and private CA updates apply to managed hosted agents, the ones Foundry runs for you; BYO-AKS support will be documented separately.",
       "excerptOrigin": "article",
       "feedSnippet": "What is new for hosted agents in Foundry Agent Service at Ignite 2026: shared subnet IPs, private CA trust, network egress controls, deployment to your own AKS clusters, resilient execution and memory snapshots. The post Hosted agents in Foundry Agent Service at Ignite 2026: from pilot to production inside your enterprise boundaries appeared first on Microsoft Foundry Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "5d58e6d7df384830",
@@ -2684,12 +2703,12 @@
       "importance": 3,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Much of the work that keeps a business running still happens in a browser: internal portals, vendor consoles and legacy apps with no API. The Browser Automation tool in Foundry Agent Service , powered by Azure Playwright Workspaces, is now generally available. It gives every Foundry agent secure, scalable browsers with isolated sessions, and includes the following capabilities: Human-in-the-loop: Live View and Take control for authentication and steering the agent (GA) This Ignite, the Browser automation tool is enabled with additional features for your agentic automation workloads Secure sign-in: Secret management (preview) and profile reuse (preview, coming soon) Our sample agent’s task is clear – Process 15 invoices, validate them against the rules, flag anomalies in Excel, and enter the validated invoices into the expense portal.",
       "excerptOrigin": "article",
       "feedSnippet": "Enterprise-ready cloud browsers for every Foundry agent: MCP action batching, Live View and Take control, session recording, VNet injection, browser proxy, profile reuse, secret management, and CAPTCHA handling. The post Browser Automation Tool in Microsoft Foundry : Ignite’26 Announcements appeared first on Microsoft Foundry Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "b5224437f0f7e864",
@@ -2718,11 +2737,11 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "knowledgeEligible": false,
       "contentSnippet": "Your next agent can start wherever you like to build: in your editor, at the terminal, or with your favorite coding agent. At Microsoft Ignite, we’re making that first step easier: the Foundry Dev Pack (aka.ms/foundrydevpack) is now generally available, bringing the Microsoft Foundry developer tools to your machine in a single install. Move from […] The post The Foundry Dev Pack is here: build Foundry agents your way appeared first on Microsoft Foundry Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true,
+      "knowledgeEligible": false
     },
     {
       "id": "79ea65685ecb3048",
@@ -2752,13 +2771,13 @@
       "importance": 3,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "knowledgeEligible": false,
       "contentSnippet": "Your customers don’t judge agents by how well they demo. They judge them by whether the work gets done: the case resolved, the report delivered, the follow-up sent. That takes more than a model. It takes the right context and tools, a runtime that holds up under real demand, and a way to keep improving once real users put agents to work. At Ignite 2026 , Foundry Agent Service delivers new capabilities to get you there across the agent lifecycle: Build, Deploy, and Operate. Build more capable agents faster with the managed Microsoft Copilot harness, real-time voice, and richer tool connections. Deploy them at scale with enterprise controls, and bring them into Microsoft 365 where people already work. Operate them with confidence by turning production evidence into validated improvements. Here’s what’s new, and how each capability helps you move from idea to impact.",
       "excerptOrigin": "article",
       "feedSnippet": "Your customers don’t judge agents by how well they demo. They judge them by whether the work gets done: the case resolved, the report delivered, the follow-up sent. That takes more than a model. It takes the right context and tools, a runtime that holds up under real demand, and a way to keep improving […] The post What’s new in Foundry Agent Service at Ignite 2026 appeared first on Microsoft Foundry Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true,
+      "knowledgeEligible": false
     },
     {
       "id": "fa6498cd23aab5d3",
@@ -2786,10 +2805,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Connecting one tool to one agent is not hard. The challenge is managing a useful set of tools and agentic capabilities across a fleet of production agents at scale. Every new agent shouldn’t require you to build the same integrations, copy the same instructions, and troubleshoot the same dependencies. And adding a useful capability shouldn’t […] The post Build once, reuse across your agent fleet: Tools and Toolboxes in Foundry appeared first on Microsoft Foundry Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "c4d861b1467d890d",
@@ -3134,7 +3153,7 @@
       "summaryEn": "Ollama v0.40.17-rc1 lets mlxrunner share target-model verification across concurrent requests, keeping speculative drafting active while per-request sampling and cache rollback stay intact. It helps MLX users serving parallel workloads.",
       "lang": "en",
       "publishedAt": "2026-11-16T16:43:54.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "concurrency",
         "mlx",
@@ -3291,10 +3310,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "Azure Content Understanding now supports the GPT-5.6, GPT-6, and GPT-6.1 model families, giving you more choices for document, text, speech, and video workflows. This adds to the existing set of supported models like the GPT-5 series. To help customers understand how to use this expanded set of options, we’re updating our model recommendations and sharing […] The post Content Understanding adds GPT-6.1, 6, and 5.6: Choose the right model for your workload appeared first on Microsoft Foundry Blog .",
       "bodyJa": "",
-      "bodyEn": ""
+      "bodyEn": "",
+      "evergreen": true
     },
     {
       "id": "baf18629dd764293",
@@ -3455,7 +3474,7 @@
       "summaryEn": "Ollama published the v0.40.17-rc0 release candidate on GitHub. The excerpt has only generic page text and no listed changes, so local LLM users should check the release notes before testing.",
       "lang": "en",
       "publishedAt": "2026-11-10T21:42:11.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "github-release",
         "ollama",
@@ -3689,7 +3708,7 @@
       "summaryEn": "Semantic Kernel dotnet-1.82.0 tightens boundaries around structured data mutation and binds validated HTTP addresses to connections. It also covers Python 1.47.0 prep and an Oracle search fix, helping developers stay secure.",
       "lang": "en",
       "publishedAt": "2026-11-07T01:00:07.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "dotnet",
@@ -3699,7 +3718,7 @@
         "semantic-kernel"
       ],
       "category": "agent-fw",
-      "importance": 1,
+      "importance": 2,
       "halfLife": "news",
       "archiveTier": "warm",
       "contentSnippet": "Changes: df1cb33 .Net: Bump package version to 1.82.0 ( #14721 ) d08a482 Python: Prepare 1.47.0 release and consolidate dependency updates ( #14720 ) [ #14708 , #14596 , #14597 , #14598 , #14599 , #14600 , #14627 ] 28c0d60 .Net: Harden structured data mutation boundaries ( #14718 ) 1a3ccd8 .Net: Bind validated HTTP addresses to connections ( #14719 ) c36f221 Python: Fix OracleCollection search with multiple filters ( #14541 ) [ #14539 ] 530f2e8 Python: Use storage_name for hybrid search fields and vector queries ( #14684 ) ( #14688 ) 78f6124 Python: close native generators when stream invocations end ( #14701 ) 703eb5f Python: Send the NVIDIA nvext setting in extra_body ( #14698 ) e68f977 Python: Build an array schema for variadic tuple parameters ( #14692 ) 1ae2a39 Python: docs(python): f",
@@ -3856,7 +3875,7 @@
       "summaryEn": "Semantic Kernel python-1.47.0 drops Python 3.10 and now targets 3.11 through 3.14, with consolidated dependency updates and an OpenAPI URL path-case fix. Python users should check their runtime before upgrading.",
       "lang": "en",
       "publishedAt": "2026-11-05T10:19:56.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "breaking-change",
@@ -4177,7 +4196,7 @@
       "summaryEn": "Semantic Kernel python-1.46.0 stops logging function argument values, blocks dot-segment remote paths in SessionsPythonTool.upload_file, and validates PostgreSQL field types, hardening Python deployments.",
       "lang": "en",
       "publishedAt": "2026-10-28T14:10:00.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "postgresql",
@@ -5956,7 +5975,7 @@
       "summaryEn": "Semantic Kernel .NET 1.81.0 updates FileIOPlugin file handling, refines Milvus filtering, and aligns plugin path validation, enabling more reliable file and search integrations.",
       "lang": "en",
       "publishedAt": "2026-10-06T16:37:23.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "dotnet",
@@ -6187,7 +6206,7 @@
       "summaryEn": "Semantic Kernel Python 1.45.0 removes an unsupported service authentication mode from the Copilot Studio agent, a breaking change that helps users plan required migrations.",
       "lang": "en",
       "publishedAt": "2026-10-06T12:55:19.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "breaking-change",
@@ -11605,7 +11624,7 @@
       "summaryEn": "Anthropic offers an inside look at its molecular biology lab, giving researchers and developers a clearer view of the AI company's work in biology.",
       "lang": "en",
       "publishedAt": "2026-09-23T18:01:32.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "anthropic",
         "life-sciences",
@@ -16365,7 +16384,7 @@
       "summaryEn": "Semantic Kernel .NET 1.80.1 updates the SDK to 10.0.303 and refreshes OpenAPI dependencies, CI configuration, and tests, improving reliability for .NET developers.",
       "lang": "en",
       "publishedAt": "2026-09-03T18:41:24.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "ci",
@@ -17374,7 +17393,7 @@
       "summaryEn": "Claude Fable 5.1 is introduced as a new model version. While capabilities and availability are not detailed, viewers can quickly identify the Claude lineup update.",
       "lang": "en",
       "publishedAt": "2026-09-01T19:21:24.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "anthropic",
         "claude-fable-5-1",
@@ -17401,7 +17420,7 @@
       "summaryEn": "Claude Fable 5.1 is introduced as a new version in an Anthropic YouTube video, helping Claude users and developers track the latest model update.",
       "lang": "en",
       "publishedAt": "2026-09-01T18:02:31.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "anthropic",
         "claude-fable",
@@ -18237,7 +18256,7 @@
       "summaryEn": "Model Hardware Standard presents a common framework for AI models to control real-world equipment, helping developers assess practical physical-world applications.",
       "lang": "en",
       "publishedAt": "2026-08-28T00:40:16.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-agents",
         "anthropic",
@@ -18342,7 +18361,7 @@
       "summaryEn": "Anthropic is developing an interface that lets AI models operate devices of any kind and conduct physical experiments, helping researchers automate real-world testing.",
       "lang": "en",
       "publishedAt": "2026-08-27T19:42:35.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-agents",
         "anthropic",
@@ -18443,7 +18462,7 @@
       "summaryEn": "AI models can now assist in conducting physical-science experiments, showing how researchers may use AI as a practical partner in laboratory work.",
       "lang": "en",
       "publishedAt": "2026-08-27T17:54:32.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "anthropic",
         "physical-science",
@@ -22879,7 +22898,7 @@
       "summaryEn": "Semantic Kernel dotnet-1.80.0 ships with updated OpenAPI HTTP client defaults, a fix for FunctionChoiceBehavior function list handling in the Gemini connector, and bumped Testcontainers packages.",
       "lang": "en",
       "publishedAt": "2026-08-18T15:12:30.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "dotnet",
@@ -27925,8 +27944,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "e33edd69f7816887",
-      "source": "openai-news",
+      "id": "7873e00dd904f32f",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/how-enterprises-put-ai-to-work",
       "title": "From assistance to execution: How enterprises put AI to work",
@@ -27936,7 +27955,7 @@
       "summaryEn": "OpenAI research shows enterprises are shifting AI use from simple assistance to autonomous execution via ChatGPT and Codex, with frontier adopters pulling significantly ahead of peers.",
       "lang": "en",
       "publishedAt": "2026-08-12T06:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "agentic-ai",
@@ -29178,7 +29197,7 @@
       "summaryEn": "Anthropic shares dispatches from Iceland exploring how locals think about and relate to AI, offering a cultural perspective on attitudes toward the technology.",
       "lang": "en",
       "publishedAt": "2026-08-10T14:30:52.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "anthropic",
         "iceland",
@@ -31981,7 +32000,7 @@
       "summaryEn": "Semantic Kernel for .NET bumps to v1.79.0 with an SDK update from 10.0.301 to 10.0.302, a form-data dependency patch, and a CodeQL false-positive suppression for internal HTTP code.",
       "lang": "en",
       "publishedAt": "2026-08-06T11:33:35.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "dotnet",
@@ -32055,7 +32074,7 @@
       "summaryEn": "A patch release of Semantic Kernel for Python fixing OpenAPI server variable encoding, consolidating Dependabot updates, and suppressing a CodeQL false positive in the HTTP utility.",
       "lang": "en",
       "publishedAt": "2026-08-06T09:55:22.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "bugfix",
@@ -47895,8 +47914,8 @@
       }
     },
     {
-      "id": "289a3dd4fa86a3f9",
-      "source": "openai-news",
+      "id": "7944fc8cac623dff",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/introducing-chatgpt-small-business-program",
       "title": "Introducing the ChatGPT for small business program",
@@ -47906,7 +47925,7 @@
       "summaryEn": "OpenAI launched a dedicated ChatGPT program for small businesses, offering resources and support to help smaller organizations adopt AI tools and improve operational efficiency.",
       "lang": "en",
       "publishedAt": "2026-07-21T17:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "chatgpt",
         "openai",
@@ -53363,8 +53382,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "e308cad69399bfa1",
-      "source": "openai-news",
+      "id": "f67c88ba872d8347",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/a-scorecard-for-the-ai-age",
       "title": "A scorecard for the AI age",
@@ -53374,7 +53393,7 @@
       "summaryEn": "OpenAI introduced a scorecard framework to measure and track AI's progress across social, economic, and safety dimensions, aiming to improve accountability and transparency in how AI development affects the world.",
       "lang": "en",
       "publishedAt": "2026-07-17T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "accountability",
         "ai-policy",
@@ -55386,8 +55405,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "62f49d80d26acfec",
-      "source": "openai-news",
+      "id": "b600595a83e8cb7d",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/advancing-ai-safety-through-state-and-federal-action",
       "title": "The US is advancing AI safety through state and federal action",
@@ -55397,7 +55416,7 @@
       "summaryEn": "OpenAI highlights growing momentum in US AI safety policy, with state and federal initiatives shaping a regulatory framework to ensure responsible AI development.",
       "lang": "en",
       "publishedAt": "2026-07-15T12:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-safety",
         "openai",
@@ -55542,8 +55561,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "b650078f0dc01a86",
-      "source": "openai-news",
+      "id": "c376d1436e9255c9",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/unlocking-self-improvement-gpt-red",
       "title": "GPT-Red: Unlocking Self-Improvement for Robustness",
@@ -55553,7 +55572,7 @@
       "summaryEn": "OpenAI introduced GPT-Red, a model that leverages self-improvement techniques to enhance robustness, marking a significant step toward building more reliable and resilient AI systems.",
       "lang": "en",
       "publishedAt": "2026-07-15T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-safety",
         "gpt-red",
@@ -57178,8 +57197,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "0d00ecd4c9f0695f",
-      "source": "openai-news",
+      "id": "c7fe1a4b9a11fcf4",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/managing-ai-investments-in-agentic-era",
       "title": "How to manage AI investments in the agentic era",
@@ -57189,7 +57208,7 @@
       "summaryEn": "OpenAI published a strategic guide for managing AI investments as agentic systems become mainstream, offering practical frameworks to help organizations maximize ROI and govern autonomous AI deployments responsibly.",
       "lang": "en",
       "publishedAt": "2026-07-14T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "agentic-ai",
@@ -62075,8 +62094,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "51048f5bdd794dad",
-      "source": "openai-news",
+      "id": "de3535ae2f8767a5",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/deutsche-telekom",
       "title": "How Deutsche Telekom is rewiring telecommunications with AI",
@@ -62086,7 +62105,7 @@
       "summaryEn": "Deutsche Telekom is partnering with OpenAI to transform customer service and network operations with AI, marking a significant enterprise deployment of AI in the telecom sector.",
       "lang": "en",
       "publishedAt": "2026-07-10T07:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "deutsche-telekom",
         "enterprise",
@@ -62968,8 +62987,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "994629e453e69916",
-      "source": "openai-news",
+      "id": "054a7a7121d7d525",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/gpt-5-6-preferred-model-microsoft-365-copilot",
       "title": "GPT-5.6 is now the preferred model in Microsoft 365 Copilot",
@@ -62979,7 +62998,7 @@
       "summaryEn": "OpenAI's GPT-5.6 has been designated the default model powering Microsoft 365 Copilot, bringing the latest capabilities to enterprise productivity tools used by millions.",
       "lang": "en",
       "publishedAt": "2026-07-09T13:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "copilot",
         "enterprise",
@@ -62997,8 +63016,8 @@
       "bodyEn": ""
     },
     {
-      "id": "be0a087202162317",
-      "source": "openai-news",
+      "id": "0d3409e022389698",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/gpt-5-6",
       "title": "GPT-5.6: Frontier intelligence that scales with your ambition",
@@ -63008,7 +63027,7 @@
       "summaryEn": "OpenAI launched GPT-5.6, a new frontier model designed to scale intelligence across diverse use cases, offering developers and enterprises enhanced reasoning and task-handling capabilities.",
       "lang": "en",
       "publishedAt": "2026-07-09T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "gpt-5",
         "llm",
@@ -63026,8 +63045,8 @@
       "bodyEn": ""
     },
     {
-      "id": "5d64d830c63fbcd8",
-      "source": "openai-news",
+      "id": "9fcf2d5751e209ad",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/chatgpt-for-your-most-ambitious-work",
       "title": "ChatGPT is now a partner for your most ambitious work",
@@ -63037,7 +63056,7 @@
       "summaryEn": "OpenAI has repositioned ChatGPT as a capable collaborator for complex, high-stakes work, expanding its role beyond simple Q&A into a true professional partner for ambitious projects.",
       "lang": "en",
       "publishedAt": "2026-07-09T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-assistant",
         "chatgpt",
@@ -63054,8 +63073,8 @@
       "bodyEn": ""
     },
     {
-      "id": "35ce925e6cd7cce8",
-      "source": "openai-news",
+      "id": "4cdf6d63ae342a93",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/bio-bug-bounty",
       "title": "GPT-5.5 Bio Bug Bounty",
@@ -63065,7 +63084,7 @@
       "summaryEn": "OpenAI launched a bio-focused bug bounty program for GPT-5.5, inviting external researchers to probe the model for biosafety vulnerabilities and help strengthen its defenses against biological misuse.",
       "lang": "en",
       "publishedAt": "2026-07-09T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "biosafety",
         "bug-bounty",
@@ -63622,8 +63641,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "071616418be82625",
-      "source": "openai-news",
+      "id": "3b5f099ed4c45dd8",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/k-12-educators-practical-skills",
       "title": "Helping K–12 educators build practical AI skills",
@@ -63633,7 +63652,7 @@
       "summaryEn": "OpenAI launched an initiative to help K–12 educators develop hands-on AI skills, equipping teachers with practical tools and knowledge to integrate AI effectively into their classrooms.",
       "lang": "en",
       "publishedAt": "2026-07-08T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-literacy",
         "education",
@@ -63712,8 +63731,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "46df7ecd1742f56a",
-      "source": "openai-news",
+      "id": "d4fcae9550ab0099",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/introducing-gpt-live",
       "title": "Introducing GPT-Live",
@@ -63723,7 +63742,7 @@
       "summaryEn": "OpenAI announced GPT-Live, a new real-time interactive AI experience that enables more natural, live interactions with GPT models, marking a significant step in conversational AI accessibility.",
       "lang": "en",
       "publishedAt": "2026-07-08T00:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "conversational-ai",
         "gpt-live",
@@ -63973,7 +63992,7 @@
       "summaryEn": "Semantic Kernel Python 1.44.0 delivers incremental bug fixes and improvements to the agent framework and connectors, enhancing stability for developers building AI-powered applications with the SDK.",
       "lang": "en",
       "publishedAt": "2026-07-07T16:18:18.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "llm-orchestration",
@@ -64236,8 +64255,8 @@
       "bodyEn": ""
     },
     {
-      "id": "e58509442c873b0d",
-      "source": "openai-news",
+      "id": "dc34ba0c581f0720",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/mufg",
       "title": "MUFG aims to become AI-native with OpenAI",
@@ -64247,7 +64266,7 @@
       "summaryEn": "MUFG has partnered with OpenAI to embed AI across its entire organization, pursuing a transformation into a fully AI-native bank. The move signals a major commitment by a global financial institution to AI-driven operations.",
       "lang": "en",
       "publishedAt": "2026-07-07T00:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "enterprise-ai",
         "finance",
@@ -64265,8 +64284,8 @@
       "bodyEn": ""
     },
     {
-      "id": "6acb5e76885ca2ed",
-      "source": "openai-news",
+      "id": "6f439ef95a874d8d",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/australian-payments-plus",
       "title": "Australian Payments Plus moves faster with ChatGPT and Codex",
@@ -64276,7 +64295,7 @@
       "summaryEn": "Australian Payments Plus adopted ChatGPT and Codex to accelerate software development and streamline operations, demonstrating practical AI gains in critical financial infrastructure.",
       "lang": "en",
       "publishedAt": "2026-07-07T00:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "case-study",
         "codex",
@@ -64344,7 +64363,7 @@
       "summaryEn": "Anthropic examines the core values and character at the heart of Claude, revealing the fundamental principles and motivations that shape how the AI thinks and behaves. Understanding Claude's inner life matters for transparency in AI development.",
       "lang": "en",
       "publishedAt": "2026-07-06T16:59:51.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-identity",
         "ai-philosophy",
@@ -65316,8 +65335,8 @@
       "bodyEn": ""
     },
     {
-      "id": "882c58b2371644ca",
-      "source": "openai-news",
+      "id": "1a34175cf3f911cf",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/how-chatgpt-adoption-has-expanded",
       "title": "How ChatGPT adoption has expanded",
@@ -65327,7 +65346,7 @@
       "summaryEn": "OpenAI reviewed how ChatGPT adoption has grown across individuals, businesses, and institutions, highlighting the expanding range of use cases and the scale of its global reach.",
       "lang": "en",
       "publishedAt": "2026-06-30T09:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "adoption",
         "chatgpt",
@@ -65494,8 +65513,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "b0836e01c1557939",
-      "source": "openai-news",
+      "id": "3331a55ea23268f9",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/core-dump-epidemiology-data-infrastructure-bug",
       "title": "Core dump epidemiology: fixing an 18-year-old bug",
@@ -65505,7 +65524,7 @@
       "summaryEn": "OpenAI engineers traced and fixed an 18-year-old bug lurking in their data infrastructure by applying core dump epidemiology techniques, eliminating a long-standing source of system instability.",
       "lang": "en",
       "publishedAt": "2026-06-30T00:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "codex",
         "core-dump",
@@ -65523,8 +65542,8 @@
       "bodyEn": ""
     },
     {
-      "id": "934c4ef63ae56e02",
-      "source": "openai-news",
+      "id": "7faf801be2706db2",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/introducing-genebench-pro",
       "title": "Introducing GeneBench-Pro",
@@ -65534,7 +65553,7 @@
       "summaryEn": "OpenAI launched GeneBench-Pro, a benchmark suite designed to evaluate AI models on genomics and biological reasoning tasks, giving researchers a standardized way to measure progress in AI-driven gene analysis.",
       "lang": "en",
       "publishedAt": "2026-06-30T00:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "benchmark",
         "biology",
@@ -65554,8 +65573,8 @@
       "bodyEn": ""
     },
     {
-      "id": "9107fb9b503e2960",
-      "source": "openai-news",
+      "id": "32763feb9e400384",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/genebench-pro/case-studies",
       "title": "Inside Genebench-Pro",
@@ -65565,7 +65584,7 @@
       "summaryEn": "OpenAI unveiled Genebench-Pro, a genomics-focused AI benchmark, sharing case studies that highlight its role in advancing biological research and model evaluation.",
       "lang": "en",
       "publishedAt": "2026-06-30T00:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "benchmark",
         "genomics",
@@ -65715,8 +65734,8 @@
       "bodyEn": ""
     },
     {
-      "id": "2fed7e04b5171bcb",
-      "source": "openai-news",
+      "id": "5e51eeb6149782a6",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/mapping-ai-jobs-transition-eu",
       "title": "Mapping Europe’s AI Workforce Opportunity",
@@ -65726,7 +65745,7 @@
       "summaryEn": "OpenAI released a report mapping AI workforce opportunities across Europe, analyzing job transition potential and the labor market impact of AI adoption.",
       "lang": "en",
       "publishedAt": "2026-06-29T07:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-jobs",
         "europe",
@@ -65776,8 +65795,8 @@
       "bodyEn": ""
     },
     {
-      "id": "ad80ea19940150e1",
-      "source": "openai-news",
+      "id": "bc4d287bb5ae08d5",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/hp-frontier-partnership",
       "title": "HP Inc. launches Frontier strategic partnership with OpenAI",
@@ -65787,7 +65806,7 @@
       "summaryEn": "HP Inc. has formed the Frontier strategic partnership with OpenAI, integrating advanced AI capabilities into HP's hardware and services to boost enterprise productivity.",
       "lang": "en",
       "publishedAt": "2026-06-28T17:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "enterprise",
         "enterprise-ai",
@@ -65848,8 +65867,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "09ac03db07c5130e",
-      "source": "openai-news",
+      "id": "6441692fc8196712",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/previewing-gpt-5-6-sol",
       "title": "Previewing GPT-5.6 Sol: a next-generation model",
@@ -65859,7 +65878,7 @@
       "summaryEn": "OpenAI previewed GPT-5.6 Sol, a next-generation model offering significant capability improvements in reasoning and performance, marking a notable step forward in their model lineup.",
       "lang": "en",
       "publishedAt": "2026-06-26T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "gpt-5",
         "language-model",
@@ -66116,8 +66135,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "5070902e14bb2de4",
-      "source": "openai-news",
+      "id": "c18153da91090e7e",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/gpt-5-immunology-mystery",
       "title": "How GPT-5 helped immunologist Derya Unutmaz solve a 3-year-old mystery",
@@ -66127,7 +66146,7 @@
       "summaryEn": "Immunologist Derya Unutmaz used GPT-5 to crack a three-year-old research mystery in immunology, showcasing how AI can meaningfully accelerate real-world scientific discovery.",
       "lang": "en",
       "publishedAt": "2026-06-23T17:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "gpt-5",
         "immunology",
@@ -66217,8 +66236,8 @@
       "evergreen": true
     },
     {
-      "id": "c087ec707bf96f18",
-      "source": "openai-news",
+      "id": "e3f6d1d5019b3f2f",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/helping-build-shared-standards-for-advanced-ai",
       "title": "Helping build shared standards for advanced AI",
@@ -66228,7 +66247,7 @@
       "summaryEn": "OpenAI announced efforts to help establish shared industry standards for advanced AI safety and interoperability, aiming to align practices across organizations and foster more trustworthy AI development.",
       "lang": "en",
       "publishedAt": "2026-06-23T13:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-safety",
         "openai",
@@ -66382,8 +66401,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "ba546af75496952b",
-      "source": "openai-news",
+      "id": "4f2ea20ce40749de",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/omio",
       "title": "How Omio is building the future of conversational travel",
@@ -66393,7 +66412,7 @@
       "summaryEn": "Omio is integrating OpenAI's models to enable conversational travel search and booking, allowing users to find trains, buses, and flights through natural dialogue rather than traditional form-based search.",
       "lang": "en",
       "publishedAt": "2026-06-23T00:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "conversational-ai",
         "omio",
@@ -66518,8 +66537,8 @@
       "bodyEn": ""
     },
     {
-      "id": "fa91af45787dd3ac",
-      "source": "openai-news",
+      "id": "367290208939518b",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/daybreak-securing-the-world",
       "title": "Daybreak: Tools for securing every organization in the world",
@@ -66529,7 +66548,7 @@
       "summaryEn": "OpenAI launched Daybreak, a cybersecurity initiative offering AI-powered tools designed to help organizations of all sizes detect and defend against sophisticated threats.",
       "lang": "en",
       "publishedAt": "2026-06-22T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "codex",
         "cybersecurity",
@@ -66548,8 +66567,8 @@
       "bodyEn": ""
     },
     {
-      "id": "6424573b1ab86a5c",
-      "source": "openai-news",
+      "id": "079aa43e738d5a86",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/patch-the-planet",
       "title": "Patch the Planet: a Daybreak initiative to support open source maintainers",
@@ -66559,7 +66578,7 @@
       "summaryEn": "OpenAI's Daybreak initiative launches Patch the Planet to provide financial and resource support to open source maintainers, aiming to strengthen the sustainability of critical software infrastructure.",
       "lang": "en",
       "publishedAt": "2026-06-22T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "daybreak",
         "funding",
@@ -66711,8 +66730,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "f4fe14d9b212ee3b",
-      "source": "openai-news",
+      "id": "6402e4250110a58e",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/codex-maxxing-long-running-work",
       "title": "Codex-maxxing for long-running work",
@@ -66722,7 +66741,7 @@
       "summaryEn": "OpenAI shares best practices for leveraging Codex on long-running, complex tasks, offering practical guidance on automating large-scale work and boosting developer productivity.",
       "lang": "en",
       "publishedAt": "2026-06-22T00:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "automation",
         "best-practices",
@@ -66740,8 +66759,8 @@
       "bodyEn": ""
     },
     {
-      "id": "706e14ad351360a2",
-      "source": "openai-news",
+      "id": "1d73e3edba6f9593",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/samsung-electronics-chatgpt-codex-deployment",
       "title": "Samsung Electronics brings ChatGPT and Codex to employees",
@@ -66751,7 +66770,7 @@
       "summaryEn": "Samsung Electronics has deployed ChatGPT and Codex across its workforce, enabling employees to leverage AI for productivity and software development tasks at enterprise scale.",
       "lang": "en",
       "publishedAt": "2026-06-21T23:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "chatgpt",
         "deployment",
@@ -67312,8 +67331,8 @@
       "bodyEn": ""
     },
     {
-      "id": "6ee6eacc69d2e60c",
-      "source": "openai-news",
+      "id": "f598b635f4d8741a",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/chatgpt-enterprise-spend-controls",
       "title": "New usage analytics and updated spend controls for enterprises",
@@ -67323,7 +67342,7 @@
       "summaryEn": "OpenAI has introduced enhanced usage analytics and updated spend controls for ChatGPT Enterprise, giving organizations better visibility and tighter management over AI-related costs.",
       "lang": "en",
       "publishedAt": "2026-06-18T17:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "analytics",
         "chatgpt-enterprise",
@@ -67341,8 +67360,8 @@
       "bodyEn": ""
     },
     {
-      "id": "2e62a5fb1b7afb28",
-      "source": "openai-news",
+      "id": "5716d5642331846f",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/improving-health-intelligence-in-chatgpt",
       "title": "Improving health intelligence in ChatGPT",
@@ -67352,7 +67371,7 @@
       "summaryEn": "OpenAI announced improvements to ChatGPT's health intelligence capabilities, enhancing the accuracy and safety of medical information responses. This matters as reliable health guidance in AI assistants directly impacts everyday user well-being.",
       "lang": "en",
       "publishedAt": "2026-06-18T11:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "chatgpt",
         "health",
@@ -67369,8 +67388,8 @@
       "bodyEn": ""
     },
     {
-      "id": "7e8199c202ca8536",
-      "source": "openai-news",
+      "id": "af58193a4eeed442",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/diagnose-rare-childhood-diseases",
       "title": "Using AI to help physicians diagnose rare genetic diseases affecting children",
@@ -67380,7 +67399,7 @@
       "summaryEn": "OpenAI announced an initiative using AI to assist physicians in diagnosing rare genetic diseases in children, potentially enabling earlier detection and better outcomes for patients with hard-to-identify conditions.",
       "lang": "en",
       "publishedAt": "2026-06-18T08:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "diagnosis",
         "genetics",
@@ -67815,8 +67834,8 @@
       "bodyEn": ""
     },
     {
-      "id": "83a567f474d4b196",
-      "source": "openai-news",
+      "id": "da655a3978f43b5d",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/ai-chemist-improves-reaction",
       "title": "A near-autonomous AI chemist improves a challenging reaction in medicinal chemistry",
@@ -67826,7 +67845,7 @@
       "summaryEn": "OpenAI's near-autonomous AI chemist agent independently designed and executed experiments to improve a difficult reaction in medicinal chemistry, demonstrating AI's potential to accelerate real-world scientific discovery.",
       "lang": "en",
       "publishedAt": "2026-06-17T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "agent",
         "autonomous-agents",
@@ -68046,8 +68065,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "9dff56a8278cee24",
-      "source": "openai-news",
+      "id": "a3b557de42638604",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/introducing-life-sci-bench",
       "title": "Introducing LifeSciBench",
@@ -68057,7 +68076,7 @@
       "summaryEn": "OpenAI introduced LifeSciBench, a benchmark designed to evaluate AI models across life science domains including biology, chemistry, and medicine, providing a standardized way to measure scientific reasoning capabilities.",
       "lang": "en",
       "publishedAt": "2026-06-17T00:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "benchmark",
         "evaluation",
@@ -68269,8 +68288,8 @@
       "bodyEn": ""
     },
     {
-      "id": "0b0d7410cdf9c563",
-      "source": "openai-news",
+      "id": "3d60d1867fe19804",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/deployment-simulation",
       "title": "Predicting model behavior before release by simulating deployment",
@@ -68280,7 +68299,7 @@
       "summaryEn": "OpenAI introduced a deployment simulation framework that predicts how models will behave in real-world settings before release, enabling earlier detection of safety issues and reducing post-launch surprises.",
       "lang": "en",
       "publishedAt": "2026-06-16T00:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "alignment",
         "evaluation",
@@ -68570,8 +68589,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "c046c76ac9c42002",
-      "source": "openai-news",
+      "id": "ab6933b8b4b64dd8",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/introducing-openai-partner-network",
       "title": "Introducing the OpenAI Partner Network",
@@ -68581,7 +68600,7 @@
       "summaryEn": "OpenAI launched a formal Partner Network to help businesses build and deploy AI solutions using its technology, establishing a structured ecosystem of certified partners to accelerate enterprise adoption.",
       "lang": "en",
       "publishedAt": "2026-06-14T17:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ecosystem",
         "enterprise",
@@ -69279,7 +69298,7 @@
       "summaryEn": "Anthropic officially unveiled its new AI model Claude Fable 5 in a YouTube video, showcasing improved reasoning and new features over previous generations as the latest flagship in the Claude family.",
       "lang": "en",
       "publishedAt": "2026-06-09T17:00:05.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-models",
         "anthropic",
@@ -73442,7 +73461,7 @@
       "summaryEn": "Anthropic shares interpretability research that translates Claude's internal representations into human language, visualizing what the model thinks during reasoning to advance AI transparency and safety.",
       "lang": "en",
       "publishedAt": "2026-05-07T17:01:21.000Z",
-      "collectedAt": "2026-11-27T21:30:43.960Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "ai-safety",
         "anthropic",
@@ -73818,8 +73837,8 @@
       "excerptOrigin": "article"
     },
     {
-      "id": "07d7016d3e74f2e5",
-      "source": "openai-news",
+      "id": "9c950e309ba7defd",
+      "source": "openai-blog",
       "sourceType": "blog",
       "url": "https://openai.com/index/mrc-supercomputer-networking",
       "title": "Unlocking large scale AI training networks with MRC (Multipath Reliable Connection)",
@@ -73829,7 +73848,7 @@
       "summaryEn": "OpenAI has open-sourced MRC (Multipath Reliable Connection) through OCP, a supercomputer networking protocol that boosts fault tolerance and throughput across GPU clusters. It enables the AI industry to build more scalable and resilient training infrastructure.",
       "lang": "en",
       "publishedAt": "2026-05-05T10:00:00.000Z",
-      "collectedAt": "2026-11-28T02:29:43.447Z",
+      "collectedAt": "2026-11-28T03:30:39.922Z",
       "tags": [
         "distributed-training",
         "gpu-cluster",

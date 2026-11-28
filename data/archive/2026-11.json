@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-28T05:30:57.470Z",
+  "generatedAt": "2026-11-28T06:30:59.121Z",
   "month": "2026-11",
   "count": 117,
   "entries": [
@@ -52,6 +52,7 @@
         "qiita",
         "self-signed-certificate",
         "ssl",
+        "tutorial",
         "vscode"
       ],
       "category": "vscode",
@@ -533,7 +534,7 @@
       "titleEn": "Zed Editor Releases v1.31.0-pre",
       "lang": "en",
       "publishedAt": "2026-11-25T18:02:11.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "agent",
         "editor",
@@ -568,7 +569,7 @@
       "titleEn": "Zed Editor Releases v1.30.2",
       "lang": "en",
       "publishedAt": "2026-11-25T17:43:29.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "editor",
         "git-panel",
@@ -601,7 +602,7 @@
       "titleEn": "Visual Studio Code 1.148 Release Notes",
       "lang": "en",
       "publishedAt": "2026-11-25T17:00:00.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "copilot-agent",
         "deprecation",
@@ -627,8 +628,8 @@
       "feedSnippet": "Learn what's new in Visual Studio Code 1.148 Read the full article"
     },
     {
-      "id": "b2937bbd676220f2",
-      "source": "github-copilot",
+      "id": "e781aae55ec024a5",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/how-to-choose-the-next-safe-step-in-application-modernization/",
       "title": "How to choose the next safe step in application modernization",
@@ -638,7 +639,7 @@
       "summaryEn": "Using GitHub Copilot, the author tested an evidence-first approach on four public apps, from a small Node.js game to a large Java ERP system, gathering regression evidence before picking a framework. Teams can repeat it on their own application.",
       "lang": "en",
       "publishedAt": "2026-11-25T15:00:00.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "copilot",
         "github",
@@ -653,6 +654,7 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "A request to modernize an application often starts with a technology question: Which framework should replace the old one? Before you choose, find out what still works. Then collect evidence that can act as a regression net for that behavior and show where modernization is necessary. I used an evidence-first method on four public applications, from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each needed a different treatment, but the way I collected evidence, chose the next experiment, and decided on possible proof points was repeatable. This post walks through that process so you can apply it to one application of your own. It also shows how to encode the procedure in a GitHub Copilot agent skill while keeping architectural judgment with the people responsible for the system. The label on an application rarely tells you enough.",
       "excerptOrigin": "article",
       "feedSnippet": "Learn how to assess a legacy application, choose a bounded modernization step, and reuse the method with a GitHub Copilot agent skill. The post How to choose the next safe step in application modernization appeared first on The GitHub Blog .",
@@ -663,8 +665,7 @@
         "width": 0,
         "height": 0,
         "source": "og"
-      },
-      "evergreen": true
+      }
     },
     {
       "id": "231f1a322b3ba681",
@@ -1730,7 +1731,15 @@
       "archiveTier": "hot",
       "contentSnippet": "Organization owners can now let people work on repository security advisories, including private vulnerability reports, through custom repository roles . You no longer have to make them repository administrators or give them the organization-wide security manager role. Four new permissions are available under Security when you create or edit a custom repository role: View security advisories : view draft security advisories, their status, and comments. Create, Edit, and Manage security advisories : everything in View, plus Create and Edit advisories, comment, manage collaborators, and create a temporary private fork. Accept private vulnerability reports and close or reopen security advisories : requires View or Create, Edit, and Manage . Publish security advisories and request CVEs : requires View or Create, Edit, and Manage .",
       "excerptOrigin": "article",
-      "feedSnippet": "Organization owners can now let people work on repository security advisories, including private vulnerability reports, through custom repository roles. You no longer have to make them repository administrators or give… The post Security advisory permissions are now generally available appeared first on The GitHub Blog ."
+      "feedSnippet": "Organization owners can now let people work on repository security advisories, including private vulnerability reports, through custom repository roles. You no longer have to make them repository administrators or give… The post Security advisory permissions are now generally available appeared first on The GitHub Blog .",
+      "image": {
+        "src": "https://github.blog/wp-content/uploads/2026/11/711393264-910d7f23-663a-4aca-a2bc-31315dbade37.jpg",
+        "origSrc": "https://github.blog/wp-content/uploads/2026/11/711393264-910d7f23-663a-4aca-a2bc-31315dbade37.jpg",
+        "alt": "Security advisory permissions are now generally available",
+        "width": 0,
+        "height": 0,
+        "source": "og"
+      }
     },
     {
       "id": "02652ae32ee08f5f",
@@ -1905,7 +1914,7 @@
       "titleEn": "Zed Editor Releases v1.29.3",
       "lang": "en",
       "publishedAt": "2026-11-20T16:10:31.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "editor",
         "openai",
@@ -1941,7 +1950,7 @@
       "titleEn": "Zed Editor Releases v1.30.2-pre",
       "lang": "en",
       "publishedAt": "2026-11-20T15:57:54.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "editor",
         "openai",
@@ -2120,7 +2129,7 @@
       "titleEn": "Announcements",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "anthropic",
         "claude",
@@ -2146,7 +2155,7 @@
       "titleEn": "Anthropic announces closing of initial public offering, including full exercise of underwriters’ option to purchase additional shares, and closing of concurrent private placement",
       "lang": "en",
       "publishedAt": "2026-11-20T00:00:00.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "anthropic",
         "claude",
@@ -2310,7 +2319,7 @@
       "titleEn": "Zed Editor Releases v1.30.1-pre",
       "lang": "en",
       "publishedAt": "2026-11-18T22:35:16.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "editor",
         "github-release",
@@ -2345,7 +2354,7 @@
       "titleEn": "Zed Editor Releases v1.29.2",
       "lang": "en",
       "publishedAt": "2026-11-18T21:44:41.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "editor",
         "github-release",
@@ -2379,7 +2388,7 @@
       "titleEn": "Zed Editor Releases v1.29.1",
       "lang": "en",
       "publishedAt": "2026-11-18T19:39:36.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "agent",
         "anthropic-byok",
@@ -2442,7 +2451,7 @@
       "titleEn": "Zed Editor Releases v1.30.0-pre",
       "lang": "en",
       "publishedAt": "2026-11-18T17:26:01.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "editor",
         "git-panel",
@@ -2652,8 +2661,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "contentSnippet": "Our previous post in this series introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning (ML) techniques on ads ranking models. Now, we’re sharing how we propagate ranking model improvements like architectural advancements and training optimizations efficiently across a large and diverse fleet of ads [...] Read More... The post How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models appeared first on Engineering at Meta ."
+      "contentSnippet": "Our previous post in this series introduced the Ranking Engineer Agent (REA), an autonomous system that generates hypotheses, designs experiments, and proves new machine learning (ML) techniques on ads ranking models. Now, we’re sharing how we propagate ranking model improvements like architectural advancements and training optimizations efficiently across a large and diverse fleet of ads [...] Read More... The post How Meta Uses AI Agents to Scale ML Innovations Across Ads Ranking Models appeared first on Engineering at Meta .",
+      "evergreen": true
     },
     {
       "id": "f700ec0a7df3f16a",
@@ -2665,7 +2674,7 @@
       "titleEn": "Visual Studio Code 1.147 Release Notes",
       "lang": "en",
       "publishedAt": "2026-11-18T17:00:00.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "agent",
         "browser-integration",
@@ -2715,8 +2724,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "contentSnippet": "As ML ecosystems grow to a large number of production models, the bottleneck is no longer inventing new techniques to improve these models, but rather shipping them reliably and efficiently across a fragmented model space, creating a rising tide that lifts all the boats. At Meta, we built a template-driven approach that standardizes model design [...] Read More... The post Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem appeared first on Engineering at Meta ."
+      "contentSnippet": "As ML ecosystems grow to a large number of production models, the bottleneck is no longer inventing new techniques to improve these models, but rather shipping them reliably and efficiently across a fragmented model space, creating a rising tide that lifts all the boats. At Meta, we built a template-driven approach that standardizes model design [...] Read More... The post Design Once, Deploy at Scale: Building a Template-Driven ML Ecosystem appeared first on Engineering at Meta .",
+      "evergreen": true
     },
     {
       "id": "0c31d85b1964e019",
@@ -2760,7 +2769,7 @@
       "titleEn": "Anthropic prices initial public offering",
       "lang": "en",
       "publishedAt": "2026-11-18T00:00:00.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "anthropic",
         "claude",
@@ -2822,7 +2831,7 @@
       "summaryEn": "Engineering AI Discover",
       "lang": "en",
       "publishedAt": "2026-11-17T17:01:02.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "engineering",
         "netflix"
@@ -2831,8 +2840,8 @@
       "importance": 1,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "excerptOrigin": "article-unavailable",
-      "evergreen": true
+      "evergreen": true,
+      "excerptOrigin": "article-unavailable"
     },
     {
       "id": "37e0b176c97615e8",
@@ -2981,14 +2990,14 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. Meta’s Reality Labs builds products such as AI glasses . Emulators provide us with a way to scale development and testing without relying on scarce physical hardware. Testing software for non-phone Android devices depends on how closely a virtual device reproduces the software behavior of the physical product. While a lightweight emulator like Goldfish gets you part of the way, differences from the real device can hide bugs until later in development. This lack of fidelity also erodes trust in device emulation, increasing reliance on scarce physical hardware. Cuttlefish is the Android Open Source Project’s (AOSP’s) virtual-device framework for testing Android software against virtual hardware.",
       "excerptOrigin": "article",
-      "feedSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. [...] Read More... The post Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple Silicon appeared first on Engineering at Meta ."
+      "feedSnippet": "How Meta's Reality Labs brought Cuttlefish and its QEMU backend to macOS and Apple silicon. [...] Read More... The post Cuttlefish on Mac: Running Android’s Virtual Device Framework Natively on Apple Silicon appeared first on Engineering at Meta .",
+      "evergreen": true
     },
     {
-      "id": "9bf242a7c3461006",
-      "source": "github-copilot",
+      "id": "d9302d8306c35a57",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/build-once-run-on-any-agent-a-practical-guide-to-agent-skills/",
       "title": "Build once, run on any agent: A practical guide to agent skills",
@@ -2998,7 +3007,7 @@
       "summaryEn": "GitHub Copilot's agent skills package repeatable task instructions in a versioned directory built around SKILL.md, shareable across agents, though the runtime must supply tools, credentials, and permissions. This helps developers turn personal know-how into team assets.",
       "lang": "en",
       "publishedAt": "2026-11-12T22:54:52.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "agent",
         "agent-skills",
@@ -3013,10 +3022,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "How many times this week did you re-explain the same task to an agent? How many times did you ask your colleague with deep institutional knowledge how to solve a specific problem? That context shouldn’t be lost in a chat or locked in one person’s head. Agent skills let you capture repeatable instructions so you and your agents can reuse them. The skill you write for yourself tonight can later become part of a team’s pipeline. An agent skill is a versioned directory centered on a SKILL.md file that describes when and how to do a repeatable task. You can share those instructions across agents, but the environment still needs to provide the tools, credentials, and permissions to carry them out. A skill can describe how to query a database, for example, but it doesn’t grant access to that database.",
       "excerptOrigin": "article",
-      "feedSnippet": "Agent skills capture repeatable engineering work in files teams can review and reuse, while tools, project context, and permissions remain specific to the host that runs them. The post Build once, run on any agent: A practical guide to agent skills appeared first on The GitHub Blog .",
-      "evergreen": true
+      "feedSnippet": "Agent skills capture repeatable engineering work in files teams can review and reuse, while tools, project context, and permissions remain specific to the host that runs them. The post Build once, run on any agent: A practical guide to agent skills appeared first on The GitHub Blog ."
     },
     {
       "id": "78f83a6bd571ce8a",
@@ -3144,10 +3153,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
       "contentSnippet": "By Zhaojun Zhang , Qinwei Zhu , Gang Li , Jianwei Xiao , Yanan Wang , Hongmei Li , Deepak Vijaywargi , Ke Pan , Li Yu Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built Intelligent Delivery, an ML-driven system that allocates resources across the serving stack toward the system-wide optimum. It has delivered ~10% incremental ranking performance on top of model and system advancements since 2017.",
       "excerptOrigin": "article",
-      "feedSnippet": "Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built [...] Read More... The post Intelligent Delivery: Making Every Unit of Compute Serve Better Ads appeared first on Engineering at Meta ."
+      "feedSnippet": "Ads ranking models are growing toward LLM scale faster than the hardware to run them can keep up. An extra unit of compute has more impact on some ad requests, models, and chips than on others. The challenge is deciding where to allocate it to get the best outcome for the entire system. We built [...] Read More... The post Intelligent Delivery: Making Every Unit of Compute Serve Better Ads appeared first on Engineering at Meta .",
+      "evergreen": true
     },
     {
       "id": "daeb565598eece93",
@@ -3161,7 +3170,7 @@
       "summaryEn": "VS Code 1.146 adds experimental Inbox mode to surface sessions needing attention across projects, plus preview model comparison with Copilot Fusion. Local harness is deprecated for February 2027 removal, so teams should plan to move to the Copilot harness.",
       "lang": "en",
       "publishedAt": "2026-11-11T17:00:00.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "copilot-fusion",
         "deprecation",
@@ -3344,8 +3353,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "contentSnippet": "Your algorithm is a suite of AI-powered tools that makes Facebook recommendations more transparent and steerable, with a single editable view of the interests that shape Feed and Reels. We’re sharing how Your algorithm turns people’s natural language preferences into responsive recommendations, and how LLMs are tailored to specific tasks within the system. Traditionally, the [...] Read More... The post Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations appeared first on Engineering at Meta ."
+      "contentSnippet": "Your algorithm is a suite of AI-powered tools that makes Facebook recommendations more transparent and steerable, with a single editable view of the interests that shape Feed and Reels. We’re sharing how Your algorithm turns people’s natural language preferences into responsive recommendations, and how LLMs are tailored to specific tasks within the system. Traditionally, the [...] Read More... The post Your Algorithm: Giving People More Ways to Personalize Facebook Recommendations appeared first on Engineering at Meta .",
+      "evergreen": true
     },
     {
       "id": "3517424a62574db3",
@@ -3373,8 +3382,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "evergreen": true,
-      "contentSnippet": "Triton Low-Level Extensions (TLX), is an extension to Triton that helps engineers optimize GPU performance while preserving Triton’s productive programming model. TLX introduces explicit warp-group and cluster-level orchestration, letting developers adopt new hardware capabilities without sacrificing velocity. TLX has demonstrated performance improvements in RecSys training, RecSys inference, and large-scale LLM pretraining. Modern GPU architectures increasingly [...] Read More... The post How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale appeared first on Engineering at Meta ."
+      "contentSnippet": "Triton Low-Level Extensions (TLX), is an extension to Triton that helps engineers optimize GPU performance while preserving Triton’s productive programming model. TLX introduces explicit warp-group and cluster-level orchestration, letting developers adopt new hardware capabilities without sacrificing velocity. TLX has demonstrated performance improvements in RecSys training, RecSys inference, and large-scale LLM pretraining. Modern GPU architectures increasingly [...] Read More... The post How We Built TLX: A Hardware-Native GPU Compiler for Production ML at Scale appeared first on Engineering at Meta .",
+      "evergreen": true
     },
     {
       "id": "75a9f02f59a5e1ff",
@@ -3491,7 +3500,7 @@
       "summaryEn": "Netflix has reworked its system for checking whether title synopses match the facts, improving both accuracy and efficiency at scale, which helps content teams catch errors and review text faster.",
       "lang": "en",
       "publishedAt": "2026-11-09T17:01:02.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "content-quality",
         "engineering",
@@ -3504,8 +3513,8 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
-      "excerptOrigin": "article-unavailable",
-      "evergreen": true
+      "evergreen": true,
+      "excerptOrigin": "article-unavailable"
     },
     {
       "id": "a8256a8bf6828cc7",
@@ -3543,8 +3552,8 @@
       }
     },
     {
-      "id": "df55124286315754",
-      "source": "github-copilot",
+      "id": "9c3380ee4f1290dc",
+      "source": "github-blog-ai",
       "sourceType": "blog",
       "url": "https://github.blog/ai-and-ml/github-copilot/beyond-code-generation-a-developers-guide-to-agentic-engineering/",
       "title": "Beyond code generation: A developer’s guide to agentic engineering",
@@ -3554,7 +3563,7 @@
       "summaryEn": "A GitHub Copilot guide to agentic engineering, noting a week of over 1.2 billion commits and a 441% rise in review time, to help developers manage work beyond code generation.",
       "lang": "en",
       "publishedAt": "2026-11-06T22:15:59.000Z",
-      "collectedAt": "2026-11-28T01:30:44.409Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "agent",
         "agentic-engineering",
@@ -3568,10 +3577,10 @@
       "importance": 2,
       "halfLife": "architecture",
       "archiveTier": "hot",
+      "evergreen": true,
       "contentSnippet": "This October, GitHub saw more than 1.2 billion commits in one week—over 400% more than a year earlier. This is more commits than GitHub received in all of 2025. Chances are, you’re generating more code than you were a year ago. But ask yourself: do you feel 400% more productive than you were last year? Building software takes more than a good prompt. As AI speeds up implementation, software developers are feeling more pressure in other places: a Faros AI study found that pull requests spent 441% longer in review when teams went from low to high AI adoption. As a software developer, you gather requirements and steer implementation, review changes and evaluate test results, then investigate what happens in production. Agents can help you work more efficiently across all of these stages: Plan, Build, Verify, and Observe.",
       "excerptOrigin": "article",
-      "feedSnippet": "Writing code got faster. The work around it didn't. See how you can plan, write code, review changes, and investigate production issues with GitHub Copilot, and what work still needs your judgment. The post Beyond code generation: A developer’s guide to agentic engineering appeared first on The GitHub Blog .",
-      "evergreen": true
+      "feedSnippet": "Writing code got faster. The work around it didn't. See how you can plan, write code, review changes, and investigate production issues with GitHub Copilot, and what work still needs your judgment. The post Beyond code generation: A developer’s guide to agentic engineering appeared first on The GitHub Blog ."
     },
     {
       "id": "f55adabac8496bb3",
@@ -3619,7 +3628,7 @@
       "summaryEn": "Cursor adds Voice Chat, a live voice call with agents powered by Grok Voice. It works in the Agents Window, IDE, web and iOS, letting developers direct coding work and check progress hands-free.",
       "lang": "en",
       "publishedAt": "2026-11-06T00:00:00.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "agent",
         "changelog",
@@ -3710,7 +3719,7 @@
       "summaryEn": "Cursor's cloud agent can now build web apps end to end, provisioning Postgres, Cursor SSO auth and hosting, then publish them at a unique domain link. Anyone in an organization can ship internal tools.",
       "lang": "en",
       "publishedAt": "2026-11-05T00:00:00.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "agent",
         "app-deployment",
@@ -3806,7 +3815,7 @@
       "summaryEn": "VS Code 1.145 lets remote agent sessions preview apps and use interactive canvases, adds cron-based automation schedules, and reduces chat noise. The Local harness is deprecated, so users should plan their move to the Copilot harness before February 2027.",
       "lang": "en",
       "publishedAt": "2026-11-04T17:00:00.000Z",
-      "collectedAt": "2026-11-28T00:30:44.270Z",
+      "collectedAt": "2026-11-28T06:30:42.188Z",
       "tags": [
         "agent",
         "canvas",

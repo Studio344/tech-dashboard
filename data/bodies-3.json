@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T05:30:53.225Z",
-  "count": 396,
+  "generatedAt": "2026-11-28T06:30:54.829Z",
+  "count": 397,
   "bodies": {
     "08a802224f9dfe23": {
       "bodyJa": "AIエージェントを「動かす」こと自体は、もはや難しくない。だが本番環境で精度・安全性・説明責任を担保し続けることに、多くの開発チームがつまずいている。Microsoftは「Build 2026」で、あらゆるフレームワーク上で動くAIエージェントの可観測性（オブザーバビリティ）からROI測定までを一貫して支える、Microsoft Foundryのアプローチを示した。\n\nエージェントが従来のソフトウェアと根本的に異なるのは、その挙動が非決定論的である点だ。同じ入力でも生成結果が毎回変わりうるため、従来のテストやログ監視だけでは品質を保証しきれない。大規模言語モデル（LLM）が外部ツールを呼び出し、複数ステップにわたって自律的に判断するエージェント型システムでは、どの段階でどんな根拠から結論に至ったのかを追跡する仕組みが欠かせない。\n\nそこで重要になるのが可観測性だ。各実行のトレース、ツール呼び出しの履歴、入出力の評価スコアなどを収集し、エージェントの振る舞いを可視化する。Microsoft Foundryは、こうしたトレースや評価機能を提供し、本番運用での品質劣化や安全性リスクを早期に検知できるようにすると見られる。評価の場面では、応答の正確さや根拠の妥当性、有害コンテンツの有無などを自動でスコアリングする手法が一般的になりつつある。\n\nFoundryの特徴は、特定のフレームワークに縛られない点にあるとされる。LangChainやSemantic Kernel、AutoGenなど多様なエージェント開発基盤が併存するなか、フレームワークを横断して観測・評価できることは、既存資産を活かしたい企業にとって導入のハードルを下げる可能性がある。\n\n最終的な狙いは、可観測性を投資対効果（ROI）の証明につなげることだ。エージェントが実際にどれだけ業務を効率化し、コストを削減したのかを数値で示せなければ、本番展開の継続的な承認は得にくい。同様の課題はGoogleやAWS、OpenAIなど競合各社も抱えており、エージェントの「運用と測定」をめぐる競争は今後さらに激しくなるとみられる。観測から成果へという流れを定量化できるかどうかが、エージェント活用の成否を左右する焦点になりそうだ。",
@@ -12414,7 +12414,39 @@
       "bodyJa": "Anthropic の CLI 型コーディング支援ツール「Claude Code」の v2.1.210 がリリースされ、Write(path) 形式の権限ルールが設定されている場合に、起動時へ警告を表示する変更が加えられた。権限設定のミスを早い段階で利用者に気づかせ、意図しないファイル操作を未然に防ぐことを狙った改善と見られる。\n\nClaude Code は、ファイルの読み書きやシェルコマンドの実行といったツール操作を、権限ルールによって制御する仕組みを備えている。設定は settings.json などのファイルに記述し、許可 (allow)、拒否 (deny)、確認 (ask) といったカテゴリごとにルールを並べる形が基本だ。このうちファイル書き込みを司る Write ツールに対しては、対象とするパスのパターンを指定できるようになっている。\n\n今回追加された警告は、こうした Write 権限のルールが検出された際に起動時のメッセージとして提示される。想定される背景の一つは、パス指定の記法を誤ったまま設定してしまい、本来意図した範囲と異なるファイルが書き込み対象になってしまうケースだ。エージェントがファイルを生成・上書きする前の段階で注意を促すことで、こうした取り違えに起因する事故を減らす効果が期待できる。\n\nAI コーディングエージェントでは、モデルが自律的にファイルを編集したりコマンドを実行したりする場面が増えており、権限管理の重要性は年々高まっている。Cursor や Aider、GitHub Copilot の各種エージェント機能など、競合するツール群でも操作前の確認や実行範囲の制限といった安全策が組み込まれてきた。今回の変更は派手な新機能ではないものの、設定の見落としという実務上ありがちなリスクに正面から対処するものと言える。\n\n本アップデートは changelog に記録された一連の更新の一部であり、細かくバージョンが刻まれる Claude Code の開発ペースを示す例でもある。権限まわりの設定を活用している利用者は、アップデート後に表示される警告の内容を確認し、自身のルールが意図通りに機能しているかを点検しておくとよいだろう。",
       "bodyEn": "Anthropic has released Claude Code v2.1.210, a maintenance update whose most notable change is a new startup warning that appears when a Write(path) permission rule is present in a project's configuration. The adjustment is narrow in scope but touches an area that matters for anyone running agentic coding tools with file-writing capabilities: getting permission rules right before the assistant begins modifying files on disk.\n\nClaude Code is Anthropic's command-line coding agent, and it governs what actions it may take through a permission system. Rules are expressed as a tool name followed by an optional argument matcher in parentheses, for example Read, Edit, or Bash(git status:*). For file-writing operations, the Write tool expects a path pattern, so a well-formed rule usually looks like Write(src/**) or Write(config/*.json) rather than the literal token \"path\".\n\nThat distinction is the crux of the new warning. A rule written as Write(path) only matches a file literally named \"path\", which is almost never what a user intends. The value likely appears when someone copies a documentation placeholder verbatim or misreads the matcher syntax, expecting \"path\" to behave as a wildcard. Because such a rule silently fails to grant or restrict the paths the author had in mind, it can leave a project's write permissions in an unexpected state. Surfacing the issue at startup gives developers a chance to correct it before Claude Code performs any file operations, which is the practical goal described in the changelog.\n\nClaude Code stores permission settings in JSON configuration files, typically a settings file at the user, project, or local level, with allow, deny, and ask lists that determine whether a given action proceeds automatically, is blocked, or prompts the user for confirmation. This layered approach lets teams commit shared rules to a repository while individuals keep personal overrides. Misconfigured entries in these files have real consequences: an overly permissive rule can let the agent modify files without asking, while a malformed one can create the false impression that a safeguard is in place. A startup warning targets the second failure mode, where a rule looks intentional but does not match what its author expected.\n\nThe change fits a wider industry pattern in which agentic coding tools are adding guardrails around autonomous file and command execution. As assistants such as Claude Code, GitHub Copilot's agent modes, Cursor, and similar tools gain the ability to edit codebases and run shell commands directly, vendors have leaned on explicit allow-and-deny lists, sandboxing, and confirmation prompts to keep users in control. Early warnings about likely misconfigurations are a low-friction complement to those mechanisms, catching human error rather than blocking legitimate actions. They also reduce the risk that a user disables prompts believing a narrower rule is protecting them.\n\nFor existing users, the update appears to require no action beyond reviewing any warning that now surfaces at launch. Those who see the message should check whether their Write rules use real path globs and adjust them to match the directories they actually intend to permit. The Claude Code documentation describes the supported matcher syntax, including glob-style patterns and, for some tools, prefix matching, which can help confirm that a rule is written as intended. Teams that share configuration across a repository may want to audit committed rules once, since a single copied placeholder could propagate to every contributor.\n\nAs with most point releases in the Claude Code changelog, v2.1.210 bundles a focused fix rather than a broad feature set, and the immediate benefit is incremental. Still, permission handling sits close to the security boundary of any tool that can write to a filesystem, so a change that lowers the odds of a silently ineffective rule is meaningful for teams relying on the agent in day-to-day workflows. It also signals continued attention to the usability of the permission model itself, an area that becomes more important as these agents take on larger, less supervised tasks.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T16:43:28.603Z"
+      "generatedAt": "2026-08-30T16:43:28.603Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Write(path)のルールを書いていると、起動時に警告が出るようになったんだね。これって大きい変更なの？",
+          "en": "So if I have Write(path) rules, I'll see a warning at startup now? Is that a big change?"
+        },
+        {
+          "s": "b",
+          "ja": "権限を細かく書き込んでいる設定ほど影響を受けるよ。警告では、Edit(path)とRead(path)に置き換えるよう案内されるんだ。",
+          "en": "It hits detailed permission setups the hardest. The warning points you toward Edit(path) and Read(path) as replacements."
+        },
+        {
+          "s": "a",
+          "ja": "settings.jsonのpermissionsって、何を書く場所だったっけ？",
+          "en": "What exactly goes in the permissions part of settings.json again?"
+        },
+        {
+          "s": "b",
+          "ja": "「ツール名＋パス」の形で、どの操作を許すかを書いておく場所だよ。Write(path)みたいな書き方がそれにあたるんだ。",
+          "en": "It's where you write rules as a tool name plus a path, saying which actions are allowed. Write(path) is one of those."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ自分の設定にWrite(path)があるか、まず見直してみようかな。NotebookEditやGlobもなの？",
+          "en": "Then I'd check my settings for Write(path) first. Does that cover NotebookEdit and Glob too?"
+        },
+        {
+          "s": "b",
+          "ja": "うん、Write(path)・NotebookEdit(path)・Glob(path)は、Edit(path)かRead(path)に寄せる案内だよ。対象はv2.1.210からの警告だね。",
+          "en": "Yes, Write(path), NotebookEdit(path), and Glob(path) are all steered toward Edit(path) or Read(path). The warning starts in v2.1.210."
+        }
+      ]
     },
     "a4064dbbc6aaea48": {
       "bodyJa": "OpenAIは、同社のAIコーディングツール「Codex」向けに設計された230ドルの専用キーボードを発売した。ソフトウェアを中心に事業を展開してきた同社がハードウェア周辺機器へ踏み込む象徴的な動きだが、折しも別のハードウェアを巡る法的紛争を抱えるさなかでの発表となり、その戦略的な狙いが問われている。\n\nCodexは、自然言語による指示からコードの生成や補完を行うOpenAIの開発支援ツールだ。今回のキーボードは、こうしたAIコーディング体験に最適化された入力デバイスと位置づけられているとみられる。近年、開発者向けの高級メカニカルキーボード市場は拡大しており、専用ショートカットやAI機能への即時アクセスを備えた製品には一定の需要が見込まれる。230ドルという価格は一般的な量産品より高いものの、こだわりのある開発者を対象とした高付加価値製品としては珍しくない水準といえる。\n\nこの発表が注目されるのは、OpenAIがハードウェア領域で法的な争いを抱えるタイミングと重なるためだ。同社は著名デザイナーのジョニー・アイブ氏が関わるハードウェア構想を進めており、名称や商標をめぐる他社との係争が報じられてきた。こうした状況下でのキーボード投入は、物理デバイスへ事業を広げる意欲を示す一方、法務上のリスクとどう折り合いをつけるのかという疑問も生む。\n\n競合環境も見逃せない。コーディング支援の分野では、マイクロソフト傘下のGitHub CopilotやAnthropicのClaudeなどが激しく競っており、各社は開発者の作業環境そのものを囲い込もうとしている。専用ハードウェアはブランド体験を強化し、ツールへの定着を促す手段になり得る。ただし周辺機器事業はソフトウェアとは異なる製造・供給網や品質管理を要するため、AI企業にとって参入障壁は決して低くない。\n\n今回の製品が単発の実験なのか、より広範なハードウェア戦略の一歩なのかは現時点で明確ではない。訴訟の行方とあわせて、OpenAIがハードウェア分野にどこまで本腰を入れるのかが、今後の焦点となりそうだ。",
@@ -12964,83 +12996,39 @@
       "bodyJa": "## AI対応度\n\n日本の主要SaaS 31社を対象に、AIエージェントから発見・利用されやすいかを独自指標で検証した調査だ。ソフトウェアを選ぶ主体にAIエージェントが加わり始めるなか、各社のMCP対応やAPI公開状況を評価している。\n\n## 31社を検証\n\n検証した31社のうち26社をAAA〜Dで格付けし、算定式も本文で全公開した。会計分野のfreeeとマネーフォワード、サイボウズ系が先行する一方、人事・契約・決済では、APIはあるもののAI向けの入口となる公式MCPはまだないケースが大半とされる。\n\n## SaaS支出\n\nGartnerは2026年7月1日、エンタープライズソフトウェアをエージェントのために買う時代に入り、2030年までにSaaS支出の約20％、$234Bが影響を受けると予測した。レポートは、MCP対応やAPI公開状況の差が競争優位に直結すると説明している。",
       "bodyEn": "## AI readiness\n\nThe report examines whether major Japanese SaaS offerings are prepared to be discovered and used by AI agents. This matters as software selection begins to involve AI agents as well as humans.\n\nAccording to the source, Gartner said on July 1, 2026, that enterprise software was entering an era in which products would be purchased for agents. It predicted that about 20% of SaaS spending, or $234 billion, would be affected by 2030.\n\n## MCP support and API\n\nThe research tested 31 major Japanese SaaS companies and assigned ratings to 26 of them, ranging from AAA to D. The report says its rating formula is fully disclosed in the main text.\n\nThe assessment focuses on differences in MCP support and API availability as indicators of how readily AI agents can discover and interact with SaaS products.\n\n## Accounting leads\n\nAccounting services, including freee and Money Forward, and the Cybozu group were ahead in the assessment. In human resources, contracts, and payments, most services had APIs but did not yet offer an official MCP as an AI-facing entry point.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T20:48:02.034Z"
-    },
-    "b2937bbd676220f2": {
-      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
-      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
+      "generatedAt": "2026-08-30T20:48:02.034Z",
       "chat": [
         {
           "s": "a",
-          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
-          "en": "If my team wants to modernize an app, how does the usual way of working change?"
+          "ja": "31社のうち格付けされたのは26社だけなんだね。残りの5社はどうなったの？",
+          "en": "Only 26 of the 31 companies got rated, right? What happened to the other five?"
         },
         {
           "s": "b",
-          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
-          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
+          "ja": "その5社は、開発者向けドキュメントが一般公開されていなくて、AIが仕様書にたどり着けなかったそうです。格付け以前の問題、という扱いですね。",
+          "en": "Their developer docs weren't publicly available, so AI couldn't reach the specs. The report calls it a problem that comes before ratings even start."
         },
         {
           "s": "a",
-          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
-          "en": "So people used to start by picking a framework? And what is that evidence for?"
+          "ja": "人間なら営業に聞けるけど、AIにはその道がないってこと？それだと使う会社は困るのかな。",
+          "en": "So a human can ask sales, but AI has no path like that? Would that be a problem for the companies using the software?"
         },
         {
           "s": "b",
-          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
-          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
+          "ja": "記事では、経理の半分をAIに任せる企業を想像して、「どの会計ソフトならAIが仕事を完了できるか」で選別が起きると書いています。",
+          "en": "The article imagines a company handing half its accounting to AI. The choice becomes which accounting software lets AI actually finish the job."
         },
         {
           "s": "a",
-          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
-          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
+          "ja": "AIが使える入口があるかどうかが大事なんだね。公式MCPがあるのは31社中10社だけなんだ。",
+          "en": "So having an entrance AI can use really matters. Only 10 of the 31 have an official MCP, huh."
         },
         {
           "s": "b",
-          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
-          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
+          "ja": "はい。人事・契約・決済はAPIはあっても公式MCPはまだ、という会社が大半です。なお、この結果は2026年7月13日時点の突合です。",
+          "en": "Yes. In HR, contracts and payments, most have APIs but no official MCP yet. Also, these findings are as of July 13, 2026."
         }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-27T21:40:18.238Z"
-    },
-    "5cb4ed49cbdddf72": {
-      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
-      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
-          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
-        },
-        {
-          "s": "b",
-          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
-          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
-        },
-        {
-          "s": "a",
-          "ja": "シークレットって、秘密のコードってこと？",
-          "en": "Does “secret” mean secret code?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
-          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
-          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
-          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T20:07:43.460Z"
+      ]
     },
     "f0b45997129f8d0d": {
       "bodyJa": "Metaは、研究資金とオープンウェイトのAIモデルによって、医療分野の重大な空白を埋める取り組みを進めていると説明している。提携先の研究者がそのモデルを自らの研究に合わせて調整し、医療の現場や研究に役立て始めている。\n\n## 学術提携の拡大\n\nMetaは学術パートナーシップを拡大し、研究者に資金とAIモデルへのアクセスを提供している。対象として挙げられているモデルは、Muse Glimmer、SAM3、DINOv3、Brain2Qwertyv2の四つだ。同社は、オープンサイエンスが医療研究を前進させるうえで欠かせないとしている。この進展を加速させるために、今回の提携拡大に踏み切ったという位置づけである。\n\n## 三つの応用領域\n\n研究者がモデルを適用している領域として、三つが紹介されている。一つ目は、リソースの限られた環境にいる医療従事者の訓練である。二つ目は、脳内でてんかんの発生源を突き止めることである。三つ目は、希少疾患への理解を深めることだ。\n\nいずれも、医療における重要な空白を埋める取り組みとして位置づけられている。これらの活動は、Metaの研究資金とオープンウェイトのAIモデルの両方に支えられているとされる。\n\n## 研究者による独自の適応\n\n提携先の研究者は、これらのモデルを独立して適応させ、それぞれの調査研究に用いているとされる。Metaが提供するのは資金とモデルへのアクセスであり、各プロジェクトはその上で研究者自身が進める形だ。Metaは、この提携の恩恵を受けているプロジェクトの例をいくつか紹介している。",
@@ -13275,44 +13263,6 @@
       ],
       "model": "claude-sonnet-5-5",
       "generatedAt": "2026-11-28T01:41:05.775Z"
-    },
-    "df55124286315754": {
-      "bodyJa": "## 1週間で12億コミット\n\nGitHub Copilotのブログは、コード生成の先にあるエージェント型エンジニアリングを取り上げ、実装が速くなった後の開発者の仕事をどう進めるかを論じている。\n\n同ブログによると、この10月にGitHubでは1週間で12億件を超えるコミットが記録された。1年前と比べて400%超の増加で、2025年の1年間に受け取ったコミット数より多いという。\n\n## 生産性は400%上がったか\n\nコードを生成する量は、1年前より増えている可能性が高い。ただし著者は、自分が400%生産的になったと感じるかどうかを読者に問いかける。ソフトウェア開発は優れたプロンプトだけで成り立つものではない、という立場である。\n\n## レビュー時間441%増\n\nAIが実装を加速させる一方で、負荷は別の場所にかかっている。Faros AIの調査では、AIの導入度合いが低い状態から高い状態に移ったチームで、プルリクエストがレビューに費やす時間が441%長くなったと紹介されている。\n\n## 4つの工程\n\n開発者の仕事は、要件を集めて実装の舵を取ること、変更をレビューしてテスト結果を評価すること、そして本番環境で起きていることを調べることに及ぶ。エージェントは、こうした一連の作業をPlan、Build、Verify、Observeの4つの段階で効率化する助けになるとされている。",
-      "bodyEn": "## Beyond Code Generation\n\nGitHub Copilot's guide to agentic engineering starts from a question about productivity. It matters because faster code generation does not by itself make software development proportionally faster. According to the source, GitHub saw more than 1.2 billion commits in a single week this October, over 400% more than a year earlier. The source adds that this is more commits than GitHub received in all of 2025.\n\n## Pressure Moves Downstream\n\nThe source asks whether developers feel 400% more productive than last year. Its answer is that building software takes more than a good prompt. As AI speeds up implementation, the source says, developers feel more pressure in other places. It cites a Faros AI study finding that pull requests spent 441% longer in review when teams went from low to high AI adoption.\n\nThis is the central tension the guide addresses. More code is being produced, but review time grew sharply as teams adopted AI more heavily. The work that surrounds implementation has not shrunk to match.\n\n## Plan, Build, Verify, Observe\n\nThe source describes a developer's job as broader than writing code. Developers gather requirements and steer implementation, review changes and evaluate test results, and then investigate what happens in production. The guide's argument is that agents can help across all of these stages, which it names Plan, Build, Verify, and Observe.\n\nMapped onto that description, the stages line up roughly as follows. Plan and Build cover gathering requirements and steering implementation. Verify covers reviewing changes and evaluating test results. Observe covers investigating what happens in production. The framing treats code generation as one part of a larger cycle rather than the whole of the work.\n\n## What This Means for Developers\n\nThe guide is positioned as an introduction to agentic engineering for developers, aimed at managing work beyond code generation. Its premise is that the areas feeling the strain, such as review, are where agents can also be applied, not only at the point where code is written. The material provided here covers this framing and the figures behind it. It does not detail specific workflows, features, or instructions for each stage.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "AIでコードをたくさん書けるようになったら、普段の仕事って何が変わるの？",
-          "en": "If AI helps us write so much more code, what actually changes in everyday work?"
-        },
-        {
-          "s": "b",
-          "ja": "書く速さが上がる分、レビューなど他の工程に負担が寄るみたい。この記事はPlan・Build・Verify・Observeの4段階で考えているよ。",
-          "en": "Writing gets faster, but the pressure seems to shift to other stages like review. This article frames it as four stages: Plan, Build, Verify, and Observe."
-        },
-        {
-          "s": "a",
-          "ja": "前は、コード生成だけで困らなかったのかな？比べて何が違うの？",
-          "en": "Was code generation alone fine before? What's different now?"
-        },
-        {
-          "s": "b",
-          "ja": "以前どうだったかまでは書かれていないんだ。ただ、AI導入が低から高になるとレビュー時間が441%長くなった調査が紹介されているよ。",
-          "en": "The article doesn't say how things were before. It does cite a study where review time rose 441% when teams moved from low to high AI adoption."
-        },
-        {
-          "s": "a",
-          "ja": "じゃあ収穫は、コードが増えても、同じだけ楽になるとは限らないってことだね。",
-          "en": "So my takeaway: more code doesn't automatically mean the same jump in productivity, right?"
-        },
-        {
-          "s": "b",
-          "ja": "記事もそこを問いかけているね。次は、検証や本番の観察でエージェントがどう助けになるか、に注目したいな。",
-          "en": "The article raises that very question. Next, I'd watch how agents can help with verification and with observing what happens in production."
-        }
-      ],
-      "model": "claude-sonnet-5-5",
-      "generatedAt": "2026-11-28T01:41:04.647Z"
     },
     "f55adabac8496bb3": {
       "bodyJa": "## オートメーションをMermaid図で説明\n\nOpenHands v1.37.0が2026年11月6日にリリースされた。目玉は、各オートメーションの内容をMermaid図で説明する機能の追加である(#19318、@VascoSch92)。あわせて、チャット画面まわりの不具合修正と性能改善が入っている。\n\n新機能として挙げられているのはこの1件のみで、オートメーションが何を行うのかを図で示せるようになる。\n\n## チャット表示まわりの修正\n\nバグ修正の中心はチャット機能である。再開したセッションを、UTCの会話履歴の後ろに配置するよう修正された(#19400)。\n\n起動時の引き継ぎ処理の間も、生成された会話タイトルが表示され続けるようにもなった(#19404)。さらに、セッションのリプレイが終わるまで、空のチャットに対する提案を表示しないようにした(#19377)。\n\nこれらは、セッションの再開や起動直後に見える表示の順序やタイミングを整える修正と読み取れる。\n\n## ホームページの読み込み\n\nベースパスの末尾にスラッシュを付けずにアクセスした場合でも、ホームページが読み込まれるよう修正された(#19406)。\n\n## 履歴走査の削減と保守作業\n\n性能面では、ライブ更新中にチャット履歴を繰り返し走査しないようにする変更が入った(#19266)。チャットのライブ更新を軽くするための改善である。\n\n保守作業としては、マージ済みPRの成果物の削除(#19401)、既存のコントロールの角丸半径への命名(#19263)、移行済みの4つの所有領域で任意値を拒否するlintの追加が挙げられている。\n\n修正の多くは@enystと@ak684が担当している。",
@@ -13705,6 +13655,126 @@
       "bodyEn": "## Dynamic coordination\n\nThis research examines whether learning social norms can improve cooperation between humans and AI. The question matters because people continuously coordinate with others in changing interactions, including with partners they have not encountered before.\n\n## Social norms\n\nThe paper describes social norms as implicit, difficult-to-quantify expectations shared tacitly among interacting agents. It studies AI agents trained to learn these norms and evaluates them in dynamic coordination tasks with unfamiliar human partners.\n\nAccording to the summary, agents that learn social norms demonstrate greater adaptability and better compatibility with those partners. The work includes AI agents such as large language models and focuses on coordination rather than a fixed interaction with a familiar person.\n\n## Human-AI teaming\n\nThe reported result is that social-norm learning can make AI agents more compatible with humans during dynamic collaboration. The research presents this finding as a source of new design principles for human-AI teaming, specifically where an AI must coordinate with an unfamiliar human partner.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-05T13:10:37.390Z"
+    },
+    "e781aae55ec024a5": {
+      "bodyJa": "アプリケーションのモダナイゼーションは、「古いフレームワークの後継に何を選ぶか」という技術の問いから始まりがちです。この記事は、選ぶ前に何がまだ正しく動いているかを確かめ、証拠をもとに次の安全な一歩を決める方法を、GitHub Copilotを使った検証とともに示しています。\n\n## フレームワーク選定の前に\n\n出発点は、既存の挙動のうち今も機能しているものを見極めることです。そのうえで、その挙動に対する回帰テストの土台として働く証拠を集めます。この証拠は、モダナイゼーションが本当に必要な箇所を示す材料にもなると説明されています。\n\nつまり順序は、フレームワークの決定が先ではなく、証拠の収集が先です。アプリケーションに付いたラベルだけでは、取るべき対応を判断するには情報が足りないことが多い、というのが著者の見立てです。\n\n## 4つの公開アプリ\n\n著者はこの証拠優先の手法を、小規模なNode.jsのゲームから大規模なJava製ERPアプリケーションまで、4つの公開アプリに適用しました。それぞれに必要な扱いは異なったものの、証拠の集め方、次に行う実験の選び方、どの点を立証の材料とするかの決め方は、繰り返し使えたとされています。\n\n規模も種類も違うアプリで同じ進め方が通用したことが、この手法を自社のアプリにも応用できるという主張の根拠になっています。\n\n## エージェントスキル化\n\n記事は、この手順を読者が自分のアプリ1つに当てはめられるよう、流れを順に解説しています。あわせて、手順をGitHub Copilotのエージェントスキルとして組み込む方法も紹介しています。その際、アーキテクチャ上の判断は、システムに責任を持つ人の手に残すことが前提とされています。",
+      "bodyEn": "## Start with what still works\n\nA request to modernize an application often begins as a technology question: which framework should replace the old one? According to the source, that is the wrong place to start. Before choosing, teams should find out what still works, because the answer shapes every later decision.\n\nThe recommended next step is to collect evidence that can act as a regression net for that existing behavior. The same evidence also shows where modernization is actually necessary, rather than assuming it is needed everywhere.\n\n## An evidence-first method\n\nThe author applied an evidence-first method to four public applications. They ranged from a small Node.js game to a large Java enterprise resource planning (ERP) application. Each application needed a different treatment, according to the post, so there was no single outcome to copy across all four.\n\nWhat stayed consistent was the process. The author describes three repeatable parts: how the evidence was collected, how the next experiment was chosen, and how possible proof points were decided. The post's point is that a label on an application, such as its language or size, rarely tells you enough about what to do with it. The evidence does.\n\n## Applying it to your own application\n\nThe post is written as a walkthrough so readers can apply the same process to one application of their own. Working on a single application keeps the exercise bounded and lets the evidence-gathering steps be followed from start to finish.\n\n## Encoding the procedure in a skill\n\nThe article also shows how to encode the procedure in a GitHub Copilot agent skill. The stated aim is to make the steps repeatable while keeping architectural judgment with the people responsible for the system. In this framing, the skill carries the procedure, but decisions about architecture remain with the team that owns the application.\n\nTaken together, the piece argues for reversing the usual order of modernization work. Instead of picking a replacement framework first, build a foundation of regression evidence about current behavior, use it to identify where change is needed, and then choose the next safe step from there.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "アプリを新しくしたいとき、うちのチームだと普段の進め方はどう変わるの？",
+          "en": "If my team wants to modernize an app, how does the usual way of working change?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、まず「どの新しいフレームワークにするか」ではなく、今も動いている部分を確かめる流れです。その証拠を集めてから進めます。",
+          "en": "This post starts with what still works, not which new framework to pick. You gather evidence first, then move on."
+        },
+        {
+          "s": "a",
+          "ja": "前はフレームワーク選びから始めてたってこと？その証拠って何に使うの？",
+          "en": "So people used to start by picking a framework? And what is that evidence for?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、よくある依頼は技術の問いから始まる、と書かれています。証拠は回帰テストの土台になり、どこを直す必要があるかも示す役目です。",
+          "en": "The post says requests often begin with a technology question. The evidence acts as a regression net and shows where modernization is truly needed."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、変える前に今の動きを証拠で確かめておく、ってことだね。",
+          "en": "So the big takeaway is to check today's behavior with evidence before changing anything, right?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。次は、手順をGitHub Copilotのエージェントスキルにする部分です。設計の判断は、システムの責任者に残すと書かれています。",
+          "en": "Yes. Next, look at turning the steps into a GitHub Copilot agent skill. The post keeps architectural judgment with the people responsible."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-27T21:40:18.238Z"
+    },
+    "1dcce708fb98d4bf": {
+      "bodyJa": "Azure Content Understanding が、GPT-5.6、GPT-6、GPT-6.1 の各モデルファミリーに対応しました。利用できるモデルの幅が広がり、ワークロードに合わせた選択がしやすくなるとされています。\n\n## 対応する3ファミリー\n\n今回追加されたのは GPT-5.6、GPT-6、GPT-6.1 の3つのモデルファミリーです。Content Understanding にはすでに GPT-5 系をはじめとする対応モデルがあり、今回の対応はそれに加わる形になります。従来のモデルが置き換えられたとは説明されておらず、既存の選択肢と新しい選択肢が並ぶことになります。\n\n## 扱えるワークロード\n\n対応の追加によって選択肢が増えるのは、文書、テキスト、音声、動画の各ワークフローです。Content Understanding が扱うこれらの処理で、使うモデルを選べる範囲が広がったと説明されています。\n\n## モデル推奨の更新\n\n選択肢が増えると、どのモデルをどの用途に使うかの判断が重要になります。そこで、顧客が拡張された選択肢の使い方を理解できるよう、モデルの推奨を更新し、あわせて関連する情報を共有するとされています。推奨の具体的な中身は、Microsoft Foundry Blog の元記事で示されています。",
+      "bodyEn": "## Expanded model support\n\nAzure Content Understanding now supports the GPT-5.6, GPT-6, and GPT-6.1 model families. The announcement says this gives users more choices for document, text, speech, and video workflows, which matters for teams deciding which model should handle each kind of content.\n\nThe new families are added to the existing set of supported models, such as the GPT-5 series. Nothing is being replaced in the announcement's description; the range of options is simply wider than before.\n\n## Choosing the right model\n\nWith more models available, the choice of which one to use becomes a bigger decision. According to the source, the update is meant to help customers understand how to use this expanded set of options. To that end, the team says it is updating its model recommendations and sharing guidance on selecting a model that fits a given workload.\n\nThe title frames the topic as how to match a model to a workload. The announcement ties that guidance to four content types: documents, text, speech, and video. Teams working across more than one of these may therefore find that different tasks call for different model choices, though the announcement as quoted does not spell out which model suits which task.\n\n## What the update covers\n\nTo summarize what the announcement states directly:\n\nAzure Content Understanding works with the GPT-5.6, GPT-6, and GPT-6.1 families.\n\nThe GPT-5 series remains among the supported models.\n\nThe supported scenarios named are document, text, speech, and video workflows.\n\nModel recommendations are being refreshed so teams can choose the best-fitting model for their work.\n\nThe material was published on the Microsoft Foundry Blog under the title \"Content Understanding adds GPT-6.1, 6, and 5.6: Choose the right model for your workload.\" Readers who want the specific recommendations, such as which model is advised for which workload, will need to consult the full post, since the announcement summary describes the guidance but does not list its contents.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "GPT-5.6、GPT-6、GPT-6.1 の3つが一気に増えたんだね。これって大きいことなの？",
+          "en": "Three new model families at once: GPT-5.6, GPT-6, and GPT-6.1. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、従来の GPT-5 系に加えて選べるモデルが増えたと書かれているよ。文書、テキスト、音声、動画の処理で選択肢が広がったのがポイントだね。",
+          "en": "The post says these join the existing GPT-5 series, so you get more choices. That choice now covers document, text, speech, and video workflows."
+        },
+        {
+          "s": "a",
+          "ja": "「モデルファミリー」って何？ 一つのモデルじゃなくて、仲間みたいなもの？",
+          "en": "What's a \"model family\"? Is it a group of related models instead of just one?"
+        },
+        {
+          "s": "b",
+          "ja": "そのイメージで合ってるよ。一般的には、同じ系統で作られた関連モデルのまとまりのこと。個々の違いは、この記事の範囲では詳しく書かれていないね。",
+          "en": "That picture works. Generally it means a group of related models from the same line. This post doesn't spell out how individual models differ."
+        },
+        {
+          "s": "a",
+          "ja": "選択肢が増えると迷いそう。動画や音声を扱うなら、自分はどう選べばいいのかな？",
+          "en": "More options could get confusing. If I worked with video or audio, how would I choose?"
+        },
+        {
+          "s": "b",
+          "ja": "そのために推奨内容が更新されると記事にあるよ。ただ、どのモデルがどの用途に向くかは、ここでは具体的に書かれていないんだ。",
+          "en": "That's why the post says the model recommendations are being updated. But which model suits which task isn't spelled out in what we have here."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:38:27.454Z"
+    },
+    "daeb565598eece93": {
+      "bodyJa": "VS Code 1.146がリリースされた。複数プロジェクトにまたがるセッションの扱いを助ける実験的なInbox modeや、モデル比較、チャットの独立ウィンドウがプレビューとして加わった。あわせてLocal harnessの廃止時期も示されている。\n\n## Inbox mode\n\nInbox modeは実験的機能として提供される。すべてのプロジェクトを横断して、注意が必要なセッションに集中できるようにするものだ。今すぐ対応しなくてよいセッションは、スヌーズして後回しにできる。\n\nリリースノートは「本当に頭を使うべき作業のために余力を残す」という考え方を掲げている。エージェントがモデル比較を担当している間も、見るべきセッションを視野に入れておける点が特徴とされる。\n\n## モデル比較\n\nモデル比較はプレビュー機能である。Copilot Fusionを加えた状態で結果を比べられる。比較作業そのものをエージェントに任せることもでき、人手で比較を回す手間を減らせると位置づけられている。\n\n## Chat windows\n\nChat windowsもプレビュー機能だ。チャットに専用のウィンドウを持たせられる。チャット、エディター、ターミナルは配置を組み替えられるため、作業内容に合わせてエージェント用のワークスペースを形作れると説明されている。\n\n## 2027年2月の廃止\n\n今回のリリースノートでは、Local harnessが非推奨になったと明記されている。削除は2027年2月の予定だ。移行先はCopilot harnessで、移行についての案内ページが用意されている。Local harnessを使っている場合は、削除時期までに移行を検討する必要がある。\n\nこのほか、Microsoft Igniteで行われたVS Codeのセッション録画も公開されている。",
+      "bodyEn": "Visual Studio Code 1.146 is out, and its release notes focus on helping developers keep track of agent-driven work. The release also carries a deprecation warning that matters to anyone still using the Local harness.\n\n## Inbox mode (Experimental)\n\nThe notes describe Inbox mode as a way to focus on sessions that need your attention across all your projects, while snoozing others for later. The pitch is to save your brainpower for the work that needs it. Inbox mode keeps the right sessions on your radar while agents take on model comparisons. The feature is labeled experimental, so it is an early look rather than a finished capability.\n\n## Model comparison (Preview)\n\nModel comparison arrives as a preview. According to the notes, you can compare results with Copilot Fusion in the mix, or let an agent run comparisons for you. This is the work that Inbox mode is meant to keep off your plate, since agents can take on those comparisons while you concentrate on the sessions that need you.\n\n## Chat windows (Preview)\n\nChat windows are also in preview. The notes say they give chats their own windows and let you rearrange chats, editors, and terminals to fit the task. The stated goal is to shape your agent workspace around the task at hand, using chat windows and extensions.\n\n## Local harness deprecated\n\nThe release notes open with a warning that the Local harness is deprecated and will be removed in February 2027. They direct readers to information about the move to the Copilot harness. Teams that rely on the Local harness will need to plan that migration before the removal date.\n\nThe notes also point readers to recordings of the VS Code sessions from Microsoft Ignite.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "このアップデートで、普段の作業って何が変わるの？複数のプロジェクトを並行して進めてるときとか。",
+          "en": "So what changes in my day-to-day? Like when I'm juggling several projects at once?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、実験的なInbox modeで、全プロジェクトの中から注意が必要なセッションに集中できます。ほかのものは後回し（スヌーズ）にできるそうです。",
+          "en": "This release adds an experimental Inbox mode. It lets you focus on sessions needing attention across all projects and snooze the rest for later."
+        },
+        {
+          "s": "a",
+          "ja": "前は、そういうのってできなかったの？チャットを別ウィンドウにする話もあったよね。",
+          "en": "Couldn't we do that before? I also saw something about chats getting their own windows."
+        },
+        {
+          "s": "b",
+          "ja": "従来との違いは、記事からは分からないんです。ただ、チャットを別ウィンドウにして、チャットやエディタ、ターミナルを作業に合わせて並べ替えられる、とプレビューで紹介されています。",
+          "en": "The article doesn't say how it differed before, so I can't tell. It does describe chat windows in preview, with chats, editors, and terminals rearranged to fit the task."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、大事なセッションに集中できて、モデル比較も任せられることかな？",
+          "en": "So the big win is focusing on the sessions that matter, and maybe letting an agent handle model comparisons?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。モデル比較はCopilot Fusionも含めて比べられます。あと、Local harnessは2027年2月に廃止予定なので、Copilot harnessへの移行も気にしておきたいです。",
+          "en": "Yes. Comparisons can include Copilot Fusion, too. Also, Local harness is deprecated for February 2027 removal, so keep an eye on moving to the Copilot harness."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:38:58.374Z"
+    },
+    "054a7a7121d7d525": {
+      "bodyJa": "## GPT-5.6 が標準モデルに\n\nOpenAI の GPT-5.6 が、Microsoft 365 Copilot を支える標準モデルに位置づけられた。何百万人もが使う業務向けの生産性ツールに、最新の機能が届くとされる。\n\n両社の連携は、ビジネスユーザーの生産性向上に向けて一層深まったと説明されている。\n\n## Word から Cowork まで\n\nGPT-5.6 は、Word、Excel、PowerPoint、Chat、Cowork にわたって、より強力な AI 機能を提供すると説明されている。目的は、仕事をより速く、より高品質に進められるようにすることだ。",
+      "bodyEn": "## GPT-5.6 Powers Microsoft 365 Copilot\n\nOpenAI's GPT-5.6 has been designated the default model behind Microsoft 365 Copilot, according to the announcement. This matters because Copilot sits inside productivity tools that the source describes as used by millions of people in enterprises.\n\nThe announcement says the model brings stronger AI capabilities to Word, Excel, PowerPoint, Chat, and Cowork.\n\n## Faster, Higher-Quality Work\n\nThe stated aim is faster, higher-quality work for business users. The source frames the move as a deeper collaboration between OpenAI and Microsoft on productivity.\n\nThe material does not give benchmarks, rollout timing, or pricing, so the practical size of the improvement is not specified here.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:40:16.061Z"
     }
   }
 }

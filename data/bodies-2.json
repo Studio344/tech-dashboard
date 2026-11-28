@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T05:30:53.225Z",
-  "count": 386,
+  "generatedAt": "2026-11-28T06:30:54.829Z",
+  "count": 391,
   "bodies": {
     "d9b0da9f34ed444d": {
       "bodyJa": "Metaは、Ray-Ban MetaやOakley Meta VanguardsといったAIスマートグラスに搭載する超細型バッテリーの設計・製造プロセスを、自社のエンジニアリングブログで明らかにした。カメラやスピーカー、AI処理、さらにはディスプレイまでを動かすための電力を、メガネのテンプル（つる）という極めて限られた空間に収める技術は、ウェアラブル端末の使い勝手を左右する重要な要素となっている。\n\nスマートグラスが抱える最大の制約は、形状そのものにある。一般的なスマートフォンが平たく比較的大きな空間を確保できるのに対し、メガネのつるは細く湾曲しており、装着感や重量バランスを損なわずに電池を組み込む必要がある。Metaによれば、こうした条件下では従来型の角張ったセルをそのまま流用することが難しく、細長い形状に最適化したバッテリーをゼロから設計する必要があったとされる。\n\nカメラ撮影やオンデバイスでのAI処理、音声アシスタントの応答といった機能は、瞬間的に大きな電力を要求する。限られた容量の中でこれらをこなしつつ、一日を通じた実用的な駆動時間を確保するには、セルの素材選定から内部構造、製造工程までを一体で見直すアプローチが求められたと見られる。同社は安全性や発熱、繰り返し充電による劣化への対応も、設計段階から織り込んでいると説明している。\n\nスマートグラス分野では、Metaのほかにもさまざまな企業が参入を模索しており、ディスプレイ搭載モデルの登場によって消費電力はさらに増す傾向にある。バッテリー技術はカメラやチップの性能と並び、製品の差別化を左右する基盤になりつつある。小型化が進むほど熱設計や安全マージンの確保は難しくなるため、各社にとって電源まわりの作り込みは今後いっそう重要性を増す可能性がある。\n\n今回の解説は、完成品の見た目からは分かりにくいハードウェア開発の舞台裏を示すものだ。Metaは近年、Ray-Banブランドとの協業を通じてスマートグラスのラインアップを広げており、こうした基盤技術の積み重ねが、より高機能な次世代モデルへの布石になっていくと考えられる。エンジニアリング情報の公開は、同領域における技術的な課題と方向性を理解するうえでの手がかりにもなりそうだ。",
@@ -12228,7 +12228,39 @@
       "bodyJa": "## 30日間の併用\n\n著者はClaude CodeとCursorを30日間、あらゆる開発タスクで併用した。結論は両方を使うことが最適で、タスクごとの起動判断によって生産性は2倍変わると説明している。\n\n## タスク別ベンチマーク\n\n比較では、タスク種別ごとに速度・精度・コストを計測し、両ツールの得意領域を整理した。さらに、状況に応じて選択するための判断フローチャートをまとめ、開発効率の最大化につなげる内容となっている。",
       "bodyEn": "## Claude Code and Cursor\n\nA developer reports on 30 days of using Claude Code and Cursor side by side. The comparison matters because, according to the source, productivity can differ by a factor of two depending on which tool is used for a given task.\n\n## Task-specific benchmarks\n\nThe author ran a range of development tasks with both tools and measured speed, accuracy, and cost. The article presents task-specific benchmarks alongside a decision flowchart intended to help teams choose between Claude Code and Cursor for each situation. Its conclusion is that using both is the optimal approach, provided developers understand their respective strengths and decide which one to launch based on the task.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T20:48:30.591Z"
+      "generatedAt": "2026-08-30T20:48:30.591Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "体感で開発速度が1.5〜2倍って、かなり大きいよね？ 何をどう測ったの？",
+          "en": "Development speed 1.5 to 2 times faster? That sounds big. What did they actually measure?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では30日間で78タスクを、同じ初期プロンプトで両ツールに投入して比べています。ただ1.5〜2倍は著者の体感なので、目安として見るのがよさそうです。",
+          "en": "They ran 78 tasks over 30 days, giving both tools the same starting prompt. The 1.5 to 2x figure is the author's own impression, though, so treat it as a rough guide."
+        },
+        {
+          "s": "a",
+          "ja": "Claude Codeの「自律的なファイル探索」って、どういうこと？",
+          "en": "What does Claude Code's \"autonomous file exploration\" actually mean?"
+        },
+        {
+          "s": "b",
+          "ja": "grepやfindを使って探し、テスト実行まで自分で判断して回してくれる、ということです。人が「次はこのファイルを開いて」と指示しなくていいんですね。",
+          "en": "It means Claude Code runs grep and find, even runs the tests, and decides the next step itself. You don't have to say \"open this file next.\""
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、原因がすぐ分かる小さなバグはCursor、原因が分からないバグはClaude Code、で合ってる？",
+          "en": "So, a small bug with an obvious cause goes to Cursor, and a mystery bug goes to Claude Code. Is that right?"
+        },
+        {
+          "s": "b",
+          "ja": "記事のポイントもその分け方です。ただ検証はTypeScript/Next.jsとPython/FastAPIのプロジェクトでの結果なので、自分の環境でも試して確かめるのが現実的ですね。",
+          "en": "That's the rule of thumb the article gives. But the tests were on a TypeScript/Next.js project and a Python/FastAPI one, so it's realistic to try it in your own setup too."
+        }
+      ]
     },
     "1b5e38dba026d158": {
       "bodyJa": "## DOM要素なし\n\nFlutter WebやcanvasでUIを描画するアプリでは、通常のHTMLページを対象とした要素ベースのAI操作が通用しない。本記事は、スクリーンショットと画面座標だけを使い、MCP経由でAIにこうしたUIを操作させる手順を扱っている。\n\n## canvas描画\n\n画面上にボタンやパネルが見えていても、それらはDOM要素ではなく、1枚のcanvas上に描かれたピクセルにすぎない。そのため、findで対象を探しても何も返らず、read_pageで取得するアクセシビリティツリーも実質的に空になる。\n\n## 座標で操作\n\n要素を特定できない環境では、スクリーンショットから操作対象の位置を読み取り、その座標情報を用いてAIエージェントにUIを操作させる。記事では、Flutter製のアニメーション制作ツールであるRiveエディタを対象に、この座標ベースの方法を具体化している。",
@@ -13101,6 +13133,164 @@
       "bodyEn": "OpenHands, the open-source AI coding agent platform maintained by All Hands AI, has reached version 1.10.0, a release that focuses on incremental feature improvements and bug fixes rather than a sweeping overhaul. While point releases rarely generate the same attention as major launches, they matter because agentic coding tools depend heavily on reliability: an autonomous agent that edits files, runs shell commands, and iterates on code needs consistent behavior to be trusted in real development workflows.\n\nOpenHands, formerly known as OpenDevin, is designed to let large language models operate as software engineers rather than passive assistants. Instead of only suggesting code snippets, the platform gives an agent a sandboxed environment where it can read a repository, plan a series of steps, write and modify files, execute commands, run tests, and inspect the results before continuing. This loop of acting and observing is the defining characteristic of agentic systems, and it is also where small inconsistencies can compound into failed tasks. Releases like 1.10.0 typically target that reliability layer, tightening how the agent handles edge cases, recovers from errors, and interacts with underlying models and tools.\n\nUnder semantic versioning conventions, a minor version increment such as this one usually signals backward-compatible additions alongside fixes, though the exact composition depends on the maintainers' changelog. Users following the project can expect the release to refine existing capabilities, address reported issues, and possibly extend integrations or configuration options. Because OpenHands is model-agnostic, it works with a range of backends, including proprietary APIs from providers such as Anthropic and OpenAI as well as open-weight models served locally or through hosting platforms. Improvements to prompt handling, execution stability, or tool orchestration in a release like this tend to benefit users regardless of which model they connect.\n\nThe broader context is a rapidly maturing market for AI coding agents. OpenHands is frequently positioned as an open-source alternative to commercial autonomous coding products, most notably Cognition Labs' Devin, which helped popularize the idea of an AI \"software engineer\" that can complete tickets end to end. It also sits alongside a growing set of adjacent tools, including terminal-based assistants like Aider and Anthropic's Claude Code, editor-integrated systems such as Cursor and GitHub Copilot, and other agent frameworks. What distinguishes OpenHands is its permissive open-source model and its emphasis on a full agent runtime rather than autocomplete-style suggestions, which appeals to developers who want transparency, self-hosting, and the ability to customize the agent's behavior.\n\nBenchmarks have become an important reference point in this space, and SWE-bench, a suite that measures whether an agent can resolve real GitHub issues from open-source projects, is among the most cited. OpenHands has historically reported competitive results on such evaluations, and each iterative release is likely aimed, at least in part, at maintaining or improving task success rates. However, benchmark performance does not always translate directly into day-to-day usefulness, so practical improvements to error handling and stability can be just as significant for users as headline scores.\n\nFor teams evaluating whether to adopt agentic coding tools, a few prerequisite concepts are worth understanding. These agents generally require a containerized or sandboxed workspace to run code safely, appropriate API credentials or a local model server, and clear guardrails around what actions they can take, since an agent with shell access can modify or delete files. The reliability gains that accompany routine releases directly affect how comfortable organizations feel granting that level of autonomy.\n\nAs with any active open-source project, the most accurate picture of what changed comes from the official release notes and repository, which document specific fixes, dependencies, and any breaking changes. Developers already using OpenHands are typically advised to review those notes before upgrading, particularly if they rely on custom configurations or integrations. Overall, version 1.10.0 appears consistent with the project's steady release cadence, reflecting the incremental, quality-focused work that gradually makes autonomous coding agents more dependable and, in turn, more viable for everyday software development.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-05T01:15:23.065Z"
+    },
+    "ed744c789037c203": {
+      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
+      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
+          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
+          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
+        },
+        {
+          "s": "a",
+          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
+          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
+          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
+          "en": "I’d line up a few review agents and compare which one might suit me best."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
+          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T12:37:57.149Z"
+    },
+    "453c0b2179fa70a6": {
+      "bodyJa": "## 毎回ゼロから始まる作業\n\nTokenEconomizerは、AIコーディングエージェントが同じリポジトリでの過去のセッションから学び、将来のセッションでの無駄を減らすオープンソースのプラグインです。277件の実際のバグ修正タスクで、費用を18.4〜30.9%削減したと報告されています。\n\n開発者は同じコードベースで毎日のようにAIコーディングエージェントを使いますが、エージェントはセッションのたびにゼロから始まることが多いとされます。すでに分かっているはずの事実を再び調べ直し、使わないツールを読み込み、うまくいかなかった方法を繰り返す、といった無駄が生じます。\n\n## トークン消費の仕組み\n\nAIコーディングエージェントは、バグ修正や機能開発を多くの場面で自力で進めるようになっています。ただし、モデルとのやり取りのたびにトークンが消費されます。各セッションでは、エージェントが指示、ツールの説明、セッション履歴をモデルに送ります。\n\n## 過去の経験を使う方法\n\nTokenEconomizerは、リポジトリ内でのエージェントの過去セッションを手がかりに学習します。その結果を将来のセッションに生かして無駄を減らす仕組みで、エージェント自体も、その基盤となるモデルも変更しません。\n\n## 277件での検証結果\n\n複数のAIコーディングエージェントを対象にした277件の実際のバグ修正タスクで、費用は18.4〜30.9%低下しました。費用の低下はテストしたすべてのリポジトリで見られ、タスクの成功率も概ね安定していたとされます。\n\n削減が一部のリポジトリに偏らず、テストした範囲では一貫して現れた点が特徴です。",
+      "bodyEn": "TokenEconomizer is an open-source plugin aimed at a common inefficiency in AI coding agents: they repeat work they have already done. Because every interaction with an agent's model consumes tokens, wasted effort translates directly into cost.\n\n## Starting each session from scratch\n\nDevelopers tend to use AI coding agents in the same codebases day after day. According to the source, agents often begin each session from scratch anyway. They rediscover familiar facts, load tools they never use, and repeat approaches that have already failed.\n\nThe source notes that agents are increasingly helping developers fix bugs and build features largely on their own. In each session, an agent sends instructions, tool descriptions, and session history to its model. Each of those exchanges uses tokens, which is where the repeated effort adds up.\n\n## Learning from past sessions\n\nTokenEconomizer learns from an agent's past sessions in a given repository and uses what it finds to reduce waste in future sessions. The plugin works without modifying the agent or its underlying model. The announcement frames the goal as trimming wasted effort rather than changing how the agent itself operates.\n\n## Results across 277 tasks\n\nThe reported evaluation covered 277 real bug-fixing tasks. Across multiple AI coding agents, TokenEconomizer reduced costs by 18.4 to 30.9 percent. According to the source, costs fell in every repository tested, and task success rates remained broadly stable. That means the savings were not reported as coming at the expense of agents completing their tasks.\n\n## What this means for teams\n\nThe source positions the plugin for developers and teams who run coding agents repeatedly in the same repositories. The reported figures come from the bug-fixing tasks described above, so they should be read as results for that evaluation rather than guarantees for every workload.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "同じコードベースでAIエージェントを毎日使うとき、これで何が変わるの？",
+          "en": "If I use an AI coding agent in the same codebase every day, what actually changes with this?"
+        },
+        {
+          "s": "b",
+          "ja": "過去のセッションから学んで、毎回ゼロから始める無駄を減らします。知っている事実の再発見や、使わないツールの読み込み、失敗した方法の繰り返しが減るんです。",
+          "en": "It learns from past sessions in that repository, so it wastes less effort. Fewer rediscovered facts, fewer unused tools loaded, and fewer repeats of approaches that already failed."
+        },
+        {
+          "s": "a",
+          "ja": "前は毎回ゼロからだったの？エージェントやモデルを作り直す必要もある？",
+          "en": "So before, it started from scratch every time? Do you have to rebuild the agent or the model?"
+        },
+        {
+          "s": "b",
+          "ja": "記事だと、エージェントは各セッションを白紙から始めがちだそうです。TokenEconomizerはプラグインで、エージェントもモデルも改変しないと書かれています。",
+          "en": "The article says agents often start each session fresh. TokenEconomizer is a plugin, and it works without modifying the agent or its underlying model."
+        },
+        {
+          "s": "a",
+          "ja": "277件の実際のバグ修正で、費用が18.4〜30.9%減って、成功率も概ね変わらなかったんだね。これが一番の収穫かな？",
+          "en": "Over 277 real bug fixes, costs dropped 18.4–30.9% and success rates stayed about the same. Is that the big takeaway?"
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。試したどのリポジトリでも費用が下がった点も大事です。ただ、成功率は「概ね安定」という表現なので、そこは丁寧に見たいですね。",
+          "en": "Yes. Costs fell in every repository tested, which matters. But success rates were only described as broadly stable, so that detail deserves a closer look."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:37:11.309Z"
+    },
+    "156d1fab76a7e6a0": {
+      "bodyJa": "Metaは、広告配信スタック全体で計算資源の割り当てを機械学習によって決める「Intelligent Delivery」を構築した。2017年以降のモデルとシステムの改善に上乗せして、ランキング性能を約10%押し上げたと説明されている。\n\n## LLM規模のモデル\n\n広告ランキングモデルはLLM規模へ向かって大きくなっており、その速度は、それを動かすハードウェアの進歩を上回っているとされる。計算資源が追いつかない状況では、限られた計算をどこに使うかが問われることになる。\n\n## 効果は一様ではない\n\n追加の計算資源1単位がもたらす影響は、広告リクエスト、モデル、チップによって異なると説明されている。ある場面では大きな効果を生み、別の場面では小さな効果にとどまるということだ。課題は、こうした差を踏まえたうえで、システム全体として最良の結果になるよう配分先を決めることにある。\n\n## スタック全体の最適\n\nIntelligent Deliveryは、MLで駆動するシステムとして、配信スタックの各所にまたがってリソースを割り当てる。目指すのは部分ごとの最適ではなく、システム全体の最適である。リクエスト、モデル、チップごとに計算の効き方が違うという点に着目している。\n\n## 約10%の上乗せ\n\n2017年以降に積み重ねられたモデルとシステムの進歩に加えて、約10%のランキング性能向上が得られたという。モデルの拡大が続くなかで、広告主とユーザーの双方に役立つとされる。",
+      "bodyEn": "## Ranking models outpace hardware\n\nAds ranking models are growing toward LLM scale faster than the hardware that runs them can keep up, according to the Meta engineering post. That gap makes the question of how to spend limited compute a central one for ad delivery.\n\nThe post's starting observation is that an extra unit of compute does not help every case equally. It has more impact on some ad requests, on some models, and on some chips than on others. Spreading compute evenly would therefore leave value on the table.\n\n## Allocating compute system-wide\n\nThe challenge, as the authors describe it, is deciding where to allocate additional compute so that the outcome is best for the entire system, not for any single component. Their answer is Intelligent Delivery, which they describe as an ML-driven system that allocates resources across the serving stack toward the system-wide optimum.\n\nTwo points stand out in that description. First, the allocation decision is made by machine learning rather than by fixed rules. Second, it operates across the serving stack as a whole, which means it weighs differences among requests, models, and chips together instead of tuning each in isolation.\n\nThe post is credited to Zhaojun Zhang, Qinwei Zhu, Gang Li, Jianwei Xiao, Yanan Wang, Hongmei Li, Deepak Vijaywargi, Ke Pan, and Li Yu.\n\n## Roughly 10% incremental gain\n\nThe headline result reported is approximately 10% incremental ranking performance. The authors state that this comes on top of model and system advancements since 2017, so it is presented as an additional improvement beyond what those earlier efforts already delivered, not a replacement for them.\n\nThe summary of the work also frames the benefit in terms of advertisers and users as models continue to scale. The post as provided does not break down how the gain is measured or how it varies across requests, models, or chips, so the 10% figure should be read as the authors' overall claim.\n\nIn short, the work treats compute as a scarce resource whose value varies by context, and it uses ML to direct that resource where it contributes most across the whole ad serving stack.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "計算資源って、広告リクエストやモデル、チップごとに効き方が違うの？それが一番気になったよ。",
+          "en": "Compute pays off differently depending on the ad request, model, and chip? That's the part I'm stuck on."
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、追加の計算資源は場所によって効果が大きく違うと書かれています。だからどこに割り当てるかが課題なんです。",
+          "en": "Right, the article says an extra unit of compute helps some requests, models, and chips more than others. So where you put it is the real challenge."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあIntelligent Deliveryは、配信の流れ全体で計算資源の置き場所を賢く決める仕組みってこと？",
+          "en": "So Intelligent Delivery decides where to put compute across the whole serving stack, smartly?"
+        },
+        {
+          "s": "b",
+          "ja": "そうです。MLで配信スタック全体の最適を目指して割り当てます。背景には、広告のランキングモデルがLLM規模へ育つ速さにハードが追いつかない事情があります。",
+          "en": "Yes. It uses ML to allocate resources toward the best result for the whole stack. The backdrop is that ranking models are growing toward LLM scale faster than hardware keeps up."
+        },
+        {
+          "s": "a",
+          "ja": "限られた計算資源を使い分けて、ランキング性能が約10%上がったんだね。2017年以降の改善にさらに上乗せで。",
+          "en": "So by spending limited compute more wisely, ranking performance rose about 10%, on top of improvements since 2017."
+        },
+        {
+          "s": "b",
+          "ja": "はい。ただ、この約10%はランキング性能の話です。それ以上の中身は、この記事の範囲では読み取れません。",
+          "en": "Yes. But that ~10% is about ranking performance, and the article doesn't go further than that here."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:38:56.432Z"
+    },
+    "c1c3802c020a3f8b": {
+      "bodyJa": "## Aurora 1.5の拡張点\n\nMicrosoftのEarth System基盤モデル「Aurora」の大型拡張版として、Aurora 1.5が公開された。気象変数の追加、時間単位の予測、確率的なアンサンブル予測が加わり、天気や地球システムを扱う用途での使い勝手を高めるとされている。\n\n## 22の気象変数を追加\n\n今回の更新では、新たに22の気象変数が加わった。大気の状態をより広い範囲で捉えられるようになると説明されており、追加された変数はエネルギー、農業、交通、気候リスクに関わるものだという。\n\nあわせて、予測の時間分解能が1時間単位になった。さらに、確率的なアンサンブル予測にも対応した。アンサンブル予測は、単一の予測値ではなく複数の予測を扱う方式であり、予測の幅を踏まえた利用につながると考えられる。ただし、具体的な手法や精度の詳細は示されていない。\n\n## GitHubとHugging Faceで公開\n\nAurora 1.5はオープンソースとしてGitHubで公開されており、モデルのチェックポイントはHugging Faceで入手できる。これにより、研究者や開発者がモデルを使い、評価し、その上に独自の取り組みを積み上げられると説明されている。\n\n## Microsoft Weatherとの接続\n\nAurora 1.5は、オープンな研究とMicrosoft Weatherのサービスを結びつける位置づけでもある。モデルを、データ、インフラ、管理されたアクセス、運用での利用と結びつけ、天気や地球システムに関するアプリケーションに役立てる構成だとされる。\n\nオープンなモデルとして研究コミュニティに提供する面と、サービスを通じた実運用の面の両方を備える点が、今回の公開の特徴といえる。",
+      "bodyEn": "## Aurora 1.5 Expands the Model\n\nAurora 1.5 is a major extension of Microsoft's Aurora Earth System foundation model. It matters because it broadens what the open model can represent and how it can be used for weather and Earth-system work, according to the announcement.\n\nThe update adds 22 new weather variables, which the source describes as giving a broader view of atmospheric conditions. These variables are described as relevant to energy, agriculture, transport, and climate risk. Beyond the added variables, the release introduces two further capabilities: hourly temporal resolution and probabilistic ensemble forecasting.\n\n## Hourly and Ensemble Forecasting\n\nHourly forecasts give the model finer time resolution than before. The announcement presents this alongside probabilistic ensemble forecasting, which it lists as a new capability of the release. Together with the wider set of variables, the source says these changes make the model more actionable for climate, energy, and real-world forecasting use cases.\n\nThe announcement does not describe the technical workings of the ensemble approach or the hourly capability in further detail, so those aspects are best read as headline features rather than fully specified methods.\n\n## Open Source Release\n\nAurora 1.5 is released as open source on GitHub, with model checkpoints available on Hugging Face. According to the announcement, this lets researchers and developers use the model, evaluate it, and build on it.\n\n## Link to Microsoft Weather\n\nThe announcement also says Aurora 1.5 connects open research to Microsoft Weather services. This link is described as joining the model with data, infrastructure, managed access, and operational use for weather and Earth-system applications.\n\nIn short, the release pairs an openly available research model with a route toward operational services. The open component offers code and checkpoints for those who want to work with the model directly, while the Microsoft Weather connection is positioned for those who need managed access and operational deployment. The source frames Aurora 1.5 as a major update to the open Aurora Earth-system foundation model, centered on the 22 added variables, hourly forecasts, and probabilistic ensemble forecasting.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、天気予報を使う仕事だと何が変わるの？エネルギーとか農業とか？",
+          "en": "So what changes for people who use weather forecasts at work? Like in energy or farming?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、変数が22個増えて、エネルギー・農業・交通・気候リスクに関わる情報を扱えるようになったとあります。時間単位の予測も加わりました。",
+          "en": "The article says 22 more variables were added, relevant to energy, agriculture, transport, and climate risk. Hourly forecasts are included too."
+        },
+        {
+          "s": "a",
+          "ja": "前は、時間単位の予測とかできなかったのかな？",
+          "en": "Could the earlier version not do hourly forecasts?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは記事に書かれていないので、前の版の細かい仕様は分からないんです。ただ今回、時間単位と確率的なアンサンブル予測が新しく加わったとは書かれています。",
+          "en": "The article doesn't say, so I can't speak to the earlier version's details. It does say hourly resolution and probabilistic ensemble forecasting are newly added."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ一番の収穫は、見える天気の項目が増えて、予測も時間ごとに、いくつかの可能性で見られること？",
+          "en": "So the big win is more weather details, hourly forecasts, and a range of possible outcomes?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めますね。GitHubでの公開やHugging Faceのチェックポイントで、試したり評価したりできる点にも注目です。Microsoft Weatherとのつながりも気になります。",
+          "en": "That reads right. Also notable: it's on GitHub with checkpoints on Hugging Face, so people can try and evaluate it. The link to Microsoft Weather is worth watching too."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:39:55.721Z"
+    },
+    "9fcf2d5751e209ad": {
+      "bodyJa": "## ChatGPT Workとは\n\nOpenAIはChatGPTを、単なる質問応答ツールから、複雑で大規模な仕事を共同で進められるパートナーへと位置づけ直した。プロフェッショナルな業務での活用範囲が広がるとされる。\n\nこの文脈で紹介されているのが「ChatGPT Work」だ。\n\n## アプリやファイルをまたぐ動き\n\nChatGPT Workは、ユーザーのアプリやファイルをまたいで行動できるエージェントと説明されている。必要であれば数時間にわたってプロジェクトに付き添い、与えられた目標を完成した成果物へ仕上げることを担う。\n\n質問に答えるだけでなく、仕事そのものを前へ進める役割を担う点が特徴とされる。",
+      "bodyEn": "## ChatGPT Work as an agent\n\nOpenAI has repositioned ChatGPT from a simple question-answering tool into a collaborator for complex, high-stakes work. According to the announcement, this widens its role in professional settings and makes it a partner for ambitious projects.\n\n## Action across apps and files\n\nThe source describes ChatGPT Work as an agent that can take action across a user's apps and files. It can reportedly stay with a project for hours if needed, and its stated purpose is to turn a goal into finished work.\n\nThe announcement frames this as a shift beyond Q&A toward sustained, hands-on involvement in larger tasks.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:40:30.507Z"
     }
   }
 }

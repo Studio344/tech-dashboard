@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T05:30:53.225Z",
-  "count": 378,
+  "generatedAt": "2026-11-28T06:30:54.829Z",
+  "count": 385,
   "bodies": {
     "17f496c665a12174": {
       "bodyJa": "Metaは、AIネイティブ時代に向けたプライバシー対応インフラの中核として、社内の膨大なデータアセットを正確に分類する取り組みをエンジニアリングブログで公開した。データ保持期間やアクセス制御、利用目的の制限、第三者への共有可否、匿名化といったプライバシー制御は、対象となるデータの性質を正しく把握して初めて機能するためだ。\n\n同社の出発点はシンプルである。あらゆるプライバシーコントロールは「どこに、どのようなデータが存在するか」という信頼できる理解を前提とする。たとえば特定の個人情報を一定期間で削除する保持ポリシーを適用するには、まずそのデータがどのテーブルやログ、ストレージのどこに含まれているかを機械的に判別できなければならない。分類が曖昧なままでは、制御そのものが空回りしてしまう。\n\nしかし、この前提を大規模に満たすことは容易ではない。Meta規模のサービスでは、データは無数のシステムを横断して生成・変換・複製され、形式やスキーマも多様だ。さらに生成AIや機械学習パイプラインの普及により、学習用データセットや派生データが増え、データの流れはいっそう複雑になっている。こうした環境で分類の精度と網羅性を保つには、自動化された分類基盤と継続的な検証の仕組みが欠かせない。\n\nこの課題は業界共通のものでもある。EUのGDPRや米カリフォルニア州のCCPAをはじめとする各国の規制は、データの利用目的や保持に厳格な要件を課しており、データガバナンスの基盤整備は大手テック各社にとって避けて通れない。GoogleやMicrosoftなども独自のデータ分類・カタログ化の仕組みを整えてきたとされ、Metaの今回の公開はその一つの実装例と位置づけられる。\n\nAIの普及はデータ活用の幅を広げる一方で、プライバシー保護の難度を押し上げている。データを正確に「知る」ための分類基盤は、派手さこそないが、信頼できるAIサービスを支える土台になると見られる。Metaの事例は、プライバシーを後付けではなく設計段階から組み込む「プライバシー・バイ・デザイン」の実践として参考になりそうだ。",
@@ -11852,7 +11852,39 @@
       "bodyJa": "スマートフォンやARグラスなどの端末単体で、音声から生成した字幕をその場で翻訳したいという需要が高まっている。arXivに公開された本論文は、こうしたオンデバイス環境でリアルタイム字幕翻訳を実現するため、処理の負荷特性に応じてモデルの実行を動的に最適化する「ワークロード駆動」の枠組みを提案するものだ。\n\nリアルタイム字幕翻訳では、話者の発話に遅れずに訳文を提示する低遅延性と、意味を正しく伝える翻訳品質の両立が求められる。クラウドに処理を委ねれば潤沢な計算資源を使えるが、通信の往復による遅延やプライバシー、通信環境への依存といった課題が残る。端末内で処理を完結させればこれらの懸念は軽減される一方、限られたCPU・GPUやメモリ、消費電力の制約という壁に直面することになる。\n\n論文が着目するのは、翻訳処理にかかる負荷が入力の長さや複雑さ、発話の速度などによって刻々と変化する点だ。従来の手法が固定的なモデルや処理経路を用いるのに対し、提案手法はワークロードの状態を監視し、状況に応じてモデルの規模や計算の割り当てを切り替えることで、遅延の上限を守りつつ品質の低下を抑えると説明されている。\n\n技術的背景として、ニューラル機械翻訳の分野では、蒸留や量子化、早期終了(early exit)といったモデルの軽量化・高速化の手法が蓄積されてきた。本研究は、こうした要素技術を実行時の負荷に合わせて動的に使い分ける方向へ発展させたものと位置づけられる。\n\nオンデバイスAIは近年、各社が注力する領域でもある。GoogleのLive Captionやスマートフォン向けのリアルタイム翻訳機能、Appleが進める端末内での音声・言語処理など、通信を介さない処理の実用化が進んでいる。字幕翻訳の低遅延化は、国際会議や動画視聴、聴覚支援など幅広い場面で恩恵をもたらす可能性がある。\n\n論文の主張が実機でどの程度の効果を示すかは、対象言語や端末の性能によって変わると見られ、今後の検証が待たれる。ただし、資源制約下で低遅延と品質を両立させる設計思想は、拡張現実端末やウェアラブルなど計算資源の限られる機器における多言語対応を後押しする、一つの手がかりになりそうだ。",
       "bodyEn": "Real-time subtitle translation, the task of converting spoken or on-screen text into another language quickly enough to read as content plays, is one of the more demanding applications in natural language processing. A new paper posted to arXiv proposes a workload-driven optimization framework that aims to run this process entirely on-device, dynamically adapting how a translation model executes so that it meets strict latency constraints without noticeably degrading output quality. The work matters because on-device translation touches privacy, offline availability, and cost, yet mobile and embedded hardware offers far less compute than the cloud servers where large translation models typically live.\n\nThe central idea, as described in the paper's summary, is that translation latency and quality should not be governed by a single fixed configuration. Instead, the system observes the characteristics of the incoming workload, such as how fast subtitles arrive, how long each segment is, and how much processing headroom the device currently has, and adjusts model execution accordingly. In practice this kind of approach can mean switching between models of different sizes, changing decoding strategies, batching or splitting text segments, or reallocating compute as conditions change. The stated goal is to keep end-to-end delay low enough for a natural viewing experience while preserving as much translation accuracy as the available resources allow.\n\nThat trade-off is the heart of the problem. Machine translation quality generally improves with larger models and more thorough decoding, but both increase the time and energy required to produce output. On a phone, tablet, or television processor, that budget is limited and shared with other tasks, and it can fluctuate as the device heats up or battery-saving modes engage. A workload-driven scheme appears designed to respond to these shifting conditions rather than assuming a worst-case or best-case scenario, which is a recurring theme in efficient on-device inference research more broadly.\n\nFor readers less familiar with the field, a few prerequisite concepts help frame why this is difficult. Real-time or streaming translation differs from ordinary document translation because the system cannot always wait for a full sentence before it begins working; it must balance the desire for more context, which improves accuracy, against the need to emit text promptly. Latency is typically measured end to end, from when source text becomes available to when translated text is displayed, and even small delays are noticeable when subtitles must stay synchronized with audio and video. Quality is commonly assessed with automatic metrics such as BLEU or COMET, though these do not fully capture how usable a translation feels in a live setting.\n\nThe paper sits alongside a broader industry push toward running AI locally. Model compression techniques including quantization, pruning, and knowledge distillation have made it feasible to shrink translation and language models for constrained hardware, and specialized inference runtimes and neural accelerators, now common in consumer chips, provide the throughput such models need. Major platform vendors have shipped on-device translation and live captioning features in recent years, and the appeal is consistent: text never leaves the device, translation works without a network connection, and there are no per-request server costs. The research described here is likely aimed at pushing that same capability toward higher quality and lower delay under realistic, variable workloads.\n\nBecause the available information is a summary rather than the full text, several important details remain unspecified, including which language pairs and model architectures were evaluated, what hardware was targeted, how large the measured gains were, and how the system compares against fixed-configuration baselines. The framing suggests the contribution is primarily a scheduling and adaptation strategy layered on top of existing translation models rather than a new model architecture, but that interpretation should be treated cautiously until the methodology and experiments can be reviewed in detail.\n\nIf the approach generalizes, the ideas could extend beyond subtitles to other streaming, latency-sensitive on-device tasks such as live speech translation, real-time captioning, or interactive assistants, where similar tension between responsiveness, quality, and limited compute exists. As with many arXiv preprints, the work has not necessarily undergone formal peer review at this stage, so its claims are best understood as a proposed direction. Still, it reflects a practical and increasingly relevant question for the field: how to deliver dependable translation quality on everyday devices when the computational budget is neither generous nor constant.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T17:28:00.996Z"
+      "generatedAt": "2026-08-30T17:28:00.996Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "量子化したあとは、Transformerの部分より語彙射影の方が重くなるかもって書いてあったよね。これって大きいこと？",
+          "en": "So after GGUF quantization, vocabulary projection might cost more than the Transformer blocks? Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、量子化でTransformerブロックの相対的なコストが下がり、デコード時は語彙射影が目立つようになると、予備的な計測で示唆されているよ。",
+          "en": "The paper's preliminary profiling suggests so: quantization shrinks the relative cost of the Transformer blocks, so vocabulary projection stands out at decode time. It's still early."
+        },
+        {
+          "s": "a",
+          "ja": "語彙射影って、そもそも何をしているの？",
+          "en": "Wait, what is vocabulary projection actually doing?"
+        },
+        {
+          "s": "b",
+          "ja": "モデルの内部結果を、次に出す言葉の候補ごとのスコアに変える工程、くらいの意味だよ。Transformer側が軽くなった分、相対的に目立つという話だね。",
+          "en": "Roughly, it turns the model's internal result into a score for each candidate next word. Once the Transformer side gets lighter, this step looks relatively bigger."
+        },
+        {
+          "s": "a",
+          "ja": "英語の動画に台湾向けの繁体字中国語字幕を、自分の端末だけでつけられたら、プライバシー面でも安心かも。",
+          "en": "I could watch English videos with Traditional Chinese subtitles, all on my own device. That'd feel private too, right?"
+        },
+        {
+          "s": "b",
+          "ja": "想定は短い入力と出力、バッチサイズ1、低遅延、プライバシー制約だね。ただ計測は予備的なので、完成した体験まではまだ言い切れないよ。",
+          "en": "That fits the setup: short inputs and outputs, batch size one, low latency, and privacy. But the profiling is preliminary, so it's too early to promise a finished experience."
+        }
+      ]
     },
     "675af9f3d110990b": {
       "bodyJa": "コーディングエージェントが自律的にコードをブランチへpushし、ドラフトのプルリクエスト（PR）まで作成する運用が現実味を帯びてきた。Claude Code v2.1.198やCursor 3.8、GitHub Desktop 3.6といったツール群が人間の逐次承認を挟まずに一連の作業を完結できるようになり、ブランチ保護ルールやCI/CDのトリガー設計を見直す必要性が高まっている。\n\n従来、コード変更はエンジニアがローカルで編集し、コミットやpush、PR作成を手動で行うのが一般的だった。ここに生成AIベースのエージェントが加わることで、指示を受けたエージェントがファイル編集からコミット、リモートへの反映、さらにはドラフトPRの起票までを一気通貫で実行する構成が取れるようになった。ドラフトPRはレビュー前の下書き段階を示す仕組みで、マージ前の確認余地を残しつつ変更内容を可視化できる点が、エージェント運用と相性がよいと見られる。\n\n一方で、自動化が進むほど無視できないのがCI/CDトリガーの挙動だ。多くのパイプラインはpushやPR作成をきっかけにビルドやテスト、デプロイを起動する。エージェントが頻繁にpushすれば、意図しないワークフロー実行やコスト増、あるいは検証が不十分な変更が下流へ流れるリスクが生じる可能性がある。GitHubのブランチ保護ルールや必須レビュー、ステータスチェックの設定を、人間とエージェントの双方を前提に組み直すことが論点となる。\n\n対策の方向性としては、エージェント専用のブランチ命名規則を設けてトリガー条件を絞る、ドラフトPRの段階ではデプロイ系ワークフローを走らせない、必須レビュー担当者に人間を明示的に指定するといった運用が考えられる。GitHub ActionsやGitLab CIでは、対象ブランチやイベント種別、pull_request対象の状態でジョブ実行を制御できるため、こうした条件分岐の再点検が有効だろう。\n\n背景には、AnthropicのClaude CodeやCursorをはじめとするエージェント型開発ツールの競争激化がある。各社が自律実行の範囲を広げる中で、生産性向上と安全性のバランスをどう取るかが実務上の課題になりつつある。エージェントに権限を委ねる前に、リポジトリ側のガードレールを整えておくことが、今後のチーム開発では前提知識として求められそうだ。",
@@ -12250,7 +12282,39 @@
       "bodyJa": "## AWSでの運用\n\nAWSでGemma 4をセルフホスティングし、推論時のクラッシュを避けるための実践的な知見を扱う。EC2インスタンスの選定とメモリ管理を通じ、コスト効率と安定稼働の両立を目指す内容だ。\n\n## メモリ管理\n\n特に、メモリ不足によるOOMクラッシュを回避できるインスタンス選びと、安定した推論に向けたメモリの扱いが焦点となる。Gemma 4はApache 2.0ライセンスで、マルチモーダル対応とMoEアーキテクチャを採用すると説明されている。",
       "bodyEn": "## Self-hosting Gemma 4\n\nThis practical guide covers self-hosting Gemma 4 on AWS, focusing on why EC2 instance selection and memory management matter for stable inference. It addresses avoiding out-of-memory crashes while seeking a balance between cost efficiency and reliable operation.\n\n## Instance selection and memory\n\nThe source describes Google’s recently announced Gemma 4 as an open-weight model under the Apache 2.0 license, making commercial use easier. It also notes multimodal support and a Mixture-of-Experts architecture. The guide presents practical knowledge and specific procedures for choosing an appropriate EC2 instance and managing memory to reduce crashes during self-hosted inference.",
       "model": "chat-backfill:gpt-5.6-sol",
-      "generatedAt": "2026-08-30T20:47:26.866Z"
+      "generatedAt": "2026-08-30T20:47:26.866Z",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Gemma 4がApache 2.0になったって、大きな変化なの？",
+          "en": "Gemma 4 is now Apache 2.0. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、従来のGemmaライセンスから変わって、ビジネスや社内ツールに組み込みやすくなったと書かれているよ。商用利用もしやすい、という位置づけだね。",
+          "en": "The article says it replaces the earlier Gemma license, making it easier to build into business and internal tools. Commercial use gets easier too."
+        },
+        {
+          "s": "a",
+          "ja": "MoEって何？ 26B A4Bが「賢さと速度を両立」って書いてあったけど。",
+          "en": "What's MoE? The 26B A4B is described as balancing smarts and speed."
+        },
+        {
+          "s": "b",
+          "ja": "MoEは一般的に、得意分野の違う部品をモデル内に複数持って、入力ごとに一部だけ使う仕組みのこと。速さとの両立を狙える、くらいに受け取ればいいかな。",
+          "en": "Generally, MoE means the model holds several specialist parts and uses only some per input. So think of it as aiming for speed and smarts together."
+        },
+        {
+          "s": "a",
+          "ja": "社内ツール用に、まず小さいインスタンスで試したいな。それでいいのかな？",
+          "en": "For an internal tool, I'd start on a small instance. Would that work?"
+        },
+        {
+          "s": "b",
+          "ja": "記事では、小さいインスタンスだとすぐクラッシュし、大きいとコストが高すぎるという壁が出てくるとあるよ。メモリ容量が落とし穴になるみたい。",
+          "en": "The article describes small instances crashing quickly and big ones costing too much. Memory capacity seems to be the pitfall, so pick carefully."
+        }
+      ]
     },
     "4a3ab08a9322ef13": {
       "bodyJa": "## 毎朝7時\n\nClaude Code RoutinesとMCPを組み合わせ、毎朝7時にWeb検索からNotionへの記録までを自動化したワークフローの事例だ。起床後にNotionを開けば、その日のページがすでに作成されており、人が行う作業はゼロと説明されている。\n\n## 4カテゴリ\n\nブリーフィングは4カテゴリで構成される。テック・AIニュースでは、直近24時間の新モデルのリリース、半導体、クラウド/SaaS、主要テック企業の動向から3〜5件を扱う。開発者トレンドは、GitHub Trending、主要フレームワークのリリース情報、Hacker Newsで話題のトピックが対象となる。\n\nまた、米国市場サマリーには主要3指数の終値が含まれる。AIニュースと株式市況を自動収集してNotionのデータベースへ書き込むことで、毎日の定型的な情報収集を完全自動化している。",
@@ -13085,6 +13149,240 @@
       "bodyEn": "OpenHands cloud, the managed version of the open-source AI software development agent platform, has released version 1.43.0, delivering what appears to be a round of incremental improvements and stability updates rather than a major feature overhaul. For teams that rely on autonomous or semi-autonomous coding agents in day-to-day development, point releases like this matter because they typically address the reliability and predictability issues that determine whether such tools are usable in real workflows rather than just demos.\n\nOpenHands is a platform that lets AI agents perform software engineering tasks in a sandboxed environment. Rather than only suggesting code inline, the agents are designed to operate more like a developer: reading and editing files, executing shell commands, running tests, and in some configurations browsing the web to gather information. The cloud edition packages this capability as a hosted service, removing the need for users to provision and maintain their own execution infrastructure. That hosting model places particular weight on stability and runtime consistency, since users are depending on the provider's environment rather than tuning their own.\n\nThe project has a notable lineage. OpenHands was previously known as OpenDevin, a name it carried when it launched as a community response to Devin, the AI software engineer demonstrated by Cognition Labs. The project was later renamed and is now developed under the All Hands AI umbrella, while remaining open source. That heritage is relevant context because OpenHands has positioned itself as a transparent, inspectable alternative in a category where several competing products are closed and commercially gated. The availability of a cloud offering alongside the open-source codebase reflects a common pattern in developer tooling, where an open core is paired with a managed service that funds ongoing development.\n\nBecause the release notes for 1.43.0 emphasize incremental refinement, the changes are likely to fall into categories such as bug fixes, performance tuning, agent behavior adjustments, and interface or integration polish. In agent platforms, stability work of this kind often targets recurring failure modes: agents getting stuck in loops, mishandling long-running commands, exhausting context windows, or producing inconsistent results across similar tasks. Improvements to the underlying sandbox, session handling, or model orchestration can meaningfully change how dependable the system feels, even when no headline feature is added. Readers who need the precise list of modifications should consult the official changelog, as the specifics of any individual point release are best confirmed against the source rather than inferred.\n\nThe broader context is a rapidly moving market for AI coding assistance that spans several tiers of autonomy. On one end sit inline completion and chat tools such as GitHub Copilot and Cursor, which augment a developer who remains firmly in control. Further along are more agentic systems, including command-line tools like Aider and research-oriented frameworks such as SWE-agent, which grew out of academic work on the SWE-bench benchmark for evaluating how well models resolve real GitHub issues. OpenHands sits toward the agentic end of this spectrum, and its performance is frequently discussed in relation to such benchmarks. The distinction that matters to most users is how much a tool can be trusted to complete a multi-step task without supervision, and how gracefully it fails when it cannot.\n\nSeveral prerequisite concepts help explain why releases in this space are watched closely. Agentic coding tools depend on a loop of planning, acting, and observing results, which makes them sensitive to the quality of their sandbox, their access to tools, and the capabilities of the underlying large language model. Many platforms, OpenHands included, are model-agnostic to varying degrees, allowing different backends to be plugged in, which means updates can also involve compatibility work as new models are released. Sandbox isolation is another core concern, both for safety, since agents execute code, and for reproducibility.\n\nFor existing OpenHands cloud users, upgrading to 1.43.0 should generally require no action given the managed nature of the service, though anyone integrating the platform through APIs or automation may want to verify behavior after the update. As with any fast-iterating tool, the practical takeaway is that steady, unglamorous releases of this type are often what move an agent platform from experimental to dependable, and they are worth tracking even when they lack a marquee feature.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-08-30T17:49:16.366Z"
+    },
+    "9c3380ee4f1290dc": {
+      "bodyJa": "## 1週間で12億コミット\n\nGitHub Copilotのブログは、コード生成の先にあるエージェント型エンジニアリングを取り上げ、実装が速くなった後の開発者の仕事をどう進めるかを論じている。\n\n同ブログによると、この10月にGitHubでは1週間で12億件を超えるコミットが記録された。1年前と比べて400%超の増加で、2025年の1年間に受け取ったコミット数より多いという。\n\n## 生産性は400%上がったか\n\nコードを生成する量は、1年前より増えている可能性が高い。ただし著者は、自分が400%生産的になったと感じるかどうかを読者に問いかける。ソフトウェア開発は優れたプロンプトだけで成り立つものではない、という立場である。\n\n## レビュー時間441%増\n\nAIが実装を加速させる一方で、負荷は別の場所にかかっている。Faros AIの調査では、AIの導入度合いが低い状態から高い状態に移ったチームで、プルリクエストがレビューに費やす時間が441%長くなったと紹介されている。\n\n## 4つの工程\n\n開発者の仕事は、要件を集めて実装の舵を取ること、変更をレビューしてテスト結果を評価すること、そして本番環境で起きていることを調べることに及ぶ。エージェントは、こうした一連の作業をPlan、Build、Verify、Observeの4つの段階で効率化する助けになるとされている。",
+      "bodyEn": "## Beyond Code Generation\n\nGitHub Copilot's guide to agentic engineering starts from a question about productivity. It matters because faster code generation does not by itself make software development proportionally faster. According to the source, GitHub saw more than 1.2 billion commits in a single week this October, over 400% more than a year earlier. The source adds that this is more commits than GitHub received in all of 2025.\n\n## Pressure Moves Downstream\n\nThe source asks whether developers feel 400% more productive than last year. Its answer is that building software takes more than a good prompt. As AI speeds up implementation, the source says, developers feel more pressure in other places. It cites a Faros AI study finding that pull requests spent 441% longer in review when teams went from low to high AI adoption.\n\nThis is the central tension the guide addresses. More code is being produced, but review time grew sharply as teams adopted AI more heavily. The work that surrounds implementation has not shrunk to match.\n\n## Plan, Build, Verify, Observe\n\nThe source describes a developer's job as broader than writing code. Developers gather requirements and steer implementation, review changes and evaluate test results, and then investigate what happens in production. The guide's argument is that agents can help across all of these stages, which it names Plan, Build, Verify, and Observe.\n\nMapped onto that description, the stages line up roughly as follows. Plan and Build cover gathering requirements and steering implementation. Verify covers reviewing changes and evaluating test results. Observe covers investigating what happens in production. The framing treats code generation as one part of a larger cycle rather than the whole of the work.\n\n## What This Means for Developers\n\nThe guide is positioned as an introduction to agentic engineering for developers, aimed at managing work beyond code generation. Its premise is that the areas feeling the strain, such as review, are where agents can also be applied, not only at the point where code is written. The material provided here covers this framing and the figures behind it. It does not detail specific workflows, features, or instructions for each stage.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIでコードをたくさん書けるようになったら、普段の仕事って何が変わるの？",
+          "en": "If AI helps us write so much more code, what actually changes in everyday work?"
+        },
+        {
+          "s": "b",
+          "ja": "書く速さが上がる分、レビューなど他の工程に負担が寄るみたい。この記事はPlan・Build・Verify・Observeの4段階で考えているよ。",
+          "en": "Writing gets faster, but the pressure seems to shift to other stages like review. This article frames it as four stages: Plan, Build, Verify, and Observe."
+        },
+        {
+          "s": "a",
+          "ja": "前は、コード生成だけで困らなかったのかな？比べて何が違うの？",
+          "en": "Was code generation alone fine before? What's different now?"
+        },
+        {
+          "s": "b",
+          "ja": "以前どうだったかまでは書かれていないんだ。ただ、AI導入が低から高になるとレビュー時間が441%長くなった調査が紹介されているよ。",
+          "en": "The article doesn't say how things were before. It does cite a study where review time rose 441% when teams moved from low to high AI adoption."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ収穫は、コードが増えても、同じだけ楽になるとは限らないってことだね。",
+          "en": "So my takeaway: more code doesn't automatically mean the same jump in productivity, right?"
+        },
+        {
+          "s": "b",
+          "ja": "記事もそこを問いかけているね。次は、検証や本番の観察でエージェントがどう助けになるか、に注目したいな。",
+          "en": "The article raises that very question. Next, I'd watch how agents can help with verification and with observing what happens in production."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T01:41:04.647Z"
+    },
+    "a8516a8e18e8648b": {
+      "bodyJa": "Ollama v0.40.17-rc1 で、mlxrunner が投機的デコードの検証をバッチ処理に対応した(#19663)。並行生成の場面でもドラフト生成を止めず、ターゲットモデルでの検証を共有できる点が変更の中心だ。\n\n## 検証のバッチ処理\n\n並行して生成を行うとき、ドラフトを有効に保ったまま、ターゲット側の検証を複数のリクエストで共有する。共有されるのは検証の部分であり、リクエストごとのサンプリングと、キャッシュの巻き戻し(rollback)は個別に維持されると説明されている。MLX で並列のワークロードを扱う利用者にとって、推論効率の面で意味のある変更とされる。\n\n## ドラフト深度の学習\n\nドラフト深度は、単独で実行されるリクエストから得た値とは切り離し、並行ワークロードごとに別々に学習する。あわせて、短いリクエストでは実行されないプローブも保持される。単独実行の結果を並行時にそのまま流用しない設計になっている。\n\n## 特徴量の確保とテスト\n\n実装面では、所有しているターゲットの特徴量を、リーダーが一時停止し得る前にマテリアライズ(実体化)する処理が加わった。テストでは、受理(acceptance)、キャンセル、ハンドオフ、混在したデコード、保持メモリの境界といった場面が対象になっている。コミットにはレビューコメントへの対応も含まれている。",
+      "bodyEn": "## Batch speculative verification\n\nOllama v0.40.17-rc1 changes how mlxrunner handles speculative decoding when several requests run at once. According to the release note (#19663), mlxrunner now batches speculative verification, so drafting can stay active during concurrent generation instead of being dropped when multiple requests overlap.\n\n## Sharing target verification\n\nThe core change is that concurrent requests share target verification. The note says this is done while preserving per-request sampling and cache rollback. Each request therefore keeps its own sampling behavior and its own ability to roll back the cache, even though the verification step is shared across requests.\n\nThe release summary frames this as relevant to MLX users who serve parallel workloads.\n\n## Learning draft depth\n\nThe note also describes how draft depth is chosen. Draft depth is learned for each concurrent workload separately from isolated requests. The change also preserves probes that short requests never execute, so that information is not lost for requests that finish before reaching those probes.\n\n## Safety and test coverage\n\nThe release note mentions a handling detail: owned target features are materialized before a reader can pause. It also lists the scenarios the change covers:\n\nAcceptance, cancellation, and handoffs.\n\nMixed decoding.\n\nRetained-memory boundaries.\n\nThe final line of the note, \"address comments,\" indicates that the change was revised after review feedback. This is a release candidate (rc1), and the source gives no further details on measured performance, supported hardware, or configuration options.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "並行して生成していても、ドラフト生成を止めないんだね。これって大きい変化なの？",
+          "en": "Drafting keeps going even during concurrent generation? Is that a big change?"
+        },
+        {
+          "s": "b",
+          "ja": "複数のリクエストで、ターゲットモデルの検証を共有できるようになったんだ。MLXで同時利用する人には、効率向上が期待できるよ。",
+          "en": "Yes, several requests can now share target-model verification. For people running things at the same time on MLX, that could mean better efficiency."
+        },
+        {
+          "s": "a",
+          "ja": "ドラフトとか検証って、そもそも何をしてるの？",
+          "en": "What are drafting and verification actually doing?"
+        },
+        {
+          "s": "b",
+          "ja": "下書き役が先に候補を出して、ターゲットモデルが確かめる、くらいの意味だよ。その確認をまとめて行うのが今回の話なんだ。",
+          "en": "Roughly, a draft step proposes candidates first, and the target model checks them. This update lets that checking be done together."
+        },
+        {
+          "s": "a",
+          "ja": "ローカルで複数のチャットを同時に動かすとき、役に立つかな？ 返事が混ざったりしない？",
+          "en": "Could this help if I run several chats locally at once? Would the replies get mixed up?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、サンプリングやキャッシュ巻き戻しはリクエストごとに保たれるとあるよ。ただ rc1 だから、まずMLX環境で試す段階かもね。",
+          "en": "The post says sampling and cache rollback stay per request. It's still rc1, though, so it may be best to try it first in an MLX setup."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:37:40.961Z"
+    },
+    "d9302d8306c35a57": {
+      "bodyJa": "GitHub Copilotのブログは、エージェントスキルを「繰り返し作業の手順を再利用可能にする仕組み」として紹介している。同じ説明をエージェントに何度もする手間や、特定の人の頭の中にだけあるノウハウを残す手段として位置づけられている。\n\n## 同じ説明の繰り返し\n\nブログはまず、今週同じタスクをエージェントに何度説明し直したか、組織の事情に詳しい同僚に特定の問題の解き方を何度尋ねたか、と問いかける。こうした文脈はチャットの中に埋もれたり、一人の頭の中に閉じ込められたりするべきではない、というのが出発点だ。\n\nエージェントスキルは、繰り返し行う作業の指示を記録しておき、自分もエージェントも再利用できるようにするものと説明されている。\n\n## SKILL.mdを軸にした構造\n\nエージェントスキルの実体は、SKILL.mdというファイルを中心に置いた、バージョン管理されるディレクトリである。SKILL.mdには、繰り返し行う作業を「いつ」「どのように」行うのかが記述される。\n\n指示そのものはファイルとして書き残されるため、複数のエージェント間で共有できる。ディレクトリ単位でバージョンを管理できる点も、手順を資産として扱ううえでの特徴だ。\n\n## 権限は付与されない\n\n共有できるのは指示だけで、実行に必要なものは別に用意しなければならない。ブログによれば、ツール、認証情報、権限は実行環境が提供する必要がある。\n\n例として挙げられているのがデータベースだ。スキルにはデータベースへのクエリの方法を記述できるが、そのデータベースへのアクセス権を与えるわけではない。スキルは手順書であり、手順を実行する力は環境側にある、という切り分けである。\n\n## 個人からチームへ\n\nブログは、今夜自分のために書いたスキルが、後にチームのパイプラインの一部になりうると述べている。個人の工夫として始めた手順を、同じ形式のまま共有の資産へ広げられるという見方だ。\n\n個人の経験則をチームで使える形にしたい開発者にとって、スキルは手順を残して共有するための出発点になる。ただし、共有先のエージェントが実際に動くかどうかは、そこで使えるツールや認証、権限が整っているかにも左右される。",
+      "bodyEn": "Agent skills are the subject of a GitHub Copilot blog guide, which argues that developers should not keep re-explaining the same task to an agent. The guide's framing is that this context should not be lost in a chat or locked in one person's head.\n\n## Repeatable instructions, captured\n\nThe guide begins with two questions. How many times this week did you re-explain the same task to an agent? How many times did you ask a colleague with deep institutional knowledge how to solve a specific problem? According to the source, agent skills let you capture repeatable instructions so that you and your agents can reuse them.\n\nThe source also describes a path from personal use to shared use. A skill you write for yourself tonight can later become part of a team's pipeline.\n\n## A directory built around SKILL.md\n\nThe guide defines an agent skill as a versioned directory centered on a SKILL.md file. That file describes when and how to do a repeatable task. Because the skill is a versioned directory, the instructions have a defined, trackable form rather than living only in conversation history.\n\nThe guide says these instructions can be shared across agents. This matches the promise in its title: build a skill once, and it works with any agent.\n\n## Tools, credentials, and permissions\n\nThe guide also states a limit. Sharing instructions across agents does not mean the agents can carry them out on their own. The environment still has to provide the tools, credentials, and permissions needed to do the work.\n\nThe source gives a concrete example. A skill can describe how to query a database, but it does not grant access to that database. The skill covers the when and how of a task, and access remains a matter for the environment in which the agent runs.\n\n## Turning know-how into team assets\n\nThe guide is aimed at developers who want to turn personal know-how into something a team can reuse. The skill is the vehicle for that: written down once, kept in a versioned directory, and usable by more than one agent, provided the runtime supplies the access the task requires.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "同じ作業を何度もエージェントに説明し直すって、この記事の最初の問いかけにドキッとしたよ。スキルがあると、それが減るの？",
+          "en": "That opening question about re-explaining the same task to an agent hit home. Do skills actually cut that down?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、繰り返す作業の手順を残して、自分もエージェントも再利用できるようにするのがスキルの狙いだよ。チャットや個人の頭の中に埋もれさせないんだ。",
+          "en": "That's the idea in this piece: capture the steps of a repeatable task so you and your agents can reuse them, instead of losing them in a chat or one person's head."
+        },
+        {
+          "s": "a",
+          "ja": "SKILL.mdを軸にしたバージョン管理できるディレクトリって、どういうこと？",
+          "en": "What does \"a versioned directory centered on SKILL.md\" mean?"
+        },
+        {
+          "s": "b",
+          "ja": "SKILL.mdに「いつ、どうやるか」を書いて、そのフォルダごと履歴を管理する感じかな。バージョン管理は、変更の記録を残せる仕組みくらいの意味だよ。",
+          "en": "Roughly, SKILL.md says when and how to do a task, and the whole folder is tracked over time. Versioning just means changes get recorded."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあデータベースの調べ方をスキルに書けば、エージェントがそのまま調べてくれる？",
+          "en": "So if I write down how to query our database in a skill, will the agent just go and do it?"
+        },
+        {
+          "s": "b",
+          "ja": "そこは注意で、記事だとスキルは手順を説明するだけで、アクセス権までは与えないよ。ツールや認証、権限は実行環境側で用意する必要があるんだ。",
+          "en": "Careful there. This article says a skill describes the steps but doesn't grant access. The environment still has to supply the tools, credentials, and permissions."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:38:07.424Z"
+    },
+    "78f83a6bd571ce8a": {
+      "bodyJa": "OpenHands v1.40.0 が2026年11月12日付で公開されました。Codex サブスクリプション認証の案内が改善され、チャット機能や Git のブランチ判定に関する修正も含まれています。\n\n## Codex認証の案内改善\n\n新機能として挙げられているのは、Codex サブスクリプションの認証ガイダンスの改善です。PR #17194 として @xunjizhe 氏が提出しました。\n\n## チャット周りの修正\n\nチャットに関する修正は3件あります。\n\n1件目は、履歴のページ境界で同順位(tied)になる位置にあるメッセージが、境界をまたいでも保持されるようにする修正です(#19649、@enyst 氏)。\n\n2件目は、遅れて届いたエコーが、より新しい下書きを消してしまう問題の防止です(#19382、@marcello-pichini 氏)。\n\n3件目は、セルフホスト環境のインスタンスで Agent Profiles がオフになった際に、ホームで選んだモデルを有効にする修正です(#19682、@hieptl 氏)。\n\n## Gitの既定ブランチ判定\n\nGit 関連では、リポジトリの既定ブランチを \"main\" だと決め打ちせず、実際の既定ブランチを使うようになりました(#19604、@hieptl 氏)。既定ブランチ名が \"main\" 以外のリポジトリでも、実際の設定に沿って扱われるようになる修正です。\n\n## 多言語と依存更新\n\n多言語対応では、Codex サブスクリプション関連のキーについて、不足していたインドネシア語訳が追加されました(#19685、@hieptl 氏)。\n\nメンテナンスとしては、dependabot による依存関係の更新が2件あります。i18next グループの2件の更新をまとめて反映した #19634 と、unist-util-visit を 5.1.0 から 5.2.0 に上げる更新です。\n\n今回のリリースは、セルフホスト環境の利用者やインドネシア語環境の利用者にとって特に関係が深い内容とされています。",
+      "bodyEn": "OpenHands v1.40.0, dated 2026-11-12, is a release that adds clearer Codex subscription sign-in guidance and fixes several chat and Git behaviors. The changes affect how users authenticate with Codex, how chat history and drafts behave, and how repositories are handled.\n\n## Features: Codex Authentication Guidance\n\nThe one feature listed is \"improve Codex subscription authentication guidance,\" contributed by @xunjizhe in pull request #17194. The release notes describe it only as an improvement to the guidance around authenticating a Codex subscription. They give no further detail on what the guidance now says or where it appears.\n\n## Bug Fixes in Chat and Git\n\nMost of the release is bug fixes. Three of them concern chat:\n\nThe first keeps messages at tied history page boundaries (#19649, by @enyst).\n\nThe second prevents delayed echoes from deleting newer drafts (#19382, by @marcello-pichini).\n\nThe third activates the home model pick when a self-hosted instance turns Agent Profiles off (#19682, by @hieptl).\n\nOne fix concerns Git. OpenHands now uses a repository's real default branch instead of assuming \"main\" (#19604, also by @hieptl). Repositories whose default branch has a different name are the case this change addresses.\n\nA final fix is a localization correction. It adds the missing Indonesian translations for the Codex subscription keys (#19685, by @hieptl). This links to the new authentication guidance, since those keys relate to Codex subscriptions.\n\n## Maintenance Updates\n\nThe maintenance section lists two dependency bumps, both submitted by dependabot. One updates the i18next group across one directory with two updates (#19634). The other raises unist-util-visit from 5.1.0 to 5.2.0.\n\n## Who Is Affected\n\nAccording to the release summary, the changes matter most to people running self-hosted instances and to Indonesian-language users. Self-hosted operators are the ones who can turn Agent Profiles off. Indonesian-language users are the ones served by the added translations. Users of Codex subscriptions are covered by both the guidance improvement and the translation fix.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Gitの修正が気になった。「main」だと思い込まず、本当の既定ブランチを使うってどういうこと？",
+          "en": "The Git fix caught my eye. What does it mean to use the real default branch instead of assuming \"main\"?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、これまでは既定ブランチを「main」と決めつけていたようです。今回はリポジトリごとの本当の既定ブランチを使うよう直されました。",
+          "en": "This release note suggests it used to assume the default branch was \"main\". Now it uses each repository's actual default branch instead."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、mainじゃない名前のリポジトリを使う人が助かるのかな？あと、Codexの案内も変わったよね？",
+          "en": "So people whose repos use another branch name get helped? And the Codex guidance changed too, right?"
+        },
+        {
+          "s": "b",
+          "ja": "その可能性はありますね。Codexサブスクリプションの認証案内も改善され、セルフホスト利用者やインドネシア語の利用者に役立つ内容と紹介されています。",
+          "en": "That seems plausible. The Codex subscription sign-in guidance was improved too, and the article says self-hosted and Indonesian-language users benefit most."
+        },
+        {
+          "s": "a",
+          "ja": "チャットの不具合もいくつか直ったんだね。履歴の境界とか、下書きが消えちゃうのとか。",
+          "en": "Some chat bugs got fixed too, like history page boundaries and drafts getting deleted."
+        },
+        {
+          "s": "b",
+          "ja": "はい。履歴の境目でメッセージを保つ修正や、遅れて届いた反応が新しい下書きを消さない修正が入っています。ただ、実際の影響の広さまでは記事から分かりません。",
+          "en": "Yes. Messages are kept at history page boundaries, and delayed echoes no longer delete newer drafts. How widely this affects people isn't clear from the article, though."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:38:09.553Z"
+    },
+    "13485a77e5131fe3": {
+      "bodyJa": "Ollamaがプレリリース版のv0.40.17-rc0をGitHubで公開した。ローカルLLMの実行環境を使う人にとって、新しいバージョン番号のビルドが登場したことを知らせるリリースである。\n\n## v0.40.17-rc0 の公開\n\n公開されたのはOllamaのv0.40.17-rc0で、公開日時は2026年11月10日21時42分(UTC)と記録されている。バージョン名の末尾にrc0が付いていることから、正式版ではなくリリース候補として出されたビルドと読み取れる。\n\nローカルLLMの運用で特定のバージョンを使い続けている場合は、このバージョン番号とプレリリースという区分を、まず把握しておく必要がある。\n\n## 署名付きコミット\n\nリリースのページには、対象のコミットがGitHub.comで作成され、GitHubの検証済み署名(verified signature)で署名されていることが表示されている。これは作成元と署名の状態を示す情報である。\n\n一方で、この表示は機能追加や修正、挙動の変更といった中身を説明するものではない。したがって、署名の表示だけでrc0にどのような違いがあるのかを判断することはできない。\n\n## リリースノート確認\n\n具体的な変更点は、リリースノートで確認する必要がある。リリース候補であることを踏まえ、試す前にノートの記載を読み、自分の使い方に関わる変更があるかを見極めるのが望ましい。\n\n導入前には、入れようとしているのがv0.40.17-rc0というプレリリース版である点も、あらためて確認しておきたい。",
+      "bodyEn": "Ollama v0.40.17-rc0 released\n\nOllama has published v0.40.17-rc0 on GitHub. The \"rc0\" suffix marks it as a release candidate rather than a final release, so it is the first candidate build in the v0.40.17 line. It is relevant to anyone following Ollama's local LLM tooling.\n\n## Release candidate on GitHub\n\nThe release was published on 2026-11-10 at 21:42 UTC through Ollama's GitHub releases feed. The version string is the main concrete detail available: v0.40.17-rc0. Because it is labeled a release candidate, it is a pre-release build and not the final v0.40.17 version.\n\n## Verified signature\n\nThe release page states that the commit was created on GitHub.com and signed with GitHub's verified signature. In practical terms, this means GitHub marks the commit behind the release as verified.\n\n## Before testing\n\nSpecific changes, fixes, or features in this build are not described here. Anyone who wants to try v0.40.17-rc0 should read the official release notes on Ollama's GitHub releases page first, so they know what the build contains before installing it.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:39:38.350Z"
+    },
+    "a311ac6ab310d5d5": {
+      "bodyJa": "## 第3回はアテンション機構\n\nHugging Faceのブログで公開された「Profiling in PyTorch」シリーズの第3回は、アテンション機構をプロファイリングの題材に取り上げている。大規模言語モデルの中核にあたる部分の計算ボトルネックを診断し、最適化につなげる実践的な手法を扱う回と紹介されている。\n\nこのシリーズは、プロファイラのトレースやテーブルを読む力を少しずつ身につけ、その読み取りを最適化の判断に活かせるようになることを目的としている。\n\n## 第1回：基本演算\n\n第1回はtorch.profilerの初心者向けガイドで、加算や乗算といった基本的な演算をプロファイルした。プロファイラのテーブルからはホットスポットが明らかになり、トレースからはアルゴリズムが時間軸上でどの順序で実行されるかが分かる、と説明されている。\n\n## 第2回：Fused MLPへ\n\n第2回の副題は「nn.LinearからFused MLPへ」である。第1回で扱った加算と乗算をtorchの線形層にまとめ、さらに複数の線形層を積み重ねた多層パーセプトロンをプロファイルした。その過程で、融合カーネルや手作業で調整したカーネルもプロファイルの対象になった。\n\n## 積み上げてきた流れ\n\n単純な演算から線形層、多層パーセプトロンへと、このシリーズは対象を段階的に広げてきた。第3回はその流れの先でアテンション機構に取り組み、トレースの読み方を実際の性能改善につなげる内容になっている。",
+      "bodyEn": "Profiling in PyTorch (Part 3) takes on the attention mechanism, the core component of large language models. It is the third post in a series meant to build the skill of reading profiler traces and using them to drive optimization. According to the post, this installment focuses on diagnosing and optimizing attention bottlenecks, with techniques aimed at real-world performance gains.\n\n## Profiling in PyTorch Series\n\nThe series aims to make readers comfortable reading profiler traces and tables, building the skill gradually. Each post adds a layer of complexity on top of the previous one. Part 3 continues that progression, applying the same trace-reading approach to the attention mechanism, as the title indicates.\n\n## Reading Profiler Traces\n\nPart 1, \"A Beginner's Guide to torch.profiler,\" profiled basic math operations such as addition and multiplication. It showed two things. The profiler table uncovers hotspots, and the profiler trace shows the order in which an algorithm runs over time. These two views, table and trace, are the tools the series keeps returning to.\n\n## From nn.Linear to Fused MLP\n\nPart 2, \"From nn.Linear to a Fused MLP,\" wrapped that addition and multiplication into a torch linear layer. The post then stacked several linear layers on top of each other to form a multilayer perceptron and profiled the result. Along the way it also profiled fused and hand-tuned kernels. That gave readers a first look at how profiling can guide optimization choices, not just describe where time is spent.\n\nPart 3 builds on this foundation. Instead of simple operations or stacked linear layers, the subject is the attention mechanism that sits at the heart of LLMs. The post presents profiling as a practical way to locate computational bottlenecks there and then optimize them, which it describes as directly tied to real performance improvement.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "このシリーズって、普段のPyTorchの作業で何が変わるの？",
+          "en": "What does this series change in my everyday PyTorch work?"
+        },
+        {
+          "s": "b",
+          "ja": "プロファイラーのトレースや表を読めるようになって、それを最適化に使えるようになるのがねらいだよ。第3回はLLMのアテンションのボトルネックを扱うんだ。",
+          "en": "The goal is to get comfortable reading profiler traces and tables, then use them to guide optimization. Part 3 looks at bottlenecks in LLM attention."
+        },
+        {
+          "s": "a",
+          "ja": "前の回では、どこまでやってたの？",
+          "en": "So what did the earlier parts cover?"
+        },
+        {
+          "s": "b",
+          "ja": "第1回は足し算や掛け算などの基本演算で、表で重い箇所を見つけ、トレースで処理の順序を見たよ。第2回は線形層から多層パーセプトロンまで、融合カーネルなども調べたんだ。",
+          "en": "Part 1 profiled basic math like addition and multiplication, using the table for hotspots and the trace for order. Part 2 moved to linear layers, MLPs, and fused kernels."
+        },
+        {
+          "s": "a",
+          "ja": "小さい部品から少しずつ積み上げて、今回アテンションに来たんだね。",
+          "en": "So they built up from small pieces, and now they've reached attention."
+        },
+        {
+          "s": "b",
+          "ja": "そうだね。記事の趣旨はまさにそこで、「ゆっくり読み方を身につける」流れだよ。次はアテンションで、実際にどこが遅いのかを見たいところだね。",
+          "en": "Right, that's the idea: slowly building the skill of reading traces. Next, it's worth seeing where attention actually turns out to be slow."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:39:47.540Z"
+    },
+    "853a28bcc0e9841e": {
+      "bodyJa": "Googleは、生成AIで作成・加工された広告を見分けやすくするため、広告におけるAIの透明性を高める機能を追加した。目玉は「How this ad was made」パネルで、広告にAIが使われたかどうかを利用者が把握できるようにするものだ。\n\n## 確認できる場所\n\n新機能では、AIで作成または編集された広告についての開示情報を、My Ad Centerメニュー内の「How this ad was made」セクションで確認できる。対象として挙げられているのは、検索、YouTube、Discoverの3つだ。\n\n見かけた広告がAIによって作られたものかを知りたいときは、このメニューを開いて確かめる形になる。広告の制作背景を利用者が自分で調べられる入口が用意されたことになる。\n\n## 広告主に求める表示\n\n今回の拡充では、広告主側にも対応が求められる。広告主は、AIで生成したコンテンツについて、Googleが提供するツールを使ってラベルを付ける必要がある。\n\nこの仕組みは、利用者が目にする広告について十分な情報を得られるようにすることを狙ったものと説明されている。広告の制作にAIが関わったかどうかを、広告主の申告に沿って利用者へ示す枠組みといえる。\n\n## 自動ラベルの対象\n\nGoogleは、自社のAIツールで作られた広告には自動でラベルを付けるとしている。広告主が手作業で表示を付ける場合とは別に、Googleのツールで作られた広告についてはGoogle側でラベルが付与される。\n\n整理すると、今回の透明性機能は次の要素で成り立っている。\n\nまず、生成AIによる広告の作成や加工を示す開示情報がある。次に、それを確認するための「How this ad was made」パネルがあり、広告主にはAI生成コンテンツへのラベル付けが求められる。そしてGoogle自身のAIツールで作られた広告には、自動でラベルが付く。\n\nこれらにより、利用者は広告の背景にあるAIの関与を、メニューから確認できるようになる。",
+      "bodyEn": "## Expanding AI transparency in ads\n\nGoogle is adding features meant to help people tell when generative AI was used to create or alter an ad. The announcement, titled \"Expanding AI transparency in ads,\" says users will see more information about AI-generated advertising, which bears on how people understand the ads they encounter.\n\n## How this ad was made\n\nThe centerpiece is a \"How this ad was made\" panel. According to the announcement, people can now view these disclosures in the \"How this ad was made\" section of the My Ad Center menu. The section is available on Search, YouTube, and Discover. The stated purpose is to let users check whether AI created or edited a particular ad, and to identify ads made or modified with artificial intelligence more easily.\n\nThe source describes the approach as a set of additional features rather than a single change, with the panel named as one example. It frames the aim as helping people easily understand when generative AI was involved in producing or changing an ad.\n\n## Labeling requirements\n\nThe announcement also addresses the advertisers who make these ads. It says advertisers must now use provided tools to label AI-generated content. The stated reasoning is that this ensures users stay informed about the ads they see.\n\nGoogle also says it automatically labels ads made with its own AI tools. In that case, according to the source, the labeling is applied for the user without depending on an advertiser's action.\n\n## What users can do\n\nIn practical terms, the guidance is straightforward: to find out whether AI created an ad, check the \"How this ad was made\" menu. That menu sits within My Ad Center and is reached on the three surfaces named above, Search, YouTube, and Discover.\n\nThe announcement does not describe the appearance of the labels, the criteria for what counts as AI-altered content, or how the requirement for advertisers will be enforced, so those points remain outside what can be said here. What the source does establish is the combination of a user-facing disclosure panel, a labeling requirement for advertisers using the provided tools, and automatic labeling for ads made with Google's own AI tools.\n\nThe source also carries a note that its summaries were generated by Google AI and that generative AI is experimental.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "「How this ad was made」って、どこで見られるの？",
+          "en": "Where can I actually see this \"How this ad was made\" thing?"
+        },
+        {
+          "s": "b",
+          "ja": "My Ad Centerメニューの中にあって、Search、YouTube、Discoverで開示を確認できるそうです。AIで作られたか加工された広告かどうかを見る場所ですね。",
+          "en": "It's in the My Ad Center menu, and the post says you can check it on Search, YouTube, and Discover. It shows whether an ad was made or edited with AI."
+        },
+        {
+          "s": "a",
+          "ja": "広告を出す人も、何かしなきゃいけないの？",
+          "en": "Do the advertisers have to do something too?"
+        },
+        {
+          "s": "b",
+          "ja": "はい、広告主は用意されたツールでAI生成コンテンツにラベルを付ける必要があります。Googleの自社AIツールで作った広告には、自動でラベルが付くそうです。",
+          "en": "Yes, advertisers must use the provided tools to label AI-generated content. And ads made with Google's own AI tools get labeled automatically, the post says."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ見る側は、広告がAIで作られたかをメニューで確かめられるんだね。",
+          "en": "So as a viewer, I can check the menu to see if AI made an ad."
+        },
+        {
+          "s": "b",
+          "ja": "そうですね。ただ、この記事で分かるのは確認できる場所とラベルの仕組みまでです。どんな広告にどう表示されるかの細かい点は、書かれていません。",
+          "en": "Right. But the post only covers where to check and how labeling works. It doesn't go into details about exactly which ads show what."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:40:07.864Z"
     }
   }
 }

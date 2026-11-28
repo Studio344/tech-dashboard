@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-11-28T05:30:53.225Z",
-  "count": 381,
+  "generatedAt": "2026-11-28T06:30:54.829Z",
+  "count": 386,
   "bodies": {
     "7b752c9b3e3af2c6": {
       "bodyJa": "AIエージェントが高度化するにつれ、誤動作や悪用が発生した際の影響範囲（ブラスト半径）も拡大する。本記事はAnthropicのエンジニアリングブログに掲載され、その上限をどう設計するかという実践的な問いに答えている。\n\n対象製品はclaude.ai・Claude Code・Coworkの3つ。それぞれ異なるユースケースと権限モデルを持つ中で、共通の封じ込め原則をどう適用したかが論点と推察される。具体的な実装詳細は原文で確認することを推奨する。\n\nエージェントの安全設計に携わる開発者や、Claudeを自社プロダクトに組み込む実務者にとって参考になる内容と見られる。",
@@ -12556,44 +12556,6 @@
         }
       ]
     },
-    "571c8c47df881aa3": {
-      "bodyJa": "## ReviewBench\n\nReviewBenchは、AIコードレビューを行うエージェントの比較検証を支援する公開ベンチマークだ。代表的なGitHubプルリクエストを基に、開発者や研究者がレビューエージェントを公平に評価できる枠組みを提供する。\n\n## 複数情報源の正解\n\n評価セットには、複数の情報源から得た正解データとラベルが用いられる。レビュー結果を照合するための情報を複数の情報源に基づいて構成し、比較検証に利用できるようにしている。\n\n## 実運用に沿う指標\n\n評価手法とスコアリングは調整済みで、実運用に沿った指標を備える。代表的なプルリクエスト、複数情報源の正解、調整済みの評価、実運用を意識した指標を組み合わせ、レビューエージェントを共通の条件で評価できるよう設計されている。",
-      "bodyEn": "## ReviewBench\n\nReviewBench is an open benchmark for AI code review. It matters because it gives developers and researchers a shared evaluation set for comparing and validating code review agents.\n\nThe benchmark is built on representative GitHub pull requests. This provides a common basis for assessing agents against code review material drawn from GitHub pull requests.\n\n## Multi-source ground truth\n\nReviewBench uses ground truth and labels from multiple sources rather than relying on a single source. It also applies calibrated evaluation methods and scoring to support fair assessment of review agents.\n\n## Production-aligned metrics\n\nThe benchmark includes metrics aligned with production use. Representative pull requests, multi-source labels, calibrated scoring, and production-aligned metrics together form its evaluation approach.\n\nAs an open benchmark, ReviewBench is intended to help developers and researchers compare and verify the performance of AI code review agents using the same evaluation set and assessment framework.",
-      "chat": [
-        {
-          "s": "a",
-          "ja": "正解データが一つじゃなくて、複数の情報源から作られてるんだ。これって大きいこと？",
-          "en": "The ground truth comes from multiple sources, not just one. Is that a big deal?"
-        },
-        {
-          "s": "b",
-          "ja": "この記事では、公平にレビューエージェントを評価する土台の一つとして扱っているよ。比較検証を支える工夫なんだね。",
-          "en": "The post presents it as part of a fair way to assess review agents. It’s designed to support meaningful comparisons."
-        },
-        {
-          "s": "a",
-          "ja": "「調整済みの評価」って、点数をあとから都合よく変えること？",
-          "en": "Does “calibrated evaluation” mean changing the scores afterward to get the result you want?"
-        },
-        {
-          "s": "b",
-          "ja": "ここでは、評価の物差しを整えて、結果を比べやすくするという意味だよ。",
-          "en": "Here, it means tuning the evaluation yardstick so results can be compared more consistently."
-        },
-        {
-          "s": "a",
-          "ja": "ぼくなら、いくつかのレビューエージェントを並べて、どれが合いそうか比べてみたいな。",
-          "en": "I’d line up a few review agents and compare which one might suit me best."
-        },
-        {
-          "s": "b",
-          "ja": "その使い方に近いね。GitHubの代表的なプルリクエストを基にし、実運用に沿う指標で比べる公開ベンチマークだよ。",
-          "en": "That’s close to its intended use. It’s an open benchmark based on representative GitHub pull requests, using metrics aligned with production."
-        }
-      ],
-      "model": "gpt-5.6-sol",
-      "generatedAt": "2026-10-07T12:37:57.149Z"
-    },
     "f6b94ed3ab463313": {
       "bodyJa": "langchain-nomic 1.1.0 は、1.0.1 以降の変更をまとめたリリースです。パートナーパッケージから EOL となった Python 3.10 が外され、certifi などの依存関係が更新されました。統合テストの不具合修正も含まれます。\n\n## Python 3.10 の削除\n\n「Remove EOL'd Python 3.10 from partner packages」(#41268) という変更が入りました。対象は nomic 単体ではなく、パートナーパッケージ全体です。langchain-nomic 1.1.0 はこの変更を取り込んだ版にあたります。\n\n## certifi などの更新\n\nnomic のディレクトリ (/libs/partners/nomic) では、次の依存関係が更新されています。\n\ncertifi は 2025.8.3 から 2026.10.19 へ、urllib3 は 2.7.0 から 2.8.0 へ上がりました。pyjwt も 2.13.0 からの更新対象に含まれています。\n\nそのほかにも依存関係に関わる変更が並びます。サードパーティ依存の上限を緩める調整 (#41407) と、一部のパートナーパッケージの依存関係の修正 (#41266) があります。新しい Python 向けのセキュリティ関連のロック解決へのパッチ (#41585) も入りました。\n\n脆弱な統合依存関係へのパッチ (#41473) は、いったん適用されたあと revert (#41481) されています。\n\n## 認証ファイル競合の修正\n\n統合テストについては、nomic で直列実行にする修正 (#42034) が入りました。認証ファイルをめぐる競合 (credentials file race) を避けるための変更です。要点としては、これによりビルドの信頼性が上がるとされています。\n\n## 関連リリース\n\n今回の変更履歴には、nomic 1.1.0 のリリース (#41993) とあわせて、standard-tests 1.2.0 のリリース (#41996) も記載されています。",
       "bodyEn": "## langchain-nomic 1.1.0 Release\n\nlangchain-nomic 1.1.0 has been released, covering changes made since langchain-nomic 1.0.1. The release removes end-of-life Python 3.10 from the partner packages and updates a number of dependencies, which matters for anyone running the Nomic integration in their own environment.\n\n## Python 3.10 Removed\n\nThe most notable change is the entry \"Remove EOL'd Python 3.10 from partner packages\" (#41268). According to the release notes, Python 3.10 is no longer supported across the partner packages, which include langchain-nomic. Users still on Python 3.10 would need to review their setup before moving to this version.\n\n## Dependency Updates\n\nSeveral entries concern dependencies. The notes list a bump of certifi from 2025.8.3 to 2026.10.19 in the nomic package (#41382) and a bump of urllib3 from 2.7.0 to 2.8.0 (#40954). A pyjwt bump from 2.13.0 is also listed, though the target version is cut off in the source.\n\nOther maintenance items include patching newer-python security lock resolutions (#41585), relaxing third-party dependency upper bounds (#41407), and fixing dependencies in some partner packages (#41266). The notes also record a change to patch vulnerable integration dependencies (#41473) and a later revert of that change (#41481).\n\n## Test and Release Changes\n\nThe release includes a fix to run integration tests serially to avoid a credentials file race (#42034). Running the tests one after another is intended to prevent a conflict over the credentials file, which should make test runs more reliable.\n\nThe list also contains the release entries themselves: the nomic 1.1.0 release (#41993) and a standard-tests 1.2.0 release (#41996).\n\nTaken together, 1.1.0 is a maintenance-oriented update. It narrows the supported Python versions, refreshes dependencies including certifi and urllib3, and stabilizes the integration test process. The notes do not describe new user-facing features for the Nomic integration.",
@@ -13167,6 +13129,202 @@
       "bodyEn": "## LiteRT.js\n\nGoogle announced LiteRT.js, a high-performance AI inference library for the web. It matters because it enables machine learning models to run directly in the browser, bringing on-device AI inference into web applications.\n\nLiteRT.js is the newest member of the LiteRT family and extends Google’s cross-platform edge AI runtime to the web. Built for JavaScript developers, it is intended to make browser-based model execution easier to integrate into web applications.\n\n## On-device AI with WebGPU\n\nLiteRT.js uses technologies including WebGPU to support fast, on-device model execution in browsers. This approach allows AI inference to take place directly within the browser rather than requiring model execution outside that environment.\n\nThe announcement presents LiteRT.js as a powerful solution for web AI inference. Its core technical focus is combining browser-based execution, WebGPU, and the LiteRT runtime so JavaScript developers can add on-device AI capabilities to web applications.",
       "model": "chat-backfill:gpt-5.6-sol",
       "generatedAt": "2026-09-05T13:12:11.257Z"
+    },
+    "80955af470da00f0": {
+      "bodyJa": "## AIエージェント\n\nGitHubでは、AIエージェントが関与するプルリクエストが急増しており、それに合わせてシークレット保護も拡張する必要がある。コード作成の速度が上がるなか、漏洩を未然に防ぎ、発生後の対応を人手だけに頼らない仕組みが重要だと説明されている。\n\n現在、GitHub上のプルリクエストの3件に1件にはAIエージェントが関与している。1年前は10件に1件未満だったため、短期間で比率が大きく上昇したことになる。このペースが続けば、今後2年以内にGitHubへプッシュされるコードの大半がエージェントによって書かれる可能性があるという。\n\n## コード作成の加速\n\nエージェントが生成するコードの増加に伴い、その多くが人間によって完全には読まれない可能性も示されている。開発者とエージェントがより速く動くほど、保護の仕組みにも、加速したコード作成へ追随することが求められる。\n\nここでの問題は、開発者が以前より不注意になったことではない。開発速度が上がり、人間による確認や対応の速度を上回りつつある点が焦点とされている。ソフトウェアをより多く作れるようにするツールは、そのソフトウェアを守る作業も、より多く担うべきだという考え方だ。\n\n## シークレット保護\n\n必要とされるのは、シークレットの漏洩を発生前により多く防ぐことと、残った漏洩への対応で手作業への依存を減らすことだ。自動化された保護によって予防範囲を広げ、露出が起きた場合の対応負担も抑えることが、開発者を支える手段として位置付けられている。\n\nこの主張は、9四半期分のデータを基に提示されている。AIエージェントの関与が拡大する局面で、コード作成だけでなくシークレット保護も同じ速度で拡張する必要がある、というのが中心的な論点である。",
+      "bodyEn": "## AI agents and pull requests\n\nAI agents now touch one in three pull requests on GitHub, compared with fewer than one in 10 a year ago. This rapid increase matters because secret protection needs to expand alongside the accelerating rate of code creation.\n\nThe essay says that, if the current pace holds, most code pushed to GitHub within the next two years could be written by an agent. It also suggests that much of this code may never be fully read by a human. The claim is supported by nine quarters of data, according to the author.\n\n## Protection keeps up\n\nAs developers and agents move faster, protections must keep pace with the increased volume of code being created. The central requirement is to prevent more secret leaks before they happen rather than relying primarily on action after an exposure.\n\nThis approach places more responsibility on automated secret protection. The tools that allow developers to create more software should also perform more of the work required to protect that software. Protection therefore needs to scale with development activity, rather than remaining dependent on developers manually reviewing every piece of code.\n\n## Less manual human effort\n\nSome secret exposures may still occur. For those cases, the response should become less dependent on manual human effort. Automated protection can support developers in two ways: by preventing leaks in advance and by reducing the human work required when remaining exposures must be addressed.\n\nThe essay frames this as a pivotal point for leaked secrets. Its argument is not that developers are becoming more careless, but that the pace of software creation is outstripping their ability to handle protection manually. As AI agents become involved in a larger share of pull requests, secret protection must take on more of the preventive and response work.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "AIエージェントが関わるプルリクエストが、1年前の10件に1件未満から今は3件に1件？ これって大きいこと？",
+          "en": "AI agents went from touching fewer than one in 10 pull requests a year ago to one in three now? Is that a big shift?"
+        },
+        {
+          "s": "b",
+          "ja": "大きな変化として扱っているよ。コードを作る速さに保護が追いつかず、人が十分に読めない可能性も挙げているんだ。",
+          "en": "The essay treats it as a major shift. Code creation may outrun protection, and much of that code may never be fully read by a person."
+        },
+        {
+          "s": "a",
+          "ja": "シークレットって、秘密のコードってこと？",
+          "en": "Does “secret” mean secret code?"
+        },
+        {
+          "s": "b",
+          "ja": "ここでいうシークレットは、パスワードやAPIキーのような、外に漏らしたくない認証情報のことだよ。",
+          "en": "Here, “secrets” means credentials you don’t want exposed, such as passwords or API keys."
+        },
+        {
+          "s": "a",
+          "ja": "ぼくならAIエージェントと作るとき、シークレット漏れを自動で止めてもらえたら安心かも。",
+          "en": "If I were building with an AI agent, I’d want automated protection to stop secret leaks. That might feel safer."
+        },
+        {
+          "s": "b",
+          "ja": "その使い方に近いね。ただ、漏洩をゼロにするとはしておらず、残った露出への対応も人手への依存を減らす考えなんだ。",
+          "en": "That matches the goal. It doesn’t promise zero leaks; it also calls for handling remaining exposures with less manual effort."
+        }
+      ],
+      "model": "gpt-5.6-sol",
+      "generatedAt": "2026-10-07T20:07:43.460Z"
+    },
+    "ac50575e9dc4cc41": {
+      "bodyJa": "## Mac上のCuttlefish\n\nMetaのReality Labsが、AOSP(Android Open Source Project)の仮想デバイスフレームワークであるCuttlefishと、そのQEMUバックエンドをmacOSおよびApple Silicon上で動かせるようにした。AIグラスなど非スマホ端末の開発者が、実機に近い検証をMac上で行えるようになる点が重要だと説明されている。\n\n## 非スマホ端末の検証\n\nReality LabsはAIグラスなどの製品を手がけている。エミュレータは、希少な物理ハードウェアに頼らずに開発とテストを広げるための手段である。スマートフォン以外のAndroid端末のソフトウェアをテストする場合、その有効性は、仮想デバイスが実機のソフトウェアの挙動をどこまで忠実に再現できるかに左右される。\n\n## Goldfishとの差\n\n軽量なエミュレータであるGoldfishは、途中までは役立つ。しかし実機との差異があると、バグが開発の後半まで見つからないことがある。さらに、忠実度の不足はデバイスエミュレーションへの信頼を損なう。その結果、希少な物理ハードウェアへの依存が強まってしまう、と説明されている。\n\n## 実機依存を減らす\n\nCuttlefishは、仮想ハードウェアに対してAndroidソフトウェアをテストするためのAOSPのフレームワークである。今回Apple Silicon上でネイティブに実行できるようになったことで、AIグラスをはじめとする非スマホ端末の開発者は、より高い忠実度でテストでき、希少な実機への依存を減らせるとされる。",
+      "bodyEn": "## Cuttlefish on Mac\n\nMeta's Reality Labs has brought Cuttlefish and its QEMU backend to macOS and Apple silicon, according to the source. The work matters because teams building non-phone Android devices need a way to test software without depending on scarce physical hardware.\n\n## Emulators and scarce hardware\n\nReality Labs builds products such as AI glasses. The source says emulators give the team a way to scale development and testing without relying on limited physical devices. How useful that testing is depends on how closely a virtual device reproduces the software behavior of the physical product.\n\nThe source contrasts this with a lightweight emulator like Goldfish. Goldfish, it says, gets developers part of the way, but differences from the real device can hide bugs until later in development. The source adds that this lack of fidelity also erodes trust in device emulation, which in turn increases reliance on scarce physical hardware.\n\n## What Cuttlefish provides\n\nCuttlefish is described as the Android Open Source Project's virtual-device framework for testing Android software against virtual hardware. The stated aim is higher fidelity to the real device than a lightweight emulator offers, which is the gap the source identifies as a cause of late-found bugs.\n\n## Running natively on Apple silicon\n\nThe headline of the piece is that the Android virtual device framework now runs natively on Apple silicon, with the QEMU backend brought to macOS. In practical terms, as the source frames it, developers of AI glasses and other non-phone Android devices can run higher-fidelity virtual-device testing on a Mac and depend less on scarce physical units.\n\nThe source presents this as a description of how Reality Labs did the port. The portion available here covers the motivation and the problem being addressed: closer-to-device behavior in emulation, less reliance on limited hardware, and earlier detection of bugs that a lighter emulator might miss.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "Metaが今回Macで動くようにしたのって、何のためなの？一番の狙いが知りたいな。",
+          "en": "What did Meta get running on Mac, and why? What's the main goal?"
+        },
+        {
+          "s": "b",
+          "ja": "Reality LabsがCuttlefishとQEMUバックエンドをmacOSとApple Siliconに移したんだ。AIグラスのような非スマホ端末を、実機に頼りすぎず試す狙いだよ。",
+          "en": "Reality Labs ported Cuttlefish and its QEMU backend to macOS on Apple silicon. The aim is to test non-phone devices like AI glasses without leaning so hard on physical hardware."
+        },
+        {
+          "s": "a",
+          "ja": "でもGoldfishみたいな軽いエミュレータもあるよね？それだと足りないの？",
+          "en": "But there's a lightweight emulator like Goldfish, right? Isn't that enough?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、Goldfishは途中までは役立つけど、実機との違いでバグが後半まで隠れることがあるんだ。再現度が低いと、エミュレータへの信頼も下がるそうだよ。",
+          "en": "The article says Goldfish gets you part of the way, but differences from the real device can hide bugs until later. Low fidelity also erodes trust in emulation."
+        },
+        {
+          "s": "a",
+          "ja": "つまり、実機に近い仮想デバイスをMacで動かせると、AIグラスの開発者が試しやすくなるってことかな？",
+          "en": "So a virtual device closer to the real thing on Mac makes testing easier for AI glasses developers?"
+        },
+        {
+          "s": "b",
+          "ja": "その方向だね。ただ、この記事の範囲では狙いや背景の説明が中心で、実際の効果までは分からないよ。",
+          "en": "That's the direction. But this article mostly explains the aim and background, so it doesn't tell us the actual results."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:37:44.163Z"
+    },
+    "baf18629dd764293": {
+      "bodyJa": "OpenHands v1.39.0が2026年11月11日付で公開された。自動化ダッシュボードを所有者別に絞り込めるようになり、チャット画面まわりの表示調整や時刻の解釈に関する修正も含まれる。\n\n## 所有者別フィルター\n\n自動化(automations)のダッシュボードに、所有者で絞り込む機能が加わった。絞り込みの選択肢には「Service accounts」も用意されている。人が作成した自動化とサービスアカウントに紐づくものを、画面上で分けて確認しやすくなると考えられる。この変更はPR #19472で取り込まれた。\n\n## チャット表示の調整\n\nチャット関連では2点の変更がある。1点目は、メッセージにカーソルを重ねたときに出るタイムスタンプの位置で、対象のメッセージにより近い場所へ移された。2点目は、Stopフックからのフィードバックをチャットに表示しない変更である。会話の流れにフィードバックが混ざらないようにする狙いとみられる。\n\n## UTC解釈などの修正\n\nバグ修正では、チャットの再開(resume)時に使う可視性のタイムスタンプをUTCとして解釈するよう改められた。時刻の扱いに関する修正である。\n\nそのほか、WebSocketProviderWrapperで filteredSubConversations をメモ化する修正が入った。また、セッションのソケットが利用可能になるまでは、チャットのメッセージをHTTP経由で届けるようにする修正もある。\n\n## Paper テーマと検証表示\n\nテーマ機能では、Paperテーマが古びた新聞紙のような見た目で表現されるようになり、警告も読みやすくなるとされる。\n\nverify-openhandsでは、「Server:」行がCanvasのファミリーとAgent Serverの機能を結びつけて示す変更が入った。リリースノートにはこのほかの修正項目も並んでいるが、ここで挙げたのは確認できる範囲の変更である。",
+      "bodyEn": "## OpenHands v1.39.0 Release\n\nOpenHands v1.39.0, dated 2026-11-11, is a release that combines new features with bug fixes, mostly around the dashboard and the chat experience. The release notes list each change with its contributor and pull request number.\n\n## Features in What's Changed\n\nThe first feature item concerns automations. The dashboard can now be filtered by owner, and a Service accounts option is included. The change is credited to @hieptl in #19472.\n\nSeveral items touch the chat and conversation views. The message hover timestamp now sits closer to its message (@ak684, #19623). Stop hook feedback is also kept out of the chat (@ak684, #19619), so that feedback no longer appears in the conversation.\n\nTwo other features are listed. The Paper theme is now printed as aged newsprint, with readable warnings (@enyst, #19595). In verify-openhands, Server: lines now link Canvas families to Agent Server features (@enyst, #18568).\n\n## Bug Fixes\n\nThe fixes list begins with a timestamp correction: resume visibility timestamps in chat are now interpreted as UTC (@enyst, #19603). This is the UTC handling fix mentioned in the summary of the release.\n\nA WebSocket fix memoizes filteredSubConversations in WebSocketProviderWrapper, referencing #19279, and is credited to @yunusarda-sudo in #19290. Another chat fix delivers messages over HTTP until the session socket is served (@enyst, #19574).\n\nThe list of fixes continues beyond these entries, but the remaining items are cut off in the available notes, so they are not covered here.\n\n## What This Means for Users\n\nTaken together, the listed changes adjust how people view and filter automations and how conversations appear in chat. Filtering by owner, including service accounts, changes how the automations dashboard can be narrowed down. Hiding Stop hook feedback changes what shows up in the chat, and the UTC and delivery fixes address how timestamps and messages are handled. According to the release summary, these UI refinements and the UTC correction improve usability.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "自動化ダッシュボードを「所有者」で絞り込めるようになったって、どういうこと？サービスアカウントっていう選択肢もあるみたいだけど。",
+          "en": "The automations dashboard can be filtered by owner now? There's a Service accounts option too. What does that mean?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、ダッシュボードを所有者ごとに絞れて、その中に「Service accounts」の選択肢が加わったと書かれています。サービスアカウントは、人ではなくシステム用のアカウント、くらいの意味ですね。",
+          "en": "The notes say you can filter the dashboard by owner, and a \"Service accounts\" option was added. A service account is basically an account for a system rather than a person."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、自動化がたくさんあっても、見たい持ち主のものだけ探しやすくなるってこと？",
+          "en": "So even with lots of automations, it's easier to find just the ones from the owner I care about?"
+        },
+        {
+          "s": "b",
+          "ja": "その方向の改善だと思います。要約でも操作性の向上とされていて、Stop フックのフィードバックをチャットに出さない変更も、画面の見通しに関わりそうです。",
+          "en": "That seems to be the idea. The summary frames it as better usability, and keeping Stop hook feedback out of the chat could also make the screen less cluttered."
+        },
+        {
+          "s": "a",
+          "ja": "なるほど。絞り込みが便利になって、チャットもすっきりして、UTCの解釈も直ったんだね。",
+          "en": "I see. Filtering is handier, chat is cleaner, and the UTC handling got fixed too."
+        },
+        {
+          "s": "b",
+          "ja": "はい。ただUTCの修正は、再開時の表示タイムスタンプに関するものと書かれている範囲で捉えるのがよさそうです。細かい影響までは、この記事では分かりません。",
+          "en": "Right. Just keep the UTC fix within what's stated: it's about resume visibility timestamps. This article doesn't spell out any wider effects."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:38:32.071Z"
+    },
+    "4814db051ed59871": {
+      "bodyJa": "## 修正された6件の脆弱性\n\nMCP Servers v2.4.0 は、3つのサーバーにあった6件の脆弱性を修正したセキュリティリリースです。対象のサーバーを利用している場合は、更新が必要とされています。\n\n更新先は、@modelcontextprotocol/server-filesystem が 2.3.0、mcp-server-git と mcp-server-fetch がそれぞれ 2026.11.11 です。\n\n## 影響を受けるバージョン\n\n影響範囲はパッケージごとに示されています。@modelcontextprotocol/server-filesystem は、2.3.0 より前のすべてのバージョンと、日付形式のバージョンである 2025.1.14 から 2026.8.31 までが対象で、修正版は 2.3.0 です。\n\nmcp-server-git と mcp-server-fetch は、いずれも 2026.11.4 までが対象です。修正版はどちらも 2026.11.11 です。\n\n## 読み取りの対象固定\n\nfilesystem 2.3.0 には、Linux と macOS を対象に、チェックを通ったファイルそのものを読むようにする変更が含まれています。読み取り系ツールとファイルリソースは、アクセスチェックを行ったディレクトリを基準にしてファイルを開くようになりました。書き込みでは、すでにこの方式が使われていたと説明されています。\n\nこの変更により、アクセスチェックから読み取りまでの間にディレクトリがシンボリックリンクへ差し替えられても、許可されたディレクトリの外にあるファイルが返されることはなくなるとされています。",
+      "bodyEn": "MCP Servers v2.4.0 is a security-focused release. According to the release notes, it fixes six vulnerabilities across three servers, so anyone running those servers has reason to check their versions and upgrade.\n\n## Security fixes\n\nThe release notes name three packages and the versions to move to. @modelcontextprotocol/server-filesystem should be upgraded to 2.3.0. mcp-server-git and mcp-server-fetch should both be upgraded to 2026.11.11. The notes publish the release on November 11, 2026, which matches the date-style version on the git and fetch fixes.\n\n## Affected and fixed versions\n\nThe notes list the affected ranges for each package:\n\nFor @modelcontextprotocol/server-filesystem, all versions before 2.3.0 are affected, along with date versions from 2025.1.14 through 2026.8.31. The fixed version is 2.3.0.\n\nFor mcp-server-git, versions through 2026.11.4 are affected. The fixed version is 2026.11.11.\n\nFor mcp-server-fetch, versions through 2026.11.4 are affected. The fixed version is 2026.11.11.\n\n## Reads stay with the file checked\n\nThe one fix the notes describe in detail is in @modelcontextprotocol/server-filesystem 2.3.0, and it applies on Linux and macOS. The read tools and file resources now open a file relative to the directory that was checked. According to the notes, writes already worked this way.\n\nThe change addresses a specific sequence. A directory could be swapped for a symlink between the access check and the read. Under the earlier behavior, that swap could return a file from outside the allowed directories. With the new approach, the notes say, this can no longer happen.\n\nThe notes also begin a further item about a FIFO, socket or device, but the text breaks off there. Beyond the filesystem fix above, the notes as available here give no descriptions of the other vulnerabilities.\n\nThe practical guidance in the notes is simple: upgrade the filesystem server to 2.3.0, and the git and fetch servers to 2026.11.11.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "6件の脆弱性が3つのサーバーで直ったんだね。これって大きいことなの？",
+          "en": "Six vulnerabilities fixed across three servers. Is that a big deal?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事では、filesystem、git、fetch の3つが対象です。該当する版を使っているなら、早めの更新が案内されています。",
+          "en": "The post names filesystem, git and fetch as the affected servers. If you run those versions, it says to upgrade promptly."
+        },
+        {
+          "s": "a",
+          "ja": "「シンボリックリンクに差し替えられても」って書いてあったけど、どういうこと？",
+          "en": "It mentions a directory being swapped for a symlink. What does that mean?"
+        },
+        {
+          "s": "b",
+          "ja": "シンボリックリンクは、別の場所を指す近道のようなものです。確認のあとで差し替えられても、許可外のファイルを返さないよう直したと書かれています。",
+          "en": "A symlink is like a shortcut pointing elsewhere. The post says that even if it's swapped in after the check, files outside the allowed directories can't be returned."
+        },
+        {
+          "s": "a",
+          "ja": "わたしが git や fetch を使っているなら、まず何を見ればいい？",
+          "en": "If I used git or fetch, what should I check first?"
+        },
+        {
+          "s": "b",
+          "ja": "まず版を確認しましょう。git と fetch は 2026.11.4 までが対象で、直った版は 2026.11.11 です。filesystem は 2.3.0 より前が対象です。",
+          "en": "Check your version first. Git and fetch are affected through 2026.11.4 and fixed in 2026.11.11. Filesystem is affected before 2.3.0."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:39:22.124Z"
+    },
+    "0d3409e022389698": {
+      "bodyJa": "## GPT-5.6の位置づけ\n\nOpenAIがフロンティアモデル「GPT-5.6」を発表した。さまざまなユースケースに合わせて知能をスケールさせることを狙ったモデルとされ、開発者や企業が複雑なタスクを効率よく処理できる点が注目される。\n\n## 示された3つの訴求点\n\n発表では、「トークンごとにより多くの知能」「ドル当たりの性能の向上」「最も難しい作業に向けた、必要なときに使える能力の拡充」が掲げられている。\n\n推論能力とタスク処理能力が強化されたと説明されている。一方、具体的な性能値や価格、提供方法などは示されていない。",
+      "bodyEn": "## GPT-5.6 Frontier Intelligence\n\nOpenAI has announced GPT-5.6, described as a new frontier model. It matters because it is positioned to bring advanced reasoning to developers and enterprises handling complex tasks more efficiently.\n\n## More Intelligence Per Token\n\nAccording to the announcement, the model delivers \"more intelligence from every token, stronger performance per dollar, and more capability on demand for your hardest work.\" OpenAI says it is designed to scale intelligence across diverse use cases, with enhanced reasoning and task-handling capabilities.\n\nThe announcement was published on July 9, 2026, under the title \"GPT-5.6: Frontier Intelligence for Your Ambitions\" in its Japanese rendering. Further details on pricing, availability, or benchmarks are not given here.",
+      "chat": [
+        {
+          "s": "a",
+          "ja": "これって、普段の仕事だと何が変わるの？",
+          "en": "What would this actually change in my everyday work?"
+        },
+        {
+          "s": "b",
+          "ja": "この記事だと、トークンあたりの知能が増えて、ドルあたりの性能も上がると言っているよ。難しい仕事には必要な時に力を出せる、という方向だね。",
+          "en": "The post says you get more intelligence per token and better performance per dollar, plus more capability on demand for your hardest work."
+        },
+        {
+          "s": "a",
+          "ja": "前のモデルだと、それはできなかったの？",
+          "en": "So couldn't the earlier models do that?"
+        },
+        {
+          "s": "b",
+          "ja": "前のモデルとの細かい比較は、この記事からは分からないんだ。ただ、コスパと必要な時の能力を前面に出している点が特徴だね。",
+          "en": "The post doesn't give a detailed comparison, so I can't say. What it does stress is value for money and capability when you need it."
+        },
+        {
+          "s": "a",
+          "ja": "じゃあ、同じお金でもっと賢く使えるようになるのが一番の収穫かな？",
+          "en": "So the big takeaway is getting more smarts for the same money, maybe?"
+        },
+        {
+          "s": "b",
+          "ja": "そう読めるね。トークンは文字のかたまりくらいの意味だよ。次は、そのコスパの良さがどう示されるかに注目したいな。",
+          "en": "That's a fair reading. A token is roughly a chunk of text. Next, I'd watch how the post shows that better value in practice."
+        }
+      ],
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:40:23.716Z"
+    },
+    "aea3673aedfed186": {
+      "bodyJa": "NVIDIAが、エージェントAIの学習と評価に使えるオープンデータセットをHugging Faceで公開した。エージェントにはオープンなデータが必要であり、それを拡大していく手段が合成データだというのが、公開に合わせたブログの主張である。\n\n## ベンチマークと現実\n\nエージェント開発が難しいのは、現実世界がベンチマークのようには振る舞わないためだと説明されている。壊れたAPI呼び出しから立て直せないものや、見たことのないワークフローに対応できないものは、本当のエージェントとは言えない。ブログはそれを「ツールを持った自動補完器」にすぎないと表現している。\n\n## データの問題\n\n自動補完器から本物のエージェントへ至る道のりは、データの問題だとされる。ブログが挙げる領域は次のとおりである。\n\nソフトウェアエンジニアリングのトレース、ツール利用の失敗、複数ステップの推論、検索、安全性、ユーザーシミュレーション、ワークフローの実行、そして最終的には物理世界とのやりとりである。成功例だけでなく、失敗の記録も対象に含まれている点が目を引く。\n\n## Nemotronのデータ\n\nこうした領域にあたるのが、NVIDIA Nemotronのオープンなデータ製品である。高品質なエージェント向けデータが不足している状況を補い、研究開発を加速させることが狙いとされる。\n\n## ICMLでの引用\n\nNVIDIAは最近、オープンモデルがAI研究を前進させている例として、ICMLでの存在感にも言及した。Nemotronのモデルやデータセットを引用した論文は、およそ145本にのぼるという。",
+      "bodyEn": "NVIDIA has published open datasets on Hugging Face aimed at training and evaluating AI agents, according to the announcement. The post argues that agentic AI needs open data, and that synthetic data is how that data gets scaled. The stated goal is to address the scarcity of high-quality agentic data and speed up research.\n\n## The real world is not a benchmark\n\nThe post starts from the point that building AI agents is hard because the real world does not behave like a benchmark. It gives a blunt test of what counts as an agent. One that cannot recover from a broken API call, or from a workflow it has never seen, is described as \"an autocompleter with tools\" rather than a real agent.\n\nIn the post's framing, closing that gap is a data problem. Examples of what such data needs to cover include:\n\nsoftware engineering traces\ntool-use failures\nmulti-step reasoning\nretrieval\nsafety\nuser simulation\nworkflow execution\neventually, physical world interaction\n\n## Where Nemotron's open data lives\n\nThe post says this is where NVIDIA Nemotron's open data products live. The datasets are presented as material for both training and evaluating agents. The emphasis on tool-use failures and unfamiliar workflows reflects the post's view that agents must handle messy conditions, not only clean benchmark tasks.\n\n## Nearly 145 papers at ICML\n\nThe post also points to adoption in the research community. NVIDIA recently highlighted how open models are driving AI research and appearing across the International Conference on Machine Learning (ICML). According to NVIDIA, nearly 145 papers there cite Nemotron models and datasets.\n\nThe material gives no further detail on individual datasets, their sizes, or how they were built. What it does establish is the argument: agent capability depends on broad, realistic data, NVIDIA is releasing such data openly through Hugging Face, and synthetic data is the route it names for scaling it.",
+      "model": "claude-sonnet-5-5",
+      "generatedAt": "2026-11-28T05:40:48.608Z"
     }
   }
 }
